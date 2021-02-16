@@ -9,13 +9,13 @@ Development Workflow
 
 ### Setting Up Schema 229 for Development
 
-For those who wish to develop the Schema229 repository directly, we are using the [Poetry](https://python-poetry.org/docs/#installation) python package management and dependency tool.
+For those who wish to develop the Schema229 repository directly, we are using the [Pipenv](https://github.com/pypa/pipenv) python package management and dependency tool.
 
 Following are some considerations you should go through to configure your environment correctly for development and exploration.
 
-1. **Install Poetry**
+1. **Install Pipenv**
 
-    Be sure to install [Poetry](https://python-poetry.org/docs/#installation) per the instructions from the Poetry website.
+    Be sure to install [Pipenv](https://github.com/pypa/pipenv) per the instructions from the website.
 
 2. **Install Python and support multiple Python versions on one machine**
 
@@ -24,7 +24,7 @@ Following are some considerations you should go through to configure your enviro
     If you wish to support multiple versions of Python during development, there are several options. One simple option is to just ensure you start up your command prompt (i.e., shell) with the Python version you wish to develop with. However, for something more sophisticated, we recommend [mini-conda](https://docs.conda.io/en/latest/miniconda.html), a free minimal installer for Conda. Conda is an open-source package and environment management system that runs on Windows, macOS, and Linux.
 
     First [install mini-conda](https://docs.conda.io/en/latest/miniconda.html).
-    Next [start conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#starting-conda). After that, create an environment for the version of Python you would like to use with Poetry and this project by typing the following at the shell:
+    Next [start conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#starting-conda). After that, create an environment for the version of Python you would like to use with Pipenv and this project by typing the following at the shell:
 
     > conda create -n py36 python=3.6
 
@@ -55,7 +55,7 @@ Following are some considerations you should go through to configure your enviro
 
     To install dependencies, go to the root folder of this repository and type:
 
-    > poetry install
+    > pipenv install --dev -e .
 
     This will install all of the normal and developer dependencies.
     If you have done this previously and there are no changes to the library versions being used, nothing will happen.
@@ -64,27 +64,27 @@ Following are some considerations you should go through to configure your enviro
 
     To run the various scripts and commands of the project, you can use the [DoIt!](https://pydoit.org/) file as follows:
 
-    > poetry run doit
+    > pipenv run doit
 
-    The first part of the command, `poetry run`, uses Poetry to place the remaining part of the command within a Python virtual environment with all dependencies setup.
+    The first part of the command, `pipenv run`, uses Pipenv to place the remaining part of the command within a Python virtual environment with all dependencies setup.
     The second part of the command, `doit`, runs all of the tasks available in the `dodo.py` file.
 
 5. **Using an editor**
 
     Of course, you can use any editor you desire to edit or explore the Python code and schema documents in our repository.
     However, we recommend [Visual Studio Code](https://code.visualstudio.com/) because of its strong Python integration.
-    To get Visual Studio Code to work with Poetry, first follow steps 1-3 above.
+    To get Visual Studio Code to work with Pipenv, first follow steps 1-3 above.
     Next, if you are on macOS and do not have command-line integration, [follow these instructions](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line), restart your shell, perform steps 1-3 and return here.
     If you are on Windows, the `code` command is already integrated into your shell.
 
     From within your running Python environment, type:
 
-    > poetry shell
+    > pipenv shell
 
-    This activates the virtual environment for Poetry.
+    This activates the virtual environment for Pipenv.
 
     > code .
 
-    This launches Visual Studio Code from within your Poetry environment.
+    This launches Visual Studio Code from within your Pipenv environment.
     At the bottom left, choose the Python version you wish to use with the given environment.
     You're now ready to develop using Visual Studio Code!

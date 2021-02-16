@@ -1,4 +1,3 @@
-schema205/RefrigerantType.schema.yaml
 build/
 *.egg*/
 .doit.*
