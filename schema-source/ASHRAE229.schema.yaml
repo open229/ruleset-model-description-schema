@@ -222,47 +222,6 @@ Space:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionType>"
       Notes: "The enumeration is based on the standard used."
-    lighting_space_type:
-      Description: "Lighting space type classification"
-      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
-      Notes: "The enumeration is based on the standard used."
-    lighting_power:
-      Description: "Total power for lights in the spac."
-      Data Type: "Numeric"
-      Units: "W"
-    has_primary_daylighting_control:
-      Description: "Includes daylighting controls for primary daylit areas"
-      Data Type: "Boolean"
-    has_secondary_daylighting_control:
-      Description: "Includes daylighting controls for secondary daylit areas"
-      Data Type: "Boolean"
-    has_toplighting_control:
-      Description: "Includes daylighting controls for toplit areas"
-      Data Type: "Boolean"
-    primary_daylit_area:
-      Description: "Primary daylit area of the space."
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m2"
-    secondary_daylit_area:
-      Description: "Secondary daylit area of the space."
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m2"
-    toplit_area:
-      Description: "Toplit area of the space."
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m2"
-    has_additional_occupancy_sensor_control_credit:
-      Description: "Includes credit for occupancy sensor controls. "
-      Data Type: "Boolean"
-    has_additional_programmable_lighting_control_credit:
-      Description: "Includes credit for programmable lighting controls. "
-      Data Type: "Boolean"
-    lighting_schedule_name:
-      Description: "Lighting schedule name"
-      Data Type: "String"
     ventilations_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceType2019ASHRAE901>"
@@ -539,7 +498,7 @@ InternalGainEquipment:
   Data Elements:
     energy_type:
       Description: "Source of energy for the internal gain equipment"
-      Data Type: "<InternalGainEnergyType>"
+      Data Type: "<FuelTypeOptions>"
     peak_usage:
       Description: "Peak energy usage per hour by the internal gain equipment."
       Data Type: "Numeric"
@@ -567,16 +526,6 @@ InternalGainEquipment:
       Description: "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit."
       Data Type: "Numeric"
       Range: ">=0"
-
-InternalGainEnergyType:
-  Object Type: "Enumeration"
-  Enumerators:
-    ELECTRICITY:
-      Description: "Electricity"
-    NATURAL_GAS:
-      Description: "Natural gas"
-    OTHER:
-      Description: "Other"
 
 Transformer:
   Object Type: "Data Group"
@@ -842,6 +791,37 @@ FuelTypeOptions:
       Description: "Electricity"
     NATURAL_GAS:
       Description: "Natural gas"
+    OTHER:
+      Description: "Other"
+
+InteriorLighting:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique ID assigned to each interior lighting fixture(s) reported in an RMR"
+      Data Type: "Numeric"
+      Range: ">0"
+    name:
+      Description: "Interior lighting fixture name"
+      Data Type: "String"
+    space_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
+      Notes: "The enumeration is based on the standard used."
+    purpose_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingPurposeType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    power:
+      Description: "Total power for lights in the space."
+      Data Type: "Numeric"
+      Units: "W"
+    lighting_schedule_name:
+      Description: "Lighting schedule name"
+      Data Type: "String"
+    has_daylighting_control:
+      Description: "Includes daylighting controls"
+      Data Type: "Boolean"
 
 ExteriorLighting:
   Object Type: "Data Group"

@@ -292,6 +292,16 @@ LightingSpaceType2019ASHRAE901T961:
     WAREHOUSE_STORAGE_AREA_SMALLER_HAND_CARRIED_ITEMS:
       Description: "Warehouse — Storage Area - Smaller, hand-carried items"
 
+LightingPurposeType2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    GENERAL:
+      Description: "General"
+    TASK:
+      Description: "Task"
+    DECORATIVE:
+      Description: "Decorative"
+
 ExteriorLightingAreas2019ASHRAE901TableG36:
   Object Type: "Enumeration"
   Enumerators:
