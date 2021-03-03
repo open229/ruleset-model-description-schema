@@ -214,7 +214,7 @@ Space:
       Data Type: "<ConditioningType>"
     status_type:
       Description: "Choice of new, existing, addition, or alteration."
-      Data Type: "<SpaceStatusType>"
+      Data Type: "<SpaceStatusType2019ASHRAE901>"
     space_function:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionType>"
@@ -324,18 +324,6 @@ SpaceFunctionType:
       Description: "Kitchen"
     OTHER:
       Description: "Other"
-
-SpaceStatusType:
-  Object Type: "Enumeration"
-  Enumerators:
-    NEW:
-      Description: "New"
-    EXISTING:
-      Description: "Existing"
-    ADDITION:
-      Description: "Addition"
-    ALTERATION:
-      Description: "Alteration"
 
 Surface:
   Object Type: "Data Group"
