@@ -720,6 +720,31 @@ VerticalFenestrationBuildingAreaType2019ASHRAE901:
     WAREHOUSE_NONREFRIGERATED:
       Description: "Warehouse (nonrefrigerated)"
 
+FenestrationFrameType2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    ALUMINUM_WITHOUT_BREAK:
+      Description: "Aluminum without Thermal Break"
+    ALUMINUM_WITH_BREAK:
+      Description: "Aluminum with Thermal Break" 
+    REINFORCED_VINYL:
+      Description: "Reninforced Vinyl"
+    ALUMINUM_CLAD_WOOD:
+      Description: "Aluminum Clad Wood"
+    WOOD:
+      Description: "Wood"
+    VINYL:
+      Description: "Vinyl"
+    STRUCTURAL_GLAZING:
+      Description: "Structural Glazing"
+    METAL_WITHOUT_BREAK:
+      Description: "Metal without Thermal Break"
+    METAL_WITH_BREAK:
+      Description: "Metal with Thermal Break"
+    FIBERGLASS:
+      Description: "Fiberglass"
+    OTHER:
+      Description: "Other"
 
 RefrigerationType2019ASHRAE901:
   Object Type: "Enumeration"

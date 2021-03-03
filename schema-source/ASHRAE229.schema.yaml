@@ -510,7 +510,7 @@ Fenestration:
       Data Type: "Boolean"
     framing_type:
       Description: "The material of the framing."
-      Data Type: "<FenestrationFramingType>"
+      Data Type: "<FenestrationFrameType2019ASHRAE901>"
     area:
       Description: "Area of fenestration including glass and framing"
       Data Type: "Numeric"
@@ -569,20 +569,6 @@ FenestrationClassificationType:
       Description: "Door"
       # Usually a substantial fraction of the door needs to be glazed to be considered fenestration
 
-FenestrationFramingType:
-  Object Type: "Enumeration"
-  Enumerators:
-    METAL_WITHOUT_THERMAL_BREAK:
-      Description: "Metal without thermal break"
-    METAL_WITH_THERMAL_BREAK:
-      Description: "Metal with thermal break"
-    WOOD:
-      Description: "Wood"
-    VINYL:
-      Description: "Vinyl"
-    FIBERGLASS:
-      Description: "Fiberglass"
- 
 Transformer:
   Object Type: "Data Group"
   Data Elements:
