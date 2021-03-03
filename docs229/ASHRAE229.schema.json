@@ -225,6 +225,13 @@
                     },
                     "notes": "Contains a list of surfaces that define the space."
                 },
+                "equipment_internal_gains": {
+                    "description": "Plug loads and receptacle loads that produce internal gains for a space.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/InternalGainEquipment"
+                    }
+                },
                 "floor_area": {
                     "description": "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled.",
                     "type": "number",
@@ -243,70 +250,12 @@
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, or alteration.",
-                    "$ref": "ASHRAE229.schema.json#/definitions/SpaceStatusType"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/SpaceStatusType2019ASHRAE901"
                 },
                 "space_function": {
                     "description": "Generic function for the space.",
                     "$ref": "ASHRAE229.schema.json#/definitions/SpaceFunctionType",
                     "notes": "The enumeration is based on the standard used."
-                },
-                "lighting_space_type": {
-                    "description": "Lighting space type classification",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
-                    "notes": "The enumeration is based on the standard used."
-                },
-                "lighting_power": {
-                    "description": "Total power for lights in the spac.",
-                    "type": "number",
-                    "units": "W"
-                },
-                "has_primary_daylighting_control": {
-                    "description": "Includes daylighting controls for primary daylit areas",
-                    "type": "boolean"
-                },
-                "has_secondary_daylighting_control": {
-                    "description": "Includes daylighting controls for secondary daylit areas",
-                    "type": "boolean"
-                },
-                "has_toplighting_control": {
-                    "description": "Includes daylighting controls for toplit areas",
-                    "type": "boolean"
-                },
-                "primary_daylit_area": {
-                    "description": "Primary daylit area of the space.",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m2"
-                },
-                "secondary_daylit_area": {
-                    "description": "Secondary daylit area of the space.",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m2"
-                },
-                "toplit_area": {
-                    "description": "Toplit area of the space.",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m2"
-                },
-                "has_additional_occupancy_sensor_control_credit": {
-                    "description": "Includes credit for occupancy sensor controls. ",
-                    "type": "boolean"
-                },
-                "has_additional_programmable_lighting_control_credit": {
-                    "description": "Includes credit for programmable lighting controls. ",
-                    "type": "boolean"
-                },
-                "lighting_schedule_name": {
-                    "description": "Lighting schedule name",
-                    "type": "string"
-                },
-                "lighting_equivalent_full_load_hours": {
-                    "description": "Annual sum of hourly fractions of lighting schedule",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "hr"
                 },
                 "ventilations_space_type": {
                     "description": "Ventilation space type classification",
@@ -322,33 +271,9 @@
                     "description": "The software methodology chosen for modeling infiltration",
                     "type": "string"
                 },
-                "infiltration_equivalent_full_load_hours": {
-                    "description": "Annual sum of hourly fractions of infiltration schedule",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "hr"
-                },
-                "receptacle_control_credit_taken": {
-                    "description": "The receptacle control credit was taken",
-                    "type": "boolean"
-                },
-                "receptacle_baseline_exception_taken": {
-                    "description": "The excpetion that receptacle power or schedule can be different in the baseline has been taken.",
-                    "type": "boolean"
-                },
-                "receptacle_power": {
-                    "description": "Peak power consumed by the receptacles.",
-                    "type": "number",
-                    "units": "W"
-                },
-                "receptacle_schedule_name": {
-                    "description": "Receptacle schedule name",
+                "infiltration_schedule_name": {
+                    "description": "Infiltration schedule name",
                     "type": "string"
-                },
-                "receptacle_control_credit": {
-                    "description": "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit.",
-                    "type": "number",
-                    "minimum": 0.0
                 }
             },
             "required": [
@@ -385,21 +310,6 @@
                 "Laboratory",
                 "Kitchen",
                 "Other"
-            ]
-        },
-        "SpaceStatusType": {
-            "type": "string",
-            "enum": [
-                "NEW",
-                "EXISTING",
-                "ADDITION",
-                "ALTERATION"
-            ],
-            "descriptions": [
-                "New",
-                "Existing",
-                "Addition",
-                "Alteration"
             ]
         },
         "Surface": {
@@ -471,7 +381,8 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/Construction"
                 },
                 "surface_optics": {
-                    "description": "Optical properties of the surface."
+                    "description": "Optical properties of the surface.",
+                    "$ref": "ASHRAE229.schema.json#/definitions/SurfaceOptics"
                 }
             },
             "required": [
@@ -632,7 +543,7 @@
                 },
                 "framing_type": {
                     "description": "The material of the framing.",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FenestrationFramingType"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/FenestrationFrameType2019ASHRAE901"
                 },
                 "area": {
                     "description": "Area of fenestration including glass and framing",
@@ -711,22 +622,51 @@
                 "Door"
             ]
         },
-        "FenestrationFramingType": {
-            "type": "string",
-            "enum": [
-                "METAL_WITHOUT_THERMAL_BREAK",
-                "METAL_WITH_THERMAL_BREAK",
-                "WOOD",
-                "VINYL",
-                "FIBERGLASS"
-            ],
-            "descriptions": [
-                "Metal without thermal break",
-                "Metal with thermal break",
-                "Wood",
-                "Vinyl",
-                "Fiberglass"
-            ]
+        "InternalGainEquipment": {
+            "type": "object",
+            "properties": {
+                "energy_type": {
+                    "description": "Source of energy for the internal gain equipment",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FuelTypeOptions"
+                },
+                "peak_usage": {
+                    "description": "Peak energy usage per hour by the internal gain equipment.",
+                    "type": "number",
+                    "units": "W"
+                },
+                "schedule_name": {
+                    "description": "Internal gain schedule name",
+                    "type": "string"
+                },
+                "sensible_fraction": {
+                    "description": "Fraction of energy that is a sensible load on the space.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Sensible plus latent do not necessarily add up to 1.0."
+                },
+                "latent_fraction": {
+                    "description": "Fraction of energy that is a latent load on the space.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Sensible plus latent do not necessarily add up to 1.0."
+                },
+                "receptacle_control_credit_taken": {
+                    "description": "The receptacle control credit was taken",
+                    "type": "boolean"
+                },
+                "receptacle_baseline_exception_taken": {
+                    "description": "The excpetion that receptacle power or schedule can be different in the baseline has been taken.",
+                    "type": "boolean"
+                },
+                "receptacle_control_credit": {
+                    "description": "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit.",
+                    "type": "number",
+                    "minimum": 0.0
+                }
+            },
+            "additionalProperties": false
         },
         "Transformer": {
             "type": "object",
@@ -972,27 +912,6 @@
                 "cab_lighting_schedule": {
                     "description": "Elevator lighting schedule name",
                     "type": "string"
-                },
-                "cab_motor_schedule_equivalent_full_load_hours": {
-                    "description": "Elevator motor operation schedule equivalent full load hours",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "maximum": 8760.0,
-                    "units": "hr"
-                },
-                "cab_ventilation_fan_schedule_equivalent_full_load_hours": {
-                    "description": "Elevator ventfan operation schedule equivalent full load hours",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "maximum": 8760.0,
-                    "units": "hr"
-                },
-                "cab_lighting_schedule_equivalent_full_load_hours": {
-                    "description": "Elevator lighitng schedule equivalent full load hours",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "maximum": 8760.0,
-                    "units": "hr"
                 }
             },
             "required": [
@@ -1115,12 +1034,52 @@
             "type": "string",
             "enum": [
                 "ELECTRICITY",
-                "NATURAL_GAS"
+                "NATURAL_GAS",
+                "OTHER"
             ],
             "descriptions": [
                 "Electricity",
-                "Natural gas"
+                "Natural gas",
+                "Other"
             ]
+        },
+        "InteriorLighting": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique ID assigned to each interior lighting fixture(s) reported in an RMR",
+                    "type": "number",
+                    "exclusiveMinimum": 0.0
+                },
+                "name": {
+                    "description": "Interior lighting fixture name",
+                    "type": "string"
+                },
+                "space_type": {
+                    "description": "Lighting space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
+                    "notes": "The enumeration is based on the standard used."
+                },
+                "purpose_type": {
+                    "description": "Lighting space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingPurposeType2019ASHRAE901",
+                    "notes": "The enumeration is based on the standard used."
+                },
+                "power": {
+                    "description": "Total power for lights in the space.",
+                    "type": "number",
+                    "units": "W"
+                },
+                "lighting_schedule_name": {
+                    "description": "Lighting schedule name",
+                    "type": "string"
+                },
+                "has_daylighting_control": {
+                    "description": "Includes daylighting controls",
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
         },
         "ExteriorLighting": {
             "type": "object",

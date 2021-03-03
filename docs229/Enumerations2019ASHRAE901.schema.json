@@ -292,6 +292,19 @@
                 "Warehouse \u00e2\u20ac\u201d Storage Area - Smaller, hand-carried items"
             ]
         },
+        "LightingPurposeType2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "GENERAL",
+                "TASK",
+                "DECORATIVE"
+            ],
+            "descriptions": [
+                "General",
+                "Task",
+                "Decorative"
+            ]
+        },
         "ExteriorLightingAreas2019ASHRAE901TableG36": {
             "type": "string",
             "enum": [
@@ -745,6 +758,35 @@
                 "Warehouse (nonrefrigerated)"
             ]
         },
+        "FenestrationFrameType2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "ALUMINUM_WITHOUT_BREAK",
+                "ALUMINUM_WITH_BREAK",
+                "REINFORCED_VINYL",
+                "ALUMINUM_CLAD_WOOD",
+                "WOOD",
+                "VINYL",
+                "STRUCTURAL_GLAZING",
+                "METAL_WITHOUT_BREAK",
+                "METAL_WITH_BREAK",
+                "FIBERGLASS",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Aluminum without Thermal Break",
+                "Aluminum with Thermal Break",
+                "Reninforced Vinyl",
+                "Aluminum Clad Wood",
+                "Wood",
+                "Vinyl",
+                "Structural Glazing",
+                "Metal without Thermal Break",
+                "Metal with Thermal Break",
+                "Fiberglass",
+                "Other"
+            ]
+        },
         "RefrigerationType2019ASHRAE901": {
             "type": "string",
             "enum": [
@@ -858,6 +900,21 @@
             ],
             "descriptions": [
                 "No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets."
+            ]
+        },
+        "SpaceStatusType2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "NEW",
+                "EXISTING",
+                "ADDITION",
+                "ALTERATION"
+            ],
+            "descriptions": [
+                "New",
+                "Existing",
+                "Addition",
+                "Alteration"
             ]
         }
     }

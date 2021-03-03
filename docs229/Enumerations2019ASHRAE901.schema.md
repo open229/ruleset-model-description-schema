@@ -144,6 +144,13 @@
 | `WAREHOUSE_STORAGE_AREA_MEDIUM_TO_BULKY_PALLETIZED_ITEMS`               | Warehouse â€” Storage Area - Medium to bulky, palletized items                                            |       |
 | `WAREHOUSE_STORAGE_AREA_SMALLER_HAND_CARRIED_ITEMS`                     | Warehouse â€” Storage Area - Smaller, hand-carried items                                                  |       |
 
+# LightingPurposeType2019ASHRAE901
+|  Enumerator  | Description | Notes |
+|--------------|-------------|-------|
+| `GENERAL`    | General     |       |
+| `TASK`       | Task        |       |
+| `DECORATIVE` | Decorative  |       |
+
 # ExteriorLightingAreas2019ASHRAE901TableG36
 |             Enumerator              |            Description            |         Notes         |
 |-------------------------------------|-----------------------------------|-----------------------|
@@ -363,6 +370,21 @@
 | `SCHOOL_SECONDARY_AND_UNIVERSITY` | School (secondary and university) |       |
 | `WAREHOUSE_NONREFRIGERATED`       | Warehouse (nonrefrigerated)       |       |
 
+# FenestrationFrameType2019ASHRAE901
+|        Enumerator        |          Description           | Notes |
+|--------------------------|--------------------------------|-------|
+| `ALUMINUM_WITHOUT_BREAK` | Aluminum without Thermal Break |       |
+| `ALUMINUM_WITH_BREAK`    | Aluminum with Thermal Break    |       |
+| `REINFORCED_VINYL`       | Reninforced Vinyl              |       |
+| `ALUMINUM_CLAD_WOOD`     | Aluminum Clad Wood             |       |
+| `WOOD`                   | Wood                           |       |
+| `VINYL`                  | Vinyl                          |       |
+| `STRUCTURAL_GLAZING`     | Structural Glazing             |       |
+| `METAL_WITHOUT_BREAK`    | Metal without Thermal Break    |       |
+| `METAL_WITH_BREAK`       | Metal with Thermal Break       |       |
+| `FIBERGLASS`             | Fiberglass                     |       |
+| `OTHER`                  | Other                          |       |
+
 # RefrigerationType2019ASHRAE901
 |                  Enumerator                  |                Description                 | Notes |
 |----------------------------------------------|--------------------------------------------|-------|
@@ -421,4 +443,12 @@
 |    Enumerator    |                                                     Description                                                     | Notes |
 |------------------|---------------------------------------------------------------------------------------------------------------------|-------|
 | `NOT_APPLICABLE` | No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets. |       |
+
+# SpaceStatusType2019ASHRAE901
+|  Enumerator  | Description | Notes |
+|--------------|-------------|-------|
+| `NEW`        | New         |       |
+| `EXISTING`   | Existing    |       |
+| `ADDITION`   | Addition    |       |
+| `ALTERATION` | Alteration  |       |
 
