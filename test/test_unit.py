@@ -16,4 +16,4 @@ def test_get_schema_node():
 
     # Root node
     node = schema.get_schema_node([])
-    assert('required' in node)
+    assert('version' in node)
