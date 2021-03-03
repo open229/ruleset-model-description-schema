@@ -198,6 +198,9 @@ Space:
       Description: "Surfaces surrounding the space"
       Data Type: "[{Surface}]"
       Notes: "Contains a list of surfaces that define the space."
+    equipment_internal_gains:
+      Description: "Plug loads and receptacle loads that produce internal gains for a space."
+      Data Type: "[{InternalGainEquipment}]"
     floor_area:
       Description: "The floor area of the space."
       Data Type: "Numeric"
@@ -282,23 +285,6 @@ Space:
       # this field may be replaced by a function EFLH()
       Data Type: "Numeric"
       Units: "hr"
-      Range: ">=0"
-    receptacle_control_credit_taken:
-      Description: "The receptacle control credit was taken"
-      Data Type: "Boolean"
-    receptacle_baseline_exception_taken:
-      Description: "The excpetion that receptacle power or schedule can be different in the baseline has been taken."
-      Data Type: "Boolean"
-    receptacle_power:
-      Description: "Peak power consumed by the receptacles."
-      Data Type: "Numeric"
-      Units: "W"
-    receptacle_schedule_name:
-      Description: "Receptacle schedule name"
-      Data Type: "String"
-    receptacle_control_credit:
-      Description: "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit."
-      Data Type: "Numeric"
       Range: ">=0"
 
 ConditioningType:
@@ -556,6 +542,50 @@ FenestrationClassificationType:
     DOOR:
       Description: "Door"
       # Usually a substantial fraction of the door needs to be glazed to be considered fenestration
+
+InternalGainEquipment:
+  Object Type: "Data Group"
+  Data Elements:
+    energy_type:
+      Description: "Source of energy for the internal gain equipment"
+      Data Type: "<InternalGainEnergyType>"
+    peak_usage:
+      Description: "Peak energy usage per hour by the internal gain equipment."
+      Data Type: "Numeric"
+      Units: "W"
+    schedule_name:
+      Description: "Internal gain schedule name"
+      Data Type: "String"
+    sensible_fraction:
+      Description: "Fraction of energy that is a sensible load on the space."
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Sensible plus latent do not necessarily add up to 1.0."
+    latent_fraction:
+      Description: "Fraction of energy that is a latent load on the space."
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Sensible plus latent do not necessarily add up to 1.0."
+    receptacle_control_credit_taken:
+      Description: "The receptacle control credit was taken"
+      Data Type: "Boolean"
+    receptacle_baseline_exception_taken:
+      Description: "The excpetion that receptacle power or schedule can be different in the baseline has been taken."
+      Data Type: "Boolean"
+    receptacle_control_credit:
+      Description: "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit."
+      Data Type: "Numeric"
+      Range: ">=0"
+
+InternalGainEnergyType:
+  Object Type: "Enumeration"
+  Enumerators:
+    ELECTRICITY:
+      Description: "Electricity"
+    NATURAL_GAS:
+      Description: "Natural gas"
+    OTHER:
+      Description: "Other"
 
 Transformer:
   Object Type: "Data Group"
