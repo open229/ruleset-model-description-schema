@@ -263,12 +263,6 @@ Space:
     lighting_schedule_name:
       Description: "Lighting schedule name"
       Data Type: "String"
-    lighting_equivalent_full_load_hours:
-      Description: "Annual sum of hourly fractions of lighting schedule"
-      # this field may be replaced by a function EFLH()
-      Data Type: "Numeric"
-      Units: "hr"
-      Range: ">=0"
     ventilations_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceType2019ASHRAE901>"
@@ -280,12 +274,9 @@ Space:
     infiltration_modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
       Data Type: "String"
-    infiltration_equivalent_full_load_hours:
-      Description: "Annual sum of hourly fractions of infiltration schedule"
-      # this field may be replaced by a function EFLH()
-      Data Type: "Numeric"
-      Units: "hr"
-      Range: ">=0"
+    infiltration_schedule_name:
+      Description: "Infiltration schedule name"
+      Data Type: "String"
 
 ConditioningType:
   Object Type: "Enumeration"
@@ -767,21 +758,6 @@ Elevator:
     cab_lighting_schedule:
       Description: "Elevator lighting schedule name"
       Data Type: "String"
-    cab_motor_schedule_equivalent_full_load_hours:
-      Description: "Elevator motor operation schedule equivalent full load hours"
-      Data Type: "Numeric"  # this field may be replaced by a function EFLH()
-      Range: ">=0, <=8760"
-      Units: "hr"
-    cab_ventilation_fan_schedule_equivalent_full_load_hours:
-      Description: "Elevator ventfan operation schedule equivalent full load hours"
-      Data Type: "Numeric"  # this field may be replaced by a function EFLH()
-      Range: ">=0, <=8760"
-      Units: "hr"
-    cab_lighting_schedule_equivalent_full_load_hours:
-      Description: "Elevator lighitng schedule equivalent full load hours"
-      Data Type: "Numeric"  # this field may be replaced by a function EFLH()
-      Range: ">=0, <=8760"
-      Units: "hr"
 
 HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
