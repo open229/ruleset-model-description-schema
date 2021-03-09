@@ -76,6 +76,79 @@
 | `FRIDAY`    | Friday      |       |
 | `SATURDAY`  | Saturday    |       |
 
+# FluidLoopTypeOptions
+|    Enumerator     |   Description   | Notes |
+|-------------------|-----------------|-------|
+| `HOT_WATER`       | Hot water       |       |
+| `CHILLED_WATER`   | Chilled water   |       |
+| `CONDENSER_WATER` | Condenser water |       |
+| `OTHER`           | Other           |       |
+
+# TemperatureResetTypeOptions
+|     Enumerator      |    Description    | Notes |
+|---------------------|-------------------|-------|
+| `NO_RESET`          | No Reset          |       |
+| `CONSTANT`          | Constant          |       |
+| `OUTSIDE_AIR_RESET` | Outside air reste |       |
+| `LOAD_RESET`        | Load Reset        |       |
+| `OTHER`             | Other             |       |
+
+# PumpSpeedControlOptions
+|    Enumerator    |  Description   | Notes |
+|------------------|----------------|-------|
+| `FIXED_SPEED`    | Fixed speed    |       |
+| `TWO_SPEED`      | Two speed      |       |
+| `VARIABLE_SPEED` | Variable speed |       |
+
+# PumpFlowControlOptions
+|    Enumerator    |  Description  | Notes |
+|------------------|---------------|-------|
+| `FIXED_FLOW`     | Fixed flow    |       |
+| `VARIABLE_SPEED` | Variable flow |       |
+
+# BoilerCombustionOptions
+| Enumerator | Description | Notes |
+|------------|-------------|-------|
+| `NATURAL`  | Natural     |       |
+| `FORCED`   | Forced      |       |
+
+# ChillerTypeOptions
+|  Enumerator   | Description | Notes |
+|---------------|-------------|-------|
+| `SCREW`       | Screw       |       |
+| `CENTRIFUGAL` | Centrifugal |       |
+| `OTHER`       | Other       |       |
+
+# HeatRejectionTypeOptions
+|  Enumerator   | Description | Notes |
+|---------------|-------------|-------|
+| `AXIAL_FAN`   | Axial fan   |       |
+| `CENTRIFUGAL` | Centrifugal |       |
+| `DRY_COOLER`  | Dry-cooler  |       |
+| `EVAPORATIVE` | Evaporative |       |
+| `OTHER`       | Other       |       |
+
+# HeatRejectionResetOptions
+|  Enumerator  | Description | Notes |
+|--------------|-------------|-------|
+| `CONSTANT`   | Constant    |       |
+| `LOAD_RESET` | Load reset  |       |
+| `OTHER`      | Other       |       |
+
+# HeatRejectionFanSpeedControlOptions
+|  Enumerator  | Description | Notes |
+|--------------|-------------|-------|
+| `CONSTANT`   | Constant    |       |
+| `LOAD_RESET` | Load reset  |       |
+| `OTHER`      | Other       |       |
+
+# DistrictFluidMeterTypeOptions
+|   Enumerator    |  Description  | Notes |
+|-----------------|---------------|-------|
+| `CHILLED_WATER` | Chilled water |       |
+| `HOT_WATER`     | Hot water     |       |
+| `STEAM`         | Steam         |       |
+
 # ServiceWaterHeatingEnteringWaterTemperatureInputOptions
 |    Enumerator    |                   Description                    | Notes |
 |------------------|--------------------------------------------------|-------|
@@ -133,15 +206,17 @@
 | `served_by_heating_ventilation_air_conditioning_systems` | HVAC systems serving the thermal block | `[String]` |       |       |     | Contains a list of IDs of the HVAC systems serving the thermal block - from Unique Identification Number in HeatingVentilationAirConditioningSystem. |
 
 # Zone
-|   Name   |      Description       |  Data Type  | Units | Range | Req |                   Notes                    |
-|----------|------------------------|-------------|-------|-------|-----|--------------------------------------------|
-| `spaces` | Spaces in the building | `[{Space}]` |       |       |     | Contains a list of spaces in the building. |
+|   Name   |         Description          |  Data Type  | Units | Range | Req |                   Notes                    |
+|----------|------------------------------|-------------|-------|-------|-----|--------------------------------------------|
+| `id`     | Unique Identification Number | `Numeric`   |       |       | ✓   |                                            |
+| `name`   | Name of the Zone             | `String`    |       |       | ✓   |                                            |
+| `spaces` | Spaces in the building       | `[{Space}]` |       |       |     | Contains a list of spaces in the building. |
 
 # Space
 |                Name                |                                                                                                                                                                                                                                               Description                                                                                                                                                                                                                                               |                   Data Type                   | Units | Range | Req |                       Notes                        |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|-------|-------|-----|----------------------------------------------------|
 | `id`                               | Unique Identification Number                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `Numeric`                                     |       |       | ✓   |                                                    |
-| `name`                             | Name fo the Space                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `String`                                      |       |       | ✓   |                                                    |
+| `name`                             | Name of the Space                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `String`                                      |       |       | ✓   |                                                    |
 | `surfaces`                         | Surfaces surrounding the space                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `[{Surface}]`                                 |       |       |     | Contains a list of surfaces that define the space. |
 | `equipment_internal_gains`         | Plug loads and receptacle loads that produce internal gains for a space.                                                                                                                                                                                                                                                                                                                                                                                                                                | `[{InternalGainEquipment}]`                   |       |       |     |                                                    |
 | `floor_area`                       | The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled. | `Numeric`                                     | m2    | `≥0`  |     |                                                    |
@@ -158,7 +233,7 @@
 |            Name            |                                        Description                                        |                          Data Type                          |  Units  | Range | Req |                                                                                                  Notes                                                                                                  |
 |----------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------|---------|-------|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                       | Unique Identification Number                                                              | `Numeric`                                                   |         |       | ✓   |                                                                                                                                                                                                         |
-| `name`                     | Name fo the Space                                                                         | `String`                                                    |         |       | ✓   |                                                                                                                                                                                                         |
+| `name`                     | Name of the Space                                                                         | `String`                                                    |         |       | ✓   |                                                                                                                                                                                                         |
 | `fenestration_subsurfaces` | Fenestration suburfaces that are on the surface                                           | `[{Fenestration}]`                                          |         |       |     | Contains a list of surfaces that define the space.                                                                                                                                                      |
 | `classification`           | Classification for the surface.                                                           | `<SurfaceClassificationType>`                               |         |       |     | Options for surface being interior or exterior wall, floor, or ceiling.                                                                                                                                 |
 | `area`                     | area of the surface                                                                       | `Numeric`                                                   | m2      | `≥0`  |     | Measured from interior face area. It is the gross area of the wall and includes the area of all subsurfaces.                                                                                            |
@@ -281,8 +356,92 @@
 |              Name               |                         Description                         |  Data Type  | Units | Range | Req |                                       Notes                                       |
 |---------------------------------|-------------------------------------------------------------|-------------|-------|-------|-----|-----------------------------------------------------------------------------------|
 | `id`                            | Unique Identification Number                                | `Numeric`   |       |       | ✓   |                                                                                   |
+| `name`                          | Name of the HVAC system                                     | `String`    |       |       | ✓   |                                                                                   |
+| `zones_served`                  | List of the zones served by the HVAC system                 | `[{Zone}]`  |       |       |     |                                                                                   |
+| `hot_water_loop_name`           | Hot water fluid loop name                                   | `String`    |       |       |     |                                                                                   |
+| `chilled_water_loop_name`       | Chilled water fluid loop name                               | `String`    |       |       |     |                                                                                   |
+| `condenser_water_loop_name`     | Condenser water fluid loop name                             | `String`    |       |       |     |                                                                                   |
+| `preheat_loop_name`             | Preheat fluid loop name                                     | `String`    |       |       |     |                                                                                   |
+| `reheat_loop_name`              | Reheat fluid loop name                                      | `String`    |       |       |     |                                                                                   |
 | `sensible_cool_output_capacity` | Result from the simulation of the sensible cooling capacity | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
 | `heat_output_capacity`          | Result from the simulation of the heating capacity          | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
+
+# FluidLoop
+|                       Name                       |                                  Description                                   |            Data Type            | Units | Range | Req | Notes |
+|--------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------|-------|-------|-----|-------|
+| `id`                                             | Unique Identification Number                                                   | `Numeric`                       |       |       | ✓   |       |
+| `name`                                           | Name of the fluid loop connecting primary and secondary equipment in the plant | `String`                        |       |       | ✓   |       |
+| `type`                                           | Type of loop                                                                   | `<FluidLoopTypeOptions>`        |       |       |     |       |
+| `design_supply_temperature`                      | Design Supply Temperature                                                      | `Numeric`                       | C     |       |     |       |
+| `design_return_temperature`                      | Design Return Temperature                                                      | `Numeric`                       | C     |       |     |       |
+| `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load                             | `Boolean`                       |       |       |     |       |
+| `temperature_reset_type`                         | Type of temperature reset used by loop                                         | `<TemperatureResetTypeOptions>` |       |       |     |       |
+| `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset                                        | `Numeric`                       | C     |       |     |       |
+| `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset                                         | `Numeric`                       | C     |       |     |       |
+| `loop_supply_temperature_at_outdoor_high`        | Loop supply temperature at outdoor high temperature                            | `Numeric`                       | C     |       |     |       |
+| `loop_supply_temperature_at_outdoor_low`         | Loop supply temperature at outdoor low temperature                             | `Numeric`                       | C     |       |     |       |
+| `peak_heating_capacity`                          | Design capacity                                                                | `Numeric`                       | W     |       |     |       |
+
+# Pump
+|          Name           |                       Description                       |          Data Type          | Units |  Range   | Req | Notes |
+|-------------------------|---------------------------------------------------------|-----------------------------|-------|----------|-----|-------|
+| `id`                    | Unique Identification Number                            | `Numeric`                   |       |          | ✓   |       |
+| `name`                  | Name identifying pump                                   | `String`                    |       |          | ✓   |       |
+| `loop_name`             | Fluid loop name                                         | `String`                    |       |          |     |       |
+| `power`                 | Pump power                                              | `Numeric`                   | W     |          |     |       |
+| `speed_control`         | Options for pump speed control                          | `<PumpSpeedControlOptions>` |       |          |     |       |
+| `flow_control`          | Flow control options                                    | `<PumpFlowControlOptions>`  |       |          |     |       |
+| `minimum_flow_fraction` | Minimum pump flow turndown as a fraction of design flow | `Numeric`                   |       | `≥0, ≤1` |     |       |
+| `design_flow`           | Design Pump Flowrate                                    | `Numeric`                   | L/s   |          |     |       |
+| `is_variable_speed`     | True if variable speed drive such a VFD                 | `Boolean`                   |       |          |     |       |
+
+# Boiler
+|          Name           |                Description                |          Data Type          | Units | Range | Req | Notes |
+|-------------------------|-------------------------------------------|-----------------------------|-------|-------|-----|-------|
+| `id`                    | Unique Identification Number              | `Numeric`                   |       |       | ✓   |       |
+| `name`                  | Name identifying boiler                   | `String`                    |       |       | ✓   |       |
+| `loop_name`             | Fluid loop name                           | `String`                    |       |       |     |       |
+| `design_capacity`       | Heating capacity                          | `Numeric`                   | W     |       |     |       |
+| `draft_type`            | Combustion option                         | `<BoilerCombustionOptions>` |       |       |     |       |
+| `operation_lower_limit` | Heating load range operation, lower limit | `Numeric`                   | W     |       |     |       |
+| `operation_upper_limit` | Heating load range operation, upper limit | `Numeric`                   | W     |       |     |       |
+
+# Chiller
+|           Name           |           Description           |       Data Type        | Units | Range | Req | Notes |
+|--------------------------|---------------------------------|------------------------|-------|-------|-----|-------|
+| `id`                     | Unique Identification Number    | `Numeric`              |       |       | ✓   |       |
+| `name`                   | Name identifying chiller        | `String`               |       |       | ✓   |       |
+| `loop_name`              | Fluid loop name                 | `String`               |       |       |     |       |
+| `type`                   | Chiller Type                    | `<ChillerTypeOptions>` |       |       |     |       |
+| `design_capacity`        | Chiller Design Cooling Capacity | `Numeric`              | W     |       |     |       |
+| `design_flow_evaporator` | Chiller evaporator design flow  | `Numeric`              | L/s   |       |     |       |
+| `design_flow_condenser`  | Chiller condenser design flow   | `Numeric`              | L/s   |       |     |       |
+| `full_load_efficiency`   | Full Low Efficiency (COP)       | `Numeric`              |       |       |     |       |
+
+# HeatRejection
+|             Name             |                Description                |                Data Type                | Units | Range | Req |      Notes       |
+|------------------------------|-------------------------------------------|-----------------------------------------|-------|-------|-----|------------------|
+| `id`                         | Unique Identification Number              | `Numeric`                               |       |       | ✓   |                  |
+| `name`                       | Name identifying heat rejection equipment | `String`                                |       |       | ✓   |                  |
+| `loop_name`                  | Fluid loop name                           | `String`                                |       |       |     |                  |
+| `type`                       | Heat Rejection Type                       | `<HeatRejectionTypeOptions>`            |       |       |     |                  |
+| `range`                      | Heat rejection Range                      | `Numeric`                               | C     |       |     |                  |
+| `approach`                   | Heat rejection Approach                   | `Numeric`                               | C     |       |     |                  |
+| `reset_type`                 | Leaving Temperature reset strategy        | `<HeatRejectionResetOptions>`           |       |       |     |                  |
+| `minimum_reset_temperature`  | Minimum leaving temperature setpoint      | `Numeric`                               | C     |       |     |                  |
+| `fan_power`                  | Fan Power                                 | `Numeric`                               | W     |       |     |                  |
+| `fan_speed_control`          | Fan Speed Control Type                    | `<HeatRejectionFanSpeedControlOptions>` |       |       |     |                  |
+| `design_supply_temperature`  | Design leaving water temperature          | `Numeric`                               | C     |       |     |                  |
+| `design_wetbulb_temperature` | Design wetbulb temperature                | `Numeric`                               | C     |       |     | 0.4% ASHRAE MCWB |
+| `design_water_flowrate`      | Design condenser water flow rate          | `Numeric`                               | L/s   |       |     |                  |
+
+# DistrictFluidMeter
+|    Name     |              Description              |             Data Type             | Units | Range | Req | Notes |
+|-------------|---------------------------------------|-----------------------------------|-------|-------|-----|-------|
+| `id`        | Unique Identification Number          | `Numeric`                         |       |       | ✓   |       |
+| `name`      | Name identifying district fluid meter | `String`                          |       |       | ✓   |       |
+| `loop_name` | Fluid loop name                       | `String`                          |       |       |     |       |
+| `type`      | Type of district fluid meter          | `<DistrictFluidMeterTypeOptions>` |       |       |     |       |
 
 # ServiceWaterHeatingSystem
 |                 Name                 |                                                           Description                                                            |                          Data Type                          | Units | Range | Req |                                 Notes                                  |

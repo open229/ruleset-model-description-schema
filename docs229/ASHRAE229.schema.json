@@ -195,6 +195,14 @@
         "Zone": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the Zone",
+                    "type": "string"
+                },
                 "spaces": {
                     "description": "Spaces in the building",
                     "type": "array",
@@ -204,6 +212,10 @@
                     "notes": "Contains a list of spaces in the building."
                 }
             },
+            "required": [
+                "id",
+                "name"
+            ],
             "additionalProperties": false
         },
         "Space": {
@@ -214,7 +226,7 @@
                     "type": "number"
                 },
                 "name": {
-                    "description": "Name fo the Space",
+                    "description": "Name of the Space",
                     "type": "string"
                 },
                 "surfaces": {
@@ -320,7 +332,7 @@
                     "type": "number"
                 },
                 "name": {
-                    "description": "Name fo the Space",
+                    "description": "Name of the Space",
                     "type": "string"
                 },
                 "fenestration_subsurfaces": {
@@ -927,6 +939,37 @@
                     "description": "Unique Identification Number",
                     "type": "number"
                 },
+                "name": {
+                    "description": "Name of the HVAC system",
+                    "type": "string"
+                },
+                "zones_served": {
+                    "description": "List of the zones served by the HVAC system",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/Zone"
+                    }
+                },
+                "hot_water_loop_name": {
+                    "description": "Hot water fluid loop name",
+                    "type": "string"
+                },
+                "chilled_water_loop_name": {
+                    "description": "Chilled water fluid loop name",
+                    "type": "string"
+                },
+                "condenser_water_loop_name": {
+                    "description": "Condenser water fluid loop name",
+                    "type": "string"
+                },
+                "preheat_loop_name": {
+                    "description": "Preheat fluid loop name",
+                    "type": "string"
+                },
+                "reheat_loop_name": {
+                    "description": "Reheat fluid loop name",
+                    "type": "string"
+                },
                 "sensible_cool_output_capacity": {
                     "description": "Result from the simulation of the sensible cooling capacity",
                     "type": "array",
@@ -949,9 +992,443 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "name"
             ],
             "additionalProperties": false
+        },
+        "FluidLoop": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the fluid loop connecting primary and secondary equipment in the plant",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of loop",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopTypeOptions"
+                },
+                "design_supply_temperature": {
+                    "description": "Design Supply Temperature",
+                    "type": "number",
+                    "units": "C"
+                },
+                "design_return_temperature": {
+                    "description": "Design Return Temperature",
+                    "type": "number",
+                    "units": "C"
+                },
+                "is_sized_using_coincident_load": {
+                    "description": "True if the loop is sized based on coincident load",
+                    "type": "boolean"
+                },
+                "temperature_reset_type": {
+                    "description": "Type of temperature reset used by loop",
+                    "$ref": "ASHRAE229.schema.json#/definitions/TemperatureResetTypeOptions"
+                },
+                "outdoor_high_for_loop_supply_temperature_reset": {
+                    "description": "Outdoor high for loop supply temp reset",
+                    "type": "number",
+                    "units": "C"
+                },
+                "outdoor_low_for_loop_supply_temperature_reset": {
+                    "description": "Outdoor low for loop supply temp reset",
+                    "type": "number",
+                    "units": "C"
+                },
+                "loop_supply_temperature_at_outdoor_high": {
+                    "description": "Loop supply temperature at outdoor high temperature",
+                    "type": "number",
+                    "units": "C"
+                },
+                "loop_supply_temperature_at_outdoor_low": {
+                    "description": "Loop supply temperature at outdoor low temperature",
+                    "type": "number",
+                    "units": "C"
+                },
+                "peak_heating_capacity": {
+                    "description": "Design capacity",
+                    "type": "number",
+                    "units": "W"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "FluidLoopTypeOptions": {
+            "type": "string",
+            "enum": [
+                "HOT_WATER",
+                "CHILLED_WATER",
+                "CONDENSER_WATER",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Hot water",
+                "Chilled water",
+                "Condenser water",
+                "Other"
+            ]
+        },
+        "TemperatureResetTypeOptions": {
+            "type": "string",
+            "enum": [
+                "NO_RESET",
+                "CONSTANT",
+                "OUTSIDE_AIR_RESET",
+                "LOAD_RESET",
+                "OTHER"
+            ],
+            "descriptions": [
+                "No Reset",
+                "Constant",
+                "Outside air reste",
+                "Load Reset",
+                "Other"
+            ]
+        },
+        "Pump": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying pump",
+                    "type": "string"
+                },
+                "loop_name": {
+                    "description": "Fluid loop name",
+                    "type": "string"
+                },
+                "power": {
+                    "description": "Pump power",
+                    "type": "number",
+                    "units": "W"
+                },
+                "speed_control": {
+                    "description": "Options for pump speed control",
+                    "$ref": "ASHRAE229.schema.json#/definitions/PumpSpeedControlOptions"
+                },
+                "flow_control": {
+                    "description": "Flow control options",
+                    "$ref": "ASHRAE229.schema.json#/definitions/PumpFlowControlOptions"
+                },
+                "minimum_flow_fraction": {
+                    "description": "Minimum pump flow turndown as a fraction of design flow",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "design_flow": {
+                    "description": "Design Pump Flowrate",
+                    "type": "number",
+                    "units": "L/s"
+                },
+                "is_variable_speed": {
+                    "description": "True if variable speed drive such a VFD",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "PumpSpeedControlOptions": {
+            "type": "string",
+            "enum": [
+                "FIXED_SPEED",
+                "TWO_SPEED",
+                "VARIABLE_SPEED"
+            ],
+            "descriptions": [
+                "Fixed speed",
+                "Two speed",
+                "Variable speed"
+            ]
+        },
+        "PumpFlowControlOptions": {
+            "type": "string",
+            "enum": [
+                "FIXED_FLOW",
+                "VARIABLE_SPEED"
+            ],
+            "descriptions": [
+                "Fixed flow",
+                "Variable flow"
+            ]
+        },
+        "Boiler": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying boiler",
+                    "type": "string"
+                },
+                "loop_name": {
+                    "description": "Fluid loop name",
+                    "type": "string"
+                },
+                "design_capacity": {
+                    "description": "Heating capacity",
+                    "type": "number",
+                    "units": "W"
+                },
+                "draft_type": {
+                    "description": "Combustion option",
+                    "$ref": "ASHRAE229.schema.json#/definitions/BoilerCombustionOptions"
+                },
+                "operation_lower_limit": {
+                    "description": "Heating load range operation, lower limit",
+                    "type": "number",
+                    "units": "W"
+                },
+                "operation_upper_limit": {
+                    "description": "Heating load range operation, upper limit",
+                    "type": "number",
+                    "units": "W"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "BoilerCombustionOptions": {
+            "type": "string",
+            "enum": [
+                "NATURAL",
+                "FORCED"
+            ],
+            "descriptions": [
+                "Natural",
+                "Forced"
+            ]
+        },
+        "Chiller": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying chiller",
+                    "type": "string"
+                },
+                "loop_name": {
+                    "description": "Fluid loop name",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Chiller Type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ChillerTypeOptions"
+                },
+                "design_capacity": {
+                    "description": "Chiller Design Cooling Capacity",
+                    "type": "number",
+                    "units": "W"
+                },
+                "design_flow_evaporator": {
+                    "description": "Chiller evaporator design flow",
+                    "type": "number",
+                    "units": "L/s"
+                },
+                "design_flow_condenser": {
+                    "description": "Chiller condenser design flow",
+                    "type": "number",
+                    "units": "L/s"
+                },
+                "full_load_efficiency": {
+                    "description": "Full Low Efficiency (COP)",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "ChillerTypeOptions": {
+            "type": "string",
+            "enum": [
+                "SCREW",
+                "CENTRIFUGAL",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Screw",
+                "Centrifugal",
+                "Other"
+            ]
+        },
+        "HeatRejection": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying heat rejection equipment",
+                    "type": "string"
+                },
+                "loop_name": {
+                    "description": "Fluid loop name",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Heat Rejection Type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionTypeOptions"
+                },
+                "range": {
+                    "description": "Heat rejection Range",
+                    "type": "number",
+                    "units": "C"
+                },
+                "approach": {
+                    "description": "Heat rejection Approach",
+                    "type": "number",
+                    "units": "C"
+                },
+                "reset_type": {
+                    "description": "Leaving Temperature reset strategy",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionResetOptions"
+                },
+                "minimum_reset_temperature": {
+                    "description": "Minimum leaving temperature setpoint",
+                    "type": "number",
+                    "units": "C"
+                },
+                "fan_power": {
+                    "description": "Fan Power",
+                    "type": "number",
+                    "units": "W"
+                },
+                "fan_speed_control": {
+                    "description": "Fan Speed Control Type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionFanSpeedControlOptions"
+                },
+                "design_supply_temperature": {
+                    "description": "Design leaving water temperature",
+                    "type": "number",
+                    "units": "C"
+                },
+                "design_wetbulb_temperature": {
+                    "description": "Design wetbulb temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "0.4% ASHRAE MCWB"
+                },
+                "design_water_flowrate": {
+                    "description": "Design condenser water flow rate",
+                    "type": "number",
+                    "units": "L/s"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "HeatRejectionTypeOptions": {
+            "type": "string",
+            "enum": [
+                "AXIAL_FAN",
+                "CENTRIFUGAL",
+                "DRY_COOLER",
+                "EVAPORATIVE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Axial fan",
+                "Centrifugal",
+                "Dry-cooler",
+                "Evaporative",
+                "Other"
+            ]
+        },
+        "HeatRejectionResetOptions": {
+            "type": "string",
+            "enum": [
+                "CONSTANT",
+                "LOAD_RESET",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Constant",
+                "Load reset",
+                "Other"
+            ]
+        },
+        "HeatRejectionFanSpeedControlOptions": {
+            "type": "string",
+            "enum": [
+                "CONSTANT",
+                "LOAD_RESET",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Constant",
+                "Load reset",
+                "Other"
+            ]
+        },
+        "DistrictFluidMeter": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying district fluid meter",
+                    "type": "string"
+                },
+                "loop_name": {
+                    "description": "Fluid loop name",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of district fluid meter",
+                    "$ref": "ASHRAE229.schema.json#/definitions/DistrictFluidMeterTypeOptions"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "DistrictFluidMeterTypeOptions": {
+            "type": "string",
+            "enum": [
+                "CHILLED_WATER",
+                "HOT_WATER",
+                "STEAM"
+            ],
+            "descriptions": [
+                "Chilled water",
+                "Hot water",
+                "Steam"
+            ]
         },
         "ServiceWaterHeatingSystem": {
             "type": "object",
