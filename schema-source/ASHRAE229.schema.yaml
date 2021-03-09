@@ -183,7 +183,7 @@ Zone:
       Data Type: "Numeric"
       Required: True
     name:
-      Description: "Name fo the Zone"
+      Description: "Name of the Zone"
       Data Type: "String"
       Required: True
     spaces:
@@ -199,7 +199,7 @@ Space:
       Data Type: "Numeric"
       Required: True
     name:
-      Description: "Name fo the Space"
+      Description: "Name of the Space"
       Data Type: "String"
       Required: True
     surfaces:
@@ -277,7 +277,7 @@ Surface:
       Data Type: "Numeric"
       Required: True
     name:
-      Description: "Name fo the Space"
+      Description: "Name of the Space"
       Data Type: "String"
       Required: True
     fenestration_subsurfaces:
@@ -924,6 +924,137 @@ BoilerCombustionOptions:
       Description: "Natural"
     FORCED:
       Description: "Forced"
+
+Chiller:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying chiller"
+      Data Type: "String"
+      Required: True
+    loop_name:
+      Description: "Fluid loop name"
+      Data Type: "String"
+    type:
+      Description: "Chiller Type"
+      Data Type: "<ChillerTypeOptions>"
+    design_capacity:
+      Description: "Chiller Design Cooling Capacity"
+      Data Type: "Numeric"
+      Units: "W"
+    design_flow_evaporator:
+      Description: "Chiller evaporator design flow"
+      Data Type: "Numeric"
+      Units: "L/s"
+    design_flow_condenser:
+      Description: "Chiller condenser design flow"
+      Data Type: "Numeric"
+      Units: "L/s"
+    full_load_efficiency:
+      Description: "Full Low Efficiency (COP)"
+      Data Type: "Numeric"
+
+ChillerTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    SCREW:
+      Description: "Screw"
+    CENTRIFUGAL:
+      Description: "Centrifugal"
+    OTHER:
+      Description: "Other"
+
+HeatRejection:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying heat rejection equipment"
+      Data Type: "String"
+      Required: True
+    loop_name:
+      Description: "Fluid loop name"
+      Data Type: "String"
+    type:
+      Description: "Heat Rejection Type"
+      Data Type: "<HeatRejectionTypeOptions>"
+    range:
+      Description: "Heat rejection Range"
+      Data Type: "Numeric"
+      Units: "C"
+    approach:
+      Description: "Heat rejection Approach"
+      Data Type: "Numeric"
+      Units: "C"
+    reset_type:
+      Description: "Leaving Temperature reset strategy"
+      Data Type: "<HeatRejectionResetOptions>"
+    minimum_reset_temperature:
+      Description: "Minimum leaving temperature setpoint"
+      Data Type: "Numeric"
+      Units: "C"
+    fan_power:
+      Description: "Fan Power"
+      Data Type: "Numeric"
+      Units: "W"
+    fan_speed_control:
+      Description: "Fan Speed Control Type"
+      Data Type: "<HeatRejectionFanSpeedControlOptions>"
+    design_supply_temperature:
+      Description: "Design leaving water temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    design_wetbulb_temperature:
+      Description: "Design wetbulb temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "0.4% ASHRAE MCWB"
+    design_water_flowrate:
+      Description: "Design condenser water flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+
+HeatRejectionTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    AXIAL_FAN:
+      Description: "Axial fan"
+    CENTRIFUGAL:
+      Description: "Centrifugal"
+    DRY_COOLER:
+      Description: "Dry-cooler"
+    EVAPORATIVE:
+      Description: "Evaporative"
+    OTHER:
+      Description: "Other"
+
+HeatRejectionResetOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    LOAD_RESET:
+      Description: "Load reset"
+    OTHER:
+      Description: "Other"
+
+HeatRejectionFanSpeedControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    LOAD_RESET:
+      Description: "Load reset"
+    OTHER:
+      Description: "Other"
+
 
 DistrictFluidMeter:
   Object Type: "Data Group"
