@@ -178,6 +178,14 @@ ThermalBlock:
 Zone:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name fo the Zone"
+      Data Type: "String"
+      Required: True
     spaces:
       Description: "Spaces in the building"
       Data Type: "[{Space}]"
@@ -715,6 +723,28 @@ HeatingVentilationAirConditioningSystem:
       Description: "Unique Identification Number"
       Data Type: "Numeric"
       Required: True
+    name:
+      Description: "Name of the HVAC system"
+      Data Type: "String"
+      Required: True
+    zones_served:
+      Description: "List of the zones served by the HVAC system"
+      Data Type: "[{Zone}]"
+    hot_water_loop_name:
+      Description: "Hot water fluid loop name"
+      Data Type: "String"
+    chilled_water_loop_name:
+      Description: "Chilled water fluid loop name"
+      Data Type: "String"
+    condenser_water_loop_name:
+      Description: "Condenser water fluid loop name"
+      Data Type: "String"
+    preheat_loop_name:
+      Description: "Preheat fluid loop name"
+      Data Type: "String"
+    reheat_loop_name:
+      Description: "Reheat fluid loop name"
+      Data Type: "String"
     sensible_cool_output_capacity: 
       Description: "Result from the simulation of the sensible cooling capacity"
       Data Type: "[Numeric]"
@@ -727,6 +757,201 @@ HeatingVentilationAirConditioningSystem:
       Range: ">=0"
       Units: "W/m2"
       Notes: "If multiple values are provided, they correspond to rotated building orientations"
+
+FluidLoop:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the fluid loop connecting primary and secondary equipment in the plant"
+      Data Type: "String"
+      Required: True
+    type:
+      Description: "Type of loop"
+      Data Type: "<FluidLoopTypeOptions>"
+    design_supply_temperature:
+      Description: "Design Supply Temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    design_return_temperature:
+      Description: "Design Return Temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    is_sized_using_coincident_load:
+      Description: "True if the loop is sized based on coincident load"
+      Data Type: "Boolean"
+    temperature_reset_type:
+      Description: "Type of temperature reset used by loop"
+      Data Type: "<TemperatureResetTypeOptions>"
+    outdoor_high_for_loop_supply_temperature_reset:
+      Description: "Outdoor high for loop supply temp reset"
+      Data Type: "Numeric"
+      Units: "C"
+    outdoor_low_for_loop_supply_temperature_reset:
+      Description: "Outdoor low for loop supply temp reset"
+      Data Type: "Numeric"
+      Units: "C"
+    loop_supply_temperature_at_outdoor_high:
+      Description: "Loop supply temperature at outdoor high temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    loop_supply_temperature_at_outdoor_low:
+      Description: "Loop supply temperature at outdoor low temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    peak_heating_capacity:
+      Description: "Design capacity"
+      Data Type: "Numeric"
+      Units: "W"
+
+FluidLoopTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HOT_WATER:
+      Description: "Hot water"
+    CHILLED_WATER:
+      Description: "Chilled water"
+    CONDENSER_WATER:
+      Description: "Condenser water"
+    OTHER:
+      Description: "Other"
+
+TemperatureResetTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NO_RESET:
+      Description: "No Reset"
+    CONSTANT:
+      Description: "Constant"
+    OUTSIDE_AIR_RESET:
+      Description: "Outside air reste"
+    LOAD_RESET:
+      Description: "Load Reset"
+    OTHER:
+      Description: "Other"
+
+Pump:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying pump"
+      Data Type: "String"
+      Required: True
+    loop_name:
+      Description: "Fluid loop name"
+      Data Type: "String"
+    power:
+      Description: "Pump power"
+      Data Type: "Numeric"
+      Units: "W"
+    speed_control:
+      Description: "Options for pump speed control"
+      Data Type: "<PumpSpeedControlOptions>"
+    flow_control:
+      Description: "Flow control options"
+      Data Type: "<PumpFlowControlOptions>"
+    minimum_flow_fraction:
+      Description: "Minimum pump flow turndown as a fraction of design flow"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+    design_flow:
+      Description: "Design Pump Flowrate"
+      Data Type: "Numeric"
+      Units: "L/s"
+    is_variable_speed:
+      Description: "True if variable speed drive such a VFD"
+      Data Type: "Boolean"
+
+PumpSpeedControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_SPEED:
+      Description: "Fixed speed"
+    TWO_SPEED:
+      Description: "Two speed"
+    VARIABLE_SPEED:
+      Description: "Variable speed"
+
+PumpFlowControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_FLOW:
+      Description: "Fixed flow"
+    VARIABLE_SPEED:
+      Description: "Variable flow"
+
+Boiler:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying boiler"
+      Data Type: "String"
+      Required: True
+    loop_name:
+      Description: "Fluid loop name"
+      Data Type: "String"
+    design_capacity:
+      Description: "Heating capacity"
+      Data Type: "Numeric"
+      Units: "W"
+    draft_type:
+      Description: "Combustion option"
+      Data Type: "<BoilerCombustionOptions>"
+    operation_lower_limit:
+      Description: "Heating load range operation, lower limit"
+      Data Type: "Numeric"
+      Units: "W"
+    operation_upper_limit:
+      Description: "Heating load range operation, upper limit"
+      Data Type: "Numeric"
+      Units: "W"
+
+BoilerCombustionOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NATURAL:
+      Description: "Natural"
+    FORCED:
+      Description: "Forced"
+
+DistrictFluidMeter:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying district fluid meter"
+      Data Type: "String"
+      Required: True
+    loop_name:
+      Description: "Fluid loop name"
+      Data Type: "String"
+    type:
+      Description: "Type of district fluid meter"
+      Data Type: "<DistrictFluidMeterTypeOptions>"
+
+DistrictFluidMeterTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CHILLED_WATER:
+      Description: "Chilled water"
+    HOT_WATER:
+      Description: "Hot water"
+    STEAM:
+      Description: "Steam"
 
 ServiceWaterHeatingSystem:
   Object Type: "Data Group"
