@@ -206,9 +206,9 @@ Space:
       Description: "Surfaces surrounding the space"
       Data Type: "[{Surface}]"
       Notes: "Contains a list of surfaces that define the space."
-    equipment_internal_gains:
-      Description: "Plug loads and receptacle loads that produce internal gains for a space."
-      Data Type: "[{InternalGainEquipment}]"
+    miscellaneous_equipment:
+      Description: "Miscellaneous equipment loads that produce internal gains for a space."
+      Data Type: "[{MiscellaneousEquipment}]"
     floor_area:
       Description: "The floor area of the space."
       Data Type: "Numeric"
@@ -240,7 +240,7 @@ Space:
       Notes: "The enumeration is based on the standard used."
     infiltration_modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
-      Data Type: "String"
+      Data Type: "<InfiltrationMethodType>"
     infiltration_schedule_name:
       Description: "Infiltration schedule name"
       Data Type: "String"
@@ -268,6 +268,16 @@ SpaceFunctionType:
       Description: "Kitchen"
     OTHER:
       Description: "Other"
+
+InfiltrationMethodType:
+  Object Type: "Enumeration"
+  Enumerators:
+    WEATHER_DRIVEN:
+      Description: "Weather Driven"
+    PRESSURE_BASED:
+      Description: "Pressure Based"
+    CONSTANT:
+      Description: "Constant"
 
 Surface:
   Object Type: "Data Group"
@@ -501,18 +511,48 @@ FenestrationClassificationType:
       Description: "Door"
       # Usually a substantial fraction of the door needs to be glazed to be considered fenestration
 
-InternalGainEquipment:
+InteriorLighting:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique ID assigned to each interior lighting fixture(s) reported in an RMR"
+      Data Type: "Numeric"
+      Range: ">0"
+    name:
+      Description: "Interior lighting fixture name"
+      Data Type: "String"
+    space_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
+      Notes: "The enumeration is based on the standard used."
+    purpose_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingPurposeType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    power_per_area:
+      Description: "Total power for lights divided by the area of the space."
+      Data Type: "Numeric"
+      Units: "W/m2"
+      Notes: "When computing the power per area use the area of the entire space."
+    lighting_schedule_name:
+      Description: "Lighting schedule name"
+      Data Type: "String"
+    has_daylighting_control:
+      Description: "Includes daylighting controls"
+      Data Type: "Boolean"
+
+MiscellaneousEquipment:
   Object Type: "Data Group"
   Data Elements:
     energy_type:
-      Description: "Source of energy for the internal gain equipment"
+      Description: "Source of energy for the miscelleous equipment in the space"
       Data Type: "<FuelTypeOptions>"
     peak_usage:
-      Description: "Peak energy usage per hour by the internal gain equipment."
+      Description: "Peak energy usage per hour by the miscelleous equipment in the space."
       Data Type: "Numeric"
       Units: "W"
     schedule_name:
-      Description: "Internal gain schedule name"
+      Description: "miscelleous equipment in the space schedule name"
       Data Type: "String"
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
@@ -1149,35 +1189,6 @@ FuelTypeOptions:
       Description: "Natural gas"
     OTHER:
       Description: "Other"
-
-InteriorLighting:
-  Object Type: "Data Group"
-  Data Elements:
-    id:
-      Description: "Unique ID assigned to each interior lighting fixture(s) reported in an RMR"
-      Data Type: "Numeric"
-      Range: ">0"
-    name:
-      Description: "Interior lighting fixture name"
-      Data Type: "String"
-    space_type:
-      Description: "Lighting space type classification"
-      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
-      Notes: "The enumeration is based on the standard used."
-    purpose_type:
-      Description: "Lighting space type classification"
-      Data Type: "<LightingPurposeType2019ASHRAE901>"
-      Notes: "The enumeration is based on the standard used."
-    power:
-      Description: "Total power for lights in the space."
-      Data Type: "Numeric"
-      Units: "W"
-    lighting_schedule_name:
-      Description: "Lighting schedule name"
-      Data Type: "String"
-    has_daylighting_control:
-      Description: "Includes daylighting controls"
-      Data Type: "Boolean"
 
 ExteriorLighting:
   Object Type: "Data Group"
