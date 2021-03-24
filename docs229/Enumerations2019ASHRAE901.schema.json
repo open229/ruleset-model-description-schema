@@ -297,12 +297,14 @@
             "enum": [
                 "GENERAL",
                 "TASK",
-                "DECORATIVE"
+                "DECORATIVE",
+                "UNREGULATED"
             ],
             "descriptions": [
                 "General",
                 "Task",
-                "Decorative"
+                "Decorative",
+                "Unregulated"
             ]
         },
         "ExteriorLightingAreas2019ASHRAE901TableG36": {

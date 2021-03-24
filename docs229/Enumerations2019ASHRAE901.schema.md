@@ -145,11 +145,12 @@
 | `WAREHOUSE_STORAGE_AREA_SMALLER_HAND_CARRIED_ITEMS`                     | Warehouse â€” Storage Area - Smaller, hand-carried items                                                  |       |
 
 # LightingPurposeType2019ASHRAE901
-|  Enumerator  | Description | Notes |
-|--------------|-------------|-------|
-| `GENERAL`    | General     |       |
-| `TASK`       | Task        |       |
-| `DECORATIVE` | Decorative  |       |
+|  Enumerator   | Description | Notes |
+|---------------|-------------|-------|
+| `GENERAL`     | General     |       |
+| `TASK`        | Task        |       |
+| `DECORATIVE`  | Decorative  |       |
+| `UNREGULATED` | Unregulated |       |
 
 # ExteriorLightingAreas2019ASHRAE901TableG36
 |             Enumerator              |            Description            |         Notes         |

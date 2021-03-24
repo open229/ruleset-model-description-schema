@@ -188,6 +188,11 @@
                         "type": "string"
                     },
                     "notes": "Contains a list of IDs of the HVAC systems serving the thermal block - from Unique Identification Number in HeatingVentilationAirConditioningSystem."
+                },
+                "served_by_service_water_heating_system": {
+                    "description": "A service water heating system serving the thermal block",
+                    "type": "string",
+                    "notes": "Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem."
                 }
             },
             "additionalProperties": false
@@ -237,11 +242,18 @@
                     },
                     "notes": "Contains a list of surfaces that define the space."
                 },
-                "equipment_internal_gains": {
-                    "description": "Plug loads and receptacle loads that produce internal gains for a space.",
+                "interior_lighting": {
+                    "description": "Internal lighting that produce internal gains for a space.",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/InternalGainEquipment"
+                        "$ref": "ASHRAE229.schema.json#/definitions/InteriorLighting"
+                    }
+                },
+                "miscellaneous_equipment": {
+                    "description": "Miscellaneous equipment loads that produce internal gains for a space.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/MiscellaneousEquipment"
                     }
                 },
                 "floor_area": {
@@ -281,7 +293,7 @@
                 },
                 "infiltration_modeling_method": {
                     "description": "The software methodology chosen for modeling infiltration",
-                    "type": "string"
+                    "$ref": "ASHRAE229.schema.json#/definitions/InfiltrationMethodType"
                 },
                 "infiltration_schedule_name": {
                     "description": "Infiltration schedule name",
@@ -322,6 +334,19 @@
                 "Laboratory",
                 "Kitchen",
                 "Other"
+            ]
+        },
+        "InfiltrationMethodType": {
+            "type": "string",
+            "enum": [
+                "WEATHER_DRIVEN",
+                "PRESSURE_BASED",
+                "CONSTANT"
+            ],
+            "descriptions": [
+                "Weather Driven",
+                "Pressure Based",
+                "Constant"
             ]
         },
         "Surface": {
@@ -634,20 +659,59 @@
                 "Door"
             ]
         },
-        "InternalGainEquipment": {
+        "InteriorLighting": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique ID assigned to each interior lighting fixture(s) reported in an RMR",
+                    "type": "number",
+                    "exclusiveMinimum": 0.0
+                },
+                "name": {
+                    "description": "Interior lighting fixture name",
+                    "type": "string"
+                },
+                "space_type": {
+                    "description": "Lighting space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
+                    "notes": "The enumeration is based on the standard used."
+                },
+                "purpose_type": {
+                    "description": "Lighting space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingPurposeType2019ASHRAE901",
+                    "notes": "The enumeration is based on the standard used."
+                },
+                "power_per_area": {
+                    "description": "Total power for lights divided by the area of the space.",
+                    "type": "number",
+                    "units": "W/m2",
+                    "notes": "When computing the power per area use the area of the entire space."
+                },
+                "lighting_schedule_name": {
+                    "description": "Lighting schedule name",
+                    "type": "string"
+                },
+                "has_daylighting_control": {
+                    "description": "Includes daylighting controls",
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "MiscellaneousEquipment": {
             "type": "object",
             "properties": {
                 "energy_type": {
-                    "description": "Source of energy for the internal gain equipment",
+                    "description": "Source of energy for the miscelleous equipment in the space",
                     "$ref": "ASHRAE229.schema.json#/definitions/FuelTypeOptions"
                 },
                 "peak_usage": {
-                    "description": "Peak energy usage per hour by the internal gain equipment.",
+                    "description": "Peak energy usage per hour by the miscelleous equipment in the space.",
                     "type": "number",
                     "units": "W"
                 },
                 "schedule_name": {
-                    "description": "Internal gain schedule name",
+                    "description": "miscelleous equipment in the space schedule name",
                     "type": "string"
                 },
                 "sensible_fraction": {
@@ -1433,6 +1497,10 @@
         "ServiceWaterHeatingSystem": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
                 "loop_name": {
                     "description": "Name of service water heating system loop",
                     "type": "string"
@@ -1490,6 +1558,9 @@
                     "minimum": 0.0
                 }
             },
+            "required": [
+                "id"
+            ],
             "additionalProperties": false
         },
         "ServiceWaterHeatingEnteringWaterTemperatureInputOptions": {
@@ -1519,44 +1590,6 @@
                 "Natural gas",
                 "Other"
             ]
-        },
-        "InteriorLighting": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique ID assigned to each interior lighting fixture(s) reported in an RMR",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0
-                },
-                "name": {
-                    "description": "Interior lighting fixture name",
-                    "type": "string"
-                },
-                "space_type": {
-                    "description": "Lighting space type classification",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
-                    "notes": "The enumeration is based on the standard used."
-                },
-                "purpose_type": {
-                    "description": "Lighting space type classification",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingPurposeType2019ASHRAE901",
-                    "notes": "The enumeration is based on the standard used."
-                },
-                "power": {
-                    "description": "Total power for lights in the space.",
-                    "type": "number",
-                    "units": "W"
-                },
-                "lighting_schedule_name": {
-                    "description": "Lighting schedule name",
-                    "type": "string"
-                },
-                "has_daylighting_control": {
-                    "description": "Includes daylighting controls",
-                    "type": "boolean"
-                }
-            },
-            "additionalProperties": false
         },
         "ExteriorLighting": {
             "type": "object",
