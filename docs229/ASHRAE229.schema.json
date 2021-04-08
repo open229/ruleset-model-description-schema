@@ -50,6 +50,20 @@
                     },
                     "units": "degrees",
                     "notes": "List of angles that the building has been rotated."
+                },
+                "fluid_loops": {
+                    "description": "Fluid loops on the site",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/FluidLoop"
+                    },
+                    "notes": "Contains a list of fluid loops on the site."
+                },
+                "conditioning_components": {
+                    "description": "Links to all conditioning components used on the site",
+                    "type": "array",
+                    "items": {},
+                    "notes": "Contains a list of fluid loops on the site."
                 }
             },
             "additionalProperties": false
@@ -279,6 +293,11 @@
                 "space_function": {
                     "description": "Generic function for the space.",
                     "$ref": "ASHRAE229.schema.json#/definitions/SpaceFunctionType",
+                    "notes": "The enumeration is based on the standard used."
+                },
+                "lighting_space_type": {
+                    "description": "Lighting space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
                     "notes": "The enumeration is based on the standard used."
                 },
                 "ventilations_space_type": {
@@ -671,11 +690,6 @@
                     "description": "Interior lighting fixture name",
                     "type": "string"
                 },
-                "space_type": {
-                    "description": "Lighting space type classification",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
-                    "notes": "The enumeration is based on the standard used."
-                },
                 "purpose_type": {
                     "description": "Lighting space type classification",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingPurposeType2019ASHRAE901",
@@ -691,6 +705,10 @@
                     "description": "Lighting schedule name",
                     "type": "string"
                 },
+                "has_occupancy_control": {
+                    "description": "Indicates that the lighting has occupancy controls",
+                    "type": "boolean"
+                },
                 "has_daylighting_control": {
                     "description": "Includes daylighting controls",
                     "type": "boolean"
@@ -701,6 +719,15 @@
         "MiscellaneousEquipment": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique ID assigned to each interior miscellaneous equipment in an RMR",
+                    "type": "number",
+                    "exclusiveMinimum": 0.0
+                },
+                "name": {
+                    "description": "Miscellaneous equipment name",
+                    "type": "string"
+                },
                 "energy_type": {
                     "description": "Source of energy for the miscelleous equipment in the space",
                     "$ref": "ASHRAE229.schema.json#/definitions/FuelTypeOptions"
@@ -728,21 +755,29 @@
                     "maximum": 1.0,
                     "notes": "Sensible plus latent do not necessarily add up to 1.0."
                 },
-                "receptacle_control_credit_taken": {
-                    "description": "The receptacle control credit was taken",
-                    "type": "boolean"
+                "miscellaneous_equipment_type": {
+                    "description": "Type of miscellaneous equipment",
+                    "$ref": "ASHRAE229.schema.json#/definitions/MiscellaneousEquipmentType"
                 },
-                "receptacle_baseline_exception_taken": {
-                    "description": "The excpetion that receptacle power or schedule can be different in the baseline has been taken.",
+                "has_automatic_control": {
+                    "description": "Indicates that the receptacles have automatic controls",
                     "type": "boolean"
-                },
-                "receptacle_control_credit": {
-                    "description": "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit.",
-                    "type": "number",
-                    "minimum": 0.0
                 }
             },
             "additionalProperties": false
+        },
+        "MiscellaneousEquipmentType": {
+            "type": "string",
+            "enum": [
+                "PLUG",
+                "PROCESS",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Plug",
+                "Process",
+                "Other"
+            ]
         },
         "Transformer": {
             "type": "object",
@@ -1076,6 +1111,39 @@
                     "description": "Type of loop",
                     "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopTypeOptions"
                 },
+                "child_loops": {
+                    "description": "Other fluid loops connected to this one as children.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/FluidLoop"
+                    }
+                },
+                "cooling_or_condensing_design_and_control": {
+                    "description": "",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl"
+                },
+                "heating_design_and_control": {
+                    "description": "",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "FluidLoopDesignAndControl": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the fluid loop design and control.",
+                    "type": "string"
+                },
                 "design_supply_temperature": {
                     "description": "Design Supply Temperature",
                     "type": "number",
@@ -1089,6 +1157,10 @@
                 "is_sized_using_coincident_load": {
                     "description": "True if the loop is sized based on coincident load",
                     "type": "boolean"
+                },
+                "minimum_flow_fraction": {
+                    "description": "Minimum fraction of full flow allowed",
+                    "type": "number"
                 },
                 "temperature_reset_type": {
                     "description": "Type of temperature reset used by loop",
@@ -1113,11 +1185,6 @@
                     "description": "Loop supply temperature at outdoor low temperature",
                     "type": "number",
                     "units": "C"
-                },
-                "peak_heating_capacity": {
-                    "description": "Design capacity",
-                    "type": "number",
-                    "units": "W"
                 }
             },
             "required": [
@@ -1129,15 +1196,17 @@
         "FluidLoopTypeOptions": {
             "type": "string",
             "enum": [
-                "HOT_WATER",
-                "CHILLED_WATER",
-                "CONDENSER_WATER",
+                "HEATING",
+                "COOLING",
+                "HEATING_AND_COOLILNG",
+                "CONDENSER",
                 "OTHER"
             ],
             "descriptions": [
-                "Hot water",
-                "Chilled water",
-                "Condenser water",
+                "Heating",
+                "Cooling",
+                "Heating and cooling",
+                "Condenser",
                 "Other"
             ]
         },
@@ -1256,6 +1325,29 @@
                     "description": "Combustion option",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerCombustionOptions"
                 },
+                "annual_fuel_utilization_efficiency": {
+                    "description": "Annual fuel utilization efficiency (AFUE)",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "thermal_efficiency": {
+                    "description": "Thermal efficiency",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "combustion_efficiency": {
+                    "description": "Combustion efficiency",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "detailed_performance": {
+                    "description": "Detailed performance as specified in ASHRAE Standard 205",
+                    "type": "string",
+                    "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
+                },
                 "operation_lower_limit": {
                     "description": "Heating load range operation, lower limit",
                     "type": "number",
@@ -1295,13 +1387,18 @@
                     "description": "Name identifying chiller",
                     "type": "string"
                 },
-                "loop_name": {
-                    "description": "Fluid loop name",
+                "cooling_loop_name": {
+                    "description": "Cooling fluid loop name",
                     "type": "string"
                 },
-                "type": {
-                    "description": "Chiller Type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/ChillerTypeOptions"
+                "condensing_loop_name": {
+                    "description": "Condensing fluid loop name",
+                    "type": "string",
+                    "notes": "No condensing loop name implies air-cooled chiller."
+                },
+                "compressor_type": {
+                    "description": "Compressor Type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ChillerCompressorTypeOptions"
                 },
                 "design_capacity": {
                     "description": "Chiller Design Cooling Capacity",
@@ -1319,8 +1416,19 @@
                     "units": "L/s"
                 },
                 "full_load_efficiency": {
-                    "description": "Full Low Efficiency (COP)",
-                    "type": "number"
+                    "description": "Full Low Efficiency expressed as a coefficient of performance (COP)",
+                    "type": "number",
+                    "units": "W/W"
+                },
+                "integrated_part_load_value_efficiency": {
+                    "description": "Integrated part load value efficiency expressed as a coefficient of performance (COP)",
+                    "type": "number",
+                    "units": "W/W"
+                },
+                "detailed_performance": {
+                    "description": "Detailed performance as specified in ASHRAE Standard 205",
+                    "type": "string",
+                    "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
                 }
             },
             "required": [
@@ -1329,16 +1437,30 @@
             ],
             "additionalProperties": false
         },
-        "ChillerTypeOptions": {
+        "ChillerCompressorTypeOptions": {
             "type": "string",
             "enum": [
                 "SCREW",
                 "CENTRIFUGAL",
+                "RECIPROCATING",
+                "SCROLL",
+                "POSITIVE_DISPLACEMENT",
+                "SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION",
+                "DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION",
+                "SINGLE_EFFECT_DIRECT_FIRED_ABSORPTION",
+                "DOUBLE_EFFECT_DIRECT_FIRED_ABSORPTION",
                 "OTHER"
             ],
             "descriptions": [
                 "Screw",
                 "Centrifugal",
+                "Reciprocating",
+                "Scroll",
+                "Positive displacement",
+                "Single-effect indirect-fired absorption",
+                "Double-effect indirect-fired absorption",
+                "Single-effect direct-fired absorption",
+                "Double-effect direct-fired absorption",
                 "Other"
             ]
         },

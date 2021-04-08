@@ -59,6 +59,13 @@
 | `SKYLIGHT` | Skylight    |       |
 | `DOOR`     | Door        |       |
 
+# MiscellaneousEquipmentType
+| Enumerator | Description | Notes |
+|------------|-------------|-------|
+| `PLUG`     | Plug        |       |
+| `PROCESS`  | Process     |       |
+| `OTHER`    | Other       |       |
+
 # TransformerType
 |   Enumerator   | Description  | Notes |
 |----------------|--------------|-------|
@@ -84,12 +91,13 @@
 | `SATURDAY`  | Saturday    |       |
 
 # FluidLoopTypeOptions
-|    Enumerator     |   Description   | Notes |
-|-------------------|-----------------|-------|
-| `HOT_WATER`       | Hot water       |       |
-| `CHILLED_WATER`   | Chilled water   |       |
-| `CONDENSER_WATER` | Condenser water |       |
-| `OTHER`           | Other           |       |
+|       Enumerator       |     Description     | Notes |
+|------------------------|---------------------|-------|
+| `HEATING`              | Heating             |       |
+| `COOLING`              | Cooling             |       |
+| `HEATING_AND_COOLILNG` | Heating and cooling |       |
+| `CONDENSER`            | Condenser           |       |
+| `OTHER`                | Other               |       |
 
 # TemperatureResetTypeOptions
 |     Enumerator      |    Description    | Notes |
@@ -119,12 +127,19 @@
 | `NATURAL`  | Natural     |       |
 | `FORCED`   | Forced      |       |
 
-# ChillerTypeOptions
-|  Enumerator   | Description | Notes |
-|---------------|-------------|-------|
-| `SCREW`       | Screw       |       |
-| `CENTRIFUGAL` | Centrifugal |       |
-| `OTHER`       | Other       |       |
+# ChillerCompressorTypeOptions
+|                Enumerator                 |               Description               | Notes |
+|-------------------------------------------|-----------------------------------------|-------|
+| `SCREW`                                   | Screw                                   |       |
+| `CENTRIFUGAL`                             | Centrifugal                             |       |
+| `RECIPROCATING`                           | Reciprocating                           |       |
+| `SCROLL`                                  | Scroll                                  |       |
+| `POSITIVE_DISPLACEMENT`                   | Positive displacement                   |       |
+| `SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION` | Single-effect indirect-fired absorption |       |
+| `DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION` | Double-effect indirect-fired absorption |       |
+| `SINGLE_EFFECT_DIRECT_FIRED_ABSORPTION`   | Single-effect direct-fired absorption   |       |
+| `DOUBLE_EFFECT_DIRECT_FIRED_ABSORPTION`   | Double-effect direct-fired absorption   |       |
+| `OTHER`                                   | Other                                   |       |
 
 # HeatRejectionTypeOptions
 |  Enumerator   | Description | Notes |
@@ -172,15 +187,17 @@
 | `OTHER`       | Other       |       |
 
 # ASHRAE229
-|             Name             |                                           Description                                           |          Data Type           |  Units  | Range | Req |                                                                             Notes                                                                              |
-|------------------------------|-------------------------------------------------------------------------------------------------|------------------------------|---------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `transformers`               | Electrical transformers at the building site                                                    | `[{Transformer}]`            |         |       |     | Contains a list of transformers that convert electricity from a higher voltage to one used by the building, exterior lighting, and other services at the site. |
-| `buildings`                  | Buildings on the site                                                                           | `[{Building}]`               |         |       |     | Contains a list of buildings on the site (often just one).                                                                                                     |
-| `calendar`                   | Information on the calendar used with the simulation.                                           | `{Calendar}`                 |         |       |     |                                                                                                                                                                |
-| `schedules`                  | Schedules for internal loads, thermostats, equipment operation and control, and any other need. | `[{Schedule}]`               |         |       |     | Contains a list of schedules used in model.                                                                                                                    |
-| `weather`                    | Information on the local weather conditions used with the simulation.                           | `{Weather}`                  |         |       |     |                                                                                                                                                                |
-| `overall_simulation_outputs` | Outputs from the simluation summed for all buildings in the simulation.                         | `{OverallSimulationOutputs}` |         |       |     |                                                                                                                                                                |
-| `building_rotation_angles`   | A list of angles that building simulations are performed and results are provided.              | `[Numeric]`                  | degrees |       |     | List of angles that the building has been rotated.                                                                                                             |
+|             Name             |                                           Description                                           |                              Data Type                              |  Units  | Range | Req |                                                                             Notes                                                                              |
+|------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|---------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `transformers`               | Electrical transformers at the building site                                                    | `[{Transformer}]`                                                   |         |       |     | Contains a list of transformers that convert electricity from a higher voltage to one used by the building, exterior lighting, and other services at the site. |
+| `buildings`                  | Buildings on the site                                                                           | `[{Building}]`                                                      |         |       |     | Contains a list of buildings on the site (often just one).                                                                                                     |
+| `calendar`                   | Information on the calendar used with the simulation.                                           | `{Calendar}`                                                        |         |       |     |                                                                                                                                                                |
+| `schedules`                  | Schedules for internal loads, thermostats, equipment operation and control, and any other need. | `[{Schedule}]`                                                      |         |       |     | Contains a list of schedules used in model.                                                                                                                    |
+| `weather`                    | Information on the local weather conditions used with the simulation.                           | `{Weather}`                                                         |         |       |     |                                                                                                                                                                |
+| `overall_simulation_outputs` | Outputs from the simluation summed for all buildings in the simulation.                         | `{OverallSimulationOutputs}`                                        |         |       |     |                                                                                                                                                                |
+| `building_rotation_angles`   | A list of angles that building simulations are performed and results are provided.              | `[Numeric]`                                                         | degrees |       |     | List of angles that the building has been rotated.                                                                                                             |
+| `fluid_loops`                | Fluid loops on the site                                                                         | `[{FluidLoop}]`                                                     |         |       |     | Contains a list of fluid loops on the site.                                                                                                                    |
+| `conditioning_components`    | Links to all conditioning components used on the site                                           | `[{Pump},{Boiler},{Chiller},{HeatRejection}, {DistrictFluidMeter}]` |         |       |     | Contains a list of fluid loops on the site.                                                                                                                    |
 
 # Building
 |            Name            |                                                                  Description                                                                  |              Data Type              | Units |   Range   | Req |                                                                                                                   Notes                                                                                                                   |
@@ -233,6 +250,7 @@
 | `conditioning_type`                | Space conditioning category                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `<ConditioningType>`                          |       |       |     |                                                    |
 | `status_type`                      | Choice of new, existing, addition, or alteration.                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `<SpaceStatusType2019ASHRAE901>`              |       |       |     |                                                    |
 | `space_function`                   | Generic function for the space.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `<SpaceFunctionType>`                         |       |       |     | The enumeration is based on the standard used.     |
+| `lighting_space_type`              | Lighting space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `<LightingSpaceType2019ASHRAE901T951>`        |       |       |     | The enumeration is based on the standard used.     |
 | `ventilations_space_type`          | Ventilation space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `<VentilationSpaceType2019ASHRAE901>`         |       |       |     | The enumeration is based on the standard used.     |
 | `service_water_heating_space_type` | Service water heating space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `<ServiceWaterHeatingSpaceType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used.     |
 | `infiltration_modeling_method`     | The software methodology chosen for modeling infiltration                                                                                                                                                                                                                                                                                                                                                                                                                                               | `<InfiltrationMethodType>`                    |       |       |     |                                                    |
@@ -298,27 +316,28 @@
 | `has_automatic_shades`                  | Are there automatic interior shading such as blinds, curtains or shades                    | `Boolean`                              |        |       |     |                                                                                   |
 
 # InteriorLighting
-|           Name            |                                Description                                 |               Data Type                | Units | Range | Req |                                Notes                                |
-|---------------------------|----------------------------------------------------------------------------|----------------------------------------|-------|-------|-----|---------------------------------------------------------------------|
-| `id`                      | Unique ID assigned to each interior lighting fixture(s) reported in an RMR | `Numeric`                              |       | `>0`  |     |                                                                     |
-| `name`                    | Interior lighting fixture name                                             | `String`                               |       |       |     |                                                                     |
-| `space_type`              | Lighting space type classification                                         | `<LightingSpaceType2019ASHRAE901T951>` |       |       |     | The enumeration is based on the standard used.                      |
-| `purpose_type`            | Lighting space type classification                                         | `<LightingPurposeType2019ASHRAE901>`   |       |       |     | The enumeration is based on the standard used.                      |
-| `power_per_area`          | Total power for lights divided by the area of the space.                   | `Numeric`                              | W/m2  |       |     | When computing the power per area use the area of the entire space. |
-| `lighting_schedule_name`  | Lighting schedule name                                                     | `String`                               |       |       |     |                                                                     |
-| `has_daylighting_control` | Includes daylighting controls                                              | `Boolean`                              |       |       |     |                                                                     |
+|           Name            |                                Description                                 |              Data Type               | Units | Range | Req |                                Notes                                |
+|---------------------------|----------------------------------------------------------------------------|--------------------------------------|-------|-------|-----|---------------------------------------------------------------------|
+| `id`                      | Unique ID assigned to each interior lighting fixture(s) reported in an RMR | `Numeric`                            |       | `>0`  |     |                                                                     |
+| `name`                    | Interior lighting fixture name                                             | `String`                             |       |       |     |                                                                     |
+| `purpose_type`            | Lighting space type classification                                         | `<LightingPurposeType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used.                      |
+| `power_per_area`          | Total power for lights divided by the area of the space.                   | `Numeric`                            | W/m2  |       |     | When computing the power per area use the area of the entire space. |
+| `lighting_schedule_name`  | Lighting schedule name                                                     | `String`                             |       |       |     |                                                                     |
+| `has_occupancy_control`   | Indicates that the lighting has occupancy controls                         | `Boolean`                            |       |       |     |                                                                     |
+| `has_daylighting_control` | Includes daylighting controls                                              | `Boolean`                            |       |       |     |                                                                     |
 
 # MiscellaneousEquipment
-|                 Name                  |                                            Description                                             |      Data Type      | Units |  Range   | Req |                         Notes                          |
-|---------------------------------------|----------------------------------------------------------------------------------------------------|---------------------|-------|----------|-----|--------------------------------------------------------|
-| `energy_type`                         | Source of energy for the miscelleous equipment in the space                                        | `<FuelTypeOptions>` |       |          |     |                                                        |
-| `peak_usage`                          | Peak energy usage per hour by the miscelleous equipment in the space.                              | `Numeric`           | W     |          |     |                                                        |
-| `schedule_name`                       | miscelleous equipment in the space schedule name                                                   | `String`            |       |          |     |                                                        |
-| `sensible_fraction`                   | Fraction of energy that is a sensible load on the space.                                           | `Numeric`           |       | `≥0, ≤1` |     | Sensible plus latent do not necessarily add up to 1.0. |
-| `latent_fraction`                     | Fraction of energy that is a latent load on the space.                                             | `Numeric`           |       | `≥0, ≤1` |     | Sensible plus latent do not necessarily add up to 1.0. |
-| `receptacle_control_credit_taken`     | The receptacle control credit was taken                                                            | `Boolean`           |       |          |     |                                                        |
-| `receptacle_baseline_exception_taken` | The excpetion that receptacle power or schedule can be different in the baseline has been taken.   | `Boolean`           |       |          |     |                                                        |
-| `receptacle_control_credit`           | A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit. | `Numeric`           |       | `≥0`     |     |                                                        |
+|              Name              |                              Description                              |           Data Type            | Units |  Range   | Req |                         Notes                          |
+|--------------------------------|-----------------------------------------------------------------------|--------------------------------|-------|----------|-----|--------------------------------------------------------|
+| `id`                           | Unique ID assigned to each interior miscellaneous equipment in an RMR | `Numeric`                      |       | `>0`     |     |                                                        |
+| `name`                         | Miscellaneous equipment name                                          | `String`                       |       |          |     |                                                        |
+| `energy_type`                  | Source of energy for the miscelleous equipment in the space           | `<FuelTypeOptions>`            |       |          |     |                                                        |
+| `peak_usage`                   | Peak energy usage per hour by the miscelleous equipment in the space. | `Numeric`                      | W     |          |     |                                                        |
+| `schedule_name`                | miscelleous equipment in the space schedule name                      | `String`                       |       |          |     |                                                        |
+| `sensible_fraction`            | Fraction of energy that is a sensible load on the space.              | `Numeric`                      |       | `≥0, ≤1` |     | Sensible plus latent do not necessarily add up to 1.0. |
+| `latent_fraction`              | Fraction of energy that is a latent load on the space.                | `Numeric`                      |       | `≥0, ≤1` |     | Sensible plus latent do not necessarily add up to 1.0. |
+| `miscellaneous_equipment_type` | Type of miscellaneous equipment                                       | `<MiscellaneousEquipmentType>` |       |          |     |                                                        |
+| `has_automatic_control`        | Indicates that the receptacles have automatic controls                | `Boolean`                      |       |          |     |                                                        |
 
 # Transformer
 |     Name     |                 Description                  |      Data Type      | Units |  Range   | Req |                                                      Notes                                                      |
@@ -387,20 +406,29 @@
 | `heat_output_capacity`          | Result from the simulation of the heating capacity          | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
 
 # FluidLoop
-|                       Name                       |                                  Description                                   |            Data Type            | Units | Range | Req | Notes |
-|--------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------|-------|-------|-----|-------|
-| `id`                                             | Unique Identification Number                                                   | `Numeric`                       |       |       | ✓   |       |
-| `name`                                           | Name of the fluid loop connecting primary and secondary equipment in the plant | `String`                        |       |       | ✓   |       |
-| `type`                                           | Type of loop                                                                   | `<FluidLoopTypeOptions>`        |       |       |     |       |
-| `design_supply_temperature`                      | Design Supply Temperature                                                      | `Numeric`                       | C     |       |     |       |
-| `design_return_temperature`                      | Design Return Temperature                                                      | `Numeric`                       | C     |       |     |       |
-| `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load                             | `Boolean`                       |       |       |     |       |
-| `temperature_reset_type`                         | Type of temperature reset used by loop                                         | `<TemperatureResetTypeOptions>` |       |       |     |       |
-| `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset                                        | `Numeric`                       | C     |       |     |       |
-| `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset                                         | `Numeric`                       | C     |       |     |       |
-| `loop_supply_temperature_at_outdoor_high`        | Loop supply temperature at outdoor high temperature                            | `Numeric`                       | C     |       |     |       |
-| `loop_supply_temperature_at_outdoor_low`         | Loop supply temperature at outdoor low temperature                             | `Numeric`                       | C     |       |     |       |
-| `peak_heating_capacity`                          | Design capacity                                                                | `Numeric`                       | W     |       |     |       |
+|                    Name                    |                                  Description                                   |           Data Type           | Units | Range | Req | Notes |
+|--------------------------------------------|--------------------------------------------------------------------------------|-------------------------------|-------|-------|-----|-------|
+| `id`                                       | Unique Identification Number                                                   | `Numeric`                     |       |       | ✓   |       |
+| `name`                                     | Name of the fluid loop connecting primary and secondary equipment in the plant | `String`                      |       |       | ✓   |       |
+| `type`                                     | Type of loop                                                                   | `<FluidLoopTypeOptions>`      |       |       |     |       |
+| `child_loops`                              | Other fluid loops connected to this one as children.                           | `[{FluidLoop}]`               |       |       |     |       |
+| `cooling_or_condensing_design_and_control` |                                                                                | `{FluidLoopDesignAndControl}` |       |       |     |       |
+| `heating_design_and_control`               |                                                                                | `{FluidLoopDesignAndControl}` |       |       |     |       |
+
+# FluidLoopDesignAndControl
+|                       Name                       |                     Description                     |            Data Type            | Units | Range | Req | Notes |
+|--------------------------------------------------|-----------------------------------------------------|---------------------------------|-------|-------|-----|-------|
+| `id`                                             | Unique Identification Number                        | `Numeric`                       |       |       | ✓   |       |
+| `name`                                           | Name of the fluid loop design and control.          | `String`                        |       |       | ✓   |       |
+| `design_supply_temperature`                      | Design Supply Temperature                           | `Numeric`                       | C     |       |     |       |
+| `design_return_temperature`                      | Design Return Temperature                           | `Numeric`                       | C     |       |     |       |
+| `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load  | `Boolean`                       |       |       |     |       |
+| `minimum_flow_fraction`                          | Minimum fraction of full flow allowed               | `Numeric`                       |       |       |     |       |
+| `temperature_reset_type`                         | Type of temperature reset used by loop              | `<TemperatureResetTypeOptions>` |       |       |     |       |
+| `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset             | `Numeric`                       | C     |       |     |       |
+| `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset              | `Numeric`                       | C     |       |     |       |
+| `loop_supply_temperature_at_outdoor_high`        | Loop supply temperature at outdoor high temperature | `Numeric`                       | C     |       |     |       |
+| `loop_supply_temperature_at_outdoor_low`         | Loop supply temperature at outdoor low temperature  | `Numeric`                       | C     |       |     |       |
 
 # Pump
 |          Name           |                       Description                       |          Data Type          | Units |  Range   | Req | Notes |
@@ -416,27 +444,34 @@
 | `is_variable_speed`     | True if variable speed drive such a VFD                 | `Boolean`                   |       |          |     |       |
 
 # Boiler
-|          Name           |                Description                |          Data Type          | Units | Range | Req | Notes |
-|-------------------------|-------------------------------------------|-----------------------------|-------|-------|-----|-------|
-| `id`                    | Unique Identification Number              | `Numeric`                   |       |       | ✓   |       |
-| `name`                  | Name identifying boiler                   | `String`                    |       |       | ✓   |       |
-| `loop_name`             | Fluid loop name                           | `String`                    |       |       |     |       |
-| `design_capacity`       | Heating capacity                          | `Numeric`                   | W     |       |     |       |
-| `draft_type`            | Combustion option                         | `<BoilerCombustionOptions>` |       |       |     |       |
-| `operation_lower_limit` | Heating load range operation, lower limit | `Numeric`                   | W     |       |     |       |
-| `operation_upper_limit` | Heating load range operation, upper limit | `Numeric`                   | W     |       |     |       |
+|                 Name                 |                       Description                        |          Data Type          | Units |  Range   | Req |                              Notes                               |
+|--------------------------------------|----------------------------------------------------------|-----------------------------|-------|----------|-----|------------------------------------------------------------------|
+| `id`                                 | Unique Identification Number                             | `Numeric`                   |       |          | ✓   |                                                                  |
+| `name`                               | Name identifying boiler                                  | `String`                    |       |          | ✓   |                                                                  |
+| `loop_name`                          | Fluid loop name                                          | `String`                    |       |          |     |                                                                  |
+| `design_capacity`                    | Heating capacity                                         | `Numeric`                   | W     |          |     |                                                                  |
+| `draft_type`                         | Combustion option                                        | `<BoilerCombustionOptions>` |       |          |     |                                                                  |
+| `annual_fuel_utilization_efficiency` | Annual fuel utilization efficiency (AFUE)                | `Numeric`                   |       | `≥0, ≤1` |     |                                                                  |
+| `thermal_efficiency`                 | Thermal efficiency                                       | `Numeric`                   |       | `≥0, ≤1` |     |                                                                  |
+| `combustion_efficiency`              | Combustion efficiency                                    | `Numeric`                   |       | `≥0, ≤1` |     |                                                                  |
+| `detailed_performance`               | Detailed performance as specified in ASHRAE Standard 205 | `String`                    |       |          |     | Reserved for referencing after ASHRAE Standard 205 is published. |
+| `operation_lower_limit`              | Heating load range operation, lower limit                | `Numeric`                   | W     |          |     |                                                                  |
+| `operation_upper_limit`              | Heating load range operation, upper limit                | `Numeric`                   | W     |          |     |                                                                  |
 
 # Chiller
-|           Name           |           Description           |       Data Type        | Units | Range | Req | Notes |
-|--------------------------|---------------------------------|------------------------|-------|-------|-----|-------|
-| `id`                     | Unique Identification Number    | `Numeric`              |       |       | ✓   |       |
-| `name`                   | Name identifying chiller        | `String`               |       |       | ✓   |       |
-| `loop_name`              | Fluid loop name                 | `String`               |       |       |     |       |
-| `type`                   | Chiller Type                    | `<ChillerTypeOptions>` |       |       |     |       |
-| `design_capacity`        | Chiller Design Cooling Capacity | `Numeric`              | W     |       |     |       |
-| `design_flow_evaporator` | Chiller evaporator design flow  | `Numeric`              | L/s   |       |     |       |
-| `design_flow_condenser`  | Chiller condenser design flow   | `Numeric`              | L/s   |       |     |       |
-| `full_load_efficiency`   | Full Low Efficiency (COP)       | `Numeric`              |       |       |     |       |
+|                  Name                   |                                      Description                                      |            Data Type             | Units | Range | Req |                              Notes                               |
+|-----------------------------------------|---------------------------------------------------------------------------------------|----------------------------------|-------|-------|-----|------------------------------------------------------------------|
+| `id`                                    | Unique Identification Number                                                          | `Numeric`                        |       |       | ✓   |                                                                  |
+| `name`                                  | Name identifying chiller                                                              | `String`                         |       |       | ✓   |                                                                  |
+| `cooling_loop_name`                     | Cooling fluid loop name                                                               | `String`                         |       |       |     |                                                                  |
+| `condensing_loop_name`                  | Condensing fluid loop name                                                            | `String`                         |       |       |     | No condensing loop name implies air-cooled chiller.              |
+| `compressor_type`                       | Compressor Type                                                                       | `<ChillerCompressorTypeOptions>` |       |       |     |                                                                  |
+| `design_capacity`                       | Chiller Design Cooling Capacity                                                       | `Numeric`                        | W     |       |     |                                                                  |
+| `design_flow_evaporator`                | Chiller evaporator design flow                                                        | `Numeric`                        | L/s   |       |     |                                                                  |
+| `design_flow_condenser`                 | Chiller condenser design flow                                                         | `Numeric`                        | L/s   |       |     |                                                                  |
+| `full_load_efficiency`                  | Full Low Efficiency expressed as a coefficient of performance (COP)                   | `Numeric`                        | W/W   |       |     |                                                                  |
+| `integrated_part_load_value_efficiency` | Integrated part load value efficiency expressed as a coefficient of performance (COP) | `Numeric`                        | W/W   |       |     |                                                                  |
+| `detailed_performance`                  | Detailed performance as specified in ASHRAE Standard 205                              | `String`                         |       |       |     | Reserved for referencing after ASHRAE Standard 205 is published. |
 
 # HeatRejection
 |             Name             |                Description                |                Data Type                | Units | Range | Req |      Notes       |
