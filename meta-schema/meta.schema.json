@@ -182,7 +182,8 @@
         "kWh",
         "m3",
         "hr",
-        "J"
+        "J",
+        "W/W"
       ]
     },
     "RatingUnits": {

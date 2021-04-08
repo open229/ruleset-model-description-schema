@@ -997,6 +997,22 @@ Boiler:
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
+    annual_fuel_utilization_efficiency:
+      Description: "Annual fuel utilization efficiency (AFUE)"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+    thermal_efficiency:
+      Description: "Thermal efficiency"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+    combustion_efficiency:
+      Description: "Combustion efficiency"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+    detailed_performance:
+      Description: "Detailed performance as specified in ASHRAE Standard 205"
+      Data Type: "String"
+      Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
     operation_lower_limit:
       Description: "Heating load range operation, lower limit"
       Data Type: "Numeric"
@@ -1025,12 +1041,16 @@ Chiller:
       Description: "Name identifying chiller"
       Data Type: "String"
       Required: True
-    loop_name:
-      Description: "Fluid loop name"
+    cooling_loop_name:
+      Description: "Cooling fluid loop name"
       Data Type: "String"
-    type:
-      Description: "Chiller Type"
-      Data Type: "<ChillerTypeOptions>"
+    condensing_loop_name:
+      Description: "Condensing fluid loop name"
+      Data Type: "String"
+      Notes: "No condensing loop name implies air-cooled chiller."
+    compressor_type:
+      Description: "Compressor Type"
+      Data Type: "<ChillerCompressorTypeOptions>"
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
@@ -1044,16 +1064,39 @@ Chiller:
       Data Type: "Numeric"
       Units: "L/s"
     full_load_efficiency:
-      Description: "Full Low Efficiency (COP)"
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
+      Units: "W/W"
+    integrated_part_load_value_efficiency:
+      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
+      Data Type: "Numeric"
+      Units: "W/W"
+    detailed_performance:
+      Description: "Detailed performance as specified in ASHRAE Standard 205"
+      Data Type: "String"
+      Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
 
-ChillerTypeOptions:
+ChillerCompressorTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
     SCREW:
       Description: "Screw"
     CENTRIFUGAL:
       Description: "Centrifugal"
+    RECIPROCATING:
+      Description: "Reciprocating"
+    SCROLL:
+      Description: "Scroll"
+    POSITIVE_DISPLACEMENT:
+      Description: "Positive displacement"
+    SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
+      Description: "Single-effect indirect-fired absorption"
+    DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
+      Description: "Double-effect indirect-fired absorption"
+    SINGLE_EFFECT_DIRECT_FIRED_ABSORPTION:
+      Description: "Single-effect direct-fired absorption"
+    DOUBLE_EFFECT_DIRECT_FIRED_ABSORPTION:
+      Description: "Double-effect direct-fired absorption"
     OTHER:
       Description: "Other"
 
