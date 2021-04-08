@@ -93,6 +93,10 @@ ASHRAE229:
       Description: "Fluid loops on the site"
       Data Type: "[{FluidLoop}]"
       Notes: "Contains a list of fluid loops on the site."
+    conditioning_components:
+      Description: "Links to all conditioning components used on the site"
+      Data Type: "[{Pump},{Boiler},{Chiller},{HeatRejection}, {DistrictFluidMeter}]"
+      Notes: "Contains a list of fluid loops on the site."
 
 Building:
   Object Type: "Data Group"
@@ -1187,7 +1191,6 @@ HeatRejectionFanSpeedControlOptions:
     OTHER:
       Description: "Other"
 
-
 DistrictFluidMeter:
   Object Type: "Data Group"
   Data Elements:
@@ -1374,7 +1377,6 @@ ExteriorLighting:
       Data Type: "Numeric"
       Range: ">0"
 
-
 Refrigeration:
   Object Type: "Data Group"
   Data Elements:
@@ -1422,13 +1424,3 @@ OverallSimulationOutputs:
       Data Type: "Numeric"
       Units: "J" # use MMBTU for IP units
       Range: ">=0"
-
-
-
-
-
-
-
-
-
-
