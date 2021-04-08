@@ -89,7 +89,10 @@ ASHRAE229:
       Data Type: "[Numeric]"
       Units: "degrees"
       Notes: "List of angles that the building has been rotated."
-    
+    fluid_loops:
+      Description: "Fluid loops on the site"
+      Data Type: "[{FluidLoop}]"
+      Notes: "Contains a list of fluid loops on the site."
 
 Building:
   Object Type: "Data Group"
@@ -835,6 +838,28 @@ FluidLoop:
     type:
       Description: "Type of loop"
       Data Type: "<FluidLoopTypeOptions>"
+    child_loops: 
+      Description: "Other fluid loops connected to this one as children."
+      Data Type: "[{FluidLoop}]"
+    cooling_or_condensing_design_and_control:
+      Description: ""
+      Data Type: "{FluidLoopDesignAndControl}"
+    heating_design_and_control:
+      Description: ""
+      Data Type: "{FluidLoopDesignAndControl}"
+    
+
+FluidLoopDesignAndControl:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the fluid loop design and control."
+      Data Type: "String"
+      Required: True
     design_supply_temperature:
       Description: "Design Supply Temperature"
       Data Type: "Numeric"
@@ -846,6 +871,9 @@ FluidLoop:
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
+    minimum_flow_fraction:
+      Description: "Minimum fraction of full flow allowed"
+      Data Type: "Numeric"
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
       Data Type: "<TemperatureResetTypeOptions>"
@@ -865,20 +893,18 @@ FluidLoop:
       Description: "Loop supply temperature at outdoor low temperature"
       Data Type: "Numeric"
       Units: "C"
-    peak_heating_capacity:
-      Description: "Design capacity"
-      Data Type: "Numeric"
-      Units: "W"
 
 FluidLoopTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
-    HOT_WATER:
-      Description: "Hot water"
-    CHILLED_WATER:
-      Description: "Chilled water"
-    CONDENSER_WATER:
-      Description: "Condenser water"
+    HEATING:
+      Description: "Heating"
+    COOLING:
+      Description: "Cooling"
+    HEATING_AND_COOLILNG:
+      Description: "Heating and cooling"
+    CONDENSER:
+      Description: "Condenser"
     OTHER:
       Description: "Other"
 
