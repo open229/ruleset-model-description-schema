@@ -237,6 +237,10 @@ Space:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionType>"
       Notes: "The enumeration is based on the standard used."
+    lighting_space_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
+      Notes: "The enumeration is based on the standard used."
     ventilations_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceType2019ASHRAE901>"
@@ -528,10 +532,6 @@ InteriorLighting:
     name:
       Description: "Interior lighting fixture name"
       Data Type: "String"
-    space_type:
-      Description: "Lighting space type classification"
-      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
-      Notes: "The enumeration is based on the standard used."
     purpose_type:
       Description: "Lighting space type classification"
       Data Type: "<LightingPurposeType2019ASHRAE901>"
@@ -544,6 +544,9 @@ InteriorLighting:
     lighting_schedule_name:
       Description: "Lighting schedule name"
       Data Type: "String"
+    has_occupancy_control:
+      Description: "Indicates that the lighting has occupancy controls"
+      Data Type: "Boolean"
     has_daylighting_control:
       Description: "Includes daylighting controls"
       Data Type: "Boolean"
@@ -551,6 +554,13 @@ InteriorLighting:
 MiscellaneousEquipment:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique ID assigned to each interior miscellaneous equipment in an RMR"
+      Data Type: "Numeric"
+      Range: ">0"
+    name:
+      Description: "Miscellaneous equipment name"
+      Data Type: "String"
     energy_type:
       Description: "Source of energy for the miscelleous equipment in the space"
       Data Type: "<FuelTypeOptions>"
@@ -571,16 +581,22 @@ MiscellaneousEquipment:
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Sensible plus latent do not necessarily add up to 1.0."
-    receptacle_control_credit_taken:
-      Description: "The receptacle control credit was taken"
+    miscellaneous_equipment_type:
+      Description: "Type of miscellaneous equipment"
+      Data Type: "<MiscellaneousEquipmentType>"
+    has_automatic_control:
+      Description: "Indicates that the receptacles have automatic controls"
       Data Type: "Boolean"
-    receptacle_baseline_exception_taken:
-      Description: "The excpetion that receptacle power or schedule can be different in the baseline has been taken."
-      Data Type: "Boolean"
-    receptacle_control_credit:
-      Description: "A multiplier for the fraction of space plug load power applied tothe receptacle controlled credit."
-      Data Type: "Numeric"
-      Range: ">=0"
+
+MiscellaneousEquipmentType:
+  Object Type: "Enumeration"
+  Enumerators:
+    PLUG:
+      Description: "Plug"
+    PROCESS:
+      Description: "Process"
+    OTHER:
+      Description: "Other"
 
 Transformer:
   Object Type: "Data Group"
