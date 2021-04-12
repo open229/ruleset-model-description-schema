@@ -168,7 +168,7 @@ BuildingSegment:
       Notes: "The enumeration is based on the standard used."
     lighting_building_area_type:
       Description: "Building area lighting area type"
-      Data Type: "<LightingSpaceType2019ASHRAE901T961>"
+      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
 
 ThermalBlock:
   Object Type: "Data Group"

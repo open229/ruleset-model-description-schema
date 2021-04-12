@@ -86,6 +86,9 @@ LightingSpaceType2019ASHRAE901T951:
       Description: "Warehouse"
     WORKSHOP:
       Description: "Workshop"
+    NONE:
+      Description: "None"
+      Notes: "Indicates that building area method is not used and instead the space-by-space method is used."
 
 LightingSpaceType2019ASHRAE901T961:
   # Table 9.6.1 Space Types  
