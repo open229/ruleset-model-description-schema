@@ -168,7 +168,7 @@ BuildingSegment:
       Notes: "The enumeration is based on the standard used."
     lighting_building_area_type:
       Description: "Building area lighting area type"
-      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
+      Data Type: "<LightingSpaceType2019ASHRAE901T951TG38>"
 
 ThermalBlock:
   Object Type: "Data Group"
@@ -254,7 +254,7 @@ Space:
       Notes: "The enumeration is based on the standard used."
     lighting_space_type:
       Description: "Lighting space type classification"
-      Data Type: "<LightingSpaceType2019ASHRAE901T951>"
+      Data Type: "<LightingSpaceType2019ASHRAE901TG37>"
       Notes: "The enumeration is based on the standard used."
     ventilations_space_type:
       Description: "Ventilation space type classification"
@@ -823,13 +823,13 @@ HeatingVentilationAirConditioningSystem:
     reheat_loop_name:
       Description: "Reheat fluid loop name"
       Data Type: "String"
-    sensible_cool_output_capacity: 
+    simulation_result_sensible_cool_capacity: 
       Description: "Result from the simulation of the sensible cooling capacity"
       Data Type: "[Numeric]"
       Range: ">=0"
       Units: "W/m2"
       Notes: "If multiple values are provided, they correspond to rotated building orientations"
-    heat_output_capacity:
+    simulation_result_heat_capacity:
       Description: "Result from the simulation of the heating capacity"
       Data Type: "[Numeric]"
       Range: ">=0"

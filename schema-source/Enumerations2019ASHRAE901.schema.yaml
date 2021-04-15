@@ -18,8 +18,10 @@ CompliancePathType2019ASHRAE901:
     BEYOND_CODE:
       Description: "Beyond Code"
 
-LightingSpaceType2019ASHRAE901T951:
-  # Table 9.5.1 Building Area Types  
+LightingSpaceType2019ASHRAE901T951TG38:
+  # Table 9.5.1 Building Area Types
+  # Table G3.8 Performance Rating Method Lighting Power Densities Using the Building Area Method
+  # These two tables have the same enumerations but different values.
   Object Type: "Enumeration"
   Enumerators:
     AUTOMOTIVE_FACILITY:
@@ -90,18 +92,22 @@ LightingSpaceType2019ASHRAE901T951:
       Description: "None"
       Notes: "Indicates that building area method is not used and instead the space-by-space method is used."
 
-LightingSpaceType2019ASHRAE901T961:
-  # Table 9.6.1 Space Types  
+LightingSpaceType2019ASHRAE901TG37:
+  # Table G3.7 Performance Rating Method Lighting Power Density Allowances and
+  # Occupancy Sensor Reductions Using the Space-by-Space Method
+  # Note: the list of space types is slighlty different than table Table 9.6.1
   Object Type: "Enumeration"
   Enumerators:
-    ATRIUM_LOW:
-      Description: "Atrium - Low"
-    ATRIUM_MEDIUM:
-      Description: "Atrium - Medium"
+    ATRIUM_LOW_MEDIUM:
+      Description: "Atrium - Low/Medium"
     ATRIUM_HIGH:
       Description: "Atrium - High"
     AUDIENCE_SEATING_AREA_AUDITORIUM:
       Description: "Audience Seating Area - Auditorium"
+    AUDIENCE_SEATING_AREA_CONVENTION_CENTER:
+      Description: "Audience Seating Area - Convention center"
+    AUDIENCE_SEATING_AREA_EXERCISE_CENTER:
+      Description: "Audience Seating Area - Excercise center"
     AUDIENCE_SEATING_AREA_GYMNASIUM:
       Description: "Audience Seating Area - Gymnasium"
     AUDIENCE_SEATING_AREA_MOTION_PICTURE_THEATER:
@@ -114,12 +120,17 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Audience Seating Area - Religious facility"
     AUDIENCE_SEATING_AREA_SPORTS_ARENA:
       Description: "Audience Seating Area - Sports arena"
+    AUDIENCE_SEATING_AREA_TRANSPORTATION_FACILITY:
+      Description: "Audience Seating Area - Transportation facility"
     AUDIENCE_SEATING_AREA_ALL_OTHER:
       Description: "Audience Seating Area - All other"
     BANKING_ACTIVITY_AREA:
       Description: "Banking Activity Area"
     CLASSROOM_LECTURE_HALL_TRAINING_ROOM_PENITENTIARY:
       Description: "Classroom/Lecture Hall/Training Room - Penitentiary"
+    CLASSROOM_LECTURE_HALL_TRAINING_ROOM_SCHOOL:
+      Description: "Classroom/Lecture Hall/Training Room - School"
+      Notes: "Preschool through 12th grade, laboratory, and shop classrooms"
     CLASSROOM_LECTURE_HALL_TRAINING_ROOM_ALL_OTHER:
       Description: "Classroom/Lecture Hall/Training Room - All other"
     CONFERENCE_MEETING_MULTIPURPOSE_ROOM:
@@ -132,6 +143,8 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Corridor - Facility for the visually impaired (and not used primarily by the staff)"
     CORRIDOR_HOSPITAL:
       Description: "Corridor - Hospital"
+    CORRIDOR_MANUFACTURING_FACILITY:
+      Description: "Corridor - Manufacturing facility"
     CORRIDOR_ALL_OTHERS:
       Description: "Corridor - All others"
     COURT_ROOM:
@@ -158,6 +171,10 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Food Preparation Area"
     GUEST_ROOM:
       Description: "Guest Room"
+    JUDGES_CHAMBERS:
+      Description: "Judges Chambers"
+    DWELLING_UNIT:
+      Description: "Dwelling Unit"
     LABORATORY_IN_OR_AS_A_CLASSROOM:
       Description: "Laboratory - In or as a classroom"
     LABORATORY_ALL_OTHERS:
@@ -184,10 +201,8 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Lounge/Breakroom - Health care facility"
     LOUNGE_BREAKROOM_ALL_OTHERS:
       Description: "Lounge/Breakroom - All others"
-    OFFICE_ENCLOSED_AND_SMALL:
-      Description: "Office - Enclosed and small"
-    OFFICE_ENCLOSED_AND_LARGE:
-      Description: "Office - Enclosed and large"
+    OFFICE_ENCLOSED:
+      Description: "Office - Enclosed"
     OFFICE_OPEN_PLAN:
       Description: "Office - Open plan"
     PARKING_AREA_INTERIOR:
@@ -202,10 +217,10 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Sales Area"
     SEATING_AREA_GENERAL:
       Description: "Seating Area, General"
-    STAIRWAY:
-      Description: "Stairway"
     STAIRWELL:
       Description: "Stairwell"
+    STORAGE_ROOM_HOSPITAL:
+      Description: "Storage Room - Hospital"
     STORAGE_ROOM_SMALL:
       Description: "Storage Room - Small"
     STORAGE_ROOM_LARGE:
@@ -214,10 +229,10 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Vehicular Maintenance Area"
     WORKSHOP:
       Description: "Workshop"
-    FACILITY_FOR_THE_VISUALLY_IMPAIRED_CHAPEL:
-      Description: "Facility for the Visually Impaired - Chapel (used primarily by residents)"
-    FACILITY_FOR_THE_VISUALLY_IMPAIRED_RECREATION_ROOM_COMMON_LIVING_ROOM:
-      Description: "Facility for the Visually Impaired - Recreatio nroom/common living room (and not used primarily by staff)"
+    ASSISTED_LIVING_FACILITY_CHAPEL:
+      Description: "Assisted Living Facility - Chapel (used primarily by residents)"
+    ASSISTED_LIVING_FACILITY_RECREATION_ROOM_COMMON_LIVING_ROOM:
+      Description: "Assisted Living Facility - Recreation room/common living room (and not used primarily by staff)"
     CONVENTION_CENTER_EXHIBIT_SPACE:
       Description: "Convention Center — Exhibit Space"
     DORMITORY_LIVING_QUARTERS:
@@ -228,10 +243,10 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Gymnasium/Fitness Center - Exercise area"
     GYMNASIUM_FITNESS_CENTER_PLAYING_AREA:
       Description: "Gymnasium/Fitness Center - Playing area"
+    HEALTHCARE_FACILITY_EMERGENCY_ROOM:
+      Description: "Healthcare Facility - Emergency Room"
     HEALTHCARE_FACILITY_EXAM_TREATMENT_ROOM:
       Description: "Healthcare Facility - Exam/treatment room"
-    HEALTHCARE_FACILITY_IMAGING_ROOM:
-      Description: "Healthcare Facility - Imaging room"
     HEALTHCARE_FACILITY_MEDICAL_SUPPLY_ROOM:
       Description: "Healthcare Facility - Medical supply room"
     HEALTHCARE_FACILITY_NURSERY:
@@ -264,8 +279,6 @@ LightingSpaceType2019ASHRAE901T961:
       Description: "Museum - General exhibition area"
     MUSEUM_RESTORATION_ROOM:
       Description: "Museum - Restoration room"
-    PERFORMING_ARTS_THEATER_DRESSING_ROOM:
-      Description: "Performing Arts Theater — Dressing Room"
     POST_OFFICE_SORTING_AREA:
       Description: "Post Office — Sorting Area"
     RELIGIOUS_FACILITY_FELLOWSHIP_HALL:
