@@ -173,6 +173,14 @@ BuildingSegment:
 ThermalBlock:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the thermal block"
+      Data Type: "String"
+      Required: True
     zones:
       Description: "Zones in the building"
       Data Type: "[{Zone}]"
