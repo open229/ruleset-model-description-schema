@@ -886,6 +886,9 @@ FluidLoopDesignAndControl:
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
+    operation:
+      Description: "Type of operation used by loop"
+      Data Type: "<FluidLoopOperationOptions>"
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
       Data Type: "<TemperatureResetTypeOptions>"
@@ -913,7 +916,7 @@ FluidLoopTypeOptions:
       Description: "Heating"
     COOLING:
       Description: "Cooling"
-    HEATING_AND_COOLILNG:
+    HEATING_AND_COOLING:
       Description: "Heating and cooling"
     CONDENSER:
       Description: "Condenser"
@@ -934,6 +937,15 @@ TemperatureResetTypeOptions:
     OTHER:
       Description: "Other"
 
+FluidLoopOperationOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONTINUOUS:
+      Description: "Continuous"
+    INTERMITTENT:
+      Description: "Intermittent"
+
+
 Pump:
   Object Type: "Data Group"
   Data Elements:
@@ -948,20 +960,40 @@ Pump:
     loop_name:
       Description: "Fluid loop name"
       Data Type: "String"
+    specification_method:
+      Description: "Options for how the pump is specified"
+      Data Type: "<PumpSpecificationMethodOptions>"
     power:
       Description: "Pump power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "Only used when specification_method is set to Simple"
+    motor_nameplate_power:
+      Description: "Pump motor nameplate power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Only used when specification_method is set to Detailed"
+    design_head:
+      Description: "Head of the pump at design flow conditions"
+      Data Type: "Numeric"
+      Units: "m"
+      Notes: "Only used when specification_method is set to Detailed"
+    impelllor_efficiency:
+      Description: "Full load efficiency of the impellor"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Only used when specification_method is set to Detailed"
+    motor_efficiency:
+      Description: "Full load efficiency of the pump motor"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Only used when specification_method is set to Detailed"
     speed_control:
       Description: "Options for pump speed control"
       Data Type: "<PumpSpeedControlOptions>"
     flow_control:
       Description: "Flow control options"
       Data Type: "<PumpFlowControlOptions>"
-    minimum_flow_fraction:
-      Description: "Minimum pump flow turndown as a fraction of design flow"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
     design_flow:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
@@ -981,6 +1013,16 @@ PumpSpeedControlOptions:
       Description: "Variable speed"
 
 PumpFlowControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    SIMPLE:
+      Description: "Simple"
+      Notes: "Specify the electric power input of pump"
+    DETAILED:
+      Description: "Detailed"
+      Notes: "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
+
+PumpSpecificationMethodOptions:
   Object Type: "Enumeration"
   Enumerators:
     FIXED_FLOW:
@@ -1006,25 +1048,32 @@ Boiler:
       Description: "Heating capacity"
       Data Type: "Numeric"
       Units: "W"
+    minimum_load_ratio:
+      Description: "Minimum fraction of full load allowed"
+      Data Type: "Numeric"
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
-    annual_fuel_utilization_efficiency:
+    efficiency_metric_type:
+      Description: "The type of efficiency metric used"
+      Data Type: "<BoilerEfficiencyMetricTypeOptions>"
+    efficiency_metric:
       Description: "Annual fuel utilization efficiency (AFUE)"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-    thermal_efficiency:
-      Description: "Thermal efficiency"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
-    combustion_efficiency:
-      Description: "Combustion efficiency"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Notes: "Enter the efficiency value based on the selected efficiency_metric_type"
     detailed_performance:
       Description: "Detailed performance as specified in ASHRAE Standard 205"
-      Data Type: "String"
+      Data Type: "UUID"
       Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
+    part_load_performance_curve:
+      Description: "Part load performanc curve"
+      Data Type: "{PartLoadPerformanceCurve}"
+    auxiliary_power:
+      Description: "Auxiliary power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates."
     operation_lower_limit:
       Description: "Heating load range operation, lower limit"
       Data Type: "Numeric"
@@ -1041,6 +1090,16 @@ BoilerCombustionOptions:
       Description: "Natural"
     FORCED:
       Description: "Forced"
+
+BoilerEfficiencyMetricTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    ANNUAL_FUEL_UTILIZATION:
+      Description: "Annual fuel utilization efficiency"
+    THERMAL:
+      Description: "Thermal efficiency"
+    COMBUSION:
+      Description: "Combustion efficiency"
 
 Chiller:
   Object Type: "Data Group"
@@ -1067,6 +1126,9 @@ Chiller:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
       Units: "W"
+    minimum_load_ratio:
+      Description: "Minimum fraction of full load allowed"
+      Data Type: "Numeric"
     design_flow_evaporator:
       Description: "Chiller evaporator design flow"
       Data Type: "Numeric"
@@ -1083,9 +1145,21 @@ Chiller:
       Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
       Units: "W/W"
+      Notes: "Can be input by user or computed."
+    part_load_performance_curve:
+      Description: "Part load performance curve"
+      Data Type: "{PartLoadPerformanceCurve}"
+    capacity_performance_curve:
+      Description: "Capacity performance curve"
+      Data Type: "{TemperatureAdjustmentPerformanceCurve}"
+      Notes: "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+    efficiency_performance_curve:
+      Description: "Efficiency performance curve"
+      Data Type: "{TemperatureAdjustmentPerformanceCurve}"
+      Notes: "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
     detailed_performance:
       Description: "Detailed performance as specified in ASHRAE Standard 205"
-      Data Type: "String"
+      Data Type: "UUID"
       Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
 
 ChillerCompressorTypeOptions:
@@ -1169,9 +1243,9 @@ HeatRejectionTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
     AXIAL_FAN:
-      Description: "Axial fan"
+      Description: "Axial cooling tower"
     CENTRIFUGAL:
-      Description: "Centrifugal"
+      Description: "Centrifugal cooling tower"
     DRY_COOLER:
       Description: "Dry-cooler"
     EVAPORATIVE:
@@ -1194,12 +1268,14 @@ HeatRejectionFanSpeedControlOptions:
   Enumerators:
     CONSTANT:
       Description: "Constant"
-    LOAD_RESET:
-      Description: "Load reset"
+    TWO_SPEED:
+      Description: "Two Speed"
+    VARIABLE_SPEED:
+      Description: "Variable Speed"
     OTHER:
       Description: "Other"
 
-DistrictFluidMeter:
+ExternalFluidSource:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -1207,17 +1283,18 @@ DistrictFluidMeter:
       Data Type: "Numeric"
       Required: True
     name:
-      Description: "Name identifying district fluid meter"
+      Description: "Name identifying external fluid source"
       Data Type: "String"
       Required: True
+      Notes: "External fluid source is a method to indicate that it is connected to a district or campus system external to the building."
     loop_name:
       Description: "Fluid loop name"
       Data Type: "String"
     type:
-      Description: "Type of district fluid meter"
-      Data Type: "<DistrictFluidMeterTypeOptions>"
+      Description: "Type of external fluid source"
+      Data Type: "<ExternalFluidSourceTypeOptions>"
 
-DistrictFluidMeterTypeOptions:
+ExternalFluidSourceTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
     CHILLED_WATER:
@@ -1226,6 +1303,67 @@ DistrictFluidMeterTypeOptions:
       Description: "Hot water"
     STEAM:
       Description: "Steam"
+
+PartLoadPerformanceCurve:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying performance curve"
+      Data Type: "String"
+      Required: True
+    coefficient_a:
+      Description: "Coefficient a"
+      Data Type: "Numeric"
+      Notes: "Coefficient a in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
+    coefficient_b:
+      Description: "Coefficient b"
+      Data Type: "Numeric"
+      Notes: "Coefficient b in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
+    coefficient_c:
+      Description: "Coefficient c"
+      Data Type: "Numeric"
+      Notes: "Coefficient c in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
+
+TemperatureAdjustmentPerformanceCurve:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name identifying performance curve"
+      Data Type: "String"
+      Required: True
+    coefficient_a:
+      Description: "Coefficient a"
+      Data Type: "Numeric"
+      Notes: "Coefficient a in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+    coefficient_b:
+      Description: "Coefficient b"
+      Data Type: "Numeric"
+      Notes: "Coefficient b in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+    coefficient_c:
+      Description: "Coefficient c"
+      Data Type: "Numeric"
+      Notes: "Coefficient c in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+    coefficient_d:
+      Description: "Coefficient d"
+      Data Type: "Numeric"
+      Notes: "Coefficient d in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+    coefficient_e:
+      Description: "Coefficient e"
+      Data Type: "Numeric"
+      Notes: "Coefficient e in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+    coefficient_f:
+      Description: "Coefficient f"
+      Data Type: "Numeric"
+      Notes: "Coefficient f in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+
 
 ServiceWaterHeatingSystem:
   Object Type: "Data Group"
