@@ -1015,20 +1015,20 @@ PumpSpeedControlOptions:
 PumpFlowControlOptions:
   Object Type: "Enumeration"
   Enumerators:
+    FIXED_FLOW:
+      Description: "Fixed flow"
+    VARIABLE_SPEED:
+      Description: "Variable flow"
+
+PumpSpecificationMethodOptions:
+  Object Type: "Enumeration"
+  Enumerators:
     SIMPLE:
       Description: "Simple"
       Notes: "Specify the electric power input of pump"
     DETAILED:
       Description: "Detailed"
       Notes: "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
-
-PumpSpecificationMethodOptions:
-  Object Type: "Enumeration"
-  Enumerators:
-    FIXED_FLOW:
-      Description: "Fixed flow"
-    VARIABLE_SPEED:
-      Description: "Variable flow"
 
 Boiler:
   Object Type: "Data Group"
