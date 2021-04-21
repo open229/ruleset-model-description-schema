@@ -91,13 +91,13 @@
 | `SATURDAY`  | Saturday    |       |
 
 # FluidLoopTypeOptions
-|       Enumerator       |     Description     | Notes |
-|------------------------|---------------------|-------|
-| `HEATING`              | Heating             |       |
-| `COOLING`              | Cooling             |       |
-| `HEATING_AND_COOLILNG` | Heating and cooling |       |
-| `CONDENSER`            | Condenser           |       |
-| `OTHER`                | Other               |       |
+|      Enumerator       |     Description     | Notes |
+|-----------------------|---------------------|-------|
+| `HEATING`             | Heating             |       |
+| `COOLING`             | Cooling             |       |
+| `HEATING_AND_COOLING` | Heating and cooling |       |
+| `CONDENSER`           | Condenser           |       |
+| `OTHER`               | Other               |       |
 
 # TemperatureResetTypeOptions
 |     Enumerator      |    Description    | Notes |
@@ -108,6 +108,12 @@
 | `LOAD_RESET`        | Load Reset        |       |
 | `OTHER`             | Other             |       |
 
+# FluidLoopOperationOptions
+|   Enumerator   | Description  | Notes |
+|----------------|--------------|-------|
+| `CONTINUOUS`   | Continuous   |       |
+| `INTERMITTENT` | Intermittent |       |
+
 # PumpSpeedControlOptions
 |    Enumerator    |  Description   | Notes |
 |------------------|----------------|-------|
@@ -116,6 +122,12 @@
 | `VARIABLE_SPEED` | Variable speed |       |
 
 # PumpFlowControlOptions
+| Enumerator | Description |                                         Notes                                          |
+|------------|-------------|----------------------------------------------------------------------------------------|
+| `SIMPLE`   | Simple      | Specify the electric power input of pump                                               |
+| `DETAILED` | Detailed    | Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency |
+
+# PumpSpecificationMethodOptions
 |    Enumerator    |  Description  | Notes |
 |------------------|---------------|-------|
 | `FIXED_FLOW`     | Fixed flow    |       |
@@ -126,6 +138,13 @@
 |------------|-------------|-------|
 | `NATURAL`  | Natural     |       |
 | `FORCED`   | Forced      |       |
+
+# BoilerEfficiencyMetricTypeOptions
+|        Enumerator         |            Description             | Notes |
+|---------------------------|------------------------------------|-------|
+| `ANNUAL_FUEL_UTILIZATION` | Annual fuel utilization efficiency |       |
+| `THERMAL`                 | Thermal efficiency                 |       |
+| `COMBUSION`               | Combustion efficiency              |       |
 
 # ChillerCompressorTypeOptions
 |                Enumerator                 |               Description               | Notes |
@@ -142,13 +161,13 @@
 | `OTHER`                                   | Other                                   |       |
 
 # HeatRejectionTypeOptions
-|  Enumerator   | Description | Notes |
-|---------------|-------------|-------|
-| `AXIAL_FAN`   | Axial fan   |       |
-| `CENTRIFUGAL` | Centrifugal |       |
-| `DRY_COOLER`  | Dry-cooler  |       |
-| `EVAPORATIVE` | Evaporative |       |
-| `OTHER`       | Other       |       |
+|  Enumerator   |        Description        | Notes |
+|---------------|---------------------------|-------|
+| `AXIAL_FAN`   | Axial cooling tower       |       |
+| `CENTRIFUGAL` | Centrifugal cooling tower |       |
+| `DRY_COOLER`  | Dry-cooler                |       |
+| `EVAPORATIVE` | Evaporative               |       |
+| `OTHER`       | Other                     |       |
 
 # HeatRejectionResetOptions
 |  Enumerator  | Description | Notes |
@@ -158,13 +177,14 @@
 | `OTHER`      | Other       |       |
 
 # HeatRejectionFanSpeedControlOptions
-|  Enumerator  | Description | Notes |
-|--------------|-------------|-------|
-| `CONSTANT`   | Constant    |       |
-| `LOAD_RESET` | Load reset  |       |
-| `OTHER`      | Other       |       |
+|    Enumerator    |  Description   | Notes |
+|------------------|----------------|-------|
+| `CONSTANT`       | Constant       |       |
+| `TWO_SPEED`      | Two Speed      |       |
+| `VARIABLE_SPEED` | Variable Speed |       |
+| `OTHER`          | Other          |       |
 
-# DistrictFluidMeterTypeOptions
+# ExternalFluidSourceTypeOptions
 |   Enumerator    |  Description  | Notes |
 |-----------------|---------------|-------|
 | `CHILLED_WATER` | Chilled water |       |
@@ -221,11 +241,13 @@
 | `heating_ventilation_air_conditioning_systems` | HVAC systems in the building                                | `[{HeatingVentilationAirConditioningSystem}]`         |       |       |     | Contains a list of HVAC systems in the building.                  |
 | `service_water_heating_systems`                | Service water heating systems in the building               | `[{ServiceWaterHeatingSystem}]`                       |       |       |     | Contains a list of service water heating systems in the building. |
 | `area_type_vertical_fenestration`              | Building area classification used for vertical fenestration | `<VerticalFenestrationBuildingAreaType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used.                    |
-| `lighting_building_area_type`                  | Building area lighting area type                            | `<LightingSpaceType2019ASHRAE901T961>`                |       |       |     |                                                                   |
+| `lighting_building_area_type`                  | Building area lighting area type                            | `<LightingSpaceType2019ASHRAE901T951TG38>`            |       |       |     |                                                                   |
 
 # ThermalBlock
 |                           Name                           |                       Description                        | Data Type  | Units | Range | Req |                                                                        Notes                                                                         |
 |----------------------------------------------------------|----------------------------------------------------------|------------|-------|-------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                                     | Unique Identification Number                             | `Numeric`  |       |       | ✓   |                                                                                                                                                      |
+| `name`                                                   | Name of the thermal block                                | `String`   |       |       | ✓   |                                                                                                                                                      |
 | `zones`                                                  | Zones in the building                                    | `[{Zone}]` |       |       |     | Contains a list of zones in the building.                                                                                                            |
 | `served_by_heating_ventilation_air_conditioning_systems` | HVAC systems serving the thermal block                   | `[String]` |       |       |     | Contains a list of IDs of the HVAC systems serving the thermal block - from Unique Identification Number in HeatingVentilationAirConditioningSystem. |
 | `served_by_service_water_heating_system`                 | A service water heating system serving the thermal block | `String`   |       |       |     | Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem. |
@@ -250,7 +272,7 @@
 | `conditioning_type`                | Space conditioning category                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `<ConditioningType>`                          |       |       |     |                                                    |
 | `status_type`                      | Choice of new, existing, addition, or alteration.                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `<SpaceStatusType2019ASHRAE901>`              |       |       |     |                                                    |
 | `space_function`                   | Generic function for the space.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `<SpaceFunctionType>`                         |       |       |     | The enumeration is based on the standard used.     |
-| `lighting_space_type`              | Lighting space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `<LightingSpaceType2019ASHRAE901T951>`        |       |       |     | The enumeration is based on the standard used.     |
+| `lighting_space_type`              | Lighting space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `<LightingSpaceType2019ASHRAE901TG37>`        |       |       |     | The enumeration is based on the standard used.     |
 | `ventilations_space_type`          | Ventilation space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `<VentilationSpaceType2019ASHRAE901>`         |       |       |     | The enumeration is based on the standard used.     |
 | `service_water_heating_space_type` | Service water heating space type classification                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `<ServiceWaterHeatingSpaceType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used.     |
 | `infiltration_modeling_method`     | The software methodology chosen for modeling infiltration                                                                                                                                                                                                                                                                                                                                                                                                                                               | `<InfiltrationMethodType>`                    |       |       |     |                                                    |
@@ -392,18 +414,18 @@
 | `cab_lighting_schedule`        | Elevator lighting schedule name                  | `String`  |       |       |     |       |
 
 # HeatingVentilationAirConditioningSystem
-|              Name               |                         Description                         |  Data Type  | Units | Range | Req |                                       Notes                                       |
-|---------------------------------|-------------------------------------------------------------|-------------|-------|-------|-----|-----------------------------------------------------------------------------------|
-| `id`                            | Unique Identification Number                                | `Numeric`   |       |       | ✓   |                                                                                   |
-| `name`                          | Name of the HVAC system                                     | `String`    |       |       | ✓   |                                                                                   |
-| `zones_served`                  | List of the zones served by the HVAC system                 | `[{Zone}]`  |       |       |     |                                                                                   |
-| `hot_water_loop_name`           | Hot water fluid loop name                                   | `String`    |       |       |     |                                                                                   |
-| `chilled_water_loop_name`       | Chilled water fluid loop name                               | `String`    |       |       |     |                                                                                   |
-| `condenser_water_loop_name`     | Condenser water fluid loop name                             | `String`    |       |       |     |                                                                                   |
-| `preheat_loop_name`             | Preheat fluid loop name                                     | `String`    |       |       |     |                                                                                   |
-| `reheat_loop_name`              | Reheat fluid loop name                                      | `String`    |       |       |     |                                                                                   |
-| `sensible_cool_output_capacity` | Result from the simulation of the sensible cooling capacity | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
-| `heat_output_capacity`          | Result from the simulation of the heating capacity          | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
+|                    Name                    |                         Description                         |  Data Type  | Units | Range | Req |                                       Notes                                       |
+|--------------------------------------------|-------------------------------------------------------------|-------------|-------|-------|-----|-----------------------------------------------------------------------------------|
+| `id`                                       | Unique Identification Number                                | `Numeric`   |       |       | ✓   |                                                                                   |
+| `name`                                     | Name of the HVAC system                                     | `String`    |       |       | ✓   |                                                                                   |
+| `zones_served`                             | List of the zones served by the HVAC system                 | `[{Zone}]`  |       |       |     |                                                                                   |
+| `hot_water_loop_name`                      | Hot water fluid loop name                                   | `String`    |       |       |     |                                                                                   |
+| `chilled_water_loop_name`                  | Chilled water fluid loop name                               | `String`    |       |       |     |                                                                                   |
+| `condenser_water_loop_name`                | Condenser water fluid loop name                             | `String`    |       |       |     |                                                                                   |
+| `preheat_loop_name`                        | Preheat fluid loop name                                     | `String`    |       |       |     |                                                                                   |
+| `reheat_loop_name`                         | Reheat fluid loop name                                      | `String`    |       |       |     |                                                                                   |
+| `simulation_result_sensible_cool_capacity` | Result from the simulation of the sensible cooling capacity | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
+| `simulation_result_heat_capacity`          | Result from the simulation of the heating capacity          | `[Numeric]` | W/m2  | `≥0`  |     | If multiple values are provided, they correspond to rotated building orientations |
 
 # FluidLoop
 |                    Name                    |                                  Description                                   |           Data Type           | Units | Range | Req | Notes |
@@ -424,6 +446,7 @@
 | `design_return_temperature`                      | Design Return Temperature                           | `Numeric`                       | C     |       |     |       |
 | `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load  | `Boolean`                       |       |       |     |       |
 | `minimum_flow_fraction`                          | Minimum fraction of full flow allowed               | `Numeric`                       |       |       |     |       |
+| `operation`                                      | Type of operation used by loop                      | `<FluidLoopOperationOptions>`   |       |       |     |       |
 | `temperature_reset_type`                         | Type of temperature reset used by loop              | `<TemperatureResetTypeOptions>` |       |       |     |       |
 | `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset             | `Numeric`                       | C     |       |     |       |
 | `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset              | `Numeric`                       | C     |       |     |       |
@@ -431,47 +454,57 @@
 | `loop_supply_temperature_at_outdoor_low`         | Loop supply temperature at outdoor low temperature  | `Numeric`                       | C     |       |     |       |
 
 # Pump
-|          Name           |                       Description                       |          Data Type          | Units |  Range   | Req | Notes |
-|-------------------------|---------------------------------------------------------|-----------------------------|-------|----------|-----|-------|
-| `id`                    | Unique Identification Number                            | `Numeric`                   |       |          | ✓   |       |
-| `name`                  | Name identifying pump                                   | `String`                    |       |          | ✓   |       |
-| `loop_name`             | Fluid loop name                                         | `String`                    |       |          |     |       |
-| `power`                 | Pump power                                              | `Numeric`                   | W     |          |     |       |
-| `speed_control`         | Options for pump speed control                          | `<PumpSpeedControlOptions>` |       |          |     |       |
-| `flow_control`          | Flow control options                                    | `<PumpFlowControlOptions>`  |       |          |     |       |
-| `minimum_flow_fraction` | Minimum pump flow turndown as a fraction of design flow | `Numeric`                   |       | `≥0, ≤1` |     |       |
-| `design_flow`           | Design Pump Flowrate                                    | `Numeric`                   | L/s   |          |     |       |
-| `is_variable_speed`     | True if variable speed drive such a VFD                 | `Boolean`                   |       |          |     |       |
+|          Name           |                Description                 |             Data Type              | Units |  Range   | Req |                         Notes                          |
+|-------------------------|--------------------------------------------|------------------------------------|-------|----------|-----|--------------------------------------------------------|
+| `id`                    | Unique Identification Number               | `Numeric`                          |       |          | ✓   |                                                        |
+| `name`                  | Name identifying pump                      | `String`                           |       |          | ✓   |                                                        |
+| `loop_name`             | Fluid loop name                            | `String`                           |       |          |     |                                                        |
+| `specification_method`  | Options for how the pump is specified      | `<PumpSpecificationMethodOptions>` |       |          |     |                                                        |
+| `power`                 | Pump power                                 | `Numeric`                          | W     |          |     | Only used when specification_method is set to Simple   |
+| `motor_nameplate_power` | Pump motor nameplate power                 | `Numeric`                          | W     |          |     | Only used when specification_method is set to Detailed |
+| `design_head`           | Head of the pump at design flow conditions | `Numeric`                          | m     |          |     | Only used when specification_method is set to Detailed |
+| `impelllor_efficiency`  | Full load efficiency of the impellor       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed |
+| `motor_efficiency`      | Full load efficiency of the pump motor     | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed |
+| `speed_control`         | Options for pump speed control             | `<PumpSpeedControlOptions>`        |       |          |     |                                                        |
+| `flow_control`          | Flow control options                       | `<PumpFlowControlOptions>`         |       |          |     |                                                        |
+| `design_flow`           | Design Pump Flowrate                       | `Numeric`                          | L/s   |          |     |                                                        |
+| `is_variable_speed`     | True if variable speed drive such a VFD    | `Boolean`                          |       |          |     |                                                        |
 
 # Boiler
-|                 Name                 |                       Description                        |          Data Type          | Units |  Range   | Req |                              Notes                               |
-|--------------------------------------|----------------------------------------------------------|-----------------------------|-------|----------|-----|------------------------------------------------------------------|
-| `id`                                 | Unique Identification Number                             | `Numeric`                   |       |          | ✓   |                                                                  |
-| `name`                               | Name identifying boiler                                  | `String`                    |       |          | ✓   |                                                                  |
-| `loop_name`                          | Fluid loop name                                          | `String`                    |       |          |     |                                                                  |
-| `design_capacity`                    | Heating capacity                                         | `Numeric`                   | W     |          |     |                                                                  |
-| `draft_type`                         | Combustion option                                        | `<BoilerCombustionOptions>` |       |          |     |                                                                  |
-| `annual_fuel_utilization_efficiency` | Annual fuel utilization efficiency (AFUE)                | `Numeric`                   |       | `≥0, ≤1` |     |                                                                  |
-| `thermal_efficiency`                 | Thermal efficiency                                       | `Numeric`                   |       | `≥0, ≤1` |     |                                                                  |
-| `combustion_efficiency`              | Combustion efficiency                                    | `Numeric`                   |       | `≥0, ≤1` |     |                                                                  |
-| `detailed_performance`               | Detailed performance as specified in ASHRAE Standard 205 | `String`                    |       |          |     | Reserved for referencing after ASHRAE Standard 205 is published. |
-| `operation_lower_limit`              | Heating load range operation, lower limit                | `Numeric`                   | W     |          |     |                                                                  |
-| `operation_upper_limit`              | Heating load range operation, upper limit                | `Numeric`                   | W     |          |     |                                                                  |
+|             Name              |                       Description                        |               Data Type               | Units |  Range   | Req |                                             Notes                                             |
+|-------------------------------|----------------------------------------------------------|---------------------------------------|-------|----------|-----|-----------------------------------------------------------------------------------------------|
+| `id`                          | Unique Identification Number                             | `Numeric`                             |       |          | ✓   |                                                                                               |
+| `name`                        | Name identifying boiler                                  | `String`                              |       |          | ✓   |                                                                                               |
+| `loop_name`                   | Fluid loop name                                          | `String`                              |       |          |     |                                                                                               |
+| `design_capacity`             | Heating capacity                                         | `Numeric`                             | W     |          |     |                                                                                               |
+| `minimum_load_ratio`          | Minimum fraction of full load allowed                    | `Numeric`                             |       |          |     |                                                                                               |
+| `draft_type`                  | Combustion option                                        | `<BoilerCombustionOptions>`           |       |          |     |                                                                                               |
+| `efficiency_metric_type`      | The type of efficiency metric used                       | `<BoilerEfficiencyMetricTypeOptions>` |       |          |     |                                                                                               |
+| `efficiency_metric`           | Annual fuel utilization efficiency (AFUE)                | `Numeric`                             |       | `≥0, ≤1` |     | Enter the efficiency value based on the selected efficiency_metric_type                       |
+| `detailed_performance`        | Detailed performance as specified in ASHRAE Standard 205 | `UUID`                                |       |          |     | Reserved for referencing after ASHRAE Standard 205 is published.                              |
+| `part_load_performance_curve` | Part load performanc curve                               | `{PartLoadPerformanceCurve}`          |       |          |     |                                                                                               |
+| `auxiliary_power`             | Auxiliary power                                          | `Numeric`                             | W     |          |     | Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates. |
+| `operation_lower_limit`       | Heating load range operation, lower limit                | `Numeric`                             | W     |          |     |                                                                                               |
+| `operation_upper_limit`       | Heating load range operation, upper limit                | `Numeric`                             | W     |          |     |                                                                                               |
 
 # Chiller
-|                  Name                   |                                      Description                                      |            Data Type             | Units | Range | Req |                              Notes                               |
-|-----------------------------------------|---------------------------------------------------------------------------------------|----------------------------------|-------|-------|-----|------------------------------------------------------------------|
-| `id`                                    | Unique Identification Number                                                          | `Numeric`                        |       |       | ✓   |                                                                  |
-| `name`                                  | Name identifying chiller                                                              | `String`                         |       |       | ✓   |                                                                  |
-| `cooling_loop_name`                     | Cooling fluid loop name                                                               | `String`                         |       |       |     |                                                                  |
-| `condensing_loop_name`                  | Condensing fluid loop name                                                            | `String`                         |       |       |     | No condensing loop name implies air-cooled chiller.              |
-| `compressor_type`                       | Compressor Type                                                                       | `<ChillerCompressorTypeOptions>` |       |       |     |                                                                  |
-| `design_capacity`                       | Chiller Design Cooling Capacity                                                       | `Numeric`                        | W     |       |     |                                                                  |
-| `design_flow_evaporator`                | Chiller evaporator design flow                                                        | `Numeric`                        | L/s   |       |     |                                                                  |
-| `design_flow_condenser`                 | Chiller condenser design flow                                                         | `Numeric`                        | L/s   |       |     |                                                                  |
-| `full_load_efficiency`                  | Full Low Efficiency expressed as a coefficient of performance (COP)                   | `Numeric`                        | W/W   |       |     |                                                                  |
-| `integrated_part_load_value_efficiency` | Integrated part load value efficiency expressed as a coefficient of performance (COP) | `Numeric`                        | W/W   |       |     |                                                                  |
-| `detailed_performance`                  | Detailed performance as specified in ASHRAE Standard 205                              | `String`                         |       |       |     | Reserved for referencing after ASHRAE Standard 205 is published. |
+|                  Name                   |                                      Description                                      |                 Data Type                 | Units | Range | Req |                                                                                               Notes                                                                                                |
+|-----------------------------------------|---------------------------------------------------------------------------------------|-------------------------------------------|-------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                    | Unique Identification Number                                                          | `Numeric`                                 |       |       | ✓   |                                                                                                                                                                                                    |
+| `name`                                  | Name identifying chiller                                                              | `String`                                  |       |       | ✓   |                                                                                                                                                                                                    |
+| `cooling_loop_name`                     | Cooling fluid loop name                                                               | `String`                                  |       |       |     |                                                                                                                                                                                                    |
+| `condensing_loop_name`                  | Condensing fluid loop name                                                            | `String`                                  |       |       |     | No condensing loop name implies air-cooled chiller.                                                                                                                                                |
+| `compressor_type`                       | Compressor Type                                                                       | `<ChillerCompressorTypeOptions>`          |       |       |     |                                                                                                                                                                                                    |
+| `design_capacity`                       | Chiller Design Cooling Capacity                                                       | `Numeric`                                 | W     |       |     |                                                                                                                                                                                                    |
+| `minimum_load_ratio`                    | Minimum fraction of full load allowed                                                 | `Numeric`                                 |       |       |     |                                                                                                                                                                                                    |
+| `design_flow_evaporator`                | Chiller evaporator design flow                                                        | `Numeric`                                 | L/s   |       |     |                                                                                                                                                                                                    |
+| `design_flow_condenser`                 | Chiller condenser design flow                                                         | `Numeric`                                 | L/s   |       |     |                                                                                                                                                                                                    |
+| `full_load_efficiency`                  | Full Low Efficiency expressed as a coefficient of performance (COP)                   | `Numeric`                                 | W/W   |       |     |                                                                                                                                                                                                    |
+| `integrated_part_load_value_efficiency` | Integrated part load value efficiency expressed as a coefficient of performance (COP) | `Numeric`                                 | W/W   |       |     | Can be input by user or computed.                                                                                                                                                                  |
+| `part_load_performance_curve`           | Part load performance curve                                                           | `{PartLoadPerformanceCurve}`              |       |       |     |                                                                                                                                                                                                    |
+| `capacity_performance_curve`            | Capacity performance curve                                                            | `{TemperatureAdjustmentPerformanceCurve}` |       |       |     | Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. |
+| `efficiency_performance_curve`          | Efficiency performance curve                                                          | `{TemperatureAdjustmentPerformanceCurve}` |       |       |     | Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. |
+| `detailed_performance`                  | Detailed performance as specified in ASHRAE Standard 205                              | `UUID`                                    |       |       |     | Reserved for referencing after ASHRAE Standard 205 is published.                                                                                                                                   |
 
 # HeatRejection
 |             Name             |                Description                |                Data Type                | Units | Range | Req |      Notes       |
@@ -490,13 +523,34 @@
 | `design_wetbulb_temperature` | Design wetbulb temperature                | `Numeric`                               | C     |       |     | 0.4% ASHRAE MCWB |
 | `design_water_flowrate`      | Design condenser water flow rate          | `Numeric`                               | L/s   |       |     |                  |
 
-# DistrictFluidMeter
-|    Name     |              Description              |             Data Type             | Units | Range | Req | Notes |
-|-------------|---------------------------------------|-----------------------------------|-------|-------|-----|-------|
-| `id`        | Unique Identification Number          | `Numeric`                         |       |       | ✓   |       |
-| `name`      | Name identifying district fluid meter | `String`                          |       |       | ✓   |       |
-| `loop_name` | Fluid loop name                       | `String`                          |       |       |     |       |
-| `type`      | Type of district fluid meter          | `<DistrictFluidMeterTypeOptions>` |       |       |     |       |
+# ExternalFluidSource
+|    Name     |              Description               |             Data Type              | Units | Range | Req |                                                            Notes                                                            |
+|-------------|----------------------------------------|------------------------------------|-------|-------|-----|-----------------------------------------------------------------------------------------------------------------------------|
+| `id`        | Unique Identification Number           | `Numeric`                          |       |       | ✓   |                                                                                                                             |
+| `name`      | Name identifying external fluid source | `String`                           |       |       | ✓   | External fluid source is a method to indicate that it is connected to a district or campus system external to the building. |
+| `loop_name` | Fluid loop name                        | `String`                           |       |       |     |                                                                                                                             |
+| `type`      | Type of external fluid source          | `<ExternalFluidSourceTypeOptions>` |       |       |     |                                                                                                                             |
+
+# PartLoadPerformanceCurve
+|      Name       |            Description             | Data Type | Units | Range | Req |                                       Notes                                        |
+|-----------------|------------------------------------|-----------|-------|-------|-----|------------------------------------------------------------------------------------|
+| `id`            | Unique Identification Number       | `Numeric` |       |       | ✓   |                                                                                    |
+| `name`          | Name identifying performance curve | `String`  |       |       | ✓   |                                                                                    |
+| `coefficient_a` | Coefficient a                      | `Numeric` |       |       |     | Coefficient a in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2 |
+| `coefficient_b` | Coefficient b                      | `Numeric` |       |       |     | Coefficient b in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2 |
+| `coefficient_c` | Coefficient c                      | `Numeric` |       |       |     | Coefficient c in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2 |
+
+# TemperatureAdjustmentPerformanceCurve
+|      Name       |            Description             | Data Type | Units | Range | Req |                                                                      Notes                                                                       |
+|-----------------|------------------------------------|-----------|-------|-------|-----|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`            | Unique Identification Number       | `Numeric` |       |       | ✓   |                                                                                                                                                  |
+| `name`          | Name identifying performance curve | `String`  |       |       | ✓   |                                                                                                                                                  |
+| `coefficient_a` | Coefficient a                      | `Numeric` |       |       |     | Coefficient a in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2 |
+| `coefficient_b` | Coefficient b                      | `Numeric` |       |       |     | Coefficient b in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2 |
+| `coefficient_c` | Coefficient c                      | `Numeric` |       |       |     | Coefficient c in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2 |
+| `coefficient_d` | Coefficient d                      | `Numeric` |       |       |     | Coefficient d in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2 |
+| `coefficient_e` | Coefficient e                      | `Numeric` |       |       |     | Coefficient e in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2 |
+| `coefficient_f` | Coefficient f                      | `Numeric` |       |       |     | Coefficient f in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2 |
 
 # ServiceWaterHeatingSystem
 |                 Name                 |                                                           Description                                                            |                          Data Type                          | Units | Range | Req |                                 Notes                                  |

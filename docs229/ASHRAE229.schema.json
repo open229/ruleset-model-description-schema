@@ -176,7 +176,7 @@
                 },
                 "lighting_building_area_type": {
                     "description": "Building area lighting area type",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T961"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951TG38"
                 }
             },
             "required": [
@@ -187,6 +187,14 @@
         "ThermalBlock": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the thermal block",
+                    "type": "string"
+                },
                 "zones": {
                     "description": "Zones in the building",
                     "type": "array",
@@ -209,6 +217,10 @@
                     "notes": "Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem."
                 }
             },
+            "required": [
+                "id",
+                "name"
+            ],
             "additionalProperties": false
         },
         "Zone": {
@@ -297,7 +309,7 @@
                 },
                 "lighting_space_type": {
                     "description": "Lighting space type classification",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901TG37",
                     "notes": "The enumeration is based on the standard used."
                 },
                 "ventilations_space_type": {
@@ -1069,7 +1081,7 @@
                     "description": "Reheat fluid loop name",
                     "type": "string"
                 },
-                "sensible_cool_output_capacity": {
+                "simulation_result_sensible_cool_capacity": {
                     "description": "Result from the simulation of the sensible cooling capacity",
                     "type": "array",
                     "items": {
@@ -1079,7 +1091,7 @@
                     "units": "W/m2",
                     "notes": "If multiple values are provided, they correspond to rotated building orientations"
                 },
-                "heat_output_capacity": {
+                "simulation_result_heat_capacity": {
                     "description": "Result from the simulation of the heating capacity",
                     "type": "array",
                     "items": {
@@ -1162,6 +1174,10 @@
                     "description": "Minimum fraction of full flow allowed",
                     "type": "number"
                 },
+                "operation": {
+                    "description": "Type of operation used by loop",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopOperationOptions"
+                },
                 "temperature_reset_type": {
                     "description": "Type of temperature reset used by loop",
                     "$ref": "ASHRAE229.schema.json#/definitions/TemperatureResetTypeOptions"
@@ -1198,7 +1214,7 @@
             "enum": [
                 "HEATING",
                 "COOLING",
-                "HEATING_AND_COOLILNG",
+                "HEATING_AND_COOLING",
                 "CONDENSER",
                 "OTHER"
             ],
@@ -1227,6 +1243,17 @@
                 "Other"
             ]
         },
+        "FluidLoopOperationOptions": {
+            "type": "string",
+            "enum": [
+                "CONTINUOUS",
+                "INTERMITTENT"
+            ],
+            "descriptions": [
+                "Continuous",
+                "Intermittent"
+            ]
+        },
         "Pump": {
             "type": "object",
             "properties": {
@@ -1242,10 +1269,41 @@
                     "description": "Fluid loop name",
                     "type": "string"
                 },
+                "specification_method": {
+                    "description": "Options for how the pump is specified",
+                    "$ref": "ASHRAE229.schema.json#/definitions/PumpSpecificationMethodOptions"
+                },
                 "power": {
                     "description": "Pump power",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "Only used when specification_method is set to Simple"
+                },
+                "motor_nameplate_power": {
+                    "description": "Pump motor nameplate power",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "Only used when specification_method is set to Detailed"
+                },
+                "design_head": {
+                    "description": "Head of the pump at design flow conditions",
+                    "type": "number",
+                    "units": "m",
+                    "notes": "Only used when specification_method is set to Detailed"
+                },
+                "impelllor_efficiency": {
+                    "description": "Full load efficiency of the impellor",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Only used when specification_method is set to Detailed"
+                },
+                "motor_efficiency": {
+                    "description": "Full load efficiency of the pump motor",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Only used when specification_method is set to Detailed"
                 },
                 "speed_control": {
                     "description": "Options for pump speed control",
@@ -1254,12 +1312,6 @@
                 "flow_control": {
                     "description": "Flow control options",
                     "$ref": "ASHRAE229.schema.json#/definitions/PumpFlowControlOptions"
-                },
-                "minimum_flow_fraction": {
-                    "description": "Minimum pump flow turndown as a fraction of design flow",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "maximum": 1.0
                 },
                 "design_flow": {
                     "description": "Design Pump Flowrate",
@@ -1293,6 +1345,21 @@
         "PumpFlowControlOptions": {
             "type": "string",
             "enum": [
+                "SIMPLE",
+                "DETAILED"
+            ],
+            "descriptions": [
+                "Simple",
+                "Detailed"
+            ],
+            "notes": [
+                "Specify the electric power input of pump",
+                "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
+            ]
+        },
+        "PumpSpecificationMethodOptions": {
+            "type": "string",
+            "enum": [
                 "FIXED_FLOW",
                 "VARIABLE_SPEED"
             ],
@@ -1321,32 +1388,38 @@
                     "type": "number",
                     "units": "W"
                 },
+                "minimum_load_ratio": {
+                    "description": "Minimum fraction of full load allowed",
+                    "type": "number"
+                },
                 "draft_type": {
                     "description": "Combustion option",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerCombustionOptions"
                 },
-                "annual_fuel_utilization_efficiency": {
+                "efficiency_metric_type": {
+                    "description": "The type of efficiency metric used",
+                    "$ref": "ASHRAE229.schema.json#/definitions/BoilerEfficiencyMetricTypeOptions"
+                },
+                "efficiency_metric": {
                     "description": "Annual fuel utilization efficiency (AFUE)",
                     "type": "number",
                     "minimum": 0.0,
-                    "maximum": 1.0
-                },
-                "thermal_efficiency": {
-                    "description": "Thermal efficiency",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "maximum": 1.0
-                },
-                "combustion_efficiency": {
-                    "description": "Combustion efficiency",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "maximum": 1.0
+                    "maximum": 1.0,
+                    "notes": "Enter the efficiency value based on the selected efficiency_metric_type"
                 },
                 "detailed_performance": {
                     "description": "Detailed performance as specified in ASHRAE Standard 205",
-                    "type": "string",
                     "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
+                },
+                "part_load_performance_curve": {
+                    "description": "Part load performanc curve",
+                    "$ref": "ASHRAE229.schema.json#/definitions/PartLoadPerformanceCurve"
+                },
+                "auxiliary_power": {
+                    "description": "Auxiliary power",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates."
                 },
                 "operation_lower_limit": {
                     "description": "Heating load range operation, lower limit",
@@ -1374,6 +1447,19 @@
             "descriptions": [
                 "Natural",
                 "Forced"
+            ]
+        },
+        "BoilerEfficiencyMetricTypeOptions": {
+            "type": "string",
+            "enum": [
+                "ANNUAL_FUEL_UTILIZATION",
+                "THERMAL",
+                "COMBUSION"
+            ],
+            "descriptions": [
+                "Annual fuel utilization efficiency",
+                "Thermal efficiency",
+                "Combustion efficiency"
             ]
         },
         "Chiller": {
@@ -1405,6 +1491,10 @@
                     "type": "number",
                     "units": "W"
                 },
+                "minimum_load_ratio": {
+                    "description": "Minimum fraction of full load allowed",
+                    "type": "number"
+                },
                 "design_flow_evaporator": {
                     "description": "Chiller evaporator design flow",
                     "type": "number",
@@ -1423,11 +1513,25 @@
                 "integrated_part_load_value_efficiency": {
                     "description": "Integrated part load value efficiency expressed as a coefficient of performance (COP)",
                     "type": "number",
-                    "units": "W/W"
+                    "units": "W/W",
+                    "notes": "Can be input by user or computed."
+                },
+                "part_load_performance_curve": {
+                    "description": "Part load performance curve",
+                    "$ref": "ASHRAE229.schema.json#/definitions/PartLoadPerformanceCurve"
+                },
+                "capacity_performance_curve": {
+                    "description": "Capacity performance curve",
+                    "$ref": "ASHRAE229.schema.json#/definitions/TemperatureAdjustmentPerformanceCurve",
+                    "notes": "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+                },
+                "efficiency_performance_curve": {
+                    "description": "Efficiency performance curve",
+                    "$ref": "ASHRAE229.schema.json#/definitions/TemperatureAdjustmentPerformanceCurve",
+                    "notes": "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
                 },
                 "detailed_performance": {
                     "description": "Detailed performance as specified in ASHRAE Standard 205",
-                    "type": "string",
                     "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
                 }
             },
@@ -1544,8 +1648,8 @@
                 "OTHER"
             ],
             "descriptions": [
-                "Axial fan",
-                "Centrifugal",
+                "Axial cooling tower",
+                "Centrifugal cooling tower",
                 "Dry-cooler",
                 "Evaporative",
                 "Other"
@@ -1568,16 +1672,18 @@
             "type": "string",
             "enum": [
                 "CONSTANT",
-                "LOAD_RESET",
+                "TWO_SPEED",
+                "VARIABLE_SPEED",
                 "OTHER"
             ],
             "descriptions": [
                 "Constant",
-                "Load reset",
+                "Two Speed",
+                "Variable Speed",
                 "Other"
             ]
         },
-        "DistrictFluidMeter": {
+        "ExternalFluidSource": {
             "type": "object",
             "properties": {
                 "id": {
@@ -1585,16 +1691,17 @@
                     "type": "number"
                 },
                 "name": {
-                    "description": "Name identifying district fluid meter",
-                    "type": "string"
+                    "description": "Name identifying external fluid source",
+                    "type": "string",
+                    "notes": "External fluid source is a method to indicate that it is connected to a district or campus system external to the building."
                 },
                 "loop_name": {
                     "description": "Fluid loop name",
                     "type": "string"
                 },
                 "type": {
-                    "description": "Type of district fluid meter",
-                    "$ref": "ASHRAE229.schema.json#/definitions/DistrictFluidMeterTypeOptions"
+                    "description": "Type of external fluid source",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ExternalFluidSourceTypeOptions"
                 }
             },
             "required": [
@@ -1603,7 +1710,7 @@
             ],
             "additionalProperties": false
         },
-        "DistrictFluidMeterTypeOptions": {
+        "ExternalFluidSourceTypeOptions": {
             "type": "string",
             "enum": [
                 "CHILLED_WATER",
@@ -1615,6 +1722,87 @@
                 "Hot water",
                 "Steam"
             ]
+        },
+        "PartLoadPerformanceCurve": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying performance curve",
+                    "type": "string"
+                },
+                "coefficient_a": {
+                    "description": "Coefficient a",
+                    "type": "number",
+                    "notes": "Coefficient a in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
+                },
+                "coefficient_b": {
+                    "description": "Coefficient b",
+                    "type": "number",
+                    "notes": "Coefficient b in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
+                },
+                "coefficient_c": {
+                    "description": "Coefficient c",
+                    "type": "number",
+                    "notes": "Coefficient c in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "TemperatureAdjustmentPerformanceCurve": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name identifying performance curve",
+                    "type": "string"
+                },
+                "coefficient_a": {
+                    "description": "Coefficient a",
+                    "type": "number",
+                    "notes": "Coefficient a in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+                },
+                "coefficient_b": {
+                    "description": "Coefficient b",
+                    "type": "number",
+                    "notes": "Coefficient b in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+                },
+                "coefficient_c": {
+                    "description": "Coefficient c",
+                    "type": "number",
+                    "notes": "Coefficient c in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+                },
+                "coefficient_d": {
+                    "description": "Coefficient d",
+                    "type": "number",
+                    "notes": "Coefficient d in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+                },
+                "coefficient_e": {
+                    "description": "Coefficient e",
+                    "type": "number",
+                    "notes": "Coefficient e in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+                },
+                "coefficient_f": {
+                    "description": "Coefficient f",
+                    "type": "number",
+                    "notes": "Coefficient f in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
         },
         "ServiceWaterHeatingSystem": {
             "type": "object",
