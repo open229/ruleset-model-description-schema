@@ -1242,9 +1242,9 @@ HeatRejection:
 HeatRejectionTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
-    AXIAL_FAN:
+    AXIAL_COOLING_TOWER:
       Description: "Axial cooling tower"
-    CENTRIFUGAL:
+    CENTRIFUGAL_COOLING_TOWER:
       Description: "Centrifugal cooling tower"
     DRY_COOLER:
       Description: "Dry-cooler"
