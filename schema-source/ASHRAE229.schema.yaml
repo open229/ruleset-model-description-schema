@@ -978,8 +978,8 @@ Pump:
       Data Type: "Numeric"
       Units: "m"
       Notes: "Only used when specification_method is set to Detailed"
-    impelllor_efficiency:
-      Description: "Full load efficiency of the impellor"
+    impeller_efficiency:
+      Description: "Full load efficiency of the impeller"
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Only used when specification_method is set to Detailed"
