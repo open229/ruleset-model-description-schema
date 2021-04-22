@@ -1291,8 +1291,8 @@
                     "units": "m",
                     "notes": "Only used when specification_method is set to Detailed"
                 },
-                "impelllor_efficiency": {
-                    "description": "Full load efficiency of the impellor",
+                "impeller_efficiency": {
+                    "description": "Full load efficiency of the impeller",
                     "type": "number",
                     "minimum": 0.0,
                     "maximum": 1.0,
@@ -1345,6 +1345,17 @@
         "PumpFlowControlOptions": {
             "type": "string",
             "enum": [
+                "FIXED_FLOW",
+                "VARIABLE_SPEED"
+            ],
+            "descriptions": [
+                "Fixed flow",
+                "Variable flow"
+            ]
+        },
+        "PumpSpecificationMethodOptions": {
+            "type": "string",
+            "enum": [
                 "SIMPLE",
                 "DETAILED"
             ],
@@ -1355,17 +1366,6 @@
             "notes": [
                 "Specify the electric power input of pump",
                 "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
-            ]
-        },
-        "PumpSpecificationMethodOptions": {
-            "type": "string",
-            "enum": [
-                "FIXED_FLOW",
-                "VARIABLE_SPEED"
-            ],
-            "descriptions": [
-                "Fixed flow",
-                "Variable flow"
             ]
         },
         "Boiler": {
@@ -1641,8 +1641,8 @@
         "HeatRejectionTypeOptions": {
             "type": "string",
             "enum": [
-                "AXIAL_FAN",
-                "CENTRIFUGAL",
+                "AXIAL_COOLING_TOWER",
+                "CENTRIFUGAL_COOLING_TOWER",
                 "DRY_COOLER",
                 "EVAPORATIVE",
                 "OTHER"

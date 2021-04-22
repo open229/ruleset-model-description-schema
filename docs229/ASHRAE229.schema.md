@@ -122,16 +122,16 @@
 | `VARIABLE_SPEED` | Variable speed |       |
 
 # PumpFlowControlOptions
-| Enumerator | Description |                                         Notes                                          |
-|------------|-------------|----------------------------------------------------------------------------------------|
-| `SIMPLE`   | Simple      | Specify the electric power input of pump                                               |
-| `DETAILED` | Detailed    | Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency |
-
-# PumpSpecificationMethodOptions
 |    Enumerator    |  Description  | Notes |
 |------------------|---------------|-------|
 | `FIXED_FLOW`     | Fixed flow    |       |
 | `VARIABLE_SPEED` | Variable flow |       |
+
+# PumpSpecificationMethodOptions
+| Enumerator | Description |                                         Notes                                          |
+|------------|-------------|----------------------------------------------------------------------------------------|
+| `SIMPLE`   | Simple      | Specify the electric power input of pump                                               |
+| `DETAILED` | Detailed    | Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency |
 
 # BoilerCombustionOptions
 | Enumerator | Description | Notes |
@@ -161,13 +161,13 @@
 | `OTHER`                                   | Other                                   |       |
 
 # HeatRejectionTypeOptions
-|  Enumerator   |        Description        | Notes |
-|---------------|---------------------------|-------|
-| `AXIAL_FAN`   | Axial cooling tower       |       |
-| `CENTRIFUGAL` | Centrifugal cooling tower |       |
-| `DRY_COOLER`  | Dry-cooler                |       |
-| `EVAPORATIVE` | Evaporative               |       |
-| `OTHER`       | Other                     |       |
+|         Enumerator          |        Description        | Notes |
+|-----------------------------|---------------------------|-------|
+| `AXIAL_COOLING_TOWER`       | Axial cooling tower       |       |
+| `CENTRIFUGAL_COOLING_TOWER` | Centrifugal cooling tower |       |
+| `DRY_COOLER`                | Dry-cooler                |       |
+| `EVAPORATIVE`               | Evaporative               |       |
+| `OTHER`                     | Other                     |       |
 
 # HeatRejectionResetOptions
 |  Enumerator  | Description | Notes |
@@ -463,7 +463,7 @@
 | `power`                 | Pump power                                 | `Numeric`                          | W     |          |     | Only used when specification_method is set to Simple   |
 | `motor_nameplate_power` | Pump motor nameplate power                 | `Numeric`                          | W     |          |     | Only used when specification_method is set to Detailed |
 | `design_head`           | Head of the pump at design flow conditions | `Numeric`                          | m     |          |     | Only used when specification_method is set to Detailed |
-| `impelllor_efficiency`  | Full load efficiency of the impellor       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed |
+| `impeller_efficiency`   | Full load efficiency of the impeller       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed |
 | `motor_efficiency`      | Full load efficiency of the pump motor     | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed |
 | `speed_control`         | Options for pump speed control             | `<PumpSpeedControlOptions>`        |       |          |     |                                                        |
 | `flow_control`          | Flow control options                       | `<PumpFlowControlOptions>`         |       |          |     |                                                        |
