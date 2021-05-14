@@ -479,13 +479,24 @@ Fenestration:
     framing_type:
       Description: "The material of the framing."
       Data Type: "<FenestrationFrameType2019ASHRAE901>"
-    area:
-      Description: "Area of fenestration including glass and framing"
+    glazed_area:
+      Description: "Area of fenestration including glass and transparent surfaces"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m2"
-    u_factor:
-      Description: "Fenestration U-factor"
+    opaque_area:
+      Description: "Area of fenestration framing for a window or skylight or opaque portion for a door."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m2"
+    glazed_u_factor:
+      Description: "Fenestration U-factor for the glazed portion"
+      Data Type: "Numeric"
+      Units: "W/m2-K"
+      Range: ">=0"
+      Notes: "Includes interior and exterior air films as specified by the referenced standard."
+    opaque_u_factor:
+      Description: "U-factor for the frame or opaque portions"
       Data Type: "Numeric"
       Units: "W/m2-K"
       Range: ">=0"
