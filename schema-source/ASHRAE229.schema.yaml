@@ -1214,6 +1214,12 @@ HeatRejection:
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionTypeOptions>"
+    fan_type:
+      Description: "Heat Rejection Fan Type"
+      Data Type: "<HeatRejectionFanTypeOptions>"
+    fluid:
+      Description: "Fluid Cooled by Heat Rejection"
+      Data Type: "<HeatRejectionFluidOptions>"
     range:
       Description: "Heat rejection Range"
       Data Type: "Numeric"
@@ -1253,16 +1259,35 @@ HeatRejection:
 HeatRejectionTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
-    AXIAL_COOLING_TOWER:
-      Description: "Axial cooling tower"
-    CENTRIFUGAL_COOLING_TOWER:
-      Description: "Centrifugal cooling tower"
+    OPEN_CIRCUIT_COOLING_TOWER:
+      Description: "Open-circuit cooling tower"
+    CLOSED_CIRCUIT_COOLING_TOWER:
+      Description: "Closed-circuit cooling tower or fluid cooler"
     DRY_COOLER:
-      Description: "Dry-cooler"
-    EVAPORATIVE:
-      Description: "Evaporative"
+      Description: "Dry-cooler or air-cooled fluid cooler"
+    EVAPORATIVE_CONDENSER:
+      Description: "Evaporative condenser"
     OTHER:
       Description: "Other"
+
+HeatRejectionFanTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    AXIAL:
+      Description: "Axial or Propellor"
+    CENTRIFUGAL:
+      Description: "Centrifugal"
+
+HeatRejectionFluidOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    WATER:
+      Description: "Water"
+    REFRIGERANT:
+      Description: "Refrigerant"
+      Notes: "Including R-448A"
+    AMMONIA:
+      Description: "Ammonia"
 
 HeatRejectionResetOptions:
   Object Type: "Enumeration"
