@@ -1267,6 +1267,8 @@ HeatRejectionTypeOptions:
       Description: "Dry-cooler or air-cooled fluid cooler"
     EVAPORATIVE_CONDENSER:
       Description: "Evaporative condenser"
+    AIR_COOLED_CONDENSER:
+      Description: "Air cooled condenser"
     OTHER:
       Description: "Other"
 
@@ -1277,6 +1279,8 @@ HeatRejectionFanTypeOptions:
       Description: "Axial or Propellor"
     CENTRIFUGAL:
       Description: "Centrifugal"
+    OTHER:
+      Description: "Other"
 
 HeatRejectionFluidOptions:
   Object Type: "Enumeration"
@@ -1288,6 +1292,8 @@ HeatRejectionFluidOptions:
       Notes: "Including R-448A"
     AMMONIA:
       Description: "Ammonia"
+    OTHER:
+      Description: "Other"
 
 HeatRejectionResetOptions:
   Object Type: "Enumeration"
