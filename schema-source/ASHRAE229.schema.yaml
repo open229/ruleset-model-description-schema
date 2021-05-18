@@ -1059,6 +1059,11 @@ Boiler:
       Description: "Heating capacity"
       Data Type: "Numeric"
       Units: "W"
+    rated_capacity:
+      Description: "Heating capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "At rating conditions."
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
@@ -1077,9 +1082,10 @@ Boiler:
       Description: "Detailed performance as specified in ASHRAE Standard 205"
       Data Type: "UUID"
       Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
-    part_load_performance_curve:
-      Description: "Part load performanc curve"
-      Data Type: "{PartLoadPerformanceCurve}"
+    energy_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{LoadValidationPoint}]"
+      Notes: "Load is input to each validation point and energy output is the result."
     auxiliary_power:
       Description: "Auxiliary power"
       Data Type: "Numeric"
@@ -1112,6 +1118,18 @@ BoilerEfficiencyMetricTypeOptions:
     COMBUSION:
       Description: "Combustion efficiency"
 
+LoadValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
 Chiller:
   Object Type: "Data Group"
   Data Elements:
@@ -1137,6 +1155,11 @@ Chiller:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
       Units: "W"
+    rated_capacity:
+      Description: "Chiller Design Cooling Capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "At rating conditions."
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
@@ -1157,21 +1180,38 @@ Chiller:
       Data Type: "Numeric"
       Units: "W/W"
       Notes: "Can be input by user or computed."
-    part_load_performance_curve:
-      Description: "Part load performance curve"
-      Data Type: "{PartLoadPerformanceCurve}"
-    capacity_performance_curve:
-      Description: "Capacity performance curve"
-      Data Type: "{TemperatureAdjustmentPerformanceCurve}"
-      Notes: "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
-    efficiency_performance_curve:
-      Description: "Efficiency performance curve"
-      Data Type: "{TemperatureAdjustmentPerformanceCurve}"
-      Notes: "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+    capacity_validation_points:
+      Description: "Capacity validation points"
+      Data Type: "[{TemperatureTemperatureLoadValidationPoint}]"
+      Notes: "Typically temperature_1 is chilled water supply temperature and temperature_2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+    energy_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{TemperatureTemperatureLoadValidationPoint}]"
+      Notes: "Typically temperature_1 is chilled water supply temperature and temperature_2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
     detailed_performance:
       Description: "Detailed performance as specified in ASHRAE Standard 205"
       Data Type: "UUID"
       Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
+
+TemperatureTemperatureLoadValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    temperature_1:
+      Description: "First reference temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    temperature_2:
+      Description: "Second reference temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
 
 ChillerCompressorTypeOptions:
   Object Type: "Enumeration"
@@ -1255,6 +1295,11 @@ HeatRejection:
       Description: "Design condenser water flow rate"
       Data Type: "Numeric"
       Units: "L/s"
+    rated_water_flowrate:
+      Description: "Rated condenser water flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "At rating conditions."
 
 HeatRejectionTypeOptions:
   Object Type: "Enumeration"
@@ -1345,67 +1390,6 @@ ExternalFluidSourceTypeOptions:
       Description: "Hot water"
     STEAM:
       Description: "Steam"
-
-PartLoadPerformanceCurve:
-  Object Type: "Data Group"
-  Data Elements:
-    id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
-      Required: True
-    name:
-      Description: "Name identifying performance curve"
-      Data Type: "String"
-      Required: True
-    coefficient_a:
-      Description: "Coefficient a"
-      Data Type: "Numeric"
-      Notes: "Coefficient a in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
-    coefficient_b:
-      Description: "Coefficient b"
-      Data Type: "Numeric"
-      Notes: "Coefficient b in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
-    coefficient_c:
-      Description: "Coefficient c"
-      Data Type: "Numeric"
-      Notes: "Coefficient c in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
-
-TemperatureAdjustmentPerformanceCurve:
-  Object Type: "Data Group"
-  Data Elements:
-    id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
-      Required: True
-    name:
-      Description: "Name identifying performance curve"
-      Data Type: "String"
-      Required: True
-    coefficient_a:
-      Description: "Coefficient a"
-      Data Type: "Numeric"
-      Notes: "Coefficient a in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-    coefficient_b:
-      Description: "Coefficient b"
-      Data Type: "Numeric"
-      Notes: "Coefficient b in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-    coefficient_c:
-      Description: "Coefficient c"
-      Data Type: "Numeric"
-      Notes: "Coefficient c in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-    coefficient_d:
-      Description: "Coefficient d"
-      Data Type: "Numeric"
-      Notes: "Coefficient d in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-    coefficient_e:
-      Description: "Coefficient e"
-      Data Type: "Numeric"
-      Notes: "Coefficient e in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-    coefficient_f:
-      Description: "Coefficient f"
-      Data Type: "Numeric"
-      Notes: "Coefficient f in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-
 
 ServiceWaterHeatingSystem:
   Object Type: "Data Group"
