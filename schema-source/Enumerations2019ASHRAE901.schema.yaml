@@ -893,7 +893,13 @@ SpaceStatusType2019ASHRAE901:
     ALTERATION:
       Description: "Alteration"
 
-
+AdditionalSurfaceAdjacentTo2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    UNENCLOSED:
+      Description: "Unenclosed"
+    UNCONDITIONED:
+      Description: "Unconditioned"
 
 
 
