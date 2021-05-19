@@ -150,6 +150,10 @@ BuildingSegment:
       Description: "Unique Identification Number"
       Data Type: "Numeric"
       Required: True
+    name:
+      Description: "Name of the Building Segment"
+      Data Type: "String"
+      Required: True
     thermal_blocks:
       Description: "Thermal blocks in the building"
       Data Type: "[{ThermalBlock}]"
@@ -361,6 +365,14 @@ Surface:
 Construction:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the Construction"
+      Data Type: "String"
+      Required: True
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
@@ -401,6 +413,14 @@ Construction:
 SurfaceOptics:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the surface optics"
+      Data Type: "String"
+      Required: True
     absorptance_thermal_exterior:
       Description: "Thermal absorptance of long wavelength radiation on the exterior surface."
       Data Type: "Numeric"
@@ -627,6 +647,10 @@ MiscellaneousEquipmentType:
 Transformer:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
     name:
       Description: "Transformer Name"
       Data Type: "String"
@@ -707,6 +731,10 @@ Calendar:
       Description: "Unique Identification Number"
       Data Type: "Numeric"
       Required: True
+    name:
+      Description: "Name of the calendar"
+      Data Type: "String"
+      Required: True
     day_of_week_for_january_1:
       Description: "Day of the week for January 1"
       Data Type: "<DayOfWeek>"
@@ -738,6 +766,14 @@ DayOfWeek:
 Weather:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the Weather data group"
+      Data Type: "String"
+      Required: True
     monthly_ground_temperature:
       Description: "Modeled monthly ground temperatures"
       Data Type: "[Numeric][1..12]"
@@ -1125,6 +1161,7 @@ LoadValidationPoint:
       Description: "Load"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "No name and id is needed since typically used as one of a series."
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -1200,6 +1237,7 @@ TemperatureTemperatureLoadValidationPoint:
       Description: "First reference temperature"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "No name and id is needed since typically used as one of a series."
     temperature_2:
       Description: "Second reference temperature"
       Data Type: "Numeric"
@@ -1398,7 +1436,7 @@ ServiceWaterHeatingSystem:
       Description: "Unique Identification Number"
       Data Type: "Numeric"
       Required: True
-    loop_name:
+    name:
       Description: "Name of service water heating system loop"
       Data Type: "String"
     area_type:
@@ -1582,6 +1620,14 @@ Refrigeration:
 OverallSimulationOutputs:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the overall simulation output"
+      Data Type: "String"
+      Required: True
     refrigeration_energy_enduse:
       Description: "Annual refrigeration energy end use from simulation output"
       Data Type: "Numeric"
