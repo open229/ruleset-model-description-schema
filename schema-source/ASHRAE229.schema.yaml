@@ -1120,7 +1120,7 @@ Boiler:
       Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
     energy_validation_points:
       Description: "Energy validation points"
-      Data Type: "[{LoadValidationPoint}]"
+      Data Type: "[{BoilerPerformanceValidationPoint}]"
       Notes: "Load is input to each validation point and energy output is the result."
     auxiliary_power:
       Description: "Auxiliary power"
@@ -1154,7 +1154,7 @@ BoilerEfficiencyMetricTypeOptions:
     COMBUSION:
       Description: "Combustion efficiency"
 
-LoadValidationPoint:
+BoilerPerformanceValidationPoint:
   Object Type: "Data Group"
   Data Elements:
     load:
@@ -1219,29 +1219,28 @@ Chiller:
       Notes: "Can be input by user or computed."
     capacity_validation_points:
       Description: "Capacity validation points"
-      Data Type: "[{TemperatureTemperatureLoadValidationPoint}]"
-      Notes: "Typically temperature_1 is chilled water supply temperature and temperature_2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+      Data Type: "[{ ChillerPerformanceValidationPoint}]"
     energy_validation_points:
       Description: "Energy validation points"
-      Data Type: "[{TemperatureTemperatureLoadValidationPoint}]"
-      Notes: "Typically temperature_1 is chilled water supply temperature and temperature_2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+      Data Type: "[{ChillerPerformanceValidationPoint}]"
     detailed_performance:
       Description: "Detailed performance as specified in ASHRAE Standard 205"
       Data Type: "UUID"
       Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
 
-TemperatureTemperatureLoadValidationPoint:
+ChillerPerformanceValidationPoint:
   Object Type: "Data Group"
   Data Elements:
-    temperature_1:
-      Description: "First reference temperature"
+    chilled_water_supply_temperature:
+      Description: "Chilled water supply temperature"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "No name and id is needed since typically used as one of a series."
-    temperature_2:
-      Description: "Second reference temperature"
+      Notes: "No name and id is needed since used as one of a series."
+    second_temperature:
+      Description: "Second temperature"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers"
     load:
       Description: "Load"
       Data Type: "Numeric"
