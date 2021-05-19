@@ -711,10 +711,22 @@ Schedule:
       Description: "The purpose of schedule"
       Data Type: "String"
       Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMRs. Examples include thermostat, multiplier for lighting, availability for equipment."
-    values:
+    schedule_sequence_type:
+      Description: "Schedule sequence type"
+      Data Type: "<ScheduleSequenceTypeOptions>"
+    hourly_values:
       Description: "Hourly Values of Schedule"
       Data Type: "[Numeric][8760]"
-      Notes: "Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+      Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+    event_times:
+      Description: "Event times when the schedule changes"
+      Data Type: "[Numeric]"
+      Units: "s"
+      Notes: "Used when schedule_sequence_type is EVENT to describe the time of the year in seconds that the schedule changes value."
+    event_values:
+      Description: "Event value at corresponding event time."
+      Data Type: "[Numeric]"
+      Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
     units_of_values:
       Description: "The units associated witht the values of the schedule"
       Data Type: "<ScheduleUnits>"
@@ -722,6 +734,15 @@ Schedule:
     prescribed_schedule:
       Description: "True if any schedule values have changed from what appears in the schedule library"
       Data Type: "<PrescribedSchedules2019ASHRAE901>"
+
+ScheduleSequenceTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HOURLY:
+      Description: "Hourly"
+    EVENT:
+      Description: "Event"
+
 
 ScheduleUnits:
   Object Type: "Enumeration"
