@@ -271,8 +271,8 @@ Space:
     infiltration_modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
       Data Type: "<InfiltrationMethodType>"
-    infiltration_schedule_name:
-      Description: "Infiltration schedule name"
+    infiltration_multiplier_schedule_name:
+      Description: "Infiltration multiplier schedule name"
       Data Type: "String"
 
 ConditioningType:
@@ -587,8 +587,8 @@ InteriorLighting:
       Data Type: "Numeric"
       Units: "W/m2"
       Notes: "When computing the power per area use the area of the entire space."
-    lighting_schedule_name:
-      Description: "Lighting schedule name"
+    lighting_multiplier_schedule_name:
+      Description: "Lighting multiplier schedule name"
       Data Type: "String"
     has_occupancy_control:
       Description: "Indicates that the lighting has occupancy controls"
@@ -614,8 +614,8 @@ MiscellaneousEquipment:
       Description: "Peak energy usage per hour by the miscelleous equipment in the space."
       Data Type: "Numeric"
       Units: "W"
-    schedule_name:
-      Description: "miscelleous equipment in the space schedule name"
+    multiplier_schedule_name:
+      Description: "miscelleous equipment in the space multiplier schedule name"
       Data Type: "String"
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
@@ -717,12 +717,19 @@ Schedule:
       Notes: "Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
     units_of_values:
       Description: "The units associated witht the values of the schedule"
-      Data Type: "String"
+      Data Type: "<ScheduleUnits>"
       Notes: "For certain schedule purposes, the values may be represented by units such as C for temperature or W for power."
     prescribed_schedule:
       Description: "True if any schedule values have changed from what appears in the schedule library"
       Data Type: "<PrescribedSchedules2019ASHRAE901>"
-    
+
+ScheduleUnits:
+  Object Type: "Enumeration"
+  Enumerators:
+    MULTIPLIER_DIMENSIONLESS:
+      Description: "Multiplier dimensionless"
+    TEMPERATURE:
+      Description: "Temperature"
     
 Calendar:
   Object Type: "Data Group"
@@ -831,14 +838,14 @@ Elevator:
       Description: "Airflow of cab ventfan"
       Data Type: "Numeric"
       Units: "L/s"
-    cab_motor_schedule:
-      Description: "Elevator motor operation schedule name"
+    cab_motor_multiplier_schedule:
+      Description: "Elevator motor operation multiplier schedule name"
       Data Type: "String"
-    cab_ventilation_fan_schedule:
-      Description: "Elevator ventilation fan operation schedule name"
+    cab_ventilation_fan_multiplier_schedule:
+      Description: "Elevator ventilation fan operation mulitplier schedule name"
       Data Type: "String"
-    cab_lighting_schedule:
-      Description: "Elevator lighting schedule name"
+    cab_lighting_multiplier_schedule:
+      Description: "Elevator lighting multiplier schedule name"
       Data Type: "String"
 
 HeatingVentilationAirConditioningSystem:
@@ -1219,7 +1226,7 @@ Chiller:
       Notes: "Can be input by user or computed."
     capacity_validation_points:
       Description: "Capacity validation points"
-      Data Type: "[{ ChillerPerformanceValidationPoint}]"
+      Data Type: "[{ChillerPerformanceValidationPoint}]"
     energy_validation_points:
       Description: "Energy validation points"
       Data Type: "[{ChillerPerformanceValidationPoint}]"
@@ -1450,8 +1457,8 @@ ServiceWaterHeatingSystem:
       Description: "Design supply temperature setpoint of service water heating loop"
       Data Type: "Numeric"
       Units: "C"
-    flow_schedule:
-      Description: "service water heating Loop flow schedule name"
+    flow_multiplier_schedule:
+      Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "String"
     annual_entering_water_temperature:
       Description: "Annual service main or annual ground temperature used for service water heating calculations entering water temperature	degrees"
