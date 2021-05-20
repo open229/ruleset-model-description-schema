@@ -458,3 +458,9 @@
 | `ADDITION`   | Addition    |       |
 | `ALTERATION` | Alteration  |       |
 
+# AdditionalSurfaceAdjacentTo2019ASHRAE901
+|   Enumerator    |  Description  | Notes |
+|-----------------|---------------|-------|
+| `UNENCLOSED`    | Unenclosed    |       |
+| `UNCONDITIONED` | Unconditioned |       |
+

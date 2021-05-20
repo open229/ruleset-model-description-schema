@@ -145,6 +145,10 @@
                     "description": "Unique Identification Number",
                     "type": "number"
                 },
+                "name": {
+                    "description": "Name of the Building Segment",
+                    "type": "string"
+                },
                 "thermal_blocks": {
                     "description": "Thermal blocks in the building",
                     "type": "array",
@@ -180,7 +184,8 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "name"
             ],
             "additionalProperties": false
         },
@@ -294,6 +299,11 @@
                     "minimum": 0.0,
                     "units": "m"
                 },
+                "number_of_occupants": {
+                    "description": "Number of occupants in the space",
+                    "type": "number",
+                    "minimum": 0.0
+                },
                 "conditioning_type": {
                     "description": "Space conditioning category",
                     "$ref": "ASHRAE229.schema.json#/definitions/ConditioningType"
@@ -326,8 +336,8 @@
                     "description": "The software methodology chosen for modeling infiltration",
                     "$ref": "ASHRAE229.schema.json#/definitions/InfiltrationMethodType"
                 },
-                "infiltration_schedule_name": {
-                    "description": "Infiltration schedule name",
+                "infiltration_multiplier_schedule_name": {
+                    "description": "Infiltration multiplier schedule name",
                     "type": "string"
                 }
             },
@@ -432,6 +442,9 @@
                         },
                         {
                             "$ref": "EnumerationsRESNET.schema.json#/definitions/AdditionalSurfaceAdjacentToRESNET"
+                        },
+                        {
+                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/AdditionalSurfaceAdjacentTo2019ASHRAE901"
                         }
                     ],
                     "notes": "Determines whether this is an (a) exterior surface if adjacent to ambient, (b) slab-on-grad or below grade surface if adjacent to ground, or (c) interior surface if adjacent to another thermal block."
@@ -439,6 +452,11 @@
                 "adjacent_space_id": {
                     "description": "ID of the adjacent space for interior surface",
                     "type": "string"
+                },
+                "is_adjacent_space_modeled": {
+                    "description": "True if the adjacent space is modeled.",
+                    "type": "boolean",
+                    "notes": "required for interior and other options that usually imply a modeled zone"
                 },
                 "does_cast_shade": {
                     "description": "Determines whether the surface is modeled as casting shade on other exterior surfaces",
@@ -462,6 +480,14 @@
         "Construction": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the Construction",
+                    "type": "string"
+                },
                 "surface_construction_input_option": {
                     "description": "Identifies whether construction is entered layer-by-layer or simplified (R-value)",
                     "$ref": "ASHRAE229.schema.json#/definitions/SurfaceConstructionInputOptions"
@@ -511,11 +537,23 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "id",
+                "name"
+            ],
             "additionalProperties": false
         },
         "SurfaceOptics": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the surface optics",
+                    "type": "string"
+                },
                 "absorptance_thermal_exterior": {
                     "description": "Thermal absorptance of long wavelength radiation on the exterior surface.",
                     "type": "number",
@@ -547,6 +585,10 @@
                     "minimum": 0.0
                 }
             },
+            "required": [
+                "id",
+                "name"
+            ],
             "additionalProperties": false
         },
         "SurfaceClassificationType": {
@@ -613,14 +655,27 @@
                     "description": "The material of the framing.",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/FenestrationFrameType2019ASHRAE901"
                 },
-                "area": {
-                    "description": "Area of fenestration including glass and framing",
+                "glazed_area": {
+                    "description": "Area of fenestration including glass and transparent surfaces",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m2"
                 },
-                "u_factor": {
-                    "description": "Fenestration U-factor",
+                "opaque_area": {
+                    "description": "Area of fenestration framing for a window or skylight or opaque portion for a door.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m2"
+                },
+                "glazed_u_factor": {
+                    "description": "Fenestration U-factor for the glazed portion",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W/m2-K",
+                    "notes": "Includes interior and exterior air films as specified by the referenced standard."
+                },
+                "opaque_u_factor": {
+                    "description": "U-factor for the frame or opaque portions",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W/m2-K",
@@ -713,8 +768,8 @@
                     "units": "W/m2",
                     "notes": "When computing the power per area use the area of the entire space."
                 },
-                "lighting_schedule_name": {
-                    "description": "Lighting schedule name",
+                "lighting_multiplier_schedule_name": {
+                    "description": "Lighting multiplier schedule name",
                     "type": "string"
                 },
                 "has_occupancy_control": {
@@ -749,8 +804,8 @@
                     "type": "number",
                     "units": "W"
                 },
-                "schedule_name": {
-                    "description": "miscelleous equipment in the space schedule name",
+                "multiplier_schedule_name": {
+                    "description": "miscelleous equipment in the space multiplier schedule name",
                     "type": "string"
                 },
                 "sensible_fraction": {
@@ -794,6 +849,10 @@
         "Transformer": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
                 "name": {
                     "description": "Transformer Name",
                     "type": "string"
@@ -828,6 +887,7 @@
                 }
             },
             "required": [
+                "id",
                 "name"
             ],
             "additionalProperties": false
@@ -872,7 +932,11 @@
                     "type": "string",
                     "notes": "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMRs. Examples include thermostat, multiplier for lighting, availability for equipment."
                 },
-                "values": {
+                "schedule_sequence_type": {
+                    "description": "Schedule sequence type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ScheduleSequenceTypeOptions"
+                },
+                "hourly_values": {
                     "description": "Hourly Values of Schedule",
                     "type": "array",
                     "minItems": 8760,
@@ -880,16 +944,37 @@
                     "items": {
                         "type": "number"
                     },
-                    "notes": "Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+                    "notes": "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+                },
+                "event_times": {
+                    "description": "Event times when the schedule changes",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "units": "s",
+                    "notes": "Used when schedule_sequence_type is EVENT to describe the time of the year in seconds that the schedule changes value."
+                },
+                "event_values": {
+                    "description": "Event value at corresponding event time.",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "notes": "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
                 },
                 "units_of_values": {
                     "description": "The units associated witht the values of the schedule",
-                    "type": "string",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ScheduleUnits",
                     "notes": "For certain schedule purposes, the values may be represented by units such as C for temperature or W for power."
                 },
                 "prescribed_schedule": {
                     "description": "True if any schedule values have changed from what appears in the schedule library",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/PrescribedSchedules2019ASHRAE901"
+                },
+                "is_schedule_modified_for_workaround": {
+                    "description": "True if any schedule has been modified for a workaround",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -898,12 +983,38 @@
             ],
             "additionalProperties": false
         },
+        "ScheduleSequenceTypeOptions": {
+            "type": "string",
+            "enum": [
+                "HOURLY",
+                "EVENT"
+            ],
+            "descriptions": [
+                "Hourly",
+                "Event"
+            ]
+        },
+        "ScheduleUnits": {
+            "type": "string",
+            "enum": [
+                "MULTIPLIER_DIMENSIONLESS",
+                "TEMPERATURE"
+            ],
+            "descriptions": [
+                "Multiplier dimensionless",
+                "Temperature"
+            ]
+        },
         "Calendar": {
             "type": "object",
             "properties": {
                 "id": {
                     "description": "Unique Identification Number",
                     "type": "number"
+                },
+                "name": {
+                    "description": "Name of the calendar",
+                    "type": "string"
                 },
                 "day_of_week_for_january_1": {
                     "description": "Day of the week for January 1",
@@ -919,7 +1030,8 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "name"
             ],
             "additionalProperties": false
         },
@@ -947,6 +1059,14 @@
         "Weather": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the Weather data group",
+                    "type": "string"
+                },
                 "monthly_ground_temperature": {
                     "description": "Modeled monthly ground temperatures",
                     "type": "array",
@@ -964,6 +1084,8 @@
                 }
             },
             "required": [
+                "id",
+                "name",
                 "climate_zone"
             ],
             "additionalProperties": false
@@ -1024,16 +1146,16 @@
                     "type": "number",
                     "units": "L/s"
                 },
-                "cab_motor_schedule": {
-                    "description": "Elevator motor operation schedule name",
+                "cab_motor_multiplier_schedule": {
+                    "description": "Elevator motor operation multiplier schedule name",
                     "type": "string"
                 },
-                "cab_ventilation_fan_schedule": {
-                    "description": "Elevator ventilation fan operation schedule name",
+                "cab_ventilation_fan_multiplier_schedule": {
+                    "description": "Elevator ventilation fan operation mulitplier schedule name",
                     "type": "string"
                 },
-                "cab_lighting_schedule": {
-                    "description": "Elevator lighting schedule name",
+                "cab_lighting_multiplier_schedule": {
+                    "description": "Elevator lighting multiplier schedule name",
                     "type": "string"
                 }
             },
@@ -1388,6 +1510,12 @@
                     "type": "number",
                     "units": "W"
                 },
+                "rated_capacity": {
+                    "description": "Heating capacity",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "At rating conditions."
+                },
                 "minimum_load_ratio": {
                     "description": "Minimum fraction of full load allowed",
                     "type": "number"
@@ -1411,9 +1539,13 @@
                     "description": "Detailed performance as specified in ASHRAE Standard 205",
                     "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
                 },
-                "part_load_performance_curve": {
-                    "description": "Part load performanc curve",
-                    "$ref": "ASHRAE229.schema.json#/definitions/PartLoadPerformanceCurve"
+                "energy_validation_points": {
+                    "description": "Energy validation points",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/BoilerPerformanceValidationPoint"
+                    },
+                    "notes": "Load is input to each validation point and energy output is the result."
                 },
                 "auxiliary_power": {
                     "description": "Auxiliary power",
@@ -1462,6 +1594,23 @@
                 "Combustion efficiency"
             ]
         },
+        "BoilerPerformanceValidationPoint": {
+            "type": "object",
+            "properties": {
+                "load": {
+                    "description": "Load",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "No name and id is needed since typically used as one of a series."
+                },
+                "result": {
+                    "description": "Result",
+                    "type": "number",
+                    "units": "W"
+                }
+            },
+            "additionalProperties": false
+        },
         "Chiller": {
             "type": "object",
             "properties": {
@@ -1491,6 +1640,12 @@
                     "type": "number",
                     "units": "W"
                 },
+                "rated_capacity": {
+                    "description": "Chiller Design Cooling Capacity",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "At rating conditions."
+                },
                 "minimum_load_ratio": {
                     "description": "Minimum fraction of full load allowed",
                     "type": "number"
@@ -1516,19 +1671,19 @@
                     "units": "W/W",
                     "notes": "Can be input by user or computed."
                 },
-                "part_load_performance_curve": {
-                    "description": "Part load performance curve",
-                    "$ref": "ASHRAE229.schema.json#/definitions/PartLoadPerformanceCurve"
+                "capacity_validation_points": {
+                    "description": "Capacity validation points",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPerformanceValidationPoint"
+                    }
                 },
-                "capacity_performance_curve": {
-                    "description": "Capacity performance curve",
-                    "$ref": "ASHRAE229.schema.json#/definitions/TemperatureAdjustmentPerformanceCurve",
-                    "notes": "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
-                },
-                "efficiency_performance_curve": {
-                    "description": "Efficiency performance curve",
-                    "$ref": "ASHRAE229.schema.json#/definitions/TemperatureAdjustmentPerformanceCurve",
-                    "notes": "Typically temperature1 is chilled water supply temperature and temperature2 is outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers."
+                "energy_validation_points": {
+                    "description": "Energy validation points",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPerformanceValidationPoint"
+                    }
                 },
                 "detailed_performance": {
                     "description": "Detailed performance as specified in ASHRAE Standard 205",
@@ -1539,6 +1694,34 @@
                 "id",
                 "name"
             ],
+            "additionalProperties": false
+        },
+        "ChillerPerformanceValidationPoint": {
+            "type": "object",
+            "properties": {
+                "chilled_water_supply_temperature": {
+                    "description": "Chilled water supply temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "No name and id is needed since used as one of a series."
+                },
+                "second_temperature": {
+                    "description": "Second temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers"
+                },
+                "load": {
+                    "description": "Load",
+                    "type": "number",
+                    "units": "W"
+                },
+                "result": {
+                    "description": "Result",
+                    "type": "number",
+                    "units": "W"
+                }
+            },
             "additionalProperties": false
         },
         "ChillerCompressorTypeOptions": {
@@ -1587,6 +1770,14 @@
                     "description": "Heat Rejection Type",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionTypeOptions"
                 },
+                "fan_type": {
+                    "description": "Heat Rejection Fan Type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionFanTypeOptions"
+                },
+                "fluid": {
+                    "description": "Fluid Cooled by Heat Rejection",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionFluidOptions"
+                },
                 "range": {
                     "description": "Heat rejection Range",
                     "type": "number",
@@ -1630,6 +1821,12 @@
                     "description": "Design condenser water flow rate",
                     "type": "number",
                     "units": "L/s"
+                },
+                "rated_water_flowrate": {
+                    "description": "Rated condenser water flow rate",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "At rating conditions."
                 }
             },
             "required": [
@@ -1641,18 +1838,54 @@
         "HeatRejectionTypeOptions": {
             "type": "string",
             "enum": [
-                "AXIAL_COOLING_TOWER",
-                "CENTRIFUGAL_COOLING_TOWER",
+                "OPEN_CIRCUIT_COOLING_TOWER",
+                "CLOSED_CIRCUIT_COOLING_TOWER",
                 "DRY_COOLER",
-                "EVAPORATIVE",
+                "EVAPORATIVE_CONDENSER",
+                "AIR_COOLED_CONDENSER",
                 "OTHER"
             ],
             "descriptions": [
-                "Axial cooling tower",
-                "Centrifugal cooling tower",
-                "Dry-cooler",
-                "Evaporative",
+                "Open-circuit cooling tower",
+                "Closed-circuit cooling tower or fluid cooler",
+                "Dry-cooler or air-cooled fluid cooler",
+                "Evaporative condenser",
+                "Air cooled condenser",
                 "Other"
+            ]
+        },
+        "HeatRejectionFanTypeOptions": {
+            "type": "string",
+            "enum": [
+                "AXIAL",
+                "CENTRIFUGAL",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Axial or Propellor",
+                "Centrifugal",
+                "Other"
+            ]
+        },
+        "HeatRejectionFluidOptions": {
+            "type": "string",
+            "enum": [
+                "WATER",
+                "REFRIGERANT",
+                "AMMONIA",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Water",
+                "Refrigerant",
+                "Ammonia",
+                "Other"
+            ],
+            "notes": [
+                null,
+                "Including R-448A",
+                null,
+                null
             ]
         },
         "HeatRejectionResetOptions": {
@@ -1723,87 +1956,6 @@
                 "Steam"
             ]
         },
-        "PartLoadPerformanceCurve": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying performance curve",
-                    "type": "string"
-                },
-                "coefficient_a": {
-                    "description": "Coefficient a",
-                    "type": "number",
-                    "notes": "Coefficient a in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
-                },
-                "coefficient_b": {
-                    "description": "Coefficient b",
-                    "type": "number",
-                    "notes": "Coefficient b in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
-                },
-                "coefficient_c": {
-                    "description": "Coefficient c",
-                    "type": "number",
-                    "notes": "Coefficient c in formulation a + b x (Qpartload/Qrated) + c x (Qpartload/Qrated)^2"
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ],
-            "additionalProperties": false
-        },
-        "TemperatureAdjustmentPerformanceCurve": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying performance curve",
-                    "type": "string"
-                },
-                "coefficient_a": {
-                    "description": "Coefficient a",
-                    "type": "number",
-                    "notes": "Coefficient a in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-                },
-                "coefficient_b": {
-                    "description": "Coefficient b",
-                    "type": "number",
-                    "notes": "Coefficient b in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-                },
-                "coefficient_c": {
-                    "description": "Coefficient c",
-                    "type": "number",
-                    "notes": "Coefficient c in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-                },
-                "coefficient_d": {
-                    "description": "Coefficient d",
-                    "type": "number",
-                    "notes": "Coefficient d in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-                },
-                "coefficient_e": {
-                    "description": "Coefficient e",
-                    "type": "number",
-                    "notes": "Coefficient e in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-                },
-                "coefficient_f": {
-                    "description": "Coefficient f",
-                    "type": "number",
-                    "notes": "Coefficient f in formulation a + b x temperature1 + c x temperature1^2 + d x temperature2 + e x temperature2^2 + f x temperature1 x temperature2"
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ],
-            "additionalProperties": false
-        },
         "ServiceWaterHeatingSystem": {
             "type": "object",
             "properties": {
@@ -1811,7 +1963,7 @@
                     "description": "Unique Identification Number",
                     "type": "number"
                 },
-                "loop_name": {
+                "name": {
                     "description": "Name of service water heating system loop",
                     "type": "string"
                 },
@@ -1830,8 +1982,8 @@
                     "type": "number",
                     "units": "C"
                 },
-                "flow_schedule": {
-                    "description": "service water heating Loop flow schedule name",
+                "flow_multiplier_schedule": {
+                    "description": "service water heating Loop flow muliplier schedule name",
                     "type": "string"
                 },
                 "annual_entering_water_temperature": {
@@ -2053,6 +2205,14 @@
         "OverallSimulationOutputs": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the overall simulation output",
+                    "type": "string"
+                },
                 "refrigeration_energy_enduse": {
                     "description": "Annual refrigeration energy end use from simulation output",
                     "type": "number",
@@ -2071,6 +2231,10 @@
                     "units": "J"
                 }
             },
+            "required": [
+                "id",
+                "name"
+            ],
             "additionalProperties": false
         }
     },
