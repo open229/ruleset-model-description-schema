@@ -81,6 +81,12 @@ ASHRAE229:
     weather:
       Description: "Information on the local weather conditions used with the simulation."
       Data Type: "{Weather}"
+    infiltration_pressure_difference:
+      Description: "Differential pressure difference assumed for infiltration values."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "Pa"
+      Notes: "Often 50 Pa or 75 Pa and used as rating conditions for air leakage for a building."
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
@@ -246,10 +252,18 @@ Space:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m"
+    volume:
+      Description: "Volume of the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3"
     number_of_occupants:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
       Range: ">=0"
+    occupant_multiplier_schedule_name:
+      Description: "Number of occupant multiplier schedule name"
+      Data Type: "String"
     conditioning_type:
       Description: "Space conditioning category"
       Data Type: "<ConditioningType>"
@@ -272,12 +286,10 @@ Space:
       Description: "Service water heating space type classification"
       Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
-    infiltration_modeling_method:
-      Description: "The software methodology chosen for modeling infiltration"
-      Data Type: "<InfiltrationMethodType>"
-    infiltration_multiplier_schedule_name:
-      Description: "Infiltration multiplier schedule name"
-      Data Type: "String"
+    infiltration:
+      Description: "Airleakage into the space."
+      Data Type: "{Infiltration}"
+      Notes: "References a single infiltration data group."
 
 ConditioningType:
   Object Type: "Enumeration"
@@ -302,6 +314,35 @@ SpaceFunctionType:
       Description: "Kitchen"
     OTHER:
       Description: "Other"
+
+Infiltration:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the Infiltration data group"
+      Data Type: "String"
+      Required: True
+    modeling_method:
+      Description: "The software methodology chosen for modeling infiltration"
+      Data Type: "<InfiltrationMethodType>"
+    air_leakage_rate:
+      Description: "Air leakage rate from infiltration of outside air"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3/s"
+      Notes: "Not needed if air_changes_per_hour is provided."
+    air_changes_per_hour:
+      Description: "Air changes per hour from infiltration of outside air."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Not needed if air_leakage_rate is provided."
+    multiplier_schedule_name:
+      Description: "Infiltration multiplier schedule name"
+      Data Type: "String"
 
 InfiltrationMethodType:
   Object Type: "Enumeration"
@@ -352,14 +393,10 @@ Surface:
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
       Data Type: "(<SurfaceAdjacentTo>,<AdditionalSurfaceAdjacentToRESNET>,<AdditionalSurfaceAdjacentTo2019ASHRAE901>)"
-      Notes: "Determines whether this is an (a) exterior surface if adjacent to ambient, (b) slab-on-grad or below grade surface if adjacent to ground, or (c) interior surface if adjacent to another thermal block."
+      Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
     adjacent_space_id:
-      Description: "ID of the adjacent space for interior surface. Only required when adjacent space is explicity modeled."
+      Description: "ID of the adjacent space for interior surface. Only required when adjacent space is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "String"
-    is_adjacent_space_modeled:
-      Description: "True if the adjacent space is modeled."
-      Data Type: "Boolean"
-      Notes: "required for interior and other options that usually imply a modeled zone"
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
       Data Type: "Boolean"
