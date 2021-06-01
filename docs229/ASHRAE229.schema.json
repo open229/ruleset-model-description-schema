@@ -38,6 +38,13 @@
                     "description": "Information on the local weather conditions used with the simulation.",
                     "$ref": "ASHRAE229.schema.json#/definitions/Weather"
                 },
+                "infiltration_pressure_difference": {
+                    "description": "Differential pressure difference assumed for infiltration values.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "Pa",
+                    "notes": "Often 50 Pa or 75 Pa and used as rating conditions for air leakage for a building."
+                },
                 "overall_simulation_outputs": {
                     "description": "Outputs from the simluation summed for all buildings in the simulation.",
                     "$ref": "ASHRAE229.schema.json#/definitions/OverallSimulationOutputs"
@@ -299,10 +306,20 @@
                     "minimum": 0.0,
                     "units": "m"
                 },
+                "volume": {
+                    "description": "Volume of the space",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m3"
+                },
                 "number_of_occupants": {
                     "description": "Number of occupants in the space",
                     "type": "number",
                     "minimum": 0.0
+                },
+                "occupant_multiplier_schedule_name": {
+                    "description": "Number of occupant multiplier schedule name",
+                    "type": "string"
                 },
                 "conditioning_type": {
                     "description": "Space conditioning category",
@@ -332,13 +349,10 @@
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceType2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 },
-                "infiltration_modeling_method": {
-                    "description": "The software methodology chosen for modeling infiltration",
-                    "$ref": "ASHRAE229.schema.json#/definitions/InfiltrationMethodType"
-                },
-                "infiltration_multiplier_schedule_name": {
-                    "description": "Infiltration multiplier schedule name",
-                    "type": "string"
+                "infiltration": {
+                    "description": "Airleakage into the space.",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
+                    "notes": "References a single infiltration data group."
                 }
             },
             "required": [
@@ -377,6 +391,45 @@
                 "Other"
             ]
         },
+        "Infiltration": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the Infiltration data group",
+                    "type": "string"
+                },
+                "modeling_method": {
+                    "description": "The software methodology chosen for modeling infiltration",
+                    "$ref": "ASHRAE229.schema.json#/definitions/InfiltrationMethodType"
+                },
+                "air_leakage_rate": {
+                    "description": "Air leakage rate from infiltration of outside air",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m3/s",
+                    "notes": "Not needed if air_changes_per_hour is provided."
+                },
+                "air_changes_per_hour": {
+                    "description": "Air changes per hour from infiltration of outside air.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "Not needed if air_leakage_rate is provided."
+                },
+                "multiplier_schedule_name": {
+                    "description": "Infiltration multiplier schedule name",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
         "InfiltrationMethodType": {
             "type": "string",
             "enum": [
@@ -398,7 +451,7 @@
                     "type": "number"
                 },
                 "name": {
-                    "description": "Name of the Space",
+                    "description": "Name of the Surface",
                     "type": "string"
                 },
                 "fenestration_subsurfaces": {
@@ -447,16 +500,11 @@
                             "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/AdditionalSurfaceAdjacentTo2019ASHRAE901"
                         }
                     ],
-                    "notes": "Determines whether this is an (a) exterior surface if adjacent to ambient, (b) slab-on-grad or below grade surface if adjacent to ground, or (c) interior surface if adjacent to another thermal block."
+                    "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
                 },
                 "adjacent_space_id": {
-                    "description": "ID of the adjacent space for interior surface",
+                    "description": "ID of the adjacent space for interior surface. Only required when adjacent space is explicity modeled when adjacent_to is set to INTERIOR.",
                     "type": "string"
-                },
-                "is_adjacent_space_modeled": {
-                    "description": "True if the adjacent space is modeled.",
-                    "type": "boolean",
-                    "notes": "required for interior and other options that usually imply a modeled zone"
                 },
                 "does_cast_shade": {
                     "description": "Determines whether the surface is modeled as casting shade on other exterior surfaces",
@@ -607,18 +655,18 @@
         "SurfaceAdjacentTo": {
             "type": "string",
             "enum": [
-                "AMBIENT",
+                "EXTERIOR",
                 "GROUND",
                 "INTERIOR",
                 "IDENTICAL",
-                "UNHEATED"
+                "UNDEFINED"
             ],
             "descriptions": [
-                "Exterior wall or roof which is adjacent to the exterior ambient environments.",
+                "Exterior wall or roof which is adjacent to the exterior environment.",
                 "Slab-on-grad or below grade surface if adjacent to ground.",
-                "Interior surface if adjacent to another thermal block.",
-                "Surface adjacent to a environment identical to the zone.",
-                "Surface adjacent to a environment that is not heated but enclosed."
+                "Interior surface if adjacent to another space which is explicity modeled.",
+                "Surface adjacent to a environment identical to the space. Sometimes this is described as adiabatic surface since no heat is transfered. The space on the other side of the surface is not explicity modeled.",
+                "The surface adjacency cannot be determined by the software."
             ]
         },
         "SurfaceConstructionInputOptions": {
@@ -667,15 +715,8 @@
                     "minimum": 0.0,
                     "units": "m2"
                 },
-                "glazed_u_factor": {
-                    "description": "Fenestration U-factor for the glazed portion",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W/m2-K",
-                    "notes": "Includes interior and exterior air films as specified by the referenced standard."
-                },
-                "opaque_u_factor": {
-                    "description": "U-factor for the frame or opaque portions",
+                "u_factor": {
+                    "description": "Overall Fenestration U-factor",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W/m2-K",
