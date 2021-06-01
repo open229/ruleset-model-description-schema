@@ -321,7 +321,7 @@ Surface:
       Data Type: "Numeric"
       Required: True
     name:
-      Description: "Name of the Space"
+      Description: "Name of the Surface"
       Data Type: "String"
       Required: True
     fenestration_subsurfaces:
@@ -354,7 +354,7 @@ Surface:
       Data Type: "(<SurfaceAdjacentTo>,<AdditionalSurfaceAdjacentToRESNET>,<AdditionalSurfaceAdjacentTo2019ASHRAE901>)"
       Notes: "Determines whether this is an (a) exterior surface if adjacent to ambient, (b) slab-on-grad or below grade surface if adjacent to ground, or (c) interior surface if adjacent to another thermal block."
     adjacent_space_id:
-      Description: "ID of the adjacent space for interior surface"
+      Description: "ID of the adjacent space for interior surface. Only required when adjacent space is explicity modeled."
       Data Type: "String"
     is_adjacent_space_modeled:
       Description: "True if the adjacent space is modeled."
@@ -468,16 +468,16 @@ SurfaceClassificationType:
 SurfaceAdjacentTo:
   Object Type: "Enumeration"
   Enumerators:
-    AMBIENT:
-      Description: "Exterior wall or roof which is adjacent to the exterior ambient environments."
+    EXTERIOR:
+      Description: "Exterior wall or roof which is adjacent to the exterior environment."
     GROUND:
       Description: "Slab-on-grad or below grade surface if adjacent to ground."
     INTERIOR:
-      Description: "Interior surface if adjacent to another thermal block."
+      Description: "Interior surface if adjacent to another space which is explicity modeled."
     IDENTICAL:
-      Description: "Surface adjacent to a environment identical to the zone."
-    UNHEATED:
-      Description: "Surface adjacent to a environment that is not heated but enclosed."
+      Description: "Surface adjacent to a environment identical to the space. Sometimes this is described as adiabatic surface since no heat is transfered. The space on the other side of the surface is not explicity modeled."
+    UNDEFINED:
+      Description: "The surface adjacency cannot be determined by the software."
 
 SurfaceConstructionInputOptions:
   Object Type: "Enumeration"
@@ -517,14 +517,8 @@ Fenestration:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m2"
-    glazed_u_factor:
-      Description: "Fenestration U-factor for the glazed portion"
-      Data Type: "Numeric"
-      Units: "W/m2-K"
-      Range: ">=0"
-      Notes: "Includes interior and exterior air films as specified by the referenced standard."
-    opaque_u_factor:
-      Description: "U-factor for the frame or opaque portions"
+    u_factor:
+      Description: "Overall Fenestration U-factor"
       Data Type: "Numeric"
       Units: "W/m2-K"
       Range: ">=0"
