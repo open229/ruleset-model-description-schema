@@ -334,12 +334,7 @@ Infiltration:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Not needed if air_changes_per_hour is provided."
-    air_changes_per_hour:
-      Description: "Air changes per hour from infiltration of outside air."
-      Data Type: "Numeric"
-      Range: ">=0"
-      Notes: "Not needed if air_leakage_rate is provided."
+      Notes: "Based on the pressure described in ASHRAE229.infiltration_pressure_difference."
     multiplier_schedule_name:
       Description: "Infiltration multiplier schedule name"
       Data Type: "String"
