@@ -253,6 +253,25 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/Space"
                     },
                     "notes": "Contains a list of spaces in the building."
+                },
+                "volume": {
+                    "description": "Volume of the space",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m3"
+                },
+                "surfaces": {
+                    "description": "Surfaces surrounding the zone",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/Surface"
+                    },
+                    "notes": "Contains a list of surfaces that define the zone."
+                },
+                "infiltration": {
+                    "description": "Airleakage into the space.",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
+                    "notes": "References a single infiltration data group."
                 }
             },
             "required": [
@@ -271,14 +290,6 @@
                 "name": {
                     "description": "Name of the Space",
                     "type": "string"
-                },
-                "surfaces": {
-                    "description": "Surfaces surrounding the space",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Surface"
-                    },
-                    "notes": "Contains a list of surfaces that define the space."
                 },
                 "interior_lighting": {
                     "description": "Internal lighting that produce internal gains for a space.",
@@ -299,18 +310,6 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m2"
-                },
-                "floor_to_ceiling_height": {
-                    "description": "The height from the floor of the space to the ceiling",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m"
-                },
-                "volume": {
-                    "description": "Volume of the space",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m3"
                 },
                 "number_of_occupants": {
                     "description": "Number of occupants in the space",
@@ -348,11 +347,6 @@
                     "description": "Service water heating space type classification",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceType2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
-                },
-                "infiltration": {
-                    "description": "Airleakage into the space.",
-                    "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
-                    "notes": "References a single infiltration data group."
                 }
             },
             "required": [
@@ -411,13 +405,7 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m3/s",
-                    "notes": "Not needed if air_changes_per_hour is provided."
-                },
-                "air_changes_per_hour": {
-                    "description": "Air changes per hour from infiltration of outside air.",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "notes": "Not needed if air_leakage_rate is provided."
+                    "notes": "Based on the pressure described in ASHRAE229.infiltration_pressure_difference."
                 },
                 "multiplier_schedule_name": {
                     "description": "Infiltration multiplier schedule name",
@@ -516,7 +504,7 @@
                 },
                 "surface_optics": {
                     "description": "Optical properties of the surface.",
-                    "$ref": "ASHRAE229.schema.json#/definitions/SurfaceOptics"
+                    "$ref": "ASHRAE229.schema.json#/definitions/SurfaceOpticalProperties"
                 }
             },
             "required": [
@@ -540,12 +528,21 @@
                     "description": "Identifies whether construction is entered layer-by-layer or simplified (R-value)",
                     "$ref": "ASHRAE229.schema.json#/definitions/SurfaceConstructionInputOptions"
                 },
-                "layers": {
-                    "description": "List of names of layer descriptions starting from the outside surface",
+                "primary_layers": {
+                    "description": "List of names of layer descriptions starting from the outside surface for primary heat path",
                     "type": "array",
                     "items": {
-                        "type": "string"
-                    }
+                        "$ref": "ASHRAE229.schema.json#/definitions/Material"
+                    },
+                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only."
+                },
+                "framing_layers": {
+                    "description": "List of names of layer descriptions starting from the outside surface for the framing heat path",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/Material"
+                    },
+                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element."
                 },
                 "insulation_location": {
                     "description": "The location of the insulation related to the surface",
@@ -591,7 +588,49 @@
             ],
             "additionalProperties": false
         },
-        "SurfaceOptics": {
+        "Material": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique Identification Number",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Name of the Material",
+                    "type": "string"
+                },
+                "thickness": {
+                    "description": "The thickness of the material layer",
+                    "type": "number",
+                    "exclusiveMinimum": 0.0,
+                    "units": "m"
+                },
+                "thermal_conductivity": {
+                    "description": "The thermal conductivity of the material layer",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W/m-K"
+                },
+                "density": {
+                    "description": "The density of the material layer",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "kg/m3"
+                },
+                "specific_heat": {
+                    "description": "The specific heat of the material layer",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "J/kg-K"
+                }
+            },
+            "required": [
+                "id",
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "SurfaceOpticalProperties": {
             "type": "object",
             "properties": {
                 "id": {
@@ -1004,10 +1043,10 @@
                     },
                     "notes": "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
                 },
-                "units_of_values": {
-                    "description": "The units associated witht the values of the schedule",
-                    "$ref": "ASHRAE229.schema.json#/definitions/ScheduleUnits",
-                    "notes": "For certain schedule purposes, the values may be represented by units such as C for temperature or W for power."
+                "type": {
+                    "description": "The type of schedule",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ScheduleTypeOptions",
+                    "notes": "Primarily indicates if the values may be represented by units such as C for temperature or W for power or m3/s for flow rate or are dimensionless multipliers."
                 },
                 "prescribed_schedule": {
                     "description": "True if any schedule values have changed from what appears in the schedule library",
@@ -1035,15 +1074,19 @@
                 "Event"
             ]
         },
-        "ScheduleUnits": {
+        "ScheduleTypeOptions": {
             "type": "string",
             "enum": [
                 "MULTIPLIER_DIMENSIONLESS",
-                "TEMPERATURE"
+                "TEMPERATURE",
+                "POWER",
+                "FLOW_RATE"
             ],
             "descriptions": [
                 "Multiplier dimensionless",
-                "Temperature"
+                "Temperature",
+                "Power",
+                "Flow rate"
             ]
         },
         "Calendar": {
