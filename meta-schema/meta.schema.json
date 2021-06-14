@@ -184,7 +184,9 @@
         "hr",
         "J",
         "W/W",
-        "s"
+        "s",
+        "kg/m3",
+        "J/kg-K"
       ]
     },
     "RatingUnits": {

@@ -421,9 +421,14 @@ Construction:
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
-    layers:
-      Description: "List of names of layer descriptions starting from the outside surface"
-      Data Type: "[String]"
+    primary_layers:
+      Description: "List of names of layer descriptions starting from the outside surface for primary heat path"
+      Data Type: "[{Material}]"
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only."
+    framing_layers:
+      Description: "List of names of layer descriptions starting from the outside surface for the framing heat path"
+      Data Type: "[{Material}]"
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element."
     insulation_location:
       Description: "The location of the insulation related to the surface"
       Data Type: "String"  # this might make sense as an enumeration but I'm not sure the source of the options
@@ -454,6 +459,39 @@ Construction:
     has_radiant_cooling:
       Description: "Includes embedded radiant cooling elements"
       Data Type: "Boolean"
+
+Material:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Unique Identification Number"
+      Data Type: "Numeric"
+      Required: True
+    name:
+      Description: "Name of the Material"
+      Data Type: "String"
+      Required: True
+    thickness:
+      Description: "The thickness of the material layer"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">0"
+    thermal_conductivity:
+      Description: "The thermal conductivity of the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W/m-K"
+    density:
+      Description: "The density of the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "kg/m3"
+    specific_heat:
+      Description: "The specific heat of the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "J/kg-K"
+
 
 SurfaceOptics:
   Object Type: "Data Group"
