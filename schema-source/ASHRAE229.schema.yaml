@@ -794,10 +794,10 @@ Schedule:
       Description: "Event value at corresponding event time."
       Data Type: "[Numeric]"
       Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
-    units_of_values:
-      Description: "The units associated witht the values of the schedule"
-      Data Type: "<ScheduleUnits>"
-      Notes: "For certain schedule purposes, the values may be represented by units such as C for temperature or W for power."
+    type:
+      Description: "The type of schedule"
+      Data Type: "<ScheduleTypeOptions>"
+      Notes: "Primarily indicates if the values may be represented by units such as C for temperature or W for power or m3/s for flow rate or are dimensionless multipliers."
     prescribed_schedule:
       Description: "True if any schedule values have changed from what appears in the schedule library"
       Data Type: "<PrescribedSchedules2019ASHRAE901>"
@@ -815,13 +815,17 @@ ScheduleSequenceTypeOptions:
       Description: "Event"
 
 
-ScheduleUnits:
+ScheduleTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
     MULTIPLIER_DIMENSIONLESS:
       Description: "Multiplier dimensionless"
     TEMPERATURE:
       Description: "Temperature"
+    POWER:
+      Description: "Power"
+    FLOW_RATE:
+      Description: "Flow rate"
     
 Calendar:
   Object Type: "Data Group"
