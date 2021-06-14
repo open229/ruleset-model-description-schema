@@ -395,8 +395,8 @@ Surface:
       Data Type: "{Construction}"
     surface_optics:
       Description: "Optical properties of the surface."
-      Data Type: "{SurfaceOptics}"
-      
+      Data Type: "{SurfaceOpticalProperties}"
+  
 Construction:
   Object Type: "Data Group"
   Data Elements:
@@ -483,7 +483,7 @@ Material:
       Units: "J/kg-K"
 
 
-SurfaceOptics:
+SurfaceOpticalProperties:
   Object Type: "Data Group"
   Data Elements:
     id:
