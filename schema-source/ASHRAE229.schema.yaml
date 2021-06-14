@@ -219,6 +219,19 @@ Zone:
       Description: "Spaces in the building"
       Data Type: "[{Space}]"
       Notes: "Contains a list of spaces in the building."
+    volume:
+      Description: "Volume of the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3"
+    surfaces:
+      Description: "Surfaces surrounding the zone"
+      Data Type: "[{Surface}]"
+      Notes: "Contains a list of surfaces that define the zone."
+    infiltration:
+      Description: "Airleakage into the space."
+      Data Type: "{Infiltration}"
+      Notes: "References a single infiltration data group."
 
 Space:
   Object Type: "Data Group"
@@ -231,10 +244,6 @@ Space:
       Description: "Name of the Space"
       Data Type: "String"
       Required: True
-    surfaces:
-      Description: "Surfaces surrounding the space"
-      Data Type: "[{Surface}]"
-      Notes: "Contains a list of surfaces that define the space."
     interior_lighting:
       Description: "Internal lighting that produce internal gains for a space."
       Data Type: "[{InteriorLighting}]"
@@ -247,16 +256,6 @@ Space:
       Range: ">=0"
       Units: "m2"
       Description: "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled."
-    floor_to_ceiling_height:
-      Description: "The height from the floor of the space to the ceiling"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m"
-    volume:
-      Description: "Volume of the space"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m3"
     number_of_occupants:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
@@ -286,10 +285,6 @@ Space:
       Description: "Service water heating space type classification"
       Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
-    infiltration:
-      Description: "Airleakage into the space."
-      Data Type: "{Infiltration}"
-      Notes: "References a single infiltration data group."
 
 ConditioningType:
   Object Type: "Enumeration"
