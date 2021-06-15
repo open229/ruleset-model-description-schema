@@ -411,6 +411,11 @@ Construction:
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
+    fraction_framing:
+      Description: "Fraction of the construction that is framing."
+      Data Type: "Numeric"
+      Range: ">=0,<=1"
+      Notes: "Fraction of the construction using framing_layers, the remaining portion uses the primary_layers. If blank, assume zero framing."
     primary_layers:
       Description: "List of names of layer descriptions starting from the outside surface for primary heat path"
       Data Type: "[{Material}]"

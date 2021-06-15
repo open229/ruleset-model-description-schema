@@ -528,6 +528,13 @@
                     "description": "Identifies whether construction is entered layer-by-layer or simplified (R-value)",
                     "$ref": "ASHRAE229.schema.json#/definitions/SurfaceConstructionInputOptions"
                 },
+                "fraction_framing": {
+                    "description": "Fraction of the construction that is framing.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Fraction of the construction using framing_layers, the remaining portion uses the primary_layers. If blank, assume zero framing."
+                },
                 "primary_layers": {
                     "description": "List of names of layer descriptions starting from the outside surface for primary heat path",
                     "type": "array",
