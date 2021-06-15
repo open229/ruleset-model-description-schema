@@ -502,7 +502,7 @@
                     "description": "Construction description of surface.",
                     "$ref": "ASHRAE229.schema.json#/definitions/Construction"
                 },
-                "surface_optics": {
+                "surface_optical_properties": {
                     "description": "Optical properties of the surface.",
                     "$ref": "ASHRAE229.schema.json#/definitions/SurfaceOpticalProperties"
                 }
