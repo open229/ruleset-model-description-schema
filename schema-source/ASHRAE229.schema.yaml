@@ -393,7 +393,7 @@ Surface:
     construction:
       Description: "Construction description of surface."
       Data Type: "{Construction}"
-    surface_optics:
+    surface_optical_properties:
       Description: "Optical properties of the surface."
       Data Type: "{SurfaceOpticalProperties}"
   
