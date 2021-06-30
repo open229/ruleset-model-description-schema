@@ -426,9 +426,9 @@
                 "CONSTANT"
             ],
             "descriptions": [
-                "Weather Driven",
-                "Pressure Based",
-                "Constant"
+                "Weather Driven. The amount of air leakage is determined by a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature.",
+                "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction.",
+                "Constant. The amount of air leakage is fixed."
             ]
         },
         "Surface": {
@@ -490,8 +490,8 @@
                     ],
                     "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
                 },
-                "adjacent_space_id": {
-                    "description": "ID of the adjacent space for interior surface. Only required when adjacent space is explicity modeled when adjacent_to is set to INTERIOR.",
+                "adjacent_zone_id": {
+                    "description": "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR.",
                     "type": "string"
                 },
                 "does_cast_shade": {
@@ -541,7 +541,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/Material"
                     },
-                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only."
+                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only. Air films should not be included in the list of layers."
                 },
                 "framing_layers": {
                     "description": "List of names of layer descriptions starting from the outside surface for the framing heat path",
@@ -549,7 +549,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/Material"
                     },
-                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element."
+                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element. Air films should not be included in the list of layers."
                 },
                 "insulation_location": {
                     "description": "The location of the insulation related to the surface",
@@ -616,7 +616,8 @@
                     "description": "The thermal conductivity of the material layer",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W/m-K"
+                    "units": "W/m-K",
+                    "notes": "When thermal_conductivity is specified, r_value should not be provided."
                 },
                 "density": {
                     "description": "The density of the material layer",
@@ -629,6 +630,13 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "J/kg-K"
+                },
+                "r_value": {
+                    "description": "r-value of the insulation for the material layer",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "K-m2/W",
+                    "notes": "When r_value is specified, thermal_conductivity should not be provided. Typically used for insulation or air gaps."
                 }
             },
             "required": [
@@ -1294,25 +1302,25 @@
                     "description": "Reheat fluid loop name",
                     "type": "string"
                 },
-                "simulation_result_sensible_cool_capacity": {
-                    "description": "Result from the simulation of the sensible cooling capacity",
+                "sensible_cool_capacity": {
+                    "description": "Sensible cooling capacity",
                     "type": "array",
                     "items": {
                         "type": "number",
                         "minimum": 0.0
                     },
                     "units": "W/m2",
-                    "notes": "If multiple values are provided, they correspond to rotated building orientations"
+                    "notes": "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
                 },
-                "simulation_result_heat_capacity": {
-                    "description": "Result from the simulation of the heating capacity",
+                "heat_capacity": {
+                    "description": "Heating capacity",
                     "type": "array",
                     "items": {
                         "type": "number",
                         "minimum": 0.0
                     },
                     "units": "W/m2",
-                    "notes": "If multiple values are provided, they correspond to rotated building orientations"
+                    "notes": "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
                 }
             },
             "required": [
@@ -1486,11 +1494,11 @@
                     "description": "Options for how the pump is specified",
                     "$ref": "ASHRAE229.schema.json#/definitions/PumpSpecificationMethodOptions"
                 },
-                "power": {
-                    "description": "Pump power",
+                "design_electric_power": {
+                    "description": "Pump design electric power",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only used when specification_method is set to Simple"
+                    "notes": "Pump electric power at design conditions. Only used when specification_method is set to Simple"
                 },
                 "motor_nameplate_power": {
                     "description": "Pump motor nameplate power",
