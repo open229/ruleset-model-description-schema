@@ -476,6 +476,7 @@ Material:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W/m-K"
+      Notes: "When thermal_conductivity is specified, r_value should not be provided."
     density:
       Description: "The density of the material layer"
       Data Type: "Numeric"
@@ -486,6 +487,13 @@ Material:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "J/kg-K"
+    r_value:
+      Description: "r-value of the insulation for the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "When r_value is specified, thermal_conductivity should not be provided. Typically used for insulation or air gaps."
+    
 
 
 SurfaceOpticalProperties:
