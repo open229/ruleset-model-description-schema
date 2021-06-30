@@ -984,18 +984,18 @@ HeatingVentilationAirConditioningSystem:
     reheat_loop_name:
       Description: "Reheat fluid loop name"
       Data Type: "String"
-    simulation_result_sensible_cool_capacity: 
-      Description: "Result from the simulation of the sensible cooling capacity"
+    sensible_cool_capacity: 
+      Description: "Sensible cooling capacity"
       Data Type: "[Numeric]"
       Range: ">=0"
       Units: "W/m2"
-      Notes: "If multiple values are provided, they correspond to rotated building orientations"
-    simulation_result_heat_capacity:
-      Description: "Result from the simulation of the heating capacity"
+      Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+    heat_capacity:
+      Description: "Heating capacity"
       Data Type: "[Numeric]"
       Range: ">=0"
       Units: "W/m2"
-      Notes: "If multiple values are provided, they correspond to rotated building orientations"
+      Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
 
 FluidLoop:
   Object Type: "Data Group"
