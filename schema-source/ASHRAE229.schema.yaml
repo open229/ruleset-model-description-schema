@@ -338,11 +338,11 @@ InfiltrationMethodType:
   Object Type: "Enumeration"
   Enumerators:
     WEATHER_DRIVEN:
-      Description: "Weather Driven"
+      Description: "Weather Driven. The amount of air leakage is determined by a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature."
     PRESSURE_BASED:
-      Description: "Pressure Based"
+      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction."
     CONSTANT:
-      Description: "Constant"
+      Description: "Constant. The amount of air leakage is fixed."
 
 Surface:
   Object Type: "Data Group"
