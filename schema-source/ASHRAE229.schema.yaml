@@ -493,8 +493,6 @@ Material:
       Range: ">=0"
       Units: "K-m2/W"
       Notes: "When r_value is specified, thermal_conductivity should not be provided. Typically used for insulation or air gaps."
-    
-
 
 SurfaceOpticalProperties:
   Object Type: "Data Group"
@@ -1126,11 +1124,11 @@ Pump:
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
-    power:
-      Description: "Pump power"
+    design_electric_power:
+      Description: "Pump design electric power"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only used when specification_method is set to Simple"
+      Notes: "Pump electric power at design conditions. Only used when specification_method is set to Simple"
     motor_nameplate_power:
       Description: "Pump motor nameplate power"
       Data Type: "Numeric"
