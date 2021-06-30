@@ -419,11 +419,11 @@ Construction:
     primary_layers:
       Description: "List of names of layer descriptions starting from the outside surface for primary heat path"
       Data Type: "[{Material}]"
-      Notes: "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only."
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only. Air films should not be included in the list of layers."
     framing_layers:
       Description: "List of names of layer descriptions starting from the outside surface for the framing heat path"
       Data Type: "[{Material}]"
-      Notes: "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element."
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element. Air films should not be included in the list of layers."
     insulation_location:
       Description: "The location of the insulation related to the surface"
       Data Type: "String"  # this might make sense as an enumeration but I'm not sure the source of the options
