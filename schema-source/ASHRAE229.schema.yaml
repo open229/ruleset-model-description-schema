@@ -384,8 +384,8 @@ Surface:
       Description: "Used to classify the conditions on the surface."
       Data Type: "(<SurfaceAdjacentTo>,<AdditionalSurfaceAdjacentToRESNET>,<AdditionalSurfaceAdjacentTo2019ASHRAE901>)"
       Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
-    adjacent_space_id:
-      Description: "ID of the adjacent space for interior surface. Only required when adjacent space is explicity modeled when adjacent_to is set to INTERIOR."
+    adjacent_zone_id:
+      Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "String"
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
