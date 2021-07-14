@@ -52,6 +52,13 @@ String:
   Examples:
     - "Indirect evaporative cooler"
 
+"ID":
+  Object Type: "Data Type"
+  Description: "A referencencable identification for a data group and sequence of characters of any length using any (specified) character set."
+  JSON Schema Type: string
+  Examples:
+    - "AHU-01"
+
 "Null":
   Object Type: "Data Type"
   Description: "Indicator that no value is provided. Only used in combination with other data types, e.g., 'Number/Null'."
@@ -63,6 +70,10 @@ String:
 ASHRAE229:
   Object Type: "Data Group"
   Data Elements:
+    id:
+      Description: "Unique Identifier"
+      Data Type: "ID"
+      Required: True
     transformers:
       Description: "Electrical transformers at the building site"
       Data Type: "[{Transformer}]"
@@ -108,8 +119,8 @@ Building:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Building"
@@ -153,8 +164,8 @@ BuildingSegment:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Building Segment"
@@ -184,8 +195,8 @@ ThermalBlock:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the thermal block"
@@ -208,8 +219,8 @@ Zone:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Zone"
@@ -237,8 +248,8 @@ Space:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Space"
@@ -314,8 +325,8 @@ Infiltration:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Infiltration data group"
@@ -348,8 +359,8 @@ Surface:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Surface"
@@ -401,8 +412,8 @@ Construction:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Construction"
@@ -459,8 +470,8 @@ Material:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Material"
@@ -498,8 +509,8 @@ SurfaceOpticalProperties:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the surface optics"
@@ -567,8 +578,8 @@ Fenestration:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the fenestration subsurface"
@@ -650,9 +661,9 @@ InteriorLighting:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique ID assigned to each interior lighting fixture(s) reported in an RMR"
-      Data Type: "Numeric"
-      Range: ">0"
+      Description: "Unique Identifier"
+      Data Type: "ID"
+      Required: True
     name:
       Description: "Interior lighting fixture name"
       Data Type: "String"
@@ -679,9 +690,9 @@ MiscellaneousEquipment:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique ID assigned to each interior miscellaneous equipment in an RMR"
-      Data Type: "Numeric"
-      Range: ">0"
+      Description: "Unique Identifier"
+      Data Type: "ID"
+      Required: True
     name:
       Description: "Miscellaneous equipment name"
       Data Type: "String"
@@ -726,8 +737,8 @@ Transformer:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Transformer Name"
@@ -778,8 +789,8 @@ Schedule:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Schedule"
@@ -842,8 +853,8 @@ Calendar:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the calendar"
@@ -881,8 +892,8 @@ Weather:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the Weather data group"
@@ -902,8 +913,8 @@ Elevator:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the elevator"
@@ -959,8 +970,8 @@ HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the HVAC system"
@@ -1001,8 +1012,8 @@ FluidLoop:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the fluid loop connecting primary and secondary equipment in the plant"
@@ -1026,8 +1037,8 @@ FluidLoopDesignAndControl:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the fluid loop design and control."
@@ -1111,8 +1122,8 @@ Pump:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name identifying pump"
@@ -1195,8 +1206,8 @@ Boiler:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name identifying boiler"
@@ -1285,8 +1296,8 @@ Chiller:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name identifying chiller"
@@ -1392,8 +1403,8 @@ HeatRejection:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name identifying heat rejection equipment"
@@ -1517,8 +1528,8 @@ ExternalFluidSource:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name identifying external fluid source"
@@ -1546,8 +1557,8 @@ ServiceWaterHeatingSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of service water heating system loop"
@@ -1616,9 +1627,9 @@ ExteriorLighting:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique ID assigned to each exterior lighting fixture(s) reported in an RMR"
-      Data Type: "Numeric"
-      Range: ">0"
+      Description: "Unique Identifier"
+      Data Type: "ID"
+      Required: True
     name:
       Description: "Exterior lighting fixture name"
       Data Type: "String"
@@ -1704,8 +1715,8 @@ Refrigeration:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the refrigeration component"
@@ -1734,8 +1745,8 @@ OverallSimulationOutputs:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identification Number"
-      Data Type: "Numeric"
+      Description: "Unique Identifier"
+      Data Type: "ID"
       Required: True
     name:
       Description: "Name of the overall simulation output"
