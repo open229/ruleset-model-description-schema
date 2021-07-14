@@ -71,9 +71,15 @@ ASHRAE229:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group."
       Data Type: "ID"
       Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     transformers:
       Description: "Electrical transformers at the building site"
       Data Type: "[{Transformer}]"
@@ -119,13 +125,15 @@ Building:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Building"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     number_of_floors:
       Description: "Number of floors"
       Data Type: "Numeric"
@@ -164,13 +172,15 @@ BuildingSegment:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Building Segment"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     thermal_blocks:
       Description: "Thermal blocks in the building"
       Data Type: "[{ThermalBlock}]"
@@ -195,13 +205,15 @@ ThermalBlock:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the thermal block"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     zones:
       Description: "Zones in the building"
       Data Type: "[{Zone}]"
@@ -219,13 +231,15 @@ Zone:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Zone"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     spaces:
       Description: "Spaces in the building"
       Data Type: "[{Space}]"
@@ -248,13 +262,15 @@ Space:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Space"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     interior_lighting:
       Description: "Internal lighting that produce internal gains for a space."
       Data Type: "[{InteriorLighting}]"
@@ -325,13 +341,15 @@ Infiltration:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Infiltration data group"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
       Data Type: "<InfiltrationMethodType>"
@@ -359,13 +377,15 @@ Surface:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Surface"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     fenestration_subsurfaces:
       Description: "Fenestration suburfaces that are on the surface"
       Data Type: "[{Fenestration}]"
@@ -412,13 +432,15 @@ Construction:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Construction"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
@@ -470,13 +492,15 @@ Material:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Material"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     thickness:
       Description: "The thickness of the material layer"
       Data Type: "Numeric"
@@ -509,13 +533,15 @@ SurfaceOpticalProperties:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the surface optics"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     absorptance_thermal_exterior:
       Description: "Thermal absorptance of long wavelength radiation on the exterior surface."
       Data Type: "Numeric"
@@ -578,13 +604,15 @@ Fenestration:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the fenestration subsurface"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     classification:
       Description: "Classification for the fenestration being window, skylight, door."
       Data Type: "<FenestrationClassificationType>"
@@ -661,11 +689,14 @@ InteriorLighting:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Interior lighting fixture name"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     purpose_type:
       Description: "Lighting space type classification"
@@ -690,11 +721,14 @@ MiscellaneousEquipment:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Miscellaneous equipment name"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     energy_type:
       Description: "Source of energy for the miscelleous equipment in the space"
@@ -737,13 +771,15 @@ Transformer:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Transformer Name"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     type:
       Description: "The type of transformer"
       Data Type: "<TransformerType>"
@@ -789,13 +825,15 @@ Schedule:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Schedule"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     purpose:
       Description: "The purpose of schedule"
       Data Type: "String"
@@ -853,13 +891,15 @@ Calendar:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the calendar"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     day_of_week_for_january_1:
       Description: "Day of the week for January 1"
       Data Type: "<DayOfWeek>"
@@ -892,13 +932,15 @@ Weather:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the Weather data group"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     monthly_ground_temperature:
       Description: "Modeled monthly ground temperatures"
       Data Type: "[Numeric][1..12]"
@@ -913,13 +955,15 @@ Elevator:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the elevator"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     motor_power:
       Description: "Elevator peak motor power"
       Data Type: "Numeric"
@@ -970,13 +1014,15 @@ HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the HVAC system"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     zones_served:
       Description: "List of the zones served by the HVAC system"
       Data Type: "[{Zone}]"
@@ -1012,13 +1058,15 @@ FluidLoop:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the fluid loop connecting primary and secondary equipment in the plant"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     type:
       Description: "Type of loop"
       Data Type: "<FluidLoopTypeOptions>"
@@ -1037,13 +1085,15 @@ FluidLoopDesignAndControl:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the fluid loop design and control."
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     design_supply_temperature:
       Description: "Design Supply Temperature"
       Data Type: "Numeric"
@@ -1122,13 +1172,15 @@ Pump:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name identifying pump"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     loop_name:
       Description: "Fluid loop name"
       Data Type: "String"
@@ -1206,13 +1258,15 @@ Boiler:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name identifying boiler"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     loop_name:
       Description: "Fluid loop name"
       Data Type: "String"
@@ -1296,13 +1350,15 @@ Chiller:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name identifying chiller"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     cooling_loop_name:
       Description: "Cooling fluid loop name"
       Data Type: "String"
@@ -1403,13 +1459,15 @@ HeatRejection:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name identifying heat rejection equipment"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     loop_name:
       Description: "Fluid loop name"
       Data Type: "String"
@@ -1528,14 +1586,15 @@ ExternalFluidSource:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name identifying external fluid source"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
-      Notes: "External fluid source is a method to indicate that it is connected to a district or campus system external to the building."
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     loop_name:
       Description: "Fluid loop name"
       Data Type: "String"
@@ -1557,11 +1616,14 @@ ServiceWaterHeatingSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of service water heating system loop"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     area_type:
       Description: "Service Water Heating Loop Area Type"
@@ -1627,11 +1689,14 @@ ExteriorLighting:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Exterior lighting fixture name"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     type:
       Description: "The type of exterior lighting fixture	none"
@@ -1715,13 +1780,15 @@ Refrigeration:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the refrigeration component"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     type:
       Description: "Refrigeration equipment type"
       Data Type: "<RefrigerationType2019ASHRAE901>"
@@ -1745,13 +1812,15 @@ OverallSimulationOutputs:
   Object Type: "Data Group"
   Data Elements:
     id:
-      Description: "Unique Identifier"
+      Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-    name:
-      Description: "Name of the overall simulation output"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      Required: True
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     refrigeration_energy_enduse:
       Description: "Annual refrigeration energy end use from simulation output"
       Data Type: "Numeric"
