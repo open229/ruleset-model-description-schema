@@ -107,6 +107,9 @@ ASHRAE229:
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
+    compliance_path:
+      Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
+      Data Type: "<CompliancePathType2019ASHRAE901>"
     building_rotation_angles: 
       Description: "A list of angles that building simulations are performed and results are provided."
       Data Type: "[Numeric]"
@@ -119,7 +122,7 @@ ASHRAE229:
     conditioning_components:
       Description: "Links to all conditioning components used on the site"
       Data Type: "[{Pump},{Boiler},{Chiller},{HeatRejection}, {DistrictFluidMeter}]"
-      Notes: "Contains a list of fluid loops on the site."
+      Notes: "Contains a list of all components related to conditioning."
 
 Building:
   Object Type: "Data Group"
@@ -146,9 +149,6 @@ Building:
       Description: "Indicates whether building is completely new construction (true) or existing (false). "
       Data Type: "Boolean"
       Notes: "Projects that include additions should be False. Projects with additional instead may be modeled as two buildings - one new and one existing, as curtain rules such as baseline fenestration area will apply differently to each portion."
-    compliance_path:
-      Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
-      Data Type: "<CompliancePathType2019ASHRAE901>"
     elevators:
       Description: "Elevators"
       Data Type: "[{Elevator}]"
@@ -157,16 +157,11 @@ Building:
       Description: "Refrigeration"
       Data Type: "[{Refrigeration}]"
       Notes: "Contains a list of refrigeration components in the building."
-    open_time:
-      Description: "Time that the building opens."
-      Data Type: "Numeric"
-      Range: ">=1, <=24"
-      Notes: "The general time that the building is first opened during normal weekdays from 1 to 24"
-    close_time:
-      Description: "Time that the building closes."
-      Data Type: "Numeric"
-      Range: ">=1, <=24"
-      Notes: "The general time that the building is closed during normal weekdays from 1 to 24"
+    building_open_schedule:
+      Description: "Reference to the schedule containing indicating when the building is open"
+      Data Type: "$ID"
+      Required: True
+      Notes: "One represent when the building is open and zero when closed."
 
 BuildingSegment:    
   Object Type: "Data Group"
@@ -253,8 +248,11 @@ Zone:
       Description: "Surfaces surrounding the zone"
       Data Type: "[{Surface}]"
       Notes: "Contains a list of surfaces that define the zone."
+    conditioning_type:
+      Description: "Space conditioning category"
+      Data Type: "<ConditioningType>"
     infiltration:
-      Description: "Airleakage into the space."
+      Description: "Airleakage into the zone."
       Data Type: "{Infiltration}"
       Notes: "References a single infiltration data group."
 
@@ -291,9 +289,6 @@ Space:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "$ID"
       Required: True
-    conditioning_type:
-      Description: "Space conditioning category"
-      Data Type: "<ConditioningType>"
     status_type:
       Description: "Choice of new, existing, addition, or alteration."
       Data Type: "<SpaceStatusType2019ASHRAE901>"
@@ -620,9 +615,14 @@ Fenestration:
     is_operable:
       Description: "Identifies whether fenestration can be opened and closed including by pivoting or sliding."
       Data Type: "Boolean"
+      Notes: "This applies to windows and skylights but not to doors." 
+    has_open_sensor:
+      Description: "Has sensor and reports to building control system when the fenestration is open."
+      Data Type: "Boolean"
     framing_type:
       Description: "The material of the framing."
       Data Type: "<FenestrationFrameType2019ASHRAE901>"
+      Notes: "This applies to windows and skylights but not to doors." 
     glazed_area:
       Description: "Area of fenestration including glass and transparent surfaces"
       Data Type: "Numeric"
@@ -639,14 +639,29 @@ Fenestration:
       Units: "W/m2-K"
       Range: ">=0"
       Notes: "Includes interior and exterior air films as specified by the referenced standard."
+    is_dynamic_glazing:
+      Description: "Identifies whether the fenestration can change its performance properties"
+      Data Type: "Boolean"
     solar_heat_gain_coefficient:
       Description: "Fenestration SHGC"
       Data Type: "Numeric"
       Range: ">=0"
+      Notes: "For dynamic glazing represents the minimum SHGC" 
+    maximum_solar_heat_gain_coefficient:
+      Description: "Maximum Fenestration SHGC for Dynamic Glazing"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Only used for dynamic glazing" 
     visible_transmittance:
       Description: "Fenestration VT"
       Data Type: "Numeric"
       Range: ">=0"
+      Notes: "For dynamic glazing represents the maximum visible transmittance" 
+    minimum_visible_transmittance:
+      Description: "Minimum Fenestration VT for Dynamic Glazing"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Only used for dynamic glazing" 
     depth_of_overhang:
       Description: "Distance from the edge of the overhang to the fenestration surface."
       Data Type: "Numeric"
@@ -684,7 +699,8 @@ FenestrationClassificationType:
       Description: "Skylight"
     DOOR:
       Description: "Door"
-      # Usually a substantial fraction of the door needs to be glazed to be considered fenestration
+    GLAZED_DOOR:
+      Description: "Door"
 
 InteriorLighting:
   Object Type: "Data Group"
@@ -1290,14 +1306,13 @@ Boiler:
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
-    efficiency_metric_type:
+    efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricTypeOptions>"
-    efficiency_metric:
-      Description: "Annual fuel utilization efficiency (AFUE)"
+    efficiency_value:
+      Description: "Efficiency value based on the selected efficiency_metric"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-      Notes: "Enter the efficiency value based on the selected efficiency_metric_type"
     detailed_performance:
       Description: "Detailed performance as specified in ASHRAE Standard 205"
       Data Type: "UUID"
@@ -1305,7 +1320,7 @@ Boiler:
     energy_validation_points:
       Description: "Energy validation points"
       Data Type: "[{BoilerPerformanceValidationPoint}]"
-      Notes: "Load is input to each validation point and energy output is the result."
+      Notes: "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
     auxiliary_power:
       Description: "Auxiliary power"
       Data Type: "Numeric"
@@ -1335,7 +1350,7 @@ BoilerEfficiencyMetricTypeOptions:
       Description: "Annual fuel utilization efficiency"
     THERMAL:
       Description: "Thermal efficiency"
-    COMBUSION:
+    COMBUSTION:
       Description: "Combustion efficiency"
 
 BoilerPerformanceValidationPoint:
