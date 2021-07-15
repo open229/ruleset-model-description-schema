@@ -287,9 +287,9 @@ Space:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
       Range: ">=0"
-    occupant_multiplier_schedule_name:
-      Description: "Number of occupant multiplier schedule name"
-      Data Type: "String"
+    occupant_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for the number of occupants"
+      Data Type: "$ID"
     conditioning_type:
       Description: "Space conditioning category"
       Data Type: "<ConditioningType>"
@@ -359,9 +359,9 @@ Infiltration:
       Range: ">=0"
       Units: "m3/s"
       Notes: "Based on the pressure described in ASHRAE229.infiltration_pressure_difference."
-    multiplier_schedule_name:
-      Description: "Infiltration multiplier schedule name"
-      Data Type: "String"
+    multiplier_schedule:
+      Description: "Referenced to the schedule containing the multiplier for the infiltration"
+      Data Type: "$ID"
 
 InfiltrationMethodType:
   Object Type: "Enumeration"
@@ -415,9 +415,9 @@ Surface:
       Description: "Used to classify the conditions on the surface."
       Data Type: "(<SurfaceAdjacentTo>,<AdditionalSurfaceAdjacentToRESNET>,<AdditionalSurfaceAdjacentTo2019ASHRAE901>)"
       Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
-    adjacent_zone_id:
+    adjacent_zone:
       Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
-      Data Type: "String"
+      Data Type: "$ID"
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
       Data Type: "Boolean"
@@ -707,9 +707,9 @@ InteriorLighting:
       Data Type: "Numeric"
       Units: "W/m2"
       Notes: "When computing the power per area use the area of the entire space."
-    lighting_multiplier_schedule_name:
-      Description: "Lighting multiplier schedule name"
-      Data Type: "String"
+    lighting_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for lighting"
+      Data Type: "$ID"
     has_occupancy_control:
       Description: "Indicates that the lighting has occupancy controls"
       Data Type: "Boolean"
@@ -737,9 +737,9 @@ MiscellaneousEquipment:
       Description: "Peak energy usage per hour by the miscelleous equipment in the space."
       Data Type: "Numeric"
       Units: "W"
-    multiplier_schedule_name:
-      Description: "miscelleous equipment in the space multiplier schedule name"
-      Data Type: "String"
+    multiplier_schedule:
+      Description: "Referenced to the schedule containing the multiplier for the miscellenous equipment"
+      Data Type: "$ID"
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
@@ -1026,21 +1026,21 @@ HeatingVentilationAirConditioningSystem:
     zones_served:
       Description: "List of the zones served by the HVAC system"
       Data Type: "[{Zone}]"
-    hot_water_loop_name:
-      Description: "Hot water fluid loop name"
-      Data Type: "String"
-    chilled_water_loop_name:
-      Description: "Chilled water fluid loop name"
-      Data Type: "String"
-    condenser_water_loop_name:
-      Description: "Condenser water fluid loop name"
-      Data Type: "String"
-    preheat_loop_name:
-      Description: "Preheat fluid loop name"
-      Data Type: "String"
-    reheat_loop_name:
-      Description: "Reheat fluid loop name"
-      Data Type: "String"
+    hot_water_loop:
+      Description: "Referenced to the hot water fluid loop"
+      Data Type: "$ID"
+    chilled_water_loop:
+      Description: "Referenced to the Chilled water fluid loop"
+      Data Type: "$ID"
+    condenser_water_loop:
+      Description: "Referenced to the Condenser water fluid loop"
+      Data Type: "$ID"
+    preheat_loop:
+      Description: "Referenced to the Preheat fluid loop"
+      Data Type: "$ID"
+    reheat_loop:
+      Description: "Referenced to the reheat fluid loop"
+      Data Type: "$ID"
     sensible_cool_capacity: 
       Description: "Sensible cooling capacity"
       Data Type: "[Numeric]"
@@ -1181,9 +1181,9 @@ Pump:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    loop_name:
-      Description: "Fluid loop name"
-      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -1267,9 +1267,9 @@ Boiler:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    loop_name:
-      Description: "Fluid loop name"
-      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -1359,12 +1359,12 @@ Chiller:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    cooling_loop_name:
-      Description: "Cooling fluid loop name"
-      Data Type: "String"
-    condensing_loop_name:
-      Description: "Condensing fluid loop name"
-      Data Type: "String"
+    cooling_loop:
+      Description: "Referenced to the cooling fluid loop"
+      Data Type: "$ID"
+    condensing_loop:
+      Description: "Referenced to the condensing fluid loop"
+      Data Type: "$ID"
       Notes: "No condensing loop name implies air-cooled chiller."
     compressor_type:
       Description: "Compressor Type"
@@ -1468,9 +1468,9 @@ HeatRejection:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    loop_name:
-      Description: "Fluid loop name"
-      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionTypeOptions>"
@@ -1595,9 +1595,9 @@ ExternalFluidSource:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    loop_name:
-      Description: "Fluid loop name"
-      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceTypeOptions>"
@@ -1652,9 +1652,9 @@ ServiceWaterHeatingSystem:
     entering_water_temperature_type:
       Description: "Method of determining service water heating entering water temperature"
       Data Type: "<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>"
-    heater_name:
-      Description: "Service water heating heater name"
-      Data Type: "String"
+    heater:
+      Description: "Referenced to the service water heater"
+      Data Type: "$ID"
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
       Data Type: "<FuelTypeOptions>"
