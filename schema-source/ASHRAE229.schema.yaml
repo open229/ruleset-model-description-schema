@@ -290,6 +290,7 @@ Space:
     occupant_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "$ID"
+      Required: True
     conditioning_type:
       Description: "Space conditioning category"
       Data Type: "<ConditioningType>"
@@ -710,6 +711,7 @@ InteriorLighting:
     lighting_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for lighting"
       Data Type: "$ID"
+      Required: True
     has_occupancy_control:
       Description: "Indicates that the lighting has occupancy controls"
       Data Type: "Boolean"
@@ -740,6 +742,7 @@ MiscellaneousEquipment:
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the miscellenous equipment"
       Data Type: "$ID"
+      Required: True
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
@@ -1184,6 +1187,7 @@ Pump:
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
+      Required: True
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -1270,6 +1274,7 @@ Boiler:
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
+      Required: True
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -1362,6 +1367,7 @@ Chiller:
     cooling_loop:
       Description: "Referenced to the cooling fluid loop"
       Data Type: "$ID"
+      Required: True
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
       Data Type: "$ID"
@@ -1471,6 +1477,7 @@ HeatRejection:
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
+      Required: True
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionTypeOptions>"
@@ -1598,6 +1605,7 @@ ExternalFluidSource:
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
+      Required: True
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceTypeOptions>"
@@ -1655,6 +1663,7 @@ ServiceWaterHeatingSystem:
     heater:
       Description: "Referenced to the service water heater"
       Data Type: "$ID"
+      Required: True
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
       Data Type: "<FuelTypeOptions>"
