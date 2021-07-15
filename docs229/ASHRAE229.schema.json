@@ -6,6 +6,18 @@
         "ASHRAE229": {
             "type": "object",
             "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group.",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
                 "transformers": {
                     "description": "Electrical transformers at the building site",
                     "type": "array",
@@ -49,6 +61,10 @@
                     "description": "Outputs from the simluation summed for all buildings in the simulation.",
                     "$ref": "ASHRAE229.schema.json#/definitions/OverallSimulationOutputs"
                 },
+                "compliance_path": {
+                    "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CompliancePathType2019ASHRAE901"
+                },
                 "building_rotation_angles": {
                     "description": "A list of angles that building simulations are performed and results are provided.",
                     "type": "array",
@@ -70,20 +86,27 @@
                     "description": "Links to all conditioning components used on the site",
                     "type": "array",
                     "items": {},
-                    "notes": "Contains a list of fluid loops on the site."
+                    "notes": "Contains a list of all components related to conditioning."
                 }
             },
+            "required": [
+                "id"
+            ],
             "additionalProperties": false
         },
         "Building": {
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Building",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "number_of_floors": {
@@ -104,10 +127,6 @@
                     "type": "boolean",
                     "notes": "Projects that include additions should be False. Projects with additional instead may be modeled as two buildings - one new and one existing, as curtain rules such as baseline fenestration area will apply differently to each portion."
                 },
-                "compliance_path": {
-                    "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CompliancePathType2019ASHRAE901"
-                },
                 "elevators": {
                     "description": "Elevators",
                     "type": "array",
@@ -124,24 +143,14 @@
                     },
                     "notes": "Contains a list of refrigeration components in the building."
                 },
-                "open_time": {
-                    "description": "Time that the building opens.",
-                    "type": "number",
-                    "minimum": 1.0,
-                    "maximum": 24.0,
-                    "notes": "The general time that the building is first opened during normal weekdays from 1 to 24"
-                },
-                "close_time": {
-                    "description": "Time that the building closes.",
-                    "type": "number",
-                    "minimum": 1.0,
-                    "maximum": 24.0,
-                    "notes": "The general time that the building is closed during normal weekdays from 1 to 24"
+                "building_open_schedule": {
+                    "description": "Reference to the schedule containing indicating when the building is open",
+                    "notes": "One represent when the building is open and zero when closed."
                 }
             },
             "required": [
                 "id",
-                "name"
+                "building_open_schedule"
             ],
             "additionalProperties": false
         },
@@ -149,11 +158,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Building Segment",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "thermal_blocks": {
@@ -191,8 +204,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -200,11 +212,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the thermal block",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "zones": {
@@ -230,8 +246,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -239,11 +254,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Zone",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "spaces": {
@@ -268,15 +287,18 @@
                     },
                     "notes": "Contains a list of surfaces that define the zone."
                 },
+                "conditioning_type": {
+                    "description": "Space conditioning category",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ConditioningType"
+                },
                 "infiltration": {
-                    "description": "Airleakage into the space.",
+                    "description": "Airleakage into the zone.",
                     "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
                     "notes": "References a single infiltration data group."
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -284,11 +306,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Space",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "interior_lighting": {
@@ -316,13 +342,8 @@
                     "type": "number",
                     "minimum": 0.0
                 },
-                "occupant_multiplier_schedule_name": {
-                    "description": "Number of occupant multiplier schedule name",
-                    "type": "string"
-                },
-                "conditioning_type": {
-                    "description": "Space conditioning category",
-                    "$ref": "ASHRAE229.schema.json#/definitions/ConditioningType"
+                "occupant_multiplier_schedule": {
+                    "description": "Reference to the schedule containing the multiplier for the number of occupants"
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, or alteration.",
@@ -351,7 +372,7 @@
             },
             "required": [
                 "id",
-                "name"
+                "occupant_multiplier_schedule"
             ],
             "additionalProperties": false
         },
@@ -389,11 +410,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Infiltration data group",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "modeling_method": {
@@ -407,14 +432,12 @@
                     "units": "m3/s",
                     "notes": "Based on the pressure described in ASHRAE229.infiltration_pressure_difference."
                 },
-                "multiplier_schedule_name": {
-                    "description": "Infiltration multiplier schedule name",
-                    "type": "string"
+                "multiplier_schedule": {
+                    "description": "Referenced to the schedule containing the multiplier for the infiltration"
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -435,11 +458,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Surface",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "fenestration_subsurfaces": {
@@ -490,9 +517,8 @@
                     ],
                     "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
                 },
-                "adjacent_zone_id": {
-                    "description": "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR.",
-                    "type": "string"
+                "adjacent_zone": {
+                    "description": "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
                 },
                 "does_cast_shade": {
                     "description": "Determines whether the surface is modeled as casting shade on other exterior surfaces",
@@ -508,8 +534,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -517,11 +542,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Construction",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "surface_construction_input_option": {
@@ -590,8 +619,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -599,11 +627,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Material",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "thickness": {
@@ -640,8 +672,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -649,11 +680,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the surface optics",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "absorptance_thermal_exterior": {
@@ -688,8 +723,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -738,11 +772,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the fenestration subsurface",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "classification": {
@@ -751,11 +789,17 @@
                 },
                 "is_operable": {
                     "description": "Identifies whether fenestration can be opened and closed including by pivoting or sliding.",
+                    "type": "boolean",
+                    "notes": "This applies to windows and skylights but not to doors."
+                },
+                "has_open_sensor": {
+                    "description": "Has sensor and reports to building control system when the fenestration is open.",
                     "type": "boolean"
                 },
                 "framing_type": {
                     "description": "The material of the framing.",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/FenestrationFrameType2019ASHRAE901"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/FenestrationFrameType2019ASHRAE901",
+                    "notes": "This applies to windows and skylights but not to doors."
                 },
                 "glazed_area": {
                     "description": "Area of fenestration including glass and transparent surfaces",
@@ -776,15 +820,33 @@
                     "units": "W/m2-K",
                     "notes": "Includes interior and exterior air films as specified by the referenced standard."
                 },
+                "is_dynamic_glazing": {
+                    "description": "Identifies whether the fenestration can change its performance properties",
+                    "type": "boolean"
+                },
                 "solar_heat_gain_coefficient": {
                     "description": "Fenestration SHGC",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "For dynamic glazing represents the minimum SHGC"
+                },
+                "maximum_solar_heat_gain_coefficient": {
+                    "description": "Maximum Fenestration SHGC for Dynamic Glazing",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "Only used for dynamic glazing"
                 },
                 "visible_transmittance": {
                     "description": "Fenestration VT",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "For dynamic glazing represents the maximum visible transmittance"
+                },
+                "minimum_visible_transmittance": {
+                    "description": "Minimum Fenestration VT for Dynamic Glazing",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "Only used for dynamic glazing"
                 },
                 "depth_of_overhang": {
                     "description": "Distance from the edge of the overhang to the fenestration surface.",
@@ -822,8 +884,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -832,11 +893,13 @@
             "enum": [
                 "WINDOW",
                 "SKYLIGHT",
-                "DOOR"
+                "DOOR",
+                "GLAZED_DOOR"
             ],
             "descriptions": [
                 "Window",
                 "Skylight",
+                "Door",
                 "Door"
             ]
         },
@@ -844,12 +907,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique ID assigned to each interior lighting fixture(s) reported in an RMR",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Interior lighting fixture name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "purpose_type": {
@@ -863,9 +929,8 @@
                     "units": "W/m2",
                     "notes": "When computing the power per area use the area of the entire space."
                 },
-                "lighting_multiplier_schedule_name": {
-                    "description": "Lighting multiplier schedule name",
-                    "type": "string"
+                "lighting_multiplier_schedule": {
+                    "description": "Reference to the schedule containing the multiplier for lighting"
                 },
                 "has_occupancy_control": {
                     "description": "Indicates that the lighting has occupancy controls",
@@ -876,18 +941,25 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "id",
+                "lighting_multiplier_schedule"
+            ],
             "additionalProperties": false
         },
         "MiscellaneousEquipment": {
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique ID assigned to each interior miscellaneous equipment in an RMR",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Miscellaneous equipment name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "energy_type": {
@@ -899,9 +971,8 @@
                     "type": "number",
                     "units": "W"
                 },
-                "multiplier_schedule_name": {
-                    "description": "miscelleous equipment in the space multiplier schedule name",
-                    "type": "string"
+                "multiplier_schedule": {
+                    "description": "Referenced to the schedule containing the multiplier for the miscellenous equipment"
                 },
                 "sensible_fraction": {
                     "description": "Fraction of energy that is a sensible load on the space.",
@@ -926,6 +997,10 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "id",
+                "multiplier_schedule"
+            ],
             "additionalProperties": false
         },
         "MiscellaneousEquipmentType": {
@@ -945,11 +1020,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Transformer Name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "type": {
@@ -982,8 +1061,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1015,11 +1093,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Schedule",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "purpose": {
@@ -1073,8 +1155,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1108,11 +1189,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the calendar",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "day_of_week_for_january_1": {
@@ -1129,8 +1214,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1159,11 +1243,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the Weather data group",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "monthly_ground_temperature": {
@@ -1184,7 +1272,6 @@
             },
             "required": [
                 "id",
-                "name",
                 "climate_zone"
             ],
             "additionalProperties": false
@@ -1193,11 +1280,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the elevator",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "motor_power": {
@@ -1259,8 +1350,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1268,11 +1358,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the HVAC system",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "zones_served": {
@@ -1282,25 +1376,20 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/Zone"
                     }
                 },
-                "hot_water_loop_name": {
-                    "description": "Hot water fluid loop name",
-                    "type": "string"
+                "hot_water_loop": {
+                    "description": "Referenced to the hot water fluid loop"
                 },
-                "chilled_water_loop_name": {
-                    "description": "Chilled water fluid loop name",
-                    "type": "string"
+                "chilled_water_loop": {
+                    "description": "Referenced to the Chilled water fluid loop"
                 },
-                "condenser_water_loop_name": {
-                    "description": "Condenser water fluid loop name",
-                    "type": "string"
+                "condenser_water_loop": {
+                    "description": "Referenced to the Condenser water fluid loop"
                 },
-                "preheat_loop_name": {
-                    "description": "Preheat fluid loop name",
-                    "type": "string"
+                "preheat_loop": {
+                    "description": "Referenced to the Preheat fluid loop"
                 },
-                "reheat_loop_name": {
-                    "description": "Reheat fluid loop name",
-                    "type": "string"
+                "reheat_loop": {
+                    "description": "Referenced to the reheat fluid loop"
                 },
                 "sensible_cool_capacity": {
                     "description": "Sensible cooling capacity",
@@ -1324,8 +1413,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1333,11 +1421,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the fluid loop connecting primary and secondary equipment in the plant",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "type": {
@@ -1361,8 +1453,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1370,11 +1461,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the fluid loop design and control.",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "design_supply_temperature": {
@@ -1425,8 +1520,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -1479,16 +1573,19 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying pump",
+                    "description": "Scope-unique reference identifier for instances of this data group",
                     "type": "string"
                 },
-                "loop_name": {
-                    "description": "Fluid loop name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
                     "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "loop": {
+                    "description": "Referenced to the fluid loop"
                 },
                 "specification_method": {
                     "description": "Options for how the pump is specified",
@@ -1546,7 +1643,7 @@
             },
             "required": [
                 "id",
-                "name"
+                "loop"
             ],
             "additionalProperties": false
         },
@@ -1593,16 +1690,19 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying boiler",
+                    "description": "Scope-unique reference identifier for instances of this data group",
                     "type": "string"
                 },
-                "loop_name": {
-                    "description": "Fluid loop name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
                     "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "loop": {
+                    "description": "Referenced to the fluid loop"
                 },
                 "design_capacity": {
                     "description": "Heating capacity",
@@ -1623,16 +1723,15 @@
                     "description": "Combustion option",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerCombustionOptions"
                 },
-                "efficiency_metric_type": {
+                "efficiency_metric": {
                     "description": "The type of efficiency metric used",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerEfficiencyMetricTypeOptions"
                 },
-                "efficiency_metric": {
-                    "description": "Annual fuel utilization efficiency (AFUE)",
+                "efficiency_value": {
+                    "description": "Efficiency value based on the selected efficiency_metric",
                     "type": "number",
                     "minimum": 0.0,
-                    "maximum": 1.0,
-                    "notes": "Enter the efficiency value based on the selected efficiency_metric_type"
+                    "maximum": 1.0
                 },
                 "detailed_performance": {
                     "description": "Detailed performance as specified in ASHRAE Standard 205",
@@ -1644,7 +1743,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/BoilerPerformanceValidationPoint"
                     },
-                    "notes": "Load is input to each validation point and energy output is the result."
+                    "notes": "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
                 },
                 "auxiliary_power": {
                     "description": "Auxiliary power",
@@ -1665,7 +1764,7 @@
             },
             "required": [
                 "id",
-                "name"
+                "loop"
             ],
             "additionalProperties": false
         },
@@ -1685,7 +1784,7 @@
             "enum": [
                 "ANNUAL_FUEL_UTILIZATION",
                 "THERMAL",
-                "COMBUSION"
+                "COMBUSTION"
             ],
             "descriptions": [
                 "Annual fuel utilization efficiency",
@@ -1714,20 +1813,22 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying chiller",
+                    "description": "Scope-unique reference identifier for instances of this data group",
                     "type": "string"
                 },
-                "cooling_loop_name": {
-                    "description": "Cooling fluid loop name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
                     "type": "string"
                 },
-                "condensing_loop_name": {
-                    "description": "Condensing fluid loop name",
-                    "type": "string",
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "cooling_loop": {
+                    "description": "Referenced to the cooling fluid loop"
+                },
+                "condensing_loop": {
+                    "description": "Referenced to the condensing fluid loop",
                     "notes": "No condensing loop name implies air-cooled chiller."
                 },
                 "compressor_type": {
@@ -1791,7 +1892,7 @@
             },
             "required": [
                 "id",
-                "name"
+                "cooling_loop"
             ],
             "additionalProperties": false
         },
@@ -1854,16 +1955,19 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying heat rejection equipment",
+                    "description": "Scope-unique reference identifier for instances of this data group",
                     "type": "string"
                 },
-                "loop_name": {
-                    "description": "Fluid loop name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
                     "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "loop": {
+                    "description": "Referenced to the fluid loop"
                 },
                 "type": {
                     "description": "Heat Rejection Type",
@@ -1930,7 +2034,7 @@
             },
             "required": [
                 "id",
-                "name"
+                "loop"
             ],
             "additionalProperties": false
         },
@@ -2019,17 +2123,19 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
-                },
-                "name": {
-                    "description": "Name identifying external fluid source",
-                    "type": "string",
-                    "notes": "External fluid source is a method to indicate that it is connected to a district or campus system external to the building."
-                },
-                "loop_name": {
-                    "description": "Fluid loop name",
+                    "description": "Scope-unique reference identifier for instances of this data group",
                     "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "loop": {
+                    "description": "Referenced to the fluid loop"
                 },
                 "type": {
                     "description": "Type of external fluid source",
@@ -2038,7 +2144,7 @@
             },
             "required": [
                 "id",
-                "name"
+                "loop"
             ],
             "additionalProperties": false
         },
@@ -2059,11 +2165,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of service water heating system loop",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "area_type": {
@@ -2105,9 +2215,8 @@
                     "description": "Method of determining service water heating entering water temperature",
                     "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingEnteringWaterTemperatureInputOptions"
                 },
-                "heater_name": {
-                    "description": "Service water heating heater name",
-                    "type": "string"
+                "heater": {
+                    "description": "Referenced to the service water heater"
                 },
                 "heater_fuel_type": {
                     "description": "Service water heating heater fuel type",
@@ -2120,7 +2229,8 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "heater"
             ],
             "additionalProperties": false
         },
@@ -2156,12 +2266,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique ID assigned to each exterior lighting fixture(s) reported in an RMR",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Exterior lighting fixture name",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "type": {
@@ -2258,17 +2371,24 @@
                     "exclusiveMinimum": 0.0
                 }
             },
+            "required": [
+                "id"
+            ],
             "additionalProperties": false
         },
         "Refrigeration": {
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the refrigeration component",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "type": {
@@ -2296,8 +2416,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         },
@@ -2305,11 +2424,15 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "description": "Unique Identification Number",
-                    "type": "number"
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
                 },
-                "name": {
-                    "description": "Name of the overall simulation output",
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
                 "refrigeration_energy_enduse": {
@@ -2331,8 +2454,7 @@
                 }
             },
             "required": [
-                "id",
-                "name"
+                "id"
             ],
             "additionalProperties": false
         }
