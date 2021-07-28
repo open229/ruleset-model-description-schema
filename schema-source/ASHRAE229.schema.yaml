@@ -107,6 +107,9 @@ ASHRAE229:
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
+    category:
+      Description: "Indicates which category the current model represents for rulesets with multiple simulation models"
+      Data Type: "<CategoryType2019ASHRAE901>"
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathType2019ASHRAE901>"
