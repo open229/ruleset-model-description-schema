@@ -613,6 +613,9 @@ Fenestration:
     classification:
       Description: "Classification for the fenestration being window, skylight, door."
       Data Type: "<FenestrationClassificationType>"
+    subclassification:
+      Description: "Standard specific subclassification for subsurfaces"
+      Data Type: "<SubsurfaceSubclassificationType2019ASHRAE901>"
     is_operable:
       Description: "Identifies whether fenestration can be opened and closed including by pivoting or sliding."
       Data Type: "Boolean"
@@ -699,8 +702,6 @@ FenestrationClassificationType:
     SKYLIGHT:
       Description: "Skylight"
     DOOR:
-      Description: "Door"
-    GLAZED_DOOR:
       Description: "Door"
 
 InteriorLighting:

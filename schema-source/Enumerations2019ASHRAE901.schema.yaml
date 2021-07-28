@@ -915,10 +915,16 @@ AdditionalSurfaceAdjacentTo2019ASHRAE901:
     SEMIHEATED:
       Description: "Surface adjacent to a environment that is semi-heated. The space on the other side of the surface is not explicity modeled."
 
-
-
-
-
-
+SubsurfaceSubclassificationType2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    METAL_COILING_DOOR:
+      Description: "an upward-acting, nonswinging door assembly consisting of interlocking horizontal slats or sheets that, upon opening the door, roll up around a horizontal barrel above the door opening."
+    NONSWINGING_DOOR:
+      Description: "roll-up, metal coiling, sliding, and any other door that is not a swinging door."
+    SECTIONAL_GARAGE_DOOR:
+      Description: "an upward-acting, nonswinging door assembly made of two or more horizontal panels hinged together vertically."
+    SWINGING_DOOR:
+      Description: "a door having an operable opaque panel with hinges or pivots on one side."
 
 
