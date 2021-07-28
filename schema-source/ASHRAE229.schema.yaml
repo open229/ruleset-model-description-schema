@@ -323,8 +323,6 @@ ConditioningType:
       Description: "Semiheated"
     UNCONDITIONED:
       Description: "Unconditioned"
-    PLENUM:
-      Description: "Plenum"
 
 SpaceFunctionType:
   Object Type: "Enumeration"
