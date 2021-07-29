@@ -3,6 +3,19 @@
     "title": "Enumerations from ASHRAE 90.1-2019",
     "description": "Schema addition for ASHRAE 229 related to enumerations found in ASHRAE Standard 90.1-2019",
     "definitions": {
+        "CategoryType2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "USER",
+                "PROPOSED",
+                "BASELINE"
+            ],
+            "descriptions": [
+                "The building model as described without consideration of the ruleset",
+                "The building model that corresponds with the Proposed Buildings Performance column of Appendix G Table G3.1",
+                "The building model that corresponds with the Baseline Buildings Performance column of Appendix G Table G3.1"
+            ]
+        },
         "CompliancePathType2019ASHRAE901": {
             "type": "string",
             "enum": [
@@ -911,7 +924,7 @@
                 "Warehouse (nonrefrigerated)"
             ]
         },
-        "FenestrationFrameType2019ASHRAE901": {
+        "SubsurfaceFrameType2019ASHRAE901": {
             "type": "string",
             "enum": [
                 "ALUMINUM_WITHOUT_BREAK",
@@ -1083,6 +1096,27 @@
                 "The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled.",
                 "Surface adjacent to a environment that is not heated but enclosed. The space on the other side of the surface is not explicity modeled.",
                 "Surface adjacent to a environment that is semi-heated. The space on the other side of the surface is not explicity modeled."
+            ]
+        },
+        "SubsurfaceSubclassificationType2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "METAL_COILING_DOOR",
+                "NONSWINGING_DOOR",
+                "SECTIONAL_GARAGE_DOOR",
+                "SWINGING_DOOR",
+                "SPANDREL_GLASS",
+                "GLASS_BLOCK",
+                "OTHER"
+            ],
+            "descriptions": [
+                "an upward-acting, nonswinging door assembly consisting of interlocking horizontal slats or sheets that, upon opening the door, roll up around a horizontal barrel above the door opening.",
+                "roll-up, metal coiling, sliding, and any other door that is not a swinging door.",
+                "an upward-acting, nonswinging door assembly made of two or more horizontal panels hinged together vertically.",
+                "a door having an operable opaque panel with hinges or pivots on one side.",
+                "opaque glass that conceals structural building components from being visible from the exterior of the building",
+                "a translucent, hollow or solid block of glass for glazing openings or constructing partitions",
+                "other subclassifications"
             ]
         }
     }

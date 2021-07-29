@@ -61,6 +61,10 @@
                     "description": "Outputs from the simluation summed for all buildings in the simulation.",
                     "$ref": "ASHRAE229.schema.json#/definitions/OverallSimulationOutputs"
                 },
+                "category": {
+                    "description": "Indicates which category the current model represents for rulesets with multiple simulation models",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CategoryType2019ASHRAE901"
+                },
                 "compliance_path": {
                     "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CompliancePathType2019ASHRAE901"
@@ -382,15 +386,13 @@
                 "HEATED_AND_COOLED",
                 "HEATED_ONLY",
                 "SEMIHEATED",
-                "UNCONDITIONED",
-                "PLENUM"
+                "UNCONDITIONED"
             ],
             "descriptions": [
                 "Heated and cooled",
                 "Heated only",
                 "Semiheated",
-                "Unconditioned",
-                "Plenum"
+                "Unconditioned"
             ]
         },
         "SpaceFunctionType": {
@@ -469,11 +471,11 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "fenestration_subsurfaces": {
-                    "description": "Fenestration suburfaces that are on the surface",
+                "subsurfaces": {
+                    "description": "Suburfaces that are on the surface",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Fenestration"
+                        "$ref": "ASHRAE229.schema.json#/definitions/Subsurface"
                     },
                     "notes": "Contains a list of surfaces that define the space."
                 },
@@ -768,7 +770,7 @@
                 "Construction is entered by R-value only."
             ]
         },
-        "Fenestration": {
+        "Subsurface": {
             "type": "object",
             "properties": {
                 "id": {
@@ -784,82 +786,86 @@
                     "type": "string"
                 },
                 "classification": {
-                    "description": "Classification for the fenestration being window, skylight, door.",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FenestrationClassificationType"
+                    "description": "Classification for the subsurface being window, skylight, door.",
+                    "$ref": "ASHRAE229.schema.json#/definitions/SubsurfaceClassificationType"
+                },
+                "subclassification": {
+                    "description": "Standard specific subclassification for subsurfaces",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/SubsurfaceSubclassificationType2019ASHRAE901"
                 },
                 "is_operable": {
-                    "description": "Identifies whether fenestration can be opened and closed including by pivoting or sliding.",
+                    "description": "Identifies whether window subsurface can be opened and closed including by pivoting or sliding.",
                     "type": "boolean",
                     "notes": "This applies to windows and skylights but not to doors."
                 },
                 "has_open_sensor": {
-                    "description": "Has sensor and reports to building control system when the fenestration is open.",
+                    "description": "Has sensor and reports to building control system when the window or door is open.",
                     "type": "boolean"
                 },
                 "framing_type": {
                     "description": "The material of the framing.",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/FenestrationFrameType2019ASHRAE901",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/SubsurfaceFrameType2019ASHRAE901",
                     "notes": "This applies to windows and skylights but not to doors."
                 },
                 "glazed_area": {
-                    "description": "Area of fenestration including glass and transparent surfaces",
+                    "description": "Area of subsurface including glass and transparent surfaces",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m2"
                 },
                 "opaque_area": {
-                    "description": "Area of fenestration framing for a window or skylight or opaque portion for a door.",
+                    "description": "Area of subsurface framing for a window or skylight or opaque portion for a door.",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m2"
                 },
                 "u_factor": {
-                    "description": "Overall Fenestration U-factor",
+                    "description": "Overall Subsurface U-factor",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W/m2-K",
                     "notes": "Includes interior and exterior air films as specified by the referenced standard."
                 },
                 "is_dynamic_glazing": {
-                    "description": "Identifies whether the fenestration can change its performance properties",
+                    "description": "Identifies whether the window subsurface can change it's performance properties",
                     "type": "boolean"
                 },
                 "solar_heat_gain_coefficient": {
-                    "description": "Fenestration SHGC",
+                    "description": "Subsurface SHGC",
                     "type": "number",
                     "minimum": 0.0,
                     "notes": "For dynamic glazing represents the minimum SHGC"
                 },
                 "maximum_solar_heat_gain_coefficient": {
-                    "description": "Maximum Fenestration SHGC for Dynamic Glazing",
+                    "description": "Maximum Subsurface SHGC for Dynamic Glazing",
                     "type": "number",
                     "minimum": 0.0,
                     "notes": "Only used for dynamic glazing"
                 },
                 "visible_transmittance": {
-                    "description": "Fenestration VT",
+                    "description": "Subsurface VT",
                     "type": "number",
                     "minimum": 0.0,
                     "notes": "For dynamic glazing represents the maximum visible transmittance"
                 },
                 "minimum_visible_transmittance": {
-                    "description": "Minimum Fenestration VT for Dynamic Glazing",
+                    "description": "Minimum Subsurface VT for Dynamic Glazing",
                     "type": "number",
                     "minimum": 0.0,
                     "notes": "Only used for dynamic glazing"
                 },
                 "depth_of_overhang": {
-                    "description": "Distance from the edge of the overhang to the fenestration surface.",
+                    "description": "Distance from the edge of the overhang to the subsurface.",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m"
                 },
                 "has_shading_overhang": {
-                    "description": "Identifies whether fenestration has overhangs",
+                    "description": "Identifies whether subsurface has overhangs",
                     "type": "boolean"
                 },
                 "has_shading_sidefins": {
-                    "description": "Identifies whether fenestration has sidefins",
+                    "description": "Identifies whether subsurface has sidefins",
                     "type": "boolean"
                 },
                 "has_manual_interior_shades": {
@@ -888,18 +894,16 @@
             ],
             "additionalProperties": false
         },
-        "FenestrationClassificationType": {
+        "SubsurfaceClassificationType": {
             "type": "string",
             "enum": [
                 "WINDOW",
                 "SKYLIGHT",
-                "DOOR",
-                "GLAZED_DOOR"
+                "DOOR"
             ],
             "descriptions": [
                 "Window",
                 "Skylight",
-                "Door",
                 "Door"
             ]
         },
@@ -1482,6 +1486,11 @@
                     "type": "number",
                     "units": "C"
                 },
+                "pump_power_per_flow_rate": {
+                    "description": "Total design pump power divided by the loop design flow rate",
+                    "type": "number",
+                    "units": "W/s-L"
+                },
                 "is_sized_using_coincident_load": {
                     "description": "True if the loop is sized based on coincident load",
                     "type": "boolean"
@@ -1493,6 +1502,10 @@
                 "operation": {
                     "description": "Type of operation used by loop",
                     "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopOperationOptions"
+                },
+                "flow_control": {
+                    "description": "Flow control options",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopFlowControlOptions"
                 },
                 "temperature_reset_type": {
                     "description": "Type of temperature reset used by loop",
@@ -1523,6 +1536,17 @@
                 "id"
             ],
             "additionalProperties": false
+        },
+        "FluidLoopFlowControlOptions": {
+            "type": "string",
+            "enum": [
+                "FIXED_FLOW",
+                "VARIABLE_FLOW"
+            ],
+            "descriptions": [
+                "Fixed flow",
+                "Variable flow"
+            ]
         },
         "FluidLoopTypeOptions": {
             "type": "string",
@@ -1627,14 +1651,14 @@
                     "description": "Options for pump speed control",
                     "$ref": "ASHRAE229.schema.json#/definitions/PumpSpeedControlOptions"
                 },
-                "flow_control": {
-                    "description": "Flow control options",
-                    "$ref": "ASHRAE229.schema.json#/definitions/PumpFlowControlOptions"
-                },
                 "design_flow": {
                     "description": "Design Pump Flowrate",
                     "type": "number",
                     "units": "L/s"
+                },
+                "is_flow_autosized": {
+                    "description": "True if the design_flow is autosized",
+                    "type": "boolean"
                 },
                 "is_variable_speed": {
                     "description": "True if variable speed drive such a VFD",
@@ -1651,24 +1675,11 @@
             "type": "string",
             "enum": [
                 "FIXED_SPEED",
-                "TWO_SPEED",
                 "VARIABLE_SPEED"
             ],
             "descriptions": [
                 "Fixed speed",
-                "Two speed",
                 "Variable speed"
-            ]
-        },
-        "PumpFlowControlOptions": {
-            "type": "string",
-            "enum": [
-                "FIXED_FLOW",
-                "VARIABLE_SPEED"
-            ],
-            "descriptions": [
-                "Fixed flow",
-                "Variable flow"
             ]
         },
         "PumpSpecificationMethodOptions": {
@@ -1727,21 +1738,17 @@
                     "description": "The type of efficiency metric used",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerEfficiencyMetricTypeOptions"
                 },
-                "efficiency_value": {
+                "efficiency": {
                     "description": "Efficiency value based on the selected efficiency_metric",
                     "type": "number",
                     "minimum": 0.0,
                     "maximum": 1.0
                 },
-                "detailed_performance": {
-                    "description": "Detailed performance as specified in ASHRAE Standard 205",
-                    "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
-                },
-                "energy_validation_points": {
+                "output_validation_points": {
                     "description": "Energy validation points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/BoilerPerformanceValidationPoint"
+                        "$ref": "ASHRAE229.schema.json#/definitions/BoilerOutputValidationPoint"
                     },
                     "notes": "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
                 },
@@ -1792,7 +1799,7 @@
                 "Combustion efficiency"
             ]
         },
-        "BoilerPerformanceValidationPoint": {
+        "BoilerOutputValidationPoint": {
             "type": "object",
             "properties": {
                 "load": {
@@ -1865,11 +1872,15 @@
                     "type": "number",
                     "units": "W/W"
                 },
-                "integrated_part_load_value_efficiency": {
-                    "description": "Integrated part load value efficiency expressed as a coefficient of performance (COP)",
+                "part_load_efficiency": {
+                    "description": "Efficiency value based on the selected part_load_efficiency_metric",
                     "type": "number",
-                    "units": "W/W",
-                    "notes": "Can be input by user or computed."
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "part_load_efficiency_metric": {
+                    "description": "The type of part load efficiency metric used",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ChillerPartLoadEfficiencyMetricTypeOptions"
                 },
                 "capacity_validation_points": {
                     "description": "Capacity validation points",
@@ -1878,16 +1889,12 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/ChillerPerformanceValidationPoint"
                     }
                 },
-                "energy_validation_points": {
+                "power_validation_points": {
                     "description": "Energy validation points",
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/ChillerPerformanceValidationPoint"
                     }
-                },
-                "detailed_performance": {
-                    "description": "Detailed performance as specified in ASHRAE Standard 205",
-                    "notes": "Reserved for referencing after ASHRAE Standard 205 is published."
                 }
             },
             "required": [
@@ -1895,6 +1902,19 @@
                 "cooling_loop"
             ],
             "additionalProperties": false
+        },
+        "ChillerPartLoadEfficiencyMetricTypeOptions": {
+            "type": "string",
+            "enum": [
+                "INTEGRATED_PART_LOAD_VALUE",
+                "NONSTANDARD_PART_LOAD_VALUE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Integrated part load value efficiency expressed as a coefficient of performance (COP)",
+                "Nonstandard part load value efficiency expressed as a coefficient of performance (COP)",
+                "Other part load efficiency metric"
+            ]
         },
         "ChillerPerformanceValidationPoint": {
             "type": "object",

@@ -15,7 +15,6 @@
 | `HEATED_ONLY`       | Heated only       |       |
 | `SEMIHEATED`        | Semiheated        |       |
 | `UNCONDITIONED`     | Unconditioned     |       |
-| `PLENUM`            | Plenum            |       |
 
 # SpaceFunctionType
 |  Enumerator  | Description | Notes |
@@ -53,13 +52,12 @@
 | `LAYERS`     | Construction is entered layer-by-layer.  |       |
 | `SIMPLIFIED` | Construction is entered by R-value only. |       |
 
-# FenestrationClassificationType
-|  Enumerator   | Description | Notes |
-|---------------|-------------|-------|
-| `WINDOW`      | Window      |       |
-| `SKYLIGHT`    | Skylight    |       |
-| `DOOR`        | Door        |       |
-| `GLAZED_DOOR` | Door        |       |
+# SubsurfaceClassificationType
+| Enumerator | Description | Notes |
+|------------|-------------|-------|
+| `WINDOW`   | Window      |       |
+| `SKYLIGHT` | Skylight    |       |
+| `DOOR`     | Door        |       |
 
 # MiscellaneousEquipmentType
 | Enumerator | Description | Notes |
@@ -106,6 +104,12 @@
 | `FRIDAY`    | Friday      |       |
 | `SATURDAY`  | Saturday    |       |
 
+# FluidLoopFlowControlOptions
+|   Enumerator    |  Description  | Notes |
+|-----------------|---------------|-------|
+| `FIXED_FLOW`    | Fixed flow    |       |
+| `VARIABLE_FLOW` | Variable flow |       |
+
 # FluidLoopTypeOptions
 |      Enumerator       |     Description     | Notes |
 |-----------------------|---------------------|-------|
@@ -134,14 +138,7 @@
 |    Enumerator    |  Description   | Notes |
 |------------------|----------------|-------|
 | `FIXED_SPEED`    | Fixed speed    |       |
-| `TWO_SPEED`      | Two speed      |       |
 | `VARIABLE_SPEED` | Variable speed |       |
-
-# PumpFlowControlOptions
-|    Enumerator    |  Description  | Notes |
-|------------------|---------------|-------|
-| `FIXED_FLOW`     | Fixed flow    |       |
-| `VARIABLE_SPEED` | Variable flow |       |
 
 # PumpSpecificationMethodOptions
 | Enumerator | Description |                                         Notes                                          |
@@ -161,6 +158,13 @@
 | `ANNUAL_FUEL_UTILIZATION` | Annual fuel utilization efficiency |       |
 | `THERMAL`                 | Thermal efficiency                 |       |
 | `COMBUSTION`              | Combustion efficiency              |       |
+
+# ChillerPartLoadEfficiencyMetricTypeOptions
+|          Enumerator           |                                      Description                                       | Notes |
+|-------------------------------|----------------------------------------------------------------------------------------|-------|
+| `INTEGRATED_PART_LOAD_VALUE`  | Integrated part load value efficiency expressed as a coefficient of performance (COP)  |       |
+| `NONSTANDARD_PART_LOAD_VALUE` | Nonstandard part load value efficiency expressed as a coefficient of performance (COP) |       |
+| `OTHER`                       | Other part load efficiency metric                                                      |       |
 
 # ChillerCompressorTypeOptions
 |                Enumerator                 |               Description               | Notes |
@@ -251,6 +255,7 @@
 | `weather`                          | Information on the local weather conditions used with the simulation.                                                                         | `{Weather}`                                                         |         |       |     |                                                                                                                                                                |
 | `infiltration_pressure_difference` | Differential pressure difference assumed for infiltration values.                                                                             | `Numeric`                                                           | Pa      | `≥0`  |     | Often 50 Pa or 75 Pa and used as rating conditions for air leakage for a building.                                                                             |
 | `overall_simulation_outputs`       | Outputs from the simluation summed for all buildings in the simulation.                                                                       | `{OverallSimulationOutputs}`                                        |         |       |     |                                                                                                                                                                |
+| `category`                         | Indicates which category the current model represents for rulesets with multiple simulation models                                            | `<CategoryType2019ASHRAE901>`                                       |         |       |     |                                                                                                                                                                |
 | `compliance_path`                  | Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code | `<CompliancePathType2019ASHRAE901>`                                 |         |       |     |                                                                                                                                                                |
 | `building_rotation_angles`         | A list of angles that building simulations are performed and results are provided.                                                            | `[Numeric]`                                                         | degrees |       |     | List of angles that the building has been rotated.                                                                                                             |
 | `fluid_loops`                      | Fluid loops on the site                                                                                                                       | `[{FluidLoop}]`                                                     |         |       |     | Contains a list of fluid loops on the site.                                                                                                                    |
@@ -336,7 +341,7 @@
 | `id`                         | Scope-unique reference identifier for instances of this data group                                                                       | `ID`                                                                                                   |         |       | ✓   |                                                                                                              |
 | `reporting_name`             | Descriptive name used in RCT reports if id is not already a descriptive name                                                             | `String`                                                                                               |         |       |     |                                                                                                              |
 | `notes`                      | Supplementary information to provide context to the model reviewer                                                                       | `String`                                                                                               |         |       |     |                                                                                                              |
-| `fenestration_subsurfaces`   | Fenestration suburfaces that are on the surface                                                                                          | `[{Fenestration}]`                                                                                     |         |       |     | Contains a list of surfaces that define the space.                                                           |
+| `subsurfaces`                | Suburfaces that are on the surface                                                                                                       | `[{Subsurface}]`                                                                                       |         |       |     | Contains a list of surfaces that define the space.                                                           |
 | `classification`             | Classification for the surface.                                                                                                          | `<SurfaceClassificationType>`                                                                          |         |       |     | Options for surface being interior or exterior wall, floor, or ceiling.                                      |
 | `area`                       | area of the surface                                                                                                                      | `Numeric`                                                                                              | m2      | `≥0`  |     | Measured from interior face area. It is the gross area of the wall and includes the area of all subsurfaces. |
 | `tilt`                       | Angle between vertical and the surface outward normal                                                                                    | `Numeric`                                                                                              | degrees |       |     | Example value would be 0 = roof, 90 = wall, 180 = downward facing surface (exterior floor)                   |
@@ -390,31 +395,32 @@
 | `absorptance_solar_interior`   | Thermal absorptance of short wavelength radiation on the interior surface.   | `Numeric` |       | `≥0`  |     |       |
 | `absorptance_visible_interior` | Thermal absorptance of visible radiation on the interior surface.            | `Numeric` |       | `≥0`  |     |       |
 
-# Fenestration
-|                  Name                   |                                        Description                                         |               Data Type                | Units  | Range | Req |                                       Notes                                       |
-|-----------------------------------------|--------------------------------------------------------------------------------------------|----------------------------------------|--------|-------|-----|-----------------------------------------------------------------------------------|
-| `id`                                    | Scope-unique reference identifier for instances of this data group                         | `ID`                                   |        |       | ✓   |                                                                                   |
-| `reporting_name`                        | Descriptive name used in RCT reports if id is not already a descriptive name               | `String`                               |        |       |     |                                                                                   |
-| `notes`                                 | Supplementary information to provide context to the model reviewer                         | `String`                               |        |       |     |                                                                                   |
-| `classification`                        | Classification for the fenestration being window, skylight, door.                          | `<FenestrationClassificationType>`     |        |       |     |                                                                                   |
-| `is_operable`                           | Identifies whether fenestration can be opened and closed including by pivoting or sliding. | `Boolean`                              |        |       |     | This applies to windows and skylights but not to doors.                           |
-| `has_open_sensor`                       | Has sensor and reports to building control system when the fenestration is open.           | `Boolean`                              |        |       |     |                                                                                   |
-| `framing_type`                          | The material of the framing.                                                               | `<FenestrationFrameType2019ASHRAE901>` |        |       |     | This applies to windows and skylights but not to doors.                           |
-| `glazed_area`                           | Area of fenestration including glass and transparent surfaces                              | `Numeric`                              | m2     | `≥0`  |     |                                                                                   |
-| `opaque_area`                           | Area of fenestration framing for a window or skylight or opaque portion for a door.        | `Numeric`                              | m2     | `≥0`  |     |                                                                                   |
-| `u_factor`                              | Overall Fenestration U-factor                                                              | `Numeric`                              | W/m2-K | `≥0`  |     | Includes interior and exterior air films as specified by the referenced standard. |
-| `is_dynamic_glazing`                    | Identifies whether the fenestration can change its performance properties                  | `Boolean`                              |        |       |     |                                                                                   |
-| `solar_heat_gain_coefficient`           | Fenestration SHGC                                                                          | `Numeric`                              |        | `≥0`  |     | For dynamic glazing represents the minimum SHGC                                   |
-| `maximum_solar_heat_gain_coefficient`   | Maximum Fenestration SHGC for Dynamic Glazing                                              | `Numeric`                              |        | `≥0`  |     | Only used for dynamic glazing                                                     |
-| `visible_transmittance`                 | Fenestration VT                                                                            | `Numeric`                              |        | `≥0`  |     | For dynamic glazing represents the maximum visible transmittance                  |
-| `minimum_visible_transmittance`         | Minimum Fenestration VT for Dynamic Glazing                                                | `Numeric`                              |        | `≥0`  |     | Only used for dynamic glazing                                                     |
-| `depth_of_overhang`                     | Distance from the edge of the overhang to the fenestration surface.                        | `Numeric`                              | m      | `≥0`  |     |                                                                                   |
-| `has_shading_overhang`                  | Identifies whether fenestration has overhangs                                              | `Boolean`                              |        |       |     |                                                                                   |
-| `has_shading_sidefins`                  | Identifies whether fenestration has sidefins                                               | `Boolean`                              |        |       |     |                                                                                   |
-| `has_manual_interior_shades`            | Are there manually-operated interior shading such as blinds, curtains or shades            | `Boolean`                              |        |       |     |                                                                                   |
-| `solar_transmittance_multiplier_summer` | Solar transmittance multiplier for summer                                                  | `Numeric`                              |        | `≥0`  |     | Often used to account for interior shading such as drapes.                        |
-| `solar_transmittance_multiplier_winter` | Solar transmittance multiplier for summer                                                  | `Numeric`                              |        | `≥0`  |     | Often used to account for interior shading such as drapes.                        |
-| `has_automatic_shades`                  | Are there automatic interior shading such as blinds, curtains or shades                    | `Boolean`                              |        |       |     |                                                                                   |
+# Subsurface
+|                  Name                   |                                           Description                                           |                    Data Type                     | Units  | Range | Req |                                       Notes                                       |
+|-----------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------|--------|-------|-----|-----------------------------------------------------------------------------------|
+| `id`                                    | Scope-unique reference identifier for instances of this data group                              | `ID`                                             |        |       | ✓   |                                                                                   |
+| `reporting_name`                        | Descriptive name used in RCT reports if id is not already a descriptive name                    | `String`                                         |        |       |     |                                                                                   |
+| `notes`                                 | Supplementary information to provide context to the model reviewer                              | `String`                                         |        |       |     |                                                                                   |
+| `classification`                        | Classification for the subsurface being window, skylight, door.                                 | `<SubsurfaceClassificationType>`                 |        |       |     |                                                                                   |
+| `subclassification`                     | Standard specific subclassification for subsurfaces                                             | `<SubsurfaceSubclassificationType2019ASHRAE901>` |        |       |     |                                                                                   |
+| `is_operable`                           | Identifies whether window subsurface can be opened and closed including by pivoting or sliding. | `Boolean`                                        |        |       |     | This applies to windows and skylights but not to doors.                           |
+| `has_open_sensor`                       | Has sensor and reports to building control system when the window or door is open.              | `Boolean`                                        |        |       |     |                                                                                   |
+| `framing_type`                          | The material of the framing.                                                                    | `<SubsurfaceFrameType2019ASHRAE901>`             |        |       |     | This applies to windows and skylights but not to doors.                           |
+| `glazed_area`                           | Area of subsurface including glass and transparent surfaces                                     | `Numeric`                                        | m2     | `≥0`  |     |                                                                                   |
+| `opaque_area`                           | Area of subsurface framing for a window or skylight or opaque portion for a door.               | `Numeric`                                        | m2     | `≥0`  |     |                                                                                   |
+| `u_factor`                              | Overall Subsurface U-factor                                                                     | `Numeric`                                        | W/m2-K | `≥0`  |     | Includes interior and exterior air films as specified by the referenced standard. |
+| `is_dynamic_glazing`                    | Identifies whether the window subsurface can change it's performance properties                 | `Boolean`                                        |        |       |     |                                                                                   |
+| `solar_heat_gain_coefficient`           | Subsurface SHGC                                                                                 | `Numeric`                                        |        | `≥0`  |     | For dynamic glazing represents the minimum SHGC                                   |
+| `maximum_solar_heat_gain_coefficient`   | Maximum Subsurface SHGC for Dynamic Glazing                                                     | `Numeric`                                        |        | `≥0`  |     | Only used for dynamic glazing                                                     |
+| `visible_transmittance`                 | Subsurface VT                                                                                   | `Numeric`                                        |        | `≥0`  |     | For dynamic glazing represents the maximum visible transmittance                  |
+| `minimum_visible_transmittance`         | Minimum Subsurface VT for Dynamic Glazing                                                       | `Numeric`                                        |        | `≥0`  |     | Only used for dynamic glazing                                                     |
+| `depth_of_overhang`                     | Distance from the edge of the overhang to the subsurface.                                       | `Numeric`                                        | m      | `≥0`  |     |                                                                                   |
+| `has_shading_overhang`                  | Identifies whether subsurface has overhangs                                                     | `Boolean`                                        |        |       |     |                                                                                   |
+| `has_shading_sidefins`                  | Identifies whether subsurface has sidefins                                                      | `Boolean`                                        |        |       |     |                                                                                   |
+| `has_manual_interior_shades`            | Are there manually-operated interior shading such as blinds, curtains or shades                 | `Boolean`                                        |        |       |     |                                                                                   |
+| `solar_transmittance_multiplier_summer` | Solar transmittance multiplier for summer                                                       | `Numeric`                                        |        | `≥0`  |     | Often used to account for interior shading such as drapes.                        |
+| `solar_transmittance_multiplier_winter` | Solar transmittance multiplier for summer                                                       | `Numeric`                                        |        | `≥0`  |     | Often used to account for interior shading such as drapes.                        |
+| `has_automatic_shades`                  | Are there automatic interior shading such as blinds, curtains or shades                         | `Boolean`                                        |        |       |     |                                                                                   |
 
 # InteriorLighting
 |              Name              |                                 Description                                  |              Data Type               | Units | Range | Req |                                Notes                                |
@@ -541,9 +547,11 @@
 | `notes`                                          | Supplementary information to provide context to the model reviewer           | `String`                        |       |       |     |       |
 | `design_supply_temperature`                      | Design Supply Temperature                                                    | `Numeric`                       | C     |       |     |       |
 | `design_return_temperature`                      | Design Return Temperature                                                    | `Numeric`                       | C     |       |     |       |
+| `pump_power_per_flow_rate`                       | Total design pump power divided by the loop design flow rate                 | `Numeric`                       | W/s-L |       |     |       |
 | `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load                           | `Boolean`                       |       |       |     |       |
 | `minimum_flow_fraction`                          | Minimum fraction of full flow allowed                                        | `Numeric`                       |       |       |     |       |
 | `operation`                                      | Type of operation used by loop                                               | `<FluidLoopOperationOptions>`   |       |       |     |       |
+| `flow_control`                                   | Flow control options                                                         | `<FluidLoopFlowControlOptions>` |       |       |     |       |
 | `temperature_reset_type`                         | Type of temperature reset used by loop                                       | `<TemperatureResetTypeOptions>` |       |       |     |       |
 | `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset                                      | `Numeric`                       | C     |       |     |       |
 | `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset                                       | `Numeric`                       | C     |       |     |       |
@@ -564,54 +572,53 @@
 | `impeller_efficiency`   | Full load efficiency of the impeller                                         | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed                                         |
 | `motor_efficiency`      | Full load efficiency of the pump motor                                       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed                                         |
 | `speed_control`         | Options for pump speed control                                               | `<PumpSpeedControlOptions>`        |       |          |     |                                                                                                |
-| `flow_control`          | Flow control options                                                         | `<PumpFlowControlOptions>`         |       |          |     |                                                                                                |
 | `design_flow`           | Design Pump Flowrate                                                         | `Numeric`                          | L/s   |          |     |                                                                                                |
+| `is_flow_autosized`     | True if the design_flow is autosized                                         | `Boolean`                          |       |          |     |                                                                                                |
 | `is_variable_speed`     | True if variable speed drive such a VFD                                      | `Boolean`                          |       |          |     |                                                                                                |
 
 # Boiler
-|            Name            |                                 Description                                  |               Data Type                | Units |  Range   | Req |                                                          Notes                                                          |
-|----------------------------|------------------------------------------------------------------------------|----------------------------------------|-------|----------|-----|-------------------------------------------------------------------------------------------------------------------------|
-| `id`                       | Scope-unique reference identifier for instances of this data group           | `ID`                                   |       |          | ✓   |                                                                                                                         |
-| `reporting_name`           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                               |       |          |     |                                                                                                                         |
-| `notes`                    | Supplementary information to provide context to the model reviewer           | `String`                               |       |          |     |                                                                                                                         |
-| `loop`                     | Referenced to the fluid loop                                                 | `$ID`                                  |       |          | ✓   |                                                                                                                         |
-| `design_capacity`          | Heating capacity                                                             | `Numeric`                              | W     |          |     |                                                                                                                         |
-| `rated_capacity`           | Heating capacity                                                             | `Numeric`                              | W     |          |     | At rating conditions.                                                                                                   |
-| `minimum_load_ratio`       | Minimum fraction of full load allowed                                        | `Numeric`                              |       |          |     |                                                                                                                         |
-| `draft_type`               | Combustion option                                                            | `<BoilerCombustionOptions>`            |       |          |     |                                                                                                                         |
-| `efficiency_metric`        | The type of efficiency metric used                                           | `<BoilerEfficiencyMetricTypeOptions>`  |       |          |     |                                                                                                                         |
-| `efficiency_value`         | Efficiency value based on the selected efficiency_metric                     | `Numeric`                              |       | `≥0, ≤1` |     |                                                                                                                         |
-| `detailed_performance`     | Detailed performance as specified in ASHRAE Standard 205                     | `UUID`                                 |       |          |     | Reserved for referencing after ASHRAE Standard 205 is published.                                                        |
-| `energy_validation_points` | Energy validation points                                                     | `[{BoilerPerformanceValidationPoint}]` |       |          |     | Load is input to each validation point and energy output is the result. A minimum number of four points is recommended. |
-| `auxiliary_power`          | Auxiliary power                                                              | `Numeric`                              | W     |          |     | Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates.                           |
-| `operation_lower_limit`    | Heating load range operation, lower limit                                    | `Numeric`                              | W     |          |     |                                                                                                                         |
-| `operation_upper_limit`    | Heating load range operation, upper limit                                    | `Numeric`                              | W     |          |     |                                                                                                                         |
+|            Name            |                                 Description                                  |               Data Type               | Units |  Range   | Req |                                                          Notes                                                          |
+|----------------------------|------------------------------------------------------------------------------|---------------------------------------|-------|----------|-----|-------------------------------------------------------------------------------------------------------------------------|
+| `id`                       | Scope-unique reference identifier for instances of this data group           | `ID`                                  |       |          | ✓   |                                                                                                                         |
+| `reporting_name`           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                              |       |          |     |                                                                                                                         |
+| `notes`                    | Supplementary information to provide context to the model reviewer           | `String`                              |       |          |     |                                                                                                                         |
+| `loop`                     | Referenced to the fluid loop                                                 | `$ID`                                 |       |          | ✓   |                                                                                                                         |
+| `design_capacity`          | Heating capacity                                                             | `Numeric`                             | W     |          |     |                                                                                                                         |
+| `rated_capacity`           | Heating capacity                                                             | `Numeric`                             | W     |          |     | At rating conditions.                                                                                                   |
+| `minimum_load_ratio`       | Minimum fraction of full load allowed                                        | `Numeric`                             |       |          |     |                                                                                                                         |
+| `draft_type`               | Combustion option                                                            | `<BoilerCombustionOptions>`           |       |          |     |                                                                                                                         |
+| `efficiency_metric`        | The type of efficiency metric used                                           | `<BoilerEfficiencyMetricTypeOptions>` |       |          |     |                                                                                                                         |
+| `efficiency`               | Efficiency value based on the selected efficiency_metric                     | `Numeric`                             |       | `≥0, ≤1` |     |                                                                                                                         |
+| `output_validation_points` | Energy validation points                                                     | `[{BoilerOutputValidationPoint}]`     |       |          |     | Load is input to each validation point and energy output is the result. A minimum number of four points is recommended. |
+| `auxiliary_power`          | Auxiliary power                                                              | `Numeric`                             | W     |          |     | Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates.                           |
+| `operation_lower_limit`    | Heating load range operation, lower limit                                    | `Numeric`                             | W     |          |     |                                                                                                                         |
+| `operation_upper_limit`    | Heating load range operation, upper limit                                    | `Numeric`                             | W     |          |     |                                                                                                                         |
 
-# BoilerPerformanceValidationPoint
+# BoilerOutputValidationPoint
 |   Name   | Description | Data Type | Units | Range | Req |                               Notes                               |
 |----------|-------------|-----------|-------|-------|-----|-------------------------------------------------------------------|
 | `load`   | Load        | `Numeric` | W     |       |     | No name and id is needed since typically used as one of a series. |
 | `result` | Result      | `Numeric` | W     |       |     |                                                                   |
 
 # Chiller
-|                  Name                   |                                      Description                                      |                Data Type                | Units | Range | Req |                              Notes                               |
-|-----------------------------------------|---------------------------------------------------------------------------------------|-----------------------------------------|-------|-------|-----|------------------------------------------------------------------|
-| `id`                                    | Scope-unique reference identifier for instances of this data group                    | `ID`                                    |       |       | ✓   |                                                                  |
-| `reporting_name`                        | Descriptive name used in RCT reports if id is not already a descriptive name          | `String`                                |       |       |     |                                                                  |
-| `notes`                                 | Supplementary information to provide context to the model reviewer                    | `String`                                |       |       |     |                                                                  |
-| `cooling_loop`                          | Referenced to the cooling fluid loop                                                  | `$ID`                                   |       |       | ✓   |                                                                  |
-| `condensing_loop`                       | Referenced to the condensing fluid loop                                               | `$ID`                                   |       |       |     | No condensing loop name implies air-cooled chiller.              |
-| `compressor_type`                       | Compressor Type                                                                       | `<ChillerCompressorTypeOptions>`        |       |       |     |                                                                  |
-| `design_capacity`                       | Chiller Design Cooling Capacity                                                       | `Numeric`                               | W     |       |     |                                                                  |
-| `rated_capacity`                        | Chiller Design Cooling Capacity                                                       | `Numeric`                               | W     |       |     | At rating conditions.                                            |
-| `minimum_load_ratio`                    | Minimum fraction of full load allowed                                                 | `Numeric`                               |       |       |     |                                                                  |
-| `design_flow_evaporator`                | Chiller evaporator design flow                                                        | `Numeric`                               | L/s   |       |     |                                                                  |
-| `design_flow_condenser`                 | Chiller condenser design flow                                                         | `Numeric`                               | L/s   |       |     |                                                                  |
-| `full_load_efficiency`                  | Full Low Efficiency expressed as a coefficient of performance (COP)                   | `Numeric`                               | W/W   |       |     |                                                                  |
-| `integrated_part_load_value_efficiency` | Integrated part load value efficiency expressed as a coefficient of performance (COP) | `Numeric`                               | W/W   |       |     | Can be input by user or computed.                                |
-| `capacity_validation_points`            | Capacity validation points                                                            | `[{ChillerPerformanceValidationPoint}]` |       |       |     |                                                                  |
-| `energy_validation_points`              | Energy validation points                                                              | `[{ChillerPerformanceValidationPoint}]` |       |       |     |                                                                  |
-| `detailed_performance`                  | Detailed performance as specified in ASHRAE Standard 205                              | `UUID`                                  |       |       |     | Reserved for referencing after ASHRAE Standard 205 is published. |
+|             Name              |                                 Description                                  |                   Data Type                    | Units |  Range   | Req |                        Notes                        |
+|-------------------------------|------------------------------------------------------------------------------|------------------------------------------------|-------|----------|-----|-----------------------------------------------------|
+| `id`                          | Scope-unique reference identifier for instances of this data group           | `ID`                                           |       |          | ✓   |                                                     |
+| `reporting_name`              | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                                       |       |          |     |                                                     |
+| `notes`                       | Supplementary information to provide context to the model reviewer           | `String`                                       |       |          |     |                                                     |
+| `cooling_loop`                | Referenced to the cooling fluid loop                                         | `$ID`                                          |       |          | ✓   |                                                     |
+| `condensing_loop`             | Referenced to the condensing fluid loop                                      | `$ID`                                          |       |          |     | No condensing loop name implies air-cooled chiller. |
+| `compressor_type`             | Compressor Type                                                              | `<ChillerCompressorTypeOptions>`               |       |          |     |                                                     |
+| `design_capacity`             | Chiller Design Cooling Capacity                                              | `Numeric`                                      | W     |          |     |                                                     |
+| `rated_capacity`              | Chiller Design Cooling Capacity                                              | `Numeric`                                      | W     |          |     | At rating conditions.                               |
+| `minimum_load_ratio`          | Minimum fraction of full load allowed                                        | `Numeric`                                      |       |          |     |                                                     |
+| `design_flow_evaporator`      | Chiller evaporator design flow                                               | `Numeric`                                      | L/s   |          |     |                                                     |
+| `design_flow_condenser`       | Chiller condenser design flow                                                | `Numeric`                                      | L/s   |          |     |                                                     |
+| `full_load_efficiency`        | Full Low Efficiency expressed as a coefficient of performance (COP)          | `Numeric`                                      | W/W   |          |     |                                                     |
+| `part_load_efficiency`        | Efficiency value based on the selected part_load_efficiency_metric           | `Numeric`                                      |       | `≥0, ≤1` |     |                                                     |
+| `part_load_efficiency_metric` | The type of part load efficiency metric used                                 | `<ChillerPartLoadEfficiencyMetricTypeOptions>` |       |          |     |                                                     |
+| `capacity_validation_points`  | Capacity validation points                                                   | `[{ChillerPerformanceValidationPoint}]`        |       |          |     |                                                     |
+| `power_validation_points`     | Energy validation points                                                     | `[{ChillerPerformanceValidationPoint}]`        |       |          |     |                                                     |
 
 # ChillerPerformanceValidationPoint
 |                Name                |           Description            | Data Type | Units | Range | Req |                                                       Notes                                                        |

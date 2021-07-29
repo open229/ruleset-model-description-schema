@@ -1,3 +1,10 @@
+# CategoryType2019ASHRAE901
+| Enumerator |                                                 Description                                                 | Notes |
+|------------|-------------------------------------------------------------------------------------------------------------|-------|
+| `USER`     | The building model as described without consideration of the ruleset                                        |       |
+| `PROPOSED` | The building model that corresponds with the Proposed Buildings Performance column of Appendix G Table G3.1 |       |
+| `BASELINE` | The building model that corresponds with the Baseline Buildings Performance column of Appendix G Table G3.1 |       |
+
 # CompliancePathType2019ASHRAE901
 |    Enumerator    |   Description   | Notes |
 |------------------|-----------------|-------|
@@ -376,7 +383,7 @@
 | `SCHOOL_SECONDARY_AND_UNIVERSITY` | School (secondary and university) |       |
 | `WAREHOUSE_NONREFRIGERATED`       | Warehouse (nonrefrigerated)       |       |
 
-# FenestrationFrameType2019ASHRAE901
+# SubsurfaceFrameType2019ASHRAE901
 |        Enumerator        |          Description           | Notes |
 |--------------------------|--------------------------------|-------|
 | `ALUMINUM_WITHOUT_BREAK` | Aluminum without Thermal Break |       |
@@ -465,4 +472,15 @@
 | `UNCONDITIONED` | The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled. |       |
 | `UNHEATED`      | Surface adjacent to a environment that is not heated but enclosed. The space on the other side of the surface is not explicity modeled.         |       |
 | `SEMIHEATED`    | Surface adjacent to a environment that is semi-heated. The space on the other side of the surface is not explicity modeled.                     |       |
+
+# SubsurfaceSubclassificationType2019ASHRAE901
+|       Enumerator        |                                                                                        Description                                                                                        | Notes |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
+| `METAL_COILING_DOOR`    | an upward-acting, nonswinging door assembly consisting of interlocking horizontal slats or sheets that, upon opening the door, roll up around a horizontal barrel above the door opening. |       |
+| `NONSWINGING_DOOR`      | roll-up, metal coiling, sliding, and any other door that is not a swinging door.                                                                                                          |       |
+| `SECTIONAL_GARAGE_DOOR` | an upward-acting, nonswinging door assembly made of two or more horizontal panels hinged together vertically.                                                                             |       |
+| `SWINGING_DOOR`         | a door having an operable opaque panel with hinges or pivots on one side.                                                                                                                 |       |
+| `SPANDREL_GLASS`        | opaque glass that conceals structural building components from being visible from the exterior of the building                                                                            |       |
+| `GLASS_BLOCK`           | a translucent, hollow or solid block of glass for glazing openings or constructing partitions                                                                                             |       |
+| `OTHER`                 | other subclassifications                                                                                                                                                                  |       |
 
