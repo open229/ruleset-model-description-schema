@@ -758,7 +758,7 @@ VerticalFenestrationBuildingAreaType2019ASHRAE901:
     WAREHOUSE_NONREFRIGERATED:
       Description: "Warehouse (nonrefrigerated)"
 
-FenestrationFrameType2019ASHRAE901:
+SubsurfaceFrameType2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     ALUMINUM_WITHOUT_BREAK:
@@ -926,5 +926,9 @@ SubsurfaceSubclassificationType2019ASHRAE901:
       Description: "an upward-acting, nonswinging door assembly made of two or more horizontal panels hinged together vertically."
     SWINGING_DOOR:
       Description: "a door having an operable opaque panel with hinges or pivots on one side."
-
-
+    SPANDREL_GLASS:
+      Description: "opaque glass that conceals structural building components from being visible from the exterior of the building"
+    GLASS_BLOCK:
+      Description: "a translucent, hollow or solid block of glass for glazing openings or constructing partitions"
+    OTHER:
+      Description: "other subclassifications"

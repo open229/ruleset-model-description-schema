@@ -383,9 +383,9 @@ Surface:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    fenestration_subsurfaces:
-      Description: "Fenestration suburfaces that are on the surface"
-      Data Type: "[{Fenestration}]"
+    subsurfaces:
+      Description: "Suburfaces that are on the surface"
+      Data Type: "[{Subsurface}]"
       Notes: "Contains a list of surfaces that define the space."
     classification: 
       Description: "Classification for the surface."
@@ -597,7 +597,7 @@ SurfaceConstructionInputOptions:
     SIMPLIFIED:
       Description: "Construction is entered by R-value only."
 
-Fenestration:
+Subsurface:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -611,71 +611,71 @@ Fenestration:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     classification:
-      Description: "Classification for the fenestration being window, skylight, door."
-      Data Type: "<FenestrationClassificationType>"
+      Description: "Classification for the subsurface being window, skylight, door."
+      Data Type: "<SubsurfaceClassificationType>"
     subclassification:
       Description: "Standard specific subclassification for subsurfaces"
       Data Type: "<SubsurfaceSubclassificationType2019ASHRAE901>"
     is_operable:
-      Description: "Identifies whether fenestration can be opened and closed including by pivoting or sliding."
+      Description: "Identifies whether window subsurface can be opened and closed including by pivoting or sliding."
       Data Type: "Boolean"
       Notes: "This applies to windows and skylights but not to doors." 
     has_open_sensor:
-      Description: "Has sensor and reports to building control system when the fenestration is open."
+      Description: "Has sensor and reports to building control system when the window or door is open."
       Data Type: "Boolean"
     framing_type:
       Description: "The material of the framing."
-      Data Type: "<FenestrationFrameType2019ASHRAE901>"
+      Data Type: "<SubsurfaceFrameType2019ASHRAE901>"
       Notes: "This applies to windows and skylights but not to doors." 
     glazed_area:
-      Description: "Area of fenestration including glass and transparent surfaces"
+      Description: "Area of subsurface including glass and transparent surfaces"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m2"
     opaque_area:
-      Description: "Area of fenestration framing for a window or skylight or opaque portion for a door."
+      Description: "Area of subsurface framing for a window or skylight or opaque portion for a door."
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m2"
     u_factor:
-      Description: "Overall Fenestration U-factor"
+      Description: "Overall Subsurface U-factor"
       Data Type: "Numeric"
       Units: "W/m2-K"
       Range: ">=0"
       Notes: "Includes interior and exterior air films as specified by the referenced standard."
     is_dynamic_glazing:
-      Description: "Identifies whether the fenestration can change its performance properties"
+      Description: "Identifies whether the window subsurface can change it's performance properties"
       Data Type: "Boolean"
     solar_heat_gain_coefficient:
-      Description: "Fenestration SHGC"
+      Description: "Subsurface SHGC"
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "For dynamic glazing represents the minimum SHGC" 
     maximum_solar_heat_gain_coefficient:
-      Description: "Maximum Fenestration SHGC for Dynamic Glazing"
+      Description: "Maximum Subsurface SHGC for Dynamic Glazing"
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "Only used for dynamic glazing" 
     visible_transmittance:
-      Description: "Fenestration VT"
+      Description: "Subsurface VT"
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "For dynamic glazing represents the maximum visible transmittance" 
     minimum_visible_transmittance:
-      Description: "Minimum Fenestration VT for Dynamic Glazing"
+      Description: "Minimum Subsurface VT for Dynamic Glazing"
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "Only used for dynamic glazing" 
     depth_of_overhang:
-      Description: "Distance from the edge of the overhang to the fenestration surface."
+      Description: "Distance from the edge of the overhang to the subsurface."
       Data Type: "Numeric"
       Units: "m"
       Range: ">=0"
     has_shading_overhang:
-      Description: "Identifies whether fenestration has overhangs"
+      Description: "Identifies whether subsurface has overhangs"
       Data Type: "Boolean"
     has_shading_sidefins:
-      Description: "Identifies whether fenestration has sidefins"
+      Description: "Identifies whether subsurface has sidefins"
       Data Type: "Boolean"
     has_manual_interior_shades:
       Description: "Are there manually-operated interior shading such as blinds, curtains or shades"
@@ -694,7 +694,7 @@ Fenestration:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
       Data Type: "Boolean"
     
-FenestrationClassificationType:
+SubsurfaceClassificationType:
   Object Type: "Enumeration"
   Enumerators:
     WINDOW:
