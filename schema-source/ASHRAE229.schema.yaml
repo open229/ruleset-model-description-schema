@@ -1136,6 +1136,9 @@ FluidLoopDesignAndControl:
     operation:
       Description: "Type of operation used by loop"
       Data Type: "<FluidLoopOperationOptions>"
+    flow_control:
+      Description: "Flow control options"
+      Data Type: "<FluidLoopFlowControlOptions>"
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
       Data Type: "<TemperatureResetTypeOptions>"
@@ -1155,6 +1158,14 @@ FluidLoopDesignAndControl:
       Description: "Loop supply temperature at outdoor low temperature"
       Data Type: "Numeric"
       Units: "C"
+
+FluidLoopFlowControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_FLOW:
+      Description: "Fixed flow"
+    VARIABLE_FLOW:
+      Description: "Variable flow"
 
 FluidLoopTypeOptions:
   Object Type: "Enumeration"
@@ -1241,13 +1252,13 @@ Pump:
     speed_control:
       Description: "Options for pump speed control"
       Data Type: "<PumpSpeedControlOptions>"
-    flow_control:
-      Description: "Flow control options"
-      Data Type: "<PumpFlowControlOptions>"
     design_flow:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
       Units: "L/s"
+    is_flow_autosized:
+      Description: "True if the design_flow is autosized"
+      Data Type: "Boolean"
     is_variable_speed:
       Description: "True if variable speed drive such a VFD"
       Data Type: "Boolean"
@@ -1257,18 +1268,8 @@ PumpSpeedControlOptions:
   Enumerators:
     FIXED_SPEED:
       Description: "Fixed speed"
-    TWO_SPEED:
-      Description: "Two speed"
     VARIABLE_SPEED:
       Description: "Variable speed"
-
-PumpFlowControlOptions:
-  Object Type: "Enumeration"
-  Enumerators:
-    FIXED_FLOW:
-      Description: "Fixed flow"
-    VARIABLE_SPEED:
-      Description: "Variable flow"
 
 PumpSpecificationMethodOptions:
   Object Type: "Enumeration"
