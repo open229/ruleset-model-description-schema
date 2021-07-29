@@ -186,7 +186,8 @@
         "W/W",
         "s",
         "kg/m3",
-        "J/kg-K"
+        "J/kg-K",
+        "W/s-L"
       ]
     },
     "RatingUnits": {

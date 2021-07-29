@@ -1123,6 +1123,10 @@ FluidLoopDesignAndControl:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
       Units: "C"
+    pump_power_per_flow_rate:
+      Description: "Total design pump power divided by the loop design flow rate"
+      Data Type: "Numeric"
+      Units: "W/s-L"
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
