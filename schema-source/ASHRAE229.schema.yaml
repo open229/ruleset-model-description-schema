@@ -1311,17 +1311,13 @@ Boiler:
     efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricTypeOptions>"
-    efficiency_value:
+    efficiency:
       Description: "Efficiency value based on the selected efficiency_metric"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-    detailed_performance:
-      Description: "Detailed performance as specified in ASHRAE Standard 205"
-      Data Type: "UUID"
-      Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
-    energy_validation_points:
+    output_validation_points:
       Description: "Energy validation points"
-      Data Type: "[{BoilerPerformanceValidationPoint}]"
+      Data Type: "[{BoilerOutputValidationPoint}]"
       Notes: "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
     auxiliary_power:
       Description: "Auxiliary power"
@@ -1355,7 +1351,7 @@ BoilerEfficiencyMetricTypeOptions:
     COMBUSTION:
       Description: "Combustion efficiency"
 
-BoilerPerformanceValidationPoint:
+BoilerOutputValidationPoint:
   Object Type: "Data Group"
   Data Elements:
     load:
@@ -1416,21 +1412,29 @@ Chiller:
       Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
       Units: "W/W"
-    integrated_part_load_value_efficiency:
-      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
+    part_load_efficiency:
+      Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
-      Units: "W/W"
-      Notes: "Can be input by user or computed."
+      Range: ">=0, <=1"
+    part_load_efficiency_metric:
+      Description: "The type of part load efficiency metric used"
+      Data Type: "<ChillerPartLoadEfficiencyMetricTypeOptions>"
     capacity_validation_points:
       Description: "Capacity validation points"
       Data Type: "[{ChillerPerformanceValidationPoint}]"
-    energy_validation_points:
+    power_validation_points:
       Description: "Energy validation points"
       Data Type: "[{ChillerPerformanceValidationPoint}]"
-    detailed_performance:
-      Description: "Detailed performance as specified in ASHRAE Standard 205"
-      Data Type: "UUID"
-      Notes: "Reserved for referencing after ASHRAE Standard 205 is published."
+
+ChillerPartLoadEfficiencyMetricTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    INTEGRATED_PART_LOAD_VALUE:
+      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
+    NONSTANDARD_PART_LOAD_VALUE:
+      Description: "Nonstandard part load value efficiency expressed as a coefficient of performance (COP)"
+    OTHER:
+      Description: "Other part load efficiency metric"
 
 ChillerPerformanceValidationPoint:
   Object Type: "Data Group"
