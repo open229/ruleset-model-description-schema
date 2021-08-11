@@ -1026,6 +1026,7 @@ Elevator:
       Description: "Elevator peak motor power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The motor power can be provided either together with or, instead of, the detailed elements used to calculate it."
     cab_counterweight:
       Description: "Elevator car counterweight"
       Data Type: "Numeric"
@@ -1060,13 +1061,13 @@ Elevator:
       Units: "L/s"
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
-      Data Type: "String"
+      Data Type: "$ID"
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
-      Data Type: "String"
+      Data Type: "$ID"
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
-      Data Type: "String"
+      Data Type: "$ID"
 
 HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
@@ -1740,7 +1741,7 @@ ServiceWaterHeatingSystem:
       Units: "C"
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
-      Data Type: "String"
+      Data Type: "$ID"
     annual_entering_water_temperature:
       Description: "Annual service main or annual ground temperature used for service water heating calculations entering water temperature	degrees"
       Data Type: "Numeric"
