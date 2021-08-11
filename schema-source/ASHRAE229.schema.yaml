@@ -789,7 +789,7 @@ MiscellaneousEquipment:
       Data Type: "String"
     energy_type:
       Description: "Source of energy for the miscelleous equipment in the space"
-      Data Type: "<FuelTypeOptions>"
+      Data Type: "<EnergySourceTypeOptions>"
     peak_usage:
       Description: "Peak energy usage per hour by the miscelleous equipment in the space."
       Data Type: "Numeric"
@@ -1352,6 +1352,9 @@ Boiler:
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
+    energy_source_type:
+      Description: "Source of energy for the boiler"
+      Data Type: "<EnergySourceTypeOptions>"
     efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricTypeOptions>"
@@ -1432,6 +1435,9 @@ Chiller:
     compressor_type:
       Description: "Compressor Type"
       Data Type: "<ChillerCompressorTypeOptions>"
+    energy_source_type:
+      Description: "Source of energy for the chiller"
+      Data Type: "<EnergySourceTypeOptions>"
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
@@ -1674,6 +1680,10 @@ ExternalFluidSource:
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceTypeOptions>"
+    energy_source_type:
+      Description: "Source of energy for the external fluid source"
+      Data Type: "<EnergySourceTypeOptions>"
+      
 
 ExternalFluidSourceTypeOptions:
   Object Type: "Enumeration"
@@ -1731,7 +1741,7 @@ ServiceWaterHeatingSystem:
       Required: True
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
-      Data Type: "<FuelTypeOptions>"
+      Data Type: "<EnergySourceTypeOptions>"
     heater_efficiency:
       Description: "Service water heating heater efficiency"
       Data Type: "Numeric"
@@ -1749,7 +1759,7 @@ ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
     MONTHLY_GROUND:
       Description: "Monthly ground entering water temperature option"
 
-FuelTypeOptions:
+EnergySourceTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRICITY:
