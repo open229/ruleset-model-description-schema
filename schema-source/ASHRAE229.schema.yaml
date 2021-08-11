@@ -1471,10 +1471,10 @@ Chiller:
       Data Type: "<ChillerPartLoadEfficiencyMetricTypeOptions>"
     capacity_validation_points:
       Description: "Capacity validation points"
-      Data Type: "[{ChillerPerformanceValidationPoint}]"
+      Data Type: "[{ChillerCapacityValidationPoint}]"
     power_validation_points:
       Description: "Energy validation points"
-      Data Type: "[{ChillerPerformanceValidationPoint}]"
+      Data Type: "[{ChillerPowerValidationPoint}]"
 
 ChillerPartLoadEfficiencyMetricTypeOptions:
   Object Type: "Enumeration"
@@ -1486,19 +1486,37 @@ ChillerPartLoadEfficiencyMetricTypeOptions:
     OTHER:
       Description: "Other part load efficiency metric"
 
-ChillerPerformanceValidationPoint:
+ChillerCapacityValidationPoint:
   Object Type: "Data Group"
   Data Elements:
     chilled_water_supply_temperature:
       Description: "Chilled water supply temperature"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "No name and id is needed since used as one of a series."
-    second_temperature:
+      Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
+    condenser_temperature:
       Description: "Second temperature"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers"
+      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+ChillerPowerValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    chilled_water_supply_temperature:
+      Description: "Chilled water supply temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
+    condenser_temperature:
+      Description: "Second temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
     load:
       Description: "Load"
       Data Type: "Numeric"
