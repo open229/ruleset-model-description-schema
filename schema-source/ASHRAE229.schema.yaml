@@ -1093,9 +1093,15 @@ FluidLoop:
     type:
       Description: "Type of loop"
       Data Type: "<FluidLoopTypeOptions>"
+    pump_power_per_flow_rate:
+      Description: "Total design pump power divided by the loop design flow rate"
+      Data Type: "Numeric"
+      Units: "W/s-L"
+      Notes: "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
     child_loops: 
       Description: "Other fluid loops connected to this one as children."
       Data Type: "[{FluidLoop}]"
+      Notes: "Secondary loops should be described as child loops."
     cooling_or_condensing_design_and_control:
       Description: ""
       Data Type: "{FluidLoopDesignAndControl}"
@@ -1125,10 +1131,6 @@ FluidLoopDesignAndControl:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
       Units: "C"
-    pump_power_per_flow_rate:
-      Description: "Total design pump power divided by the loop design flow rate"
-      Data Type: "Numeric"
-      Units: "W/s-L"
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
