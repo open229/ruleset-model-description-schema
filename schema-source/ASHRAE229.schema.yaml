@@ -732,12 +732,47 @@ InteriorLighting:
       Description: "Reference to the schedule containing the multiplier for lighting"
       Data Type: "$ID"
       Required: True
-    has_occupancy_control:
-      Description: "Indicates that the lighting has occupancy controls"
+    occupancy_control_type:
+      Description: "Indicates the type of occupancy controls"
+      Data Type: "<LightingOccupancyControlType>"
+    daylighting_control_type:
+      Description: "Indicates the type of daylighting controls"
+      Data Type: "<LightingDaylightingControlType>"
+    are_schedules_used_for_modeling_occupancy_control:
+      Description: "Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting."
       Data Type: "Boolean"
-    has_daylighting_control:
-      Description: "Includes daylighting controls"
+    are_schedules_used_for_modeling_daylighting_control:
+      Description: "Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting."
       Data Type: "Boolean"
+      Notes: "For simulations that are modeling daylighting by computing the illumance this should be false."
+
+LightingDaylightingControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    STEPPED:
+      Description: "Stepped"
+    CONTINUOUS_DIMMING:
+      Description: "Continuous Dimming"
+    OTHER:
+      Description: "Other types of daylighting control"
+    NONE:
+      Description: "None"
+      Notes: "No daylighting is used."
+
+LightingOccupancyControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL_AUTO_ON:
+      Description: "Full auto on"
+    PARTIAL_AUTO_ON:
+      Description: "Parial auto on"
+    MANUAL_ON:
+      Description: "Manual on"
+    OTHER:
+      Description: "Other types of occupancy control"
+    NONE:
+      Description: "None"
+      Notes: "No occupancy controls is used."
 
 MiscellaneousEquipment:
   Object Type: "Data Group"
