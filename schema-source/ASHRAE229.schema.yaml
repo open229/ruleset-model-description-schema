@@ -703,6 +703,8 @@ SubsurfaceClassificationType:
       Description: "Skylight"
     DOOR:
       Description: "Door"
+    OTHER:
+      Description: "Other types of subsurfaces including glass block"
 
 InteriorLighting:
   Object Type: "Data Group"
