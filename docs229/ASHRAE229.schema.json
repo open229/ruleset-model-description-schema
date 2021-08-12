@@ -899,12 +899,14 @@
             "enum": [
                 "WINDOW",
                 "SKYLIGHT",
-                "DOOR"
+                "DOOR",
+                "OTHER"
             ],
             "descriptions": [
                 "Window",
                 "Skylight",
-                "Door"
+                "Door",
+                "Other types of subsurfaces including glass block"
             ]
         },
         "InteriorLighting": {
@@ -936,13 +938,22 @@
                 "lighting_multiplier_schedule": {
                     "description": "Reference to the schedule containing the multiplier for lighting"
                 },
-                "has_occupancy_control": {
-                    "description": "Indicates that the lighting has occupancy controls",
+                "occupancy_control_type": {
+                    "description": "Indicates the type of occupancy controls",
+                    "$ref": "ASHRAE229.schema.json#/definitions/LightingOccupancyControlType"
+                },
+                "daylighting_control_type": {
+                    "description": "Indicates the type of daylighting controls",
+                    "$ref": "ASHRAE229.schema.json#/definitions/LightingDaylightingControlType"
+                },
+                "are_schedules_used_for_modeling_occupancy_control": {
+                    "description": "Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting.",
                     "type": "boolean"
                 },
-                "has_daylighting_control": {
-                    "description": "Includes daylighting controls",
-                    "type": "boolean"
+                "are_schedules_used_for_modeling_daylighting_control": {
+                    "description": "Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting.",
+                    "type": "boolean",
+                    "notes": "For simulations that are modeling daylighting by computing the illumance this should be false."
                 }
             },
             "required": [
@@ -950,6 +961,51 @@
                 "lighting_multiplier_schedule"
             ],
             "additionalProperties": false
+        },
+        "LightingDaylightingControlType": {
+            "type": "string",
+            "enum": [
+                "STEPPED",
+                "CONTINUOUS_DIMMING",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "Stepped",
+                "Continuous Dimming",
+                "Other types of daylighting control",
+                "None"
+            ],
+            "notes": [
+                null,
+                null,
+                null,
+                "No daylighting is used."
+            ]
+        },
+        "LightingOccupancyControlType": {
+            "type": "string",
+            "enum": [
+                "FULL_AUTO_ON",
+                "PARTIAL_AUTO_ON",
+                "MANUAL_ON",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "Full auto on",
+                "Parial auto on",
+                "Manual on",
+                "Other types of occupancy control",
+                "None"
+            ],
+            "notes": [
+                null,
+                null,
+                null,
+                null,
+                "No occupancy controls is used."
+            ]
         },
         "MiscellaneousEquipment": {
             "type": "object",
@@ -968,7 +1024,7 @@
                 },
                 "energy_type": {
                     "description": "Source of energy for the miscelleous equipment in the space",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FuelTypeOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
                 },
                 "peak_usage": {
                     "description": "Peak energy usage per hour by the miscelleous equipment in the space.",
@@ -1298,7 +1354,8 @@
                 "motor_power": {
                     "description": "Elevator peak motor power",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The motor power can be provided either together with or, instead of, the detailed elements used to calculate it."
                 },
                 "cab_counterweight": {
                     "description": "Elevator car counterweight",
@@ -1341,16 +1398,13 @@
                     "units": "L/s"
                 },
                 "cab_motor_multiplier_schedule": {
-                    "description": "Elevator motor operation multiplier schedule name",
-                    "type": "string"
+                    "description": "Elevator motor operation multiplier schedule name"
                 },
                 "cab_ventilation_fan_multiplier_schedule": {
-                    "description": "Elevator ventilation fan operation mulitplier schedule name",
-                    "type": "string"
+                    "description": "Elevator ventilation fan operation mulitplier schedule name"
                 },
                 "cab_lighting_multiplier_schedule": {
-                    "description": "Elevator lighting multiplier schedule name",
-                    "type": "string"
+                    "description": "Elevator lighting multiplier schedule name"
                 }
             },
             "required": [
@@ -1440,12 +1494,19 @@
                     "description": "Type of loop",
                     "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopTypeOptions"
                 },
+                "pump_power_per_flow_rate": {
+                    "description": "Total design pump power divided by the loop design flow rate",
+                    "type": "number",
+                    "units": "W/s-L",
+                    "notes": "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
+                },
                 "child_loops": {
                     "description": "Other fluid loops connected to this one as children.",
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/FluidLoop"
-                    }
+                    },
+                    "notes": "Secondary loops should be described as child loops."
                 },
                 "cooling_or_condensing_design_and_control": {
                     "description": "",
@@ -1485,11 +1546,6 @@
                     "description": "Design Return Temperature",
                     "type": "number",
                     "units": "C"
-                },
-                "pump_power_per_flow_rate": {
-                    "description": "Total design pump power divided by the loop design flow rate",
-                    "type": "number",
-                    "units": "W/s-L"
                 },
                 "is_sized_using_coincident_load": {
                     "description": "True if the loop is sized based on coincident load",
@@ -1734,6 +1790,10 @@
                     "description": "Combustion option",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerCombustionOptions"
                 },
+                "energy_source_type": {
+                    "description": "Source of energy for the boiler",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
+                },
                 "efficiency_metric": {
                     "description": "The type of efficiency metric used",
                     "$ref": "ASHRAE229.schema.json#/definitions/BoilerEfficiencyMetricTypeOptions"
@@ -1842,6 +1902,10 @@
                     "description": "Compressor Type",
                     "$ref": "ASHRAE229.schema.json#/definitions/ChillerCompressorTypeOptions"
                 },
+                "energy_source_type": {
+                    "description": "Source of energy for the chiller",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
+                },
                 "design_capacity": {
                     "description": "Chiller Design Cooling Capacity",
                     "type": "number",
@@ -1886,14 +1950,14 @@
                     "description": "Capacity validation points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPerformanceValidationPoint"
+                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerCapacityValidationPoint"
                     }
                 },
                 "power_validation_points": {
                     "description": "Energy validation points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPerformanceValidationPoint"
+                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPowerValidationPoint"
                     }
                 }
             },
@@ -1916,20 +1980,43 @@
                 "Other part load efficiency metric"
             ]
         },
-        "ChillerPerformanceValidationPoint": {
+        "ChillerCapacityValidationPoint": {
             "type": "object",
             "properties": {
                 "chilled_water_supply_temperature": {
                     "description": "Chilled water supply temperature",
                     "type": "number",
                     "units": "C",
-                    "notes": "No name and id is needed since used as one of a series."
+                    "notes": "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
                 },
-                "second_temperature": {
+                "condenser_temperature": {
                     "description": "Second temperature",
                     "type": "number",
                     "units": "C",
-                    "notes": "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers"
+                    "notes": "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
+                },
+                "result": {
+                    "description": "Result",
+                    "type": "number",
+                    "units": "W"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ChillerPowerValidationPoint": {
+            "type": "object",
+            "properties": {
+                "chilled_water_supply_temperature": {
+                    "description": "Chilled water supply temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
+                },
+                "condenser_temperature": {
+                    "description": "Second temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
                 },
                 "load": {
                     "description": "Load",
@@ -2160,6 +2247,10 @@
                 "type": {
                     "description": "Type of external fluid source",
                     "$ref": "ASHRAE229.schema.json#/definitions/ExternalFluidSourceTypeOptions"
+                },
+                "energy_source_type": {
+                    "description": "Source of energy for the external fluid source",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
                 }
             },
             "required": [
@@ -2212,8 +2303,7 @@
                     "units": "C"
                 },
                 "flow_multiplier_schedule": {
-                    "description": "service water heating Loop flow muliplier schedule name",
-                    "type": "string"
+                    "description": "service water heating Loop flow muliplier schedule name"
                 },
                 "annual_entering_water_temperature": {
                     "description": "Annual service main or annual ground temperature used for service water heating calculations entering water temperature\tdegrees",
@@ -2240,7 +2330,7 @@
                 },
                 "heater_fuel_type": {
                     "description": "Service water heating heater fuel type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FuelTypeOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
                 },
                 "heater_efficiency": {
                     "description": "Service water heating heater efficiency",
@@ -2269,7 +2359,7 @@
                 "Monthly ground entering water temperature option"
             ]
         },
-        "FuelTypeOptions": {
+        "EnergySourceTypeOptions": {
             "type": "string",
             "enum": [
                 "ELECTRICITY",

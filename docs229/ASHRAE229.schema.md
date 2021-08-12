@@ -53,11 +53,29 @@
 | `SIMPLIFIED` | Construction is entered by R-value only. |       |
 
 # SubsurfaceClassificationType
-| Enumerator | Description | Notes |
-|------------|-------------|-------|
-| `WINDOW`   | Window      |       |
-| `SKYLIGHT` | Skylight    |       |
-| `DOOR`     | Door        |       |
+| Enumerator |                   Description                    | Notes |
+|------------|--------------------------------------------------|-------|
+| `WINDOW`   | Window                                           |       |
+| `SKYLIGHT` | Skylight                                         |       |
+| `DOOR`     | Door                                             |       |
+| `OTHER`    | Other types of subsurfaces including glass block |       |
+
+# LightingDaylightingControlType
+|      Enumerator      |            Description             |          Notes          |
+|----------------------|------------------------------------|-------------------------|
+| `STEPPED`            | Stepped                            |                         |
+| `CONTINUOUS_DIMMING` | Continuous Dimming                 |                         |
+| `OTHER`              | Other types of daylighting control |                         |
+| `NONE`               | None                               | No daylighting is used. |
+
+# LightingOccupancyControlType
+|    Enumerator     |           Description            |             Notes              |
+|-------------------|----------------------------------|--------------------------------|
+| `FULL_AUTO_ON`    | Full auto on                     |                                |
+| `PARTIAL_AUTO_ON` | Parial auto on                   |                                |
+| `MANUAL_ON`       | Manual on                        |                                |
+| `OTHER`           | Other types of occupancy control |                                |
+| `NONE`            | None                             | No occupancy controls is used. |
 
 # MiscellaneousEquipmentType
 | Enumerator | Description | Notes |
@@ -235,7 +253,7 @@
 | `ANNUAL_GROUND`  | Annual ground entering water temperature option  |       |
 | `MONTHLY_GROUND` | Monthly ground entering water temperature option |       |
 
-# FuelTypeOptions
+# EnergySourceTypeOptions
 |  Enumerator   | Description | Notes |
 |---------------|-------------|-------|
 | `ELECTRICITY` | Electricity |       |
@@ -423,16 +441,18 @@
 | `has_automatic_shades`                  | Are there automatic interior shading such as blinds, curtains or shades                         | `Boolean`                                        |        |       |     |                                                                                   |
 
 # InteriorLighting
-|              Name              |                                 Description                                  |              Data Type               | Units | Range | Req |                                Notes                                |
-|--------------------------------|------------------------------------------------------------------------------|--------------------------------------|-------|-------|-----|---------------------------------------------------------------------|
-| `id`                           | Scope-unique reference identifier for instances of this data group           | `ID`                                 |       |       | ✓   |                                                                     |
-| `reporting_name`               | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                             |       |       |     |                                                                     |
-| `notes`                        | Supplementary information to provide context to the model reviewer           | `String`                             |       |       |     |                                                                     |
-| `purpose_type`                 | Lighting space type classification                                           | `<LightingPurposeType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used.                      |
-| `power_per_area`               | Total power for lights divided by the area of the space.                     | `Numeric`                            | W/m2  |       |     | When computing the power per area use the area of the entire space. |
-| `lighting_multiplier_schedule` | Reference to the schedule containing the multiplier for lighting             | `$ID`                                |       |       | ✓   |                                                                     |
-| `has_occupancy_control`        | Indicates that the lighting has occupancy controls                           | `Boolean`                            |       |       |     |                                                                     |
-| `has_daylighting_control`      | Includes daylighting controls                                                | `Boolean`                            |       |       |     |                                                                     |
+|                         Name                          |                                              Description                                              |              Data Type               | Units | Range | Req |                                             Notes                                              |
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------|-------|-------|-----|------------------------------------------------------------------------------------------------|
+| `id`                                                  | Scope-unique reference identifier for instances of this data group                                    | `ID`                                 |       |       | ✓   |                                                                                                |
+| `reporting_name`                                      | Descriptive name used in RCT reports if id is not already a descriptive name                          | `String`                             |       |       |     |                                                                                                |
+| `notes`                                               | Supplementary information to provide context to the model reviewer                                    | `String`                             |       |       |     |                                                                                                |
+| `purpose_type`                                        | Lighting space type classification                                                                    | `<LightingPurposeType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used.                                                 |
+| `power_per_area`                                      | Total power for lights divided by the area of the space.                                              | `Numeric`                            | W/m2  |       |     | When computing the power per area use the area of the entire space.                            |
+| `lighting_multiplier_schedule`                        | Reference to the schedule containing the multiplier for lighting                                      | `$ID`                                |       |       | ✓   |                                                                                                |
+| `occupancy_control_type`                              | Indicates the type of occupancy controls                                                              | `<LightingOccupancyControlType>`     |       |       |     |                                                                                                |
+| `daylighting_control_type`                            | Indicates the type of daylighting controls                                                            | `<LightingDaylightingControlType>`   |       |       |     |                                                                                                |
+| `are_schedules_used_for_modeling_occupancy_control`   | Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting.   | `Boolean`                            |       |       |     |                                                                                                |
+| `are_schedules_used_for_modeling_daylighting_control` | Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting. | `Boolean`                            |       |       |     | For simulations that are modeling daylighting by computing the illumance this should be false. |
 
 # MiscellaneousEquipment
 |              Name              |                                     Description                                     |           Data Type            | Units |  Range   | Req |                         Notes                          |
@@ -440,7 +460,7 @@
 | `id`                           | Scope-unique reference identifier for instances of this data group                  | `ID`                           |       |          | ✓   |                                                        |
 | `reporting_name`               | Descriptive name used in RCT reports if id is not already a descriptive name        | `String`                       |       |          |     |                                                        |
 | `notes`                        | Supplementary information to provide context to the model reviewer                  | `String`                       |       |          |     |                                                        |
-| `energy_type`                  | Source of energy for the miscelleous equipment in the space                         | `<FuelTypeOptions>`            |       |          |     |                                                        |
+| `energy_type`                  | Source of energy for the miscelleous equipment in the space                         | `<EnergySourceTypeOptions>`    |       |          |     |                                                        |
 | `peak_usage`                   | Peak energy usage per hour by the miscelleous equipment in the space.               | `Numeric`                      | W     |          |     |                                                        |
 | `multiplier_schedule`          | Referenced to the schedule containing the multiplier for the miscellenous equipment | `$ID`                          |       |          | ✓   |                                                        |
 | `sensible_fraction`            | Fraction of energy that is a sensible load on the space.                            | `Numeric`                      |       | `≥0, ≤1` |     | Sensible plus latent do not necessarily add up to 1.0. |
@@ -495,23 +515,23 @@
 | `climate_zone`               | The designation of the climate zone where the building is located            | `<ClimateZone2019ASHRAE901>` |       |       | ✓   | The enumeration is based on the standard used. |
 
 # Elevator
-|                   Name                    |                                 Description                                  | Data Type | Units | Range | Req | Notes |
-|-------------------------------------------|------------------------------------------------------------------------------|-----------|-------|-------|-----|-------|
-| `id`                                      | Scope-unique reference identifier for instances of this data group           | `ID`      |       |       | ✓   |       |
-| `reporting_name`                          | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |       |       |     |       |
-| `notes`                                   | Supplementary information to provide context to the model reviewer           | `String`  |       |       |     |       |
-| `motor_power`                             | Elevator peak motor power                                                    | `Numeric` | W     |       |     |       |
-| `cab_counterweight`                       | Elevator car counterweight                                                   | `Numeric` | kg    |       |     |       |
-| `cab_weight`                              | Weight of elevator car                                                       | `Numeric` | kg    |       |     |       |
-| `design_elevator_load`                    | Elevator load at which to operate                                            | `Numeric` | kg    |       |     |       |
-| `speed`                                   | Design speed of the elevator                                                 | `Numeric` | m/s   |       |     |       |
-| `cab_area`                                | Floor area of elevator cab                                                   | `Numeric` | m2    |       |     |       |
-| `cab_lighting_power`                      | Lighitng power of cab                                                        | `Numeric` | W     |       |     |       |
-| `cab_ventilation_fan_power`               | Ventilation fan power of cab                                                 | `Numeric` | W     |       |     |       |
-| `cab_ventilation_fan_flow`                | Airflow of cab ventfan                                                       | `Numeric` | L/s   |       |     |       |
-| `cab_motor_multiplier_schedule`           | Elevator motor operation multiplier schedule name                            | `String`  |       |       |     |       |
-| `cab_ventilation_fan_multiplier_schedule` | Elevator ventilation fan operation mulitplier schedule name                  | `String`  |       |       |     |       |
-| `cab_lighting_multiplier_schedule`        | Elevator lighting multiplier schedule name                                   | `String`  |       |       |     |       |
+|                   Name                    |                                 Description                                  | Data Type | Units | Range | Req |                                                      Notes                                                       |
+|-------------------------------------------|------------------------------------------------------------------------------|-----------|-------|-------|-----|------------------------------------------------------------------------------------------------------------------|
+| `id`                                      | Scope-unique reference identifier for instances of this data group           | `ID`      |       |       | ✓   |                                                                                                                  |
+| `reporting_name`                          | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |       |       |     |                                                                                                                  |
+| `notes`                                   | Supplementary information to provide context to the model reviewer           | `String`  |       |       |     |                                                                                                                  |
+| `motor_power`                             | Elevator peak motor power                                                    | `Numeric` | W     |       |     | The motor power can be provided either together with or, instead of, the detailed elements used to calculate it. |
+| `cab_counterweight`                       | Elevator car counterweight                                                   | `Numeric` | kg    |       |     |                                                                                                                  |
+| `cab_weight`                              | Weight of elevator car                                                       | `Numeric` | kg    |       |     |                                                                                                                  |
+| `design_elevator_load`                    | Elevator load at which to operate                                            | `Numeric` | kg    |       |     |                                                                                                                  |
+| `speed`                                   | Design speed of the elevator                                                 | `Numeric` | m/s   |       |     |                                                                                                                  |
+| `cab_area`                                | Floor area of elevator cab                                                   | `Numeric` | m2    |       |     |                                                                                                                  |
+| `cab_lighting_power`                      | Lighitng power of cab                                                        | `Numeric` | W     |       |     |                                                                                                                  |
+| `cab_ventilation_fan_power`               | Ventilation fan power of cab                                                 | `Numeric` | W     |       |     |                                                                                                                  |
+| `cab_ventilation_fan_flow`                | Airflow of cab ventfan                                                       | `Numeric` | L/s   |       |     |                                                                                                                  |
+| `cab_motor_multiplier_schedule`           | Elevator motor operation multiplier schedule name                            | `$ID`     |       |       |     |                                                                                                                  |
+| `cab_ventilation_fan_multiplier_schedule` | Elevator ventilation fan operation mulitplier schedule name                  | `$ID`     |       |       |     |                                                                                                                  |
+| `cab_lighting_multiplier_schedule`        | Elevator lighting multiplier schedule name                                   | `$ID`     |       |       |     |                                                                                                                  |
 
 # HeatingVentilationAirConditioningSystem
 |           Name           |                                 Description                                  |  Data Type  | Units | Range | Req |                                                                Notes                                                                 |
@@ -529,15 +549,16 @@
 | `heat_capacity`          | Heating capacity                                                             | `[Numeric]` | W/m2  | `≥0`  |     | May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations |
 
 # FluidLoop
-|                    Name                    |                                 Description                                  |           Data Type           | Units | Range | Req | Notes |
-|--------------------------------------------|------------------------------------------------------------------------------|-------------------------------|-------|-------|-----|-------|
-| `id`                                       | Scope-unique reference identifier for instances of this data group           | `ID`                          |       |       | ✓   |       |
-| `reporting_name`                           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                      |       |       |     |       |
-| `notes`                                    | Supplementary information to provide context to the model reviewer           | `String`                      |       |       |     |       |
-| `type`                                     | Type of loop                                                                 | `<FluidLoopTypeOptions>`      |       |       |     |       |
-| `child_loops`                              | Other fluid loops connected to this one as children.                         | `[{FluidLoop}]`               |       |       |     |       |
-| `cooling_or_condensing_design_and_control` |                                                                              | `{FluidLoopDesignAndControl}` |       |       |     |       |
-| `heating_design_and_control`               |                                                                              | `{FluidLoopDesignAndControl}` |       |       |     |       |
+|                    Name                    |                                 Description                                  |           Data Type           | Units | Range | Req |                                                                                                           Notes                                                                                                            |
+|--------------------------------------------|------------------------------------------------------------------------------|-------------------------------|-------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                       | Scope-unique reference identifier for instances of this data group           | `ID`                          |       |       | ✓   |                                                                                                                                                                                                                            |
+| `reporting_name`                           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                      |       |       |     |                                                                                                                                                                                                                            |
+| `notes`                                    | Supplementary information to provide context to the model reviewer           | `String`                      |       |       |     |                                                                                                                                                                                                                            |
+| `type`                                     | Type of loop                                                                 | `<FluidLoopTypeOptions>`      |       |       |     |                                                                                                                                                                                                                            |
+| `pump_power_per_flow_rate`                 | Total design pump power divided by the loop design flow rate                 | `Numeric`                     | W/s-L |       |     | This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops. |
+| `child_loops`                              | Other fluid loops connected to this one as children.                         | `[{FluidLoop}]`               |       |       |     | Secondary loops should be described as child loops.                                                                                                                                                                        |
+| `cooling_or_condensing_design_and_control` |                                                                              | `{FluidLoopDesignAndControl}` |       |       |     |                                                                                                                                                                                                                            |
+| `heating_design_and_control`               |                                                                              | `{FluidLoopDesignAndControl}` |       |       |     |                                                                                                                                                                                                                            |
 
 # FluidLoopDesignAndControl
 |                       Name                       |                                 Description                                  |            Data Type            | Units | Range | Req | Notes |
@@ -547,7 +568,6 @@
 | `notes`                                          | Supplementary information to provide context to the model reviewer           | `String`                        |       |       |     |       |
 | `design_supply_temperature`                      | Design Supply Temperature                                                    | `Numeric`                       | C     |       |     |       |
 | `design_return_temperature`                      | Design Return Temperature                                                    | `Numeric`                       | C     |       |     |       |
-| `pump_power_per_flow_rate`                       | Total design pump power divided by the loop design flow rate                 | `Numeric`                       | W/s-L |       |     |       |
 | `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load                           | `Boolean`                       |       |       |     |       |
 | `minimum_flow_fraction`                          | Minimum fraction of full flow allowed                                        | `Numeric`                       |       |       |     |       |
 | `operation`                                      | Type of operation used by loop                                               | `<FluidLoopOperationOptions>`   |       |       |     |       |
@@ -587,6 +607,7 @@
 | `rated_capacity`           | Heating capacity                                                             | `Numeric`                             | W     |          |     | At rating conditions.                                                                                                   |
 | `minimum_load_ratio`       | Minimum fraction of full load allowed                                        | `Numeric`                             |       |          |     |                                                                                                                         |
 | `draft_type`               | Combustion option                                                            | `<BoilerCombustionOptions>`           |       |          |     |                                                                                                                         |
+| `energy_source_type`       | Source of energy for the boiler                                              | `<EnergySourceTypeOptions>`           |       |          |     |                                                                                                                         |
 | `efficiency_metric`        | The type of efficiency metric used                                           | `<BoilerEfficiencyMetricTypeOptions>` |       |          |     |                                                                                                                         |
 | `efficiency`               | Efficiency value based on the selected efficiency_metric                     | `Numeric`                             |       | `≥0, ≤1` |     |                                                                                                                         |
 | `output_validation_points` | Energy validation points                                                     | `[{BoilerOutputValidationPoint}]`     |       |          |     | Load is input to each validation point and energy output is the result. A minimum number of four points is recommended. |
@@ -609,6 +630,7 @@
 | `cooling_loop`                | Referenced to the cooling fluid loop                                         | `$ID`                                          |       |          | ✓   |                                                     |
 | `condensing_loop`             | Referenced to the condensing fluid loop                                      | `$ID`                                          |       |          |     | No condensing loop name implies air-cooled chiller. |
 | `compressor_type`             | Compressor Type                                                              | `<ChillerCompressorTypeOptions>`               |       |          |     |                                                     |
+| `energy_source_type`          | Source of energy for the chiller                                             | `<EnergySourceTypeOptions>`                    |       |          |     |                                                     |
 | `design_capacity`             | Chiller Design Cooling Capacity                                              | `Numeric`                                      | W     |          |     |                                                     |
 | `rated_capacity`              | Chiller Design Cooling Capacity                                              | `Numeric`                                      | W     |          |     | At rating conditions.                               |
 | `minimum_load_ratio`          | Minimum fraction of full load allowed                                        | `Numeric`                                      |       |          |     |                                                     |
@@ -617,16 +639,23 @@
 | `full_load_efficiency`        | Full Low Efficiency expressed as a coefficient of performance (COP)          | `Numeric`                                      | W/W   |          |     |                                                     |
 | `part_load_efficiency`        | Efficiency value based on the selected part_load_efficiency_metric           | `Numeric`                                      |       | `≥0, ≤1` |     |                                                     |
 | `part_load_efficiency_metric` | The type of part load efficiency metric used                                 | `<ChillerPartLoadEfficiencyMetricTypeOptions>` |       |          |     |                                                     |
-| `capacity_validation_points`  | Capacity validation points                                                   | `[{ChillerPerformanceValidationPoint}]`        |       |          |     |                                                     |
-| `power_validation_points`     | Energy validation points                                                     | `[{ChillerPerformanceValidationPoint}]`        |       |          |     |                                                     |
+| `capacity_validation_points`  | Capacity validation points                                                   | `[{ChillerCapacityValidationPoint}]`           |       |          |     |                                                     |
+| `power_validation_points`     | Energy validation points                                                     | `[{ChillerPowerValidationPoint}]`              |       |          |     |                                                     |
 
-# ChillerPerformanceValidationPoint
-|                Name                |           Description            | Data Type | Units | Range | Req |                                                       Notes                                                        |
-|------------------------------------|----------------------------------|-----------|-------|-------|-----|--------------------------------------------------------------------------------------------------------------------|
-| `chilled_water_supply_temperature` | Chilled water supply temperature | `Numeric` | C     |       |     | No name and id is needed since used as one of a series.                                                            |
-| `second_temperature`               | Second temperature               | `Numeric` | C     |       |     | Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers |
-| `load`                             | Load                             | `Numeric` | W     |       |     |                                                                                                                    |
-| `result`                           | Result                           | `Numeric` | W     |       |     |                                                                                                                    |
+# ChillerCapacityValidationPoint
+|                Name                |           Description            | Data Type | Units | Range | Req |                                                                                                                                  Notes                                                                                                                                  |
+|------------------------------------|----------------------------------|-----------|-------|-------|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `chilled_water_supply_temperature` | Chilled water supply temperature | `Numeric` | C     |       |     | No name and id is needed since used as one of a series. The temperature is leaving the chiller.                                                                                                                                                                         |
+| `condenser_temperature`            | Second temperature               | `Numeric` | C     |       |     | Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air. |
+| `result`                           | Result                           | `Numeric` | W     |       |     |                                                                                                                                                                                                                                                                         |
+
+# ChillerPowerValidationPoint
+|                Name                |           Description            | Data Type | Units | Range | Req |                                                                                                                                  Notes                                                                                                                                  |
+|------------------------------------|----------------------------------|-----------|-------|-------|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `chilled_water_supply_temperature` | Chilled water supply temperature | `Numeric` | C     |       |     | No name and id is needed since used as one of a series. The temperature is leaving the chiller.                                                                                                                                                                         |
+| `condenser_temperature`            | Second temperature               | `Numeric` | C     |       |     | Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air. |
+| `load`                             | Load                             | `Numeric` | W     |       |     |                                                                                                                                                                                                                                                                         |
+| `result`                           | Result                           | `Numeric` | W     |       |     |                                                                                                                                                                                                                                                                         |
 
 # HeatRejection
 |             Name             |                                 Description                                  |                Data Type                | Units | Range | Req |         Notes         |
@@ -650,13 +679,14 @@
 | `rated_water_flowrate`       | Rated condenser water flow rate                                              | `Numeric`                               | L/s   |       |     | At rating conditions. |
 
 # ExternalFluidSource
-|       Name       |                                 Description                                  |             Data Type              | Units | Range | Req | Notes |
-|------------------|------------------------------------------------------------------------------|------------------------------------|-------|-------|-----|-------|
-| `id`             | Scope-unique reference identifier for instances of this data group           | `ID`                               |       |       | ✓   |       |
-| `reporting_name` | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                           |       |       |     |       |
-| `notes`          | Supplementary information to provide context to the model reviewer           | `String`                           |       |       |     |       |
-| `loop`           | Referenced to the fluid loop                                                 | `$ID`                              |       |       | ✓   |       |
-| `type`           | Type of external fluid source                                                | `<ExternalFluidSourceTypeOptions>` |       |       |     |       |
+|         Name         |                                 Description                                  |             Data Type              | Units | Range | Req | Notes |
+|----------------------|------------------------------------------------------------------------------|------------------------------------|-------|-------|-----|-------|
+| `id`                 | Scope-unique reference identifier for instances of this data group           | `ID`                               |       |       | ✓   |       |
+| `reporting_name`     | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                           |       |       |     |       |
+| `notes`              | Supplementary information to provide context to the model reviewer           | `String`                           |       |       |     |       |
+| `loop`               | Referenced to the fluid loop                                                 | `$ID`                              |       |       | ✓   |       |
+| `type`               | Type of external fluid source                                                | `<ExternalFluidSourceTypeOptions>` |       |       |     |       |
+| `energy_source_type` | Source of energy for the external fluid source                               | `<EnergySourceTypeOptions>`        |       |       |     |       |
 
 # ServiceWaterHeatingSystem
 |                 Name                 |                                                           Description                                                            |                          Data Type                          | Units | Range | Req |                                 Notes                                  |
@@ -667,12 +697,12 @@
 | `area_type`                          | Service Water Heating Loop Area Type                                                                                             | `<ServiceWaterHeatingSpaceType2019ASHRAE901>`               |       |       |     | The enumeration is based on the standard used.                         |
 | `design_flow`                        | Design Flowrate of service water heating loop                                                                                    | `Numeric`                                                   | L/s   |       |     |                                                                        |
 | `supply_temperature`                 | Design supply temperature setpoint of service water heating loop                                                                 | `Numeric`                                                   | C     |       |     |                                                                        |
-| `flow_multiplier_schedule`           | service water heating Loop flow muliplier schedule name                                                                          | `String`                                                    |       |       |     |                                                                        |
+| `flow_multiplier_schedule`           | service water heating Loop flow muliplier schedule name                                                                          | `$ID`                                                       |       |       |     |                                                                        |
 | `annual_entering_water_temperature`  | Annual service main or annual ground temperature used for service water heating calculations entering water temperature  degrees | `Numeric`                                                   | C     |       |     |                                                                        |
 | `monthly_entering_water_temperature` | Monthly service main or ground temperatures used for service water heating entering water temperature  degrees                   | `[Numeric][1..12]`                                          | C     |       |     | Arrayed variable with 12 values for monthly entering water temperature |
 | `entering_water_temperature_type`    | Method of determining service water heating entering water temperature                                                           | `<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>` |       |       |     |                                                                        |
 | `heater`                             | Referenced to the service water heater                                                                                           | `$ID`                                                       |       |       | ✓   |                                                                        |
-| `heater_fuel_type`                   | Service water heating heater fuel type                                                                                           | `<FuelTypeOptions>`                                         |       |       |     |                                                                        |
+| `heater_fuel_type`                   | Service water heating heater fuel type                                                                                           | `<EnergySourceTypeOptions>`                                 |       |       |     |                                                                        |
 | `heater_efficiency`                  | Service water heating heater efficiency                                                                                          | `Numeric`                                                   |       | `≥0`  |     |                                                                        |
 
 # ExteriorLighting
