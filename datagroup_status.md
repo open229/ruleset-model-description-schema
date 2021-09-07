@@ -8,17 +8,17 @@
 | BuildingSegment                          | In Development
 | ThermalBlock                             | In Development
 | Zone                                     | In Development
-| Space                                    | Approved by SPC 209
+| Space                                    | Approved by SPC 229
 | Infiltration                             | Approved by Schema WG
-| Surface                                  | Approved by SPC 209
+| Surface                                  | Approved by SPC 229
 | Construction                             | Approved by Schema WG
 | Material                                 | Approved by Schema WG
 | SurfaceOpticalProperties                 | Approved by Schema WG
 | Subsurface                               | Approved by Schema WG 
 | InteriorLighting                         | Approved by Schema WG
 | MiscellaneousEquipment                   | Approved by Schema WG
-| Transformer                              | Approved by SPC 209
-| Schedule                                 | Approved by SPC 209
+| Transformer                              | Approved by SPC 229
+| Schedule                                 | Approved by SPC 229
 | Calendar                                 | In Discussion by Schema WG
 | Weather                                  | In Discussion by Schema WG
 | Elevator                                 | Approved by Schema WG
