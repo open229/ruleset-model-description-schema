@@ -982,13 +982,6 @@ DayOfWeek:
 Weather:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Scope-unique reference identifier for instances of this data group"
-      Data Type: "ID"
-      Required: True
-    reporting_name:
-      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
-      Data Type: "String"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -996,11 +989,41 @@ Weather:
       Description: "Modeled monthly ground temperatures"
       Data Type: "[Numeric][1..12]"
       Units: "C"
+      Notes: "For annual ground temperatures provide 12 equal numbers"
+    weather_file_name:
+      Description: "The file name for the weather file including extension."
+      Data Type: "String"
+      Notes: "The file name for the annual weather file such as from TMY, TRY, CWEC, CTZ, WYEC or other sources."
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
       Data Type: "<ClimateZone2019ASHRAE901>"
       Required: True
       Notes: "The enumeration is based on the standard used."
+    cooling_design_day_type:
+      Description: "The frequency of occurance type for cooling design day"
+      Data Type: "<CoolingDesignDayTypeOptions>"
+    heating_design_day_type:
+      Description: "The frequency of occurance type for heating design day"
+      Data Type: "<HeatingDesignDayTypeOptions>"
+    
+CoolingDesignDayTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    COOLING_0_4:
+      Description: "Cooling design day 0.4% annual cumulative frequency of occurance"
+    COOLING_1_0:
+      Description: "Cooling design day 1.0% annual cumulative frequency of occurance"
+    COOLING_2_0:
+      Description: "Cooling design day 2.0% annual cumulative frequency of occurance"
+
+HeatingDesignDayTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HEATING_99_6:
+      Description: "Heating design day 99.6% annual cumulative frequency of occurance"
+    HEATING_99_0:
+      Description: "Heating design day 99.0% annual cumulative frequency of occurance"
+    
 
 Elevator:
   Object Type: "Data Group"
