@@ -156,6 +156,10 @@ Building:
       Description: "Elevators"
       Data Type: "[{Elevator}]"
       Notes: "Contains a list of elevators in the building."
+    exterior_lighting:
+      Description: "Exterior lighting systems"
+      Data Type: "[{ExteriorLighting}]"
+      Notes: "Contains a list of exterior lighting systems for the building."
     refrigeration_components:
       Description: "Refrigeration"
       Data Type: "[{Refrigeration}]"
@@ -1023,7 +1027,6 @@ HeatingDesignDayTypeOptions:
       Description: "Heating design day 99.6% annual cumulative frequency of occurance"
     HEATING_99_0:
       Description: "Heating design day 99.0% annual cumulative frequency of occurance"
-    
 
 Elevator:
   Object Type: "Data Group"
@@ -1835,26 +1838,18 @@ ExteriorLighting:
       Data Type: "Numeric"
       Units: "m"     # use ft for IP units
       Range: ">0"
-    power:
-      Description: "Total exterior lighting power of all fixtures in a specific functional area"
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">0"
-    designed_power:
-      Description: "Total designed exterior lighting power of all fixtures in a specific functional area"
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">0"
     trade_light_power:
       Description: "Exterior Lighting power for tradable surface"
       Data Type: "Numeric"
       Units: "W"
       Range: ">=0"
+      Notes: "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
     non_trade_light_power:
       Description: "Exterior Lighting power for non-tradable surface"
       Data Type: "Numeric"
       Units: "W"
       Range: ">=0"
+      Notes: "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZones2019ASHRAE901>"
@@ -1872,20 +1867,20 @@ ExteriorLighting:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m2"    # use ft2 for IP units
-    tradable_surface_linear_footage:
-      Description: "Linear feet of tradable surface"
+    tradable_surface_linear:
+      Description: "Linear length of tradable surface"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m"     # use ft for IP units
     has_walkway:
       Description: "If the building has an exterior walkway"
       Data Type: "Boolean"
-    tradable_walkway_width_footage:
+    tradable_walkway_width:
       Description: "Width of the exterior walkway"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m"     # use ft for IP units
-    tradable_opening_width_footage:
+    tradable_opening_width:
       Description: "Width of an exterior opening"
       Data Type: "Numeric"
       Range: ">=0"
