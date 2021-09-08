@@ -948,13 +948,6 @@ ScheduleTypeOptions:
 Calendar:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Scope-unique reference identifier for instances of this data group"
-      Data Type: "ID"
-      Required: True
-    reporting_name:
-      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
-      Data Type: "String"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -964,8 +957,8 @@ Calendar:
     is_leap_year:
       Description: "The schedules assume it is a leap year"
       Data Type: "Boolean"
-    is_daylight_savings_time:
-      Description: "The schedules adjust for daylight Savings Time"
+    has_daylight_saving_time:
+      Description: "The schedules adjust for Daylight Saving Time"
       Data Type: "Boolean"
 
 DayOfWeek:
