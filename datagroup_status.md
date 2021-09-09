@@ -24,6 +24,7 @@
 | Elevator                                 | Approved by Schema WG
 | HeatingVentilationAirConditioningSystem  | In Development
 | FanSystem                                | In Development
+| AirTerminal                              | In Development
 | FluidLoop                                | Approved by Schema WG
 | FluidLoopDesignAndControl                | Approved by Schema WG
 | Pump                                     | Approved by Schema WG
