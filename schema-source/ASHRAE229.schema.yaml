@@ -1372,7 +1372,6 @@ HumidificationType:
     OTHER:
       Description: "Other"
 
-
 CoolingPackage:
   Object Type: "Data Group"
   Data Elements:

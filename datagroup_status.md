@@ -23,6 +23,8 @@
 | Weather                                  | In Discussion by Schema WG
 | Elevator                                 | Approved by Schema WG
 | HeatingVentilationAirConditioningSystem  | In Development
+| HeatingPackage                           | In Development
+| CoolingPackage                           | In Development
 | FanSystem                                | In Development
 | AirTerminal                              | In Development
 | FluidLoop                                | Approved by Schema WG
