@@ -309,7 +309,7 @@ Space:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m2"
-      Description: "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled."
+      Notes: "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled."
     number_of_occupants:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
@@ -318,6 +318,12 @@ Space:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "$ID"
       Required: True
+    occupant_sensible_heat_gain:
+      Description: "Sensible heat gain of each occupant."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
     status_type:
       Description: "Choice of new, existing, addition, or alteration."
       Data Type: "<SpaceStatusType2019ASHRAE901>"
@@ -1127,8 +1133,12 @@ HeatingVentilationAirConditioningSystem:
       Description: "List of the zones served by the HVAC system"
       Data Type: "[{Zone}]"
     fan_systems:
-      Description: "Referenced to the fan systems"
-      Data Type: "[$ID]"
+      Description: "List of fan systems"
+      Data Type: "[{FanSystem}]"
+      Notes: "JG to verify if used in test case description."
+    air_terminals:
+      Description: "List of air terminals"
+      Data Type: "[{AirTerminal}]"
       Notes: "JG to verify if used in test case description."
     heating_system_type:
       Description: "Heating system type"
@@ -1228,7 +1238,6 @@ FanSystem:
       Data Type: "Boolean"
       Notes: "JG to verify if used in test case description."
 
-
 FanSystemPurposeType:
   Object Type: "Enumeration"
   Enumerators:
@@ -1240,6 +1249,52 @@ FanSystemPurposeType:
       Description: "Exhaust"
     OTHER:
       Description: "Other"
+
+AirTerminal:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    type:
+      Description: "Type of air terminal"
+      Data Type: "<AirTerminalType>"
+      Notes: "JG to verify if used in test case description."
+    reheat_source:
+      Description: "Source of reheat"
+      Data Type: "<ReheatSourceType>"
+      Notes: "JG to verify if used in test case description."
+
+AirTerminalType:
+  Object Type: "Enumeration"
+  Enumerators:
+    VARIABLE_AIR_VOLUME_BOX:
+      Description: "Variable air volume box"
+    PARALLEL_FAN_POWERED_BOX:
+      Description: "Parallel fan powered box"
+    OTHER:
+      Description: "Other"
+      
+ReheatSourceType:
+  Object Type: "Enumeration"
+  Enumerators:
+    ELECTRIC:
+      Description: "Electric"
+    HOT_WATER:
+      Description: "Hot water"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+    
+    
 
 FluidLoop:
   Object Type: "Data Group"
