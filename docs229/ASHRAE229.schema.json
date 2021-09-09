@@ -113,11 +113,6 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "number_of_floors": {
-                    "description": "Number of floors",
-                    "type": "number",
-                    "minimum": 0.0
-                },
                 "building_segments": {
                     "description": "Large portions of a building that share a building area type",
                     "type": "array",
@@ -138,6 +133,14 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/Elevator"
                     },
                     "notes": "Contains a list of elevators in the building."
+                },
+                "exterior_lighting": {
+                    "description": "Exterior lighting systems",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/ExteriorLighting"
+                    },
+                    "notes": "Contains a list of exterior lighting systems for the building."
                 },
                 "refrigeration_components": {
                     "description": "Refrigeration",
@@ -173,6 +176,18 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
+                "number_of_floors_above_grade": {
+                    "description": "Number of floors above grade",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "JG to verify if used in test case description."
+                },
+                "number_of_floors_below_grade": {
+                    "description": "Number of floors below grade",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "JG to verify if used in test case description."
+                },
                 "thermal_blocks": {
                     "description": "Thermal blocks in the building",
                     "type": "array",
@@ -205,6 +220,11 @@
                 "lighting_building_area_type": {
                     "description": "Building area lighting area type",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceType2019ASHRAE901T951TG38"
+                },
+                "area_type_heating_ventilation_air_conditioning_system": {
+                    "description": "Classification used for HVAC",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901",
+                    "notes": "The enumeration is based on the standard used. JG to verify if used in test case description."
                 }
             },
             "required": [
@@ -235,6 +255,18 @@
                     },
                     "notes": "Contains a list of zones in the building."
                 },
+                "thermostat_cooling_setpoint": {
+                    "description": "Setpoint temperature for cooling during occupied hours",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "thermostat_heating_setpoint": {
+                    "description": "Setpoint temperature for heating during occupied hours",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
                 "served_by_heating_ventilation_air_conditioning_systems": {
                     "description": "HVAC systems serving the thermal block",
                     "type": "array",
@@ -247,6 +279,40 @@
                     "description": "A service water heating system serving the thermal block",
                     "type": "string",
                     "notes": "Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem."
+                },
+                "transfer_airflow_rate": {
+                    "description": "Transfer airflow rate",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "exhaust_airflow_rate": {
+                    "description": "Number of occupants in the space",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "non_mechanical_cooling_fan_power": {
+                    "description": "Non-mechanical cooling fan power",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "non_mechanical_cooling_fan_airflow": {
+                    "description": "Non-mechanical cooling fan power",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "air_distribution_effectiveness": {
+                    "description": "Air distribution effectiveness",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "JG to verify if used in test case description."
                 }
             },
             "required": [
@@ -336,10 +402,11 @@
                     }
                 },
                 "floor_area": {
-                    "description": "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled.",
+                    "description": "The floor area of the space.",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "m2"
+                    "units": "m2",
+                    "notes": "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled."
                 },
                 "number_of_occupants": {
                     "description": "Number of occupants in the space",
@@ -348,6 +415,13 @@
                 },
                 "occupant_multiplier_schedule": {
                     "description": "Reference to the schedule containing the multiplier for the number of occupants"
+                },
+                "occupant_sensible_heat_gain": {
+                    "description": "Sensible heat gain of each occupant.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, or alteration.",
@@ -1248,14 +1322,6 @@
         "Calendar": {
             "type": "object",
             "properties": {
-                "id": {
-                    "description": "Scope-unique reference identifier for instances of this data group",
-                    "type": "string"
-                },
-                "reporting_name": {
-                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
-                    "type": "string"
-                },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
@@ -1268,14 +1334,11 @@
                     "description": "The schedules assume it is a leap year",
                     "type": "boolean"
                 },
-                "is_daylight_savings_time": {
-                    "description": "The schedules adjust for daylight Savings Time",
+                "has_daylight_saving_time": {
+                    "description": "The schedules adjust for Daylight Saving Time",
                     "type": "boolean"
                 }
             },
-            "required": [
-                "id"
-            ],
             "additionalProperties": false
         },
         "DayOfWeek": {
@@ -1302,14 +1365,6 @@
         "Weather": {
             "type": "object",
             "properties": {
-                "id": {
-                    "description": "Scope-unique reference identifier for instances of this data group",
-                    "type": "string"
-                },
-                "reporting_name": {
-                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
-                    "type": "string"
-                },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
@@ -1322,19 +1377,56 @@
                     "items": {
                         "type": "number"
                     },
-                    "units": "C"
+                    "units": "C",
+                    "notes": "For annual ground temperatures provide 12 equal numbers"
+                },
+                "weather_file_name": {
+                    "description": "The file name for the weather file including extension.",
+                    "type": "string",
+                    "notes": "The file name for the annual weather file such as from TMY, TRY, CWEC, CTZ, WYEC or other sources."
                 },
                 "climate_zone": {
                     "description": "The designation of the climate zone where the building is located",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ClimateZone2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
+                },
+                "cooling_design_day_type": {
+                    "description": "The frequency of occurance type for cooling design day",
+                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingDesignDayTypeOptions"
+                },
+                "heating_design_day_type": {
+                    "description": "The frequency of occurance type for heating design day",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingDesignDayTypeOptions"
                 }
             },
             "required": [
-                "id",
                 "climate_zone"
             ],
             "additionalProperties": false
+        },
+        "CoolingDesignDayTypeOptions": {
+            "type": "string",
+            "enum": [
+                "COOLING_0_4",
+                "COOLING_1_0",
+                "COOLING_2_0"
+            ],
+            "descriptions": [
+                "Cooling design day 0.4% annual cumulative frequency of occurance",
+                "Cooling design day 1.0% annual cumulative frequency of occurance",
+                "Cooling design day 2.0% annual cumulative frequency of occurance"
+            ]
+        },
+        "HeatingDesignDayTypeOptions": {
+            "type": "string",
+            "enum": [
+                "HEATING_99_6",
+                "HEATING_99_0"
+            ],
+            "descriptions": [
+                "Heating design day 99.6% annual cumulative frequency of occurance",
+                "Heating design day 99.0% annual cumulative frequency of occurance"
+            ]
         },
         "Elevator": {
             "type": "object",
@@ -1434,8 +1526,45 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/Zone"
                     }
                 },
+                "fan_systems": {
+                    "description": "List of fan systems",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/FanSystem"
+                    },
+                    "notes": "JG to verify if used in test case description."
+                },
+                "air_terminals": {
+                    "description": "List of air terminals",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/AirTerminal"
+                    },
+                    "notes": "JG to verify if used in test case description."
+                },
+                "heating_system_type": {
+                    "description": "Heating system type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystemType",
+                    "notes": "JG to verify if used in test case description."
+                },
                 "hot_water_loop": {
                     "description": "Referenced to the hot water fluid loop"
+                },
+                "heating_coil_setpoint": {
+                    "description": "Setpoint of the air leaving the heating coil",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "heating_package": {
+                    "description": "Furnace or heating portion of the heat pump",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingPackage",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "cooling_system_type": {
+                    "description": "Cooling system type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystemType",
+                    "notes": "JG to verify if used in test case description."
                 },
                 "chilled_water_loop": {
                     "description": "Referenced to the Chilled water fluid loop"
@@ -1443,11 +1572,39 @@
                 "condenser_water_loop": {
                     "description": "Referenced to the Condenser water fluid loop"
                 },
+                "cooling_direct_expansion": {
+                    "description": "Direct expansion cooling or cooling portion of the heat pump",
+                    "notes": "JG to verify if used in test case description."
+                },
                 "preheat_loop": {
                     "description": "Referenced to the Preheat fluid loop"
                 },
                 "reheat_loop": {
                     "description": "Referenced to the reheat fluid loop"
+                },
+                "peak_cooling_load": {
+                    "description": "Peak cooling load",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "peak_heating_load": {
+                    "description": "Peak cooling load",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "total_cool_capacity": {
+                    "description": "Total cooling capacity",
+                    "type": "array",
+                    "items": {
+                        "type": "number",
+                        "minimum": 0.0
+                    },
+                    "units": "W/m2",
+                    "notes": "JG to verify if used in test case description."
                 },
                 "sensible_cool_capacity": {
                     "description": "Sensible cooling capacity",
@@ -1468,12 +1625,609 @@
                     },
                     "units": "W/m2",
                     "notes": "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+                },
+                "dehumidification_type": {
+                    "description": "Dehumidification type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/DehumidificationType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "humidification_type": {
+                    "description": "Humidification type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HumidificationType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "cooling_turndown_ratio": {
+                    "description": "Cooling turndown ratio",
+                    "type": "number",
+                    "notes": "Cooling capacity turndown before simultanenous heating and cooling occurs. JG to verify if used in test case description."
+                },
+                "does_serve_computer_room": {
+                    "description": "Determines whether a computer room is served by the system",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "does_serve_zone_with_refrigerator_cases": {
+                    "description": "Determines whether a zone with refrigeration cases is served by the system",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
                 }
             },
             "required": [
                 "id"
             ],
             "additionalProperties": false
+        },
+        "HeatingSystemType": {
+            "type": "string",
+            "enum": [
+                "HEAT_PUMP",
+                "FURNACE",
+                "ELECTRIC_RESISTANCE",
+                "FLUID_LOOP",
+                "BASEBOARD",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Heat Pump",
+                "Furnace",
+                "Electric resistance",
+                "Fluid loop",
+                "Baseboard",
+                "None",
+                "Other"
+            ]
+        },
+        "CoolingSystemType": {
+            "type": "string",
+            "enum": [
+                "DIRECT_EXPANSION",
+                "FLUID_LOOP",
+                "NON_MECHANICAL",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Direct expansion",
+                "Fluid loop",
+                "Non-mechanical",
+                "None",
+                "Other"
+            ]
+        },
+        "DehumidificationType": {
+            "type": "string",
+            "enum": [
+                "MECHANCIAL_COOLING",
+                "DESICCANT",
+                "SERIES_HEAT_RECOVERY",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Mechanical cooling",
+                "Desiccant",
+                "Series heat recovery",
+                "None",
+                "Other"
+            ]
+        },
+        "HumidificationType": {
+            "type": "string",
+            "enum": [
+                "ADIABATIC",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Adiabatic",
+                "None",
+                "Other"
+            ]
+        },
+        "HeatingPackage": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "full_load_efficiency": {
+                    "description": "Full Low Efficiency expressed as a coefficient of performance or thermal efficiency",
+                    "type": "number",
+                    "units": "W/W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "part_load_efficiency": {
+                    "description": "Efficiency value based on the selected part_load_efficiency_metric",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "JG to verify if used in test case description."
+                },
+                "heatpump_auxilliary_heat_type": {
+                    "description": "Heatpump auxilliary heat type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatpumpAuxilliaryHeatType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "heatpump_auxilliary_heat_high_temperature_shutoff": {
+                    "description": "Heatpump auxilliary heat high temperature shutoff",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "heatpump_low_temperature_shutoff": {
+                    "description": "Heatpump low temperature shutoff",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "HeatpumpAuxilliaryHeatType": {
+            "type": "string",
+            "enum": [
+                "ELECTRIC_RESISTANCE",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Electric resistance",
+                "None",
+                "Other"
+            ]
+        },
+        "CoolingPackage": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "full_load_efficiency": {
+                    "description": "Full Low Efficiency expressed as a coefficient of performance (COP)",
+                    "type": "number",
+                    "units": "W/W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "part_load_efficiency": {
+                    "description": "Efficiency value based on the selected part_load_efficiency_metric",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "JG to verify if used in test case description."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "FanSystem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "purpose_type": {
+                    "description": "Purpose of the fan system",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemPurposeType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "is_multi_zone": {
+                    "description": "If the fan system serves muliple zones",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "is_variable_air_volume": {
+                    "description": "If the fan system is variable air volume.",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "temperature_control": {
+                    "description": "Supply air temperature control type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemTemperatureControlType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "supply_air_temperature_setpoint": {
+                    "description": "Supply air temperature setpoint temperarue",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "reset_differential_temperature": {
+                    "description": "Supply air temperature reset differential temperature at minimum cooling load",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "supply_air_temperature_reset_schedule": {
+                    "description": "Supply air temperature reset schedule",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "operating_schedule": {
+                    "description": "Operating schedule name",
+                    "notes": "Zero when fan is off. JG to verify if used in test case description."
+                },
+                "airflow": {
+                    "description": "Design supply airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "power": {
+                    "description": "Design supply fan power",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "fan_power_adjustment_factor": {
+                    "description": "Fan power adjustment factor",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "motor_efficiency": {
+                    "description": "Fan motor efficiency",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "fan_control": {
+                    "description": "Supply fan control type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemSupplyFanControlType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "minimum_airflow": {
+                    "description": "Minimum volume airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "minimum_outdoor_airflow": {
+                    "description": "Minimum outdoor air volume airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "maximum_outdoor_airflow": {
+                    "description": "Maximum outdoor air volume airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "air_economizer_type": {
+                    "description": "Air economizer type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/AirEconomizerType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "economizer_high_limit_temperature_shutoff": {
+                    "description": "Economizer high limit temperature shutoff",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "has_gas_phase_air_cleaning": {
+                    "description": "True if the fan system includes gas phase air cleaning",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "energy_recovery_type": {
+                    "description": "Energy recovery type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergyRecoveryType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "enthalpy_recovery_ratio": {
+                    "description": "Enthalpy recovery ratio",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "energy_recovery_operation": {
+                    "description": "Energy recovery operation",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergyRecoveryOperation",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "energy_recovery_supply_air_temperature_control": {
+                    "description": "Energy recovery supply air temperature control",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergyRecoverySupplyAirTemperatureControl",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "economizer_design_sensible_effectiveness": {
+                    "description": "Economizer design sensible effectiveness",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "economizer_design_latent_effectiveness": {
+                    "description": "Economizer design sensible effectiveness",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "demand_control_ventilation_control_type": {
+                    "description": "Demand control ventilation control type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/DemandControlVentilationControlType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "supply_air_to_room_air_humidity_ratio": {
+                    "description": "Supply air to room air humidity ratio",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "FanSystemPurposeType": {
+            "type": "string",
+            "enum": [
+                "SUPPLY",
+                "RETURN",
+                "EXHAUST",
+                "RELIEF",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Supply",
+                "Return",
+                "Exhaust",
+                "Relief",
+                "Other"
+            ]
+        },
+        "FanSystemTemperatureControlType": {
+            "type": "string",
+            "enum": [
+                "CONSTANT",
+                "OUTDOOR_AIR_RESET",
+                "ZONE_RESET",
+                "SCHEDULED",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Constant",
+                "Outdoor air reset",
+                "Zone reset",
+                "Scheduled",
+                "Other"
+            ]
+        },
+        "FanSystemSupplyFanControlType": {
+            "type": "string",
+            "enum": [
+                "CONSTANT",
+                "VARIABLE_SPEED_DRIVE",
+                "CYCLING",
+                "INLET_VANE",
+                "DISCHARGE_DAMPER",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Constant",
+                "Variable speed drive",
+                "Cycling",
+                "Inlet vane",
+                "Discharge damper",
+                "Other"
+            ]
+        },
+        "AirEconomizerType": {
+            "type": "string",
+            "enum": [
+                "FIXED_FRACTION",
+                "TEMPERATURE",
+                "ENTHALPY",
+                "DIFFERENTIAL_TEMPERATURE",
+                "DIFFERENTIAL_ENTHALPY",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "Fixed Fraction",
+                "Dry-bulb temperature",
+                "Enthalpy",
+                "Differential dry-bulb temperature",
+                "Differential enthalpy",
+                "Other",
+                "None"
+            ]
+        },
+        "EnergyRecoveryType": {
+            "type": "string",
+            "enum": [
+                "SENSIBLE_HEAT_EXHANGE",
+                "ENTHALPY_HEAT_EXHANGE",
+                "SENSIBLE_HEAT_WHEEL",
+                "ENTHALPY_HEAT_WHEEL",
+                "HEAT_PIPE",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "Sensible heat exchange",
+                "Enthalpy heat exchange",
+                "Sensible heat wheel",
+                "Enthalpy heat wheel",
+                "Heat pipe",
+                "Other",
+                "None"
+            ]
+        },
+        "EnergyRecoveryOperation": {
+            "type": "string",
+            "enum": [
+                "WHEN_FANS_ON",
+                "WHEN_MINIMUM_OUTSIDE_AIR",
+                "SCHEDULED",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "When fans on",
+                "When minimum outside air",
+                "Scheduled",
+                "Other",
+                "None"
+            ]
+        },
+        "EnergyRecoverySupplyAirTemperatureControl": {
+            "type": "string",
+            "enum": [
+                "FIXED_SETPOINT",
+                "MIXED_AIR_RESET",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "Fixed setpoint",
+                "Mixed air reset",
+                "Other",
+                "None"
+            ]
+        },
+        "DemandControlVentilationControlType": {
+            "type": "string",
+            "enum": [
+                "CO2_RETURN_AIR",
+                "CO2_ZONE",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "CO2 return air",
+                "CO2 zone",
+                "Other",
+                "None"
+            ]
+        },
+        "AirTerminal": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Type of air terminal",
+                    "$ref": "ASHRAE229.schema.json#/definitions/AirTerminalType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "reheat_source": {
+                    "description": "Source of reheat",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ReheatSourceType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "fan_power": {
+                    "description": "Fan powered box fan power",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "primary_airflow": {
+                    "description": "Zone terminal primary airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "secondary_airflow": {
+                    "description": "Zone terminal secondary_airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "supply_temperature_setpoint": {
+                    "description": "Zone terminal supply temperature setpoint",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "minimum_airflow": {
+                    "description": "Zone terminal minimum volume airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "minimum_outdoor_airflow": {
+                    "description": "Zone terminal minimum outdoor air volume airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "minimum_outdoor_airflow_multiplier_schedule": {
+                    "description": "Zone terminal minimum outdoor air volume airflow multiplier schedule name",
+                    "notes": "JG to verify if used in test case description."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "AirTerminalType": {
+            "type": "string",
+            "enum": [
+                "VARIABLE_AIR_VOLUME_BOX",
+                "PARALLEL_FAN_POWERED_BOX",
+                "SERIES_FAN_POWERED_BOX",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Variable air volume box",
+                "Parallel fan powered box",
+                "Parallel fan powered box",
+                "Other"
+            ]
+        },
+        "ReheatSourceType": {
+            "type": "string",
+            "enum": [
+                "ELECTRIC",
+                "HOT_WATER",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Electric",
+                "Hot water",
+                "None",
+                "Other"
+            ]
         },
         "FluidLoop": {
             "type": "object",
@@ -2409,29 +3163,19 @@
                     "exclusiveMinimum": 0.0,
                     "units": "m"
                 },
-                "power": {
-                    "description": "Total exterior lighting power of all fixtures in a specific functional area",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0,
-                    "units": "W"
-                },
-                "designed_power": {
-                    "description": "Total designed exterior lighting power of all fixtures in a specific functional area",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0,
-                    "units": "W"
-                },
                 "trade_light_power": {
                     "description": "Exterior Lighting power for tradable surface",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W"
+                    "units": "W",
+                    "notes": "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
                 },
                 "non_trade_light_power": {
                     "description": "Exterior Lighting power for non-tradable surface",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W"
+                    "units": "W",
+                    "notes": "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
                 },
                 "site_zone_type": {
                     "description": "Site zone type for Sec 9.4.2",
@@ -2453,8 +3197,8 @@
                     "minimum": 0.0,
                     "units": "m2"
                 },
-                "tradable_surface_linear_footage": {
-                    "description": "Linear feet of tradable surface",
+                "tradable_surface_linear": {
+                    "description": "Linear length of tradable surface",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m"
@@ -2463,13 +3207,13 @@
                     "description": "If the building has an exterior walkway",
                     "type": "boolean"
                 },
-                "tradable_walkway_width_footage": {
+                "tradable_walkway_width": {
                     "description": "Width of the exterior walkway",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m"
                 },
-                "tradable_opening_width_footage": {
+                "tradable_opening_width": {
                     "description": "Width of an exterior opening",
                     "type": "number",
                     "minimum": 0.0,
@@ -2561,6 +3305,20 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "J"
+                },
+                "unmet_heating_load_hours": {
+                    "description": "total hours any HVAC Zone heating temperature setpoint not met",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "J",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "unmet_cooling_load_hours": {
+                    "description": "total hours any HVAC Zone cooling temperature setpoint not met",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "J",
+                    "notes": "JG to verify if used in test case description."
                 }
             },
             "required": [

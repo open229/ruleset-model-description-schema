@@ -176,8 +176,7 @@
                 "GUEST_ROOM",
                 "JUDGES_CHAMBERS",
                 "DWELLING_UNIT",
-                "LABORATORY_IN_OR_AS_A_CLASSROOM",
-                "LABORATORY_ALL_OTHERS",
+                "LABORATORY_EXCEPT_IN_OR_AS_A_CLASSROOM",
                 "LAUNDRY_WASHING_AREA",
                 "LOADING_DOCK_INTERIOR",
                 "LOBBY_FACILITY_FOR_THE_VISUALLY_IMPAIRED",
@@ -282,8 +281,7 @@
                 "Guest Room",
                 "Judges Chambers",
                 "Dwelling Unit",
-                "Laboratory - In or as a classroom",
-                "Laboratory - All others",
+                "Laboratory - Except in or as a classroom",
                 "Laundry/Washing Area",
                 "Loading Dock, Interior",
                 "Lobby - Facility for the visually impaired (and not used primarily by the staff)",
@@ -366,7 +364,6 @@
                 null,
                 null,
                 "Preschool through 12th grade, laboratory, and shop classrooms",
-                null,
                 null,
                 null,
                 null,
@@ -1117,6 +1114,23 @@
                 "opaque glass that conceals structural building components from being visible from the exterior of the building",
                 "a translucent, hollow or solid block of glass for glazing openings or constructing partitions",
                 "other subclassifications"
+            ]
+        },
+        "HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "RESIDENTIAL",
+                "PUBLIC_ASSEMBLY",
+                "RETAIL",
+                "HOSPITAL",
+                "OTHER_NON_RESIDENTIAL"
+            ],
+            "descriptions": [
+                "Residential",
+                "Public assembly",
+                "Retail",
+                "Hospital",
+                "Other non-residential"
             ]
         }
     }

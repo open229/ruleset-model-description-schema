@@ -89,8 +89,7 @@
 | `GUEST_ROOM`                                                  | Guest Room                                                                                      |                                                               |
 | `JUDGES_CHAMBERS`                                             | Judges Chambers                                                                                 |                                                               |
 | `DWELLING_UNIT`                                               | Dwelling Unit                                                                                   |                                                               |
-| `LABORATORY_IN_OR_AS_A_CLASSROOM`                             | Laboratory - In or as a classroom                                                               |                                                               |
-| `LABORATORY_ALL_OTHERS`                                       | Laboratory - All others                                                                         |                                                               |
+| `LABORATORY_EXCEPT_IN_OR_AS_A_CLASSROOM`                      | Laboratory - Except in or as a classroom                                                        |                                                               |
 | `LAUNDRY_WASHING_AREA`                                        | Laundry/Washing Area                                                                            |                                                               |
 | `LOADING_DOCK_INTERIOR`                                       | Loading Dock, Interior                                                                          |                                                               |
 | `LOBBY_FACILITY_FOR_THE_VISUALLY_IMPAIRED`                    | Lobby - Facility for the visually impaired (and not used primarily by the staff)                |                                                               |
@@ -483,4 +482,13 @@
 | `SPANDREL_GLASS`        | opaque glass that conceals structural building components from being visible from the exterior of the building                                                                            |       |
 | `GLASS_BLOCK`           | a translucent, hollow or solid block of glass for glazing openings or constructing partitions                                                                                             |       |
 | `OTHER`                 | other subclassifications                                                                                                                                                                  |       |
+
+# HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901
+|       Enumerator        |      Description      | Notes |
+|-------------------------|-----------------------|-------|
+| `RESIDENTIAL`           | Residential           |       |
+| `PUBLIC_ASSEMBLY`       | Public assembly       |       |
+| `RETAIL`                | Retail                |       |
+| `HOSPITAL`              | Hospital              |       |
+| `OTHER_NON_RESIDENTIAL` | Other non-residential |       |
 
