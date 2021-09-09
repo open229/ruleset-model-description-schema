@@ -1126,9 +1126,21 @@ HeatingVentilationAirConditioningSystem:
     zones_served:
       Description: "List of the zones served by the HVAC system"
       Data Type: "[{Zone}]"
+    fan_systems:
+      Description: "Referenced to the fan systems"
+      Data Type: "[$ID]"
+      Notes: "JG to verify if used in test case description."
+    heating_system_type:
+      Description: "Heating system type"
+      Data Type: "<HeatingSystemType>"
+      Notes: "JG to verify if used in test case description."
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "$ID"
+    cooling_system_type:
+      Description: "Cooling system type"
+      Data Type: "<CoolingSystemType>"
+      Notes: "JG to verify if used in test case description."
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
       Data Type: "$ID"
@@ -1159,6 +1171,75 @@ HeatingVentilationAirConditioningSystem:
       Range: ">=0"
       Units: "W/m2"
       Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+
+HeatingSystemType:
+  Object Type: "Enumeration"
+  Enumerators:
+    HEAT_PUMP:
+      Description: "Heat Pump"
+    FURNACE:
+      Description: "Furnace"
+    ELECTRIC_RESISTANCE:
+      Description: "Electric resistance"
+    FLUID_LOOP:
+      Description: "Fluid loop"
+    BASEBOARD:
+      Description: "Baseboard"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+CoolingSystemType:
+  Object Type: "Enumeration"
+  Enumerators:
+    DIRECT_EXPANSION:
+      Description: "Direct expansion"
+    FLUID_LOOP:
+      Description: "Fluid loop"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+FanSystem:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    purpose_type:
+      Description: "Purpose of the fan system"
+      Data Type: "<FanSystemPurposeType>"
+      Notes: "JG to verify if used in test case description."
+    is_multi_zone:
+      Description: "If the fan system serves muliple zones"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+    is_variable_air_volume:
+      Description: "If the fan system is variable air volume."
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+
+
+FanSystemPurposeType:
+  Object Type: "Enumeration"
+  Enumerators:
+    SUPPLY:
+      Description: "Supply"
+    RETURN:
+      Description: "Return"
+    EXHAUST:
+      Description: "Exhaust"
+    OTHER:
+      Description: "Other"
 
 FluidLoop:
   Object Type: "Data Group"
@@ -1191,7 +1272,6 @@ FluidLoop:
     heating_design_and_control:
       Description: ""
       Data Type: "{FluidLoopDesignAndControl}"
-    
 
 FluidLoopDesignAndControl:
   Object Type: "Data Group"
