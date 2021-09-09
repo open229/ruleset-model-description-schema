@@ -930,3 +930,17 @@ SubsurfaceSubclassificationType2019ASHRAE901:
       Description: "a translucent, hollow or solid block of glass for glazing openings or constructing partitions"
     OTHER:
       Description: "other subclassifications"
+
+HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    RESIDENTIAL:
+      Description: "Residential"
+    PUBLIC_ASSEMBLY:
+      Description: "Public assembly"
+    RETAIL:
+      Description: "Retail"
+    HOSPITAL:  
+      Description: "Hospital"
+    OTHER_NON_RESIDENTIAL:
+      Description: "Other non-residential"

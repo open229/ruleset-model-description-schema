@@ -140,10 +140,6 @@ Building:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    number_of_floors:
-      Description: "Number of floors"
-      Data Type: "Numeric"
-      Range: ">=0"
     building_segments:
       Description: "Large portions of a building that share a building area type"
       Data Type: "[{BuildingSegment}]"
@@ -183,6 +179,16 @@ BuildingSegment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+    number_of_floors_above_grade:
+      Description: "Number of floors above grade"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
+    number_of_floors_below_grade:
+      Description: "Number of floors below grade"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
     thermal_blocks:
       Description: "Thermal blocks in the building"
       Data Type: "[{ThermalBlock}]"
@@ -202,6 +208,10 @@ BuildingSegment:
     lighting_building_area_type:
       Description: "Building area lighting area type"
       Data Type: "<LightingSpaceType2019ASHRAE901T951TG38>"
+    area_type_heating_ventilation_air_conditioning_system:
+      Description: "Classification used for HVAC"
+      Data Type: "<HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used. JG to verify if used in test case description."
 
 ThermalBlock:
   Object Type: "Data Group"
@@ -228,6 +238,18 @@ ThermalBlock:
       Description: "A service water heating system serving the thermal block"
       Data Type: "String"
       Notes: "Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem."
+    transfer_airflow_rate:
+      Description: "Transfer airflow rate"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    exhaust_airflow_rate:
+      Description: "Number of occupants in the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
 
 Zone:
   Object Type: "Data Group"
@@ -1119,6 +1141,12 @@ HeatingVentilationAirConditioningSystem:
     reheat_loop:
       Description: "Referenced to the reheat fluid loop"
       Data Type: "$ID"
+    peak_cooling_load: 
+      Description: "Peak cooling load"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
     sensible_cool_capacity: 
       Description: "Sensible cooling capacity"
       Data Type: "[Numeric]"
