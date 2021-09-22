@@ -189,10 +189,10 @@ BuildingSegment:
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "JG to verify if used in test case description."
-    thermal_blocks:
-      Description: "Thermal blocks in the building"
-      Data Type: "[{ThermalBlock}]"
-      Notes: "Contains a list of thermal blocks in the building."
+    zones:
+      Description: "Zones in the building"
+      Data Type: "[{Zone}]"
+      Notes: "Contains a list of zones in the building."
     heating_ventilation_air_conditioning_systems:
       Description: "HVAC systems in the building"
       Data Type: "[{HeatingVentilationAirConditioningSystem}]"
@@ -213,7 +213,8 @@ BuildingSegment:
       Data Type: "<HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used. JG to verify if used in test case description."
 
-ThermalBlock:
+
+Zone:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -226,20 +227,44 @@ ThermalBlock:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    zones:
-      Description: "Zones in the building"
-      Data Type: "[{Zone}]"
-      Notes: "Contains a list of zones in the building."
-    thermostat_cooling_setpoint:
+    spaces:
+      Description: "Spaces in the building"
+      Data Type: "[{Space}]"
+      Notes: "Contains a list of spaces in the building."
+    volume:
+      Description: "Volume of the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3"
+    surfaces:
+      Description: "Surfaces surrounding the zone"
+      Data Type: "[{Surface}]"
+      Notes: "Contains a list of surfaces that define the zone."
+    conditioning_type:
+      Description: "Space conditioning category"
+      Data Type: "<ConditioningType>"
+    infiltration:
+      Description: "Airleakage into the zone."
+      Data Type: "{Infiltration}"
+      Notes: "References a single infiltration data group."
+    design_thermostat_cooling_setpoint:
       Description: "Setpoint temperature for cooling during occupied hours"
       Data Type: "Numeric"
       Units: "C"
       Notes: "JG to verify if used in test case description."
-    thermostat_heating_setpoint:
+    thermostat_cooling_setpoint_schedule:
+      Description: "Reference to the schedule containing the cooling setpoint temperatures"
+      Data Type: "$ID"
+      Required: True
+    design_thermostat_heating_setpoint:
       Description: "Setpoint temperature for heating during occupied hours"
       Data Type: "Numeric"
       Units: "C"
       Notes: "JG to verify if used in test case description."
+    thermostat_heating_setpoint_schedule:
+      Description: "Reference to the schedule containing the heating setpoint temperatures"
+      Data Type: "$ID"
+      Required: True
     served_by_heating_ventilation_air_conditioning_systems:
       Description: "HVAC systems serving the thermal block"
       Data Type: "[String]"
@@ -277,40 +302,6 @@ ThermalBlock:
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "JG to verify if used in test case description."
-
-Zone:
-  Object Type: "Data Group"
-  Data Elements:
-    id:
-      Description: "Scope-unique reference identifier for instances of this data group"
-      Data Type: "ID"
-      Required: True
-    reporting_name:
-      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
-      Data Type: "String"
-    notes:
-      Description: "Supplementary information to provide context to the model reviewer"
-      Data Type: "String"
-    spaces:
-      Description: "Spaces in the building"
-      Data Type: "[{Space}]"
-      Notes: "Contains a list of spaces in the building."
-    volume:
-      Description: "Volume of the space"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m3"
-    surfaces:
-      Description: "Surfaces surrounding the zone"
-      Data Type: "[{Surface}]"
-      Notes: "Contains a list of surfaces that define the zone."
-    conditioning_type:
-      Description: "Space conditioning category"
-      Data Type: "<ConditioningType>"
-    infiltration:
-      Description: "Airleakage into the zone."
-      Data Type: "{Infiltration}"
-      Notes: "References a single infiltration data group."
 
 Space:
   Object Type: "Data Group"
