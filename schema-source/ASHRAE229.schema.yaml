@@ -2420,6 +2420,12 @@ ExteriorLighting:
       Data Type: "Numeric"
       Units: "m2"    # use ft2 for IP units
       Range: ">0"
+    length:
+      Description: "Linear length measure for exterior functional space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m"     # use ft for IP units
+      Notes: "For example, used when expressing street frontage or door width"
     norminal_wattage:
       Description: "Nominal capacity of exterior lighting fixtures"
       Data Type: "Numeric"
@@ -2430,57 +2436,9 @@ ExteriorLighting:
       Data Type: "Numeric"
       Units: "m"     # use ft for IP units
       Range: ">0"
-    trade_light_power:
-      Description: "Exterior Lighting power for tradable surface"
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">=0"
-      Notes: "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
-    non_trade_light_power:
-      Description: "Exterior Lighting power for non-tradable surface"
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">=0"
-      Notes: "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZones2019ASHRAE901>"
-    parking_area:
-      Description: "Area of exterior parking space"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m2"    # use ft2 for IP units
-    tradable_surface_type:
-      Description: "Type of tradable surfaces for exterior lighting"
-      Data Type: "String"
-      Data Type: "<ExteriorLightingAreas2019ASHRAE901TableG36>"
-    tradable_surface_area:
-      Description: "Area of tradable surface"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m2"    # use ft2 for IP units
-    tradable_surface_linear:
-      Description: "Linear length of tradable surface"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m"     # use ft for IP units
-    has_walkway:
-      Description: "If the building has an exterior walkway"
-      Data Type: "Boolean"
-    tradable_walkway_width:
-      Description: "Width of the exterior walkway"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m"     # use ft for IP units
-    tradable_opening_width:
-      Description: "Width of an exterior opening"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "m"     # use ft for IP units
-    multiplier:
-      Description: "Multiplier for exterior lighting specifications"
-      Data Type: "Numeric"
-      Range: ">0"
 
 Refrigeration:
   Object Type: "Data Group"
