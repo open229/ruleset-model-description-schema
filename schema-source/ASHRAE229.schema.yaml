@@ -165,6 +165,9 @@ Building:
       Data Type: "$ID"
       Required: True
       Notes: "One represent when the building is open and zero when closed."
+    has_site_shading:
+      Description: "Indicates whether the site has features that cast shadows on the building"
+      Data Type: "Boolean"
 
 BuildingSegment:    
   Object Type: "Data Group"
