@@ -121,11 +121,6 @@
                     },
                     "notes": "Contains a list of building segments in the building."
                 },
-                "is_all_new": {
-                    "description": "Indicates whether building is completely new construction (true) or existing (false). ",
-                    "type": "boolean",
-                    "notes": "Projects that include additions should be False. Projects with additional instead may be modeled as two buildings - one new and one existing, as curtain rules such as baseline fenestration area will apply differently to each portion."
-                },
                 "elevators": {
                     "description": "Elevators",
                     "type": "array",
@@ -153,6 +148,10 @@
                 "building_open_schedule": {
                     "description": "Reference to the schedule containing indicating when the building is open",
                     "notes": "One represent when the building is open and zero when closed."
+                },
+                "has_site_shading": {
+                    "description": "Indicates whether the site has features that cast shadows on the building",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -188,13 +187,18 @@
                     "minimum": 0.0,
                     "notes": "JG to verify if used in test case description."
                 },
-                "thermal_blocks": {
-                    "description": "Thermal blocks in the building",
+                "is_all_new": {
+                    "description": "Indicates whether the building segment is completely new construction (true) or existing (false). ",
+                    "type": "boolean",
+                    "notes": "Projects that include additions should have a building segments that are existing (false) and for the addition (true). Curtain rules such as baseline fenestration area will apply differently to each portion."
+                },
+                "zones": {
+                    "description": "Zones in the building",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ThermalBlock"
+                        "$ref": "ASHRAE229.schema.json#/definitions/Zone"
                     },
-                    "notes": "Contains a list of thermal blocks in the building."
+                    "notes": "Contains a list of zones in the building."
                 },
                 "heating_ventilation_air_conditioning_systems": {
                     "description": "HVAC systems in the building",
@@ -232,7 +236,7 @@
             ],
             "additionalProperties": false
         },
-        "ThermalBlock": {
+        "Zone": {
             "type": "object",
             "properties": {
                 "id": {
@@ -247,37 +251,63 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "zones": {
-                    "description": "Zones in the building",
+                "spaces": {
+                    "description": "Spaces in the zone",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Zone"
+                        "$ref": "ASHRAE229.schema.json#/definitions/Space"
                     },
-                    "notes": "Contains a list of zones in the building."
+                    "notes": "Contains a list of spaces in the building."
                 },
-                "thermostat_cooling_setpoint": {
+                "volume": {
+                    "description": "Volume of the space",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m3"
+                },
+                "surfaces": {
+                    "description": "Surfaces surrounding the zone",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/Surface"
+                    },
+                    "notes": "Contains a list of surfaces that define the zone."
+                },
+                "conditioning_type": {
+                    "description": "Space conditioning category",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ConditioningType"
+                },
+                "infiltration": {
+                    "description": "Airleakage into the zone.",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
+                    "notes": "References a single infiltration data group."
+                },
+                "design_thermostat_cooling_setpoint": {
                     "description": "Setpoint temperature for cooling during occupied hours",
                     "type": "number",
                     "units": "C",
                     "notes": "JG to verify if used in test case description."
                 },
-                "thermostat_heating_setpoint": {
+                "thermostat_cooling_setpoint_schedule": {
+                    "description": "Reference to the schedule containing the cooling setpoint temperatures"
+                },
+                "design_thermostat_heating_setpoint": {
                     "description": "Setpoint temperature for heating during occupied hours",
                     "type": "number",
                     "units": "C",
                     "notes": "JG to verify if used in test case description."
                 },
+                "thermostat_heating_setpoint_schedule": {
+                    "description": "Reference to the schedule containing the heating setpoint temperatures"
+                },
                 "served_by_heating_ventilation_air_conditioning_systems": {
                     "description": "HVAC systems serving the thermal block",
                     "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
+                    "items": {},
                     "notes": "Contains a list of IDs of the HVAC systems serving the thermal block - from Unique Identification Number in HeatingVentilationAirConditioningSystem."
                 },
                 "served_by_service_water_heating_system": {
                     "description": "A service water heating system serving the thermal block",
-                    "type": "string",
                     "notes": "Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem."
                 },
                 "transfer_airflow_rate": {
@@ -316,59 +346,9 @@
                 }
             },
             "required": [
-                "id"
-            ],
-            "additionalProperties": false
-        },
-        "Zone": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Scope-unique reference identifier for instances of this data group",
-                    "type": "string"
-                },
-                "reporting_name": {
-                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
-                    "type": "string"
-                },
-                "notes": {
-                    "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
-                },
-                "spaces": {
-                    "description": "Spaces in the building",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Space"
-                    },
-                    "notes": "Contains a list of spaces in the building."
-                },
-                "volume": {
-                    "description": "Volume of the space",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m3"
-                },
-                "surfaces": {
-                    "description": "Surfaces surrounding the zone",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Surface"
-                    },
-                    "notes": "Contains a list of surfaces that define the zone."
-                },
-                "conditioning_type": {
-                    "description": "Space conditioning category",
-                    "$ref": "ASHRAE229.schema.json#/definitions/ConditioningType"
-                },
-                "infiltration": {
-                    "description": "Airleakage into the zone.",
-                    "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
-                    "notes": "References a single infiltration data group."
-                }
-            },
-            "required": [
-                "id"
+                "id",
+                "thermostat_cooling_setpoint_schedule",
+                "thermostat_heating_setpoint_schedule"
             ],
             "additionalProperties": false
         },
@@ -501,12 +481,23 @@
                     "description": "The software methodology chosen for modeling infiltration",
                     "$ref": "ASHRAE229.schema.json#/definitions/InfiltrationMethodType"
                 },
+                "algorithm_name": {
+                    "description": "Name of the algorithm used for modeling infiltration in the specific simulation engine.",
+                    "type": "string"
+                },
                 "air_leakage_rate": {
                     "description": "Air leakage rate from infiltration of outside air",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m3/s",
                     "notes": "Based on the pressure described in ASHRAE229.infiltration_pressure_difference."
+                },
+                "infiltration_flow_rate": {
+                    "description": "Design infiltration flow rate",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m3/s",
+                    "notes": "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule (may vary in meaning between simulation engines)."
                 },
                 "multiplier_schedule": {
                     "description": "Referenced to the schedule containing the multiplier for the infiltration"
@@ -646,7 +637,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/Material"
                     },
-                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the cavity. For homogeneous constructions, use this element only. Air films should not be included in the list of layers."
+                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the cavity. For constructions with homogeneous layer, use this element only. Air films should not be included in the list of layers."
                 },
                 "framing_layers": {
                     "description": "List of names of layer descriptions starting from the outside surface for the framing heat path",
@@ -654,7 +645,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/Material"
                     },
-                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing. For homogeneous constructions, do not use this element. Air films should not be included in the list of layers."
+                    "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing otherwise leave blank. Air films should not be included in the list of layers."
                 },
                 "insulation_location": {
                     "description": "The location of the insulation related to the surface",
@@ -770,32 +761,38 @@
                 "absorptance_thermal_exterior": {
                     "description": "Thermal absorptance of long wavelength radiation on the exterior surface.",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
                 },
                 "absorptance_solar_exterior": {
                     "description": "Thermal absorptance of short wavelength radiation on the exterior surface.",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
                 },
                 "absorptance_visible_exterior": {
                     "description": "Thermal absorptance of visible radiation on the exterior surface.",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
                 },
                 "absorptance_thermal_interior": {
                     "description": "Thermal absorptance of long wavelength radiation on the interior surface.",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
                 },
                 "absorptance_solar_interior": {
                     "description": "Thermal absorptance of short wavelength radiation on the interior surface.",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
                 },
                 "absorptance_visible_interior": {
                     "description": "Thermal absorptance of visible radiation on the interior surface.",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
                 }
             },
             "required": [
@@ -900,9 +897,10 @@
                     "units": "W/m2-K",
                     "notes": "Includes interior and exterior air films as specified by the referenced standard."
                 },
-                "is_dynamic_glazing": {
-                    "description": "Identifies whether the window subsurface can change it's performance properties",
-                    "type": "boolean"
+                "dynamic_glazing_type": {
+                    "description": "Type of dynamic glazing for the window subsurface",
+                    "$ref": "ASHRAE229.schema.json#/definitions/SubsurfaceDynamicGlazingType",
+                    "notes": "Indicates if the glazed subsurface can change it's performance properties and if it is automatic or not."
                 },
                 "solar_heat_gain_coefficient": {
                     "description": "Subsurface SHGC",
@@ -980,7 +978,20 @@
                 "Window",
                 "Skylight",
                 "Door",
-                "Other types of subsurfaces including glass block"
+                "Other types of subsurfaces that allow light to pass"
+            ]
+        },
+        "SubsurfaceDynamicGlazingType": {
+            "type": "string",
+            "enum": [
+                "NOT_DYNAMIC",
+                "MANUAL_DYNAMIC",
+                "AUTOMATIC_DYNAMIC"
+            ],
+            "descriptions": [
+                "Not dynamic",
+                "Manual dynamic",
+                "Automatic dynamic"
             ]
         },
         "InteriorLighting": {
@@ -1518,13 +1529,6 @@
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
-                },
-                "zones_served": {
-                    "description": "List of the zones served by the HVAC system",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Zone"
-                    }
                 },
                 "fan_systems": {
                     "description": "List of fan systems",
@@ -3151,6 +3155,13 @@
                     "exclusiveMinimum": 0.0,
                     "units": "m2"
                 },
+                "length": {
+                    "description": "Linear length measure for exterior functional space",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "For example, used when expressing street frontage or door width"
+                },
                 "norminal_wattage": {
                     "description": "Nominal capacity of exterior lighting fixtures",
                     "type": "number",
@@ -3163,66 +3174,9 @@
                     "exclusiveMinimum": 0.0,
                     "units": "m"
                 },
-                "trade_light_power": {
-                    "description": "Exterior Lighting power for tradable surface",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W",
-                    "notes": "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
-                },
-                "non_trade_light_power": {
-                    "description": "Exterior Lighting power for non-tradable surface",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W",
-                    "notes": "Note that the sum of trade_light_power and non_trade_light_power should be the total exterior lighting power."
-                },
                 "site_zone_type": {
                     "description": "Site zone type for Sec 9.4.2",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingZones2019ASHRAE901"
-                },
-                "parking_area": {
-                    "description": "Area of exterior parking space",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m2"
-                },
-                "tradable_surface_type": {
-                    "description": "Type of tradable surfaces for exterior lighting",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingAreas2019ASHRAE901TableG36"
-                },
-                "tradable_surface_area": {
-                    "description": "Area of tradable surface",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m2"
-                },
-                "tradable_surface_linear": {
-                    "description": "Linear length of tradable surface",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m"
-                },
-                "has_walkway": {
-                    "description": "If the building has an exterior walkway",
-                    "type": "boolean"
-                },
-                "tradable_walkway_width": {
-                    "description": "Width of the exterior walkway",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m"
-                },
-                "tradable_opening_width": {
-                    "description": "Width of an exterior opening",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "m"
-                },
-                "multiplier": {
-                    "description": "Multiplier for exterior lighting specifications",
-                    "type": "number",
-                    "exclusiveMinimum": 0.0
                 }
             },
             "required": [

@@ -164,20 +164,26 @@
 | `UNREGULATED` | Unregulated |       |
 
 # ExteriorLightingAreas2019ASHRAE901TableG36
-|             Enumerator              |            Description            |         Notes         |
-|-------------------------------------|-----------------------------------|-----------------------|
-| `UNCOVERED_PARKING_LOTS_AND_DRIVES` | Uncovered parking lots and drives |                       |
-| `WALKWAY_NARROW`                    | Walkway - narrow                  | Less than 10 ft wide  |
-| `WALKWAY_WIDE`                      | Walkway - wide                    | 10 ft wide or greater |
-| `PLAZA_AREAS`                       | Plaza Areas                       |                       |
-| `SPECIAL_FEATURE_AREAS`             | Special Feature Areas             |                       |
-| `STAIRWAYS`                         | Stairways                         |                       |
-| `MAIN_ENTRANCE_DOOR`                | Main entrance door                |                       |
-| `OTHER_ENTRANCE_OR_EXIT_DOORS`      | Other entrance or exit doors      |                       |
-| `EXTERIOR_CANOPIES`                 | Exterior canopies                 |                       |
-| `OUTDOOR_SALES_OPEN_AREAS`          | Outdoor sales - open areas        |                       |
-| `STREET_FRONTAGE`                   | Street frontage                   |                       |
-| `NON_TRADABLE_FACADE`               | Non-tradable facade               |                       |
+|              Enumerator              |                Description                |                                          Notes                                          |
+|--------------------------------------|-------------------------------------------|-----------------------------------------------------------------------------------------|
+| `UNCOVERED_PARKING_LOTS_AND_DRIVES`  | Uncovered parking lots and drives         |                                                                                         |
+| `WALKWAY_NARROW`                     | Walkway - narrow                          | Less than 10 ft wide                                                                    |
+| `WALKWAY_WIDE`                       | Walkway - wide                            | 10 ft wide or greater                                                                   |
+| `PLAZA_AREAS`                        | Plaza Areas                               |                                                                                         |
+| `SPECIAL_FEATURE_AREAS`              | Special Feature Areas                     |                                                                                         |
+| `STAIRWAYS`                          | Stairways                                 |                                                                                         |
+| `MAIN_ENTRANCE_DOOR`                 | Main entrance door                        |                                                                                         |
+| `OTHER_ENTRANCE_OR_EXIT_DOORS`       | Other entrance or exit doors              |                                                                                         |
+| `EXTERIOR_CANOPIES`                  | Exterior canopies                         |                                                                                         |
+| `OUTDOOR_SALES_OPEN_AREAS`           | Outdoor sales - open areas                |                                                                                         |
+| `STREET_FRONTAGE`                    | Street frontage                           |                                                                                         |
+| `BUILDING_FACADE`                    | Building facade                           |                                                                                         |
+| `AUTOMATED_TELLER_MACHINES`          | Automated teller machines                 |                                                                                         |
+| `NIGHT_DEPOSITORIES`                 | Night depositories                        |                                                                                         |
+| `ENTRANCE_AND_GATEHOUSE`             | Entrance and gatehouses                   | Entrances and gatehouse inspection stations at guarded facilities.                      |
+| `EMERGENCY_VEHICLE_LOADING_AREA`     | Emergency vehicle loading area            | Loading areas for law enforcement, fire, ambulance and other emergency service vehicles |
+| `DRIVE_UP_WINDOWS_FAST_FOOD`         | Drive-up windows at fast-food restaurants |                                                                                         |
+| `PARKING_NEAR_24HR_RETAIL_ENTRANCES` | Parking near 24-hour retail entrances     |                                                                                         |
 
 # ExteriorLightingZones2019ASHRAE901
 |            Enumerator             |            Description            |                                                                               Notes                                                                                |
