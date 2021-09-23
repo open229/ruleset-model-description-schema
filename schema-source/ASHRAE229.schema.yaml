@@ -403,6 +403,9 @@ Infiltration:
     modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
       Data Type: "<InfiltrationMethodType>"
+    algorithm_name:
+      Description: "Name of the algorithm used for modeling infiltration"
+      Data Type: "String"
     air_leakage_rate:
       Description: "Air leakage rate from infiltration of outside air"
       Data Type: "Numeric"
