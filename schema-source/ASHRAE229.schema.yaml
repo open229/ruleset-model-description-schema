@@ -144,10 +144,6 @@ Building:
       Description: "Large portions of a building that share a building area type"
       Data Type: "[{BuildingSegment}]"
       Notes: "Contains a list of building segments in the building."
-    is_all_new:
-      Description: "Indicates whether building is completely new construction (true) or existing (false). "
-      Data Type: "Boolean"
-      Notes: "Projects that include additions should be False. Projects with additional instead may be modeled as two buildings - one new and one existing, as curtain rules such as baseline fenestration area will apply differently to each portion."
     elevators:
       Description: "Elevators"
       Data Type: "[{Elevator}]"
@@ -192,6 +188,10 @@ BuildingSegment:
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "JG to verify if used in test case description."
+    is_all_new:
+      Description: "Indicates whether the building segment is completely new construction (true) or existing (false). "
+      Data Type: "Boolean"
+      Notes: "Projects that include additions should have a building segments that are existing (false) and for the addition (true). Curtain rules such as baseline fenestration area will apply differently to each portion."
     zones:
       Description: "Zones in the building"
       Data Type: "[{Zone}]"
@@ -231,7 +231,7 @@ Zone:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     spaces:
-      Description: "Spaces in the building"
+      Description: "Spaces in the zone"
       Data Type: "[{Space}]"
       Notes: "Contains a list of spaces in the building."
     volume:
@@ -404,7 +404,7 @@ Infiltration:
       Description: "The software methodology chosen for modeling infiltration"
       Data Type: "<InfiltrationMethodType>"
     algorithm_name:
-      Description: "Name of the algorithm used for modeling infiltration"
+      Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
       Data Type: "String"
     air_leakage_rate:
       Description: "Air leakage rate from infiltration of outside air"
