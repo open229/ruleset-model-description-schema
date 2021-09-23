@@ -700,9 +700,10 @@ Subsurface:
       Units: "W/m2-K"
       Range: ">=0"
       Notes: "Includes interior and exterior air films as specified by the referenced standard."
-    is_dynamic_glazing:
-      Description: "Identifies whether the window subsurface can change it's performance properties"
-      Data Type: "Boolean"
+    dynamic_glazing_type:
+      Description: "Type of dynamic glazing for the window subsurface"
+      Data Type: "<SubsurfaceDynamicGlazingType>"
+      Notes: "Indicates if the glazed subsurface can change it's performance properties and if it is automatic or not."
     solar_heat_gain_coefficient:
       Description: "Subsurface SHGC"
       Data Type: "Numeric"
@@ -762,6 +763,16 @@ SubsurfaceClassificationType:
       Description: "Door"
     OTHER:
       Description: "Other types of subsurfaces that allow light to pass"
+
+SubsurfaceDynamicGlazingType:
+  Object Type: "Enumeration"
+  Enumerators:
+    NOT_DYNAMIC:
+      Description: "Not dynamic"
+    MANUAL_DYNAMIC:
+      Description: "Manual dynamic"
+    AUTOMATIC_DYNAMIC:
+      Description: "Automatic dynamic"
 
 InteriorLighting:
   Object Type: "Data Group"
