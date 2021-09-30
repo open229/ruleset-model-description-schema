@@ -122,6 +122,10 @@ ASHRAE229:
       Description: "Fluid loops on the site"
       Data Type: "[{FluidLoop}]"
       Notes: "Contains a list of fluid loops on the site."
+    service_water_heating_distribution_systems:
+      Description: "Service water heating systems on the site"
+      Data Type: "[{ServiceWaterHeatingDistributionSystem}]"
+      Notes: "Contains a list of service water heating distribution systems at the site."
     conditioning_components:
       Description: "Links to all conditioning components used on the site"
       Data Type: "[{Pump},{Boiler},{Chiller},{HeatRejection}, {DistrictFluidMeter}]"
@@ -200,10 +204,6 @@ BuildingSegment:
       Description: "HVAC systems in the building"
       Data Type: "[{HeatingVentilationAirConditioningSystem}]"
       Notes: "Contains a list of HVAC systems in the building."
-    service_water_heating_systems:
-      Description: "Service water heating systems in the building"
-      Data Type: "[{ServiceWaterHeatingSystem}]"
-      Notes: "Contains a list of service water heating systems in the building."
     area_type_vertical_fenestration:
       Description: "Building area classification used for vertical fenestration"
       Data Type: "<VerticalFenestrationBuildingAreaType2019ASHRAE901>"
@@ -364,6 +364,9 @@ Space:
       Description: "Service water heating space type classification"
       Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
+    service_weater_heating_uses:
+      Description: "List of service water heating uses"
+      Data Type: "[<ServiceWaterHeatingUse>]"
 
 ConditioningType:
   Object Type: "Enumeration"
@@ -2343,7 +2346,7 @@ ExternalFluidSourceTypeOptions:
     STEAM:
       Description: "Steam"
 
-ServiceWaterHeatingSystem:
+ServiceWaterHeatingDistributionSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -2356,14 +2359,6 @@ ServiceWaterHeatingSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    area_type:
-      Description: "Service Water Heating Loop Area Type"
-      Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
-      Notes: "The enumeration is based on the standard used."
-    design_flow:
-      Description: "Design Flowrate of service water heating loop"
-      Data Type: "Numeric"
-      Units: "L/s" # use gpm for IP
     supply_temperature:
       Description: "Design supply temperature setpoint of service water heating loop"
       Data Type: "Numeric"
@@ -2383,17 +2378,6 @@ ServiceWaterHeatingSystem:
     entering_water_temperature_type:
       Description: "Method of determining service water heating entering water temperature"
       Data Type: "<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>"
-    heater:
-      Description: "Referenced to the service water heater"
-      Data Type: "$ID"
-      Required: True
-    heater_fuel_type:
-      Description: "Service water heating heater fuel type"
-      Data Type: "<EnergySourceTypeOptions>"
-    heater_efficiency:
-      Description: "Service water heating heater efficiency"
-      Data Type: "Numeric"
-      Range: ">=0"
 
 ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
   Object Type: "Enumeration"
@@ -2406,6 +2390,98 @@ ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
       Description: "Annual ground entering water temperature option"
     MONTHLY_GROUND:
       Description: "Monthly ground entering water temperature option"
+
+ServiceWaterHeatingEquipment:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    heater_fuel_type:
+      Description: "Service water heating heater fuel type"
+      Data Type: "<EnergySourceTypeOptions>"
+    heater_efficiency:
+      Description: "Service water heating heater efficiency"
+      Data Type: "Numeric"
+      Range: ">=0"
+    service_water_heating_distribution_system:
+      Description: "Referenced to the service water heating distribution system"
+      Data Type: "$ID"
+      Required: True
+
+ServiceWaterHeatingUse:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    area_type:
+      Description: "Service Water Heating Loop Area Type"
+      Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    water_serves_type:
+      Description: "The use of the water serves the type"
+      Data Type: "<ServiceWaterHeatingServesType>"
+    use:
+      Description: "Usage of service hot water"
+      Data Type: "Numeric"
+    use_units:
+      Description: "Type of units for use of service hot water"
+      Data Type: "<ServiceWaterHeatingUseUnits>"
+    use_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for the use of service hot water"
+      Data Type: "$ID"
+      Required: True
+
+ServiceWaterHeatingServesType:
+  Object Type: "Enumeration"
+  Enumerators:
+    SHOWER:
+      Description: "Shower"
+    BATH:
+      Description: "Bath"
+    DISHWASHER:
+      Description: "Dishwasher"
+    KITCHEN_SINK:
+      Description: "Kitchen sink"
+    WASH_SINK:
+      Description: "Wash sink"
+    CLOTHES_WASHER:
+      Description: "Clothes washing machine"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingUseUnits:
+  Object Type: "Enumeration"
+  Enumerators:
+    POWER_PER_PERSON:
+      Description: "Power per person"
+    POWER_PER_AREA:
+      Description: "Power per area"
+    POWER:
+      Description: "Power"
+    VOLUME_PER_PERSON:
+      Description: "Volume per person"
+    VOLUME_PER_AREA:
+      Description: "Volume per area"
+    VOLUME:
+      Description: "Volume"
+    OTHER:
+      Description: "Other"
 
 EnergySourceTypeOptions:
   Object Type: "Enumeration"
