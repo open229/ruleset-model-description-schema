@@ -2574,6 +2574,14 @@ ServiceWaterHeatingEquipment:
       Description: "Zone reference of where the heat pump for the water heater is located"
       Data Type: "$ID"
       Notes: "From CBECC-Com."
+    compressor_heat_rejection_source:
+      Description: "Heat pump heat rejection source"
+      Data Type: "<ServiceWaterHeatingRejection>"
+      Notes: "From CBECC-Res."
+    compressor_heat_rejection_zone:
+      Description: "Heat pump heat rejection zone"
+      Data Type: "$ID"
+      Notes: "From CBECC-Res."
     draft_fan_power:
       Description: "Power for the draft fan "
       Data Type: "Numeric"
@@ -2644,6 +2652,22 @@ ServiceWaterHeatingEquipment:
       Data Type: "Numeric"
       Range: ">=0"
       Notes: "From CBECC-Com."
+    tank_interior_insulation:
+      Description: "Tank interior insulation R-value"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "From CBECC-Res."
+    tank_exterior_insulation:
+      Description: "Tank interior insulation R-value"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "From CBECC-Res."
+    location:
+      Description: "Location"
+      Data Type: "<ServiceWaterHeatingLocation>"
+      Notes: "From CBECC-Res."
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -2654,6 +2678,26 @@ ServiceWaterHeaterType:
       Description: "Heat pump packaged"
     HEAT_PUMP_SPLIT:
       Description: "Heat pump split"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingLocation:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONDITIONED:
+      Description: "Conditioned"
+    UNCONDITIONTED:
+      Description: "Unconditioned"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingRejection:
+  Object Type: "Enumeration"
+  Enumerators:
+    OUTSIDE:
+      Description: "Outside"
+    ZONE:
+      Description: "Zone"
     OTHER:
       Description: "Other"
 
