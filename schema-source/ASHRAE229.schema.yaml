@@ -1890,7 +1890,7 @@ Pump:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "Referenced to the fluid loop or service water heating distribution system"
       Data Type: "$ID"
       Required: True
     specification_method:
@@ -2359,10 +2359,82 @@ ServiceWaterHeatingDistributionSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    supply_temperature:
+    design_supply_temperature:
       Description: "Design supply temperature setpoint of service water heating loop"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "From CBECC-Com."
+    design_supply_temperature_difference:
+      Description: "Design supply temperature difference (deltaT) of service water heating loop"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "From CBECC-Com."
+    storage_capacity:
+      Description: "Storage capacity"
+      Data Type: "Numeric"
+      Units: "L"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    is_central_system:
+      Description: "Indicates whether it is a central service water heater distribution system"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Com."
+    solar_angle_from_true_north:
+      Description: "Solar water heater angle from true north, clockwise"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    annual_solar_fraction:
+      Description: "Solar water heater annual fraction"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    solar_area:
+      Description: "Solar water heater area"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    solar_collector_area:
+      Description: "Solar water heater area"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    solar_collector_type_description:
+      Description: "Description of solar collector type"
+      Data Type: "String"
+      Notes: "From CBECC-Com."
+    solar_collector_slope:
+      Description: "Solar water heater slope from horizontal"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    distribution_compactness:
+      Description: "Type of compact distribution system"
+      Data Type: "<ServiceWaterHeatingDistributionCompactness>"
+      Notes: "From CBECC-Com."
+    distribution_type:
+      Description: "Type of distribution system"
+      Data Type: "<ServiceWaterHeatingDistributionType>"
+      Notes: "From CBECC-Com."
+    configuration_type:
+      Description: "Type of configuration"
+      Data Type: "<ServiceWaterHeatingConfigurationType>"
+      Notes: "From CBECC-Com."
+    has_shower_drain_heat_recovery:
+      Description: "Indicates whether the service water heater distribution system has shower drain heat recovery"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Com."
+    shower_drain_heat_recovery:
+      Description: "Shower heat drain recovery efficiency"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    loop_pipe_insulation_thickness:
+      Description: "Loop pipe insulation thickness"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    loop_pipe_location:
+      Description: "Loop pipe location"
+      Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
+      Notes: "From CBECC-Com."
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "$ID"
@@ -2379,6 +2451,66 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Method of determining service water heating entering water temperature"
       Data Type: "<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>"
 
+ServiceWaterHeatingDistributionCompactness:
+  Object Type: "Enumeration"
+  Enumerators:
+    NOT_COMPACT:
+      Description: "Not compact"
+    BASIC_COMPACT:
+      Description: "Basic compact"
+    EXPANDED_CREDIT:
+      Description: "Expanded credit"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingDistributionType:
+  Object Type: "Enumeration"
+  Enumerators:
+    DEMAND_CONTROL:
+      Description: "Demand control"
+    NO_CONTROL:
+      Description: "No control"
+    NO_LOOP_OR_CENTRAL_SYSTEM_PUMP:
+      Description: "No loop or central system pump"
+    TEMPERATURE_MODULATTION:
+      Description: "Temperature modulation"
+    TEMPERATURE_MODULATION_AND_MONITORING:
+      Description: "Temperature modulation and monitoring"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingConfigurationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    HERS_PARALLEL_PIPING:
+      Description: "HERS parallel piping"
+    HERS_PIPE_INSULATION_ALL_LINES:
+      Description: "HERS pipe insulation of all lines"
+    HERS_RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR:
+      Description: "HERS recirculation demand control occupancy sensor"
+    HERS_RECIRCULATION_DEMAND_CONTROL_BUTTON:
+      Description: "HERS recirculation demand control pull botton"
+    HERS_RECIRCULATION_NON_DEMAND_CONTROL:
+      Description: "HERS recirculation non-demand control"
+    INSULATED_AND_PROTECTED_PIPE_BELOW_GRADE:
+      Description: "Insulated and protected pipe below grade"
+    PARALLEL_PIPING:
+      Description: "Parallel piping"
+    PIPE_INSULATION_ALL_LINES:
+      Description: "Pipe insulation of all lines"
+    POINT_OF_USE:
+      Description: "Point of use"
+    RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR:
+      Description: "Recirculation demand control occupancy sensor"
+    RECIRCULATION_DEMAND_CONTROL_BUTTON:
+      Description: "Recirculation demand control pull botton"
+    RECIRCULATION_NON_DEMAND_CONTROL:
+      Description: "Recirculation non-demand control"
+    STANDARD:
+      Description: "Standard"
+    OTHER:
+      Description: "Other"
+
 ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
   Object Type: "Enumeration"
   Enumerators:
@@ -2390,6 +2522,20 @@ ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
       Description: "Annual ground entering water temperature option"
     MONTHLY_GROUND:
       Description: "Monthly ground entering water temperature option"
+
+ServiceWaterHeatingLoopPipeLocation:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONDITIONED:
+      Description: "Conditioned"
+    SEMICONDITIONED:
+      Description: "Semiconditioned"
+    UNCONDITIONTED:
+      Description: "Unconditioned"
+    UNDERGROUND:
+      Description: "Underground"
+    OTHER:
+      Description: "Other"
 
 ServiceWaterHeatingEquipment:
   Object Type: "Data Group"
@@ -2407,14 +2553,109 @@ ServiceWaterHeatingEquipment:
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
       Data Type: "<EnergySourceTypeOptions>"
-    heater_efficiency:
-      Description: "Service water heating heater efficiency"
-      Data Type: "Numeric"
-      Range: ">=0"
     service_water_heating_distribution_system:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "$ID"
       Required: True
+    heater_efficiency:
+      Description: "Service water heating heater efficiency"
+      Data Type: "Numeric"
+      Range: ">=0"
+    rated_capacity:
+      Description: "Rated capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "From CBECC-Com."
+    compressor_location:
+      Description: "Description of where the heat pump for the water heater is located"
+      Data Type: "String"
+      Notes: "Used when compressor is not located in a specific zone. From CBECC-Com."
+    compressor_zone:
+      Description: "Zone reference of where the heat pump for the water heater is located"
+      Data Type: "$ID"
+      Notes: "From CBECC-Com."
+    draft_fan_power:
+      Description: "Power for the draft fan "
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    has_electrical_ignition:
+      Description: "Indicates whether the water heater has electrical ignition"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Com."
+    energy_factor:
+      Description: "Energy factor"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    first_hour_rating:
+      Description: "First hour rating volume"
+      Data Type: "Numeric"
+      Units: "L"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    flow_rate:
+      Description: "Flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    input_power:
+      Description: "Input power"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    minimum_capacity:
+      Description: "Minimum capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    recovery_efficiency:
+      Description: "Recovery efficiency"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    standby_loss_fraction:
+      Description: "Standby loss fraction"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    storage_capacity:
+      Description: "Storage capacity"
+      Data Type: "Numeric"
+      Units: "L"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    storage_zone:
+      Description: "Zone reference of where the water heater storage is located"
+      Data Type: "$ID"
+      Notes: "From CBECC-Com."
+    tank_height:
+      Description: "Tank height"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    heater_type:
+      Description: "Service water heater type"
+      Data Type: "<ServiceWaterHeaterType>"
+    uniform_energy_factor:
+      Description: "Uniform energy factor"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+
+ServiceWaterHeaterType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONVENTIONAL:
+      Description: "Conventional"
+    HEAT_PUMP_PACKAGED:
+      Description: "Heat pump packaged"
+    HEAT_PUMP_SPLIT:
+      Description: "Heat pump split"
+    OTHER:
+      Description: "Other"
 
 ServiceWaterHeatingUse:
   Object Type: "Data Group"
