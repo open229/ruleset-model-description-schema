@@ -86,6 +86,14 @@
                     },
                     "notes": "Contains a list of fluid loops on the site."
                 },
+                "service_water_heating_distribution_systems": {
+                    "description": "Service water heating systems on the site",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingDistributionSystem"
+                    },
+                    "notes": "Contains a list of service water heating distribution systems at the site."
+                },
                 "conditioning_components": {
                     "description": "Links to all conditioning components used on the site",
                     "type": "array",
@@ -207,14 +215,6 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/HeatingVentilationAirConditioningSystem"
                     },
                     "notes": "Contains a list of HVAC systems in the building."
-                },
-                "service_water_heating_systems": {
-                    "description": "Service water heating systems in the building",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingSystem"
-                    },
-                    "notes": "Contains a list of service water heating systems in the building."
                 },
                 "area_type_vertical_fenestration": {
                     "description": "Building area classification used for vertical fenestration",
@@ -426,6 +426,13 @@
                     "description": "Service water heating space type classification",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceType2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
+                },
+                "service_weater_heating_uses": {
+                    "description": "List of service water heating uses",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUse"
+                    }
                 }
             },
             "required": [
@@ -2423,7 +2430,7 @@
                     "type": "string"
                 },
                 "loop": {
-                    "description": "Referenced to the fluid loop"
+                    "description": "Referenced to the fluid loop or service water heating distribution system"
                 },
                 "specification_method": {
                     "description": "Options for how the pump is specified",
@@ -3030,7 +3037,7 @@
                 "Steam"
             ]
         },
-        "ServiceWaterHeatingSystem": {
+        "ServiceWaterHeatingDistributionSystem": {
             "type": "object",
             "properties": {
                 "id": {
@@ -3045,20 +3052,143 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "area_type": {
-                    "description": "Service Water Heating Loop Area Type",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceType2019ASHRAE901",
-                    "notes": "The enumeration is based on the standard used."
-                },
-                "design_flow": {
-                    "description": "Design Flowrate of service water heating loop",
-                    "type": "number",
-                    "units": "L/s"
-                },
-                "supply_temperature": {
+                "design_supply_temperature": {
                     "description": "Design supply temperature setpoint of service water heating loop",
                     "type": "number",
-                    "units": "C"
+                    "units": "C",
+                    "notes": "From CBECC-Com."
+                },
+                "design_supply_temperature_difference": {
+                    "description": "Design supply temperature difference (deltaT) of service water heating loop",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "From CBECC-Com."
+                },
+                "tank_storage_capacity": {
+                    "description": "Storage capacity of tank in distribution system",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L",
+                    "notes": "From CBECC-Com."
+                },
+                "tank_storage_insulation": {
+                    "description": "Storage tank insulation R-value",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "K-m2/W",
+                    "notes": "From CBECC-Res."
+                },
+                "is_central_system": {
+                    "description": "Indicates whether it is a central service water heater distribution system",
+                    "type": "boolean",
+                    "notes": "From CBECC-Com."
+                },
+                "solar_angle_from_true_north": {
+                    "description": "Solar water heater angle from true north, clockwise",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "annual_solar_fraction": {
+                    "description": "Solar water heater annual fraction",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "solar_area": {
+                    "description": "Solar water heater area",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "solar_collector_area": {
+                    "description": "Solar water heater area",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "solar_collector_type_description": {
+                    "description": "Description of solar collector type",
+                    "type": "string",
+                    "notes": "From CBECC-Com."
+                },
+                "solar_collector_slope": {
+                    "description": "Solar water heater slope from horizontal",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "distribution_compactness": {
+                    "description": "Type of compact distribution system",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingDistributionCompactness",
+                    "notes": "From CBECC-Com."
+                },
+                "distribution_type": {
+                    "description": "Type of distribution system",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingDistributionType",
+                    "notes": "From CBECC-Com."
+                },
+                "configuration_type": {
+                    "description": "Type of configuration",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingConfigurationType",
+                    "notes": "From CBECC-Com."
+                },
+                "is_recovered_heat_from_drain_used_by_water_heater": {
+                    "description": "Indicates whether the recovered heat from the shower drain used by the service water heater",
+                    "type": "boolean",
+                    "notes": "From CBECC-Res."
+                },
+                "drain_heat_recovery_efficiency": {
+                    "description": "Shower heat drain recovery efficiency",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
+                },
+                "drain_heat_recovery_type": {
+                    "description": "Drain heat recovery type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingHeatRecoveryType",
+                    "notes": "From CBECC-Res."
+                },
+                "loop_pipe_insulation_thickness": {
+                    "description": "Loop pipe insulation thickness",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From CBECC-Com."
+                },
+                "loop_pipe_location": {
+                    "description": "Loop pipe location",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingLoopPipeLocation",
+                    "notes": "From CBECC-Com."
+                },
+                "pipe_length": {
+                    "description": "Pipe length",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From RESNET"
+                },
+                "recirculation_loop_pipe_section_length": {
+                    "description": "Recirculation loop pipe section length",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From CBECC-Res."
+                },
+                "recirculation_loop_pipe_section_diameter": {
+                    "description": "Recirculation loop pipe section diameter",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From CBECC-Res."
+                },
+                "recirculation_loop_pipe_section_location": {
+                    "description": "Recirculation loop pipe section location",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingLoopPipeLocation",
+                    "notes": "From CBECC-Res."
+                },
+                "recirculation_loop_pipe_insulation_thickness": {
+                    "description": "Recirculation loop pipe insulation thickness",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From CBECC-Res."
                 },
                 "flow_multiplier_schedule": {
                     "description": "service water heating Loop flow muliplier schedule name"
@@ -3082,25 +3212,81 @@
                 "entering_water_temperature_type": {
                     "description": "Method of determining service water heating entering water temperature",
                     "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingEnteringWaterTemperatureInputOptions"
-                },
-                "heater": {
-                    "description": "Referenced to the service water heater"
-                },
-                "heater_fuel_type": {
-                    "description": "Service water heating heater fuel type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
-                },
-                "heater_efficiency": {
-                    "description": "Service water heating heater efficiency",
-                    "type": "number",
-                    "minimum": 0.0
                 }
             },
             "required": [
-                "id",
-                "heater"
+                "id"
             ],
             "additionalProperties": false
+        },
+        "ServiceWaterHeatingDistributionCompactness": {
+            "type": "string",
+            "enum": [
+                "NOT_COMPACT",
+                "BASIC_COMPACT",
+                "EXPANDED_CREDIT",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Not compact",
+                "Basic compact",
+                "Expanded credit",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingDistributionType": {
+            "type": "string",
+            "enum": [
+                "DEMAND_CONTROL",
+                "NO_CONTROL",
+                "NO_LOOP_OR_CENTRAL_SYSTEM_PUMP",
+                "TEMPERATURE_MODULATTION",
+                "TEMPERATURE_MODULATION_AND_MONITORING",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Demand control",
+                "No control",
+                "No loop or central system pump",
+                "Temperature modulation",
+                "Temperature modulation and monitoring",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingConfigurationType": {
+            "type": "string",
+            "enum": [
+                "HERS_PARALLEL_PIPING",
+                "HERS_PIPE_INSULATION_ALL_LINES",
+                "HERS_RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR",
+                "HERS_RECIRCULATION_DEMAND_CONTROL_BUTTON",
+                "HERS_RECIRCULATION_NON_DEMAND_CONTROL",
+                "INSULATED_AND_PROTECTED_PIPE_BELOW_GRADE",
+                "PARALLEL_PIPING",
+                "PIPE_INSULATION_ALL_LINES",
+                "POINT_OF_USE",
+                "RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR",
+                "RECIRCULATION_DEMAND_CONTROL_BUTTON",
+                "RECIRCULATION_NON_DEMAND_CONTROL",
+                "STANDARD",
+                "OTHER"
+            ],
+            "descriptions": [
+                "HERS parallel piping",
+                "HERS pipe insulation of all lines",
+                "HERS recirculation demand control occupancy sensor",
+                "HERS recirculation demand control pull botton",
+                "HERS recirculation non-demand control",
+                "Insulated and protected pipe below grade",
+                "Parallel piping",
+                "Pipe insulation of all lines",
+                "Point of use",
+                "Recirculation demand control occupancy sensor",
+                "Recirculation demand control pull botton",
+                "Recirculation non-demand control",
+                "Standard",
+                "Other"
+            ]
         },
         "ServiceWaterHeatingEnteringWaterTemperatureInputOptions": {
             "type": "string",
@@ -3115,6 +3301,384 @@
                 "Monthly main entering water temperature option",
                 "Annual ground entering water temperature option",
                 "Monthly ground entering water temperature option"
+            ]
+        },
+        "ServiceWaterHeatingLoopPipeLocation": {
+            "type": "string",
+            "enum": [
+                "CONDITIONED",
+                "SEMICONDITIONED",
+                "UNCONDITIONTED",
+                "UNDERGROUND",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Conditioned",
+                "Semiconditioned",
+                "Unconditioned",
+                "Underground",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingHeatRecoveryType": {
+            "type": "string",
+            "enum": [
+                "NOT_APPLICABLE",
+                "VERTICAL",
+                "HORIZONTAL",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Not applicable",
+                "Vertical",
+                "Horizontal",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingEquipment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "heater_fuel_type": {
+                    "description": "Service water heating heater fuel type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
+                },
+                "service_water_heating_distribution_system": {
+                    "description": "Referenced to the service water heating distribution system"
+                },
+                "energy_factor": {
+                    "description": "Energy factor",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "From CBECC-Com."
+                },
+                "thermal_efficiency": {
+                    "description": "Service water heating heater thermal efficiency",
+                    "type": "number",
+                    "minimum": 0.0
+                },
+                "standby_loss_fraction": {
+                    "description": "Standby loss fraction",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "uniform_energy_factor": {
+                    "description": "Uniform energy factor",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "From CBECC-Com."
+                },
+                "first_hour_rating": {
+                    "description": "First hour rating volume",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L",
+                    "notes": "From CBECC-Com."
+                },
+                "flow_rate": {
+                    "description": "Flow rate",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L/s",
+                    "notes": "From CBECC-Com."
+                },
+                "input_power": {
+                    "description": "Input power",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "From CBECC-Com."
+                },
+                "rated_capacity": {
+                    "description": "Rated capacity",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "From CBECC-Com."
+                },
+                "minimum_capacity": {
+                    "description": "Minimum capacity",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "From CBECC-Com."
+                },
+                "recovery_efficiency": {
+                    "description": "Recovery efficiency",
+                    "type": "number",
+                    "notes": "From CBECC-Com."
+                },
+                "setpoint_temperature": {
+                    "description": "Set point temperature",
+                    "type": "number",
+                    "units": "C"
+                },
+                "compressor_location": {
+                    "description": "Description of where the heat pump for the water heater is located",
+                    "type": "string",
+                    "notes": "Used when compressor is not located in a specific zone. From CBECC-Com."
+                },
+                "compressor_zone": {
+                    "description": "Zone reference of where the heat pump for the water heater is located",
+                    "notes": "From CBECC-Com."
+                },
+                "compressor_heat_rejection_source": {
+                    "description": "Heat pump heat rejection source",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingLocation",
+                    "notes": "From CBECC-Res."
+                },
+                "compressor_heat_rejection_zone": {
+                    "description": "Heat pump heat rejection zone",
+                    "notes": "From CBECC-Res."
+                },
+                "draft_fan_power": {
+                    "description": "Power for the draft fan ",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "From CBECC-Com."
+                },
+                "has_electrical_ignition": {
+                    "description": "Indicates whether the water heater has electrical ignition",
+                    "type": "boolean",
+                    "notes": "From CBECC-Com."
+                },
+                "storage_capacity": {
+                    "description": "Storage capacity",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "L",
+                    "notes": "From CBECC-Com."
+                },
+                "storage_zone": {
+                    "description": "Zone reference of where the water heater storage is located",
+                    "notes": "From CBECC-Com."
+                },
+                "tank_height": {
+                    "description": "Tank height",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "m",
+                    "notes": "From CBECC-Com."
+                },
+                "heater_type": {
+                    "description": "Service water heater type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeaterType"
+                },
+                "tank_type": {
+                    "description": "Service water heater tank type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeaterTankType"
+                },
+                "tank_interior_insulation": {
+                    "description": "Tank interior insulation R-value",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "K-m2/W",
+                    "notes": "From CBECC-Res."
+                },
+                "tank_exterior_insulation": {
+                    "description": "Tank interior insulation R-value",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "K-m2/W",
+                    "notes": "From CBECC-Res."
+                },
+                "tank_location": {
+                    "description": "Location",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingLocation",
+                    "notes": "From CBECC-Res."
+                },
+                "tank_location_zone": {
+                    "description": "Heat pump heat rejection zone",
+                    "notes": "Only used when tank_location indicates the tank is located in a zone. From CBECC-Res."
+                }
+            },
+            "required": [
+                "id",
+                "service_water_heating_distribution_system"
+            ],
+            "additionalProperties": false
+        },
+        "ServiceWaterHeaterType": {
+            "type": "string",
+            "enum": [
+                "CONVENTIONAL",
+                "HEAT_PUMP_PACKAGED",
+                "HEAT_PUMP_SPLIT",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Conventional",
+                "Heat pump packaged",
+                "Heat pump split",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeaterTankType": {
+            "type": "string",
+            "enum": [
+                "CONSUMER_INSTANTANEOUS",
+                "COMMERCIAL_INSTANTANEOUS",
+                "CONSUMER_STORAGE",
+                "COMMERCIAL_STORAGE",
+                "RESIDENTIAL_DUTY_COMMERCIAL_INSTANTANEOUS",
+                "INDIRECT",
+                "BOILER",
+                "COMMERCIAL_PACKAGED_BOILER",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Consumer instantaneous",
+                "Commercial instantaneous",
+                "Consumer storage",
+                "Consumer storage",
+                "Residential-Duty Commercial Instantaneous",
+                "Indirect",
+                "Boiler",
+                "Commercial Packaged Boiler",
+                "Other"
+            ],
+            "notes": [
+                "Uses UEF",
+                "Uses TE",
+                "Uses UEF",
+                "Uses TE and SBL",
+                "Uses UEF",
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        "ServiceWaterHeatingLocation": {
+            "type": "string",
+            "enum": [
+                "CONDITIONED",
+                "OUTSIDE",
+                "GARAGE",
+                "ATTIC",
+                "CRAWL_SPACE",
+                "UNCONDITIONED",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Conditioned",
+                "Outside",
+                "Garage",
+                "Attic",
+                "Crawl space",
+                "Unconditioned",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingUse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "area_type": {
+                    "description": "Service Water Heating Loop Area Type",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceType2019ASHRAE901",
+                    "notes": "The enumeration is based on the standard used."
+                },
+                "water_serves_type": {
+                    "description": "The use of the water serves the type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingServesType"
+                },
+                "use": {
+                    "description": "Usage of service hot water",
+                    "type": "number"
+                },
+                "use_units": {
+                    "description": "Type of units for use of service hot water",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUseUnits"
+                },
+                "use_multiplier_schedule": {
+                    "description": "Reference to the schedule containing the multiplier for the use of service hot water"
+                },
+                "temperature_at_fixture": {
+                    "description": "Reference to the schedule containing the multiplier for the use of service hot water",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "From RESNET"
+                },
+                "is_heat_recovered_by_drain": {
+                    "description": "Indicates if heat is being recovered from the drain",
+                    "type": "boolean",
+                    "notes": "From CBECC-Res."
+                },
+                "is_recovered_heat_used_by_cold_side_feed": {
+                    "description": "Indicates if heat is being recovered from the drain is used on the cold side feed",
+                    "type": "boolean",
+                    "notes": "From CBECC-Res."
+                }
+            },
+            "required": [
+                "id",
+                "use_multiplier_schedule"
+            ],
+            "additionalProperties": false
+        },
+        "ServiceWaterHeatingServesType": {
+            "type": "string",
+            "enum": [
+                "SHOWER",
+                "BATH",
+                "DISHWASHER",
+                "KITCHEN_SINK",
+                "WASH_SINK",
+                "CLOTHES_WASHER",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Shower",
+                "Bath",
+                "Dishwasher",
+                "Kitchen sink",
+                "Wash sink",
+                "Clothes washing machine",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingUseUnits": {
+            "type": "string",
+            "enum": [
+                "POWER_PER_PERSON",
+                "POWER_PER_AREA",
+                "POWER",
+                "VOLUME_PER_PERSON",
+                "VOLUME_PER_AREA",
+                "VOLUME",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Power per person",
+                "Power per area",
+                "Power",
+                "Volume per person",
+                "Volume per area",
+                "Volume",
+                "Other"
             ]
         },
         "EnergySourceTypeOptions": {
