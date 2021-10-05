@@ -2369,12 +2369,18 @@ ServiceWaterHeatingDistributionSystem:
       Data Type: "Numeric"
       Units: "C"
       Notes: "From CBECC-Com."
-    storage_capacity:
-      Description: "Storage capacity"
+    tank_storage_capacity:
+      Description: "Storage capacity of tank in distribution system"
       Data Type: "Numeric"
       Units: "L"
       Range: ">=0"
       Notes: "From CBECC-Com."
+    tank_storage_insulation:
+      Description: "Storage tank insulation R-value"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "From CBECC-Res."
     is_central_system:
       Description: "Indicates whether it is a central service water heater distribution system"
       Data Type: "Boolean"
@@ -2435,6 +2441,28 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Loop pipe location"
       Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
       Notes: "From CBECC-Com."
+    recirculation_loop_pipe_section_length:
+      Description: "Recirculation loop pipe section length"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Res."
+    recirculation_loop_pipe_section_diameter:
+      Description: "Recirculation loop pipe section diameter"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Res."
+    recirculation_loop_pipe_section_location:
+      Description: "Recirculation loop pipe section location"
+      Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
+      Notes: "From CBECC-Res."
+    recirculation_loop_pipe_insulation_thickness:
+      Description: "Recirculation loop pipe insulation thickness"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Res."
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "$ID"
