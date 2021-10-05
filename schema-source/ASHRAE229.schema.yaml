@@ -2421,16 +2421,20 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Type of configuration"
       Data Type: "<ServiceWaterHeatingConfigurationType>"
       Notes: "From CBECC-Com."
-    has_shower_drain_heat_recovery:
-      Description: "Indicates whether the service water heater distribution system has shower drain heat recovery"
+    is_recovered_heat_from_drain_used_by_water_heater:
+      Description: "Indicates whether the recovered heat from the shower drain used by the service water heater"
       Data Type: "Boolean"
-      Notes: "From CBECC-Com."
-    shower_drain_heat_recovery:
+      Notes: "From CBECC-Res."
+    drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
       Data Type: "Numeric"
       Units: "m"
       Range: ">=0"
-      Notes: "From CBECC-Com."
+      Notes: "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
+    drain_heat_recovery_type:
+      Description: "Drain heat recovery type"
+      Data Type: "<ServiceWaterHeatingHeatRecoveryType>"
+      Notes: "From CBECC-Res."
     loop_pipe_insulation_thickness:
       Description: "Loop pipe insulation thickness"
       Data Type: "Numeric"
@@ -2565,6 +2569,18 @@ ServiceWaterHeatingLoopPipeLocation:
     OTHER:
       Description: "Other"
 
+ServiceWaterHeatingHeatRecoveryType:
+  Object Type: "Enumeration"
+  Enumerators:
+    NOT_APPLICABLE:
+      Description: "Not applicable"
+    VERTICAL:
+      Description: "Vertical"
+    HORIZONTAL:
+      Description: "Horizontal"
+    OTHER:
+      Description: "Other"
+
 ServiceWaterHeatingEquipment:
   Object Type: "Data Group"
   Data Elements:
@@ -2675,6 +2691,9 @@ ServiceWaterHeatingEquipment:
     heater_type:
       Description: "Service water heater type"
       Data Type: "<ServiceWaterHeaterType>"
+    tank_type:
+      Description: "Service water heater tank type"
+      Data Type: "<ServiceWaterHeaterTankType>"
     uniform_energy_factor:
       Description: "Uniform energy factor"
       Data Type: "Numeric"
@@ -2709,12 +2728,45 @@ ServiceWaterHeaterType:
     OTHER:
       Description: "Other"
 
+ServiceWaterHeaterTankType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSUMER_INSTANTANEOUS:
+      Description: "Consumer instantaneous"
+      Notes: "Uses UEF"
+    COMMERCIAL_INSTANTANEOUS:
+      Description: "Commercial instantaneous"
+      Notes: "Uses TE"
+    CONSUMER_STORAGE:
+      Description: "Consumer storage"
+      Notes: "Uses UEF"
+    COMMERCIAL_STORAGE:
+      Description: "Consumer storage"
+      Notes: "Uses TE and SBL"
+    RESIDENTIAL_DUTY_COMMERCIAL_INSTANTANEOUS:
+      Description: "Residential-Duty Commercial Instantaneous"
+      Notes: "Uses UEF"
+    INDIRECT:
+      Description: "Indirect"
+    BOILER:
+      Description: "Boiler"
+    COMMERCIAL_PACKAGED_BOILER:
+      Description: "Commercial Packaged Boiler"
+    OTHER:
+      Description: "Other"
+
 ServiceWaterHeatingLocation:
   Object Type: "Enumeration"
   Enumerators:
     CONDITIONED:
       Description: "Conditioned"
-    UNCONDITIONTED:
+    GARAGE:
+      Description: "Garage"
+    ATTIC:
+      Description: "Attic"
+    CRAWL_SPACE:
+      Description: "Crawl space"
+    UNCONDITIONED:
       Description: "Unconditioned"
     OTHER:
       Description: "Other"
@@ -2759,6 +2811,15 @@ ServiceWaterHeatingUse:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "$ID"
       Required: True
+    is_heat_recovered_by_drain:
+      Description: "Indicates if heat is being recovered from the drain"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Res."
+    is_recovered_heat_used_by_cold_side_feed:
+      Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Res."
+    
 
 ServiceWaterHeatingServesType:
   Object Type: "Enumeration"
