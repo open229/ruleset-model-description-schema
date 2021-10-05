@@ -2445,6 +2445,12 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Loop pipe location"
       Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
       Notes: "From CBECC-Com."
+    pipe_length:
+      Description: "Pipe length"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From RESNET"
     recirculation_loop_pipe_section_length:
       Description: "Recirculation loop pipe section length"
       Data Type: "Numeric"
@@ -2601,44 +2607,23 @@ ServiceWaterHeatingEquipment:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "$ID"
       Required: True
-    heater_efficiency:
-      Description: "Service water heating heater efficiency"
-      Data Type: "Numeric"
-      Range: ">=0"
-    rated_capacity:
-      Description: "Rated capacity"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "From CBECC-Com."
-    compressor_location:
-      Description: "Description of where the heat pump for the water heater is located"
-      Data Type: "String"
-      Notes: "Used when compressor is not located in a specific zone. From CBECC-Com."
-    compressor_zone:
-      Description: "Zone reference of where the heat pump for the water heater is located"
-      Data Type: "$ID"
-      Notes: "From CBECC-Com."
-    compressor_heat_rejection_source:
-      Description: "Heat pump heat rejection source"
-      Data Type: "<ServiceWaterHeatingRejection>"
-      Notes: "From CBECC-Res."
-    compressor_heat_rejection_zone:
-      Description: "Heat pump heat rejection zone"
-      Data Type: "$ID"
-      Notes: "From CBECC-Res."
-    draft_fan_power:
-      Description: "Power for the draft fan "
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">=0"
-      Notes: "From CBECC-Com."
-    has_electrical_ignition:
-      Description: "Indicates whether the water heater has electrical ignition"
-      Data Type: "Boolean"
-      Notes: "From CBECC-Com."
     energy_factor:
       Description: "Energy factor"
       Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    thermal_efficiency:
+      Description: "Service water heating heater thermal efficiency"
+      Data Type: "Numeric"
+      Range: ">=0"
+    standby_loss_fraction:
+      Description: "Standby loss fraction"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    uniform_energy_factor:
+      Description: "Uniform energy factor"
+      Data Type: "Numeric"
+      Range: ">=0"
       Notes: "From CBECC-Com."
     first_hour_rating:
       Description: "First hour rating volume"
@@ -2658,6 +2643,11 @@ ServiceWaterHeatingEquipment:
       Units: "W"
       Range: ">=0"
       Notes: "From CBECC-Com."
+    rated_capacity:
+      Description: "Rated capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "From CBECC-Com."
     minimum_capacity:
       Description: "Minimum capacity"
       Data Type: "Numeric"
@@ -2668,9 +2658,35 @@ ServiceWaterHeatingEquipment:
       Description: "Recovery efficiency"
       Data Type: "Numeric"
       Notes: "From CBECC-Com."
-    standby_loss_fraction:
-      Description: "Standby loss fraction"
+    setpoint_temperature:
+      Description: "Set point temperature"
+      Units: "C"
       Data Type: "Numeric"
+    compressor_location:
+      Description: "Description of where the heat pump for the water heater is located"
+      Data Type: "String"
+      Notes: "Used when compressor is not located in a specific zone. From CBECC-Com."
+    compressor_zone:
+      Description: "Zone reference of where the heat pump for the water heater is located"
+      Data Type: "$ID"
+      Notes: "From CBECC-Com."
+    compressor_heat_rejection_source:
+      Description: "Heat pump heat rejection source"
+      Data Type: "<ServiceWaterHeatingLocation>"
+      Notes: "From CBECC-Res."
+    compressor_heat_rejection_zone:
+      Description: "Heat pump heat rejection zone"
+      Data Type: "$ID"
+      Notes: "From CBECC-Res."
+    draft_fan_power:
+      Description: "Power for the draft fan "
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    has_electrical_ignition:
+      Description: "Indicates whether the water heater has electrical ignition"
+      Data Type: "Boolean"
       Notes: "From CBECC-Com."
     storage_capacity:
       Description: "Storage capacity"
@@ -2694,11 +2710,6 @@ ServiceWaterHeatingEquipment:
     tank_type:
       Description: "Service water heater tank type"
       Data Type: "<ServiceWaterHeaterTankType>"
-    uniform_energy_factor:
-      Description: "Uniform energy factor"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Notes: "From CBECC-Com."
     tank_interior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
@@ -2711,10 +2722,14 @@ ServiceWaterHeatingEquipment:
       Range: ">=0"
       Units: "K-m2/W"
       Notes: "From CBECC-Res."
-    location:
+    tank_location:
       Description: "Location"
       Data Type: "<ServiceWaterHeatingLocation>"
       Notes: "From CBECC-Res."
+    tank_location_zone:
+      Description: "Heat pump heat rejection zone"
+      Data Type: "$ID"
+      Notes: "Only used when tank_location indicates the tank is located in a zone. From CBECC-Res."
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -2760,6 +2775,8 @@ ServiceWaterHeatingLocation:
   Enumerators:
     CONDITIONED:
       Description: "Conditioned"
+    OUTSIDE:
+      Description: "Outside"
     GARAGE:
       Description: "Garage"
     ATTIC:
@@ -2768,16 +2785,6 @@ ServiceWaterHeatingLocation:
       Description: "Crawl space"
     UNCONDITIONED:
       Description: "Unconditioned"
-    OTHER:
-      Description: "Other"
-
-ServiceWaterHeatingRejection:
-  Object Type: "Enumeration"
-  Enumerators:
-    OUTSIDE:
-      Description: "Outside"
-    ZONE:
-      Description: "Zone"
     OTHER:
       Description: "Other"
 
@@ -2811,6 +2818,11 @@ ServiceWaterHeatingUse:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "$ID"
       Required: True
+    temperature_at_fixture:
+      Description: "Reference to the schedule containing the multiplier for the use of service hot water"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "From RESNET"
     is_heat_recovered_by_drain:
       Description: "Indicates if heat is being recovered from the drain"
       Data Type: "Boolean"
