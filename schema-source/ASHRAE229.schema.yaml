@@ -3024,6 +3024,8 @@ ApplicationTemperatureType:
     ICE_CREAM:
       Description: "Ice cream"
       Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F)"
+    OTHER:
+      Description: "Other"
 
 OverallSimulationOutputs:
   Object Type: "Data Group"
