@@ -177,7 +177,7 @@ Building:
       Description: "Reference to the schedule containing indicating when the building is open"
       Data Type: "$ID"
       Required: True
-      Notes: "One represent when the building is open and zero when closed."
+      Notes: "One represent when the building is open and zero when closed. Constraint to use when implemented :Schedule:"
     has_site_shading:
       Description: "Indicates whether the site has features that cast shadows on the building"
       Data Type: "Boolean"
@@ -272,6 +272,7 @@ Zone:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
     design_thermostat_heating_setpoint:
       Description: "Setpoint temperature for heating during occupied hours"
       Data Type: "Numeric"
@@ -281,14 +282,15 @@ Zone:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
     served_by_heating_ventilation_air_conditioning_systems:
       Description: "HVAC systems serving the zone"
       Data Type: "[$ID]"
-      Notes: "Contains a list of IDs of the HVAC systems serving the zone - from Unique Identification Number in HeatingVentilationAirConditioningSystem."
+      Notes: "Contains a list of IDs of the HVAC systems serving the zone - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
       Data Type: "$ID"
-      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem."
+      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingSystem:"
     transfer_airflow_rate:
       Description: "Transfer airflow rate"
       Data Type: "Numeric"
@@ -352,6 +354,7 @@ Space:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
     occupant_sensible_heat_gain:
       Description: "Sensible heat gain of each occupant."
       Data Type: "Numeric"
@@ -437,6 +440,7 @@ Infiltration:
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
 
 InfiltrationMethodType:
   Object Type: "Enumeration"
@@ -493,6 +497,7 @@ Surface:
     adjacent_zone:
       Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Zone:"
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
       Data Type: "Boolean"
@@ -828,6 +833,7 @@ InteriorLighting:
       Description: "Reference to the schedule containing the multiplier for lighting"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
     occupancy_control_type:
       Description: "Indicates the type of occupancy controls"
       Data Type: "<LightingOccupancyControlType>"
@@ -894,6 +900,7 @@ MiscellaneousEquipment:
       Description: "Referenced to the schedule containing the multiplier for the miscellenous equipment"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
@@ -1173,12 +1180,15 @@ Elevator:
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
 
 HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
@@ -1208,6 +1218,7 @@ HeatingVentilationAirConditioningSystem:
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
@@ -1224,9 +1235,11 @@ HeatingVentilationAirConditioningSystem:
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
     condenser_water_loop:
       Description: "Referenced to the Condenser water fluid loop"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
     cooling_direct_expansion:
       Description: "Direct expansion cooling or cooling portion of the heat pump"
       Data Type: "{CoolingDirectExpansion}"
@@ -1234,9 +1247,11 @@ HeatingVentilationAirConditioningSystem:
     preheat_loop:
       Description: "Referenced to the Preheat fluid loop"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
     reheat_loop:
       Description: "Referenced to the reheat fluid loop"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
     peak_cooling_load: 
       Description: "Peak cooling load"
       Data Type: "Numeric"
@@ -1472,11 +1487,11 @@ FanSystem:
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
       Data Type: "$ID"
-      Notes: "JG to verify if used in test case description."
+      Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "$ID"
-      Notes: "Zero when fan is off. JG to verify if used in test case description."
+      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
     airflow:
       Description: "Design supply airflow"
       Data Type: "Numeric"
@@ -1733,7 +1748,7 @@ AirTerminal:
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "$ID"
-      Notes: "JG to verify if used in test case description."
+      Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
 
 AirTerminalType:
   Object Type: "Enumeration"
@@ -1906,6 +1921,7 @@ Pump:
       Description: "Referenced to the fluid loop or service water heating distribution system"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -1983,6 +1999,7 @@ Boiler:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -2074,10 +2091,11 @@ Chiller:
       Description: "Referenced to the cooling fluid loop"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
       Data Type: "$ID"
-      Notes: "No condensing loop name implies air-cooled chiller."
+      Notes: "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
     compressor_type:
       Description: "Compressor Type"
       Data Type: "<ChillerCompressorTypeOptions>"
@@ -2213,6 +2231,7 @@ HeatRejection:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionTypeOptions>"
@@ -2341,6 +2360,7 @@ ExternalFluidSource:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceTypeOptions>"
@@ -2489,6 +2509,7 @@ ServiceWaterHeatingDistributionSystem:
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
     annual_entering_water_temperature:
       Description: "Annual service main or annual ground temperature used for service water heating calculations entering water temperature	degrees"
       Data Type: "Numeric"
@@ -2620,6 +2641,7 @@ ServiceWaterHeatingEquipment:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :ServiceWaterHeatingSystem:"
     energy_factor:
       Description: "Energy factor"
       Data Type: "Numeric"
@@ -2682,7 +2704,7 @@ ServiceWaterHeatingEquipment:
     compressor_zone:
       Description: "Zone reference of where the heat pump for the water heater is located"
       Data Type: "$ID"
-      Notes: "From CBECC-Com."
+      Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
       Data Type: "<ServiceWaterHeatingLocation>"
@@ -2690,7 +2712,7 @@ ServiceWaterHeatingEquipment:
     compressor_heat_rejection_zone:
       Description: "Heat pump heat rejection zone"
       Data Type: "$ID"
-      Notes: "From CBECC-Res."
+      Notes: "From CBECC-Res. Constraint to use when implemented :Zone:"
     draft_fan_power:
       Description: "Power for the draft fan "
       Data Type: "Numeric"
@@ -2710,7 +2732,7 @@ ServiceWaterHeatingEquipment:
     storage_zone:
       Description: "Zone reference of where the water heater storage is located"
       Data Type: "$ID"
-      Notes: "From CBECC-Com."
+      Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
     tank_height:
       Description: "Tank height"
       Data Type: "Numeric"
@@ -2742,7 +2764,7 @@ ServiceWaterHeatingEquipment:
     tank_location_zone:
       Description: "Heat pump heat rejection zone"
       Data Type: "$ID"
-      Notes: "Only used when tank_location indicates the tank is located in a zone. From CBECC-Res."
+      Notes: "Only used when tank_location indicates the tank is located in a zone. From CBECC-Res. Constraint to use when implemented :Zone:"
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -2831,6 +2853,7 @@ ServiceWaterHeatingUse:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "$ID"
       Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
     temperature_at_fixture:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "Numeric"
