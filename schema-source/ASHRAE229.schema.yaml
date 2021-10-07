@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.1"
+  Version: "0.0.2"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -282,13 +282,13 @@ Zone:
       Data Type: "$ID"
       Required: True
     served_by_heating_ventilation_air_conditioning_systems:
-      Description: "HVAC systems serving the thermal block"
+      Description: "HVAC systems serving the zone"
       Data Type: "[$ID]"
-      Notes: "Contains a list of IDs of the HVAC systems serving the thermal block - from Unique Identification Number in HeatingVentilationAirConditioningSystem."
+      Notes: "Contains a list of IDs of the HVAC systems serving the zone - from Unique Identification Number in HeatingVentilationAirConditioningSystem."
     served_by_service_water_heating_system:
-      Description: "A service water heating system serving the thermal block"
+      Description: "A service water heating system serving the zone"
       Data Type: "$ID"
-      Notes: "Contains a single ID of the service water heating system serving the thermal block - from Unique Identification Number in ServiceWaterHeatingSystem."
+      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem."
     transfer_airflow_rate:
       Description: "Transfer airflow rate"
       Data Type: "Numeric"
