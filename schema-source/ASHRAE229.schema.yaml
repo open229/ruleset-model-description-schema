@@ -98,12 +98,10 @@ ASHRAE229:
     weather:
       Description: "Information on the local weather conditions used with the simulation."
       Data Type: "{Weather}"
-    infiltration_pressure_difference:
-      Description: "Differential pressure difference assumed for infiltration values."
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "Pa"
-      Notes: "Often 50 Pa or 75 Pa and used as rating conditions for air leakage for a building."
+    measured_infiltration_pressure_difference:
+      Description: "Differential pressure difference used during measurement for infiltration values."
+      Data Type: "<MeasuredInfiltrationPressureType>"
+      Notes: "Used as rating conditions for air leakage for a building."
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
@@ -130,6 +128,18 @@ ASHRAE229:
       Description: "Links to all conditioning components used on the site"
       Data Type: "[{Pump},{Boiler},{Chiller},{HeatRejection}, {DistrictFluidMeter}]"
       Notes: "Contains a list of all components related to conditioning."
+
+MeasuredInfiltrationPressureType:
+  Object Type: "Enumeration"
+  Enumerators:
+    NO_TEST_PERFORMED:
+      Description: "No infiltration testing performed"
+    PRESSURE_50PA:
+      Description: "50 Pa pressure"
+    PRESSURE_75PA:
+      Description: "75 Pa pressure"
+    OTHER:
+      Description: "Other"
 
 Building:
   Object Type: "Data Group"
@@ -409,18 +419,18 @@ Infiltration:
     algorithm_name:
       Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
       Data Type: "String"
-    air_leakage_rate:
-      Description: "Air leakage rate from infiltration of outside air"
+    measured_air_leakage_rate:
+      Description: "Meaured air leakage rate from infiltration of outside air"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Based on the pressure described in ASHRAE229.infiltration_pressure_difference."
+      Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
     infiltration_flow_rate:
       Description: "Design infiltration flow rate"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule (may vary in meaning between simulation engines)."
+      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines."
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
       Data Type: "$ID"
