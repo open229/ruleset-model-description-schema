@@ -229,7 +229,6 @@ BuildingSegment:
       Data Type: "<HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used. JG to verify if used in test case description."
 
-
 Zone:
   Object Type: "Data Group"
   Data Elements:
@@ -653,7 +652,6 @@ SurfaceOpticalProperties:
       Range: ">=0"
       Notes: "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
 
-
 SurfaceClassificationType:
   Object Type: "Enumeration"
   Enumerators:
@@ -663,7 +661,6 @@ SurfaceClassificationType:
       Description: "Floor"
     CEILING:
       Description: "Ceiling"
-    
     
 SurfaceAdjacentTo:
   Object Type: "Enumeration"
@@ -784,7 +781,7 @@ Subsurface:
     has_automatic_shades:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
       Data Type: "Boolean"
-    
+
 SubsurfaceClassificationType:
   Object Type: "Enumeration"
   Enumerators:
@@ -1025,7 +1022,6 @@ Schedule:
     is_schedule_modified_for_workaround:
       Description: "True if any schedule has been modified for a workaround"
       Data Type: "Boolean"
-
 
 ScheduleSequenceTypeOptions:
   Object Type: "Enumeration"
@@ -1903,7 +1899,6 @@ FluidLoopOperationOptions:
     INTERMITTENT:
       Description: "Intermittent"
 
-
 Pump:
   Object Type: "Data Group"
   Data Elements:
@@ -2367,7 +2362,6 @@ ExternalFluidSource:
     energy_source_type:
       Description: "Source of energy for the external fluid source"
       Data Type: "<EnergySourceTypeOptions>"
-      
 
 ExternalFluidSourceTypeOptions:
   Object Type: "Enumeration"
@@ -2867,7 +2861,6 @@ ServiceWaterHeatingUse:
       Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
       Data Type: "Boolean"
       Notes: "From CBECC-Res."
-    
 
 ServiceWaterHeatingServesType:
   Object Type: "Enumeration"
@@ -3089,4 +3082,3 @@ OverallSimulationOutputs:
       Units: "J" # use MMBTU for IP units
       Range: ">=0"
       Notes: "JG to verify if used in test case description."
-    
