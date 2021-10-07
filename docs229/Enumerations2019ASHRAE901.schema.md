@@ -403,60 +403,6 @@
 | `FIBERGLASS`             | Fiberglass                     |       |
 | `OTHER`                  | Other                          |       |
 
-# RefrigerationType2019ASHRAE901
-|                  Enumerator                  |                Description                 | Notes |
-|----------------------------------------------|--------------------------------------------|-------|
-| `COMMERCIAL_REFRIGERATION`                   | Commercial refrigeration                   |       |
-| `COMMERCIAL_REFRIGERATOR_SOLID_DOOR`         | Commercial refrigerator solid door         |       |
-| `COMMERCIAL_REFRIGERATOR_TRANSPARENT_DOOR`   | Commercial refrigerator transparent door   |       |
-| `COMMERCIAL_FREEZER_SOLID_DOOR`              | Commercial freezer solid door              |       |
-| `COMMERCIAL_FREEZER_TRANSPARENT_DOOR`        | Commercial freezer transparent door        |       |
-| `COMMERCIAL_PULLDOWN_REFRIGERATOR`           | Commercial pulldown refrigerator           |       |
-| `COMMERCIAL_REFRIGERATOR_FREEZER_SOLID_DOOR` | Commercial refrigerator freezer solid door |       |
-| `OTHER`                                      | Other                                      |       |
-
-# RefrigerationClass2019ASHRAE901
-| Enumerator |                             Description                              | Notes |
-|------------|----------------------------------------------------------------------|-------|
-| `VOP_RC_M` | Vertical open - Remote condensing - Medium temperature               |       |
-| `SVO_RC_M` | Semivertical open - Remote condensing - Medium temperature           |       |
-| `HZO_RC_M` | Horizontal open  -Remote condensing - Medium temperature             |       |
-| `VOP_RC_L` | Vertical open - Remote condensing - Low temperature                  |       |
-| `HZO_RC_L` | Horizontal open - Remote condensing - Low temperature                |       |
-| `VCT_RC_M` | Vertical transparent door - Remote condensing - Medium temperature   |       |
-| `VCT_RC_L` | Vertical transparent door - Remote condensing - Low temperature      |       |
-| `SOC_RC_M` | Service over counter - Remote condensing - Medium temperature        |       |
-| `VOP_SC_M` | Vertical open - Self-contained - Medium temperature                  |       |
-| `SVO_SC_M` | Semivertical open - Self-contained - Medium temperature              |       |
-| `HZO_SC_M` | Horizontal open - Self-contained - Medium temperature                |       |
-| `HZO_SC_L` | Horizontal open - Self-contained - Low temperature                   |       |
-| `VCT_SC_I` | Vertical transparent door - Self-contained - Ice cream               |       |
-| `VCS_SC_I` | Vertical solid door - Self-contained - Ice cream                     |       |
-| `HCT_SC_I` | Horizontal transparent door - Self-contained - Ice cream             |       |
-| `SVO_RC_L` | Semivertical open - Remote condensing - Low temperature              |       |
-| `VOP_RC_I` | Vertical open - Remote condensing - Ice cream                        |       |
-| `SVO_RC_I` | Semivertical open - Remote condensing - Ice cream                    |       |
-| `HZO_RC_I` | Horizontal open - Remote condensing - Ice cream                      |       |
-| `VCT_RC_I` | Vertical transparent door - Remote condensing - Ice cream            |       |
-| `HCT_RC_M` | Horizontal transparent door - Remote condensing - Medium temperature |       |
-| `HCT_RC_L` | Horizontal transparent door - Remote condensing - Low temperature    |       |
-| `HCT_RC_I` | Horizontal transparent door - Remote condensing - Ice cream          |       |
-| `VCS_RC_M` | Vertical solid door - Remote condensing - Medium temperature         |       |
-| `VCS_RC_L` | Vertical solid door - Remote condensing - Low temperature            |       |
-| `VCS_RC_I` | Vertical solid door - Remote condensing - Ice cream                  |       |
-| `HCS_RC_M` | Horizontal solid door - Remote condensing - Medium temperature       |       |
-| `HCS_RC_L` | Horizontal solid door - Remote condensing - Low temperature          |       |
-| `HCS_RC_I` | Horizontal solid door - Remote condensing - Ice cream                |       |
-| `SOC_RC_L` | Service over counter - Remote condensing - Low temperature           |       |
-| `SOC_RC_I` | Service over counter - Remote condensing - Ice cream                 |       |
-| `VOP_SC_L` | Vertical open - Self contained - Low temperature                     |       |
-| `VOP_SC_I` | Vertical open - Self-contained - Ice cream                           |       |
-| `SVO_SC_L` | Semivertical open - Self-contained - Low temperature                 |       |
-| `SVO_SC_I` | Semivertical open - Self-contained - Ice cream                       |       |
-| `HZO_SC_I` | Horizontal open - Self-contained - Ice cream                         |       |
-| `SOC_SC_I` | Service over counter - Self-contained - Ice cream                    |       |
-| `HCS_SC_I` | Horizontal solid door - Self-contained - Ice cream                   |       |
-
 # PrescribedSchedules2019ASHRAE901
 |    Enumerator    |                                                     Description                                                     | Notes |
 |------------------|---------------------------------------------------------------------------------------------------------------------|-------|
