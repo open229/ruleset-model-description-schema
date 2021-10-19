@@ -2966,10 +2966,15 @@ Refrigeration:
       Description: "Equipment application temperature"
       Data Type: "<ApplicationTemperatureType>"
       Notes: "Based on AHRI 1200"
-    energy_per_day:
-      Description: "Rated electrical energy use per day"
+    power:
+      Description: "Nominal power of refrigeration"
       Data Type: "Numeric"
-      Units: "kWh"
+      Units: "W"
+      Range: ">0"
+    power_multiplier_schedule:
+      Description: "Refrigeration power multiplier schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
     case_volume:
       Description: "volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
