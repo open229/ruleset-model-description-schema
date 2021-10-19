@@ -100,8 +100,13 @@ ASHRAE229:
       Data Type: "{Weather}"
     measured_infiltration_pressure_difference:
       Description: "Differential pressure difference used during measurement for infiltration values."
-      Data Type: "<MeasuredInfiltrationPressureType>"
-      Notes: "Used as rating conditions for air leakage for a building."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "Pa"
+      Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions."
+    is_measured_infiltration_based_on_test:
+      Description: "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building."
+      Data Type: "Boolean"
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
@@ -131,18 +136,6 @@ ASHRAE229:
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZones2019ASHRAE901>"
-
-MeasuredInfiltrationPressureType:
-  Object Type: "Enumeration"
-  Enumerators:
-    NO_TEST_PERFORMED:
-      Description: "No infiltration testing performed"
-    PRESSURE_50PA:
-      Description: "50 Pa pressure"
-    PRESSURE_75PA:
-      Description: "75 Pa pressure"
-    OTHER:
-      Description: "Other"
 
 Building:
   Object Type: "Data Group"
@@ -445,11 +438,11 @@ InfiltrationMethodType:
   Object Type: "Enumeration"
   Enumerators:
     WEATHER_DRIVEN:
-      Description: "Weather Driven. The amount of air leakage is determined by a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature."
+      Description: "Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule."
     PRESSURE_BASED:
-      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction."
-    CONSTANT:
-      Description: "Constant. The amount of air leakage is fixed."
+      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction and is then multiplied by the schedule."
+    SCHEDULED:
+      Description: "Constant. The amount of air leakage is based on the infiltration_flow_rate multiplied by the schedule."
 
 Surface:
   Object Type: "Data Group"
