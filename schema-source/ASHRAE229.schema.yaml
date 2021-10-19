@@ -2975,6 +2975,14 @@ Refrigeration:
       Description: "Refrigeration power multiplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
+    sensible_fraction:
+      Description: "Fraction of energy that is a sensible load on the space."
+      Data Type: "Numeric"
+      Range: ">=-1, <=1"
+    heat_gain_fraction:
+      Description: "Fraction of energy that is a heat gain to the space."
+      Data Type: "Numeric"
+      Range: ">=-1, <=1"
     case_volume:
       Description: "volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
@@ -2983,6 +2991,10 @@ Refrigeration:
       Description: "display area of a refrigerated case in square meters"
       Data Type: "Numeric"
       Units: "m2"
+    case_zone:
+      Description: "Zone where case is located"
+      Data Type: "$ID"
+
 
 RefrigerationType:
   Object Type: "Enumeration"
