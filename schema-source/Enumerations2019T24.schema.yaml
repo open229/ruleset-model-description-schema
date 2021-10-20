@@ -1,0 +1,25 @@
+---
+# Enumerations2019T24.schema.yaml
+# The purpose file is to provide a separated source from the main schema file in the generator 
+# format for enumerations related to California Title 24 20219, both normative and informative, both commercial and residential.
+
+Schema:
+  Object Type: "Meta"
+  References:
+    - "ASHRAE229"
+  Title: "Enumerations from Title 24"
+  Description: "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications."
+
+
+ServiceWaterHeatingDistributionCompactness2019T24Com:
+  Object Type: "Enumeration"
+  Enumerators:
+    NOT_COMPACT:
+      Description: "Not compact"
+    BASIC_COMPACT:
+      Description: "Basic compact"
+    EXPANDED_CREDIT:
+      Description: "Expanded credit"
+    OTHER:
+      Description: "Other"
+

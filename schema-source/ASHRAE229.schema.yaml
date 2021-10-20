@@ -14,6 +14,7 @@ Schema:
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
+    - "Enumerations2019T24"
   Root Data Group: "ASHRAE229"
 
 # Data Types
@@ -2403,7 +2404,7 @@ ServiceWaterHeatingDistributionSystem:
       Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
     distribution_compactness:
       Description: "Type of compact distribution system"
-      Data Type: "<ServiceWaterHeatingDistributionCompactness>"
+      Data Type: "<ServiceWaterHeatingDistributionCompactness2019T24Com>"
       Notes: "From CBECC-Com."
     distribution_type:
       Description: "Type of distribution system"
@@ -2481,18 +2482,6 @@ ServiceWaterHeatingDistributionSystem:
     entering_water_temperature_type:
       Description: "Method of determining service water heating entering water temperature"
       Data Type: "<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>"
-
-ServiceWaterHeatingDistributionCompactness:
-  Object Type: "Enumeration"
-  Enumerators:
-    NOT_COMPACT:
-      Description: "Not compact"
-    BASIC_COMPACT:
-      Description: "Basic compact"
-    EXPANDED_CREDIT:
-      Description: "Expanded credit"
-    OTHER:
-      Description: "Other"
 
 ServiceWaterHeatingDistributionType:
   Object Type: "Enumeration"
