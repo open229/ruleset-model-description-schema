@@ -2405,30 +2405,10 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Indicates whether it is a central service water heater distribution system"
       Data Type: "Boolean"
       Notes: "From CBECC-Com."
-    solar_angle_from_true_north:
-      Description: "Solar water heater angle from true north, clockwise"
-      Data Type: "Numeric"
-      Notes: "From CBECC-Com."
-    annual_solar_fraction:
-      Description: "Solar water heater annual fraction"
-      Data Type: "Numeric"
-      Notes: "From CBECC-Com."
-    solar_area:
-      Description: "Solar water heater area"
-      Data Type: "Numeric"
-      Notes: "From CBECC-Com."
-    solar_collector_area:
-      Description: "Solar water heater area"
-      Data Type: "Numeric"
-      Notes: "From CBECC-Com."
-    solar_collector_type_description:
-      Description: "Description of solar collector type"
-      Data Type: "String"
-      Notes: "From CBECC-Com."
-    solar_collector_slope:
-      Description: "Solar water heater slope from horizontal"
-      Data Type: "Numeric"
-      Notes: "From CBECC-Com."
+    solar_thermal_systems:  
+      Description: "Solar thermal systems used for heating service water"
+      Data Type: "[{SolarThermal}]"
+      Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
     distribution_compactness:
       Description: "Type of compact distribution system"
       Data Type: "<ServiceWaterHeatingDistributionCompactness>"
@@ -2607,6 +2587,40 @@ ServiceWaterHeatingHeatRecoveryType:
       Description: "Horizontal"
     OTHER:
       Description: "Other"
+
+SolarThermal:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    solar_angle_from_true_north:
+      Description: "Solar heater angle from true north, clockwise"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    solar_savings_fraction:
+      Description: "Solar savings fraction"
+      Data Type: "Numeric"
+      Notes: "Based on ICC-SRCC rating. From CBECC-Com."
+    solar_collector_area:
+      Description: "Solar collector area"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    solar_collector_type_description:
+      Description: "Description of solar collector type"
+      Data Type: "String"
+      Notes: "From CBECC-Com."
+    solar_collector_slope:
+      Description: "Solar slope from horizontal"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
 
 ServiceWaterHeatingEquipment:
   Object Type: "Data Group"
@@ -2991,7 +3005,7 @@ Refrigeration:
       Description: "display area of a refrigerated case in square meters"
       Data Type: "Numeric"
       Units: "m2"
-    case_zone:
+    zone_case_location:
       Description: "Zone where case is located"
       Data Type: "$ID"
 
