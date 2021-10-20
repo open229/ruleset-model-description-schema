@@ -2435,18 +2435,13 @@ ServiceWaterHeatingDistributionSystem:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
-    annual_entering_water_temperature:
-      Description: "Annual service main or annual ground temperature used for service water heating calculations entering water temperature	degrees"
-      Data Type: "Numeric"
-      Units: "C"
-    monthly_entering_water_temperature:
-      Description: "Monthly service main or ground temperatures used for service water heating entering water temperature	degrees"
-      Data Type: "[Numeric][1..12]"
-      Units: "C"
-      Notes: "Arrayed variable with 12 values for monthly entering water temperature"
-    entering_water_temperature_type:
-      Description: "Method of determining service water heating entering water temperature"
-      Data Type: "<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>"
+    entering_water_mains_temperature_schedule:
+      Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    is_ground_temperature_used_for_entering_water:
+      Description: "Indicates whether ground temperature is the source of the entering water temperature"
+      Data Type: "Boolean"
 
 ServiceWaterHeatingConfigurationType:
   Object Type: "Enumeration"
@@ -2479,18 +2474,6 @@ ServiceWaterHeatingConfigurationType:
       Description: "Standard"
     OTHER:
       Description: "Other"
-
-ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
-  Object Type: "Enumeration"
-  Enumerators:
-    ANNUAL_MAIN:
-      Description: "Annual main entering water temperature option"
-    MONTHLY_MAIN:
-      Description: "Monthly main entering water temperature option"
-    ANNUAL_GROUND:
-      Description: "Annual ground entering water temperature option"
-    MONTHLY_GROUND:
-      Description: "Monthly ground entering water temperature option"
 
 ServiceWaterHeatingHeatRecoveryType:
   Object Type: "Enumeration"
@@ -2830,6 +2813,10 @@ ServiceWaterHeatingUse:
     water_serves_type:
       Description: "The use of the water serves the type"
       Data Type: "<ServiceWaterHeatingServesType>"
+    served_by_distribution_system:
+      Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
+      Data Type: "$ID"
+      Notes: "From CBECC-Res. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     use:
       Description: "Usage of service hot water"
       Data Type: "Numeric"
