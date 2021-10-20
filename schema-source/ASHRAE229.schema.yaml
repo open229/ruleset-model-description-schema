@@ -2492,20 +2492,6 @@ ServiceWaterHeatingEnteringWaterTemperatureInputOptions:
     MONTHLY_GROUND:
       Description: "Monthly ground entering water temperature option"
 
-ServiceWaterHeatingLoopPipeLocation:
-  Object Type: "Enumeration"
-  Enumerators:
-    CONDITIONED:
-      Description: "Conditioned"
-    SEMICONDITIONED:
-      Description: "Semiconditioned"
-    UNCONDITIONED:
-      Description: "Unconditioned"
-    UNDERGROUND:
-      Description: "Underground"
-    OTHER:
-      Description: "Other"
-
 ServiceWaterHeatingHeatRecoveryType:
   Object Type: "Enumeration"
   Enumerators:
@@ -2542,8 +2528,12 @@ ServiceWaterPiping:
       Notes: "From CBECC-Com."
     loop_pipe_location:
       Description: "Loop pipe location"
-      Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
+      Data Type: "<ComponentLocation>"
       Notes: "From CBECC-Com."
+    zone_location:
+      Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocation"
+      Data Type: "$ID"
+      Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
     length:
       Description: "Pipe length"
       Data Type: "Numeric"
@@ -2684,7 +2674,7 @@ ServiceWaterHeatingEquipment:
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
-      Data Type: "<ServiceWaterHeatingLocation>"
+      Data Type: "<ComponentLocation>"
       Notes: "From CBECC-Res."
     compressor_heat_rejection_zone:
       Description: "Heat pump heat rejection zone"
@@ -2720,11 +2710,15 @@ ServiceWaterHeaterType:
     OTHER:
       Description: "Other"
 
-ServiceWaterHeatingLocation:
+ComponentLocation:
   Object Type: "Enumeration"
   Enumerators:
+    IN_ZONE:
+      Description: "In a zone"
     CONDITIONED:
       Description: "Conditioned"
+    SEMICONDITIONED:
+      Description: "Semiconditioned"
     OUTSIDE:
       Description: "Outside"
     GARAGE:
@@ -2733,6 +2727,8 @@ ServiceWaterHeatingLocation:
       Description: "Attic"
     CRAWL_SPACE:
       Description: "Crawl space"
+    UNDERGROUND:
+      Description: "Underground"
     UNCONDITIONED:
       Description: "Unconditioned"
     OTHER:
@@ -2780,7 +2776,7 @@ Tank:
       Notes: "From CBECC-Res."
     location:
       Description: "Location"
-      Data Type: "<ServiceWaterHeatingLocation>"
+      Data Type: "<ComponentLocation>"
       Notes: "From CBECC-Res."
     location_zone:
       Description: "Tank zone location"
