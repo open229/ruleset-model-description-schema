@@ -2398,6 +2398,9 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Indicates whether it is a central service water heater distribution system"
       Data Type: "Boolean"
       Notes: "From CBECC-Com."
+    service_water_piping:
+      Description: "Other service water piping connected to this one as children."
+      Data Type: "[{ServiceWaterPiping}]"
     solar_thermal_systems:  
       Description: "Solar thermal systems used for heating service water"
       Data Type: "[{SolarThermal}]"
@@ -2406,9 +2409,9 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Type of compact distribution system"
       Data Type: "<ServiceWaterHeatingDistributionCompactness2019T24Com>"
       Notes: "From CBECC-Com."
-    distribution_type:
+    control_type:
       Description: "Type of distribution system"
-      Data Type: "<ServiceWaterHeatingDistributionType>"
+      Data Type: "<ServiceWaterHeatingControlType2019T24Com>"
       Notes: "From CBECC-Com."
     configuration_type:
       Description: "Type of configuration"
@@ -2428,44 +2431,6 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Drain heat recovery type"
       Data Type: "<ServiceWaterHeatingHeatRecoveryType>"
       Notes: "From CBECC-Res."
-    loop_pipe_insulation_thickness:
-      Description: "Loop pipe insulation thickness"
-      Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
-      Notes: "From CBECC-Com."
-    loop_pipe_location:
-      Description: "Loop pipe location"
-      Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
-      Notes: "From CBECC-Com."
-    pipe_length:
-      Description: "Pipe length"
-      Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
-      Notes: "From RESNET"
-    recirculation_loop_pipe_section_length:
-      Description: "Recirculation loop pipe section length"
-      Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
-      Notes: "From CBECC-Res."
-    recirculation_loop_pipe_section_diameter:
-      Description: "Recirculation loop pipe section diameter"
-      Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
-      Notes: "From CBECC-Res."
-    recirculation_loop_pipe_section_location:
-      Description: "Recirculation loop pipe section location"
-      Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
-      Notes: "From CBECC-Res."
-    recirculation_loop_pipe_insulation_thickness:
-      Description: "Recirculation loop pipe insulation thickness"
-      Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
-      Notes: "From CBECC-Res."
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "$ID"
@@ -2482,22 +2447,6 @@ ServiceWaterHeatingDistributionSystem:
     entering_water_temperature_type:
       Description: "Method of determining service water heating entering water temperature"
       Data Type: "<ServiceWaterHeatingEnteringWaterTemperatureInputOptions>"
-
-ServiceWaterHeatingDistributionType:
-  Object Type: "Enumeration"
-  Enumerators:
-    DEMAND_CONTROL:
-      Description: "Demand control"
-    NO_CONTROL:
-      Description: "No control"
-    NO_LOOP_OR_CENTRAL_SYSTEM_PUMP:
-      Description: "No loop or central system pump"
-    TEMPERATURE_MODULATTION:
-      Description: "Temperature modulation"
-    TEMPERATURE_MODULATION_AND_MONITORING:
-      Description: "Temperature modulation and monitoring"
-    OTHER:
-      Description: "Other"
 
 ServiceWaterHeatingConfigurationType:
   Object Type: "Enumeration"
@@ -2550,7 +2499,7 @@ ServiceWaterHeatingLoopPipeLocation:
       Description: "Conditioned"
     SEMICONDITIONED:
       Description: "Semiconditioned"
-    UNCONDITIONTED:
+    UNCONDITIONED:
       Description: "Unconditioned"
     UNDERGROUND:
       Description: "Underground"
@@ -2568,6 +2517,48 @@ ServiceWaterHeatingHeatRecoveryType:
       Description: "Horizontal"
     OTHER:
       Description: "Other"
+
+ServiceWaterPiping:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    is_recirculation_loop:
+      Description: "Indicates if service water heating piping is a loop and recirculates"
+      Data Type: "Boolean"
+    insulation_thickness:
+      Description: "Pipe insulation thickness"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    loop_pipe_location:
+      Description: "Loop pipe location"
+      Data Type: "<ServiceWaterHeatingLoopPipeLocation>"
+      Notes: "From CBECC-Com."
+    length:
+      Description: "Pipe length"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From RESNET"
+    diameter:
+      Description: "Pipe section diameter"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Res."
+    child_service_water_piping:
+      Description: "Other service water piping connected to this one as children."
+      Data Type: "[{ServiceWaterPiping}]"
 
 SolarThermal:
   Object Type: "Data Group"
@@ -2822,8 +2813,6 @@ ServiceWaterHeaterTankType:
       Description: "Commercial Packaged Boiler"
     OTHER:
       Description: "Other"
-
-
 
 ServiceWaterHeatingUse:
   Object Type: "Data Group"
