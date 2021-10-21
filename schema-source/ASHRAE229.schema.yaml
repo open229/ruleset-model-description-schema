@@ -375,7 +375,7 @@ Space:
       Notes: "The enumeration is based on the standard used."
     service_weater_heating_uses:
       Description: "List of service water heating uses"
-      Data Type: "[<ServiceWaterHeatingUse>]"
+      Data Type: "[{ServiceWaterHeatingUse}]"
 
 ConditioningType:
   Object Type: "Enumeration"
@@ -1906,11 +1906,11 @@ Pump:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    loop:
-      Description: "Referenced to the fluid loop or service water heating distribution system"
+    loop_or_piping:
+      Description: "Referenced to the fluid loop or service water heating piping"
       Data Type: "$ID"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -2616,8 +2616,8 @@ ServiceWaterHeatingEquipment:
       Units: "L"
       Range: ">=0"
       Notes: "From CBECC-Com."
-    flow_rate:
-      Description: "Flow rate"
+    design_flow_rate:
+      Description: "Designn flow rate"
       Data Type: "Numeric"
       Units: "L/s"
       Range: ">=0"
@@ -2663,6 +2663,9 @@ ServiceWaterHeatingEquipment:
       Description: "Heat pump heat rejection zone"
       Data Type: "$ID"
       Notes: "From CBECC-Res. Constraint to use when implemented :Zone:"
+    compressor_output_validation_points:
+      Description: "Capacity validation points"
+      Data Type: "[{HeatPumpWaterHeaterValidationPoint}]"
     draft_fan_power:
       Description: "Power for the draft fan "
       Data Type: "Numeric"
@@ -2716,6 +2719,24 @@ ComponentLocation:
       Description: "Unconditioned"
     OTHER:
       Description: "Other"
+
+HeatPumpWaterHeaterValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    water_temperature:
+      Description: "Temperate of water"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
+    condenser_temperature:
+      Description: "Second temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
 
 Tank:
   Object Type: "Data Group"
@@ -2812,7 +2833,7 @@ ServiceWaterHeatingUse:
       Notes: "The enumeration is based on the standard used."
     water_serves_type:
       Description: "The use of the water serves the type"
-      Data Type: "<ServiceWaterHeatingServesType>"
+      Data Type: "<ServiceWaterHeatingFixtureType>"
     served_by_distribution_system:
       Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
       Data Type: "$ID"
@@ -2842,13 +2863,15 @@ ServiceWaterHeatingUse:
       Data Type: "Boolean"
       Notes: "From CBECC-Res."
 
-ServiceWaterHeatingServesType:
+ServiceWaterHeatingFixtureType:
   Object Type: "Enumeration"
   Enumerators:
     SHOWER:
       Description: "Shower"
     BATH:
       Description: "Bath"
+    RESTROOM_SINK:
+      Description: "Restroom Sink"
     DISHWASHER:
       Description: "Dishwasher"
     KITCHEN_SINK:
@@ -2885,6 +2908,10 @@ EnergySourceTypeOptions:
       Description: "Electricity"
     NATURAL_GAS:
       Description: "Natural gas"
+    PROPANE:
+      Description: "Propane"
+    FUEL_OIL:
+      Description: "Fuel oil"
     OTHER:
       Description: "Other"
 
