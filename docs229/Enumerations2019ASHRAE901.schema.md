@@ -409,12 +409,10 @@
 | `NOT_APPLICABLE` | No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets. |       |
 
 # SpaceStatusType2019ASHRAE901
-|  Enumerator  | Description | Notes |
-|--------------|-------------|-------|
-| `NEW`        | New         |       |
-| `EXISTING`   | Existing    |       |
-| `ADDITION`   | Addition    |       |
-| `ALTERATION` | Alteration  |       |
+| Enumerator | Description | Notes |
+|------------|-------------|-------|
+| `NEW`      | New         |       |
+| `EXISTING` | Existing    |       |
 
 # AdditionalSurfaceAdjacentTo2019ASHRAE901
 |   Enumerator    |                                                                   Description                                                                   | Notes |

@@ -981,15 +981,11 @@
             "type": "string",
             "enum": [
                 "NEW",
-                "EXISTING",
-                "ADDITION",
-                "ALTERATION"
+                "EXISTING"
             ],
             "descriptions": [
                 "New",
-                "Existing",
-                "Addition",
-                "Alteration"
+                "Existing"
             ]
         },
         "AdditionalSurfaceAdjacentTo2019ASHRAE901": {
