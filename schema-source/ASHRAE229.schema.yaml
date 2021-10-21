@@ -2616,12 +2616,9 @@ ServiceWaterHeatingEquipment:
       Units: "L"
       Range: ">=0"
       Notes: "From CBECC-Com."
-    design_flow_rate:
-      Description: "Designn flow rate"
-      Data Type: "Numeric"
-      Units: "L/s"
-      Range: ">=0"
-      Notes: "From CBECC-Com."
+    output_validation_points:
+      Description: "Capacity validation points"
+      Data Type: "[{ServiceWaterHeaterValidationPoint}]"
     input_power:
       Description: "Input power"
       Data Type: "Numeric"
@@ -2720,11 +2717,24 @@ ComponentLocation:
     OTHER:
       Description: "Other"
 
+ServiceWaterHeaterValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "No name and id is needed since typically used as one of a series."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
 HeatPumpWaterHeaterValidationPoint:
   Object Type: "Data Group"
   Data Elements:
     water_temperature:
-      Description: "Temperate of water"
+      Description: "Temperature of water"
       Data Type: "Numeric"
       Units: "C"
       Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
