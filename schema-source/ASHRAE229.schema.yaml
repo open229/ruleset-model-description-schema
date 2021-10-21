@@ -2660,9 +2660,12 @@ ServiceWaterHeatingEquipment:
       Description: "Heat pump heat rejection zone"
       Data Type: "$ID"
       Notes: "From CBECC-Res. Constraint to use when implemented :Zone:"
-    compressor_output_validation_points:
+    compressor_capacity_validation_points:
       Description: "Capacity validation points"
-      Data Type: "[{HeatPumpWaterHeaterValidationPoint}]"
+      Data Type: "[{HeatPumpWaterHeaterCapacityValidationPoint}]"
+    compressor_power_validation_points:
+      Description: "Coefficient of performance validation points"
+      Data Type: "[{HeatPumpWaterHeaterPowerValidationPoint}]"
     draft_fan_power:
       Description: "Power for the draft fan "
       Data Type: "Numeric"
@@ -2730,19 +2733,55 @@ ServiceWaterHeaterValidationPoint:
       Data Type: "Numeric"
       Units: "W"
 
-HeatPumpWaterHeaterValidationPoint:
+HeatPumpWaterHeaterCapacityValidationPoint:
   Object Type: "Data Group"
   Data Elements:
-    water_temperature:
-      Description: "Temperature of water"
+    evaporator_air_temperature:
+      Description: "Outside dry bulb temperatures of air"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
-    condenser_temperature:
-      Description: "Second temperature"
+      Notes: "No name and id is needed since used as one of a series. "
+    condenser_water_temperature:
+      Description: "Entering condenser temperature of water"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
+    evaporator_air_flow:
+      Description: "Air flow across evaporator"
+      Data Type: "Numeric"
+      Units: "L/s"
+    condenser_water_flow:
+      Description: "Water flow across condenser"
+      Data Type: "Numeric"
+      Units: "L/s"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+HeatPumpWaterHeaterPowerValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    evaporator_air_temperature:
+      Description: "Outside dry bulb temperatures of air"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. "
+    condenser_water_temperature:
+      Description: "Entering condenser temperature of water"
+      Data Type: "Numeric"
+      Units: "C"
+    evaporator_air_flow:
+      Description: "Air flow across evaporator"
+      Data Type: "Numeric"
+      Units: "L/s"
+    condenser_water_flow:
+      Description: "Water flow across condenser"
+      Data Type: "Numeric"
+      Units: "L/s"
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
     result:
       Description: "Result"
       Data Type: "Numeric"
