@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Enumerations from Title 24",
+    "description": "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications.",
+    "definitions": {
+        "ServiceWaterHeatingDistributionCompactness2019T24Com": {
+            "type": "string",
+            "enum": [
+                "NOT_COMPACT",
+                "BASIC_COMPACT",
+                "EXPANDED_CREDIT",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Not compact",
+                "Basic compact",
+                "Expanded credit",
+                "Other"
+            ]
+        },
+        "ServiceWaterHeatingControlType2019T24Com": {
+            "type": "string",
+            "enum": [
+                "DEMAND_CONTROL",
+                "NO_CONTROL",
+                "NO_LOOP_OR_CENTRAL_SYSTEM_PUMP",
+                "TEMPERATURE_MODULATTION",
+                "TEMPERATURE_MODULATION_AND_MONITORING",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Demand control",
+                "No control",
+                "No loop or central system pump",
+                "Temperature modulation",
+                "Temperature modulation and monitoring",
+                "Other"
+            ]
+        }
+    }
+}

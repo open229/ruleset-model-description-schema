@@ -1,0 +1,3191 @@
+# ASHRAE229.schema.yaml
+# The purpose of this "open229 schema" is to provide a single source generator format from which
+# all open229 standard materials, both normative and informative, will be created.
+
+# YAML single-source files will be created in accordance with the open229 schema.
+
+# Meta
+
+Schema:
+  Object Type: "Meta"
+  Title: "ASHRAE 229"
+  Description: "Base schema for ASHRAE 229 representations"
+  Version: "0.0.3"
+  References:
+    - "Enumerations2019ASHRAE901"
+    - "EnumerationsRESNET"
+    - "Enumerations2019T24"
+  Root Data Group: "ASHRAE229"
+
+# Data Types
+
+Integer:
+  Object Type: "Data Type"
+  Description: "A positive or negative whole number (i.e., a number that can be written without a fractional part)."
+  JSON Schema Type: integer
+  Examples:
+    - "3"
+    - "19"
+    - "-4"
+
+Numeric:
+  Object Type: "Data Type"
+  Description: "A number that may include a fractional part with optional leading sign and optional exponent (engineering notation)."
+  JSON Schema Type: number
+  Examples:
+    - "3.43"
+    - "0"
+    - "-4"
+    - "1.03e4"
+
+Boolean:
+  Object Type: "Data Type"
+  Description: "True or false."
+  JSON Schema Type: boolean
+  Examples:
+    - "true"
+    - "false"
+
+String:
+  Object Type: "Data Type"
+  Description: "A sequence of characters of any length using any (specified) character set."
+  JSON Schema Type: string
+  Examples:
+    - "Indirect evaporative cooler"
+
+"ID":
+  Object Type: "Data Type"
+  Description: "A referencencable identification for a data group and sequence of characters of any length using any (specified) character set."
+  JSON Schema Type: string
+  Examples:
+    - "AHU-01"
+
+"Null":
+  Object Type: "Data Type"
+  Description: "Indicator that no value is provided. Only used in combination with other data types, e.g., 'Number/Null'."
+  JSON Schema Type: "null"
+  Examples:
+    - "null"
+
+# Common Data Groups
+ASHRAE229:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group."
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    transformers:
+      Description: "Electrical transformers at the building site"
+      Data Type: "[{Transformer}]"
+      Notes: "Contains a list of transformers that convert electricity from a higher voltage to one used by the building, exterior lighting, and other services at the site."
+    buildings:
+      Description: "Buildings on the site"
+      Data Type: "[{Building}]"
+      Notes: "Contains a list of buildings on the site (often just one)."
+    calendar:
+      Description: "Information on the calendar used with the simulation."
+      Data Type: "{Calendar}"
+    schedules:
+      Description: "Schedules for internal loads, thermostats, equipment operation and control, and any other need."
+      Data Type: "[{Schedule}]"
+      Notes: "Contains a list of schedules used in model."
+    weather:
+      Description: "Information on the local weather conditions used with the simulation."
+      Data Type: "{Weather}"
+    measured_infiltration_pressure_difference:
+      Description: "Differential pressure difference used during measurement for infiltration values."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "Pa"
+      Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions."
+    is_measured_infiltration_based_on_test:
+      Description: "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building."
+      Data Type: "Boolean"
+    overall_simulation_outputs:
+      Description: "Outputs from the simluation summed for all buildings in the simulation."
+      Data Type: "{OverallSimulationOutputs}"
+    category:
+      Description: "Indicates which category the current model represents for rulesets with multiple simulation models"
+      Data Type: "<CategoryType2019ASHRAE901>"
+    compliance_path:
+      Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
+      Data Type: "<CompliancePathType2019ASHRAE901>"
+    building_rotation_angles: 
+      Description: "A list of angles that building simulations are performed and results are provided."
+      Data Type: "[Numeric]"
+      Units: "degrees"
+      Notes: "List of angles that the building has been rotated."
+    fluid_loops:
+      Description: "Fluid loops on the site"
+      Data Type: "[{FluidLoop}]"
+      Notes: "Contains a list of fluid loops on the site."
+    service_water_heating_distribution_systems:
+      Description: "Service water heating systems on the site"
+      Data Type: "[{ServiceWaterHeatingDistributionSystem}]"
+      Notes: "Contains a list of service water heating distribution systems at the site."
+    pumps:
+      Description: "Pumps used on the site"
+      Data Type: "[{Pump}]"
+    boilers:
+      Description: "Boilers used on the site"
+      Data Type: "[{Boiler}]"
+    chillers:
+      Description: "Chillers used on the site"
+      Data Type: "[{Chiller}]"
+    heat_rejections:
+      Description: "HeatRejections used on the site"
+      Data Type: "[{HeatRejection}]"
+    external_fluid_source:
+      Description: "ExternalFluidSources used on the site"
+      Data Type: "[{ExternalFluidSource}]"
+    site_zone_type:
+      Description: "Site zone type for Sec 9.4.2"
+      Data Type: "<ExteriorLightingZones2019ASHRAE901>"
+
+Building:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    building_segments:
+      Description: "Large portions of a building that share a building area type"
+      Data Type: "[{BuildingSegment}]"
+      Notes: "Contains a list of building segments in the building."
+    elevators:
+      Description: "Elevators"
+      Data Type: "[{Elevator}]"
+      Notes: "Contains a list of elevators in the building."
+    exterior_lighting:
+      Description: "Exterior lighting systems"
+      Data Type: "[{ExteriorLighting}]"
+      Notes: "Contains a list of exterior lighting systems for the building."
+    refrigeration_components:
+      Description: "Refrigeration"
+      Data Type: "[{Refrigeration}]"
+      Notes: "Contains a list of refrigeration components in the building."
+    building_open_schedule:
+      Description: "Reference to the schedule containing indicating when the building is open"
+      Data Type: "$ID"
+      Required: True
+      Notes: "One represent when the building is open and zero when closed. Constraint to use when implemented :Schedule:"
+    has_site_shading:
+      Description: "Indicates whether the site has features that cast shadows on the building"
+      Data Type: "Boolean"
+
+BuildingSegment:    
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    number_of_floors_above_grade:
+      Description: "Number of floors above grade"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
+    number_of_floors_below_grade:
+      Description: "Number of floors below grade"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
+    is_all_new:
+      Description: "Indicates whether the building segment is completely new construction (true) or existing (false). "
+      Data Type: "Boolean"
+      Notes: "Projects that include additions should have a building segments that are existing (false) and for the addition (true). Curtain rules such as baseline fenestration area will apply differently to each portion."
+    zones:
+      Description: "Zones in the building"
+      Data Type: "[{Zone}]"
+      Notes: "Contains a list of zones in the building."
+    heating_ventilation_air_conditioning_systems:
+      Description: "HVAC systems in the building"
+      Data Type: "[{HeatingVentilationAirConditioningSystem}]"
+      Notes: "Contains a list of HVAC systems in the building."
+    area_type_vertical_fenestration:
+      Description: "Building area classification used for vertical fenestration"
+      Data Type: "<VerticalFenestrationBuildingAreaType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    lighting_building_area_type:
+      Description: "Building area lighting area type"
+      Data Type: "<LightingSpaceType2019ASHRAE901T951TG38>"
+    area_type_heating_ventilation_air_conditioning_system:
+      Description: "Classification used for HVAC"
+      Data Type: "<HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used. JG to verify if used in test case description."
+
+Zone:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    spaces:
+      Description: "Spaces in the zone"
+      Data Type: "[{Space}]"
+      Notes: "Contains a list of spaces in the building."
+    volume:
+      Description: "Volume of the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3"
+    surfaces:
+      Description: "Surfaces surrounding the zone"
+      Data Type: "[{Surface}]"
+      Notes: "Contains a list of surfaces that define the zone."
+    conditioning_type:
+      Description: "Space conditioning category"
+      Data Type: "<ConditioningType>"
+    infiltration:
+      Description: "Airleakage into the zone."
+      Data Type: "{Infiltration}"
+      Notes: "References a single infiltration data group."
+    design_thermostat_cooling_setpoint:
+      Description: "Setpoint temperature for cooling during occupied hours"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    thermostat_cooling_setpoint_schedule:
+      Description: "Reference to the schedule containing the cooling setpoint temperatures"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+    design_thermostat_heating_setpoint:
+      Description: "Setpoint temperature for heating during occupied hours"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    thermostat_heating_setpoint_schedule:
+      Description: "Reference to the schedule containing the heating setpoint temperatures"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+    terminals:
+      Description: "List of terminals"
+      Data Type: "[{Terminal}]"
+      Notes: "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+    served_by_service_water_heating_system:
+      Description: "A service water heating system serving the zone"
+      Data Type: "$ID"
+      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingSystem:"
+    transfer_airflow_rate:
+      Description: "Transfer airflow rate"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    exhaust_airflow_rate:
+      Description: "Number of occupants in the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    non_mechanical_cooling_fan_power:
+      Description: "Non-mechanical cooling fan power"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+    non_mechanical_cooling_fan_airflow:
+      Description: "Non-mechanical cooling fan power"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    air_distribution_effectiveness: 
+      Description: "Air distribution effectiveness"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
+
+Space:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    interior_lighting:
+      Description: "Internal lighting that produce internal gains for a space."
+      Data Type: "[{InteriorLighting}]"
+    miscellaneous_equipment:
+      Description: "Miscellaneous equipment loads that produce internal gains for a space."
+      Data Type: "[{MiscellaneousEquipment}]"
+    floor_area:
+      Description: "The floor area of the space."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m2"
+      Notes: "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled."
+    number_of_occupants:
+      Description: "Number of occupants in the space"
+      Data Type: "Numeric"
+      Range: ">=0"
+    occupant_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for the number of occupants"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+    occupant_sensible_heat_gain:
+      Description: "Sensible heat gain of each occupant."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+    status_type:
+      Description: "Choice of new, existing, addition, or alteration."
+      Data Type: "<SpaceStatusType2019ASHRAE901>"
+    space_function:
+      Description: "Generic function for the space."
+      Data Type: "<SpaceFunctionType>"
+      Notes: "The enumeration is based on the standard used."
+    lighting_space_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingSpaceType2019ASHRAE901TG37>"
+      Notes: "The enumeration is based on the standard used."
+    ventilations_space_type:
+      Description: "Ventilation space type classification"
+      Data Type: "<VentilationSpaceType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    service_water_heating_space_type:
+      Description: "Service water heating space type classification"
+      Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    service_weater_heating_uses:
+      Description: "List of service water heating uses"
+      Data Type: "[{ServiceWaterHeatingUse}]"
+
+ConditioningType:
+  Object Type: "Enumeration"
+  Enumerators:
+    HEATED_AND_COOLED:
+      Description: "Heated and cooled"
+    HEATED_ONLY:
+      Description: "Heated only"
+    SEMIHEATED:
+      Description: "Semiheated"
+    UNCONDITIONED:
+      Description: "Unconditioned"
+
+SpaceFunctionType:
+  Object Type: "Enumeration"
+  Enumerators:
+    LABORATORY:
+      Description: "Laboratory"
+    KITCHEN:
+      Description: "Kitchen"
+    OTHER:
+      Description: "Other"
+
+Infiltration:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    modeling_method:
+      Description: "The software methodology chosen for modeling infiltration"
+      Data Type: "<InfiltrationMethodType>"
+    algorithm_name:
+      Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
+      Data Type: "String"
+    measured_air_leakage_rate:
+      Description: "Meaured air leakage rate from infiltration of outside air"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3/s"
+      Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
+    infiltration_flow_rate:
+      Description: "Design infiltration flow rate"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m3/s"
+      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines."
+    multiplier_schedule:
+      Description: "Referenced to the schedule containing the multiplier for the infiltration"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+
+InfiltrationMethodType:
+  Object Type: "Enumeration"
+  Enumerators:
+    WEATHER_DRIVEN:
+      Description: "Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule."
+    PRESSURE_BASED:
+      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction and is then multiplied by the schedule."
+    SCHEDULED:
+      Description: "Constant. The amount of air leakage is based on the infiltration_flow_rate multiplied by the schedule."
+
+Surface:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    subsurfaces:
+      Description: "Suburfaces that are on the surface"
+      Data Type: "[{Subsurface}]"
+      Notes: "Contains a list of surfaces that define the space."
+    classification: 
+      Description: "Classification for the surface."
+      Data Type: "<SurfaceClassificationType>"
+      Notes: "Options for surface being interior or exterior wall, floor, or ceiling."
+    area:
+      Description: "area of the surface"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m2"
+      Notes: "Measured from interior face area. It is the gross area of the wall and includes the area of all subsurfaces."
+    tilt:
+      Description: "Angle between vertical and the surface outward normal" 
+      Data Type: "Numeric"
+      Units: "degrees"
+      Notes: "Example value would be 0 = roof, 90 = wall, 180 = downward facing surface (exterior floor)"
+    azimuth:
+      Description: "Clockwise angle between North and the horizontal projection of the wall's outward normal."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "degrees"
+      Notes: "Example values would be 0 = north, 90 = East, 180 = South, 270 = West"
+    adjacent_to:
+      Description: "Used to classify the conditions on the surface."
+      Data Type: "(<SurfaceAdjacentTo>,<AdditionalSurfaceAdjacentToRESNET>,<AdditionalSurfaceAdjacentTo2019ASHRAE901>)"
+      Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
+    adjacent_zone:
+      Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Zone:"
+    does_cast_shade:
+      Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
+      Data Type: "Boolean"
+    construction:
+      Description: "Construction description of surface."
+      Data Type: "{Construction}"
+    surface_optical_properties:
+      Description: "Optical properties of the surface."
+      Data Type: "{SurfaceOpticalProperties}"
+  
+Construction:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    surface_construction_input_option:
+      Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
+      Data Type: "<SurfaceConstructionInputOptions>"
+    fraction_framing:
+      Description: "Fraction of the construction that is framing."
+      Data Type: "Numeric"
+      Range: ">=0,<=1"
+      Notes: "Fraction of the construction using framing_layers, the remaining portion uses the primary_layers. If blank, assume zero framing."
+    primary_layers:
+      Description: "List of names of layer descriptions starting from the outside surface for primary heat path"
+      Data Type: "[{Material}]"
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the cavity. For constructions with homogeneous layer, use this element only. Air films should not be included in the list of layers."
+    framing_layers:
+      Description: "List of names of layer descriptions starting from the outside surface for the framing heat path"
+      Data Type: "[{Material}]"
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the framing otherwise leave blank. Air films should not be included in the list of layers."
+    insulation_location:
+      Description: "The location of the insulation related to the surface"
+      Data Type: "String"  # this might make sense as an enumeration but I'm not sure the source of the options
+    u_factor:
+      Description: "suface U-factor"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W/m2-K"
+      Notes: "Includes interior and exterior air films as specified by the referenced standard."
+    c_factor:
+      Description: "surface C-factor"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W/m2-K"
+    f_factor:
+      Description: "surface F-factor"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W/m-K"
+    r_value:
+      Description: "r-value of the insulation for the surface"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+    has_radiant_heating:
+      Description: "Includes embedded radiant heating elements"
+      Data Type: "Boolean"
+    has_radiant_cooling:
+      Description: "Includes embedded radiant cooling elements"
+      Data Type: "Boolean"
+
+Material:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    thickness:
+      Description: "The thickness of the material layer"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">0"
+    thermal_conductivity:
+      Description: "The thermal conductivity of the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W/m-K"
+      Notes: "When thermal_conductivity is specified, r_value should not be provided."
+    density:
+      Description: "The density of the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "kg/m3"
+    specific_heat:
+      Description: "The specific heat of the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "J/kg-K"
+    r_value:
+      Description: "r-value of the insulation for the material layer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "When r_value is specified, thermal_conductivity should not be provided. Typically used for insulation or air gaps."
+
+SurfaceOpticalProperties:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    absorptance_thermal_exterior:
+      Description: "Thermal absorptance of long wavelength radiation on the exterior surface."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
+    absorptance_solar_exterior:
+      Description: "Thermal absorptance of short wavelength radiation on the exterior surface."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
+    absorptance_visible_exterior:
+      Description: "Thermal absorptance of visible radiation on the exterior surface."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
+    absorptance_thermal_interior:
+      Description: "Thermal absorptance of long wavelength radiation on the interior surface."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
+    absorptance_solar_interior:
+      Description: "Thermal absorptance of short wavelength radiation on the interior surface."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
+    absorptance_visible_interior:
+      Description: "Thermal absorptance of visible radiation on the interior surface."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
+
+SurfaceClassificationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    WALL:
+      Description: "Vertical or nearly vertical wall"
+    FLOOR:
+      Description: "Floor"
+    CEILING:
+      Description: "Ceiling"
+    
+SurfaceAdjacentTo:
+  Object Type: "Enumeration"
+  Enumerators:
+    EXTERIOR:
+      Description: "Exterior wall or roof which is adjacent to the exterior environment."
+    GROUND:
+      Description: "Slab-on-grad or below grade surface if adjacent to ground."
+    INTERIOR:
+      Description: "Interior surface if adjacent to another space which is explicity modeled."
+    IDENTICAL:
+      Description: "Surface adjacent to a environment identical to the space. Sometimes this is described as adiabatic surface since no heat is transfered. The space on the other side of the surface is not explicity modeled."
+    UNDEFINED:
+      Description: "The surface adjacency cannot be determined by the software."
+
+SurfaceConstructionInputOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    LAYERS:
+      Description: "Construction is entered layer-by-layer."
+    SIMPLIFIED:
+      Description: "Construction is entered by R-value only."
+
+Subsurface:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    classification:
+      Description: "Classification for the subsurface being window, skylight, door."
+      Data Type: "<SubsurfaceClassificationType>"
+    subclassification:
+      Description: "Standard specific subclassification for subsurfaces"
+      Data Type: "<SubsurfaceSubclassificationType2019ASHRAE901>"
+    is_operable:
+      Description: "Identifies whether window subsurface can be opened and closed including by pivoting or sliding."
+      Data Type: "Boolean"
+      Notes: "This applies to windows and skylights but not to doors." 
+    has_open_sensor:
+      Description: "Has sensor and reports to building control system when the window or door is open."
+      Data Type: "Boolean"
+    framing_type:
+      Description: "The material of the framing."
+      Data Type: "<SubsurfaceFrameType2019ASHRAE901>"
+      Notes: "This applies to windows and skylights but not to doors." 
+    glazed_area:
+      Description: "Area of subsurface including glass and transparent surfaces"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m2"
+    opaque_area:
+      Description: "Area of subsurface framing for a window or skylight or opaque portion for a door."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m2"
+    u_factor:
+      Description: "Overall Subsurface U-factor"
+      Data Type: "Numeric"
+      Units: "W/m2-K"
+      Range: ">=0"
+      Notes: "Includes interior and exterior air films as specified by the referenced standard."
+    dynamic_glazing_type:
+      Description: "Type of dynamic glazing for the window subsurface"
+      Data Type: "<SubsurfaceDynamicGlazingType>"
+      Notes: "Indicates if the glazed subsurface can change it's performance properties and if it is automatic or not."
+    solar_heat_gain_coefficient:
+      Description: "Subsurface SHGC"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "For dynamic glazing represents the minimum SHGC" 
+    maximum_solar_heat_gain_coefficient:
+      Description: "Maximum Subsurface SHGC for Dynamic Glazing"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Only used for dynamic glazing" 
+    visible_transmittance:
+      Description: "Subsurface VT"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "For dynamic glazing represents the maximum visible transmittance" 
+    minimum_visible_transmittance:
+      Description: "Minimum Subsurface VT for Dynamic Glazing"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Only used for dynamic glazing" 
+    depth_of_overhang:
+      Description: "Distance from the edge of the overhang to the subsurface."
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+    has_shading_overhang:
+      Description: "Identifies whether subsurface has overhangs"
+      Data Type: "Boolean"
+    has_shading_sidefins:
+      Description: "Identifies whether subsurface has sidefins"
+      Data Type: "Boolean"
+    has_manual_interior_shades:
+      Description: "Are there manually-operated interior shading such as blinds, curtains or shades"
+      Data Type: "Boolean"
+    solar_transmittance_multiplier_summer:
+      Description: "Solar transmittance multiplier for summer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Often used to account for interior shading such as drapes."
+    solar_transmittance_multiplier_winter:
+      Description: "Solar transmittance multiplier for summer"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Often used to account for interior shading such as drapes."
+    has_automatic_shades:
+      Description: "Are there automatic interior shading such as blinds, curtains or shades"
+      Data Type: "Boolean"
+
+SubsurfaceClassificationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    WINDOW:
+      Description: "Window"
+    SKYLIGHT:
+      Description: "Skylight"
+    DOOR:
+      Description: "Door"
+    OTHER:
+      Description: "Other types of subsurfaces that allow light to pass"
+
+SubsurfaceDynamicGlazingType:
+  Object Type: "Enumeration"
+  Enumerators:
+    NOT_DYNAMIC:
+      Description: "Not dynamic"
+    MANUAL_DYNAMIC:
+      Description: "Manual dynamic"
+    AUTOMATIC_DYNAMIC:
+      Description: "Automatic dynamic"
+
+InteriorLighting:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    purpose_type:
+      Description: "Lighting space type classification"
+      Data Type: "<LightingPurposeType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    power_per_area:
+      Description: "Total power for lights divided by the area of the space."
+      Data Type: "Numeric"
+      Units: "W/m2"
+      Notes: "When computing the power per area use the area of the entire space."
+    lighting_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for lighting"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+    occupancy_control_type:
+      Description: "Indicates the type of occupancy controls"
+      Data Type: "<LightingOccupancyControlType>"
+    daylighting_control_type:
+      Description: "Indicates the type of daylighting controls"
+      Data Type: "<LightingDaylightingControlType>"
+    are_schedules_used_for_modeling_occupancy_control:
+      Description: "Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting."
+      Data Type: "Boolean"
+    are_schedules_used_for_modeling_daylighting_control:
+      Description: "Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting."
+      Data Type: "Boolean"
+      Notes: "For simulations that are modeling daylighting by computing the illumance this should be false."
+
+LightingDaylightingControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    STEPPED:
+      Description: "Stepped"
+    CONTINUOUS_DIMMING:
+      Description: "Continuous Dimming"
+    OTHER:
+      Description: "Other types of daylighting control"
+    NONE:
+      Description: "None"
+      Notes: "No daylighting is used."
+
+LightingOccupancyControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL_AUTO_ON:
+      Description: "Full auto on"
+    PARTIAL_AUTO_ON:
+      Description: "Parial auto on"
+    MANUAL_ON:
+      Description: "Manual on"
+    OTHER:
+      Description: "Other types of occupancy control"
+    NONE:
+      Description: "None"
+      Notes: "No occupancy controls is used."
+
+MiscellaneousEquipment:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    energy_type:
+      Description: "Source of energy for the miscelleous equipment in the space"
+      Data Type: "<EnergySourceTypeOptions>"
+    peak_usage:
+      Description: "Peak energy usage per hour by the miscelleous equipment in the space."
+      Data Type: "Numeric"
+      Units: "W"
+    multiplier_schedule:
+      Description: "Referenced to the schedule containing the multiplier for the miscellenous equipment"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+    sensible_fraction:
+      Description: "Fraction of energy that is a sensible load on the space."
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Sensible plus latent do not necessarily add up to 1.0."
+    latent_fraction:
+      Description: "Fraction of energy that is a latent load on the space."
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Sensible plus latent do not necessarily add up to 1.0."
+    miscellaneous_equipment_type:
+      Description: "Type of miscellaneous equipment"
+      Data Type: "<MiscellaneousEquipmentType>"
+    has_automatic_control:
+      Description: "Indicates that the receptacles have automatic controls"
+      Data Type: "Boolean"
+
+MiscellaneousEquipmentType:
+  Object Type: "Enumeration"
+  Enumerators:
+    PLUG:
+      Description: "Plug"
+    PROCESS:
+      Description: "Process"
+    OTHER:
+      Description: "Other"
+
+Transformer:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    type:
+      Description: "The type of transformer"
+      Data Type: "<TransformerType>"
+    phase:
+      Description: "The number of electrical phases"
+      Data Type: "<ElectricalPhase>"
+    efficiency:
+      Description: "Transformer efficiency"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Expresses the efficiency of the transformer as a fraction from 0 to 1, where 1 would represent 100% efficiency."
+    capacity:
+      Description: "Rated Capacity of the Transformer"
+      Data Type: "Numeric"
+      Units: "V-A"
+      Range: ">=0"
+    peak_load:
+      Description: "Annual Peak electric load on the transformer"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "Peak electric load on the transfomer based on an annual simulation with typical weather file."
+    
+TransformerType:
+  Object Type: "Enumeration"
+  Enumerators:
+    DRY_TYPE:
+      Description: "Dry Type"
+    FLUID_FILLED:
+      Description: "Fluid Filled"
+    OTHER:
+      Description: "Other"
+
+ElectricalPhase:
+  Object Type: "Enumeration"
+  Enumerators:
+    SINGLE_PHASE:
+      Description: "Single Phase"
+    THREE_PHASE:
+      Description: "Three Phase"
+
+Schedule:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    purpose:
+      Description: "The purpose of schedule"
+      Data Type: "String"
+      Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMRs. Examples include thermostat, multiplier for lighting, availability for equipment."
+    schedule_sequence_type:
+      Description: "Schedule sequence type"
+      Data Type: "<ScheduleSequenceTypeOptions>"
+    hourly_values:
+      Description: "Hourly Values of Schedule"
+      Data Type: "[Numeric][8760]"
+      Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+    event_times:
+      Description: "Event times when the schedule changes"
+      Data Type: "[Numeric]"
+      Units: "s"
+      Notes: "Used when schedule_sequence_type is EVENT to describe the time of the year in seconds that the schedule changes value."
+    event_values:
+      Description: "Event value at corresponding event time."
+      Data Type: "[Numeric]"
+      Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+    type:
+      Description: "The type of schedule"
+      Data Type: "<ScheduleTypeOptions>"
+      Notes: "Primarily indicates if the values may be represented by units such as C for temperature or W for power or m3/s for flow rate or are dimensionless multipliers."
+    prescribed_schedule:
+      Description: "True if any schedule values have changed from what appears in the schedule library"
+      Data Type: "<PrescribedSchedules2019ASHRAE901>"
+    is_schedule_modified_for_workaround:
+      Description: "True if any schedule has been modified for a workaround"
+      Data Type: "Boolean"
+
+ScheduleSequenceTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HOURLY:
+      Description: "Hourly"
+    EVENT:
+      Description: "Event"
+
+
+ScheduleTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    MULTIPLIER_DIMENSIONLESS:
+      Description: "Multiplier dimensionless"
+    TEMPERATURE:
+      Description: "Temperature"
+    POWER:
+      Description: "Power"
+    FLOW_RATE:
+      Description: "Flow rate"
+    
+Calendar:
+  Object Type: "Data Group"
+  Data Elements:
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    day_of_week_for_january_1:
+      Description: "Day of the week for January 1"
+      Data Type: "<DayOfWeek>"
+    is_leap_year:
+      Description: "The schedules assume it is a leap year"
+      Data Type: "Boolean"
+    has_daylight_saving_time:
+      Description: "The schedules adjust for Daylight Saving Time"
+      Data Type: "Boolean"
+
+DayOfWeek:
+  Object Type: "Enumeration"
+  Enumerators:
+    SUNDAY:
+      Description: "Sunday"
+    MONDAY:
+      Description: "Monday"
+    TUESDAY:
+      Description: "Tuesday"
+    WEDNESDAY:
+      Description: "Wednesday"
+    THURSDAY:
+      Description: "Thursday"
+    FRIDAY:
+      Description: "Friday"
+    SATURDAY:
+      Description: "Saturday"
+
+Weather:
+  Object Type: "Data Group"
+  Data Elements:
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    ground_temperature_schedule:
+      Description: "Ground temperature schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    weather_file_name:
+      Description: "The file name for the weather file including extension."
+      Data Type: "String"
+      Notes: "The file name for the annual weather file such as from TMY, TRY, CWEC, CTZ, WYEC or other sources."
+    climate_zone:
+      Description: "The designation of the climate zone where the building is located"
+      Data Type: "<ClimateZone2019ASHRAE901>"
+      Required: True
+      Notes: "The enumeration is based on the standard used."
+    cooling_design_day_type:
+      Description: "The frequency of occurance type for cooling design day"
+      Data Type: "<CoolingDesignDayTypeOptions>"
+    heating_design_day_type:
+      Description: "The frequency of occurance type for heating design day"
+      Data Type: "<HeatingDesignDayTypeOptions>"
+    
+CoolingDesignDayTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    COOLING_0_4:
+      Description: "Cooling design day 0.4% annual cumulative frequency of occurance"
+    COOLING_1_0:
+      Description: "Cooling design day 1.0% annual cumulative frequency of occurance"
+    COOLING_2_0:
+      Description: "Cooling design day 2.0% annual cumulative frequency of occurance"
+
+HeatingDesignDayTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HEATING_99_6:
+      Description: "Heating design day 99.6% annual cumulative frequency of occurance"
+    HEATING_99_0:
+      Description: "Heating design day 99.0% annual cumulative frequency of occurance"
+
+Elevator:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    motor_power:
+      Description: "Elevator peak motor power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "The motor power can be provided either together with or, instead of, the detailed elements used to calculate it."
+    cab_counterweight:
+      Description: "Elevator car counterweight"
+      Data Type: "Numeric"
+      Units: "kg"
+    cab_weight:
+      Description: "Weight of elevator car"
+      Data Type: "Numeric"
+      Units: "kg"
+    design_elevator_load:
+      Description: "Elevator load at which to operate"
+      Data Type: "Numeric"
+      Units: "kg"
+    speed:
+      Description: "Design speed of the elevator"
+      Data Type: "Numeric"
+      Units: "m/s"
+    cab_area:
+      Description: "Floor area of elevator cab"
+      Data Type: "Numeric"
+      Units: "m2"
+    cab_lighting_power:
+      Description: "Lighitng power of cab"
+      Data Type: "Numeric"
+      Units: "W"
+    cab_ventilation_fan_power:
+      Description: "Ventilation fan power of cab"
+      Data Type: "Numeric"
+      Units: "W"
+    cab_ventilation_fan_flow:
+      Description: "Airflow of cab ventfan"
+      Data Type: "Numeric"
+      Units: "L/s"
+    cab_motor_multiplier_schedule:
+      Description: "Elevator motor operation multiplier schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    cab_ventilation_fan_multiplier_schedule:
+      Description: "Elevator ventilation fan operation mulitplier schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    cab_lighting_multiplier_schedule:
+      Description: "Elevator lighting multiplier schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+
+HeatingVentilationAirConditioningSystem:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    fan_systems:
+      Description: "Fan systems"
+      Data Type: "[{FanSystems}]"
+      Notes: "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
+    heating_system:
+      Description: "Heating system"
+      Data Type: "{HeatingSystem}"
+      Notes: "JG to verify if used in test case description."
+    cooling_system:
+      Description: "Cooling system"
+      Data Type: "{CoolingSystem}"
+      Notes: "JG to verify if used in test case description."
+    preheat_system:
+      Description: "Pre-heating system"
+      Data Type: "{HeatingSystem}"
+      Notes: "JG to verify if used in test case description."
+    does_serve_computer_room:
+      Description: "Determines whether a computer room is served by the system"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+    does_serve_zone_with_refrigerator_cases:
+      Description: "Determines whether a zone with refrigeration cases is served by the system"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+
+HeatingSystem:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    heating_system_type:
+      Description: "Heating system type"
+      Data Type: "<HeatingSystemType>"
+      Notes: "JG to verify if used in test case description."
+    hot_water_loop:
+      Description: "Referenced to the hot water fluid loop"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    heat_capacity:
+      Description: "Heating capacity"
+      Data Type: "[Numeric]"
+      Range: ">=0"
+      Units: "W/m2"
+      Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+    heating_coil_setpoint:
+      Description: "Setpoint of the air leaving the heating coil"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    full_load_efficiency:
+      Description: "Full Low Efficiency expressed as a coefficient of performance or thermal efficiency"
+      Data Type: "Numeric"
+      Units: "W/W"
+      Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
+    part_load_efficiency:
+      Description: "Efficiency value based on the selected part_load_efficiency_metric"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
+    heatpump_auxilliary_heat_type:
+      Description: "Heatpump auxilliary heat type"
+      Data Type: "<HeatpumpAuxilliaryHeatType>"
+      Notes: "JG to verify if used in test case description."
+    heatpump_auxilliary_heat_high_temperature_shutoff:
+      Description: "Heatpump auxilliary heat high temperature shutoff"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    heatpump_low_temperature_shutoff:
+      Description: "Heatpump low temperature shutoff"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+
+HeatingSystemType:
+  Object Type: "Enumeration"
+  Enumerators:
+    HEAT_PUMP:
+      Description: "Heat Pump"
+    FURNACE:
+      Description: "Furnace"
+    ELECTRIC_RESISTANCE:
+      Description: "Electric resistance"
+    FLUID_LOOP:
+      Description: "Fluid loop"
+    BASEBOARD:
+      Description: "Baseboard"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+HeatpumpAuxilliaryHeatType:
+  Object Type: "Enumeration"
+  Enumerators:
+    ELECTRIC_RESISTANCE:
+      Description: "Electric resistance"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+CoolingSystem:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    cooling_system_type:
+      Description: "Cooling system type"
+      Data Type: "<CoolingSystemType>"
+      Notes: "JG to verify if used in test case description."
+    peak_cooling_load: 
+      Description: "Peak cooling load"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+    peak_heating_load: 
+      Description: "Peak cooling load"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+    total_cool_capacity: 
+      Description: "Total cooling capacity"
+      Data Type: "[Numeric]"
+      Range: ">=0"
+      Units: "W/m2"
+      Notes: "JG to verify if used in test case description."
+    sensible_cool_capacity: 
+      Description: "Sensible cooling capacity"
+      Data Type: "[Numeric]"
+      Range: ">=0"
+      Units: "W/m2"
+      Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+    chilled_water_loop:
+      Description: "Referenced to the Chilled water fluid loop"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    condenser_water_loop:
+      Description: "Referenced to the Condenser water fluid loop"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    full_load_efficiency:
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
+      Data Type: "Numeric"
+      Units: "W/W"
+      Notes: "Used for direct expansion. JG to verify if used in test case description."
+    part_load_efficiency:
+      Description: "Efficiency value based on the selected part_load_efficiency_metric"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Used for direct expansion. JG to verify if used in test case description."
+    dehumidification_type:
+      Description: "Dehumidification type"
+      Data Type: "<DehumidificationType>"
+      Notes: "JG to verify if used in test case description."
+    humidification_type:
+      Description: "Humidification type"
+      Data Type: "<HumidificationType>"
+      Notes: "JG to verify if used in test case description."
+    cooling_turndown_ratio:
+      Description: "Cooling turndown ratio"
+      Data Type: "Numeric"
+      Notes: "Cooling capacity turndown before simultanenous heating and cooling occurs. JG to verify if used in test case description."
+
+CoolingSystemType:
+  Object Type: "Enumeration"
+  Enumerators:
+    DIRECT_EXPANSION:
+      Description: "Direct expansion"
+    FLUID_LOOP:
+      Description: "Fluid loop"
+    NON_MECHANICAL:
+      Description: "Non-mechanical"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+DehumidificationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    MECHANCIAL_COOLING:
+      Description: "Mechanical cooling"
+    DESICCANT:
+      Description: "Desiccant"
+    SERIES_HEAT_RECOVERY:
+      Description: "Series heat recovery"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+HumidificationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    ADIABATIC:
+      Description: "Adiabatic"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+FanSystem:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    supply_fans:
+      Description: "List of supply fans"
+      Data Type: "[{Fan}]"
+      Notes: "JG to verify if used in test case description."
+    return_fans:
+      Description: "List of return fans"
+      Data Type: "[{Fan}]"
+      Notes: "JG to verify if used in test case description."
+    exhaust_fans:
+      Description: "List of exhaust fans"
+      Data Type: "[{Fan}]"
+      Notes: "JG to verify if used in test case description."
+    relief_fans:
+      Description: "List of relief fans"
+      Data Type: "[{Fan}]"
+      Notes: "JG to verify if used in test case description."
+    is_multi_zone:
+      Description: "If the fan system serves muliple zones"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+    is_variable_air_volume:
+      Description: "If the fan system is variable air volume."
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+    temperature_control:
+      Description: "Supply air temperature control type"
+      Data Type: "<FanSystemTemperatureControlType>"
+      Notes: "JG to verify if used in test case description."
+    supply_air_temperature_setpoint:
+      Description: "Supply air temperature setpoint temperarue"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    reset_differential_temperature:
+      Description: "Supply air temperature reset differential temperature at minimum cooling load"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    supply_air_temperature_reset_schedule:
+      Description: "Supply air temperature reset schedule"
+      Data Type: "$ID"
+      Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+    operating_schedule:
+      Description: "Operating schedule name"
+      Data Type: "$ID"
+      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+    minimum_airflow:
+      Description: "Minimum volume airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    minimum_outdoor_airflow:
+      Description: "Minimum outdoor air volume airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    maximum_outdoor_airflow:
+      Description: "Maximum outdoor air volume airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    air_economizer_type:
+      Description: "Air economizer type"
+      Data Type: "<AirEconomizerType>"
+      Notes: "JG to verify if used in test case description."
+    economizer_high_limit_temperature_shutoff:
+      Description: "Economizer high limit temperature shutoff"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    has_gas_phase_air_cleaning:
+      Description: "True if the fan system includes gas phase air cleaning"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+    energy_recovery_type:
+      Description: "Energy recovery type"
+      Data Type: "<EnergyRecoveryType>"
+      Notes: "JG to verify if used in test case description."
+    enthalpy_recovery_ratio:
+      Description: "Enthalpy recovery ratio"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+    energy_recovery_operation:
+      Description: "Energy recovery operation"
+      Data Type: "<EnergyRecoveryOperation>"
+      Notes: "JG to verify if used in test case description."
+    energy_recovery_supply_air_temperature_control:
+      Description: "Energy recovery supply air temperature control"
+      Data Type: "<EnergyRecoverySupplyAirTemperatureControl>"
+      Notes: "JG to verify if used in test case description."
+    economizer_design_sensible_effectiveness:
+      Description: "Economizer design sensible effectiveness"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+    economizer_design_latent_effectiveness:
+      Description: "Economizer design sensible effectiveness"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+    demand_control_ventilation_control_type:
+      Description: "Demand control ventilation control type"
+      Data Type: "<DemandControlVentilationControlType>"
+      Notes: "JG to verify if used in test case description."
+    supply_air_to_room_air_humidity_ratio:
+      Description: "Supply air to room air humidity ratio"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+
+FanSystemTemperatureControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    OUTDOOR_AIR_RESET:
+      Description: "Outdoor air reset"
+    ZONE_RESET:
+      Description: "Zone reset"
+    SCHEDULED:
+      Description: "Scheduled"
+    OTHER:
+      Description: "Other"
+
+AirEconomizerType:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_FRACTION:
+      Description: "Fixed Fraction"
+    TEMPERATURE:
+      Description: "Dry-bulb temperature"
+    ENTHALPY:
+      Description: "Enthalpy"
+    DIFFERENTIAL_TEMPERATURE:
+      Description: "Differential dry-bulb temperature"
+    DIFFERENTIAL_ENTHALPY:
+      Description: "Differential enthalpy"
+    OTHER:
+      Description: "Other"
+    NONE:
+      Description: "None"
+
+EnergyRecoveryType:
+  Object Type: "Enumeration"
+  Enumerators:
+    SENSIBLE_HEAT_EXHANGE:
+      Description: "Sensible heat exchange"
+    ENTHALPY_HEAT_EXHANGE:
+      Description: "Enthalpy heat exchange"
+    SENSIBLE_HEAT_WHEEL:
+      Description: "Sensible heat wheel"
+    ENTHALPY_HEAT_WHEEL:
+      Description: "Enthalpy heat wheel"
+    HEAT_PIPE:
+      Description: "Heat pipe"
+    OTHER:
+      Description: "Other"
+    NONE:
+      Description: "None"
+
+EnergyRecoveryOperation:
+  Object Type: "Enumeration"
+  Enumerators:
+    WHEN_FANS_ON:
+      Description: "When fans on"
+    WHEN_MINIMUM_OUTSIDE_AIR:
+      Description: "When minimum outside air"
+    SCHEDULED:
+      Description: "Scheduled"
+    OTHER:
+      Description: "Other"
+    NONE:
+      Description: "None"
+
+EnergyRecoverySupplyAirTemperatureControl:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_SETPOINT:
+      Description: "Fixed setpoint"
+    MIXED_AIR_RESET:
+      Description: "Mixed air reset"
+    OTHER:
+      Description: "Other"
+    NONE:
+      Description: "None"
+
+DemandControlVentilationControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CO2_RETURN_AIR:
+      Description: "CO2 return air"
+    CO2_ZONE:
+      Description: "CO2 zone"
+    OTHER:
+      Description: "Other"
+    NONE:
+      Description: "None"
+
+Fan:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    airflow:
+      Description: "Design supply airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    power:
+      Description: "Design supply fan power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+    fan_power_adjustment_factor:
+      Description: "Fan power adjustment factor"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+    motor_efficiency:
+      Description: "Fan motor efficiency"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+    fan_control:
+      Description: "Supply fan control type"
+      Data Type: "<FanSystemSupplyFanControlType>"
+      Notes: "JG to verify if used in test case description."
+
+FanSystemSupplyFanControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    VARIABLE_SPEED_DRIVE:
+      Description: "Variable speed drive"
+    CYCLING:
+      Description: "Cycling"
+    INLET_VANE:
+      Description: "Inlet vane"
+    DISCHARGE_DAMPER:
+      Description: "Discharge damper"
+    OTHER:
+      Description: "Other"
+
+Terminal:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    type:
+      Description: "Type of terminal"
+      Data Type: "<TerminalType>"
+      Notes: "JG to verify if used in test case description."
+    served_by_heating_ventilation_air_conditioning_systems:
+      Description: "HVAC systems serving the terminal"
+      Data Type: "$ID"
+      Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
+    reheat_source:
+      Description: "Source of reheat"
+      Data Type: "<ReheatSourceType>"
+      Notes: "JG to verify if used in test case description."
+    reheat_from_loop:
+      Description: "Referenced to the fluid loop used for reheat"
+      Data Type: "$ID"
+      Notes: "Only used when reheat_source is hot water. Constraint to use when implemented :FluidLoop:"
+    fans:
+      Description: "Terminal fan"
+      Data Type: "{Fan}"
+      Notes: "JG to verify if used in test case description."
+    fan_configuration:
+      Description: "Fan configuration"
+      Data Type: "<TerminalFanConfiguration>"
+      Notes: "JG to verify if used in test case description."
+    primary_airflow:
+      Description: "Zone terminal primary airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    secondary_airflow:
+      Description: "Zone terminal secondary_airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    supply_temperature_setpoint:
+      Description: "Zone terminal supply temperature setpoint"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "JG to verify if used in test case description."
+    minimum_airflow:
+      Description: "Zone terminal minimum volume airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    minimum_outdoor_airflow:
+      Description: "Zone terminal minimum outdoor air volume airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "JG to verify if used in test case description."
+    minimum_outdoor_airflow_multiplier_schedule:
+      Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
+      Data Type: "$ID"
+      Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+    heat_capacity:
+      Description: "Heat capacity for baseboard or radiant system"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "JG to verify if used in test case description."
+
+TerminalType:
+  Object Type: "Enumeration"
+  Enumerators:
+    VARIABLE_AIR_VOLUME:
+      Description: "Variable air volume"
+    CONSTANT_AIR_VOLUME:
+      Description: "Constant air volume"
+    DUCTLESS:
+      Description: "Ductless"
+    RADIANT:
+      Description: "Radiant"
+    FOUR_PIPE_FAN_COIL_UNIT:
+      Description: "Four pipe fan coil unit"
+    TWO_PIPE_FAN_COIL_UNIT:
+      Description: "Two pipe fan coil unit"
+    BASEBOARD:
+      Description: "Baseboard"
+    OTHER:
+      Description: "Other"
+
+TerminalFanConfiguration:
+  Object Type: "Enumeration"
+  Enumerators:
+    PARALLEL:
+      Description: "Parallel"
+    SERIES:
+      Description: "Series"
+    OTHER:
+      Description: "Other"
+      
+ReheatSourceType:
+  Object Type: "Enumeration"
+  Enumerators:
+    ELECTRIC:
+      Description: "Electric"
+    HOT_WATER:
+      Description: "Hot water"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+FluidLoop:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    type:
+      Description: "Type of loop"
+      Data Type: "<FluidLoopTypeOptions>"
+    pump_power_per_flow_rate:
+      Description: "Total design pump power divided by the loop design flow rate"
+      Data Type: "Numeric"
+      Units: "W/s-L"
+      Notes: "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
+    child_loops: 
+      Description: "Other fluid loops connected to this one as children."
+      Data Type: "[{FluidLoop}]"
+      Notes: "Secondary loops should be described as child loops."
+    cooling_or_condensing_design_and_control:
+      Description: ""
+      Data Type: "{FluidLoopDesignAndControl}"
+    heating_design_and_control:
+      Description: ""
+      Data Type: "{FluidLoopDesignAndControl}"
+
+FluidLoopDesignAndControl:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    design_supply_temperature:
+      Description: "Design Supply Temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    design_return_temperature:
+      Description: "Design Return Temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    is_sized_using_coincident_load:
+      Description: "True if the loop is sized based on coincident load"
+      Data Type: "Boolean"
+    minimum_flow_fraction:
+      Description: "Minimum fraction of full flow allowed"
+      Data Type: "Numeric"
+    operation:
+      Description: "Type of operation used by loop"
+      Data Type: "<FluidLoopOperationOptions>"
+    flow_control:
+      Description: "Flow control options"
+      Data Type: "<FluidLoopFlowControlOptions>"
+    temperature_reset_type:
+      Description: "Type of temperature reset used by loop"
+      Data Type: "<TemperatureResetTypeOptions>"
+    outdoor_high_for_loop_supply_temperature_reset:
+      Description: "Outdoor high for loop supply temp reset"
+      Data Type: "Numeric"
+      Units: "C"
+    outdoor_low_for_loop_supply_temperature_reset:
+      Description: "Outdoor low for loop supply temp reset"
+      Data Type: "Numeric"
+      Units: "C"
+    loop_supply_temperature_at_outdoor_high:
+      Description: "Loop supply temperature at outdoor high temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    loop_supply_temperature_at_outdoor_low:
+      Description: "Loop supply temperature at outdoor low temperature"
+      Data Type: "Numeric"
+      Units: "C"
+
+FluidLoopFlowControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_FLOW:
+      Description: "Fixed flow"
+    VARIABLE_FLOW:
+      Description: "Variable flow"
+
+FluidLoopTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HEATING:
+      Description: "Heating"
+    COOLING:
+      Description: "Cooling"
+    HEATING_AND_COOLING:
+      Description: "Heating and cooling"
+    CONDENSER:
+      Description: "Condenser"
+    OTHER:
+      Description: "Other"
+
+TemperatureResetTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NO_RESET:
+      Description: "No Reset"
+    CONSTANT:
+      Description: "Constant"
+    OUTSIDE_AIR_RESET:
+      Description: "Outside air reste"
+    LOAD_RESET:
+      Description: "Load Reset"
+    OTHER:
+      Description: "Other"
+
+FluidLoopOperationOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONTINUOUS:
+      Description: "Continuous"
+    INTERMITTENT:
+      Description: "Intermittent"
+
+Pump:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    loop_or_piping:
+      Description: "Referenced to the fluid loop or service water heating piping"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
+    specification_method:
+      Description: "Options for how the pump is specified"
+      Data Type: "<PumpSpecificationMethodOptions>"
+    design_electric_power:
+      Description: "Pump design electric power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Pump electric power at design conditions. Only used when specification_method is set to Simple"
+    motor_nameplate_power:
+      Description: "Pump motor nameplate power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Only used when specification_method is set to Detailed"
+    design_head:
+      Description: "Head of the pump at design flow conditions"
+      Data Type: "Numeric"
+      Units: "m"
+      Notes: "Only used when specification_method is set to Detailed"
+    impeller_efficiency:
+      Description: "Full load efficiency of the impeller"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Only used when specification_method is set to Detailed"
+    motor_efficiency:
+      Description: "Full load efficiency of the pump motor"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Only used when specification_method is set to Detailed"
+    speed_control:
+      Description: "Options for pump speed control"
+      Data Type: "<PumpSpeedControlOptions>"
+    design_flow:
+      Description: "Design Pump Flowrate"
+      Data Type: "Numeric"
+      Units: "L/s"
+    is_flow_autosized:
+      Description: "True if the design_flow is autosized"
+      Data Type: "Boolean"
+    is_variable_speed:
+      Description: "True if variable speed drive such a VFD"
+      Data Type: "Boolean"
+
+PumpSpeedControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FIXED_SPEED:
+      Description: "Fixed speed"
+    VARIABLE_SPEED:
+      Description: "Variable speed"
+
+PumpSpecificationMethodOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    SIMPLE:
+      Description: "Simple"
+      Notes: "Specify the electric power input of pump"
+    DETAILED:
+      Description: "Detailed"
+      Notes: "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
+
+Boiler:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    design_capacity:
+      Description: "Heating capacity"
+      Data Type: "Numeric"
+      Units: "W"
+    rated_capacity:
+      Description: "Heating capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "At rating conditions."
+    minimum_load_ratio:
+      Description: "Minimum fraction of full load allowed"
+      Data Type: "Numeric"
+    draft_type:
+      Description: "Combustion option"
+      Data Type: "<BoilerCombustionOptions>"
+    energy_source_type:
+      Description: "Source of energy for the boiler"
+      Data Type: "<EnergySourceTypeOptions>"
+    efficiency_metric:
+      Description: "The type of efficiency metric used"
+      Data Type: "<BoilerEfficiencyMetricTypeOptions>"
+    efficiency:
+      Description: "Efficiency value based on the selected efficiency_metric"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+    output_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{BoilerOutputValidationPoint}]"
+      Notes: "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+    auxiliary_power:
+      Description: "Auxiliary power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates."
+    operation_lower_limit:
+      Description: "Heating load range operation, lower limit"
+      Data Type: "Numeric"
+      Units: "W"
+    operation_upper_limit:
+      Description: "Heating load range operation, upper limit"
+      Data Type: "Numeric"
+      Units: "W"
+
+BoilerCombustionOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NATURAL:
+      Description: "Natural"
+    FORCED:
+      Description: "Forced"
+
+BoilerEfficiencyMetricTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    ANNUAL_FUEL_UTILIZATION:
+      Description: "Annual fuel utilization efficiency"
+    THERMAL:
+      Description: "Thermal efficiency"
+    COMBUSTION:
+      Description: "Combustion efficiency"
+
+BoilerOutputValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "No name and id is needed since typically used as one of a series."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+Chiller:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    cooling_loop:
+      Description: "Referenced to the cooling fluid loop"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    condensing_loop:
+      Description: "Referenced to the condensing fluid loop"
+      Data Type: "$ID"
+      Notes: "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
+    compressor_type:
+      Description: "Compressor Type"
+      Data Type: "<ChillerCompressorTypeOptions>"
+    energy_source_type:
+      Description: "Source of energy for the chiller"
+      Data Type: "<EnergySourceTypeOptions>"
+    design_capacity:
+      Description: "Chiller Design Cooling Capacity"
+      Data Type: "Numeric"
+      Units: "W"
+    rated_capacity:
+      Description: "Chiller Design Cooling Capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "At rating conditions."
+    minimum_load_ratio:
+      Description: "Minimum fraction of full load allowed"
+      Data Type: "Numeric"
+    design_flow_evaporator:
+      Description: "Chiller evaporator design flow"
+      Data Type: "Numeric"
+      Units: "L/s"
+    design_flow_condenser:
+      Description: "Chiller condenser design flow"
+      Data Type: "Numeric"
+      Units: "L/s"
+    full_load_efficiency:
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
+      Data Type: "Numeric"
+      Units: "W/W"
+    part_load_efficiency:
+      Description: "Efficiency value based on the selected part_load_efficiency_metric"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+    part_load_efficiency_metric:
+      Description: "The type of part load efficiency metric used"
+      Data Type: "<ChillerPartLoadEfficiencyMetricTypeOptions>"
+    capacity_validation_points:
+      Description: "Capacity validation points"
+      Data Type: "[{ChillerCapacityValidationPoint}]"
+    power_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{ChillerPowerValidationPoint}]"
+
+ChillerPartLoadEfficiencyMetricTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    INTEGRATED_PART_LOAD_VALUE:
+      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
+    NONSTANDARD_PART_LOAD_VALUE:
+      Description: "Nonstandard part load value efficiency expressed as a coefficient of performance (COP)"
+    OTHER:
+      Description: "Other part load efficiency metric"
+
+ChillerCapacityValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    chilled_water_supply_temperature:
+      Description: "Chilled water supply temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
+    condenser_temperature:
+      Description: "Second temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+ChillerPowerValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    chilled_water_supply_temperature:
+      Description: "Chilled water supply temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
+    condenser_temperature:
+      Description: "Second temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+ChillerCompressorTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    SCREW:
+      Description: "Screw"
+    CENTRIFUGAL:
+      Description: "Centrifugal"
+    RECIPROCATING:
+      Description: "Reciprocating"
+    SCROLL:
+      Description: "Scroll"
+    POSITIVE_DISPLACEMENT:
+      Description: "Positive displacement"
+    SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
+      Description: "Single-effect indirect-fired absorption"
+    DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
+      Description: "Double-effect indirect-fired absorption"
+    SINGLE_EFFECT_DIRECT_FIRED_ABSORPTION:
+      Description: "Single-effect direct-fired absorption"
+    DOUBLE_EFFECT_DIRECT_FIRED_ABSORPTION:
+      Description: "Double-effect direct-fired absorption"
+    OTHER:
+      Description: "Other"
+
+HeatRejection:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    type:
+      Description: "Heat Rejection Type"
+      Data Type: "<HeatRejectionTypeOptions>"
+    fan_type:
+      Description: "Heat Rejection Fan Type"
+      Data Type: "<HeatRejectionFanTypeOptions>"
+    fluid:
+      Description: "Fluid Cooled by Heat Rejection"
+      Data Type: "<HeatRejectionFluidOptions>"
+    range:
+      Description: "Heat rejection Range"
+      Data Type: "Numeric"
+      Units: "C"
+    approach:
+      Description: "Heat rejection Approach"
+      Data Type: "Numeric"
+      Units: "C"
+    reset_type:
+      Description: "Leaving Temperature reset strategy"
+      Data Type: "<HeatRejectionResetOptions>"
+    minimum_reset_temperature:
+      Description: "Minimum leaving temperature setpoint"
+      Data Type: "Numeric"
+      Units: "C"
+    fan_power:
+      Description: "Fan Power"
+      Data Type: "Numeric"
+      Units: "W"
+    fan_speed_control:
+      Description: "Fan Speed Control Type"
+      Data Type: "<HeatRejectionFanSpeedControlOptions>"
+    design_supply_temperature:
+      Description: "Design leaving water temperature"
+      Data Type: "Numeric"
+      Units: "C"
+    design_wetbulb_temperature:
+      Description: "Design wetbulb temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "0.4% ASHRAE MCWB"
+    design_water_flowrate:
+      Description: "Design condenser water flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+    rated_water_flowrate:
+      Description: "Rated condenser water flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "At rating conditions."
+
+HeatRejectionTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    OPEN_CIRCUIT_COOLING_TOWER:
+      Description: "Open-circuit cooling tower"
+    CLOSED_CIRCUIT_COOLING_TOWER:
+      Description: "Closed-circuit cooling tower or fluid cooler"
+    DRY_COOLER:
+      Description: "Dry-cooler or air-cooled fluid cooler"
+    EVAPORATIVE_CONDENSER:
+      Description: "Evaporative condenser"
+    AIR_COOLED_CONDENSER:
+      Description: "Air cooled condenser"
+    OTHER:
+      Description: "Other"
+
+HeatRejectionFanTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    AXIAL:
+      Description: "Axial or Propellor"
+    CENTRIFUGAL:
+      Description: "Centrifugal"
+    OTHER:
+      Description: "Other"
+
+HeatRejectionFluidOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    WATER:
+      Description: "Water"
+    REFRIGERANT:
+      Description: "Refrigerant"
+      Notes: "Including R-448A"
+    AMMONIA:
+      Description: "Ammonia"
+    OTHER:
+      Description: "Other"
+
+HeatRejectionResetOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    LOAD_RESET:
+      Description: "Load reset"
+    OTHER:
+      Description: "Other"
+
+HeatRejectionFanSpeedControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    TWO_SPEED:
+      Description: "Two Speed"
+    VARIABLE_SPEED:
+      Description: "Variable Speed"
+    OTHER:
+      Description: "Other"
+
+ExternalFluidSource:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    loop:
+      Description: "Referenced to the fluid loop"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :FluidLoop:"
+    type:
+      Description: "Type of external fluid source"
+      Data Type: "<ExternalFluidSourceTypeOptions>"
+    energy_source_type:
+      Description: "Source of energy for the external fluid source"
+      Data Type: "<EnergySourceTypeOptions>"
+
+ExternalFluidSourceTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CHILLED_WATER:
+      Description: "Chilled water"
+    HOT_WATER:
+      Description: "Hot water"
+    STEAM:
+      Description: "Steam"
+
+ServiceWaterHeatingDistributionSystem:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    design_supply_temperature:
+      Description: "Design supply temperature setpoint of service water heating loop"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "From CBECC-Com."
+    design_supply_temperature_difference:
+      Description: "Design supply temperature difference (deltaT) of service water heating loop"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "From CBECC-Com."
+    tanks:
+      Description: "Tanks within service water heating distribution system"
+      Data Type: "[{Tank}]"
+      Notes: "Contains a list of storage tanks that are part of this service water heating distribution system but not part of individual service water heaters."
+    is_central_system:
+      Description: "Indicates whether it is a central service water heater distribution system"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Com."
+    service_water_piping:
+      Description: "Other service water piping connected to this one as children."
+      Data Type: "[{ServiceWaterPiping}]"
+    solar_thermal_systems:  
+      Description: "Solar thermal systems used for heating service water"
+      Data Type: "[{SolarThermal}]"
+      Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
+    distribution_compactness:
+      Description: "Type of compact distribution system"
+      Data Type: "<ServiceWaterHeatingDistributionCompactness2019T24Com>"
+      Notes: "From CBECC-Com."
+    control_type:
+      Description: "Type of distribution system"
+      Data Type: "<ServiceWaterHeatingControlType2019T24Com>"
+      Notes: "From CBECC-Com."
+    configuration_type:
+      Description: "Type of configuration"
+      Data Type: "<ServiceWaterHeatingConfigurationType>"
+      Notes: "From CBECC-Com."
+    is_recovered_heat_from_drain_used_by_water_heater:
+      Description: "Indicates whether the recovered heat from the shower drain used by the service water heater"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Res."
+    drain_heat_recovery_efficiency:
+      Description: "Shower heat drain recovery efficiency"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
+    drain_heat_recovery_type:
+      Description: "Drain heat recovery type"
+      Data Type: "<ServiceWaterHeatingHeatRecoveryType>"
+      Notes: "From CBECC-Res."
+    flow_multiplier_schedule:
+      Description: "service water heating Loop flow muliplier schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    entering_water_mains_temperature_schedule:
+      Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    is_ground_temperature_used_for_entering_water:
+      Description: "Indicates whether ground temperature is the source of the entering water temperature"
+      Data Type: "Boolean"
+
+ServiceWaterHeatingConfigurationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    HERS_PARALLEL_PIPING:
+      Description: "HERS parallel piping"
+    HERS_PIPE_INSULATION_ALL_LINES:
+      Description: "HERS pipe insulation of all lines"
+    HERS_RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR:
+      Description: "HERS recirculation demand control occupancy sensor"
+    HERS_RECIRCULATION_DEMAND_CONTROL_BUTTON:
+      Description: "HERS recirculation demand control pull botton"
+    HERS_RECIRCULATION_NON_DEMAND_CONTROL:
+      Description: "HERS recirculation non-demand control"
+    INSULATED_AND_PROTECTED_PIPE_BELOW_GRADE:
+      Description: "Insulated and protected pipe below grade"
+    PARALLEL_PIPING:
+      Description: "Parallel piping"
+    PIPE_INSULATION_ALL_LINES:
+      Description: "Pipe insulation of all lines"
+    POINT_OF_USE:
+      Description: "Point of use"
+    RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR:
+      Description: "Recirculation demand control occupancy sensor"
+    RECIRCULATION_DEMAND_CONTROL_BUTTON:
+      Description: "Recirculation demand control pull botton"
+    RECIRCULATION_NON_DEMAND_CONTROL:
+      Description: "Recirculation non-demand control"
+    STANDARD:
+      Description: "Standard"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingHeatRecoveryType:
+  Object Type: "Enumeration"
+  Enumerators:
+    NOT_APPLICABLE:
+      Description: "Not applicable"
+    VERTICAL:
+      Description: "Vertical"
+    HORIZONTAL:
+      Description: "Horizontal"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterPiping:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    is_recirculation_loop:
+      Description: "Indicates if service water heating piping is a loop and recirculates"
+      Data Type: "Boolean"
+    insulation_thickness:
+      Description: "Pipe insulation thickness"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    loop_pipe_location:
+      Description: "Loop pipe location"
+      Data Type: "<ComponentLocation>"
+      Notes: "From CBECC-Com."
+    zone_location:
+      Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocation"
+      Data Type: "$ID"
+      Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
+    length:
+      Description: "Pipe length"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From RESNET"
+    diameter:
+      Description: "Pipe section diameter"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Res."
+    child_service_water_piping:
+      Description: "Other service water piping connected to this one as children."
+      Data Type: "[{ServiceWaterPiping}]"
+
+SolarThermal:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    angle_from_true_north:
+      Description: "Solar heater angle from true north, clockwise"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    solar_savings_fraction:
+      Description: "Solar savings fraction"
+      Data Type: "Numeric"
+      Notes: "Based on ICC-SRCC rating. From CBECC-Com."
+    collector_area:
+      Description: "Solar collector area"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    collector_type_description:
+      Description: "Description of solar collector type"
+      Data Type: "String"
+      Notes: "From CBECC-Com."
+    collector_slope:
+      Description: "Solar slope from horizontal"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    tank:
+      Description: "Tank that is part of the solar thermal system"
+      Data Type: "{Tank}"
+      Notes: "Contains a storage tank that is part of the solar thermal system."
+
+ServiceWaterHeatingEquipment:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    heater_fuel_type:
+      Description: "Service water heating heater fuel type"
+      Data Type: "<EnergySourceTypeOptions>"
+    service_water_heating_distribution_system:
+      Description: "Referenced to the service water heating distribution system"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :ServiceWaterHeatingSystem:"
+    energy_factor:
+      Description: "Energy factor"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    thermal_efficiency:
+      Description: "Service water heating heater thermal efficiency"
+      Data Type: "Numeric"
+      Range: ">=0"
+    standby_loss_fraction:
+      Description: "Standby loss fraction"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    uniform_energy_factor:
+      Description: "Uniform energy factor"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    first_hour_rating:
+      Description: "First hour rating volume"
+      Data Type: "Numeric"
+      Units: "L"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    output_validation_points:
+      Description: "Capacity validation points"
+      Data Type: "[{ServiceWaterHeaterValidationPoint}]"
+    input_power:
+      Description: "Input power"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    rated_capacity:
+      Description: "Rated capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "From CBECC-Com."
+    minimum_capacity:
+      Description: "Minimum capacity"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    recovery_efficiency:
+      Description: "Recovery efficiency"
+      Data Type: "Numeric"
+      Notes: "From CBECC-Com."
+    setpoint_temperature:
+      Description: "Set point temperature"
+      Units: "C"
+      Data Type: "Numeric"
+    compressor_location:
+      Description: "Description of where the heat pump for the water heater is located"
+      Data Type: "String"
+      Notes: "Used when compressor is not located in a specific zone. From CBECC-Com."
+    compressor_zone:
+      Description: "Zone reference of where the heat pump for the water heater is located"
+      Data Type: "$ID"
+      Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
+    compressor_heat_rejection_source:
+      Description: "Heat pump heat rejection source"
+      Data Type: "<ComponentLocation>"
+      Notes: "From CBECC-Res."
+    compressor_heat_rejection_zone:
+      Description: "Heat pump heat rejection zone"
+      Data Type: "$ID"
+      Notes: "From CBECC-Res. Constraint to use when implemented :Zone:"
+    compressor_capacity_validation_points:
+      Description: "Capacity validation points"
+      Data Type: "[{HeatPumpWaterHeaterCapacityValidationPoint}]"
+    compressor_power_validation_points:
+      Description: "Coefficient of performance validation points"
+      Data Type: "[{HeatPumpWaterHeaterPowerValidationPoint}]"
+    draft_fan_power:
+      Description: "Power for the draft fan "
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    has_electrical_ignition:
+      Description: "Indicates whether the water heater has electrical ignition"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Com."
+    heater_type:
+      Description: "Service water heater type"
+      Data Type: "<ServiceWaterHeaterType>"
+    tank:
+      Description: "Tank that is part of the service water heating equipment"
+      Data Type: "{Tank}"
+      Notes: "Contains a storage tank that is part of the service water heating equipment."
+
+ServiceWaterHeaterType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONVENTIONAL:
+      Description: "Conventional"
+    HEAT_PUMP_PACKAGED:
+      Description: "Heat pump packaged"
+    HEAT_PUMP_SPLIT:
+      Description: "Heat pump split"
+    OTHER:
+      Description: "Other"
+
+ComponentLocation:
+  Object Type: "Enumeration"
+  Enumerators:
+    IN_ZONE:
+      Description: "In a zone"
+    CONDITIONED:
+      Description: "Conditioned"
+    SEMICONDITIONED:
+      Description: "Semiconditioned"
+    OUTSIDE:
+      Description: "Outside"
+    GARAGE:
+      Description: "Garage"
+    ATTIC:
+      Description: "Attic"
+    CRAWL_SPACE:
+      Description: "Crawl space"
+    UNDERGROUND:
+      Description: "Underground"
+    UNCONDITIONED:
+      Description: "Unconditioned"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeaterValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "No name and id is needed since typically used as one of a series."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+HeatPumpWaterHeaterCapacityValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    evaporator_air_temperature:
+      Description: "Outside dry bulb temperatures of air"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. "
+    condenser_water_temperature:
+      Description: "Entering condenser temperature of water"
+      Data Type: "Numeric"
+      Units: "C"
+    evaporator_air_flow:
+      Description: "Air flow across evaporator"
+      Data Type: "Numeric"
+      Units: "L/s"
+    condenser_water_flow:
+      Description: "Water flow across condenser"
+      Data Type: "Numeric"
+      Units: "L/s"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+HeatPumpWaterHeaterPowerValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    evaporator_air_temperature:
+      Description: "Outside dry bulb temperatures of air"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "No name and id is needed since used as one of a series. "
+    condenser_water_temperature:
+      Description: "Entering condenser temperature of water"
+      Data Type: "Numeric"
+      Units: "C"
+    evaporator_air_flow:
+      Description: "Air flow across evaporator"
+      Data Type: "Numeric"
+      Units: "L/s"
+    condenser_water_flow:
+      Description: "Water flow across condenser"
+      Data Type: "Numeric"
+      Units: "L/s"
+    load:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "W"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+
+Tank:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    storage_capacity:
+      Description: "Storage capacity of tank in distribution system"
+      Data Type: "Numeric"
+      Units: "L"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    type:
+      Description: "Service water heater tank type"
+      Data Type: "<ServiceWaterHeaterTankType>"
+    height:
+      Description: "Tank height"
+      Data Type: "Numeric"
+      Units: "m"
+      Range: ">=0"
+      Notes: "From CBECC-Com."
+    interior_insulation:
+      Description: "Tank interior insulation R-value"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "From CBECC-Res."
+    exterior_insulation:
+      Description: "Tank interior insulation R-value"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "K-m2/W"
+      Notes: "From CBECC-Res."
+    location:
+      Description: "Location"
+      Data Type: "<ComponentLocation>"
+      Notes: "From CBECC-Res."
+    location_zone:
+      Description: "Tank zone location"
+      Data Type: "$ID"
+      Notes: "Only used when tank_location indicates the tank is located in a zone. From CBECC-Res. Constraint to use when implemented :Zone:"
+
+ServiceWaterHeaterTankType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSUMER_INSTANTANEOUS:
+      Description: "Consumer instantaneous"
+      Notes: "Uses UEF"
+    COMMERCIAL_INSTANTANEOUS:
+      Description: "Commercial instantaneous"
+      Notes: "Uses TE"
+    CONSUMER_STORAGE:
+      Description: "Consumer storage"
+      Notes: "Uses UEF"
+    COMMERCIAL_STORAGE:
+      Description: "Consumer storage"
+      Notes: "Uses TE and SBL"
+    RESIDENTIAL_DUTY_COMMERCIAL_INSTANTANEOUS:
+      Description: "Residential-Duty Commercial Instantaneous"
+      Notes: "Uses UEF"
+    INDIRECT:
+      Description: "Indirect"
+    BOILER:
+      Description: "Boiler"
+    COMMERCIAL_PACKAGED_BOILER:
+      Description: "Commercial Packaged Boiler"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingUse:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    area_type:
+      Description: "Service Water Heating Loop Area Type"
+      Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used."
+    water_serves_type:
+      Description: "The use of the water serves the type"
+      Data Type: "<ServiceWaterHeatingFixtureType>"
+    served_by_distribution_system:
+      Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
+      Data Type: "$ID"
+      Notes: "From CBECC-Res. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
+    use:
+      Description: "Usage of service hot water"
+      Data Type: "Numeric"
+    use_units:
+      Description: "Type of units for use of service hot water"
+      Data Type: "<ServiceWaterHeatingUseUnits>"
+    use_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for the use of service hot water"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+    temperature_at_fixture:
+      Description: "Reference to the schedule containing the multiplier for the use of service hot water"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "From RESNET"
+    is_heat_recovered_by_drain:
+      Description: "Indicates if heat is being recovered from the drain"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Res."
+    is_recovered_heat_used_by_cold_side_feed:
+      Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
+      Data Type: "Boolean"
+      Notes: "From CBECC-Res."
+
+ServiceWaterHeatingFixtureType:
+  Object Type: "Enumeration"
+  Enumerators:
+    SHOWER:
+      Description: "Shower"
+    BATH:
+      Description: "Bath"
+    RESTROOM_SINK:
+      Description: "Restroom Sink"
+    DISHWASHER:
+      Description: "Dishwasher"
+    KITCHEN_SINK:
+      Description: "Kitchen sink"
+    WASH_SINK:
+      Description: "Wash sink"
+    CLOTHES_WASHER:
+      Description: "Clothes washing machine"
+    OTHER:
+      Description: "Other"
+
+ServiceWaterHeatingUseUnits:
+  Object Type: "Enumeration"
+  Enumerators:
+    POWER_PER_PERSON:
+      Description: "Power per person"
+    POWER_PER_AREA:
+      Description: "Power per area"
+    POWER:
+      Description: "Power"
+    VOLUME_PER_PERSON:
+      Description: "Volume per person"
+    VOLUME_PER_AREA:
+      Description: "Volume per area"
+    VOLUME:
+      Description: "Volume"
+    OTHER:
+      Description: "Other"
+
+EnergySourceTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    ELECTRICITY:
+      Description: "Electricity"
+    NATURAL_GAS:
+      Description: "Natural gas"
+    PROPANE:
+      Description: "Propane"
+    FUEL_OIL:
+      Description: "Fuel oil"
+    OTHER:
+      Description: "Other"
+
+ExteriorLighting:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    type:
+      Description: "The type of exterior lighting fixture	none"
+      Data Type: "<ExteriorLightingAreas2019ASHRAE901TableG36>"
+    area:
+      Description: "Area of the exterior functional space."
+      Data Type: "Numeric"
+      Units: "m2"    # use ft2 for IP units
+      Range: ">0"
+    length:
+      Description: "Linear length measure for exterior functional space"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "m"     # use ft for IP units
+      Notes: "For example, used when expressing street frontage or door width"
+    power:
+      Description: "Nominal power  of exterior lighting fixtures"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">0"
+    fixture_height:
+      Description: "Installation height of exterior fixture"
+      Data Type: "Numeric"
+      Units: "m"     # use ft for IP units
+      Range: ">0"
+
+Refrigeration:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    type:
+      Description: "Refrigeration equipment type"
+      Data Type: "<RefrigerationType>"
+    equipment_category:
+      Description: "Equipment Class from referenced standard"
+      Data Type: "<RefrigerationCategory>"
+    is_self_contained:
+      Description: "Indicates whether unit is self-contained"
+      Data Type: "Boolean"
+      Notes: "If not self-contained, show as false, and indicates that it has remote condenser"
+    application_temperature:
+      Description: "Equipment application temperature"
+      Data Type: "<ApplicationTemperatureType>"
+      Notes: "Based on AHRI 1200"
+    power:
+      Description: "Nominal power of refrigeration"
+      Data Type: "Numeric"
+      Units: "W"
+      Range: ">0"
+    power_multiplier_schedule:
+      Description: "Refrigeration power multiplier schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
+    sensible_fraction:
+      Description: "Fraction of energy that is a sensible load on the space."
+      Data Type: "Numeric"
+      Range: ">=-1, <=1"
+    heat_gain_fraction:
+      Description: "Fraction of energy that is a heat gain to the space."
+      Data Type: "Numeric"
+      Range: ">=-1, <=1"
+    case_volume:
+      Description: "volume of a refrigerated case in cubic meters"
+      Data Type: "Numeric"
+      Units: "m3"
+    total_display_area:
+      Description: "display area of a refrigerated case in square meters"
+      Data Type: "Numeric"
+      Units: "m2"
+    zone_case_location:
+      Description: "Zone where case is located"
+      Data Type: "$ID"
+
+
+RefrigerationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    COMMERCIAL_REFRIGERATION:
+      Description: "Commercial refrigeration"
+    COMMERCIAL_REFRIGERATOR_SOLID_DOOR:
+      Description: "Commercial refrigerator solid door"
+    COMMERCIAL_REFRIGERATOR_TRANSPARENT_DOOR:
+      Description: "Commercial refrigerator transparent door"
+    COMMERCIAL_FREEZER_SOLID_DOOR:
+      Description: "Commercial freezer solid door"
+    COMMERCIAL_FREEZER_TRANSPARENT_DOOR:
+      Description: "Commercial freezer transparent door"
+    COMMERCIAL_PULLDOWN_REFRIGERATOR:
+      Description: "Commercial pulldown refrigerator"
+    COMMERCIAL_REFRIGERATOR_FREEZER_SOLID_DOOR:
+      Description: "Commercial refrigerator freezer solid door"
+    OTHER:
+      Description: "Other"
+
+RefrigerationCategory:
+  Object Type: "Enumeration"
+  Enumerators:
+    HORIZONTAL_OPEN:
+      Description: "Horizontal open"
+    HORIZONTAL_SOLID_DOOR:
+      Description: "Horizontal solid door"
+    HORIZONTAL_TRANSPARENT_DOOR:
+      Description: "Horizontal transparent door"
+    SEMIVERTICAL_OPEN:
+      Description: "Semivertical open"
+    SERVICE_OVER_COUNTER:
+      Description: "Service over counter"
+    VERTICAL_OPEN:
+      Description: "Vertical open"
+    VERTICAL_SOLID_DOOR:
+      Description: "Vertical solid door"
+    VERTICAL_TRANSPARENT_DOOR:
+      Description: "Vertical transparent door"
+    OTHER:
+      Description: "Other"
+
+ApplicationTemperatureType:
+  Object Type: "Enumeration"
+  Enumerators:
+    MEDIUM:
+      Description: "Medium temperature"
+      Notes: "3.3 C +/- 1.1 C (38 F +/- 2 F)"
+    LOW:
+      Description: "Low temperature"
+      Notes: "-17.8 C +/- 1.1 C (0 F +/- 2 F)"
+    ICE_CREAM:
+      Description: "Ice cream"
+      Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F)"
+    OTHER:
+      Description: "Other"
+
+OverallSimulationOutputs:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    refrigeration_energy_enduse:
+      Description: "Annual refrigeration energy end use from simulation output"
+      Data Type: "Numeric"
+      Units: "kWh"
+    service_water_heating_annual_enduse_electricity:
+      Description: "Annual electricity energy end_use for SWH loops"
+      Data Type: "Numeric"
+      Units: "kWh"
+      Range: ">=0"
+    service_water_heating_annual_enduse_fossilfuel:
+      Description: "Annual fossil fuel energy end_use for SWH loops"
+      Data Type: "Numeric"
+      Units: "J" # use MMBTU for IP units
+      Range: ">=0"
+    unmet_heating_load_hours:
+      Description: "total hours any HVAC Zone heating temperature setpoint not met"
+      Data Type: "Numeric"
+      Units: "J" # use MMBTU for IP units
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
+    unmet_cooling_load_hours:
+      Description: "total hours any HVAC Zone cooling temperature setpoint not met"
+      Data Type: "Numeric"
+      Units: "J" # use MMBTU for IP units
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
