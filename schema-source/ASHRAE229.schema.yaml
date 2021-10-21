@@ -130,10 +130,21 @@ ASHRAE229:
       Description: "Service water heating systems on the site"
       Data Type: "[{ServiceWaterHeatingDistributionSystem}]"
       Notes: "Contains a list of service water heating distribution systems at the site."
-    conditioning_components:
-      Description: "Links to all conditioning components used on the site"
-      Data Type: "[{Pump},{Boiler},{Chiller},{HeatRejection}, {DistrictFluidMeter}]"
-      Notes: "Contains a list of all components related to conditioning."
+    pumps:
+      Description: "Pumps used on the site"
+      Data Type: "[{Pump}]"
+    boilers:
+      Description: "Boilers used on the site"
+      Data Type: "[{Boiler}]"
+    chillers:
+      Description: "Chillers used on the site"
+      Data Type: "[{Chiller}]"
+    heat_rejections:
+      Description: "HeatRejections used on the site"
+      Data Type: "[{HeatRejection}]"
+    external_fluid_source:
+      Description: "ExternalFluidSources used on the site"
+      Data Type: "[{ExternalFluidSource}]"
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZones2019ASHRAE901>"
