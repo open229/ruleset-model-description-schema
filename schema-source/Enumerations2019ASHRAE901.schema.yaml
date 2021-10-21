@@ -809,10 +809,6 @@ SpaceStatusType2019ASHRAE901:
       Description: "New"
     EXISTING:
       Description: "Existing"
-    ADDITION:
-      Description: "Addition"
-    ALTERATION:
-      Description: "Alteration"
 
 AdditionalSurfaceAdjacentTo2019ASHRAE901:
   Object Type: "Enumeration"

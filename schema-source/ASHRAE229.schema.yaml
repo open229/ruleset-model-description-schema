@@ -1089,11 +1089,10 @@ Weather:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    monthly_ground_temperature:
-      Description: "Modeled monthly ground temperatures"
-      Data Type: "[Numeric][1..12]"
-      Units: "C"
-      Notes: "For annual ground temperatures provide 12 equal numbers"
+    ground_temperature_schedule:
+      Description: "Ground temperature schedule name"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :Schedule:"
     weather_file_name:
       Description: "The file name for the weather file including extension."
       Data Type: "String"
