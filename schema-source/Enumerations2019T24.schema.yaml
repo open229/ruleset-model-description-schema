@@ -32,6 +32,18 @@ RulesetModelType2019T24Res:
     BASELINE:
       Description: "The baseline building model"
 
+GeneralStatusType2019T24:
+  Object Type: "Enumeration"
+  Enumerators:
+    NEW:
+      Description: "New"
+    ALTERED:
+      Description: "Altered"
+    EXISTING:
+      Description: "Existing"
+    EXISTING_PLUS_NEW:
+      Description: "Existing plus new"
+
 ServiceWaterHeatingDistributionCompactness2019T24Com:
   Object Type: "Enumeration"
   Enumerators:

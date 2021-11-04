@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.3"
+  Version: "0.0.4"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -366,8 +366,8 @@ Space:
       Units: "W"
       Notes: "JG to verify if used in test case description."
     status_type:
-      Description: "Choice of new, existing, addition, or alteration."
-      Data Type: "<SpaceStatusType2019ASHRAE901>"
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "(<SpaceStatusType2019ASHRAE901>,<GeneralStatusType2019T24>)"
     space_function:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionType>"
@@ -452,9 +452,12 @@ InfiltrationMethodType:
     WEATHER_DRIVEN:
       Description: "Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule."
     PRESSURE_BASED:
-      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction and is then multiplied by the schedule."
-    SCHEDULED:
-      Description: "Constant. The amount of air leakage is based on the infiltration_flow_rate multiplied by the schedule."
+      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction."
+    CONSTANT:
+      Description: "Constant. The schedule is ignored."
+    OTHER:
+      Description: "Other infiltration methods."
+    
 
 Surface:
   Object Type: "Data Group"
@@ -511,6 +514,9 @@ Surface:
     surface_optical_properties:
       Description: "Optical properties of the surface."
       Data Type: "{SurfaceOpticalProperties}"
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
   
 Construction:
   Object Type: "Data Group"
@@ -786,6 +792,9 @@ Subsurface:
     has_automatic_shades:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
       Data Type: "Boolean"
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
 SubsurfaceClassificationType:
   Object Type: "Enumeration"
@@ -1227,6 +1236,9 @@ HeatingVentilationAirConditioningSystem:
       Description: "Determines whether a zone with refrigeration cases is served by the system"
       Data Type: "Boolean"
       Notes: "JG to verify if used in test case description."
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
 HeatingSystem:
   Object Type: "Data Group"
@@ -1667,6 +1679,9 @@ Fan:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlType>"
       Notes: "JG to verify if used in test case description."
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
 FanSystemSupplyFanControlType:
   Object Type: "Enumeration"
@@ -2717,6 +2732,9 @@ ServiceWaterHeatingEquipment:
       Description: "Tank that is part of the service water heating equipment"
       Data Type: "{Tank}"
       Notes: "Contains a storage tank that is part of the service water heating equipment."
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
