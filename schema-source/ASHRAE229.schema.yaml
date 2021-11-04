@@ -294,7 +294,7 @@ Zone:
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
       Data Type: "$ID"
-      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingSystem:"
+      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     transfer_airflow_rate:
       Description: "Transfer airflow rate"
       Data Type: "Numeric"
@@ -2709,7 +2709,7 @@ ServiceWaterHeatingEquipment:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "$ID"
       Required: True
-      Notes: "Constraint to use when implemented :ServiceWaterHeatingSystem:"
+      Notes: "Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     energy_factor:
       Description: "Energy factor"
       Data Type: "Numeric"
