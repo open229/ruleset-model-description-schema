@@ -1228,14 +1228,6 @@ HeatingVentilationAirConditioningSystem:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
       Notes: "JG to verify if used in test case description."
-    does_serve_computer_room:
-      Description: "Determines whether a computer room is served by the system"
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
-    does_serve_zone_with_refrigerator_cases:
-      Description: "Determines whether a zone with refrigeration cases is served by the system"
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
