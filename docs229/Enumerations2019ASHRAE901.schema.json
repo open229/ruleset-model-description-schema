@@ -3,7 +3,7 @@
     "title": "Enumerations from ASHRAE 90.1-2019",
     "description": "Schema addition for ASHRAE 229 related to enumerations found in ASHRAE Standard 90.1-2019",
     "definitions": {
-        "CategoryType2019ASHRAE901": {
+        "RulesetModelType2019ASHRAE901": {
             "type": "string",
             "enum": [
                 "USER",

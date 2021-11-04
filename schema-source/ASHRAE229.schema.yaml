@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.3"
+  Version: "0.0.4"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -111,9 +111,9 @@ ASHRAE229:
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
-    category:
-      Description: "Indicates which category the current model represents for rulesets with multiple simulation models"
-      Data Type: "<CategoryType2019ASHRAE901>"
+    ruleset_model_type:
+      Description: "Describes the current model for rulesets with multiple simulation models"
+      Data Type: "(<RulesetModelType2019ASHRAE901>,<RulesetModelTypeRESNET,<RulesetModelType2019T24Com>,<RulesetModelType2019T24Res>)"
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathType2019ASHRAE901>"
@@ -294,7 +294,7 @@ Zone:
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
       Data Type: "$ID"
-      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingSystem:"
+      Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     transfer_airflow_rate:
       Description: "Transfer airflow rate"
       Data Type: "Numeric"
@@ -366,8 +366,8 @@ Space:
       Units: "W"
       Notes: "JG to verify if used in test case description."
     status_type:
-      Description: "Choice of new, existing, addition, or alteration."
-      Data Type: "<SpaceStatusType2019ASHRAE901>"
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "(<SpaceStatusType2019ASHRAE901>,<GeneralStatusType2019T24>)"
     space_function:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionType>"
@@ -452,9 +452,12 @@ InfiltrationMethodType:
     WEATHER_DRIVEN:
       Description: "Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule."
     PRESSURE_BASED:
-      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction and is then multiplied by the schedule."
-    SCHEDULED:
-      Description: "Constant. The amount of air leakage is based on the infiltration_flow_rate multiplied by the schedule."
+      Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction."
+    CONSTANT:
+      Description: "Constant. The schedule is ignored."
+    OTHER:
+      Description: "Other infiltration methods."
+    
 
 Surface:
   Object Type: "Data Group"
@@ -511,6 +514,9 @@ Surface:
     surface_optical_properties:
       Description: "Optical properties of the surface."
       Data Type: "{SurfaceOpticalProperties}"
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
   
 Construction:
   Object Type: "Data Group"
@@ -786,6 +792,9 @@ Subsurface:
     has_automatic_shades:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
       Data Type: "Boolean"
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
 SubsurfaceClassificationType:
   Object Type: "Enumeration"
@@ -1006,7 +1015,7 @@ Schedule:
       Data Type: "<ScheduleSequenceTypeOptions>"
     hourly_values:
       Description: "Hourly Values of Schedule"
-      Data Type: "[Numeric][8760]"
+      Data Type: "[Numeric][0..8760]"
       Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
     event_times:
       Description: "Event times when the schedule changes"
@@ -1219,14 +1228,9 @@ HeatingVentilationAirConditioningSystem:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
       Notes: "JG to verify if used in test case description."
-    does_serve_computer_room:
-      Description: "Determines whether a computer room is served by the system"
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
-    does_serve_zone_with_refrigerator_cases:
-      Description: "Determines whether a zone with refrigeration cases is served by the system"
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
 HeatingSystem:
   Object Type: "Data Group"
@@ -1251,10 +1255,19 @@ HeatingSystem:
       Notes: "Constraint to use when implemented :FluidLoop:"
     heat_capacity:
       Description: "Heating capacity"
-      Data Type: "[Numeric]"
+      Data Type: "Numeric"
       Range: ">=0"
-      Units: "W/m2"
-      Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+      Units: "W"
+      Notes: "The design heat capacity."
+    oversizing_factor:
+      Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
+    is_autosized:
+      Description: "True if the component is automatically sized by the simulation software"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
@@ -1271,7 +1284,7 @@ HeatingSystem:
       Range: ">=0, <=1"
       Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
     heatpump_auxilliary_heat_type:
-      Description: "Heatpump auxilliary heat type"
+      Description: "Heatpump auxilliary heat type used for backup"
       Data Type: "<HeatpumpAuxilliaryHeatType>"
       Notes: "JG to verify if used in test case description."
     heatpump_auxilliary_heat_high_temperature_shutoff:
@@ -1283,6 +1296,10 @@ HeatingSystem:
       Description: "Heatpump low temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "JG to verify if used in test case description."
+    humidification_type:
+      Description: "Humidification type"
+      Data Type: "<HumidificationType>"
       Notes: "JG to verify if used in test case description."
 
 HeatingSystemType:
@@ -1308,6 +1325,18 @@ HeatpumpAuxilliaryHeatType:
   Enumerators:
     ELECTRIC_RESISTANCE:
       Description: "Electric resistance"
+    FURNACE:
+      Description: "Furnace"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+HumidificationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    ADIABATIC:
+      Description: "Adiabatic"
     NONE:
       Description: "None"
     OTHER:
@@ -1330,30 +1359,27 @@ CoolingSystem:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemType>"
       Notes: "JG to verify if used in test case description."
-    peak_cooling_load: 
-      Description: "Peak cooling load"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "W"
-      Notes: "JG to verify if used in test case description."
-    peak_heating_load: 
-      Description: "Peak cooling load"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "W"
-      Notes: "JG to verify if used in test case description."
     total_cool_capacity: 
       Description: "Total cooling capacity"
-      Data Type: "[Numeric]"
+      Data Type: "Numeric"
       Range: ">=0"
-      Units: "W/m2"
-      Notes: "JG to verify if used in test case description."
+      Units: "W"
+      Notes: "Designed total cooling capacity. JG to verify if used in test case description."
     sensible_cool_capacity: 
       Description: "Sensible cooling capacity"
-      Data Type: "[Numeric]"
+      Data Type: "Numeric"
       Range: ">=0"
-      Units: "W/m2"
-      Notes: "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+      Units: "W"
+      Notes: "Designed sensible cooling capacity"
+    oversizing_factor:
+      Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "JG to verify if used in test case description."
+    is_autosized:
+      Description: "True if the component is automatically sized by the simulation software"
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
       Data Type: "$ID"
@@ -1375,10 +1401,6 @@ CoolingSystem:
     dehumidification_type:
       Description: "Dehumidification type"
       Data Type: "<DehumidificationType>"
-      Notes: "JG to verify if used in test case description."
-    humidification_type:
-      Description: "Humidification type"
-      Data Type: "<HumidificationType>"
       Notes: "JG to verify if used in test case description."
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
@@ -1413,15 +1435,6 @@ DehumidificationType:
     OTHER:
       Description: "Other"
 
-HumidificationType:
-  Object Type: "Enumeration"
-  Enumerators:
-    ADIABATIC:
-      Description: "Adiabatic"
-    NONE:
-      Description: "None"
-    OTHER:
-      Description: "Other"
 
 FanSystem:
   Object Type: "Data Group"
@@ -1452,10 +1465,12 @@ FanSystem:
       Description: "List of relief fans"
       Data Type: "[{Fan}]"
       Notes: "JG to verify if used in test case description."
-    is_multi_zone:
-      Description: "If the fan system serves muliple zones"
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
+    air_economizer:
+      Description: "Air side economizer related to the fan system"
+      Data Type: "{AirEconomizer}"
+    air_energy_recovery:
+      Description: "Air side energy recovery related to the fan system"
+      Data Type: "{AirEnergyRecovery}"
     is_variable_air_volume:
       Description: "If the fan system is variable air volume."
       Data Type: "Boolean"
@@ -1463,6 +1478,18 @@ FanSystem:
     temperature_control:
       Description: "Supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlType>"
+      Notes: "JG to verify if used in test case description."
+    operation_during_occupied:
+      Description: "Operation during occupied times type"
+      Data Type: "<FanSystemOperationType>"
+      Notes: "JG to verify if used in test case description."
+    operation_during_unoccupied:
+      Description: "Operation during unoccupied times type"
+      Data Type: "<FanSystemOperationType>"
+      Notes: "JG to verify if used in test case description."
+    fan_control:
+      Description: "Supply fan control type"
+      Data Type: "<FanSystemSupplyFanControlType>"
       Notes: "JG to verify if used in test case description."
     supply_air_temperature_setpoint:
       Description: "Supply air temperature setpoint temperarue"
@@ -1497,6 +1524,29 @@ FanSystem:
       Data Type: "Numeric"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
+    air_filter_merv_rating:
+      Description: "The MERV rating of the air filter"
+      Data Type: "Numeric"
+      Range: ">=1, <=20"
+      Notes: "JG to verify if used in test case description."
+    has_fully_ducted_return:
+      Description: "If the fan system has fully ducted return."
+      Data Type: "Boolean"
+      Notes: "JG to verify if used in test case description."
+
+AirEconomizer:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     air_economizer_type:
       Description: "Air economizer type"
       Data Type: "<AirEconomizerType>"
@@ -1506,10 +1556,28 @@ FanSystem:
       Data Type: "Numeric"
       Units: "C"
       Notes: "JG to verify if used in test case description."
-    has_gas_phase_air_cleaning:
-      Description: "True if the fan system includes gas phase air cleaning"
-      Data Type: "Boolean"
+    economizer_design_sensible_effectiveness:
+      Description: "Economizer design sensible effectiveness"
+      Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
+    economizer_design_latent_effectiveness:
+      Description: "Economizer design sensible effectiveness"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+
+AirEnergyRecovery:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
     energy_recovery_type:
       Description: "Energy recovery type"
       Data Type: "<EnergyRecoveryType>"
@@ -1526,22 +1594,6 @@ FanSystem:
       Description: "Energy recovery supply air temperature control"
       Data Type: "<EnergyRecoverySupplyAirTemperatureControl>"
       Notes: "JG to verify if used in test case description."
-    economizer_design_sensible_effectiveness:
-      Description: "Economizer design sensible effectiveness"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
-    economizer_design_latent_effectiveness:
-      Description: "Economizer design sensible effectiveness"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
-    demand_control_ventilation_control_type:
-      Description: "Demand control ventilation control type"
-      Data Type: "<DemandControlVentilationControlType>"
-      Notes: "JG to verify if used in test case description."
-    supply_air_to_room_air_humidity_ratio:
-      Description: "Supply air to room air humidity ratio"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
 
 FanSystemTemperatureControlType:
   Object Type: "Enumeration"
@@ -1554,6 +1606,34 @@ FanSystemTemperatureControlType:
       Description: "Zone reset"
     SCHEDULED:
       Description: "Scheduled"
+    OTHER:
+      Description: "Other"
+
+FanSystemSupplyFanControlType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    VARIABLE_SPEED_DRIVE:
+      Description: "Variable speed drive"
+    MULTISPEED:
+      Description: "Multispeed"
+    INLET_VANE:
+      Description: "Inlet vane"
+    DISCHARGE_DAMPER:
+      Description: "Discharge damper"
+    OTHER:
+      Description: "Other"
+
+FanSystemOperationType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CYCLING:
+      Description: "Cycling"
+    CONTINUOUS:
+      Description: "Continuous"
+    KEEP_OFF:
+      Description: "Off"
     OTHER:
       Description: "Other"
 
@@ -1644,45 +1724,53 @@ Fan:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    airflow:
-      Description: "Design supply airflow"
+    design_airflow:
+      Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
-    power:
-      Description: "Design supply fan power"
+    specification_method:
+      Description: "Options for how the fan is specified"
+      Data Type: "<FanSpecificationMethodOptions>"
+    design_electric_power:
+      Description: "Design electric fan power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "JG to verify if used in test case description."
-    fan_power_adjustment_factor:
-      Description: "Fan power adjustment factor"
+    design_pressure_rise:
+      Description: "Pressure rise through fan at design flow conditions"
       Data Type: "Numeric"
+      Units: "m"
+      Notes: "Only used when specification_method is set to Detailed"
+    nameplate_power:
+      Description: "nameplate horsepower of fan"
+      Data Type: "Numeric"
+      Units: "W"
       Notes: "JG to verify if used in test case description."
+    total_efficiency:
+      Description: "Fan motor efficiency"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Only used when specification_method is set to Detailed"
     motor_efficiency:
       Description: "Fan motor efficiency"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "JG to verify if used in test case description."
-    fan_control:
-      Description: "Supply fan control type"
-      Data Type: "<FanSystemSupplyFanControlType>"
-      Notes: "JG to verify if used in test case description."
+      Notes: "Only used when specification_method is set to Detailed"
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
 
-FanSystemSupplyFanControlType:
+FanSpecificationMethodOptions:
   Object Type: "Enumeration"
   Enumerators:
-    CONSTANT:
-      Description: "Constant"
-    VARIABLE_SPEED_DRIVE:
-      Description: "Variable speed drive"
-    CYCLING:
-      Description: "Cycling"
-    INLET_VANE:
-      Description: "Inlet vane"
-    DISCHARGE_DAMPER:
-      Description: "Discharge damper"
-    OTHER:
-      Description: "Other"
+    SIMPLE:
+      Description: "Simple"
+      Notes: "Specify the electric power input of fan"
+    DETAILED:
+      Description: "Detailed"
+      Notes: "Specify the brake horse power, design pressure rise through, total efficiency, motor efficiency"
+
 
 Terminal:
   Object Type: "Data Group"
@@ -1713,7 +1801,7 @@ Terminal:
       Description: "Referenced to the fluid loop used for reheat"
       Data Type: "$ID"
       Notes: "Only used when reheat_source is hot water. Constraint to use when implemented :FluidLoop:"
-    fans:
+    fan:
       Description: "Terminal fan"
       Data Type: "{Fan}"
       Notes: "JG to verify if used in test case description."
@@ -2003,7 +2091,7 @@ PumpSpecificationMethodOptions:
       Notes: "Specify the electric power input of pump"
     DETAILED:
       Description: "Detailed"
-      Notes: "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
+      Notes: "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
 
 Boiler:
   Object Type: "Data Group"
@@ -2435,10 +2523,6 @@ ServiceWaterHeatingDistributionSystem:
     service_water_piping:
       Description: "Other service water piping connected to this one as children."
       Data Type: "[{ServiceWaterPiping}]"
-    solar_thermal_systems:  
-      Description: "Solar thermal systems used for heating service water"
-      Data Type: "[{SolarThermal}]"
-      Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
     distribution_compactness:
       Description: "Type of compact distribution system"
       Data Type: "<ServiceWaterHeatingDistributionCompactness2019T24Com>"
@@ -2625,7 +2709,7 @@ ServiceWaterHeatingEquipment:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "$ID"
       Required: True
-      Notes: "Constraint to use when implemented :ServiceWaterHeatingSystem:"
+      Notes: "Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     energy_factor:
       Description: "Energy factor"
       Data Type: "Numeric"
@@ -2717,6 +2801,13 @@ ServiceWaterHeatingEquipment:
       Description: "Tank that is part of the service water heating equipment"
       Data Type: "{Tank}"
       Notes: "Contains a storage tank that is part of the service water heating equipment."
+    status_type:
+      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
+      Data Type: "<GeneralStatusType2019T24>"
+    solar_thermal_systems:  
+      Description: "Solar thermal systems used for heating service water"
+      Data Type: "[{SolarThermal}]"
+      Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -2854,13 +2945,13 @@ Tank:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "K-m2/W"
-      Notes: "From CBECC-Res."
+      Notes: "Insulation that is part of the tank and is inside of the housing. From CBECC-Res."
     exterior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "K-m2/W"
-      Notes: "From CBECC-Res."
+      Notes: "A blanket of insulation that surrounds the exterior of the tank. From CBECC-Res."
     location:
       Description: "Location"
       Data Type: "<ComponentLocation>"

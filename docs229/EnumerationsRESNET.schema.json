@@ -3,6 +3,23 @@
     "title": "Enumerations from RESNET",
     "description": "Schema addition for ASHRAE 229 related to enumerations found in RESNET publications.",
     "definitions": {
+        "RulesetModelTypeRESNET": {
+            "type": "string",
+            "enum": [
+                "USER",
+                "RATED",
+                "REFERENCE",
+                "INDEX_ADJUSTMENT_DESIGN",
+                "INDEX_ADJUSTMENT_DESIGN_REFERENCE"
+            ],
+            "descriptions": [
+                "The building model as described without consideration of the ruleset",
+                "The rated model",
+                "The reference model",
+                "The index adjustment design model",
+                "The index adjustment design reference model"
+            ]
+        },
         "AdditionalSurfaceAdjacentToRESNET": {
             "type": "string",
             "enum": [

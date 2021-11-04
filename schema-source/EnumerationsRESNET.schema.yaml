@@ -10,6 +10,20 @@ Schema:
   Title: "Enumerations from RESNET"
   Description: "Schema addition for ASHRAE 229 related to enumerations found in RESNET publications."
 
+RulesetModelTypeRESNET:
+  Object Type: "Enumeration"
+  Enumerators:
+    USER:
+      Description: "The building model as described without consideration of the ruleset"
+    RATED:
+      Description: "The rated model"
+    REFERENCE:
+      Description: "The reference model"
+    INDEX_ADJUSTMENT_DESIGN:
+      Description: "The index adjustment design model"
+    INDEX_ADJUSTMENT_DESIGN_REFERENCE:
+      Description: "The index adjustment design reference model"
+
 AdditionalSurfaceAdjacentToRESNET:
   Object Type: "Enumeration"
   Enumerators:
