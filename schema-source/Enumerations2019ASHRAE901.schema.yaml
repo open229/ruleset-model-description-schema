@@ -10,7 +10,7 @@ Schema:
   Title: "Enumerations from ASHRAE 90.1-2019"
   Description: "Schema addition for ASHRAE 229 related to enumerations found in ASHRAE Standard 90.1-2019"
 
-CategoryType2019ASHRAE901:
+RulesetModelType2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     USER:

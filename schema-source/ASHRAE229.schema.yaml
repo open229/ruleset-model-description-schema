@@ -111,9 +111,9 @@ ASHRAE229:
     overall_simulation_outputs:
       Description: "Outputs from the simluation summed for all buildings in the simulation."
       Data Type: "{OverallSimulationOutputs}"
-    category:
-      Description: "Indicates which category the current model represents for rulesets with multiple simulation models"
-      Data Type: "<CategoryType2019ASHRAE901>"
+    ruleset_model_type:
+      Description: "Describes the current model for rulesets with multiple simulation models"
+      Data Type: "(<RulesetModelType2019ASHRAE901>,<RulesetModelTypeRESNET,<RulesetModelType2019T24Com>,<RulesetModelType2019T24Res>)"
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathType2019ASHRAE901>"
@@ -1006,7 +1006,7 @@ Schedule:
       Data Type: "<ScheduleSequenceTypeOptions>"
     hourly_values:
       Description: "Hourly Values of Schedule"
-      Data Type: "[Numeric][8760]"
+      Data Type: "[Numeric][0..8760]"
       Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
     event_times:
       Description: "Event times when the schedule changes"

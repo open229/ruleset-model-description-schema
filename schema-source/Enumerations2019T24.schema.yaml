@@ -10,6 +10,27 @@ Schema:
   Title: "Enumerations from Title 24"
   Description: "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications."
 
+RulesetModelType2019T24Com:
+  Object Type: "Enumeration"
+  Enumerators:
+    USER:
+      Description: "The building model as described without consideration of the ruleset"
+    PROPOSED:
+      Description: "The proposed building model"
+    BASELINE:
+      Description: "The baseline building model"
+
+RulesetModelType2019T24Res:
+  Object Type: "Enumeration"
+  Enumerators:
+    USER:
+      Description: "The building model as described without consideration of the ruleset"
+    PROPOSED:
+      Description: "The proposed building model"
+    STANDARD:
+      Description: "The standard building model"
+    BASELINE:
+      Description: "The baseline building model"
 
 ServiceWaterHeatingDistributionCompactness2019T24Com:
   Object Type: "Enumeration"
