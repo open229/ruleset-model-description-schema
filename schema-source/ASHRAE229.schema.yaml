@@ -1801,7 +1801,7 @@ Terminal:
       Description: "Referenced to the fluid loop used for reheat"
       Data Type: "$ID"
       Notes: "Only used when reheat_source is hot water. Constraint to use when implemented :FluidLoop:"
-    fans:
+    fan:
       Description: "Terminal fan"
       Data Type: "{Fan}"
       Notes: "JG to verify if used in test case description."
@@ -2523,10 +2523,6 @@ ServiceWaterHeatingDistributionSystem:
     service_water_piping:
       Description: "Other service water piping connected to this one as children."
       Data Type: "[{ServiceWaterPiping}]"
-    solar_thermal_systems:  
-      Description: "Solar thermal systems used for heating service water"
-      Data Type: "[{SolarThermal}]"
-      Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
     distribution_compactness:
       Description: "Type of compact distribution system"
       Data Type: "<ServiceWaterHeatingDistributionCompactness2019T24Com>"
@@ -2808,6 +2804,10 @@ ServiceWaterHeatingEquipment:
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
+    solar_thermal_systems:  
+      Description: "Solar thermal systems used for heating service water"
+      Data Type: "[{SolarThermal}]"
+      Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -2945,13 +2945,13 @@ Tank:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "K-m2/W"
-      Notes: "From CBECC-Res."
+      Notes: "Insulation that is part of the tank and is inside of the housing. From CBECC-Res."
     exterior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "K-m2/W"
-      Notes: "From CBECC-Res."
+      Notes: "A blanket of insulation that surrounds the exterior of the tank. From CBECC-Res."
     location:
       Description: "Location"
       Data Type: "<ComponentLocation>"

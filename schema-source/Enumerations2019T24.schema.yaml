@@ -65,7 +65,7 @@ ServiceWaterHeatingControlType2019T24Com:
       Description: "No control"
     NO_LOOP_OR_CENTRAL_SYSTEM_PUMP:
       Description: "No loop or central system pump"
-    TEMPERATURE_MODULATTION:
+    TEMPERATURE_MODULATION:
       Description: "Temperature modulation"
     TEMPERATURE_MODULATION_AND_MONITORING:
       Description: "Temperature modulation and monitoring"
