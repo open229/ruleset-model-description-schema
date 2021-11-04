@@ -3,6 +3,49 @@
     "title": "Enumerations from Title 24",
     "description": "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications.",
     "definitions": {
+        "RulesetModelType2019T24Com": {
+            "type": "string",
+            "enum": [
+                "USER",
+                "PROPOSED",
+                "BASELINE"
+            ],
+            "descriptions": [
+                "The building model as described without consideration of the ruleset",
+                "The proposed building model",
+                "The baseline building model"
+            ]
+        },
+        "RulesetModelType2019T24Res": {
+            "type": "string",
+            "enum": [
+                "USER",
+                "PROPOSED",
+                "STANDARD",
+                "BASELINE"
+            ],
+            "descriptions": [
+                "The building model as described without consideration of the ruleset",
+                "The proposed building model",
+                "The standard building model",
+                "The baseline building model"
+            ]
+        },
+        "GeneralStatusType2019T24": {
+            "type": "string",
+            "enum": [
+                "NEW",
+                "ALTERED",
+                "EXISTING",
+                "EXISTING_PLUS_NEW"
+            ],
+            "descriptions": [
+                "New",
+                "Altered",
+                "Existing",
+                "Existing plus new"
+            ]
+        },
         "ServiceWaterHeatingDistributionCompactness2019T24Com": {
             "type": "string",
             "enum": [
@@ -24,7 +67,7 @@
                 "DEMAND_CONTROL",
                 "NO_CONTROL",
                 "NO_LOOP_OR_CENTRAL_SYSTEM_PUMP",
-                "TEMPERATURE_MODULATTION",
+                "TEMPERATURE_MODULATION",
                 "TEMPERATURE_MODULATION_AND_MONITORING",
                 "OTHER"
             ],

@@ -1,4 +1,4 @@
-# CategoryType2019ASHRAE901
+# RulesetModelType2019ASHRAE901
 | Enumerator |                                                 Description                                                 | Notes |
 |------------|-------------------------------------------------------------------------------------------------------------|-------|
 | `USER`     | The building model as described without consideration of the ruleset                                        |       |

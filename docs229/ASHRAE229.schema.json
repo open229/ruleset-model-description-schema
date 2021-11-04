@@ -65,9 +65,20 @@
                     "description": "Outputs from the simluation summed for all buildings in the simulation.",
                     "$ref": "ASHRAE229.schema.json#/definitions/OverallSimulationOutputs"
                 },
-                "category": {
-                    "description": "Indicates which category the current model represents for rulesets with multiple simulation models",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CategoryType2019ASHRAE901"
+                "ruleset_model_type": {
+                    "description": "Describes the current model for rulesets with multiple simulation models",
+                    "oneOf": [
+                        {
+                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/RulesetModelType2019ASHRAE901"
+                        },
+                        {},
+                        {
+                            "$ref": "Enumerations2019T24.schema.json#/definitions/RulesetModelType2019T24Com"
+                        },
+                        {
+                            "$ref": "Enumerations2019T24.schema.json#/definitions/RulesetModelType2019T24Res"
+                        }
+                    ]
                 },
                 "compliance_path": {
                     "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
@@ -349,7 +360,7 @@
                 },
                 "served_by_service_water_heating_system": {
                     "description": "A service water heating system serving the zone",
-                    "notes": "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingSystem:"
+                    "notes": "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
                 },
                 "transfer_airflow_rate": {
                     "description": "Transfer airflow rate",
@@ -446,8 +457,15 @@
                     "notes": "JG to verify if used in test case description."
                 },
                 "status_type": {
-                    "description": "Choice of new, existing, addition, or alteration.",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/SpaceStatusType2019ASHRAE901"
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "oneOf": [
+                        {
+                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/SpaceStatusType2019ASHRAE901"
+                        },
+                        {
+                            "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
+                        }
+                    ]
                 },
                 "space_function": {
                     "description": "Generic function for the space.",
@@ -563,12 +581,14 @@
             "enum": [
                 "WEATHER_DRIVEN",
                 "PRESSURE_BASED",
-                "SCHEDULED"
+                "CONSTANT",
+                "OTHER"
             ],
             "descriptions": [
                 "Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule.",
-                "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction and is then multiplied by the schedule.",
-                "Constant. The amount of air leakage is based on the infiltration_flow_rate multiplied by the schedule."
+                "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction.",
+                "Constant. The schedule is ignored.",
+                "Other infiltration methods."
             ]
         },
         "Surface": {
@@ -649,6 +669,10 @@
                 "surface_optical_properties": {
                     "description": "Optical properties of the surface.",
                     "$ref": "ASHRAE229.schema.json#/definitions/SurfaceOpticalProperties"
+                },
+                "status_type": {
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
                 }
             },
             "required": [
@@ -1010,6 +1034,10 @@
                 "has_automatic_shades": {
                     "description": "Are there automatic interior shading such as blinds, curtains or shades",
                     "type": "boolean"
+                },
+                "status_type": {
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
                 }
             },
             "required": [
@@ -1314,7 +1342,7 @@
                 "hourly_values": {
                     "description": "Hourly Values of Schedule",
                     "type": "array",
-                    "minItems": 8760,
+                    "minItems": 0,
                     "maxItems": 8760,
                     "items": {
                         "type": "number"
@@ -1600,15 +1628,9 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystem",
                     "notes": "JG to verify if used in test case description."
                 },
-                "does_serve_computer_room": {
-                    "description": "Determines whether a computer room is served by the system",
-                    "type": "boolean",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "does_serve_zone_with_refrigerator_cases": {
-                    "description": "Determines whether a zone with refrigeration cases is served by the system",
-                    "type": "boolean",
-                    "notes": "JG to verify if used in test case description."
+                "status_type": {
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
                 }
             },
             "required": [
@@ -1642,13 +1664,21 @@
                 },
                 "heat_capacity": {
                     "description": "Heating capacity",
-                    "type": "array",
-                    "items": {
-                        "type": "number",
-                        "minimum": 0.0
-                    },
-                    "units": "W/m2",
-                    "notes": "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "The design heat capacity."
+                },
+                "oversizing_factor": {
+                    "description": "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "Used for furnace or heat pump. JG to verify if used in test case description."
+                },
+                "is_autosized": {
+                    "description": "True if the component is automatically sized by the simulation software",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
                 },
                 "heating_coil_setpoint": {
                     "description": "Setpoint of the air leaving the heating coil",
@@ -1670,7 +1700,7 @@
                     "notes": "Used for furnace or heat pump. JG to verify if used in test case description."
                 },
                 "heatpump_auxilliary_heat_type": {
-                    "description": "Heatpump auxilliary heat type",
+                    "description": "Heatpump auxilliary heat type used for backup",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatpumpAuxilliaryHeatType",
                     "notes": "JG to verify if used in test case description."
                 },
@@ -1684,6 +1714,11 @@
                     "description": "Heatpump low temperature shutoff",
                     "type": "number",
                     "units": "C",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "humidification_type": {
+                    "description": "Humidification type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HumidificationType",
                     "notes": "JG to verify if used in test case description."
                 }
             },
@@ -1717,11 +1752,26 @@
             "type": "string",
             "enum": [
                 "ELECTRIC_RESISTANCE",
+                "FURNACE",
                 "NONE",
                 "OTHER"
             ],
             "descriptions": [
                 "Electric resistance",
+                "Furnace",
+                "None",
+                "Other"
+            ]
+        },
+        "HumidificationType": {
+            "type": "string",
+            "enum": [
+                "ADIABATIC",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Adiabatic",
                 "None",
                 "Other"
             ]
@@ -1746,39 +1796,30 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystemType",
                     "notes": "JG to verify if used in test case description."
                 },
-                "peak_cooling_load": {
-                    "description": "Peak cooling load",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "peak_heating_load": {
-                    "description": "Peak cooling load",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W",
-                    "notes": "JG to verify if used in test case description."
-                },
                 "total_cool_capacity": {
                     "description": "Total cooling capacity",
-                    "type": "array",
-                    "items": {
-                        "type": "number",
-                        "minimum": 0.0
-                    },
-                    "units": "W/m2",
-                    "notes": "JG to verify if used in test case description."
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "Designed total cooling capacity. JG to verify if used in test case description."
                 },
                 "sensible_cool_capacity": {
                     "description": "Sensible cooling capacity",
-                    "type": "array",
-                    "items": {
-                        "type": "number",
-                        "minimum": 0.0
-                    },
-                    "units": "W/m2",
-                    "notes": "May be design value or result from the simulation. If multiple values are provided, they correspond to rotated building orientations"
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "Designed sensible cooling capacity"
+                },
+                "oversizing_factor": {
+                    "description": "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "JG to verify if used in test case description."
+                },
+                "is_autosized": {
+                    "description": "True if the component is automatically sized by the simulation software",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
                 },
                 "chilled_water_loop": {
                     "description": "Referenced to the Chilled water fluid loop",
@@ -1804,11 +1845,6 @@
                 "dehumidification_type": {
                     "description": "Dehumidification type",
                     "$ref": "ASHRAE229.schema.json#/definitions/DehumidificationType",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "humidification_type": {
-                    "description": "Humidification type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/HumidificationType",
                     "notes": "JG to verify if used in test case description."
                 },
                 "cooling_turndown_ratio": {
@@ -1852,19 +1888,6 @@
                 "Mechanical cooling",
                 "Desiccant",
                 "Series heat recovery",
-                "None",
-                "Other"
-            ]
-        },
-        "HumidificationType": {
-            "type": "string",
-            "enum": [
-                "ADIABATIC",
-                "NONE",
-                "OTHER"
-            ],
-            "descriptions": [
-                "Adiabatic",
                 "None",
                 "Other"
             ]
@@ -1916,10 +1939,13 @@
                     },
                     "notes": "JG to verify if used in test case description."
                 },
-                "is_multi_zone": {
-                    "description": "If the fan system serves muliple zones",
-                    "type": "boolean",
-                    "notes": "JG to verify if used in test case description."
+                "air_economizer": {
+                    "description": "Air side economizer related to the fan system",
+                    "$ref": "ASHRAE229.schema.json#/definitions/AirEconomizer"
+                },
+                "air_energy_recovery": {
+                    "description": "Air side energy recovery related to the fan system",
+                    "$ref": "ASHRAE229.schema.json#/definitions/AirEnergyRecovery"
                 },
                 "is_variable_air_volume": {
                     "description": "If the fan system is variable air volume.",
@@ -1929,6 +1955,21 @@
                 "temperature_control": {
                     "description": "Supply air temperature control type",
                     "$ref": "ASHRAE229.schema.json#/definitions/FanSystemTemperatureControlType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "operation_during_occupied": {
+                    "description": "Operation during occupied times type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemOperationType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "operation_during_unoccupied": {
+                    "description": "Operation during unoccupied times type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemOperationType",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "fan_control": {
+                    "description": "Supply fan control type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemSupplyFanControlType",
                     "notes": "JG to verify if used in test case description."
                 },
                 "supply_air_temperature_setpoint": {
@@ -1969,6 +2010,39 @@
                     "units": "L/s",
                     "notes": "JG to verify if used in test case description."
                 },
+                "air_filter_merv_rating": {
+                    "description": "The MERV rating of the air filter",
+                    "type": "number",
+                    "minimum": 1.0,
+                    "maximum": 20.0,
+                    "notes": "JG to verify if used in test case description."
+                },
+                "has_fully_ducted_return": {
+                    "description": "If the fan system has fully ducted return.",
+                    "type": "boolean",
+                    "notes": "JG to verify if used in test case description."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "AirEconomizer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
                 "air_economizer_type": {
                     "description": "Air economizer type",
                     "$ref": "ASHRAE229.schema.json#/definitions/AirEconomizerType",
@@ -1980,10 +2054,36 @@
                     "units": "C",
                     "notes": "JG to verify if used in test case description."
                 },
-                "has_gas_phase_air_cleaning": {
-                    "description": "True if the fan system includes gas phase air cleaning",
-                    "type": "boolean",
+                "economizer_design_sensible_effectiveness": {
+                    "description": "Economizer design sensible effectiveness",
+                    "type": "number",
                     "notes": "JG to verify if used in test case description."
+                },
+                "economizer_design_latent_effectiveness": {
+                    "description": "Economizer design sensible effectiveness",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "AirEnergyRecovery": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
                 },
                 "energy_recovery_type": {
                     "description": "Energy recovery type",
@@ -2003,26 +2103,6 @@
                 "energy_recovery_supply_air_temperature_control": {
                     "description": "Energy recovery supply air temperature control",
                     "$ref": "ASHRAE229.schema.json#/definitions/EnergyRecoverySupplyAirTemperatureControl",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "economizer_design_sensible_effectiveness": {
-                    "description": "Economizer design sensible effectiveness",
-                    "type": "number",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "economizer_design_latent_effectiveness": {
-                    "description": "Economizer design sensible effectiveness",
-                    "type": "number",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "demand_control_ventilation_control_type": {
-                    "description": "Demand control ventilation control type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/DemandControlVentilationControlType",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "supply_air_to_room_air_humidity_ratio": {
-                    "description": "Supply air to room air humidity ratio",
-                    "type": "number",
                     "notes": "JG to verify if used in test case description."
                 }
             },
@@ -2045,6 +2125,40 @@
                 "Outdoor air reset",
                 "Zone reset",
                 "Scheduled",
+                "Other"
+            ]
+        },
+        "FanSystemSupplyFanControlType": {
+            "type": "string",
+            "enum": [
+                "CONSTANT",
+                "VARIABLE_SPEED_DRIVE",
+                "MULTISPEED",
+                "INLET_VANE",
+                "DISCHARGE_DAMPER",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Constant",
+                "Variable speed drive",
+                "Multispeed",
+                "Inlet vane",
+                "Discharge damper",
+                "Other"
+            ]
+        },
+        "FanSystemOperationType": {
+            "type": "string",
+            "enum": [
+                "CYCLING",
+                "CONTINUOUS",
+                "KEEP_OFF",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Cycling",
+                "Continuous",
+                "Off",
                 "Other"
             ]
         },
@@ -2152,33 +2266,49 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "airflow": {
-                    "description": "Design supply airflow",
+                "design_airflow": {
+                    "description": "Design airflow",
                     "type": "number",
                     "units": "L/s",
                     "notes": "JG to verify if used in test case description."
                 },
-                "power": {
-                    "description": "Design supply fan power",
+                "specification_method": {
+                    "description": "Options for how the fan is specified",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSpecificationMethodOptions"
+                },
+                "design_electric_power": {
+                    "description": "Design electric fan power",
                     "type": "number",
                     "units": "W",
                     "notes": "JG to verify if used in test case description."
                 },
-                "fan_power_adjustment_factor": {
-                    "description": "Fan power adjustment factor",
+                "design_pressure_rise": {
+                    "description": "Pressure rise through fan at design flow conditions",
                     "type": "number",
+                    "units": "m",
+                    "notes": "Only used when specification_method is set to Detailed"
+                },
+                "nameplate_power": {
+                    "description": "nameplate horsepower of fan",
+                    "type": "number",
+                    "units": "W",
                     "notes": "JG to verify if used in test case description."
+                },
+                "total_efficiency": {
+                    "description": "Fan motor efficiency",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "Only used when specification_method is set to Detailed"
                 },
                 "motor_efficiency": {
                     "description": "Fan motor efficiency",
                     "type": "number",
                     "units": "W",
-                    "notes": "JG to verify if used in test case description."
+                    "notes": "Only used when specification_method is set to Detailed"
                 },
-                "fan_control": {
-                    "description": "Supply fan control type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystemSupplyFanControlType",
-                    "notes": "JG to verify if used in test case description."
+                "status_type": {
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
                 }
             },
             "required": [
@@ -2186,23 +2316,19 @@
             ],
             "additionalProperties": false
         },
-        "FanSystemSupplyFanControlType": {
+        "FanSpecificationMethodOptions": {
             "type": "string",
             "enum": [
-                "CONSTANT",
-                "VARIABLE_SPEED_DRIVE",
-                "CYCLING",
-                "INLET_VANE",
-                "DISCHARGE_DAMPER",
-                "OTHER"
+                "SIMPLE",
+                "DETAILED"
             ],
             "descriptions": [
-                "Constant",
-                "Variable speed drive",
-                "Cycling",
-                "Inlet vane",
-                "Discharge damper",
-                "Other"
+                "Simple",
+                "Detailed"
+            ],
+            "notes": [
+                "Specify the electric power input of fan",
+                "Specify the brake horse power, design pressure rise through, total efficiency, motor efficiency"
             ]
         },
         "Terminal": {
@@ -2238,7 +2364,7 @@
                     "description": "Referenced to the fluid loop used for reheat",
                     "notes": "Only used when reheat_source is hot water. Constraint to use when implemented :FluidLoop:"
                 },
-                "fans": {
+                "fan": {
                     "description": "Terminal fan",
                     "$ref": "ASHRAE229.schema.json#/definitions/Fan",
                     "notes": "JG to verify if used in test case description."
@@ -2621,7 +2747,7 @@
             ],
             "notes": [
                 "Specify the electric power input of pump",
-                "Specify the motor nameplate power, design head, impelllor efficiency, motor efficiency"
+                "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
             ]
         },
         "Boiler": {
@@ -3194,14 +3320,6 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterPiping"
                     }
                 },
-                "solar_thermal_systems": {
-                    "description": "Solar thermal systems used for heating service water",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/SolarThermal"
-                    },
-                    "notes": "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
-                },
                 "distribution_compactness": {
                     "description": "Type of compact distribution system",
                     "$ref": "Enumerations2019T24.schema.json#/definitions/ServiceWaterHeatingDistributionCompactness2019T24Com",
@@ -3436,7 +3554,7 @@
                 },
                 "service_water_heating_distribution_system": {
                     "description": "Referenced to the service water heating distribution system",
-                    "notes": "Constraint to use when implemented :ServiceWaterHeatingSystem:"
+                    "notes": "Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
                 },
                 "energy_factor": {
                     "description": "Energy factor",
@@ -3556,6 +3674,18 @@
                     "description": "Tank that is part of the service water heating equipment",
                     "$ref": "ASHRAE229.schema.json#/definitions/Tank",
                     "notes": "Contains a storage tank that is part of the service water heating equipment."
+                },
+                "status_type": {
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
+                },
+                "solar_thermal_systems": {
+                    "description": "Solar thermal systems used for heating service water",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/SolarThermal"
+                    },
+                    "notes": "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
                 }
             },
             "required": [
@@ -3730,14 +3860,14 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "K-m2/W",
-                    "notes": "From CBECC-Res."
+                    "notes": "Insulation that is part of the tank and is inside of the housing. From CBECC-Res."
                 },
                 "exterior_insulation": {
                     "description": "Tank interior insulation R-value",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "K-m2/W",
-                    "notes": "From CBECC-Res."
+                    "notes": "A blanket of insulation that surrounds the exterior of the tank. From CBECC-Res."
                 },
                 "location": {
                     "description": "Location",
@@ -4160,6 +4290,6 @@
             "additionalProperties": false
         }
     },
-    "version": "0.0.3",
+    "version": "0.0.4",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
