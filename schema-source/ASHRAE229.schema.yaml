@@ -58,7 +58,7 @@ String:
   Description: "A referencencable identification for a data group and sequence of characters of any length using any (specified) character set."
   JSON Schema Type: string
   Examples:
-    - "AHU-01"
+    - "asdfsdfas"
 
 "Null":
   Object Type: "Data Type"
