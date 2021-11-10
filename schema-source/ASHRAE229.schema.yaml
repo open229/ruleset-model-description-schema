@@ -306,7 +306,7 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
+      Notes: "my test"
     non_mechanical_cooling_fan_power:
       Description: "Non-mechanical cooling fan power"
       Data Type: "Numeric"
