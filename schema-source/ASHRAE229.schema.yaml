@@ -102,7 +102,7 @@ ASHRAE229:
     measured_infiltration_pressure_difference:
       Description: "Differential pressure difference used during measurement for infiltration values."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "Pa"
       Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions."
     is_measured_infiltration_based_on_test:
@@ -117,7 +117,7 @@ ASHRAE229:
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathType2019ASHRAE901>"
-    building_rotation_angles: 
+    building_rotation_angles:
       Description: "A list of angles that building simulations are performed and results are provided."
       Data Type: "[Numeric]"
       Units: "degrees"
@@ -187,7 +187,7 @@ Building:
       Description: "Indicates whether the site has features that cast shadows on the building"
       Data Type: "Boolean"
 
-BuildingSegment:    
+BuildingSegment:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -203,12 +203,12 @@ BuildingSegment:
     number_of_floors_above_grade:
       Description: "Number of floors above grade"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "JG to verify if used in test case description."
     number_of_floors_below_grade:
       Description: "Number of floors below grade"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "JG to verify if used in test case description."
     is_all_new:
       Description: "Indicates whether the building segment is completely new construction (true) or existing (false). "
@@ -254,7 +254,7 @@ Zone:
     volume:
       Description: "Volume of the space"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m3"
     surfaces:
       Description: "Surfaces surrounding the zone"
@@ -298,31 +298,31 @@ Zone:
     transfer_airflow_rate:
       Description: "Transfer airflow rate"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
     exhaust_airflow_rate:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
     non_mechanical_cooling_fan_power:
       Description: "Non-mechanical cooling fan power"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W"
       Notes: "JG to verify if used in test case description."
     non_mechanical_cooling_fan_airflow:
       Description: "Non-mechanical cooling fan power"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
-    air_distribution_effectiveness: 
+    air_distribution_effectiveness:
       Description: "Air distribution effectiveness"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "JG to verify if used in test case description."
 
 Space:
@@ -347,13 +347,13 @@ Space:
     floor_area:
       Description: "The floor area of the space."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m2"
       Notes: "The floor area of a space within the building, including basements, mezzanine and intermediate-floored tiers, and penthouses with a headroom height of 7.5 ft or greater. It is measured from the exterior faces of walls or from the center-line of walls separating buildings, but excluding covered walkways, open roofed-over areas, porches and similar spaces, pipe trenches, exterior terraces or steps, chimneys, roof overhangs, and similar features. This is the floor area that is modeled."
     number_of_occupants:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
     occupant_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "$ID"
@@ -362,7 +362,7 @@ Space:
     occupant_sensible_heat_gain:
       Description: "Sensible heat gain of each occupant."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W"
       Notes: "JG to verify if used in test case description."
     status_type:
@@ -432,13 +432,13 @@ Infiltration:
     measured_air_leakage_rate:
       Description: "Meaured air leakage rate from infiltration of outside air"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m3/s"
       Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
     infiltration_flow_rate:
       Description: "Design infiltration flow rate"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m3/s"
       Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines."
     multiplier_schedule:
@@ -457,7 +457,7 @@ InfiltrationMethodType:
       Description: "Constant. The schedule is ignored."
     OTHER:
       Description: "Other infiltration methods."
-    
+
 
 Surface:
   Object Type: "Data Group"
@@ -476,25 +476,25 @@ Surface:
       Description: "Suburfaces that are on the surface"
       Data Type: "[{Subsurface}]"
       Notes: "Contains a list of surfaces that define the space."
-    classification: 
+    classification:
       Description: "Classification for the surface."
       Data Type: "<SurfaceClassificationType>"
       Notes: "Options for surface being interior or exterior wall, floor, or ceiling."
     area:
       Description: "area of the surface"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m2"
       Notes: "Measured from interior face area. It is the gross area of the wall and includes the area of all subsurfaces."
     tilt:
-      Description: "Angle between vertical and the surface outward normal" 
+      Description: "Angle between vertical and the surface outward normal"
       Data Type: "Numeric"
       Units: "degrees"
       Notes: "Example value would be 0 = roof, 90 = wall, 180 = downward facing surface (exterior floor)"
     azimuth:
       Description: "Clockwise angle between North and the horizontal projection of the wall's outward normal."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "degrees"
       Notes: "Example values would be 0 = north, 90 = East, 180 = South, 270 = West"
     adjacent_to:
@@ -517,7 +517,7 @@ Surface:
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
-  
+
 Construction:
   Object Type: "Data Group"
   Data Elements:
@@ -537,7 +537,7 @@ Construction:
     fraction_framing:
       Description: "Fraction of the construction that is framing."
       Data Type: "Numeric"
-      Range: ">=0,<=1"
+      Constraints: ">=0,<=1"
       Notes: "Fraction of the construction using framing_layers, the remaining portion uses the primary_layers. If blank, assume zero framing."
     primary_layers:
       Description: "List of names of layer descriptions starting from the outside surface for primary heat path"
@@ -553,23 +553,23 @@ Construction:
     u_factor:
       Description: "suface U-factor"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W/m2-K"
       Notes: "Includes interior and exterior air films as specified by the referenced standard."
     c_factor:
       Description: "surface C-factor"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W/m2-K"
     f_factor:
       Description: "surface F-factor"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W/m-K"
     r_value:
       Description: "r-value of the insulation for the surface"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "K-m2/W"
     has_radiant_heating:
       Description: "Includes embedded radiant heating elements"
@@ -595,27 +595,27 @@ Material:
       Description: "The thickness of the material layer"
       Data Type: "Numeric"
       Units: "m"
-      Range: ">0"
+      Constraints: ">0"
     thermal_conductivity:
       Description: "The thermal conductivity of the material layer"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W/m-K"
       Notes: "When thermal_conductivity is specified, r_value should not be provided."
     density:
       Description: "The density of the material layer"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "kg/m3"
     specific_heat:
       Description: "The specific heat of the material layer"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "J/kg-K"
     r_value:
       Description: "r-value of the insulation for the material layer"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "K-m2/W"
       Notes: "When r_value is specified, thermal_conductivity should not be provided. Typically used for insulation or air gaps."
 
@@ -635,32 +635,32 @@ SurfaceOpticalProperties:
     absorptance_thermal_exterior:
       Description: "Thermal absorptance of long wavelength radiation on the exterior surface."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
     absorptance_solar_exterior:
       Description: "Thermal absorptance of short wavelength radiation on the exterior surface."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
     absorptance_visible_exterior:
       Description: "Thermal absorptance of visible radiation on the exterior surface."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
     absorptance_thermal_interior:
       Description: "Thermal absorptance of long wavelength radiation on the interior surface."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
     absorptance_solar_interior:
       Description: "Thermal absorptance of short wavelength radiation on the interior surface."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
     absorptance_visible_interior:
       Description: "Thermal absorptance of visible radiation on the interior surface."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Equals one minus the visible reflectance (for opaque materials) and represents the fraction of incident visible wavelength radiation that is absorbed by the material"
 
 SurfaceClassificationType:
@@ -672,7 +672,7 @@ SurfaceClassificationType:
       Description: "Floor"
     CEILING:
       Description: "Ceiling"
-    
+
 SurfaceAdjacentTo:
   Object Type: "Enumeration"
   Enumerators:
@@ -717,29 +717,29 @@ Subsurface:
     is_operable:
       Description: "Identifies whether window subsurface can be opened and closed including by pivoting or sliding."
       Data Type: "Boolean"
-      Notes: "This applies to windows and skylights but not to doors." 
+      Notes: "This applies to windows and skylights but not to doors."
     has_open_sensor:
       Description: "Has sensor and reports to building control system when the window or door is open."
       Data Type: "Boolean"
     framing_type:
       Description: "The material of the framing."
       Data Type: "<SubsurfaceFrameType2019ASHRAE901>"
-      Notes: "This applies to windows and skylights but not to doors." 
+      Notes: "This applies to windows and skylights but not to doors."
     glazed_area:
       Description: "Area of subsurface including glass and transparent surfaces"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m2"
     opaque_area:
       Description: "Area of subsurface framing for a window or skylight or opaque portion for a door."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m2"
     u_factor:
       Description: "Overall Subsurface U-factor"
       Data Type: "Numeric"
       Units: "W/m2-K"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Includes interior and exterior air films as specified by the referenced standard."
     dynamic_glazing_type:
       Description: "Type of dynamic glazing for the window subsurface"
@@ -748,28 +748,28 @@ Subsurface:
     solar_heat_gain_coefficient:
       Description: "Subsurface SHGC"
       Data Type: "Numeric"
-      Range: ">=0"
-      Notes: "For dynamic glazing represents the minimum SHGC" 
+      Constraints: ">=0"
+      Notes: "For dynamic glazing represents the minimum SHGC"
     maximum_solar_heat_gain_coefficient:
       Description: "Maximum Subsurface SHGC for Dynamic Glazing"
       Data Type: "Numeric"
-      Range: ">=0"
-      Notes: "Only used for dynamic glazing" 
+      Constraints: ">=0"
+      Notes: "Only used for dynamic glazing"
     visible_transmittance:
       Description: "Subsurface VT"
       Data Type: "Numeric"
-      Range: ">=0"
-      Notes: "For dynamic glazing represents the maximum visible transmittance" 
+      Constraints: ">=0"
+      Notes: "For dynamic glazing represents the maximum visible transmittance"
     minimum_visible_transmittance:
       Description: "Minimum Subsurface VT for Dynamic Glazing"
       Data Type: "Numeric"
-      Range: ">=0"
-      Notes: "Only used for dynamic glazing" 
+      Constraints: ">=0"
+      Notes: "Only used for dynamic glazing"
     depth_of_overhang:
       Description: "Distance from the edge of the overhang to the subsurface."
       Data Type: "Numeric"
       Units: "m"
-      Range: ">=0"
+      Constraints: ">=0"
     has_shading_overhang:
       Description: "Identifies whether subsurface has overhangs"
       Data Type: "Boolean"
@@ -782,12 +782,12 @@ Subsurface:
     solar_transmittance_multiplier_summer:
       Description: "Solar transmittance multiplier for summer"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Often used to account for interior shading such as drapes."
     solar_transmittance_multiplier_winter:
       Description: "Solar transmittance multiplier for summer"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Often used to account for interior shading such as drapes."
     has_automatic_shades:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
@@ -915,12 +915,12 @@ MiscellaneousEquipment:
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Sensible plus latent do not necessarily add up to 1.0."
     latent_fraction:
       Description: "Fraction of energy that is a latent load on the space."
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Sensible plus latent do not necessarily add up to 1.0."
     miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
@@ -961,20 +961,20 @@ Transformer:
     efficiency:
       Description: "Transformer efficiency"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Expresses the efficiency of the transformer as a fraction from 0 to 1, where 1 would represent 100% efficiency."
     capacity:
       Description: "Rated Capacity of the Transformer"
       Data Type: "Numeric"
       Units: "V-A"
-      Range: ">=0"
+      Constraints: ">=0"
     peak_load:
       Description: "Annual Peak electric load on the transformer"
       Data Type: "Numeric"
       Units: "W"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Peak electric load on the transfomer based on an annual simulation with typical weather file."
-    
+
 TransformerType:
   Object Type: "Enumeration"
   Enumerators:
@@ -1057,7 +1057,7 @@ ScheduleTypeOptions:
       Description: "Power"
     FLOW_RATE:
       Description: "Flow rate"
-    
+
 Calendar:
   Object Type: "Data Group"
   Data Elements:
@@ -1117,7 +1117,7 @@ Weather:
     heating_design_day_type:
       Description: "The frequency of occurance type for heating design day"
       Data Type: "<HeatingDesignDayTypeOptions>"
-    
+
 CoolingDesignDayTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
@@ -1256,13 +1256,13 @@ HeatingSystem:
     heat_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W"
       Notes: "The design heat capacity."
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
@@ -1281,7 +1281,7 @@ HeatingSystem:
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
@@ -1359,22 +1359,22 @@ CoolingSystem:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemType>"
       Notes: "JG to verify if used in test case description."
-    total_cool_capacity: 
+    total_cool_capacity:
       Description: "Total cooling capacity"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W"
       Notes: "Designed total cooling capacity. JG to verify if used in test case description."
-    sensible_cool_capacity: 
+    sensible_cool_capacity:
       Description: "Sensible cooling capacity"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "W"
       Notes: "Designed sensible cooling capacity"
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "JG to verify if used in test case description."
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
@@ -1396,7 +1396,7 @@ CoolingSystem:
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Used for direct expansion. JG to verify if used in test case description."
     dehumidification_type:
       Description: "Dehumidification type"
@@ -1527,7 +1527,7 @@ FanSystem:
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
       Data Type: "Numeric"
-      Range: ">=1, <=20"
+      Constraints: ">=1, <=20"
       Notes: "JG to verify if used in test case description."
     has_fully_ducted_return:
       Description: "If the fan system has fully ducted return."
@@ -1873,7 +1873,7 @@ TerminalFanConfiguration:
       Description: "Series"
     OTHER:
       Description: "Other"
-      
+
 ReheatSourceType:
   Object Type: "Enumeration"
   Enumerators:
@@ -1907,7 +1907,7 @@ FluidLoop:
       Data Type: "Numeric"
       Units: "W/s-L"
       Notes: "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
-    child_loops: 
+    child_loops:
       Description: "Other fluid loops connected to this one as children."
       Data Type: "[{FluidLoop}]"
       Notes: "Secondary loops should be described as child loops."
@@ -2054,12 +2054,12 @@ Pump:
     impeller_efficiency:
       Description: "Full load efficiency of the impeller"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Only used when specification_method is set to Detailed"
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
       Notes: "Only used when specification_method is set to Detailed"
     speed_control:
       Description: "Options for pump speed control"
@@ -2135,7 +2135,7 @@ Boiler:
     efficiency:
       Description: "Efficiency value based on the selected efficiency_metric"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{BoilerOutputValidationPoint}]"
@@ -2240,7 +2240,7 @@ Chiller:
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
-      Range: ">=0, <=1"
+      Constraints: ">=0, <=1"
     part_load_efficiency_metric:
       Description: "The type of part load efficiency metric used"
       Data Type: "<ChillerPartLoadEfficiencyMetricTypeOptions>"
@@ -2543,7 +2543,7 @@ ServiceWaterHeatingDistributionSystem:
       Description: "Shower heat drain recovery efficiency"
       Data Type: "Numeric"
       Units: "m"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
@@ -2625,7 +2625,7 @@ ServiceWaterPiping:
       Description: "Pipe insulation thickness"
       Data Type: "Numeric"
       Units: "m"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     loop_pipe_location:
       Description: "Loop pipe location"
@@ -2639,13 +2639,13 @@ ServiceWaterPiping:
       Description: "Pipe length"
       Data Type: "Numeric"
       Units: "m"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From RESNET"
     diameter:
       Description: "Pipe section diameter"
       Data Type: "Numeric"
       Units: "m"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Res."
     child_service_water_piping:
       Description: "Other service water piping connected to this one as children."
@@ -2713,12 +2713,12 @@ ServiceWaterHeatingEquipment:
     energy_factor:
       Description: "Energy factor"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     thermal_efficiency:
       Description: "Service water heating heater thermal efficiency"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
     standby_loss_fraction:
       Description: "Standby loss fraction"
       Data Type: "Numeric"
@@ -2726,13 +2726,13 @@ ServiceWaterHeatingEquipment:
     uniform_energy_factor:
       Description: "Uniform energy factor"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     first_hour_rating:
       Description: "First hour rating volume"
       Data Type: "Numeric"
       Units: "L"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     output_validation_points:
       Description: "Capacity validation points"
@@ -2741,7 +2741,7 @@ ServiceWaterHeatingEquipment:
       Description: "Input power"
       Data Type: "Numeric"
       Units: "W"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     rated_capacity:
       Description: "Rated capacity"
@@ -2752,7 +2752,7 @@ ServiceWaterHeatingEquipment:
       Description: "Minimum capacity"
       Data Type: "Numeric"
       Units: "W"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     recovery_efficiency:
       Description: "Recovery efficiency"
@@ -2788,7 +2788,7 @@ ServiceWaterHeatingEquipment:
       Description: "Power for the draft fan "
       Data Type: "Numeric"
       Units: "W"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     has_electrical_ignition:
       Description: "Indicates whether the water heater has electrical ignition"
@@ -2804,7 +2804,7 @@ ServiceWaterHeatingEquipment:
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
-    solar_thermal_systems:  
+    solar_thermal_systems:
       Description: "Solar thermal systems used for heating service water"
       Data Type: "[{SolarThermal}]"
       Notes: "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
@@ -2929,7 +2929,7 @@ Tank:
       Description: "Storage capacity of tank in distribution system"
       Data Type: "Numeric"
       Units: "L"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     type:
       Description: "Service water heater tank type"
@@ -2938,18 +2938,18 @@ Tank:
       Description: "Tank height"
       Data Type: "Numeric"
       Units: "m"
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "From CBECC-Com."
     interior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "K-m2/W"
       Notes: "Insulation that is part of the tank and is inside of the housing. From CBECC-Res."
     exterior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "K-m2/W"
       Notes: "A blanket of insulation that surrounds the exterior of the tank. From CBECC-Res."
     location:
@@ -3109,23 +3109,23 @@ ExteriorLighting:
       Description: "Area of the exterior functional space."
       Data Type: "Numeric"
       Units: "m2"    # use ft2 for IP units
-      Range: ">0"
+      Constraints: ">0"
     length:
       Description: "Linear length measure for exterior functional space"
       Data Type: "Numeric"
-      Range: ">=0"
+      Constraints: ">=0"
       Units: "m"     # use ft for IP units
       Notes: "For example, used when expressing street frontage or door width"
     power:
       Description: "Nominal power  of exterior lighting fixtures"
       Data Type: "Numeric"
       Units: "W"
-      Range: ">0"
+      Constraints: ">0"
     fixture_height:
       Description: "Installation height of exterior fixture"
       Data Type: "Numeric"
       Units: "m"     # use ft for IP units
-      Range: ">0"
+      Constraints: ">0"
 
 Refrigeration:
   Object Type: "Data Group"
@@ -3158,7 +3158,7 @@ Refrigeration:
       Description: "Nominal power of refrigeration"
       Data Type: "Numeric"
       Units: "W"
-      Range: ">0"
+      Constraints: ">0"
     power_multiplier_schedule:
       Description: "Refrigeration power multiplier schedule name"
       Data Type: "$ID"
@@ -3166,11 +3166,11 @@ Refrigeration:
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
-      Range: ">=-1, <=1"
+      Constraints: ">=-1, <=1"
     heat_gain_fraction:
       Description: "Fraction of energy that is a heat gain to the space."
       Data Type: "Numeric"
-      Range: ">=-1, <=1"
+      Constraints: ">=-1, <=1"
     case_volume:
       Description: "volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
@@ -3262,21 +3262,21 @@ OverallSimulationOutputs:
       Description: "Annual electricity energy end_use for SWH loops"
       Data Type: "Numeric"
       Units: "kWh"
-      Range: ">=0"
+      Constraints: ">=0"
     service_water_heating_annual_enduse_fossilfuel:
       Description: "Annual fossil fuel energy end_use for SWH loops"
       Data Type: "Numeric"
       Units: "J" # use MMBTU for IP units
-      Range: ">=0"
+      Constraints: ">=0"
     unmet_heating_load_hours:
       Description: "total hours any HVAC Zone heating temperature setpoint not met"
       Data Type: "Numeric"
       Units: "J" # use MMBTU for IP units
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "JG to verify if used in test case description."
     unmet_cooling_load_hours:
       Description: "total hours any HVAC Zone cooling temperature setpoint not met"
       Data Type: "Numeric"
       Units: "J" # use MMBTU for IP units
-      Range: ">=0"
+      Constraints: ">=0"
       Notes: "JG to verify if used in test case description."
