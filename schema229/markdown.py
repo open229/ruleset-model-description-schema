@@ -7,7 +7,7 @@ import io
 
 import yaml
 
-import schema205.md.schema_table as schema_table
+import schema229.md.schema_table as schema_table
 
 def string_out_tables(instance,base_level=1):
   struct = schema_table.load_structure_from_object(instance)

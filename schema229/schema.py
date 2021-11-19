@@ -217,8 +217,8 @@ class A229Schema:
 
 
 def validate(file_path, schema_path):
-    a205schema = A205Schema(schema_path)
-    a205schema.validate(load_json(file_path))
+    a229schema = A229Schema(schema_path)
+    a229schema.validate(load_json(file_path))
 
 
 def validate_directory(example_dir, schema_dir):
@@ -233,7 +233,7 @@ def validate_directory(example_dir, schema_dir):
                     schema_name = load_json(example_path)["metadata"]["schema"]
                     schema_path = os.path.join(schema_dir, f"{schema_name}.schema.json")
                     validate(example_path)
-                except Exception as e:  # Change to tk205 Exception
+                except Exception as e:  # Change to tk229 Exception
                     errors.append(e)
     if len(errors) > 0:
         error_str = "\n\n".join([f"{e}" for e in errors])

@@ -5,7 +5,7 @@ from copy import deepcopy
 
 import re
 
-import schema205.md.grid_table as grid_table
+import schema229.md.grid_table as grid_table
 
 
 def write_header(heading, level=1):

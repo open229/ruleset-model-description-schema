@@ -239,7 +239,7 @@ class DataGroup:
             # is a simple definition or enumeration.
             m_nested = re.match(r'.*?\((.*)\)', m.group(2))
             if m_nested:
-                # Rare case of a nested specification e.g. 'ASHRAE205(rs_id=RS0005)'
+                # Rare case of a nested specification e.g. 'ASHRAE229(rs_id=RS0005)'
                 internal_type = m.group(2).split('(')[0]
                 nested_type = m_nested.group(1)
             else:
