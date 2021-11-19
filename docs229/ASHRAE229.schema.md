@@ -1281,4 +1281,3 @@
 | `service_water_heating_annual_enduse_fossilfuel`  | Annual fossil fuel energy end_use for SWH loops                              | `Numeric` | J     | `≥0`  |     |                                                |
 | `unmet_heating_load_hours`                        | total hours any HVAC Zone heating temperature setpoint not met               | `Numeric` | J     | `≥0`  |     | JG to verify if used in test case description. |
 | `unmet_cooling_load_hours`                        | total hours any HVAC Zone cooling temperature setpoint not met               | `Numeric` | J     | `≥0`  |     | JG to verify if used in test case description. |
-
