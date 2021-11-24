@@ -1907,7 +1907,10 @@ FluidLoop:
       Data Type: "Numeric"
       Units: "W/s-L"
       Notes: "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
-    child_loops: 
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
+    child_loops:
       Description: "Other fluid loops connected to this one as children."
       Data Type: "[{FluidLoop}]"
       Notes: "Secondary loops should be described as child loops."
