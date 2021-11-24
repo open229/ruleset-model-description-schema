@@ -11,6 +11,7 @@ pytest = ">=5.2"
 doit = "*"
 pylint = "*"
 schema229 = {editable = true, path = "."}
+jinja2 = "*"
 
 [packages]
 jsonschema = "*"

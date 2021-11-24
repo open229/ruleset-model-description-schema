@@ -1,6 +1,7 @@
 import schema229.validate
 import schema229.markdown
 import schema229.json_translate
+
 import schema229.render_template
 import os
 from doit.tools import create_folder
@@ -60,37 +61,37 @@ def task_doc():
     }
 
 
-def task_render_template():
-    """
-    Demonstrate how to render a template
-    """
-    template_dir = os.path.realpath(
-        os.path.join("rendering_examples", "template_rendering")
-    )
-    out_file = os.path.join(RENDERED_TEMPLATE_PATH, "main.md")
-    log_file = os.path.join(RENDERED_TEMPLATE_PATH, "error-log.txt")
-    return {
-        "file_dep": collect_source_files()
-        + [
-            os.path.join(template_dir, "main.md.j2"),
-            os.path.join("schema229", "markdown.py"),
-            os.path.join("schema229", "md", "__init__.py"),
-            os.path.join("schema229", "md", "schema_table.py"),
-            os.path.join("schema229", "md", "grid_table.py"),
-            os.path.join("schema229", "render_template.py"),
-        ],
-        "targets": [out_file, log_file],
-        "task_dep": ["validate"],
-        "actions": [
-            (create_folder, [RENDERED_TEMPLATE_PATH]),
-            (
-                schema229.render_template.main,
-                ["main.md.j2", out_file, template_dir],
-                {"log_file": log_file},
-            ),
-        ],
-        "clean": True,
-    }
+# def task_render_template():
+#     """
+#     Demonstrate how to render a template
+#     """
+#     template_dir = os.path.realpath(
+#         os.path.join("rendering_examples", "template_rendering")
+#     )
+#     out_file = os.path.join(RENDERED_TEMPLATE_PATH, "main.md")
+#     log_file = os.path.join(RENDERED_TEMPLATE_PATH, "error-log.txt")
+#     return {
+#         "file_dep": collect_source_files()
+#         + [
+#             os.path.join(template_dir, "main.md.j2"),
+#             os.path.join("schema229", "markdown.py"),
+#             os.path.join("schema229", "md", "__init__.py"),
+#             os.path.join("schema229", "md", "schema_table.py"),
+#             os.path.join("schema229", "md", "grid_table.py"),
+#             os.path.join("schema229", "render_template.py"),
+#         ],
+#         "targets": [out_file, log_file],
+#         "task_dep": ["validate"],
+#         "actions": [
+#             (create_folder, [RENDERED_TEMPLATE_PATH]),
+#             (
+#                 schema229.render_template.main,
+#                 ["main.md.j2", out_file, template_dir],
+#                 {"log_file": log_file},
+#             ),
+#         ],
+#         "clean": True,
+#     }
 
 
 def task_schema():
@@ -108,6 +109,6 @@ def task_schema():
     }
 
 
-def task_test():
-    """Performs unit tests and example file validation tests"""
-    return {"task_dep": ["schema"], "actions": ["pytest -v test"]}
+# def task_test():
+#     """Performs unit tests and example file validation tests"""
+#     return {"task_dep": ["schema"], "actions": ["pytest -v test"]}
