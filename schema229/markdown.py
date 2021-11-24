@@ -87,7 +87,7 @@ def write_tables(instance, output_path, append=True):
         # Modified from 205 version
         "AppG Used By TCDs",
         "AppG P_RMR Equals U_RMR",
-        "AppG B_RMR Equals P_RMR: False",
+        "AppG B_RMR Equals P_RMR",
     ]
     if len(data_groups) > 0:
       for dg in data_groups:
@@ -107,7 +107,7 @@ def write_tables(instance, output_path, append=True):
           if "Notes" in new_obj:
             if type(new_obj["Notes"]) is list:
               new_obj["Notes"] = "\n\n".join([f"- {note}" for note in new_obj["Notes"]])
-              
+
           # Modified from 205 version
           # Replace boolean values with a check mark or empty string
           for key in new_obj:
