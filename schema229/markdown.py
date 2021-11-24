@@ -76,7 +76,19 @@ def write_tables(instance, output_path, append=True):
         output_file.writelines(format_table(writer))
 
     # Data Groups
-    writer.headers = ["Name", "Description", "Data Type", "Units", "Range", "Req", "Notes"]
+    writer.headers = [
+        "Name",
+        "Description",
+        "Data Type",
+        "Units",
+        "Range",
+        "Req",
+        "Notes",
+        # Modified from 205 version
+        "AppG Used By TCDs",
+        "AppG P_RMR Equals U_RMR",
+        "AppG B_RMR Equals P_RMR: False",
+    ]
     if len(data_groups) > 0:
       for dg in data_groups:
         writer.table_name = dg
@@ -95,6 +107,14 @@ def write_tables(instance, output_path, append=True):
           if "Notes" in new_obj:
             if type(new_obj["Notes"]) is list:
               new_obj["Notes"] = "\n\n".join([f"- {note}" for note in new_obj["Notes"]])
+              
+          # Modified from 205 version
+          # Replace boolean values with a check mark or empty string
+          for key in new_obj:
+              val = new_obj[key]
+              if type(val) is bool:
+                  new_obj[key] = "\N{check mark}" if val else ""
+
           data_elements.append(new_obj)
         writer.value_matrix = data_elements
 
