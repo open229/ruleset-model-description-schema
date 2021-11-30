@@ -1772,6 +1772,23 @@ Fan:
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
+    output_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{FanOutputValidationPoint}]"
+      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+
+FanOutputValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    airflow:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "No name and id is needed since typically used as one of a series."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
 
 FanSpecificationMethodOptions:
   Object Type: "Enumeration"
