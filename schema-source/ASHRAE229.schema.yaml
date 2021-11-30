@@ -1776,7 +1776,6 @@ FanSpecificationMethodOptions:
       Description: "Detailed"
       Notes: "Specify the brake horse power, design pressure rise through, total efficiency, motor efficiency"
 
-
 Terminal:
   Object Type: "Data Group"
   Data Elements:
@@ -1848,6 +1847,9 @@ Terminal:
       Data Type: "Numeric"
       Units: "W"
       Notes: "JG to verify if used in test case description."
+    is_supply_ducted:
+      Description: "True if the the supply is ducted."
+      Data Type: "Boolean"
 
 TerminalType:
   Object Type: "Enumeration"
@@ -1856,8 +1858,6 @@ TerminalType:
       Description: "Variable air volume"
     CONSTANT_AIR_VOLUME:
       Description: "Constant air volume"
-    DUCTLESS:
-      Description: "Ductless"
     RADIANT:
       Description: "Radiant"
     FOUR_PIPE_FAN_COIL_UNIT:
