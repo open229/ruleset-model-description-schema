@@ -1251,6 +1251,9 @@ HeatingSystem:
       Description: "Heating system type"
       Data Type: "<HeatingSystemType>"
       Notes: "JG to verify if used in test case description."
+    energy_source_type:
+      Description: "Source of energy for the chiller"
+      Data Type: "<EnergySourceTypeOptions>"
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "$ID"
