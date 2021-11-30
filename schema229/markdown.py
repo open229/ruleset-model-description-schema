@@ -85,6 +85,7 @@ def write_tables(instance, output_path, append=True):
         "Req",
         "Notes",
         # Modified from 205 version
+        "RMR Test",
         "AppG Used By TCDs",
         "AppG P_RMR Equals U_RMR",
         "AppG B_RMR Equals P_RMR",
