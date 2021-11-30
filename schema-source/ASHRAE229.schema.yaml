@@ -1549,21 +1549,21 @@ AirEconomizer:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    air_economizer_type:
-      Description: "Air economizer type"
+    type:
+      Description: "Type"
       Data Type: "<AirEconomizerType>"
       Notes: "JG to verify if used in test case description."
-    economizer_high_limit_temperature_shutoff:
-      Description: "Economizer high limit temperature shutoff"
+    high_limit_temperature_shutoff:
+      Description: "High limit temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
       Notes: "JG to verify if used in test case description."
-    economizer_design_sensible_effectiveness:
-      Description: "Economizer design sensible effectiveness"
+    design_sensible_effectiveness:
+      Description: "Design sensible effectiveness"
       Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
-    economizer_design_latent_effectiveness:
-      Description: "Economizer design sensible effectiveness"
+    design_latent_effectiveness:
+      Description: "Design sensible effectiveness"
       Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
 
@@ -1654,8 +1654,6 @@ AirEconomizerType:
       Description: "Differential enthalpy"
     OTHER:
       Description: "Other"
-    NONE:
-      Description: "None"
 
 EnergyRecoveryType:
   Object Type: "Enumeration"
