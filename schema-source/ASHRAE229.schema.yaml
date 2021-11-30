@@ -2076,9 +2076,6 @@ Pump:
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
       Data Type: "Boolean"
-    is_variable_speed:
-      Description: "True if variable speed drive such a VFD"
-      Data Type: "Boolean"
 
 PumpSpeedControlOptions:
   Object Type: "Enumeration"
