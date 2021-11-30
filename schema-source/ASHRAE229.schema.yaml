@@ -1511,6 +1511,10 @@ FanSystem:
       Description: "Operating schedule name"
       Data Type: "$ID"
       Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+    exhaust_schedule:
+      Description: "Exhaust fan schedule name"
+      Data Type: "$ID"
+      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
     minimum_airflow:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
