@@ -2077,6 +2077,10 @@ Pump:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
       Units: "L/s"
+    minium_flow:
+      Description: "Minimum Pump Flowrate"
+      Data Type: "Numeric"
+      Units: "L/s"
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
       Data Type: "Boolean"
