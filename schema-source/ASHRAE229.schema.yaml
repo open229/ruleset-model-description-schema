@@ -2547,8 +2547,7 @@ ServiceWaterHeatingDistributionSystem:
     drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
       Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
+      Range: ">=0, <=1"
       Notes: "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
