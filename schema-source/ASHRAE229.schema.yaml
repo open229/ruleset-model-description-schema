@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.4"
+  Version: "0.0.5"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -296,13 +296,18 @@ Zone:
       Data Type: "$ID"
       Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     transfer_airflow_rate:
-      Description: "Transfer airflow rate"
+      Description: "Airflow rate for transfer air"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "Positive values indicate transfer air to the zone and negative values show transfer out of the zone. JG to verify if used in test case description."
+    exhaust_airflow_rate:
+      Description: "Airflow rate for exhaust air"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
-    exhaust_airflow_rate:
-      Description: "Number of occupants in the space"
+    makeup_airflow_rate:
+      Description: "Airflow rate for makeup air"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
@@ -314,7 +319,7 @@ Zone:
       Units: "W"
       Notes: "JG to verify if used in test case description."
     non_mechanical_cooling_fan_airflow:
-      Description: "Non-mechanical cooling fan power"
+      Description: "Non-mechanical cooling fan airflow"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
@@ -455,6 +460,8 @@ InfiltrationMethodType:
       Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction."
     CONSTANT:
       Description: "Constant. The schedule is ignored."
+    CONSTANT_SCHEDULED:
+      Description: "Constant multiplied by the schedule."
     OTHER:
       Description: "Other infiltration methods."
     
@@ -1214,7 +1221,7 @@ HeatingVentilationAirConditioningSystem:
       Data Type: "String"
     fan_systems:
       Description: "Fan systems"
-      Data Type: "[{FanSystems}]"
+      Data Type: "[{FanSystem}]"
       Notes: "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
     heating_system:
       Description: "Heating system"
@@ -1249,6 +1256,9 @@ HeatingSystem:
       Description: "Heating system type"
       Data Type: "<HeatingSystemType>"
       Notes: "JG to verify if used in test case description."
+    energy_source_type:
+      Description: "Source of energy for the chiller"
+      Data Type: "<EnergySourceTypeOptions>"
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "$ID"
@@ -1509,6 +1519,10 @@ FanSystem:
       Description: "Operating schedule name"
       Data Type: "$ID"
       Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+    exhaust_schedule:
+      Description: "Exhaust fan schedule name"
+      Data Type: "$ID"
+      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
     minimum_airflow:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
@@ -1547,21 +1561,21 @@ AirEconomizer:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-    air_economizer_type:
-      Description: "Air economizer type"
+    type:
+      Description: "Type"
       Data Type: "<AirEconomizerType>"
       Notes: "JG to verify if used in test case description."
-    economizer_high_limit_temperature_shutoff:
-      Description: "Economizer high limit temperature shutoff"
+    high_limit_temperature_shutoff:
+      Description: "High limit temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
       Notes: "JG to verify if used in test case description."
-    economizer_design_sensible_effectiveness:
-      Description: "Economizer design sensible effectiveness"
+    design_sensible_effectiveness:
+      Description: "Design sensible effectiveness"
       Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
-    economizer_design_latent_effectiveness:
-      Description: "Economizer design sensible effectiveness"
+    design_latent_effectiveness:
+      Description: "Design sensible effectiveness"
       Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
 
@@ -1652,8 +1666,6 @@ AirEconomizerType:
       Description: "Differential enthalpy"
     OTHER:
       Description: "Other"
-    NONE:
-      Description: "None"
 
 EnergyRecoveryType:
   Object Type: "Enumeration"
@@ -1736,30 +1748,52 @@ Fan:
       Description: "Design electric fan power"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "JG to verify if used in test case description."
+      Notes: "Only used when specification_method is set to Simple. JG to verify if used in test case description."
     design_pressure_rise:
       Description: "Pressure rise through fan at design flow conditions"
       Data Type: "Numeric"
       Units: "m"
       Notes: "Only used when specification_method is set to Detailed"
     nameplate_power:
-      Description: "nameplate horsepower of fan"
+      Description: "nameplate power of fan"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "JG to verify if used in test case description."
+      Notes: "Only used when specification_method is set to Detailed. JG to verify if used in test case description."
+    input_power:
+      Description: "input power of fan"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Power delivered to the fan’s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
     total_efficiency:
-      Description: "Fan motor efficiency"
+      Description: "Total fan efficiency"
       Data Type: "Numeric"
-      Units: "W"
-      Notes: "Only used when specification_method is set to Detailed"
+      Range: ">=0, <=1"
+      Notes: "Only used when specification_method is set to Detailed."
     motor_efficiency:
       Description: "Fan motor efficiency"
       Data Type: "Numeric"
-      Units: "W"
-      Notes: "Only used when specification_method is set to Detailed"
+      Range: ">=0, <=1"
+      Notes: "Only used when specification_method is set to Detailed."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
+    output_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{FanOutputValidationPoint}]"
+      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+
+FanOutputValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    airflow:
+      Description: "Load"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "No name and id is needed since typically used as one of a series."
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
 
 FanSpecificationMethodOptions:
   Object Type: "Enumeration"
@@ -1770,7 +1804,6 @@ FanSpecificationMethodOptions:
     DETAILED:
       Description: "Detailed"
       Notes: "Specify the brake horse power, design pressure rise through, total efficiency, motor efficiency"
-
 
 Terminal:
   Object Type: "Data Group"
@@ -1843,6 +1876,9 @@ Terminal:
       Data Type: "Numeric"
       Units: "W"
       Notes: "JG to verify if used in test case description."
+    is_supply_ducted:
+      Description: "True if the the supply is ducted."
+      Data Type: "Boolean"
 
 TerminalType:
   Object Type: "Enumeration"
@@ -1851,8 +1887,6 @@ TerminalType:
       Description: "Variable air volume"
     CONSTANT_AIR_VOLUME:
       Description: "Constant air volume"
-    DUCTLESS:
-      Description: "Ductless"
     RADIANT:
       Description: "Radiant"
     FOUR_PIPE_FAN_COIL_UNIT:
@@ -2068,11 +2102,12 @@ Pump:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
       Units: "L/s"
+    minium_flow:
+      Description: "Minimum Pump Flowrate"
+      Data Type: "Numeric"
+      Units: "L/s"
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
-      Data Type: "Boolean"
-    is_variable_speed:
-      Description: "True if variable speed drive such a VFD"
       Data Type: "Boolean"
 
 PumpSpeedControlOptions:
@@ -2218,7 +2253,7 @@ Chiller:
       Data Type: "Numeric"
       Units: "W"
     rated_capacity:
-      Description: "Chiller Design Cooling Capacity"
+      Description: "Chiller Rated Cooling Capacity"
       Data Type: "Numeric"
       Units: "W"
       Notes: "At rating conditions."
@@ -2542,8 +2577,7 @@ ServiceWaterHeatingDistributionSystem:
     drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
       Data Type: "Numeric"
-      Units: "m"
-      Range: ">=0"
+      Range: ">=0, <=1"
       Notes: "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
