@@ -45,6 +45,7 @@ digraph G {
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
+  HeatingVentilationAirConditioningSystem -> FanSystem
   HeatingVentilationAirConditioningSystem -> HeatingSystem
   HeatingVentilationAirConditioningSystem -> CoolingSystem
   HeatingVentilationAirConditioningSystem -> HeatingSystem
@@ -59,6 +60,8 @@ digraph G {
   FanSystem -> AirEnergyRecovery
   FanSystem -> Schedule [color=red] 
   FanSystem -> Schedule [color=red] 
+  FanSystem -> Schedule [color=red] 
+  Fan -> FanOutputValidationPoint
   Terminal -> HeatingVentilationAirConditioningSystem [color=red] 
   Terminal -> FluidLoop [color=red] 
   Terminal -> Fan
