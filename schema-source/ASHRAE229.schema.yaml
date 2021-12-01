@@ -296,13 +296,18 @@ Zone:
       Data Type: "$ID"
       Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
     transfer_airflow_rate:
-      Description: "Transfer airflow rate"
+      Description: "Airflow rate for transfer air"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "Positive values indicate transfer air to the zone and negative values show transfer out of the zone. JG to verify if used in test case description."
+    exhaust_airflow_rate:
+      Description: "Airflow rate for exhaust air"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
-    exhaust_airflow_rate:
-      Description: "Number of occupants in the space"
+    makeup_airflow_rate:
+      Description: "Airflow rate for makeup air"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
@@ -314,7 +319,7 @@ Zone:
       Units: "W"
       Notes: "JG to verify if used in test case description."
     non_mechanical_cooling_fan_airflow:
-      Description: "Non-mechanical cooling fan power"
+      Description: "Non-mechanical cooling fan airflow"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
@@ -2248,7 +2253,7 @@ Chiller:
       Data Type: "Numeric"
       Units: "W"
     rated_capacity:
-      Description: "Chiller Design Cooling Capacity"
+      Description: "Chiller Rated Cooling Capacity"
       Data Type: "Numeric"
       Units: "W"
       Notes: "At rating conditions."
