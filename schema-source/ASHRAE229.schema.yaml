@@ -1221,7 +1221,7 @@ HeatingVentilationAirConditioningSystem:
       Data Type: "String"
     fan_systems:
       Description: "Fan systems"
-      Data Type: "[{FanSystems}]"
+      Data Type: "[{FanSystem}]"
       Notes: "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
     heating_system:
       Description: "Heating system"
