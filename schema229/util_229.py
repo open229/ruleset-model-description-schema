@@ -6,13 +6,6 @@ import yaml
 Utility functions specific to the 229 project
 '''
 
-EXTRA_DATA_ELEMENT_KEYS = [
-  "RMR Test",
-  "AppG Used By TCDs",
-  "AppG P_RMR Equals U_RMR",
-  "AppG B_RMR Equals P_RMR"
-]
-
 def remove_file(path):
     '''Removes a file with the given path if it exists'''
     if os.path.exists(path):
