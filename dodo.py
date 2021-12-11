@@ -24,12 +24,40 @@ def collect_target_files(target_dir, extension):
       file_list.append(os.path.join(target_dir,f'{file_name_root}.schema.{extension}'))
   return file_list
 
+# Start 229-specific code ------------------------------------
+import schema229.util_229
+def task_strip_extra_data_element_fields():
+    '''Strips specified data element fields'''
+    return {
+      'actions': [
+        (
+          schema229.util_229.strip_extra_data_element_fields_from_yaml,
+          [
+            [
+              "RMR Test",
+              "AppG Used By TCDs",
+              "AppG P_RMR Equals U_RMR",
+              "AppG B_RMR Equals P_RMR"
+            ],
+            os.path.join(SOURCE_PATH, 'ASHRAE229_extra.schema.yaml'),
+            os.path.join(SOURCE_PATH, 'ASHRAE229.schema.yaml')
+          ]
+        )
+      ],
+      # Run this task only if either ASHRAE229_extra.schema.yaml has changed or
+      # ASHRAE229.schema.yaml does not exist
+      'file_dep': [os.path.join(SOURCE_PATH, 'ASHRAE229_extra.schema.yaml')],
+      'targets': [os.path.join(SOURCE_PATH, 'ASHRAE229.schema.yaml')]
+    }
+# ------------------------------- End 229-specific code
+
 def task_validate():
   '''Validates source-schema against meta-schema'''
   return {
     'file_dep': [os.path.join("meta-schema","meta.schema.json")] + collect_source_files(),
     'actions': [(schema229.validate.validate_dir,[SOURCE_PATH])]
   }
+
 
 def task_doc():
   '''Generates Markdown tables from source-schema'''
@@ -56,6 +84,20 @@ def task_schema():
       ],
     'clean': True
   }
+
+# Start 229-Specific Code --------------------------------------
+def task_remove_ASHRAE229_schema_yaml():
+  '''Removes schema-source/ASHRAE229.schema.yaml'''
+  return {
+    'actions': [
+      (
+        # There is no harm in running this task every time
+        schema229.util_229.remove_file,
+        [os.path.join('schema-source', 'ASHRAE229.schema.yaml')]
+      )
+    ]
+  }
+# ----------------------------- End 229-Specific Code
 
 def task_test():
   '''Performs unit tests and example file validation tests'''
