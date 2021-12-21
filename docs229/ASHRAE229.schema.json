@@ -363,14 +363,20 @@
                     "notes": "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
                 },
                 "transfer_airflow_rate": {
-                    "description": "Transfer airflow rate",
+                    "description": "Airflow rate for transfer air",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "Positive values indicate transfer air to the zone and negative values show transfer out of the zone. JG to verify if used in test case description."
+                },
+                "exhaust_airflow_rate": {
+                    "description": "Airflow rate for exhaust air",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "L/s",
                     "notes": "JG to verify if used in test case description."
                 },
-                "exhaust_airflow_rate": {
-                    "description": "Number of occupants in the space",
+                "makeup_airflow_rate": {
+                    "description": "Airflow rate for makeup air",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "L/s",
@@ -384,7 +390,7 @@
                     "notes": "JG to verify if used in test case description."
                 },
                 "non_mechanical_cooling_fan_airflow": {
-                    "description": "Non-mechanical cooling fan power",
+                    "description": "Non-mechanical cooling fan airflow",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "L/s",
@@ -582,12 +588,14 @@
                 "WEATHER_DRIVEN",
                 "PRESSURE_BASED",
                 "CONSTANT",
+                "CONSTANT_SCHEDULED",
                 "OTHER"
             ],
             "descriptions": [
                 "Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule.",
                 "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction.",
                 "Constant. The schedule is ignored.",
+                "Constant multiplied by the schedule.",
                 "Other infiltration methods."
             ]
         },
@@ -1610,7 +1618,9 @@
                 "fan_systems": {
                     "description": "Fan systems",
                     "type": "array",
-                    "items": {},
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/FanSystem"
+                    },
                     "notes": "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
                 },
                 "heating_system": {
@@ -1657,6 +1667,10 @@
                     "description": "Heating system type",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystemType",
                     "notes": "JG to verify if used in test case description."
+                },
+                "energy_source_type": {
+                    "description": "Source of energy for the chiller",
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions"
                 },
                 "hot_water_loop": {
                     "description": "Referenced to the hot water fluid loop",
@@ -1992,6 +2006,10 @@
                     "description": "Operating schedule name",
                     "notes": "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
                 },
+                "exhaust_schedule": {
+                    "description": "Exhaust fan schedule name",
+                    "notes": "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+                },
                 "minimum_airflow": {
                     "description": "Minimum volume airflow",
                     "type": "number",
@@ -2043,24 +2061,24 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "air_economizer_type": {
-                    "description": "Air economizer type",
+                "type": {
+                    "description": "Type",
                     "$ref": "ASHRAE229.schema.json#/definitions/AirEconomizerType",
                     "notes": "JG to verify if used in test case description."
                 },
-                "economizer_high_limit_temperature_shutoff": {
-                    "description": "Economizer high limit temperature shutoff",
+                "high_limit_temperature_shutoff": {
+                    "description": "High limit temperature shutoff",
                     "type": "number",
                     "units": "C",
                     "notes": "JG to verify if used in test case description."
                 },
-                "economizer_design_sensible_effectiveness": {
-                    "description": "Economizer design sensible effectiveness",
+                "design_sensible_effectiveness": {
+                    "description": "Design sensible effectiveness",
                     "type": "number",
                     "notes": "JG to verify if used in test case description."
                 },
-                "economizer_design_latent_effectiveness": {
-                    "description": "Economizer design sensible effectiveness",
+                "design_latent_effectiveness": {
+                    "description": "Design sensible effectiveness",
                     "type": "number",
                     "notes": "JG to verify if used in test case description."
                 }
@@ -2170,8 +2188,7 @@
                 "ENTHALPY",
                 "DIFFERENTIAL_TEMPERATURE",
                 "DIFFERENTIAL_ENTHALPY",
-                "OTHER",
-                "NONE"
+                "OTHER"
             ],
             "descriptions": [
                 "Fixed Fraction",
@@ -2179,8 +2196,7 @@
                 "Enthalpy",
                 "Differential dry-bulb temperature",
                 "Differential enthalpy",
-                "Other",
-                "None"
+                "Other"
             ]
         },
         "EnergyRecoveryType": {
@@ -2280,7 +2296,7 @@
                     "description": "Design electric fan power",
                     "type": "number",
                     "units": "W",
-                    "notes": "JG to verify if used in test case description."
+                    "notes": "Only used when specification_method is set to Simple. JG to verify if used in test case description."
                 },
                 "design_pressure_rise": {
                     "description": "Pressure rise through fan at design flow conditions",
@@ -2289,31 +2305,64 @@
                     "notes": "Only used when specification_method is set to Detailed"
                 },
                 "nameplate_power": {
-                    "description": "nameplate horsepower of fan",
+                    "description": "nameplate power of fan",
                     "type": "number",
                     "units": "W",
-                    "notes": "JG to verify if used in test case description."
+                    "notes": "Only used when specification_method is set to Detailed. JG to verify if used in test case description."
+                },
+                "input_power": {
+                    "description": "input power of fan",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "Power delivered to the fan\u2019s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
                 },
                 "total_efficiency": {
-                    "description": "Fan motor efficiency",
+                    "description": "Total fan efficiency",
                     "type": "number",
-                    "units": "W",
-                    "notes": "Only used when specification_method is set to Detailed"
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Only used when specification_method is set to Detailed."
                 },
                 "motor_efficiency": {
                     "description": "Fan motor efficiency",
                     "type": "number",
-                    "units": "W",
-                    "notes": "Only used when specification_method is set to Detailed"
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Only used when specification_method is set to Detailed."
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
                     "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
+                },
+                "output_validation_points": {
+                    "description": "Energy validation points",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/FanOutputValidationPoint"
+                    },
+                    "notes": "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
                 }
             },
             "required": [
                 "id"
             ],
+            "additionalProperties": false
+        },
+        "FanOutputValidationPoint": {
+            "type": "object",
+            "properties": {
+                "airflow": {
+                    "description": "Load",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "No name and id is needed since typically used as one of a series."
+                },
+                "result": {
+                    "description": "Result",
+                    "type": "number",
+                    "units": "W"
+                }
+            },
             "additionalProperties": false
         },
         "FanSpecificationMethodOptions": {
@@ -2413,6 +2462,10 @@
                     "type": "number",
                     "units": "W",
                     "notes": "JG to verify if used in test case description."
+                },
+                "is_supply_ducted": {
+                    "description": "True if the the supply is ducted.",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -2425,7 +2478,6 @@
             "enum": [
                 "VARIABLE_AIR_VOLUME",
                 "CONSTANT_AIR_VOLUME",
-                "DUCTLESS",
                 "RADIANT",
                 "FOUR_PIPE_FAN_COIL_UNIT",
                 "TWO_PIPE_FAN_COIL_UNIT",
@@ -2435,7 +2487,6 @@
             "descriptions": [
                 "Variable air volume",
                 "Constant air volume",
-                "Ductless",
                 "Radiant",
                 "Four pipe fan coil unit",
                 "Two pipe fan coil unit",
@@ -2709,12 +2760,13 @@
                     "type": "number",
                     "units": "L/s"
                 },
+                "minium_flow": {
+                    "description": "Minimum Pump Flowrate",
+                    "type": "number",
+                    "units": "L/s"
+                },
                 "is_flow_autosized": {
                     "description": "True if the design_flow is autosized",
-                    "type": "boolean"
-                },
-                "is_variable_speed": {
-                    "description": "True if variable speed drive such a VFD",
                     "type": "boolean"
                 }
             },
@@ -2911,7 +2963,7 @@
                     "units": "W"
                 },
                 "rated_capacity": {
-                    "description": "Chiller Design Cooling Capacity",
+                    "description": "Chiller Rated Cooling Capacity",
                     "type": "number",
                     "units": "W",
                     "notes": "At rating conditions."
@@ -3344,7 +3396,7 @@
                     "description": "Shower heat drain recovery efficiency",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "m",
+                    "maximum": 1.0,
                     "notes": "From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency."
                 },
                 "drain_heat_recovery_type": {
@@ -4290,6 +4342,6 @@
             "additionalProperties": false
         }
     },
-    "version": "0.0.4",
+    "version": "0.0.5",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
