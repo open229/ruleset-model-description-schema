@@ -1,3 +1,4 @@
+import copy
 import os
 import yaml
 from pytablewriter import MarkdownTableWriter
@@ -75,8 +76,20 @@ def write_tables(instance, output_path, append=True):
 
         output_file.writelines(format_table(writer))
 
+
+
     # Data Groups
-    writer.headers = ["Name", "Description", "Data Type", "Units", "Range", "Req", "Notes"]
+    # 229 Note: this is overriden in the 229 specific code below
+    writer.headers = [
+        "Name",
+        "Description",
+        "Data Type",
+        "Units",
+        "Range",
+        "Req",
+        "Notes"
+    ]
+
     if len(data_groups) > 0:
       for dg in data_groups:
         writer.table_name = dg
@@ -95,7 +108,40 @@ def write_tables(instance, output_path, append=True):
           if "Notes" in new_obj:
             if type(new_obj["Notes"]) is list:
               new_obj["Notes"] = "\n\n".join([f"- {note}" for note in new_obj["Notes"]])
+
           data_elements.append(new_obj)
+
+        # Start 229-Specific Code --------------------------------------------
+        # Replace boolean values with a check mark or empty string
+        for key in new_obj:
+            val = new_obj[key]
+            if type(val) is bool:
+                new_obj[key] = "\N{check mark}" if val else ""
+        # Determine the headers to use on a per Data Group table basis
+        ORIGINAL_DATA_GROUP_TABLE_HEADERS = [
+        "Name",
+        "Description",
+        "Data Type",
+        "Units",
+        "Range",
+        "Req",
+        "Notes"
+        ]
+        EXTRA_229_DATA_GROUP_HEADERS = [
+          "RMR Test",
+          "AppG Used By TCDs",
+          "AppG P_RMR Equals U_RMR",
+          "AppG B_RMR Equals P_RMR"
+        ]
+        writer_headers = copy.copy(ORIGINAL_DATA_GROUP_TABLE_HEADERS)
+        elements_obj = data_groups[dg]["Data Elements"]
+        for extra_229_header in EXTRA_229_DATA_GROUP_HEADERS:
+          # Include the extra header if any of the data elements have this field set
+          if any([extra_229_header in element for element in list(elements_obj.values())]):
+            writer_headers.append(extra_229_header)
+        writer.headers = writer_headers
+        # ------------------------------------- End 229-Specific Code
+
         writer.value_matrix = data_elements
 
         output_file.writelines(format_table(writer))
