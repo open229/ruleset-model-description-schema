@@ -75,62 +75,62 @@ ASHRAE229:
       Description: "Scope-unique reference identifier for instances of this data group."
       Data Type: "ID"
       Required: True
-      RMR Test: False
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "Primary"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     transformers:
       Description: "Electrical transformers at the building site"
       Data Type: "[{Transformer}]"
       Notes: "Contains a list of transformers that convert electricity from a higher voltage to one used by the building, exterior lighting, and other services at the site."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     buildings:
       Description: "Buildings on the site"
       Data Type: "[{Building}]"
       Notes: "Contains a list of buildings on the site (often just one)."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "secondary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     calendar:
       Description: "Information on the calendar used with the simulation."
       Data Type: "{Calendar}"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     schedules:
       Description: "Schedules for internal loads, thermostats, equipment operation and control, and any other need."
       Data Type: "[{Schedule}]"
       Notes: "Contains a list of schedules used in model."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     weather:
       Description: "Information on the local weather conditions used with the simulation."
       Data Type: "{Weather}"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "secondary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     measured_infiltration_pressure_difference:
       Description: "Differential pressure difference used during measurement for infiltration values."
       Data Type: "Numeric"
