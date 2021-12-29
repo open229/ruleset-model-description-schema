@@ -800,6 +800,8 @@ InfiltrationMethodType:
       Description: "Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction."
     CONSTANT:
       Description: "Constant. The schedule is ignored."
+    CONSTANT_SCHEDULED:
+      Description: "Constant multiplied by the schedule."
     OTHER:
       Description: "Other infiltration methods."
 
