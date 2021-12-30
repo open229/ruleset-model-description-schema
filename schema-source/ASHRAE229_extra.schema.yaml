@@ -2590,11 +2590,27 @@ FanSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    supply_air_temperature_reset_type:
+      Description: "Supply air temperature reset type"
+      Data Type: "<SupplyAirTemperatureResetTypeOptions>"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
-      Units: "C"
-      Notes: "JG to verify if used in test case description."
+      Units: "K"
+      Notes: "When supply_air_temperature_reset_type is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When supply_air_temperature_reset_type is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load. JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    supply_air_temperature_reset_load_fraction:
+      Description: "Supply air temperature reset load fraction"
+      Data Type: "Numeric"
+      Notes: "The threshold fraction to use below which supply air temperature reset begins and ramps down to zero. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -2674,6 +2690,18 @@ FanSystem:
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
+
+SupplyAirTemperatureResetTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NO_RESET:
+      Description: "No Reset"
+    LOAD_RESET_TO_SPACE_TEMPERATURE:
+      Description: "Load Reset To Space Temperature"
+    LOAD_RESET_DIFFERENTIAL_TEMPERATURE:
+      Description: "Load Reset Differential Temperature"
+    OTHER:
+      Description: "Other"
 
 AirEconomizer:
   Object Type: "Data Group"
@@ -3426,7 +3454,7 @@ TemperatureResetTypeOptions:
     CONSTANT:
       Description: "Constant"
     OUTSIDE_AIR_RESET:
-      Description: "Outside air reste"
+      Description: "Outside air reset"
     LOAD_RESET:
       Description: "Load Reset"
     OTHER:
