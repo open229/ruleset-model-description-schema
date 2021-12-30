@@ -15,6 +15,10 @@ RulesetModelType2019T24Com:
   Enumerators:
     USER:
       Description: "The building model as described without consideration of the ruleset"
+    PROPOSED_SIZING:
+      Description: "The proposed building model used for sizing"
+    BASELINE_SIZING:
+      Description: "The baseline building model used for sizing"
     PROPOSED:
       Description: "The proposed building model"
     BASELINE:
