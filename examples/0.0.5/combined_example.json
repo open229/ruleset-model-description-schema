@@ -1,0 +1,201 @@
+{
+	"id": "Combined Example",
+	"buildings": [
+		{
+			"id": "Building Name 1",
+			"building_open_schedule": "Required Building Schedule 1",
+			"building_segments": [
+				{
+					"id": "Building Segment 1",
+					"zones": [
+						{
+							"id": "Thermal Zone 1",
+							"volume": 311.48531251199995,
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"spaces": [
+								{
+									"id": "Space 1",
+									"lighting_space_type": "GUEST_ROOM",
+									"floor_area": 9.290303999999999,
+									"occupant_multiplier_schedule": "Required Occupant Schedule 1",
+									"interior_lighting": [
+										{
+											"id": "Guest Room Lighting",
+											"power_per_area": 4.413203270850986,
+											"lighting_multiplier_schedule": "Required Lighting Multiplier Schedule 1"
+										}
+									]
+								},
+								{
+									"id": "Space 2",
+									"lighting_space_type": "LOBBY_HOTEL",
+									"floor_area": 92.90303999999999,
+									"occupant_multiplier_schedule": "Required Occupant Schedule 1",
+									"interior_lighting": [
+										{
+											"id": "Hotel Lobby Lighting",
+											"power_per_area": 11.840301458380697,
+											"lighting_multiplier_schedule": "Required Lighting Multiplier Schedule 1"
+										}
+									]
+								}
+							],
+							"surfaces": [
+								{
+									"id": "Southern Wall",
+									"azimuth": 90,
+									"adjacent_to": "EXTERIOR",
+									"does_cast_shade": true,
+									"tilt": 90,
+									"area": 46.451519999999995,
+									"subsurfaces": [
+										{
+											"id": "Window 1",
+											"classification": "WINDOW",
+											"glazed_area": 1.3935456,
+											"opaque_area": 0.0,
+											"solar_heat_gain_coefficient": 0.32,
+											"u_factor": 1.9873924470071163,
+											"visible_transmittance": 0.69
+										},
+										{
+											"id": "Windowed Door",
+											"classification": "DOOR",
+											"glazed_area": 0.27870912,
+											"opaque_area": 2.5083820799999996,
+											"solar_heat_gain_coefficient": 0.79,
+											"u_factor": 1.1356528268612094
+										}
+									],
+									"construction": {
+										"id": "Wall Construction",
+										"u_factor": 0.45426113074448377
+									}
+								},
+								{
+									"id": "Floor",
+									"adjacent_to": "GROUND",
+									"tilt": 180,
+									"area": 92.90303999999999,
+									"construction": {
+										"id": "Floor Construction",
+										"f_factor": 1.2634364829396327
+									}
+								},
+								{
+									"id": "Roof 1",
+									"adjacent_to": "EXTERIOR",
+									"tilt": 0,
+									"area": 92.90303999999999,
+									"subsurfaces": [
+										{
+											"id": "Skylight 1",
+											"classification": "SKYLIGHT",
+											"glazed_area": 2.3225759999999998,
+											"opaque_area": 0.0,
+											"solar_heat_gain_coefficient": 0.32,
+											"u_factor": 1.9873924470071163
+										}
+									],
+									"construction": {
+										"id": "Roof Construction",
+										"u_factor": 0.28391320671530235
+									}
+								}
+							],
+							"terminals": [
+								{
+									"id": "VAV Air Terminal 1",
+									"is_supply_ducted": true,
+									"reheat_source": "HOT_WATER",
+									"type": "VARIABLE_AIR_VOLUME",
+									"served_by_heating_ventilation_air_conditioning_systems": "VAV System 1"
+								},
+								{
+									"id": "VAV Air Terminal 2",
+									"is_supply_ducted": true,
+									"reheat_source": "HOT_WATER",
+									"type": "VARIABLE_AIR_VOLUME",
+									"served_by_heating_ventilation_air_conditioning_systems": "VAV System 1"
+								}
+							]
+						}
+					],
+					"heating_ventilation_air_conditioning_systems": [
+						{
+							"id": "VAV System 1",
+							"cooling_system": {
+								"id": "CHW Coil 1",
+								"cooling_system_type": "FLUID_LOOP"
+							},
+							"heating_system": {
+								"id": "HHW Coil 1",
+								"heating_system_type": "FLUID_LOOP",
+								"hot_water_loop": "Boiler Loop 1"
+							},
+							"preheat_system": {
+								"id": "Preheat Coil 1",
+								"heating_system_type": "FLUID_LOOP",
+								"hot_water_loop": "Boiler Loop 1"
+							},
+							"fan_systems": [
+								{
+									"id": "VAV Fan System 1",
+									"is_variable_air_volume": true,
+									"fan_control": "VARIABLE_SPEED_DRIVE",
+									"supply_fans": [
+										{
+											"id": "Supply Fan 1"
+										}
+									],
+									"return_fans": [
+										{
+											"id": "Return Fan 1"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"boilers": [
+		{
+			"id": "Boiler 1",
+			"energy_source_type": "NATURAL_GAS",
+			"loop": "Boiler Loop 1"
+		}
+	],
+	"chillers": [
+		{
+			"id": "Chiller 1",
+			"cooling_loop": "Chiller Loop 1",
+			"energy_source_type": "ELECTRICITY"
+		}
+	],
+	"pumps": [
+		{
+			"id": "Boiler Pump 1",
+			"loop_or_piping": "Boiler Loop 1",
+			"speed_control": "FIXED_SPEED"
+		},
+		{
+			"id": "Chiller Pump 1",
+			"loop_or_piping": "Chiller Loop 1",
+			"speed_control": "FIXED_SPEED"
+		}
+	],
+	"fluid_loops": [
+		{
+			"id": "Boiler Loop 1",
+			"type": "HEATING"
+		},
+		{
+			"id": "Chiller Loop 1",
+			"type": "COOLING"
+		}
+	]
+}
