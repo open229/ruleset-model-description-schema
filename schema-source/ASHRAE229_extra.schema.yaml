@@ -2615,6 +2615,22 @@ FanSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    fan_volume_reset_type:
+      Description: "Fan volume reset control type"
+      Data Type: "<FanSystemSupplyFanVolumeResetType>"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    fan_volume_reset_load_fraction:
+      Description: "Fan volume reset load fraction"
+      Data Type: "Numeric"
+      Notes: "When fan_volume_reset_type is LOAD_RESET this is the fraction of the load for minimum air flow. JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "$ID"
@@ -2843,6 +2859,16 @@ FanSystemOperationType:
       Description: "Continuous"
     KEEP_OFF:
       Description: "Off"
+    OTHER:
+      Description: "Other"
+
+FanSystemSupplyFanVolumeResetType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    LOAD_RESET:
+      Description: "Load Reset"
     OTHER:
       Description: "Other"
 
