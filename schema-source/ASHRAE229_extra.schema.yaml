@@ -2667,6 +2667,13 @@ FanSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    demand_control_ventilation_control:
+      Description: "Demand control ventilation control type"
+      Data Type: "<DemandControlVentilationControlType>"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
 
 AirEconomizer:
   Object Type: "Data Group"
