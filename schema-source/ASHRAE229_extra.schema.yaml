@@ -2121,9 +2121,9 @@ HeatingVentilationAirConditioningSystem:
       Data Type: "{HeatingSystem}"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: Yes
       AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: False
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
@@ -2162,9 +2162,9 @@ HeatingSystem:
       Data Type: "<HeatingSystemType>"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "$ID"
@@ -2206,9 +2206,9 @@ HeatingSystem:
       Units: "C"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     full_load_efficiency:
       Description: "Full Low Efficiency expressed as a coefficient of performance or thermal efficiency"
       Data Type: "Numeric"
@@ -3010,9 +3010,9 @@ Terminal:
       Data Type: "<TerminalType>"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     served_by_heating_ventilation_air_conditioning_systems:
       Description: "HVAC systems serving the terminal"
       Data Type: "$ID"
@@ -3050,18 +3050,18 @@ Terminal:
       Data Type: "<TerminalFanConfiguration>"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     primary_airflow:
       Description: "Zone terminal primary airflow"
       Data Type: "Numeric"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     secondary_airflow:
       Description: "Zone terminal secondary_airflow"
       Data Type: "Numeric"
@@ -3086,26 +3086,26 @@ Terminal:
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     minimum_outdoor_airflow:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "$ID"
       Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     heat_capacity:
       Description: "Heat capacity for baseboard or radiant system"
       Data Type: "Numeric"
