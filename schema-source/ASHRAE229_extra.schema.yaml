@@ -409,6 +409,7 @@ Zone:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
+      Notes: "No multipliers or floor multipliers are used with the Zone data group so each zone should be individually identified."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -431,6 +432,14 @@ Zone:
       Description: "Spaces in the zone"
       Data Type: "[{Space}]"
       Notes: "Contains a list of spaces in the building."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    floor_number:
+      Description: "Floor number"
+      Data Type: "Numeric"
+      Notes: "Used to group zones on a floor so the number indicates that different zones share a floor. The number should increase for increasing heights and be negative values for stories generally below ground and should generally correspond to numbering of floors on the plans. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
