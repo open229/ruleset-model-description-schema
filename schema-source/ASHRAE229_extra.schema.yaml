@@ -1459,8 +1459,8 @@ InteriorLighting:
       Description: "Lighting space type classification"
       Data Type: "<LightingPurposeType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     power_per_area:
@@ -1468,48 +1468,48 @@ InteriorLighting:
       Data Type: "Numeric"
       Units: "W/m2"
       Notes: "When computing the power per area use the area of the entire space."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     lighting_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for lighting"
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :Schedule:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     occupancy_control_type:
       Description: "Indicates the type of occupancy controls"
       Data Type: "<LightingOccupancyControlType>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     daylighting_control_type:
       Description: "Indicates the type of daylighting controls"
       Data Type: "<LightingDaylightingControlType>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     are_schedules_used_for_modeling_occupancy_control:
       Description: "Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting."
       Data Type: "Boolean"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     are_schedules_used_for_modeling_daylighting_control:
       Description: "Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting."
       Data Type: "Boolean"
       Notes: "For simulations that are modeling daylighting by computing the illumance this should be false."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
 
 LightingDaylightingControlType:
   Object Type: "Enumeration"
@@ -2075,62 +2075,62 @@ HeatingVentilationAirConditioningSystem:
       Data Type: "ID"
       Required: True
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     fan_systems:
       Description: "Fan systems"
       Data Type: "[{FanSystems}]"
       Notes: "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     heating_system:
       Description: "Heating system"
       Data Type: "{HeatingSystem}"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     cooling_system:
       Description: "Cooling system"
       Data Type: "{CoolingSystem}"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     preheat_system:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: Yes
-      AppG P_RMR Equals U_RMR: "unknown"
+      AppG P_RMR Equals U_RMR: False
       AppG B_RMR Equals P_RMR: False
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
 
 HeatingSystem:
   Object Type: "Data Group"
@@ -2140,39 +2140,39 @@ HeatingSystem:
       Data Type: "ID"
       Required: True
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     heating_system_type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemType>"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     heat_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -2180,9 +2180,9 @@ HeatingSystem:
       Units: "W"
       Notes: "The design heat capacity."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -2197,9 +2197,9 @@ HeatingSystem:
       Data Type: "Boolean"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
@@ -2215,18 +2215,18 @@ HeatingSystem:
       Units: "W/W"
       Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
       Data Type: "<HeatpumpAuxilliaryHeatType>"
@@ -2310,9 +2310,9 @@ CoolingSystem:
       Data Type: "ID"
       Required: True
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
