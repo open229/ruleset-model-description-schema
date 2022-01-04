@@ -3229,6 +3229,14 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    is_fan_first_stage_heat:
+      Description: "True if the the fan is run as the first stage of heating before reheat coil."
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    
 
 TerminalType:
   Object Type: "Enumeration"
