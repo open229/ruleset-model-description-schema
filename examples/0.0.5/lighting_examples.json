@@ -1,0 +1,51 @@
+{
+	"id": "Lighting Example",
+	"buildings": [
+		{
+			"id": "Building Name 1",
+			"building_open_schedule": "Required Building Schedule 1",
+			"building_segments": [
+				{
+					"id": "Building Segment 1",
+					"lighting_building_area_type": "HOTEL_MOTEL",
+					"zones": [
+						{
+							"id": "Thermal Zone 1",
+							"volume": 311.48531251199995,
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"spaces": [
+								{
+									"id": "Space 1",
+									"lighting_space_type": "GUEST_ROOM",
+									"floor_area": 9.290303999999999,
+									"occupant_multiplier_schedule": "Required Occupant Schedule 1",
+									"interior_lighting": [
+										{
+											"id": "Guest Room Lighting",
+											"power_per_area": 4.413203270850986,
+											"lighting_multiplier_schedule": "Required Lighting Multiplier Schedule 1"
+										}
+									]
+								},
+								{
+									"id": "Space 2",
+									"lighting_space_type": "LOBBY_HOTEL",
+									"floor_area": 92.90303999999999,
+									"occupant_multiplier_schedule": "Required Occupant Schedule 1",
+									"interior_lighting": [
+										{
+											"id": "Hotel Lobby Lighting",
+											"power_per_area": 11.840301458380697,
+											"lighting_multiplier_schedule": "Required Lighting Multiplier Schedule 1"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

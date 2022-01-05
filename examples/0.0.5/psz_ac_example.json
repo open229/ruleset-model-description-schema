@@ -1,0 +1,58 @@
+{
+	"id": "PSZ AC Example",
+	"buildings": [
+		{
+			"id": "Building 1",
+			"building_open_schedule": "Required Building Schedule 1",
+			"building_segments": [
+				{
+					"id": "Building Segment 1",
+					"zones": [
+						{
+							"id": "Thermal Zone 1",
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"terminals": [
+								{
+									"id": "PSZ AC Air Terminal 1",
+									"is_supply_ducted": true,
+									"served_by_heating_ventilation_air_conditioning_systems": "PSZ AC System 1"
+								}
+							]
+						}
+					],
+					"heating_ventilation_air_conditioning_systems": [
+						{
+							"id": "PSZ AC System 1",
+							"cooling_system": {
+								"id": "DX Coil 1",
+								"cooling_system_type": "DIRECT_EXPANSION"
+							},
+							"heating_system": {
+								"id": "Furnace 1",
+								"heating_system_type": "FURNACE"
+							},
+							"fan_systems": [
+								{
+									"id": "PSZ AC Fan System 1",
+									"is_variable_air_volume": false,
+									"fan_control": "CONSTANT",
+									"supply_fans": [
+										{
+											"id": "Supply Fan 1"
+										}
+									],
+									"return_fans": [
+										{
+											"id": "Return Fan 1"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

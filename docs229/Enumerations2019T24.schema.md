@@ -1,9 +1,11 @@
 # RulesetModelType2019T24Com
-| Enumerator |                             Description                              | Notes |
-|------------|----------------------------------------------------------------------|-------|
-| `USER`     | The building model as described without consideration of the ruleset |       |
-| `PROPOSED` | The proposed building model                                          |       |
-| `BASELINE` | The baseline building model                                          |       |
+|    Enumerator     |                             Description                              | Notes |
+|-------------------|----------------------------------------------------------------------|-------|
+| `USER`            | The building model as described without consideration of the ruleset |       |
+| `PROPOSED_SIZING` | The proposed building model used for sizing                          |       |
+| `BASELINE_SIZING` | The baseline building model used for sizing                          |       |
+| `PROPOSED`        | The proposed building model                                          |       |
+| `BASELINE`        | The baseline building model                                          |       |
 
 # RulesetModelType2019T24Res
 | Enumerator |                             Description                              | Notes |

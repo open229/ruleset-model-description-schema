@@ -1,0 +1,94 @@
+{
+	"id": "ashrae_229",
+	"buildings": [
+		{
+			"id": "Building 1",
+			"building_open_schedule": "Required Building Schedule 1",
+			"building_segments": [
+				{
+					"id": "Building Segment 1",
+					"zones": [
+						{
+							"id": "Zone 1",
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"surfaces": [
+								{
+									"id": "Southern Wall",
+									"azimuth": 90,
+									"adjacent_to": "EXTERIOR",
+									"does_cast_shade": true,
+									"tilt": 90,
+									"area": 46.451519999999995,
+									"subsurfaces": [
+										{
+											"id": "Window 1",
+											"classification": "WINDOW",
+											"glazed_area": 1.3935456,
+											"opaque_area": 0.0,
+											"solar_heat_gain_coefficient": 0.32,
+											"u_factor": 1.9873924470071163,
+											"visible_transmittance": 0.69
+										},
+										{
+											"id": "Windowed Door",
+											"classification": "DOOR",
+											"glazed_area": 0.27870912,
+											"opaque_area": 2.5083820799999996,
+											"solar_heat_gain_coefficient": 0.79,
+											"u_factor": 1.1356528268612094
+										}
+									],
+									"construction": {
+										"id": "Wall Construction",
+										"u_factor": 0.45426113074448377
+									}
+								},
+								{
+									"id": "Floor",
+									"adjacent_to": "GROUND",
+									"tilt": 180,
+									"area": 92.90303999999999,
+									"construction": {
+										"id": "Floor Construction",
+										"f_factor": 1.2634364829396327
+									}
+								},
+								{
+									"id": "Roof 1",
+									"adjacent_to": "EXTERIOR",
+									"tilt": 0,
+									"area": 92.90303999999999,
+									"subsurfaces": [
+										{
+											"id": "Skylight 1",
+											"classification": "SKYLIGHT",
+											"glazed_area": 2.3225759999999998,
+											"opaque_area": 0.0,
+											"solar_heat_gain_coefficient": 0.32,
+											"u_factor": 1.9873924470071163
+										}
+									],
+									"construction": {
+										"id": "Roof Construction",
+										"u_factor": 0.28391320671530235
+									}
+								},
+								{
+									"id": "Basement Wall",
+									"adjacent_to": "GROUND",
+									"tilt": 90,
+									"area": 92.90303999999999,
+									"construction": {
+										"id": "Basement Wall Construction",
+										"c_factor": 0.28391320671530235
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
