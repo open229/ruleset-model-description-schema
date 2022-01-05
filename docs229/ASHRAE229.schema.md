@@ -1,6 +1,6 @@
 # Data Types
 | Data Type |                                                           Description                                                           | JSON Schema Type |          Examples           |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------------------------- |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------|------------------|-----------------------------|
 | `Integer` | A positive or negative whole number (i.e., a number that can be written without a fractional part).                             | integer          | 3, 19, -4                   |
 | `Numeric` | A number that may include a fractional part with optional leading sign and optional exponent (engineering notation).            | number           | 3.43, 0, -4, 1.03e4         |
 | `Boolean` | True or false.                                                                                                                  | boolean          | true, false                 |
@@ -10,7 +10,7 @@
 
 # ConditioningType
 |     Enumerator      |    Description    | Notes |
-| ------------------- | ----------------- | ----- |
+|---------------------|-------------------|-------|
 | `HEATED_AND_COOLED` | Heated and cooled |       |
 | `HEATED_ONLY`       | Heated only       |       |
 | `SEMIHEATED`        | Semiheated        |       |
@@ -18,29 +18,30 @@
 
 # SpaceFunctionType
 |  Enumerator  | Description | Notes |
-| ------------ | ----------- | ----- |
+|--------------|-------------|-------|
 | `LABORATORY` | Laboratory  |       |
 | `KITCHEN`    | Kitchen     |       |
 | `OTHER`      | Other       |       |
 
 # InfiltrationMethodType
-|    Enumerator    |                                                                                                                      Description                                                                                                                      | Notes |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| `WEATHER_DRIVEN` | Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule. |       |
-| `PRESSURE_BASED` | Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction.                                                 |       |
-| `CONSTANT`       | Constant. The schedule is ignored.                                                                                                                                                                                                                    |       |
-| `OTHER`          | Other infiltration methods.                                                                                                                                                                                                                           |       |
+|      Enumerator      |                                                                                                                      Description                                                                                                                      | Notes |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
+| `WEATHER_DRIVEN`     | Weather Driven. The amount of air leakage is determined by using the infiltration_flow_rate with a correlation usually involving windspeed, height, and the difference between indoor and outdoor temperature and is then multiplied by the schedule. |       |
+| `PRESSURE_BASED`     | Pressure Based. The amount of air leakage is determined by induced airflows from pressure differences between zones, air distribution system components, the outside due to wind speed and direction.                                                 |       |
+| `CONSTANT`           | Constant. The schedule is ignored.                                                                                                                                                                                                                    |       |
+| `CONSTANT_SCHEDULED` | Constant multiplied by the schedule.                                                                                                                                                                                                                  |       |
+| `OTHER`              | Other infiltration methods.                                                                                                                                                                                                                           |       |
 
 # SurfaceClassificationType
 | Enumerator |           Description            | Notes |
-| ---------- | -------------------------------- | ----- |
+|------------|----------------------------------|-------|
 | `WALL`     | Vertical or nearly vertical wall |       |
 | `FLOOR`    | Floor                            |       |
 | `CEILING`  | Ceiling                          |       |
 
 # SurfaceAdjacentTo
 | Enumerator  |                                                                                                 Description                                                                                                  | Notes |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
 | `EXTERIOR`  | Exterior wall or roof which is adjacent to the exterior environment.                                                                                                                                         |       |
 | `GROUND`    | Slab-on-grad or below grade surface if adjacent to ground.                                                                                                                                                   |       |
 | `INTERIOR`  | Interior surface if adjacent to another space which is explicity modeled.                                                                                                                                    |       |
@@ -49,13 +50,13 @@
 
 # SurfaceConstructionInputOptions
 |  Enumerator  |               Description                | Notes |
-| ------------ | ---------------------------------------- | ----- |
+|--------------|------------------------------------------|-------|
 | `LAYERS`     | Construction is entered layer-by-layer.  |       |
 | `SIMPLIFIED` | Construction is entered by R-value only. |       |
 
 # SubsurfaceClassificationType
 | Enumerator |                     Description                     | Notes |
-| ---------- | --------------------------------------------------- | ----- |
+|------------|-----------------------------------------------------|-------|
 | `WINDOW`   | Window                                              |       |
 | `SKYLIGHT` | Skylight                                            |       |
 | `DOOR`     | Door                                                |       |
@@ -63,14 +64,14 @@
 
 # SubsurfaceDynamicGlazingType
 |     Enumerator      |    Description    | Notes |
-| ------------------- | ----------------- | ----- |
+|---------------------|-------------------|-------|
 | `NOT_DYNAMIC`       | Not dynamic       |       |
 | `MANUAL_DYNAMIC`    | Manual dynamic    |       |
 | `AUTOMATIC_DYNAMIC` | Automatic dynamic |       |
 
 # LightingDaylightingControlType
 |      Enumerator      |            Description             |          Notes          |
-| -------------------- | ---------------------------------- | ----------------------- |
+|----------------------|------------------------------------|-------------------------|
 | `STEPPED`            | Stepped                            |                         |
 | `CONTINUOUS_DIMMING` | Continuous Dimming                 |                         |
 | `OTHER`              | Other types of daylighting control |                         |
@@ -78,7 +79,7 @@
 
 # LightingOccupancyControlType
 |    Enumerator     |           Description            |             Notes              |
-| ----------------- | -------------------------------- | ------------------------------ |
+|-------------------|----------------------------------|--------------------------------|
 | `FULL_AUTO_ON`    | Full auto on                     |                                |
 | `PARTIAL_AUTO_ON` | Parial auto on                   |                                |
 | `MANUAL_ON`       | Manual on                        |                                |
@@ -87,33 +88,33 @@
 
 # MiscellaneousEquipmentType
 | Enumerator | Description | Notes |
-| ---------- | ----------- | ----- |
+|------------|-------------|-------|
 | `PLUG`     | Plug        |       |
 | `PROCESS`  | Process     |       |
 | `OTHER`    | Other       |       |
 
 # TransformerType
 |   Enumerator   | Description  | Notes |
-| -------------- | ------------ | ----- |
+|----------------|--------------|-------|
 | `DRY_TYPE`     | Dry Type     |       |
 | `FLUID_FILLED` | Fluid Filled |       |
 | `OTHER`        | Other        |       |
 
 # ElectricalPhase
 |   Enumerator   | Description  | Notes |
-| -------------- | ------------ | ----- |
+|----------------|--------------|-------|
 | `SINGLE_PHASE` | Single Phase |       |
 | `THREE_PHASE`  | Three Phase  |       |
 
 # ScheduleSequenceTypeOptions
 | Enumerator | Description | Notes |
-| ---------- | ----------- | ----- |
+|------------|-------------|-------|
 | `HOURLY`   | Hourly      |       |
 | `EVENT`    | Event       |       |
 
 # ScheduleTypeOptions
 |         Enumerator         |       Description        | Notes |
-| -------------------------- | ------------------------ | ----- |
+|----------------------------|--------------------------|-------|
 | `MULTIPLIER_DIMENSIONLESS` | Multiplier dimensionless |       |
 | `TEMPERATURE`              | Temperature              |       |
 | `POWER`                    | Power                    |       |
@@ -121,7 +122,7 @@
 
 # DayOfWeek
 | Enumerator  | Description | Notes |
-| ----------- | ----------- | ----- |
+|-------------|-------------|-------|
 | `SUNDAY`    | Sunday      |       |
 | `MONDAY`    | Monday      |       |
 | `TUESDAY`   | Tuesday     |       |
@@ -132,20 +133,20 @@
 
 # CoolingDesignDayTypeOptions
 |  Enumerator   |                           Description                            | Notes |
-| ------------- | ---------------------------------------------------------------- | ----- |
+|---------------|------------------------------------------------------------------|-------|
 | `COOLING_0_4` | Cooling design day 0.4% annual cumulative frequency of occurance |       |
 | `COOLING_1_0` | Cooling design day 1.0% annual cumulative frequency of occurance |       |
 | `COOLING_2_0` | Cooling design day 2.0% annual cumulative frequency of occurance |       |
 
 # HeatingDesignDayTypeOptions
 |   Enumerator   |                            Description                            | Notes |
-| -------------- | ----------------------------------------------------------------- | ----- |
+|----------------|-------------------------------------------------------------------|-------|
 | `HEATING_99_6` | Heating design day 99.6% annual cumulative frequency of occurance |       |
 | `HEATING_99_0` | Heating design day 99.0% annual cumulative frequency of occurance |       |
 
 # HeatingSystemType
 |      Enumerator       |     Description     | Notes |
-| --------------------- | ------------------- | ----- |
+|-----------------------|---------------------|-------|
 | `HEAT_PUMP`           | Heat Pump           |       |
 | `FURNACE`             | Furnace             |       |
 | `ELECTRIC_RESISTANCE` | Electric resistance |       |
@@ -156,7 +157,7 @@
 
 # HeatpumpAuxilliaryHeatType
 |      Enumerator       |     Description     | Notes |
-| --------------------- | ------------------- | ----- |
+|-----------------------|---------------------|-------|
 | `ELECTRIC_RESISTANCE` | Electric resistance |       |
 | `FURNACE`             | Furnace             |       |
 | `NONE`                | None                |       |
@@ -164,14 +165,14 @@
 
 # HumidificationType
 | Enumerator  | Description | Notes |
-| ----------- | ----------- | ----- |
+|-------------|-------------|-------|
 | `ADIABATIC` | Adiabatic   |       |
 | `NONE`      | None        |       |
 | `OTHER`     | Other       |       |
 
 # CoolingSystemType
 |     Enumerator     |   Description    | Notes |
-| ------------------ | ---------------- | ----- |
+|--------------------|------------------|-------|
 | `DIRECT_EXPANSION` | Direct expansion |       |
 | `FLUID_LOOP`       | Fluid loop       |       |
 | `NON_MECHANICAL`   | Non-mechanical   |       |
@@ -180,7 +181,7 @@
 
 # DehumidificationType
 |       Enumerator       |     Description      | Notes |
-| ---------------------- | -------------------- | ----- |
+|------------------------|----------------------|-------|
 | `MECHANCIAL_COOLING`   | Mechanical cooling   |       |
 | `DESICCANT`            | Desiccant            |       |
 | `SERIES_HEAT_RECOVERY` | Series heat recovery |       |
@@ -188,17 +189,19 @@
 | `OTHER`                | Other                |       |
 
 # FanSystemTemperatureControlType
-|     Enumerator      |    Description    | Notes |
-| ------------------- | ----------------- | ----- |
-| `CONSTANT`          | Constant          |       |
-| `OUTDOOR_AIR_RESET` | Outdoor air reset |       |
-| `ZONE_RESET`        | Zone reset        |       |
-| `SCHEDULED`         | Scheduled         |       |
-| `OTHER`             | Other             |       |
+|              Enumerator               |             Description             | Notes |
+|---------------------------------------|-------------------------------------|-------|
+| `CONSTANT`                            | Constant                            |       |
+| `OUTDOOR_AIR_RESET`                   | Outdoor air reset                   |       |
+| `ZONE_RESET`                          | Zone reset                          |       |
+| `LOAD_RESET_TO_SPACE_TEMPERATURE`     | Load Reset To Space Temperature     |       |
+| `LOAD_RESET_DIFFERENTIAL_TEMPERATURE` | Load Reset Differential Temperature |       |
+| `SCHEDULED`                           | Scheduled                           |       |
+| `OTHER`                               | Other                               |       |
 
 # FanSystemSupplyFanControlType
 |       Enumerator       |     Description      | Notes |
-| ---------------------- | -------------------- | ----- |
+|------------------------|----------------------|-------|
 | `CONSTANT`             | Constant             |       |
 | `VARIABLE_SPEED_DRIVE` | Variable speed drive |       |
 | `MULTISPEED`           | Multispeed           |       |
@@ -208,26 +211,32 @@
 
 # FanSystemOperationType
 |  Enumerator  | Description | Notes |
-| ------------ | ----------- | ----- |
+|--------------|-------------|-------|
 | `CYCLING`    | Cycling     |       |
 | `CONTINUOUS` | Continuous  |       |
 | `KEEP_OFF`   | Off         |       |
 | `OTHER`      | Other       |       |
 
+# FanSystemSupplyFanVolumeResetType
+|  Enumerator  | Description | Notes |
+|--------------|-------------|-------|
+| `CONSTANT`   | Constant    |       |
+| `LOAD_RESET` | Load Reset  |       |
+| `OTHER`      | Other       |       |
+
 # AirEconomizerType
 |         Enumerator         |            Description            | Notes |
-| -------------------------- | --------------------------------- | ----- |
+|----------------------------|-----------------------------------|-------|
 | `FIXED_FRACTION`           | Fixed Fraction                    |       |
 | `TEMPERATURE`              | Dry-bulb temperature              |       |
 | `ENTHALPY`                 | Enthalpy                          |       |
 | `DIFFERENTIAL_TEMPERATURE` | Differential dry-bulb temperature |       |
 | `DIFFERENTIAL_ENTHALPY`    | Differential enthalpy             |       |
 | `OTHER`                    | Other                             |       |
-| `NONE`                     | None                              |       |
 
 # EnergyRecoveryType
 |       Enumerator        |      Description       | Notes |
-| ----------------------- | ---------------------- | ----- |
+|-------------------------|------------------------|-------|
 | `SENSIBLE_HEAT_EXHANGE` | Sensible heat exchange |       |
 | `ENTHALPY_HEAT_EXHANGE` | Enthalpy heat exchange |       |
 | `SENSIBLE_HEAT_WHEEL`   | Sensible heat wheel    |       |
@@ -238,7 +247,7 @@
 
 # EnergyRecoveryOperation
 |         Enumerator         |       Description        | Notes |
-| -------------------------- | ------------------------ | ----- |
+|----------------------------|--------------------------|-------|
 | `WHEN_FANS_ON`             | When fans on             |       |
 | `WHEN_MINIMUM_OUTSIDE_AIR` | When minimum outside air |       |
 | `SCHEDULED`                | Scheduled                |       |
@@ -247,7 +256,7 @@
 
 # EnergyRecoverySupplyAirTemperatureControl
 |    Enumerator     |   Description   | Notes |
-| ----------------- | --------------- | ----- |
+|-------------------|-----------------|-------|
 | `FIXED_SETPOINT`  | Fixed setpoint  |       |
 | `MIXED_AIR_RESET` | Mixed air reset |       |
 | `OTHER`           | Other           |       |
@@ -255,7 +264,7 @@
 
 # DemandControlVentilationControlType
 |    Enumerator    |  Description   | Notes |
-| ---------------- | -------------- | ----- |
+|------------------|----------------|-------|
 | `CO2_RETURN_AIR` | CO2 return air |       |
 | `CO2_ZONE`       | CO2 zone       |       |
 | `OTHER`          | Other          |       |
@@ -263,16 +272,15 @@
 
 # FanSpecificationMethodOptions
 | Enumerator | Description |                                              Notes                                              |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------------- |
+|------------|-------------|-------------------------------------------------------------------------------------------------|
 | `SIMPLE`   | Simple      | Specify the electric power input of fan                                                         |
 | `DETAILED` | Detailed    | Specify the brake horse power, design pressure rise through, total efficiency, motor efficiency |
 
 # TerminalType
 |        Enumerator         |       Description       | Notes |
-| ------------------------- | ----------------------- | ----- |
+|---------------------------|-------------------------|-------|
 | `VARIABLE_AIR_VOLUME`     | Variable air volume     |       |
 | `CONSTANT_AIR_VOLUME`     | Constant air volume     |       |
-| `DUCTLESS`                | Ductless                |       |
 | `RADIANT`                 | Radiant                 |       |
 | `FOUR_PIPE_FAN_COIL_UNIT` | Four pipe fan coil unit |       |
 | `TWO_PIPE_FAN_COIL_UNIT`  | Two pipe fan coil unit  |       |
@@ -281,14 +289,14 @@
 
 # TerminalFanConfiguration
 | Enumerator | Description | Notes |
-| ---------- | ----------- | ----- |
+|------------|-------------|-------|
 | `PARALLEL` | Parallel    |       |
 | `SERIES`   | Series      |       |
 | `OTHER`    | Other       |       |
 
 # ReheatSourceType
 | Enumerator  | Description | Notes |
-| ----------- | ----------- | ----- |
+|-------------|-------------|-------|
 | `ELECTRIC`  | Electric    |       |
 | `HOT_WATER` | Hot water   |       |
 | `NONE`      | None        |       |
@@ -296,13 +304,13 @@
 
 # FluidLoopFlowControlOptions
 |   Enumerator    |  Description  | Notes |
-| --------------- | ------------- | ----- |
+|-----------------|---------------|-------|
 | `FIXED_FLOW`    | Fixed flow    |       |
 | `VARIABLE_FLOW` | Variable flow |       |
 
 # FluidLoopTypeOptions
 |      Enumerator       |     Description     | Notes |
-| --------------------- | ------------------- | ----- |
+|-----------------------|---------------------|-------|
 | `HEATING`             | Heating             |       |
 | `COOLING`             | Cooling             |       |
 | `HEATING_AND_COOLING` | Heating and cooling |       |
@@ -311,54 +319,55 @@
 
 # TemperatureResetTypeOptions
 |     Enumerator      |    Description    | Notes |
-| ------------------- | ----------------- | ----- |
+|---------------------|-------------------|-------|
 | `NO_RESET`          | No Reset          |       |
 | `CONSTANT`          | Constant          |       |
-| `OUTSIDE_AIR_RESET` | Outside air reste |       |
+| `OUTSIDE_AIR_RESET` | Outside air reset |       |
 | `LOAD_RESET`        | Load Reset        |       |
 | `OTHER`             | Other             |       |
 
 # FluidLoopOperationOptions
-|   Enumerator   | Description  | Notes |
-| -------------- | ------------ | ----- |
-| `CONTINUOUS`   | Continuous   |       |
-| `INTERMITTENT` | Intermittent |       |
+|   Enumerator   |      Description       | Notes |
+|----------------|------------------------|-------|
+| `CONTINUOUS`   | Continuous             |       |
+| `INTERMITTENT` | Intermittent/on-demand |       |
+| `SCHEDULED`    | Scheduled              |       |
 
 # PumpSpeedControlOptions
 |    Enumerator    |  Description   | Notes |
-| ---------------- | -------------- | ----- |
+|------------------|----------------|-------|
 | `FIXED_SPEED`    | Fixed speed    |       |
 | `VARIABLE_SPEED` | Variable speed |       |
 
 # PumpSpecificationMethodOptions
 | Enumerator | Description |                                         Notes                                         |
-| ---------- | ----------- | ------------------------------------------------------------------------------------- |
+|------------|-------------|---------------------------------------------------------------------------------------|
 | `SIMPLE`   | Simple      | Specify the electric power input of pump                                              |
 | `DETAILED` | Detailed    | Specify the motor nameplate power, design head, impellor efficiency, motor efficiency |
 
 # BoilerCombustionOptions
 | Enumerator | Description | Notes |
-| ---------- | ----------- | ----- |
+|------------|-------------|-------|
 | `NATURAL`  | Natural     |       |
 | `FORCED`   | Forced      |       |
 
 # BoilerEfficiencyMetricTypeOptions
 |        Enumerator         |            Description             | Notes |
-| ------------------------- | ---------------------------------- | ----- |
+|---------------------------|------------------------------------|-------|
 | `ANNUAL_FUEL_UTILIZATION` | Annual fuel utilization efficiency |       |
 | `THERMAL`                 | Thermal efficiency                 |       |
 | `COMBUSTION`              | Combustion efficiency              |       |
 
 # ChillerPartLoadEfficiencyMetricTypeOptions
 |          Enumerator           |                                      Description                                       | Notes |
-| ----------------------------- | -------------------------------------------------------------------------------------- | ----- |
+|-------------------------------|----------------------------------------------------------------------------------------|-------|
 | `INTEGRATED_PART_LOAD_VALUE`  | Integrated part load value efficiency expressed as a coefficient of performance (COP)  |       |
 | `NONSTANDARD_PART_LOAD_VALUE` | Nonstandard part load value efficiency expressed as a coefficient of performance (COP) |       |
 | `OTHER`                       | Other part load efficiency metric                                                      |       |
 
 # ChillerCompressorTypeOptions
 |                Enumerator                 |               Description               | Notes |
-| ----------------------------------------- | --------------------------------------- | ----- |
+|-------------------------------------------|-----------------------------------------|-------|
 | `SCREW`                                   | Screw                                   |       |
 | `CENTRIFUGAL`                             | Centrifugal                             |       |
 | `RECIPROCATING`                           | Reciprocating                           |       |
@@ -372,7 +381,7 @@
 
 # HeatRejectionTypeOptions
 |           Enumerator           |                 Description                  | Notes |
-| ------------------------------ | -------------------------------------------- | ----- |
+|--------------------------------|----------------------------------------------|-------|
 | `OPEN_CIRCUIT_COOLING_TOWER`   | Open-circuit cooling tower                   |       |
 | `CLOSED_CIRCUIT_COOLING_TOWER` | Closed-circuit cooling tower or fluid cooler |       |
 | `DRY_COOLER`                   | Dry-cooler or air-cooled fluid cooler        |       |
@@ -382,14 +391,14 @@
 
 # HeatRejectionFanTypeOptions
 |  Enumerator   |    Description     | Notes |
-| ------------- | ------------------ | ----- |
+|---------------|--------------------|-------|
 | `AXIAL`       | Axial or Propellor |       |
 | `CENTRIFUGAL` | Centrifugal        |       |
 | `OTHER`       | Other              |       |
 
 # HeatRejectionFluidOptions
 |  Enumerator   | Description |      Notes       |
-| ------------- | ----------- | ---------------- |
+|---------------|-------------|------------------|
 | `WATER`       | Water       |                  |
 | `REFRIGERANT` | Refrigerant | Including R-448A |
 | `AMMONIA`     | Ammonia     |                  |
@@ -397,14 +406,14 @@
 
 # HeatRejectionResetOptions
 |  Enumerator  | Description | Notes |
-| ------------ | ----------- | ----- |
+|--------------|-------------|-------|
 | `CONSTANT`   | Constant    |       |
 | `LOAD_RESET` | Load reset  |       |
 | `OTHER`      | Other       |       |
 
 # HeatRejectionFanSpeedControlOptions
 |    Enumerator    |  Description   | Notes |
-| ---------------- | -------------- | ----- |
+|------------------|----------------|-------|
 | `CONSTANT`       | Constant       |       |
 | `TWO_SPEED`      | Two Speed      |       |
 | `VARIABLE_SPEED` | Variable Speed |       |
@@ -412,14 +421,14 @@
 
 # ExternalFluidSourceTypeOptions
 |   Enumerator    |  Description  | Notes |
-| --------------- | ------------- | ----- |
+|-----------------|---------------|-------|
 | `CHILLED_WATER` | Chilled water |       |
 | `HOT_WATER`     | Hot water     |       |
 | `STEAM`         | Steam         |       |
 
 # ServiceWaterHeatingConfigurationType
 |                      Enumerator                      |                    Description                     | Notes |
-| ---------------------------------------------------- | -------------------------------------------------- | ----- |
+|------------------------------------------------------|----------------------------------------------------|-------|
 | `HERS_PARALLEL_PIPING`                               | HERS parallel piping                               |       |
 | `HERS_PIPE_INSULATION_ALL_LINES`                     | HERS pipe insulation of all lines                  |       |
 | `HERS_RECIRCULATION_DEMAND_CONTROL_OCCUPANCY_SENSOR` | HERS recirculation demand control occupancy sensor |       |
@@ -437,7 +446,7 @@
 
 # ServiceWaterHeatingHeatRecoveryType
 |    Enumerator    |  Description   | Notes |
-| ---------------- | -------------- | ----- |
+|------------------|----------------|-------|
 | `NOT_APPLICABLE` | Not applicable |       |
 | `VERTICAL`       | Vertical       |       |
 | `HORIZONTAL`     | Horizontal     |       |
@@ -445,7 +454,7 @@
 
 # ServiceWaterHeaterType
 |      Enumerator      |    Description     | Notes |
-| -------------------- | ------------------ | ----- |
+|----------------------|--------------------|-------|
 | `CONVENTIONAL`       | Conventional       |       |
 | `HEAT_PUMP_PACKAGED` | Heat pump packaged |       |
 | `HEAT_PUMP_SPLIT`    | Heat pump split    |       |
@@ -453,7 +462,7 @@
 
 # ComponentLocation
 |    Enumerator     |   Description   | Notes |
-| ----------------- | --------------- | ----- |
+|-------------------|-----------------|-------|
 | `IN_ZONE`         | In a zone       |       |
 | `CONDITIONED`     | Conditioned     |       |
 | `SEMICONDITIONED` | Semiconditioned |       |
@@ -467,7 +476,7 @@
 
 # ServiceWaterHeaterTankType
 |                 Enumerator                  |                Description                |      Notes      |
-| ------------------------------------------- | ----------------------------------------- | --------------- |
+|---------------------------------------------|-------------------------------------------|-----------------|
 | `CONSUMER_INSTANTANEOUS`                    | Consumer instantaneous                    | Uses UEF        |
 | `COMMERCIAL_INSTANTANEOUS`                  | Commercial instantaneous                  | Uses TE         |
 | `CONSUMER_STORAGE`                          | Consumer storage                          | Uses UEF        |
@@ -480,7 +489,7 @@
 
 # ServiceWaterHeatingFixtureType
 |    Enumerator    |       Description       | Notes |
-| ---------------- | ----------------------- | ----- |
+|------------------|-------------------------|-------|
 | `SHOWER`         | Shower                  |       |
 | `BATH`           | Bath                    |       |
 | `RESTROOM_SINK`  | Restroom Sink           |       |
@@ -492,7 +501,7 @@
 
 # ServiceWaterHeatingUseUnits
 |     Enumerator      |    Description    | Notes |
-| ------------------- | ----------------- | ----- |
+|---------------------|-------------------|-------|
 | `POWER_PER_PERSON`  | Power per person  |       |
 | `POWER_PER_AREA`    | Power per area    |       |
 | `POWER`             | Power             |       |
@@ -503,7 +512,7 @@
 
 # EnergySourceTypeOptions
 |  Enumerator   | Description | Notes |
-| ------------- | ----------- | ----- |
+|---------------|-------------|-------|
 | `ELECTRICITY` | Electricity |       |
 | `NATURAL_GAS` | Natural gas |       |
 | `PROPANE`     | Propane     |       |
@@ -512,7 +521,7 @@
 
 # RefrigerationType
 |                  Enumerator                  |                Description                 | Notes |
-| -------------------------------------------- | ------------------------------------------ | ----- |
+|----------------------------------------------|--------------------------------------------|-------|
 | `COMMERCIAL_REFRIGERATION`                   | Commercial refrigeration                   |       |
 | `COMMERCIAL_REFRIGERATOR_SOLID_DOOR`         | Commercial refrigerator solid door         |       |
 | `COMMERCIAL_REFRIGERATOR_TRANSPARENT_DOOR`   | Commercial refrigerator transparent door   |       |
@@ -524,7 +533,7 @@
 
 # RefrigerationCategory
 |          Enumerator           |         Description         | Notes |
-| ----------------------------- | --------------------------- | ----- |
+|-------------------------------|-----------------------------|-------|
 | `HORIZONTAL_OPEN`             | Horizontal open             |       |
 | `HORIZONTAL_SOLID_DOOR`       | Horizontal solid door       |       |
 | `HORIZONTAL_TRANSPARENT_DOOR` | Horizontal transparent door |       |
@@ -537,7 +546,7 @@
 
 # ApplicationTemperatureType
 | Enumerator  |    Description     |               Notes               |
-| ----------- | ------------------ | --------------------------------- |
+|-------------|--------------------|-----------------------------------|
 | `MEDIUM`    | Medium temperature | 3.3 C +/- 1.1 C (38 F +/- 2 F)    |
 | `LOW`       | Low temperature    | -17.8 C +/- 1.1 C (0 F +/- 2 F)   |
 | `ICE_CREAM` | Ice cream          | -26.1 C +/- 1.1 C (-15 F +/- 2 F) |
@@ -545,7 +554,7 @@
 
 # ASHRAE229
 |                     Name                     |                                                                     Description                                                                      |                                                       Data Type                                                       |  Units  | Range | Req |                                                                             Notes                                                                              |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------- | ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                         | Scope-unique reference identifier for instances of this data group.                                                                                  | `ID`                                                                                                                  |         |       | ✓   |                                                                                                                                                                |
 | `reporting_name`                             | Descriptive name used in RCT reports if id is not already a descriptive name                                                                         | `String`                                                                                                              |         |       |     |                                                                                                                                                                |
 | `notes`                                      | Supplementary information to provide context to the model reviewer                                                                                   | `String`                                                                                                              |         |       |     |                                                                                                                                                                |
@@ -571,7 +580,7 @@
 
 # Building
 |            Name            |                                 Description                                  |       Data Type        | Units | Range | Req |                                                    Notes                                                    |
-| -------------------------- | ---------------------------------------------------------------------------- | ---------------------- | ----- | ----- | --- | ----------------------------------------------------------------------------------------------------------- |
+|----------------------------|------------------------------------------------------------------------------|------------------------|-------|-------|-----|-------------------------------------------------------------------------------------------------------------|
 | `id`                       | Scope-unique reference identifier for instances of this data group           | `ID`                   |       |       | ✓   |                                                                                                             |
 | `reporting_name`           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`               |       |       |     |                                                                                                             |
 | `notes`                    | Supplementary information to provide context to the model reviewer           | `String`               |       |       |     |                                                                                                             |
@@ -584,7 +593,7 @@
 
 # BuildingSegment
 |                          Name                           |                                            Description                                             |                             Data Type                              | Units | Range | Req |                                                                                                      Notes                                                                                                      |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----- | ----- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-------|-------|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                                    | Scope-unique reference identifier for instances of this data group                                 | `ID`                                                               |       |       | ✓   |                                                                                                                                                                                                                 |
 | `reporting_name`                                        | Descriptive name used in RCT reports if id is not already a descriptive name                       | `String`                                                           |       |       |     |                                                                                                                                                                                                                 |
 | `notes`                                                 | Supplementary information to provide context to the model reviewer                                 | `String`                                                           |       |       |     |                                                                                                                                                                                                                 |
@@ -598,31 +607,33 @@
 | `area_type_heating_ventilation_air_conditioning_system` | Classification used for HVAC                                                                       | `<HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901>` |       |       |     | The enumeration is based on the standard used. JG to verify if used in test case description.                                                                                                                   |
 
 # Zone
-|                   Name                   |                                 Description                                  |      Data Type       | Units | Range | Req |                                                                                                         Notes                                                                                                          |
-| ---------------------------------------- | ---------------------------------------------------------------------------- | -------------------- | ----- | ----- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                     | Scope-unique reference identifier for instances of this data group           | `ID`                 |       |       | ✓   |                                                                                                                                                                                                                        |
-| `reporting_name`                         | Descriptive name used in RCT reports if id is not already a descriptive name | `String`             |       |       |     |                                                                                                                                                                                                                        |
-| `notes`                                  | Supplementary information to provide context to the model reviewer           | `String`             |       |       |     |                                                                                                                                                                                                                        |
-| `spaces`                                 | Spaces in the zone                                                           | `[{Space}]`          |       |       |     | Contains a list of spaces in the building.                                                                                                                                                                             |
-| `volume`                                 | Volume of the space                                                          | `Numeric`            | m3    | `≥0`  |     |                                                                                                                                                                                                                        |
-| `surfaces`                               | Surfaces surrounding the zone                                                | `[{Surface}]`        |       |       |     | Contains a list of surfaces that define the zone.                                                                                                                                                                      |
-| `conditioning_type`                      | Space conditioning category                                                  | `<ConditioningType>` |       |       |     |                                                                                                                                                                                                                        |
-| `infiltration`                           | Airleakage into the zone.                                                    | `{Infiltration}`     |       |       |     | References a single infiltration data group.                                                                                                                                                                           |
-| `design_thermostat_cooling_setpoint`     | Setpoint temperature for cooling during occupied hours                       | `Numeric`            | C     |       |     | JG to verify if used in test case description.                                                                                                                                                                         |
-| `thermostat_cooling_setpoint_schedule`   | Reference to the schedule containing the cooling setpoint temperatures       | `$ID`                |       |       | ✓   | Constraint to use when implemented :Schedule:                                                                                                                                                                          |
-| `design_thermostat_heating_setpoint`     | Setpoint temperature for heating during occupied hours                       | `Numeric`            | C     |       |     | JG to verify if used in test case description.                                                                                                                                                                         |
-| `thermostat_heating_setpoint_schedule`   | Reference to the schedule containing the heating setpoint temperatures       | `$ID`                |       |       | ✓   | Constraint to use when implemented :Schedule:                                                                                                                                                                          |
-| `terminals`                              | List of terminals                                                            | `[{Terminal}]`       |       |       |     | Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description.                                                                                       |
-| `served_by_service_water_heating_system` | A service water heating system serving the zone                              | `$ID`                |       |       |     | Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem: |
-| `transfer_airflow_rate`                  | Transfer airflow rate                                                        | `Numeric`            | L/s   | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                         |
-| `exhaust_airflow_rate`                   | Number of occupants in the space                                             | `Numeric`            | L/s   | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                         |
-| `non_mechanical_cooling_fan_power`       | Non-mechanical cooling fan power                                             | `Numeric`            | W     | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                         |
-| `non_mechanical_cooling_fan_airflow`     | Non-mechanical cooling fan power                                             | `Numeric`            | L/s   | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                         |
-| `air_distribution_effectiveness`         | Air distribution effectiveness                                               | `Numeric`            |       | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                         |
+|                   Name                   |                                 Description                                  |      Data Type       | Units | Range | Req |                                                                                                                                                           Notes                                                                                                                                                            |
+|------------------------------------------|------------------------------------------------------------------------------|----------------------|-------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                     | Scope-unique reference identifier for instances of this data group           | `ID`                 |       |       | ✓   | No multipliers or floor multipliers are used with the Zone data group so each zone should be individually identified.                                                                                                                                                                                                      |
+| `reporting_name`                         | Descriptive name used in RCT reports if id is not already a descriptive name | `String`             |       |       |     |                                                                                                                                                                                                                                                                                                                            |
+| `notes`                                  | Supplementary information to provide context to the model reviewer           | `String`             |       |       |     |                                                                                                                                                                                                                                                                                                                            |
+| `spaces`                                 | Spaces in the zone                                                           | `[{Space}]`          |       |       |     | Contains a list of spaces in the building.                                                                                                                                                                                                                                                                                 |
+| `floor_number`                           | Floor number                                                                 | `Numeric`            |       |       |     | Used to group zones on a floor so the number indicates that different zones share a floor. The number should increase for increasing heights and be negative values for stories generally below ground and should generally correspond to numbering of floors on the plans. JG to verify if used in test case description. |
+| `volume`                                 | Volume of the space                                                          | `Numeric`            | m3    | `≥0`  |     |                                                                                                                                                                                                                                                                                                                            |
+| `surfaces`                               | Surfaces surrounding the zone                                                | `[{Surface}]`        |       |       |     | Contains a list of surfaces that define the zone.                                                                                                                                                                                                                                                                          |
+| `conditioning_type`                      | Space conditioning category                                                  | `<ConditioningType>` |       |       |     |                                                                                                                                                                                                                                                                                                                            |
+| `infiltration`                           | Airleakage into the zone.                                                    | `{Infiltration}`     |       |       |     | References a single infiltration data group.                                                                                                                                                                                                                                                                               |
+| `design_thermostat_cooling_setpoint`     | Setpoint temperature for cooling during occupied hours                       | `Numeric`            | C     |       |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
+| `thermostat_cooling_setpoint_schedule`   | Reference to the schedule containing the cooling setpoint temperatures       | `$ID`                |       |       | ✓   | Constraint to use when implemented :Schedule:                                                                                                                                                                                                                                                                              |
+| `design_thermostat_heating_setpoint`     | Setpoint temperature for heating during occupied hours                       | `Numeric`            | C     |       |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
+| `thermostat_heating_setpoint_schedule`   | Reference to the schedule containing the heating setpoint temperatures       | `$ID`                |       |       | ✓   | Constraint to use when implemented :Schedule:                                                                                                                                                                                                                                                                              |
+| `terminals`                              | List of terminals                                                            | `[{Terminal}]`       |       |       |     | Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description.                                                                                                                                                                                           |
+| `served_by_service_water_heating_system` | A service water heating system serving the zone                              | `$ID`                |       |       |     | Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:                                                                                                     |
+| `transfer_airflow_rate`                  | Airflow rate for transfer air                                                | `Numeric`            | L/s   |       |     | Net transfer air. Positive values indicate transfer air in to the zone and negative values show transfer out of the zone. JG to verify if used in test case description.                                                                                                                                                   |
+| `exhaust_airflow_rate`                   | Airflow rate for exhaust air                                                 | `Numeric`            | L/s   | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
+| `makeup_airflow_rate`                    | Airflow rate for makeup air                                                  | `Numeric`            | L/s   | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
+| `non_mechanical_cooling_fan_power`       | Non-mechanical cooling fan power                                             | `Numeric`            | W     | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
+| `non_mechanical_cooling_fan_airflow`     | Non-mechanical cooling fan airflow                                           | `Numeric`            | L/s   | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
+| `air_distribution_effectiveness`         | Air distribution effectiveness                                               | `Numeric`            |       | `≥0`  |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                             |
 
 # Space
 |                Name                |                                   Description                                   |                           Data Type                           | Units | Range | Req |                                                                                                                                                                                                                                                  Notes                                                                                                                                                                                                                                                  |
-| ---------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----- | ----- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------|---------------------------------------------------------------------------------|---------------------------------------------------------------|-------|-------|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                               | Scope-unique reference identifier for instances of this data group              | `ID`                                                          |       |       | ✓   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `reporting_name`                   | Descriptive name used in RCT reports if id is not already a descriptive name    | `String`                                                      |       |       |     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `notes`                            | Supplementary information to provide context to the model reviewer              | `String`                                                      |       |       |     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -641,7 +652,7 @@
 
 # Infiltration
 |            Name             |                                       Description                                       |         Data Type          | Units | Range | Req |                                                                                                           Notes                                                                                                            |
-| --------------------------- | --------------------------------------------------------------------------------------- | -------------------------- | ----- | ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------|-----------------------------------------------------------------------------------------|----------------------------|-------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                        | Scope-unique reference identifier for instances of this data group                      | `ID`                       |       |       | ✓   |                                                                                                                                                                                                                            |
 | `reporting_name`            | Descriptive name used in RCT reports if id is not already a descriptive name            | `String`                   |       |       |     |                                                                                                                                                                                                                            |
 | `notes`                     | Supplementary information to provide context to the model reviewer                      | `String`                   |       |       |     |                                                                                                                                                                                                                            |
@@ -653,7 +664,7 @@
 
 # Surface
 |             Name             |                                                               Description                                                                |                                               Data Type                                                |  Units  | Range | Req |                                                    Notes                                                     |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------- | ----- | --- | ------------------------------------------------------------------------------------------------------------ |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------|-------|-----|--------------------------------------------------------------------------------------------------------------|
 | `id`                         | Scope-unique reference identifier for instances of this data group                                                                       | `ID`                                                                                                   |         |       | ✓   |                                                                                                              |
 | `reporting_name`             | Descriptive name used in RCT reports if id is not already a descriptive name                                                             | `String`                                                                                               |         |       |     |                                                                                                              |
 | `notes`                      | Supplementary information to provide context to the model reviewer                                                                       | `String`                                                                                               |         |       |     |                                                                                                              |
@@ -671,7 +682,7 @@
 
 # Construction
 |                Name                 |                                           Description                                           |              Data Type              | Units  |  Range  | Req |                                                                                                      Notes                                                                                                       |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- | ------ | ------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------|--------|---------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                | Scope-unique reference identifier for instances of this data group                              | `ID`                                |        |         | ✓   |                                                                                                                                                                                                                  |
 | `reporting_name`                    | Descriptive name used in RCT reports if id is not already a descriptive name                    | `String`                            |        |         |     |                                                                                                                                                                                                                  |
 | `notes`                             | Supplementary information to provide context to the model reviewer                              | `String`                            |        |         |     |                                                                                                                                                                                                                  |
@@ -689,7 +700,7 @@
 
 # Material
 |          Name          |                                 Description                                  | Data Type | Units  | Range | Req |                                                       Notes                                                        |
-| ---------------------- | ---------------------------------------------------------------------------- | --------- | ------ | ----- | --- | ------------------------------------------------------------------------------------------------------------------ |
+|------------------------|------------------------------------------------------------------------------|-----------|--------|-------|-----|--------------------------------------------------------------------------------------------------------------------|
 | `id`                   | Scope-unique reference identifier for instances of this data group           | `ID`      |        |       | ✓   |                                                                                                                    |
 | `reporting_name`       | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |        |       |     |                                                                                                                    |
 | `notes`                | Supplementary information to provide context to the model reviewer           | `String`  |        |       |     |                                                                                                                    |
@@ -701,7 +712,7 @@
 
 # SurfaceOpticalProperties
 |              Name              |                                 Description                                  | Data Type | Units | Range | Req |                                                                                 Notes                                                                                 |
-| ------------------------------ | ---------------------------------------------------------------------------- | --------- | ----- | ----- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------|------------------------------------------------------------------------------|-----------|-------|-------|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                           | Scope-unique reference identifier for instances of this data group           | `ID`      |       |       | ✓   |                                                                                                                                                                       |
 | `reporting_name`               | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |       |       |     |                                                                                                                                                                       |
 | `notes`                        | Supplementary information to provide context to the model reviewer           | `String`  |       |       |     |                                                                                                                                                                       |
@@ -714,7 +725,7 @@
 
 # Subsurface
 |                  Name                   |                                           Description                                           |                    Data Type                     | Units  | Range | Req |                                                  Notes                                                   |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------ | ----- | --- | -------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------|--------|-------|-----|----------------------------------------------------------------------------------------------------------|
 | `id`                                    | Scope-unique reference identifier for instances of this data group                              | `ID`                                             |        |       | ✓   |                                                                                                          |
 | `reporting_name`                        | Descriptive name used in RCT reports if id is not already a descriptive name                    | `String`                                         |        |       |     |                                                                                                          |
 | `notes`                                 | Supplementary information to provide context to the model reviewer                              | `String`                                         |        |       |     |                                                                                                          |
@@ -742,7 +753,7 @@
 
 # InteriorLighting
 |                         Name                          |                                              Description                                              |              Data Type               | Units | Range | Req |                                             Notes                                              |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------ | ----- | ----- | --- | ---------------------------------------------------------------------------------------------- |
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------|-------|-------|-----|------------------------------------------------------------------------------------------------|
 | `id`                                                  | Scope-unique reference identifier for instances of this data group                                    | `ID`                                 |       |       | ✓   |                                                                                                |
 | `reporting_name`                                      | Descriptive name used in RCT reports if id is not already a descriptive name                          | `String`                             |       |       |     |                                                                                                |
 | `notes`                                               | Supplementary information to provide context to the model reviewer                                    | `String`                             |       |       |     |                                                                                                |
@@ -756,7 +767,7 @@
 
 # MiscellaneousEquipment
 |              Name              |                                     Description                                     |           Data Type            | Units |  Range   | Req |                         Notes                          |
-| ------------------------------ | ----------------------------------------------------------------------------------- | ------------------------------ | ----- | -------- | --- | ------------------------------------------------------ |
+|--------------------------------|-------------------------------------------------------------------------------------|--------------------------------|-------|----------|-----|--------------------------------------------------------|
 | `id`                           | Scope-unique reference identifier for instances of this data group                  | `ID`                           |       |          | ✓   |                                                        |
 | `reporting_name`               | Descriptive name used in RCT reports if id is not already a descriptive name        | `String`                       |       |          |     |                                                        |
 | `notes`                        | Supplementary information to provide context to the model reviewer                  | `String`                       |       |          |     |                                                        |
@@ -770,7 +781,7 @@
 
 # Transformer
 |       Name       |                                 Description                                  |      Data Type      | Units |  Range   | Req |                                                      Notes                                                      |
-| ---------------- | ---------------------------------------------------------------------------- | ------------------- | ----- | -------- | --- | --------------------------------------------------------------------------------------------------------------- |
+|------------------|------------------------------------------------------------------------------|---------------------|-------|----------|-----|-----------------------------------------------------------------------------------------------------------------|
 | `id`             | Scope-unique reference identifier for instances of this data group           | `ID`                |       |          | ✓   |                                                                                                                 |
 | `reporting_name` | Descriptive name used in RCT reports if id is not already a descriptive name | `String`            |       |          |     |                                                                                                                 |
 | `notes`          | Supplementary information to provide context to the model reviewer           | `String`            |       |          |     |                                                                                                                 |
@@ -782,7 +793,7 @@
 
 # Schedule
 |                 Name                  |                                    Description                                     |              Data Type               | Units | Range | Req |                                                                                                                                 Notes                                                                                                                                 |
-| ------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------ | ----- | ----- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------------------------|------------------------------------------------------------------------------------|--------------------------------------|-------|-------|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                  | Scope-unique reference identifier for instances of this data group                 | `ID`                                 |       |       | ✓   |                                                                                                                                                                                                                                                                       |
 | `reporting_name`                      | Descriptive name used in RCT reports if id is not already a descriptive name       | `String`                             |       |       |     |                                                                                                                                                                                                                                                                       |
 | `notes`                               | Supplementary information to provide context to the model reviewer                 | `String`                             |       |       |     |                                                                                                                                                                                                                                                                       |
@@ -797,7 +808,7 @@
 
 # Calendar
 |            Name             |                            Description                             |   Data Type   | Units | Range | Req | Notes |
-| --------------------------- | ------------------------------------------------------------------ | ------------- | ----- | ----- | --- | ----- |
+|-----------------------------|--------------------------------------------------------------------|---------------|-------|-------|-----|-------|
 | `notes`                     | Supplementary information to provide context to the model reviewer | `String`      |       |       |     |       |
 | `day_of_week_for_january_1` | Day of the week for January 1                                      | `<DayOfWeek>` |       |       |     |       |
 | `is_leap_year`              | The schedules assume it is a leap year                             | `Boolean`     |       |       |     |       |
@@ -805,7 +816,7 @@
 
 # Weather
 |             Name              |                            Description                             |            Data Type            | Units | Range | Req |                                               Notes                                                |
-| ----------------------------- | ------------------------------------------------------------------ | ------------------------------- | ----- | ----- | --- | -------------------------------------------------------------------------------------------------- |
+|-------------------------------|--------------------------------------------------------------------|---------------------------------|-------|-------|-----|----------------------------------------------------------------------------------------------------|
 | `notes`                       | Supplementary information to provide context to the model reviewer | `String`                        |       |       |     |                                                                                                    |
 | `ground_temperature_schedule` | Ground temperature schedule name                                   | `$ID`                           |       |       |     | Constraint to use when implemented :Schedule:                                                      |
 | `weather_file_name`           | The file name for the weather file including extension.            | `String`                        |       |       |     | The file name for the annual weather file such as from TMY, TRY, CWEC, CTZ, WYEC or other sources. |
@@ -815,7 +826,7 @@
 
 # Elevator
 |                   Name                    |                                 Description                                  | Data Type | Units | Range | Req |                                                      Notes                                                       |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | --------- | ----- | ----- | --- | ---------------------------------------------------------------------------------------------------------------- |
+|-------------------------------------------|------------------------------------------------------------------------------|-----------|-------|-------|-----|------------------------------------------------------------------------------------------------------------------|
 | `id`                                      | Scope-unique reference identifier for instances of this data group           | `ID`      |       |       | ✓   |                                                                                                                  |
 | `reporting_name`                          | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |       |       |     |                                                                                                                  |
 | `notes`                                   | Supplementary information to provide context to the model reviewer           | `String`  |       |       |     |                                                                                                                  |
@@ -834,11 +845,11 @@
 
 # HeatingVentilationAirConditioningSystem
 |       Name       |                                 Description                                  |          Data Type           | Units | Range | Req |                                                                            Notes                                                                            |
-| ---------------- | ---------------------------------------------------------------------------- | ---------------------------- | ----- | ----- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------|------------------------------------------------------------------------------|------------------------------|-------|-------|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`             | Scope-unique reference identifier for instances of this data group           | `ID`                         |       |       | ✓   |                                                                                                                                                             |
 | `reporting_name` | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                     |       |       |     |                                                                                                                                                             |
 | `notes`          | Supplementary information to provide context to the model reviewer           | `String`                     |       |       |     |                                                                                                                                                             |
-| `fan_systems`    | Fan systems                                                                  | `[{FanSystems}]`             |       |       |     | Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description. |
+| `fan_systems`    | Fan systems                                                                  | `[{FanSystem}]`              |       |       |     | Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description. |
 | `heating_system` | Heating system                                                               | `{HeatingSystem}`            |       |       |     | JG to verify if used in test case description.                                                                                                              |
 | `cooling_system` | Cooling system                                                               | `{CoolingSystem}`            |       |       |     | JG to verify if used in test case description.                                                                                                              |
 | `preheat_system` | Pre-heating system                                                           | `{HeatingSystem}`            |       |       |     | JG to verify if used in test case description.                                                                                                              |
@@ -846,11 +857,12 @@
 
 # HeatingSystem
 |                        Name                         |                                                   Description                                                   |           Data Type            | Units |  Range   | Req |                                     Notes                                     |
-| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----- | -------- | --- | ----------------------------------------------------------------------------- |
+|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------|-------|----------|-----|-------------------------------------------------------------------------------|
 | `id`                                                | Scope-unique reference identifier for instances of this data group                                              | `ID`                           |       |          | ✓   |                                                                               |
 | `reporting_name`                                    | Descriptive name used in RCT reports if id is not already a descriptive name                                    | `String`                       |       |          |     |                                                                               |
 | `notes`                                             | Supplementary information to provide context to the model reviewer                                              | `String`                       |       |          |     |                                                                               |
 | `heating_system_type`                               | Heating system type                                                                                             | `<HeatingSystemType>`          |       |          |     | JG to verify if used in test case description.                                |
+| `energy_source_type`                                | Source of energy for the chiller                                                                                | `<EnergySourceTypeOptions>`    |       |          |     |                                                                               |
 | `hot_water_loop`                                    | Referenced to the hot water fluid loop                                                                          | `$ID`                          |       |          |     | Constraint to use when implemented :FluidLoop:                                |
 | `heat_capacity`                                     | Heating capacity                                                                                                | `Numeric`                      | W     | `≥0`     |     | The design heat capacity.                                                     |
 | `oversizing_factor`                                 | The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing. | `Numeric`                      |       | `≥0`     |     | Used for furnace or heat pump. JG to verify if used in test case description. |
@@ -865,7 +877,7 @@
 
 # CoolingSystem
 |           Name           |                                                   Description                                                   |        Data Type         | Units |  Range   | Req |                                                           Notes                                                           |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------- | ------------------------ | ----- | -------- | --- | ------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------|-------|----------|-----|---------------------------------------------------------------------------------------------------------------------------|
 | `id`                     | Scope-unique reference identifier for instances of this data group                                              | `ID`                     |       |          | ✓   |                                                                                                                           |
 | `reporting_name`         | Descriptive name used in RCT reports if id is not already a descriptive name                                    | `String`                 |       |          |     |                                                                                                                           |
 | `notes`                  | Supplementary information to provide context to the model reviewer                                              | `String`                 |       |          |     |                                                                                                                           |
@@ -882,46 +894,51 @@
 | `cooling_turndown_ratio` | Cooling turndown ratio                                                                                          | `Numeric`                |       |          |     | Cooling capacity turndown before simultanenous heating and cooling occurs. JG to verify if used in test case description. |
 
 # FanSystem
-|                  Name                   |                                  Description                                  |              Data Type              | Units |   Range   | Req |                                                       Notes                                                        |
-| --------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------- | ----- | --------- | --- | ------------------------------------------------------------------------------------------------------------------ |
-| `id`                                    | Scope-unique reference identifier for instances of this data group            | `ID`                                |       |           | ✓   |                                                                                                                    |
-| `reporting_name`                        | Descriptive name used in RCT reports if id is not already a descriptive name  | `String`                            |       |           |     |                                                                                                                    |
-| `notes`                                 | Supplementary information to provide context to the model reviewer            | `String`                            |       |           |     |                                                                                                                    |
-| `supply_fans`                           | List of supply fans                                                           | `[{Fan}]`                           |       |           |     | JG to verify if used in test case description.                                                                     |
-| `return_fans`                           | List of return fans                                                           | `[{Fan}]`                           |       |           |     | JG to verify if used in test case description.                                                                     |
-| `exhaust_fans`                          | List of exhaust fans                                                          | `[{Fan}]`                           |       |           |     | JG to verify if used in test case description.                                                                     |
-| `relief_fans`                           | List of relief fans                                                           | `[{Fan}]`                           |       |           |     | JG to verify if used in test case description.                                                                     |
-| `air_economizer`                        | Air side economizer related to the fan system                                 | `{AirEconomizer}`                   |       |           |     |                                                                                                                    |
-| `air_energy_recovery`                   | Air side energy recovery related to the fan system                            | `{AirEnergyRecovery}`               |       |           |     |                                                                                                                    |
-| `is_variable_air_volume`                | If the fan system is variable air volume.                                     | `Boolean`                           |       |           |     | JG to verify if used in test case description.                                                                     |
-| `temperature_control`                   | Supply air temperature control type                                           | `<FanSystemTemperatureControlType>` |       |           |     | JG to verify if used in test case description.                                                                     |
-| `operation_during_occupied`             | Operation during occupied times type                                          | `<FanSystemOperationType>`          |       |           |     | JG to verify if used in test case description.                                                                     |
-| `operation_during_unoccupied`           | Operation during unoccupied times type                                        | `<FanSystemOperationType>`          |       |           |     | JG to verify if used in test case description.                                                                     |
-| `fan_control`                           | Supply fan control type                                                       | `<FanSystemSupplyFanControlType>`   |       |           |     | JG to verify if used in test case description.                                                                     |
-| `supply_air_temperature_setpoint`       | Supply air temperature setpoint temperarue                                    | `Numeric`                           | C     |           |     | JG to verify if used in test case description.                                                                     |
-| `reset_differential_temperature`        | Supply air temperature reset differential temperature at minimum cooling load | `Numeric`                           | C     |           |     | JG to verify if used in test case description.                                                                     |
-| `supply_air_temperature_reset_schedule` | Supply air temperature reset schedule                                         | `$ID`                               |       |           |     | JG to verify if used in test case description. Constraint to use when implemented :Schedule:                       |
-| `operating_schedule`                    | Operating schedule name                                                       | `$ID`                               |       |           |     | Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule: |
-| `minimum_airflow`                       | Minimum volume airflow                                                        | `Numeric`                           | L/s   |           |     | JG to verify if used in test case description.                                                                     |
-| `minimum_outdoor_airflow`               | Minimum outdoor air volume airflow                                            | `Numeric`                           | L/s   |           |     | JG to verify if used in test case description.                                                                     |
-| `maximum_outdoor_airflow`               | Maximum outdoor air volume airflow                                            | `Numeric`                           | L/s   |           |     | JG to verify if used in test case description.                                                                     |
-| `air_filter_merv_rating`                | The MERV rating of the air filter                                             | `Numeric`                           |       | `≥1, ≤20` |     | JG to verify if used in test case description.                                                                     |
-| `has_fully_ducted_return`               | If the fan system has fully ducted return.                                    | `Boolean`                           |       |           |     | JG to verify if used in test case description.                                                                     |
+|                     Name                     |                                  Description                                  |                Data Type                | Units |   Range   | Req |                                                                                                                                                                      Notes                                                                                                                                                                       |
+|----------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------|-------|-----------|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                         | Scope-unique reference identifier for instances of this data group            | `ID`                                    |       |           | ✓   |                                                                                                                                                                                                                                                                                                                                                  |
+| `reporting_name`                             | Descriptive name used in RCT reports if id is not already a descriptive name  | `String`                                |       |           |     |                                                                                                                                                                                                                                                                                                                                                  |
+| `notes`                                      | Supplementary information to provide context to the model reviewer            | `String`                                |       |           |     |                                                                                                                                                                                                                                                                                                                                                  |
+| `supply_fans`                                | List of supply fans                                                           | `[{Fan}]`                               |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `return_fans`                                | List of return fans                                                           | `[{Fan}]`                               |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `exhaust_fans`                               | List of exhaust fans                                                          | `[{Fan}]`                               |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `relief_fans`                                | List of relief fans                                                           | `[{Fan}]`                               |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `air_economizer`                             | Air side economizer related to the fan system                                 | `{AirEconomizer}`                       |       |           |     |                                                                                                                                                                                                                                                                                                                                                  |
+| `air_energy_recovery`                        | Air side energy recovery related to the fan system                            | `{AirEnergyRecovery}`                   |       |           |     |                                                                                                                                                                                                                                                                                                                                                  |
+| `is_variable_air_volume`                     | If the fan system is variable air volume.                                     | `Boolean`                               |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `temperature_control`                        | Supply air temperature control type                                           | `<FanSystemTemperatureControlType>`     |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `operation_during_occupied`                  | Operation during occupied times type                                          | `<FanSystemOperationType>`              |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `operation_during_unoccupied`                | Operation during unoccupied times type                                        | `<FanSystemOperationType>`              |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `fan_control`                                | Supply fan control type                                                       | `<FanSystemSupplyFanControlType>`       |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `supply_air_temperature_setpoint`            | Supply air temperature setpoint temperarue                                    | `Numeric`                               | C     |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `reset_differential_temperature`             | Supply air temperature reset differential temperature at minimum cooling load | `Numeric`                               | K     |           |     | When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load. JG to verify if used in test case description. |
+| `supply_air_temperature_reset_load_fraction` | Supply air temperature reset load fraction                                    | `Numeric`                               |       |           |     | When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. JG to verify if used in test case description.                                                                                                                                          |
+| `supply_air_temperature_reset_schedule`      | Supply air temperature reset schedule                                         | `$ID`                                   |       |           |     | JG to verify if used in test case description. Constraint to use when implemented :Schedule:                                                                                                                                                                                                                                                     |
+| `fan_volume_reset_type`                      | Fan volume reset control type                                                 | `<FanSystemSupplyFanVolumeResetType>`   |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `fan_volume_reset_load_fraction`             | Fan volume reset load fraction                                                | `Numeric`                               |       |           |     | When fan_volume_reset_type is LOAD_RESET this is the fraction of the load for minimum air flow.  JG to verify if used in test case description.                                                                                                                                                                                                  |
+| `operating_schedule`                         | Operating schedule name                                                       | `$ID`                                   |       |           |     | Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:                                                                                                                                                                                                                               |
+| `exhaust_schedule`                           | Exhaust fan schedule name                                                     | `$ID`                                   |       |           |     | Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:                                                                                                                                                                                                                               |
+| `minimum_airflow`                            | Minimum volume airflow                                                        | `Numeric`                               | L/s   |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `minimum_outdoor_airflow`                    | Minimum outdoor air volume airflow                                            | `Numeric`                               | L/s   |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `maximum_outdoor_airflow`                    | Maximum outdoor air volume airflow                                            | `Numeric`                               | L/s   |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `air_filter_merv_rating`                     | The MERV rating of the air filter                                             | `Numeric`                               |       | `≥1, ≤20` |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `has_fully_ducted_return`                    | If the fan system has fully ducted return.                                    | `Boolean`                               |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
+| `demand_control_ventilation_control`         | Demand control ventilation control type                                       | `<DemandControlVentilationControlType>` |       |           |     | JG to verify if used in test case description.                                                                                                                                                                                                                                                                                                   |
 
 # AirEconomizer
-|                    Name                     |                                 Description                                  |       Data Type       | Units | Range | Req |                     Notes                      |
-| ------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- | ----- | ----- | --- | ---------------------------------------------- |
-| `id`                                        | Scope-unique reference identifier for instances of this data group           | `ID`                  |       |       | ✓   |                                                |
-| `reporting_name`                            | Descriptive name used in RCT reports if id is not already a descriptive name | `String`              |       |       |     |                                                |
-| `notes`                                     | Supplementary information to provide context to the model reviewer           | `String`              |       |       |     |                                                |
-| `air_economizer_type`                       | Air economizer type                                                          | `<AirEconomizerType>` |       |       |     | JG to verify if used in test case description. |
-| `economizer_high_limit_temperature_shutoff` | Economizer high limit temperature shutoff                                    | `Numeric`             | C     |       |     | JG to verify if used in test case description. |
-| `economizer_design_sensible_effectiveness`  | Economizer design sensible effectiveness                                     | `Numeric`             |       |       |     | JG to verify if used in test case description. |
-| `economizer_design_latent_effectiveness`    | Economizer design sensible effectiveness                                     | `Numeric`             |       |       |     | JG to verify if used in test case description. |
+|               Name               |                                 Description                                  |       Data Type       | Units | Range | Req |                     Notes                      |
+|----------------------------------|------------------------------------------------------------------------------|-----------------------|-------|-------|-----|------------------------------------------------|
+| `id`                             | Scope-unique reference identifier for instances of this data group           | `ID`                  |       |       | ✓   |                                                |
+| `reporting_name`                 | Descriptive name used in RCT reports if id is not already a descriptive name | `String`              |       |       |     |                                                |
+| `notes`                          | Supplementary information to provide context to the model reviewer           | `String`              |       |       |     |                                                |
+| `type`                           | Type                                                                         | `<AirEconomizerType>` |       |       |     | JG to verify if used in test case description. |
+| `high_limit_temperature_shutoff` | High limit temperature shutoff                                               | `Numeric`             | C     |       |     | JG to verify if used in test case description. |
+| `design_sensible_effectiveness`  | Design sensible effectiveness                                                | `Numeric`             |       |       |     | JG to verify if used in test case description. |
+| `design_latent_effectiveness`    | Design sensible effectiveness                                                | `Numeric`             |       |       |     | JG to verify if used in test case description. |
 
 # AirEnergyRecovery
 |                       Name                       |                                 Description                                  |                   Data Type                   | Units | Range | Req |                     Notes                      |
-| ------------------------------------------------ | ---------------------------------------------------------------------------- | --------------------------------------------- | ----- | ----- | --- | ---------------------------------------------- |
+|--------------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------|-------|-------|-----|------------------------------------------------|
 | `id`                                             | Scope-unique reference identifier for instances of this data group           | `ID`                                          |       |       | ✓   |                                                |
 | `reporting_name`                                 | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                                      |       |       |     |                                                |
 | `notes`                                          | Supplementary information to provide context to the model reviewer           | `String`                                      |       |       |     |                                                |
@@ -931,23 +948,31 @@
 | `energy_recovery_supply_air_temperature_control` | Energy recovery supply air temperature control                               | `<EnergyRecoverySupplyAirTemperatureControl>` |       |       |     | JG to verify if used in test case description. |
 
 # Fan
-|          Name           |                                 Description                                  |             Data Type             | Units | Range | Req |                         Notes                          |
-| ----------------------- | ---------------------------------------------------------------------------- | --------------------------------- | ----- | ----- | --- | ------------------------------------------------------ |
-| `id`                    | Scope-unique reference identifier for instances of this data group           | `ID`                              |       |       | ✓   |                                                        |
-| `reporting_name`        | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                          |       |       |     |                                                        |
-| `notes`                 | Supplementary information to provide context to the model reviewer           | `String`                          |       |       |     |                                                        |
-| `design_airflow`        | Design airflow                                                               | `Numeric`                         | L/s   |       |     | JG to verify if used in test case description.         |
-| `specification_method`  | Options for how the fan is specified                                         | `<FanSpecificationMethodOptions>` |       |       |     |                                                        |
-| `design_electric_power` | Design electric fan power                                                    | `Numeric`                         | W     |       |     | JG to verify if used in test case description.         |
-| `design_pressure_rise`  | Pressure rise through fan at design flow conditions                          | `Numeric`                         | m     |       |     | Only used when specification_method is set to Detailed |
-| `nameplate_power`       | nameplate horsepower of fan                                                  | `Numeric`                         | W     |       |     | JG to verify if used in test case description.         |
-| `total_efficiency`      | Fan motor efficiency                                                         | `Numeric`                         | W     |       |     | Only used when specification_method is set to Detailed |
-| `motor_efficiency`      | Fan motor efficiency                                                         | `Numeric`                         | W     |       |     | Only used when specification_method is set to Detailed |
-| `status_type`           | Choice of new, existing, addition, alteration, etc. for each ruleset.        | `<GeneralStatusType2019T24>`      |       |       |     |                                                        |
+|            Name            |                                 Description                                  |             Data Type             | Units |  Range   | Req |                                                                                                                        Notes                                                                                                                         |
+|----------------------------|------------------------------------------------------------------------------|-----------------------------------|-------|----------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                       | Scope-unique reference identifier for instances of this data group           | `ID`                              |       |          | ✓   |                                                                                                                                                                                                                                                      |
+| `reporting_name`           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                          |       |          |     |                                                                                                                                                                                                                                                      |
+| `notes`                    | Supplementary information to provide context to the model reviewer           | `String`                          |       |          |     |                                                                                                                                                                                                                                                      |
+| `design_airflow`           | Design airflow                                                               | `Numeric`                         | L/s   |          |     | JG to verify if used in test case description.                                                                                                                                                                                                       |
+| `specification_method`     | Options for how the fan is specified                                         | `<FanSpecificationMethodOptions>` |       |          |     |                                                                                                                                                                                                                                                      |
+| `design_electric_power`    | Design electric fan power                                                    | `Numeric`                         | W     |          |     | Only used when specification_method is set to Simple. JG to verify if used in test case description.                                                                                                                                                 |
+| `design_pressure_rise`     | Pressure rise through fan at design flow conditions                          | `Numeric`                         | m     |          |     | Only used when specification_method is set to Detailed                                                                                                                                                                                               |
+| `nameplate_power`          | nameplate power of fan                                                       | `Numeric`                         | W     |          |     | Only used when specification_method is set to Detailed. JG to verify if used in test case description.                                                                                                                                               |
+| `input_power`              | input power of fan                                                           | `Numeric`                         | W     |          |     | Power delivered to the fan’s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description. |
+| `total_efficiency`         | Total fan efficiency                                                         | `Numeric`                         |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed.                                                                                                                                                                                              |
+| `motor_efficiency`         | Fan motor efficiency                                                         | `Numeric`                         |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed.                                                                                                                                                                                              |
+| `status_type`              | Choice of new, existing, addition, alteration, etc. for each ruleset.        | `<GeneralStatusType2019T24>`      |       |          |     |                                                                                                                                                                                                                                                      |
+| `output_validation_points` | Energy validation points                                                     | `[{FanOutputValidationPoint}]`    |       |          |     | Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended.                                                                                                                           |
+
+# FanOutputValidationPoint
+|   Name    | Description | Data Type | Units | Range | Req |                               Notes                               |
+|-----------|-------------|-----------|-------|-------|-----|-------------------------------------------------------------------|
+| `airflow` | Load        | `Numeric` | L/s   |       |     | No name and id is needed since typically used as one of a series. |
+| `result`  | Result      | `Numeric` | W     |       |     |                                                                   |
 
 # Terminal
 |                           Name                           |                                 Description                                  |          Data Type           | Units | Range | Req |                                                                                                      Notes                                                                                                       |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------- | ----- | ----- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------------------------------------|------------------------------------------------------------------------------|------------------------------|-------|-------|-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                                     | Scope-unique reference identifier for instances of this data group           | `ID`                         |       |       | ✓   |                                                                                                                                                                                                                  |
 | `reporting_name`                                         | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                     |       |       |     |                                                                                                                                                                                                                  |
 | `notes`                                                  | Supplementary information to provide context to the model reviewer           | `String`                     |       |       |     |                                                                                                                                                                                                                  |
@@ -964,10 +989,12 @@
 | `minimum_outdoor_airflow`                                | Zone terminal minimum outdoor air volume airflow                             | `Numeric`                    | L/s   |       |     | JG to verify if used in test case description.                                                                                                                                                                   |
 | `minimum_outdoor_airflow_multiplier_schedule`            | Zone terminal minimum outdoor air volume airflow multiplier schedule name    | `$ID`                        |       |       |     | JG to verify if used in test case description. Constraint to use when implemented :Schedule:                                                                                                                     |
 | `heat_capacity`                                          | Heat capacity for baseboard or radiant system                                | `Numeric`                    | W     |       |     | JG to verify if used in test case description.                                                                                                                                                                   |
+| `is_supply_ducted`                                       | True if the the supply is ducted.                                            | `Boolean`                    |       |       |     |                                                                                                                                                                                                                  |
+| `is_fan_first_stage_heat`                                | True if the the fan is run as the first stage of heating before reheat coil. | `Boolean`                    |       |       |     |                                                                                                                                                                                                                  |
 
 # FluidLoop
 |                    Name                    |                                 Description                                  |           Data Type           | Units | Range | Req |                                                                                                           Notes                                                                                                            |
-| ------------------------------------------ | ---------------------------------------------------------------------------- | ----------------------------- | ----- | ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------------------------------|------------------------------------------------------------------------------|-------------------------------|-------|-------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                       | Scope-unique reference identifier for instances of this data group           | `ID`                          |       |       | ✓   |                                                                                                                                                                                                                            |
 | `reporting_name`                           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                      |       |       |     |                                                                                                                                                                                                                            |
 | `notes`                                    | Supplementary information to provide context to the model reviewer           | `String`                      |       |       |     |                                                                                                                                                                                                                            |
@@ -978,26 +1005,28 @@
 | `heating_design_and_control`               |                                                                              | `{FluidLoopDesignAndControl}` |       |       |     |                                                                                                                                                                                                                            |
 
 # FluidLoopDesignAndControl
-|                       Name                       |                                 Description                                  |            Data Type            | Units | Range | Req | Notes |
-| ------------------------------------------------ | ---------------------------------------------------------------------------- | ------------------------------- | ----- | ----- | --- | ----- |
-| `id`                                             | Scope-unique reference identifier for instances of this data group           | `ID`                            |       |       | ✓   |       |
-| `reporting_name`                                 | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                        |       |       |     |       |
-| `notes`                                          | Supplementary information to provide context to the model reviewer           | `String`                        |       |       |     |       |
-| `design_supply_temperature`                      | Design Supply Temperature                                                    | `Numeric`                       | C     |       |     |       |
-| `design_return_temperature`                      | Design Return Temperature                                                    | `Numeric`                       | C     |       |     |       |
-| `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load                           | `Boolean`                       |       |       |     |       |
-| `minimum_flow_fraction`                          | Minimum fraction of full flow allowed                                        | `Numeric`                       |       |       |     |       |
-| `operation`                                      | Type of operation used by loop                                               | `<FluidLoopOperationOptions>`   |       |       |     |       |
-| `flow_control`                                   | Flow control options                                                         | `<FluidLoopFlowControlOptions>` |       |       |     |       |
-| `temperature_reset_type`                         | Type of temperature reset used by loop                                       | `<TemperatureResetTypeOptions>` |       |       |     |       |
-| `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset                                      | `Numeric`                       | C     |       |     |       |
-| `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset                                       | `Numeric`                       | C     |       |     |       |
-| `loop_supply_temperature_at_outdoor_high`        | Loop supply temperature at outdoor high temperature                          | `Numeric`                       | C     |       |     |       |
-| `loop_supply_temperature_at_outdoor_low`         | Loop supply temperature at outdoor low temperature                           | `Numeric`                       | C     |       |     |       |
+|                       Name                       |                                 Description                                  |            Data Type            | Units | Range | Req |                                                                                 Notes                                                                                 |
+|--------------------------------------------------|------------------------------------------------------------------------------|---------------------------------|-------|-------|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                             | Scope-unique reference identifier for instances of this data group           | `ID`                            |       |       | ✓   |                                                                                                                                                                       |
+| `reporting_name`                                 | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                        |       |       |     |                                                                                                                                                                       |
+| `notes`                                          | Supplementary information to provide context to the model reviewer           | `String`                        |       |       |     |                                                                                                                                                                       |
+| `design_supply_temperature`                      | Design Supply Temperature                                                    | `Numeric`                       | C     |       |     |                                                                                                                                                                       |
+| `design_return_temperature`                      | Design Return Temperature                                                    | `Numeric`                       | C     |       |     |                                                                                                                                                                       |
+| `is_sized_using_coincident_load`                 | True if the loop is sized based on coincident load                           | `Boolean`                       |       |       |     |                                                                                                                                                                       |
+| `minimum_flow_fraction`                          | Minimum fraction of full flow allowed                                        | `Numeric`                       |       |       |     |                                                                                                                                                                       |
+| `operation`                                      | Type of operation used by loop                                               | `<FluidLoopOperationOptions>`   |       |       |     |                                                                                                                                                                       |
+| `operation_schedule`                             | Operation schedule                                                           | `$ID`                           |       |       |     | One represents when the fluid loop is operating and zero when not operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule: |
+| `flow_control`                                   | Flow control options                                                         | `<FluidLoopFlowControlOptions>` |       |       |     |                                                                                                                                                                       |
+| `temperature_reset_type`                         | Type of temperature reset used by loop                                       | `<TemperatureResetTypeOptions>` |       |       |     |                                                                                                                                                                       |
+| `outdoor_high_for_loop_supply_temperature_reset` | Outdoor high for loop supply temp reset                                      | `Numeric`                       | C     |       |     | Used when temperature_reset_type = OUTSIDE_AIR_RESET                                                                                                                  |
+| `outdoor_low_for_loop_supply_temperature_reset`  | Outdoor low for loop supply temp reset                                       | `Numeric`                       | C     |       |     | Used when temperature_reset_type = OUTSIDE_AIR_RESET                                                                                                                  |
+| `loop_supply_temperature_at_outdoor_high`        | Loop supply temperature at outdoor high temperature                          | `Numeric`                       | C     |       |     | Used when temperature_reset_type = OUTSIDE_AIR_RESET                                                                                                                  |
+| `loop_supply_temperature_at_outdoor_low`         | Loop supply temperature at outdoor low temperature                           | `Numeric`                       | C     |       |     | Used when temperature_reset_type = OUTSIDE_AIR_RESET                                                                                                                  |
+| `loop_supply_temperature_at_low_load`            | Loop supply temperature at low load                                          | `Numeric`                       | C     |       |     | Used when temperature_reset_type = LOAD_RESET                                                                                                                         |
 
 # Pump
 |          Name           |                                 Description                                  |             Data Type              | Units |  Range   | Req |                                             Notes                                              |
-| ----------------------- | ---------------------------------------------------------------------------- | ---------------------------------- | ----- | -------- | --- | ---------------------------------------------------------------------------------------------- |
+|-------------------------|------------------------------------------------------------------------------|------------------------------------|-------|----------|-----|------------------------------------------------------------------------------------------------|
 | `id`                    | Scope-unique reference identifier for instances of this data group           | `ID`                               |       |          | ✓   |                                                                                                |
 | `reporting_name`        | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                           |       |          |     |                                                                                                |
 | `notes`                 | Supplementary information to provide context to the model reviewer           | `String`                           |       |          |     |                                                                                                |
@@ -1010,12 +1039,12 @@
 | `motor_efficiency`      | Full load efficiency of the pump motor                                       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed                                         |
 | `speed_control`         | Options for pump speed control                                               | `<PumpSpeedControlOptions>`        |       |          |     |                                                                                                |
 | `design_flow`           | Design Pump Flowrate                                                         | `Numeric`                          | L/s   |          |     |                                                                                                |
+| `minium_flow`           | Minimum Pump Flowrate                                                        | `Numeric`                          | L/s   |          |     |                                                                                                |
 | `is_flow_autosized`     | True if the design_flow is autosized                                         | `Boolean`                          |       |          |     |                                                                                                |
-| `is_variable_speed`     | True if variable speed drive such a VFD                                      | `Boolean`                          |       |          |     |                                                                                                |
 
 # Boiler
 |            Name            |                                 Description                                  |               Data Type               | Units |  Range   | Req |                                                          Notes                                                          |
-| -------------------------- | ---------------------------------------------------------------------------- | ------------------------------------- | ----- | -------- | --- | ----------------------------------------------------------------------------------------------------------------------- |
+|----------------------------|------------------------------------------------------------------------------|---------------------------------------|-------|----------|-----|-------------------------------------------------------------------------------------------------------------------------|
 | `id`                       | Scope-unique reference identifier for instances of this data group           | `ID`                                  |       |          | ✓   |                                                                                                                         |
 | `reporting_name`           | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                              |       |          |     |                                                                                                                         |
 | `notes`                    | Supplementary information to provide context to the model reviewer           | `String`                              |       |          |     |                                                                                                                         |
@@ -1034,13 +1063,13 @@
 
 # BoilerOutputValidationPoint
 |   Name   | Description | Data Type | Units | Range | Req |                               Notes                               |
-| -------- | ----------- | --------- | ----- | ----- | --- | ----------------------------------------------------------------- |
+|----------|-------------|-----------|-------|-------|-----|-------------------------------------------------------------------|
 | `load`   | Load        | `Numeric` | W     |       |     | No name and id is needed since typically used as one of a series. |
 | `result` | Result      | `Numeric` | W     |       |     |                                                                   |
 
 # Chiller
 |             Name              |                                 Description                                  |                   Data Type                    | Units |  Range   | Req |                                               Notes                                                |
-| ----------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------- | ----- | -------- | --- | -------------------------------------------------------------------------------------------------- |
+|-------------------------------|------------------------------------------------------------------------------|------------------------------------------------|-------|----------|-----|----------------------------------------------------------------------------------------------------|
 | `id`                          | Scope-unique reference identifier for instances of this data group           | `ID`                                           |       |          | ✓   |                                                                                                    |
 | `reporting_name`              | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                                       |       |          |     |                                                                                                    |
 | `notes`                       | Supplementary information to provide context to the model reviewer           | `String`                                       |       |          |     |                                                                                                    |
@@ -1049,7 +1078,7 @@
 | `compressor_type`             | Compressor Type                                                              | `<ChillerCompressorTypeOptions>`               |       |          |     |                                                                                                    |
 | `energy_source_type`          | Source of energy for the chiller                                             | `<EnergySourceTypeOptions>`                    |       |          |     |                                                                                                    |
 | `design_capacity`             | Chiller Design Cooling Capacity                                              | `Numeric`                                      | W     |          |     |                                                                                                    |
-| `rated_capacity`              | Chiller Design Cooling Capacity                                              | `Numeric`                                      | W     |          |     | At rating conditions.                                                                              |
+| `rated_capacity`              | Chiller Rated Cooling Capacity                                               | `Numeric`                                      | W     |          |     | At rating conditions.                                                                              |
 | `minimum_load_ratio`          | Minimum fraction of full load allowed                                        | `Numeric`                                      |       |          |     |                                                                                                    |
 | `design_flow_evaporator`      | Chiller evaporator design flow                                               | `Numeric`                                      | L/s   |          |     |                                                                                                    |
 | `design_flow_condenser`       | Chiller condenser design flow                                                | `Numeric`                                      | L/s   |          |     |                                                                                                    |
@@ -1061,14 +1090,14 @@
 
 # ChillerCapacityValidationPoint
 |                Name                |           Description            | Data Type | Units | Range | Req |                                                                                                                                  Notes                                                                                                                                  |
-| ---------------------------------- | -------------------------------- | --------- | ----- | ----- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------|----------------------------------|-----------|-------|-------|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `chilled_water_supply_temperature` | Chilled water supply temperature | `Numeric` | C     |       |     | No name and id is needed since used as one of a series. The temperature is leaving the chiller.                                                                                                                                                                         |
 | `condenser_temperature`            | Second temperature               | `Numeric` | C     |       |     | Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air. |
 | `result`                           | Result                           | `Numeric` | W     |       |     |                                                                                                                                                                                                                                                                         |
 
 # ChillerPowerValidationPoint
 |                Name                |           Description            | Data Type | Units | Range | Req |                                                                                                                                  Notes                                                                                                                                  |
-| ---------------------------------- | -------------------------------- | --------- | ----- | ----- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------|----------------------------------|-----------|-------|-------|-----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `chilled_water_supply_temperature` | Chilled water supply temperature | `Numeric` | C     |       |     | No name and id is needed since used as one of a series. The temperature is leaving the chiller.                                                                                                                                                                         |
 | `condenser_temperature`            | Second temperature               | `Numeric` | C     |       |     | Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air. |
 | `load`                             | Load                             | `Numeric` | W     |       |     |                                                                                                                                                                                                                                                                         |
@@ -1076,7 +1105,7 @@
 
 # HeatRejection
 |             Name             |                                 Description                                  |                Data Type                | Units | Range | Req |                     Notes                      |
-| ---------------------------- | ---------------------------------------------------------------------------- | --------------------------------------- | ----- | ----- | --- | ---------------------------------------------- |
+|------------------------------|------------------------------------------------------------------------------|-----------------------------------------|-------|-------|-----|------------------------------------------------|
 | `id`                         | Scope-unique reference identifier for instances of this data group           | `ID`                                    |       |       | ✓   |                                                |
 | `reporting_name`             | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                                |       |       |     |                                                |
 | `notes`                      | Supplementary information to provide context to the model reviewer           | `String`                                |       |       |     |                                                |
@@ -1097,7 +1126,7 @@
 
 # ExternalFluidSource
 |         Name         |                                 Description                                  |             Data Type              | Units | Range | Req |                     Notes                      |
-| -------------------- | ---------------------------------------------------------------------------- | ---------------------------------- | ----- | ----- | --- | ---------------------------------------------- |
+|----------------------|------------------------------------------------------------------------------|------------------------------------|-------|-------|-----|------------------------------------------------|
 | `id`                 | Scope-unique reference identifier for instances of this data group           | `ID`                               |       |       | ✓   |                                                |
 | `reporting_name`     | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                           |       |       |     |                                                |
 | `notes`              | Supplementary information to provide context to the model reviewer           | `String`                           |       |       |     |                                                |
@@ -1106,29 +1135,29 @@
 | `energy_source_type` | Source of energy for the external fluid source                               | `<EnergySourceTypeOptions>`        |       |       |     |                                                |
 
 # ServiceWaterHeatingDistributionSystem
-|                        Name                         |                                                 Description                                                  |                        Data Type                         | Units | Range | Req |                                                                       Notes                                                                        |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- | ----- | ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                | Scope-unique reference identifier for instances of this data group                                           | `ID`                                                     |       |       | ✓   |                                                                                                                                                    |
-| `reporting_name`                                    | Descriptive name used in RCT reports if id is not already a descriptive name                                 | `String`                                                 |       |       |     |                                                                                                                                                    |
-| `notes`                                             | Supplementary information to provide context to the model reviewer                                           | `String`                                                 |       |       |     |                                                                                                                                                    |
-| `design_supply_temperature`                         | Design supply temperature setpoint of service water heating loop                                             | `Numeric`                                                | C     |       |     | From CBECC-Com.                                                                                                                                    |
-| `design_supply_temperature_difference`              | Design supply temperature difference (deltaT) of service water heating loop                                  | `Numeric`                                                | C     |       |     | From CBECC-Com.                                                                                                                                    |
-| `tanks`                                             | Tanks within service water heating distribution system                                                       | `[{Tank}]`                                               |       |       |     | Contains a list of storage tanks that are part of this service water heating distribution system but not part of individual service water heaters. |
-| `is_central_system`                                 | Indicates whether it is a central service water heater distribution system                                   | `Boolean`                                                |       |       |     | From CBECC-Com.                                                                                                                                    |
-| `service_water_piping`                              | Other service water piping connected to this one as children.                                                | `[{ServiceWaterPiping}]`                                 |       |       |     |                                                                                                                                                    |
-| `distribution_compactness`                          | Type of compact distribution system                                                                          | `<ServiceWaterHeatingDistributionCompactness2019T24Com>` |       |       |     | From CBECC-Com.                                                                                                                                    |
-| `control_type`                                      | Type of distribution system                                                                                  | `<ServiceWaterHeatingControlType2019T24Com>`             |       |       |     | From CBECC-Com.                                                                                                                                    |
-| `configuration_type`                                | Type of configuration                                                                                        | `<ServiceWaterHeatingConfigurationType>`                 |       |       |     | From CBECC-Com.                                                                                                                                    |
-| `is_recovered_heat_from_drain_used_by_water_heater` | Indicates whether the recovered heat from the shower drain used by the service water heater                  | `Boolean`                                                |       |       |     | From CBECC-Res.                                                                                                                                    |
-| `drain_heat_recovery_efficiency`                    | Shower heat drain recovery efficiency                                                                        | `Numeric`                                                | m     | `≥0`  |     | From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency.                                                              |
-| `drain_heat_recovery_type`                          | Drain heat recovery type                                                                                     | `<ServiceWaterHeatingHeatRecoveryType>`                  |       |       |     | From CBECC-Res.                                                                                                                                    |
-| `flow_multiplier_schedule`                          | service water heating Loop flow muliplier schedule name                                                      | `$ID`                                                    |       |       |     | Constraint to use when implemented :Schedule:                                                                                                      |
-| `entering_water_mains_temperature_schedule`         | Temperature schedule for unheated entering water to the building site often referenced as mains temperature. | `$ID`                                                    |       |       |     | Constraint to use when implemented :Schedule:                                                                                                      |
-| `is_ground_temperature_used_for_entering_water`     | Indicates whether ground temperature is the source of the entering water temperature                         | `Boolean`                                                |       |       |     |                                                                                                                                                    |
+|                        Name                         |                                                 Description                                                  |                        Data Type                         | Units |  Range   | Req |                                                                       Notes                                                                        |
+|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|-------|----------|-----|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                                | Scope-unique reference identifier for instances of this data group                                           | `ID`                                                     |       |          | ✓   |                                                                                                                                                    |
+| `reporting_name`                                    | Descriptive name used in RCT reports if id is not already a descriptive name                                 | `String`                                                 |       |          |     |                                                                                                                                                    |
+| `notes`                                             | Supplementary information to provide context to the model reviewer                                           | `String`                                                 |       |          |     |                                                                                                                                                    |
+| `design_supply_temperature`                         | Design supply temperature setpoint of service water heating loop                                             | `Numeric`                                                | C     |          |     | From CBECC-Com.                                                                                                                                    |
+| `design_supply_temperature_difference`              | Design supply temperature difference (deltaT) of service water heating loop                                  | `Numeric`                                                | C     |          |     | From CBECC-Com.                                                                                                                                    |
+| `tanks`                                             | Tanks within service water heating distribution system                                                       | `[{Tank}]`                                               |       |          |     | Contains a list of storage tanks that are part of this service water heating distribution system but not part of individual service water heaters. |
+| `is_central_system`                                 | Indicates whether it is a central service water heater distribution system                                   | `Boolean`                                                |       |          |     | From CBECC-Com.                                                                                                                                    |
+| `service_water_piping`                              | Other service water piping connected to this one as children.                                                | `[{ServiceWaterPiping}]`                                 |       |          |     |                                                                                                                                                    |
+| `distribution_compactness`                          | Type of compact distribution system                                                                          | `<ServiceWaterHeatingDistributionCompactness2019T24Com>` |       |          |     | From CBECC-Com.                                                                                                                                    |
+| `control_type`                                      | Type of distribution system                                                                                  | `<ServiceWaterHeatingControlType2019T24Com>`             |       |          |     | From CBECC-Com.                                                                                                                                    |
+| `configuration_type`                                | Type of configuration                                                                                        | `<ServiceWaterHeatingConfigurationType>`                 |       |          |     | From CBECC-Com.                                                                                                                                    |
+| `is_recovered_heat_from_drain_used_by_water_heater` | Indicates whether the recovered heat from the shower drain used by the service water heater                  | `Boolean`                                                |       |          |     | From CBECC-Res.                                                                                                                                    |
+| `drain_heat_recovery_efficiency`                    | Shower heat drain recovery efficiency                                                                        | `Numeric`                                                |       | `≥0, ≤1` |     | From CBECC-Com. May use the Canadian Standards Association Rated Recovery Efficiency.                                                              |
+| `drain_heat_recovery_type`                          | Drain heat recovery type                                                                                     | `<ServiceWaterHeatingHeatRecoveryType>`                  |       |          |     | From CBECC-Res.                                                                                                                                    |
+| `flow_multiplier_schedule`                          | service water heating Loop flow muliplier schedule name                                                      | `$ID`                                                    |       |          |     | Constraint to use when implemented :Schedule:                                                                                                      |
+| `entering_water_mains_temperature_schedule`         | Temperature schedule for unheated entering water to the building site often referenced as mains temperature. | `$ID`                                                    |       |          |     | Constraint to use when implemented :Schedule:                                                                                                      |
+| `is_ground_temperature_used_for_entering_water`     | Indicates whether ground temperature is the source of the entering water temperature                         | `Boolean`                                                |       |          |     |                                                                                                                                                    |
 
 # ServiceWaterPiping
 |             Name             |                                           Description                                            |        Data Type         | Units | Range | Req |                           Notes                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------ | ----- | ----- | --- | --------------------------------------------------------- |
+|------------------------------|--------------------------------------------------------------------------------------------------|--------------------------|-------|-------|-----|-----------------------------------------------------------|
 | `id`                         | Scope-unique reference identifier for instances of this data group                               | `ID`                     |       |       | ✓   |                                                           |
 | `reporting_name`             | Descriptive name used in RCT reports if id is not already a descriptive name                     | `String`                 |       |       |     |                                                           |
 | `notes`                      | Supplementary information to provide context to the model reviewer                               | `String`                 |       |       |     |                                                           |
@@ -1142,7 +1171,7 @@
 
 # SolarThermal
 |             Name             |                                 Description                                  | Data Type | Units | Range | Req |                               Notes                               |
-| ---------------------------- | ---------------------------------------------------------------------------- | --------- | ----- | ----- | --- | ----------------------------------------------------------------- |
+|------------------------------|------------------------------------------------------------------------------|-----------|-------|-------|-----|-------------------------------------------------------------------|
 | `id`                         | Scope-unique reference identifier for instances of this data group           | `ID`      |       |       | ✓   |                                                                   |
 | `reporting_name`             | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |       |       |     |                                                                   |
 | `notes`                      | Supplementary information to provide context to the model reviewer           | `String`  |       |       |     |                                                                   |
@@ -1155,7 +1184,7 @@
 
 # ServiceWaterHeatingEquipment
 |                    Name                     |                                 Description                                  |                    Data Type                     | Units | Range | Req |                                                   Notes                                                   |
-| ------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------ | ----- | ----- | --- | --------------------------------------------------------------------------------------------------------- |
+|---------------------------------------------|------------------------------------------------------------------------------|--------------------------------------------------|-------|-------|-----|-----------------------------------------------------------------------------------------------------------|
 | `id`                                        | Scope-unique reference identifier for instances of this data group           | `ID`                                             |       |       | ✓   |                                                                                                           |
 | `reporting_name`                            | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                                         |       |       |     |                                                                                                           |
 | `notes`                                     | Supplementary information to provide context to the model reviewer           | `String`                                         |       |       |     |                                                                                                           |
@@ -1187,13 +1216,13 @@
 
 # ServiceWaterHeaterValidationPoint
 |   Name   | Description | Data Type | Units | Range | Req |                               Notes                               |
-| -------- | ----------- | --------- | ----- | ----- | --- | ----------------------------------------------------------------- |
+|----------|-------------|-----------|-------|-------|-----|-------------------------------------------------------------------|
 | `load`   | Load        | `Numeric` | W     |       |     | No name and id is needed since typically used as one of a series. |
 | `result` | Result      | `Numeric` | W     |       |     |                                                                   |
 
 # HeatPumpWaterHeaterCapacityValidationPoint
 |             Name              |               Description               | Data Type | Units | Range | Req |                          Notes                           |
-| ----------------------------- | --------------------------------------- | --------- | ----- | ----- | --- | -------------------------------------------------------- |
+|-------------------------------|-----------------------------------------|-----------|-------|-------|-----|----------------------------------------------------------|
 | `evaporator_air_temperature`  | Outside dry bulb temperatures of air    | `Numeric` | C     |       |     | No name and id is needed since used as one of a series.  |
 | `condenser_water_temperature` | Entering condenser temperature of water | `Numeric` | C     |       |     |                                                          |
 | `evaporator_air_flow`         | Air flow across evaporator              | `Numeric` | L/s   |       |     |                                                          |
@@ -1202,7 +1231,7 @@
 
 # HeatPumpWaterHeaterPowerValidationPoint
 |             Name              |               Description               | Data Type | Units | Range | Req |                          Notes                           |
-| ----------------------------- | --------------------------------------- | --------- | ----- | ----- | --- | -------------------------------------------------------- |
+|-------------------------------|-----------------------------------------|-----------|-------|-------|-----|----------------------------------------------------------|
 | `evaporator_air_temperature`  | Outside dry bulb temperatures of air    | `Numeric` | C     |       |     | No name and id is needed since used as one of a series.  |
 | `condenser_water_temperature` | Entering condenser temperature of water | `Numeric` | C     |       |     |                                                          |
 | `evaporator_air_flow`         | Air flow across evaporator              | `Numeric` | L/s   |       |     |                                                          |
@@ -1212,7 +1241,7 @@
 
 # Tank
 |         Name          |                                 Description                                  |           Data Type            | Units  | Range | Req |                                                              Notes                                                              |
-| --------------------- | ---------------------------------------------------------------------------- | ------------------------------ | ------ | ----- | --- | ------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------|------------------------------------------------------------------------------|--------------------------------|--------|-------|-----|---------------------------------------------------------------------------------------------------------------------------------|
 | `id`                  | Scope-unique reference identifier for instances of this data group           | `ID`                           |        |       | ✓   |                                                                                                                                 |
 | `reporting_name`      | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                       |        |       |     |                                                                                                                                 |
 | `notes`               | Supplementary information to provide context to the model reviewer           | `String`                       |        |       |     |                                                                                                                                 |
@@ -1226,7 +1255,7 @@
 
 # ServiceWaterHeatingUse
 |                    Name                    |                                     Description                                      |                   Data Type                   | Units | Range | Req |                                           Notes                                            |
-| ------------------------------------------ | ------------------------------------------------------------------------------------ | --------------------------------------------- | ----- | ----- | --- | ------------------------------------------------------------------------------------------ |
+|--------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------|-------|-------|-----|--------------------------------------------------------------------------------------------|
 | `id`                                       | Scope-unique reference identifier for instances of this data group                   | `ID`                                          |       |       | ✓   |                                                                                            |
 | `reporting_name`                           | Descriptive name used in RCT reports if id is not already a descriptive name         | `String`                                      |       |       |     |                                                                                            |
 | `notes`                                    | Supplementary information to provide context to the model reviewer                   | `String`                                      |       |       |     |                                                                                            |
@@ -1242,7 +1271,7 @@
 
 # ExteriorLighting
 |       Name       |                                 Description                                  |                   Data Type                    | Units | Range | Req |                              Notes                              |
-| ---------------- | ---------------------------------------------------------------------------- | ---------------------------------------------- | ----- | ----- | --- | --------------------------------------------------------------- |
+|------------------|------------------------------------------------------------------------------|------------------------------------------------|-------|-------|-----|-----------------------------------------------------------------|
 | `id`             | Scope-unique reference identifier for instances of this data group           | `ID`                                           |       |       | ✓   |                                                                 |
 | `reporting_name` | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                                       |       |       |     |                                                                 |
 | `notes`          | Supplementary information to provide context to the model reviewer           | `String`                                       |       |       |     |                                                                 |
@@ -1254,7 +1283,7 @@
 
 # Refrigeration
 |            Name             |                                 Description                                  |           Data Type            | Units |   Range   | Req |                                      Notes                                       |
-| --------------------------- | ---------------------------------------------------------------------------- | ------------------------------ | ----- | --------- | --- | -------------------------------------------------------------------------------- |
+|-----------------------------|------------------------------------------------------------------------------|--------------------------------|-------|-----------|-----|----------------------------------------------------------------------------------|
 | `id`                        | Scope-unique reference identifier for instances of this data group           | `ID`                           |       |           | ✓   |                                                                                  |
 | `reporting_name`            | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                       |       |           |     |                                                                                  |
 | `notes`                     | Supplementary information to provide context to the model reviewer           | `String`                       |       |           |     |                                                                                  |
@@ -1272,7 +1301,7 @@
 
 # OverallSimulationOutputs
 |                       Name                        |                                 Description                                  | Data Type | Units | Range | Req |                     Notes                      |
-| ------------------------------------------------- | ---------------------------------------------------------------------------- | --------- | ----- | ----- | --- | ---------------------------------------------- |
+|---------------------------------------------------|------------------------------------------------------------------------------|-----------|-------|-------|-----|------------------------------------------------|
 | `id`                                              | Scope-unique reference identifier for instances of this data group           | `ID`      |       |       | ✓   |                                                |
 | `reporting_name`                                  | Descriptive name used in RCT reports if id is not already a descriptive name | `String`  |       |       |     |                                                |
 | `notes`                                           | Supplementary information to provide context to the model reviewer           | `String`  |       |       |     |                                                |

@@ -7,11 +7,15 @@
             "type": "string",
             "enum": [
                 "USER",
+                "PROPOSED_SIZING",
+                "BASELINE_SIZING",
                 "PROPOSED",
                 "BASELINE"
             ],
             "descriptions": [
                 "The building model as described without consideration of the ruleset",
+                "The proposed building model used for sizing",
+                "The baseline building model used for sizing",
                 "The proposed building model",
                 "The baseline building model"
             ]

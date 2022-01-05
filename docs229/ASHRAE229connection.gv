@@ -69,6 +69,7 @@ digraph G {
   FluidLoop -> FluidLoop
   FluidLoop -> FluidLoopDesignAndControl
   FluidLoop -> FluidLoopDesignAndControl
+  FluidLoopDesignAndControl -> Schedule [color=red] 
   Pump -> FluidLoop [color=red] 
   Pump -> ServiceWaterPiping [color=red] 
   Boiler -> FluidLoop [color=red] 
