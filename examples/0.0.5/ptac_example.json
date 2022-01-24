@@ -1,0 +1,74 @@
+{
+	"id": "PTAC Example",
+	"buildings": [
+		{
+			"id": "Building 1",
+			"building_open_schedule": "Required Building Schedule 1",
+			"building_segments": [
+				{
+					"id": "Building Segment 1",
+					"zones": [
+						{
+							"id": "Thermal Zone 1",
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"terminals": [
+								{
+									"id": "PTAC System Terminal 1",
+									"is_supply_ducted": false,
+									"served_by_heating_ventilation_air_conditioning_systems": "PTAC System 1"
+								}
+							]
+						}
+					],
+					"heating_ventilation_air_conditioning_systems": [
+						{
+							"id": "PTAC System 1",
+							"cooling_system": {
+								"id": "PTAC Cooling Coil 1",
+								"cooling_system_type": "DIRECT_EXPANSION"
+							},
+							"heating_system": {
+								"id": "PTAC Heating Coil 1",
+								"heating_system_type": "FLUID_LOOP",
+								"hot_water_loop": "Boiler Loop 1"
+							},
+							"fan_systems": [
+								{
+									"id": "PTAC Fan System 1",
+									"is_variable_air_volume": false,
+									"fan_control": "CONSTANT",
+									"supply_fans": [
+										{
+											"id": "Supply Fan 1"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"boilers": [
+		{
+			"id": "Boiler 1",
+			"energy_source_type": "NATURAL_GAS",
+			"loop": "Boiler Loop 1"
+		}
+	],
+	"pumps": [
+		{
+			"id": "Boiler Pump 1",
+			"loop_or_piping": "Boiler Loop 1",
+			"speed_control": "FIXED_SPEED"
+		}
+	],
+	"fluid_loops": [
+		{
+			"id": "Boiler Loop 1",
+			"type": "HEATING"
+		}
+	]
+}

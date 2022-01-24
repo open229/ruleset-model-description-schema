@@ -21,14 +21,14 @@
 | Calendar                                     | Approved by Schema WG
 | Weather                                      | Approved by Schema WG
 | Elevator                                     | Approved by Schema WG
-| HeatingVentilationAirConditioningSystem      | In Discussion by Schema WG
-| HeatingSystem                                | In Discussion by Schema WG
-| CoolingSystem                                | In Discussion by Schema WG
+| HeatingVentilationAirConditioningSystem      | Approved by Schema WG (less stable)
+| HeatingSystem                                | Approved by Schema WG (less stable)
+| CoolingSystem                                | Approved by Schema WG (less stable)
 | FanSystem                                    | In Discussion by Schema WG
-| AirEconomizer                                | In Discussion by Schema WG
-| AirEnergyRecovery                            | In Discussion by Schema WG
-| Fan                                          | In Discussion by Schema WG
-| Terminal                                     | In Discussion by Schema WG
+| AirEconomizer                                | Approved by Schema WG (less stable)
+| AirEnergyRecovery                            | Approved by Schema WG (less stable)
+| Fan                                          | Approved by Schema WG (less stable)
+| Terminal                                     | Approved by Schema WG (less stable)
 | FluidLoop                                    | Approved by Schema WG
 | FluidLoopDesignAndControl                    | Approved by Schema WG
 | Pump                                         | Approved by Schema WG
@@ -39,15 +39,15 @@
 | ChillerPowerValidationPoint                  | Approved by Schema WG
 | HeatRejection                                | Approved by Schema WG
 | ExternalFluidSource                          | Approved by Schema WG
-| ServiceWaterHeatingDistributionSystem        | In Discussion by Schema WG
-| ServiceWaterPiping                           | In Discussion by Schema WG
-| SolarThermal                                 | In Discussion by Schema WG
-| ServiceWaterHeatingEquipment                 | In Discussion by Schema WG
-| ServiceWaterHeaterValidationPoint            | In Discussion by Schema WG
-| HeatPumpWaterHeaterCapacityValidationPoint   | In Discussion by Schema WG
-| HeatPumpWaterHeaterPowerValidationPoint      | In Discussion by Schema WG
-| Tank                                         | In Discussion by Schema WG
-| ServiceWaterHeatingUse                       | In Discussion by Schema WG
+| ServiceWaterHeatingDistributionSystem        | Approved by Schema WG (less stable)
+| ServiceWaterPiping                           | Approved by Schema WG (less stable)
+| SolarThermal                                 | Approved by Schema WG (less stable)
+| ServiceWaterHeatingEquipment                 | Approved by Schema WG (less stable)
+| ServiceWaterHeaterValidationPoint            | Approved by Schema WG (less stable)
+| HeatPumpWaterHeaterCapacityValidationPoint   | Approved by Schema WG (less stable)
+| HeatPumpWaterHeaterPowerValidationPoint      | Approved by Schema WG (less stable)
+| Tank                                         | Approved by Schema WG (less stable)
+| ServiceWaterHeatingUse                       | Approved by Schema WG (less stable)
 | ExteriorLighting                             | Approved by Schema WG
 | Refrigeration                                | In Discussion by Schema WG
 | OverallSimulationOutputs                     | In Development
