@@ -5372,6 +5372,23 @@ ExteriorLighting:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    is_exempt:
+      Description: "Indicates whether the exterior lighting is exempted from requirements"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for exterior lighting"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+
 
 Refrigeration:
   Object Type: "Data Group"
