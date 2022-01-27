@@ -1476,7 +1476,7 @@ InteriorLighting:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     purpose_type:
-      Description: "Lighting space type classification"
+      Description: "Lighting purpose type classification"
       Data Type: "<LightingPurposeType2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMR Test: "unknown"
