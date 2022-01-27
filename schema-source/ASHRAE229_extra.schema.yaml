@@ -1924,6 +1924,14 @@ Weather:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    data_source_type:
+      Description: "Data source use for the weather file."
+      Data Type: "<WeatherFileDataSourceTypeOptions>"
+      Required: True
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
       Data Type: "<ClimateZone2019ASHRAE901>"
@@ -1947,6 +1955,18 @@ Weather:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+
+WeatherFileDataSourceTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    HISTORIC_AGGREGATION:
+      Description: "Historic data aggregated to represent typical weather"
+    HISTORIC_ACTUAL:
+      Description: "Specific weather data for time period based on monitoring"
+    FUTURE:
+      Description: "Weather data projected to represent future conditions"
+    OTHER:
+      Description: "Other"
 
 CoolingDesignDayTypeOptions:
   Object Type: "Enumeration"
