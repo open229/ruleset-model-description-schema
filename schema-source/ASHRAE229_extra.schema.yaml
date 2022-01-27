@@ -1592,7 +1592,7 @@ MiscellaneousEquipment:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     peak_usage:
-      Description: "Peak energy usage per hour by the miscelleous equipment in the space."
+      Description: "Average hourly peak power by miscelleous equipment in the space."
       Data Type: "Numeric"
       Units: "W"
       RMR Test: "unknown"
@@ -1648,6 +1648,8 @@ MiscellaneousEquipmentType:
       Description: "Plug"
     PROCESS:
       Description: "Process"
+    INFORMATION_TECHNOLOGY_EQUIPMENT:
+      Description: "Information technology equipment"
     OTHER:
       Description: "Other"
 
