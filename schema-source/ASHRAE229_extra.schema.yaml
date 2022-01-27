@@ -436,10 +436,10 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    floor_number:
-      Description: "Floor number"
-      Data Type: "Numeric"
-      Notes: "Used to group zones on a floor so the number indicates that different zones share a floor. The number should increase for increasing heights and be negative values for stories generally below ground and should generally correspond to numbering of floors on the plans. JG to verify if used in test case description."
+    floor_name:
+      Description: "Floor name"
+      Data Type: "String"
+      Notes: "Used to group zones on a floor. Zones with the same floor name are on the same floor. Numbers may be used as part of the floor name such as Level 1. If a number is used it should increase for increasing heights and use negative values for stories generally below ground. The floor name should generally correspond to numbering of floors on the plans. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
