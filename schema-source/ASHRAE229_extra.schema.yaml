@@ -2670,10 +2670,10 @@ FanSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    fan_volume_reset_load_fraction:
+    fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
-      Notes: "When fan_volume_reset_type is LOAD_RESET this is the fraction of the load for minimum air flow.  JG to verify if used in test case description."
+      Notes: "When fan_volume_reset_type is DESIGN_LOAD_RESET this is the fraction of the design load that corresponds to minimum air flow. When fan_volume_reset_type is OPERATING_CAPACITY_RESET this is the fraction of the instanteous operating capacity that corresponds to minimum air flow. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -2914,8 +2914,10 @@ FanSystemSupplyFanVolumeResetType:
   Enumerators:
     CONSTANT:
       Description: "Constant"
-    LOAD_RESET:
-      Description: "Load Reset"
+    DESIGN_LOAD_RESET:
+      Description: "Design Load Reset"
+    OPERATING_CAPACITY_RESET:
+      Description: "Operating Capacity Reset"
     OTHER:
       Description: "Other"
 
