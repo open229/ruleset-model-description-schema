@@ -3445,7 +3445,7 @@ FluidLoopDesignAndControl:
     operation_schedule:
       Description: "Operation schedule"
       Data Type: "$ID"
-      Notes: "One represents when the fluid loop is operating and zero when not operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule:"
+      Notes: "One represents when the fluid loop is availble to be operating and zero when not available to be operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule:"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
