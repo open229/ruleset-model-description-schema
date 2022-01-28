@@ -442,3 +442,11 @@
 | `HOSPITAL`              | Hospital              |       |
 | `OTHER_NON_RESIDENTIAL` | Other non-residential |       |
 
+# OutputDescriptors2019ASHRAE901
+|            Enumerator             |                                                         Description                                                          | Notes |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------|-------|
+| `ANNUAL_ELECTRIC_COST_DOLLARS`    | Annual electric cost for the model                                                                                           |       |
+| `ANNUAL_GAS_COST_DOLLARS`         | Annual natural gas cost for the model                                                                                        |       |
+| `ANNUAL_OTHER_FUEL_COST_DOLLARS`  | Annual cost by other fuels than natural gas for the model                                                                    |       |
+| `PERFORMANCE_COST_INDEX_UNITLESS` | Performance cost index for the project. This output is appropriate for the overall project not specific instance of a model. |       |
+

@@ -1,19 +1,21 @@
 digraph G {
     size="7.5, 20";
     rankdir=LR;
-  ASHRAE229 -> Transformer
-  ASHRAE229 -> Building
+  ASHRAE229 -> RulesetModelInstance
   ASHRAE229 -> Calendar
-  ASHRAE229 -> Schedule
   ASHRAE229 -> Weather
-  ASHRAE229 -> OverallSimulationOutputs
-  ASHRAE229 -> FluidLoop
-  ASHRAE229 -> ServiceWaterHeatingDistributionSystem
-  ASHRAE229 -> Pump
-  ASHRAE229 -> Boiler
-  ASHRAE229 -> Chiller
-  ASHRAE229 -> HeatRejection
-  ASHRAE229 -> ExternalFluidSource
+  ASHRAE229 -> Output
+  RulesetModelInstance -> Transformer
+  RulesetModelInstance -> Building
+  RulesetModelInstance -> Schedule
+  RulesetModelInstance -> Output
+  RulesetModelInstance -> FluidLoop
+  RulesetModelInstance -> ServiceWaterHeatingDistributionSystem
+  RulesetModelInstance -> Pump
+  RulesetModelInstance -> Boiler
+  RulesetModelInstance -> Chiller
+  RulesetModelInstance -> HeatRejection
+  RulesetModelInstance -> ExternalFluidSource
   Building -> BuildingSegment
   Building -> Elevator
   Building -> ExteriorLighting
@@ -98,5 +100,6 @@ digraph G {
   Tank -> Zone [color=red] 
   ServiceWaterHeatingUse -> ServiceWaterHeatingDistributionSystem [color=red] 
   ServiceWaterHeatingUse -> Schedule [color=red] 
+  ExteriorLighting -> Schedule [color=red] 
   Refrigeration -> Schedule [color=red] 
 }
