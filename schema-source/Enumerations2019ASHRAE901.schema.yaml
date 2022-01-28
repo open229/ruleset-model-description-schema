@@ -853,3 +853,15 @@ HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901:
       Description: "Hospital"
     OTHER_NON_RESIDENTIAL:
       Description: "Other non-residential"
+
+OutputDescriptors2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    ANNUAL_ELECTRIC_COST_DOLLARS:
+      Description: "Annual electric cost for the model"
+    ANNUAL_GAS_COST_DOLLARS:
+      Description: "Annual natural gas cost for the model"
+    ANNUAL_OTHER_FUEL_COST_DOLLARS:
+      Description: "Annual cost by other fuels than natural gas for the model"
+    PERFORMANCE_COST_INDEX_UNITLESS:
+      Description: "Performance cost index for the project. This output is appropriate for the overall project not specific instance of a model."
