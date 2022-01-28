@@ -122,6 +122,13 @@ ASHRAE229:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    outputs:
+      Description: "Outputs not related to a specific ruleset model instance."
+      Data Type: "[{Output}]"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
       
 RulesetModelInstance:
   Object Type: "Data Group"
@@ -196,9 +203,9 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    overall_simulation_outputs:
-      Description: "Outputs from the simluation summed for all buildings in the simulation."
-      Data Type: "{OverallSimulationOutputs}"
+    outputs:
+      Description: "Outputs from the simulation of the model summed for all buildings in the simulation."
+      Data Type: "[{Output}]"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -5624,74 +5631,47 @@ ApplicationTemperatureType:
     OTHER:
       Description: "Other"
 
-OverallSimulationOutputs:
+Output:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Scope-unique reference identifier for instances of this data group"
-      Data Type: "ID"
+    output_descriptor:
+      Description: "Ruleset specific descriptor of output from simulation program or postprocessed results"
+      Data Type: "(<CommonOutputDescriptors>,<OutputDescriptors2019ASHRAE901>)"
       Required: True
+      Notes: "The output required for a ruleset is determined by the list of output descriptors for that ruleset. Units are described at the end of each output descriptor preceeded by an underscore or the term UNITLESS."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    reporting_name:
-      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
-      Data Type: "String"
+    data_group_reference:
+      Description: "Optionsal reference to a data group that is related to the output"
+      Data Type: "$ID"
+      Notes: "Typically unused for overall results or references zone, fluidloop, or HVAC data group for outputs that are related to those specific components. For example, annual lighting energy consumption for a specific zone would reference the specific zone."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    notes:
-      Description: "Supplementary information to provide context to the model reviewer"
-      Data Type: "String"
+    values:
+      Description: "The actual values of the output corresponding to the output descriptor"
+      Data Type: "[Numeric]"
+      Units: "W"
+      Notes: "Typically a single output value is listed but for some descriptors a series out output values may be appropriate. If a list of values is required the term LIST should appear in the output_descriptor"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    refrigeration_energy_enduse:
-      Description: "Annual refrigeration energy end use from simulation output"
-      Data Type: "Numeric"
-      Units: "kWh"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    service_water_heating_annual_enduse_electricity:
-      Description: "Annual electricity energy end_use for SWH loops"
-      Data Type: "Numeric"
-      Units: "kWh"
-      Range: ">=0"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    service_water_heating_annual_enduse_fossilfuel:
-      Description: "Annual fossil fuel energy end_use for SWH loops"
-      Data Type: "Numeric"
-      Units: "J" # use MMBTU for IP units
-      Range: ">=0"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    unmet_heating_load_hours:
-      Description: "total hours any HVAC Zone heating temperature setpoint not met"
-      Data Type: "Numeric"
-      Units: "J" # use MMBTU for IP units
-      Range: ">=0"
-      Notes: "JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    unmet_cooling_load_hours:
-      Description: "total hours any HVAC Zone cooling temperature setpoint not met"
-      Data Type: "Numeric"
-      Units: "J" # use MMBTU for IP units
-      Range: ">=0"
-      Notes: "JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+    
+CommonOutputDescriptors:
+  Object Type: "Enumeration"
+  Enumerators:
+    UNMET_LOAD_HOURS_HEATING_HOURS:
+      Description: "Unmet load hours during heating"
+    UNMET_LOAD_HOURS_COOLING_HOURS:
+      Description: "Unmet load hours during cooling"
+    ANNUAL_ELECTRIC_CONSUMPTION_GJ:
+      Description: "Annual electric consumption for the model"
+    ANNUAL_GAS_CONSUMPTION_GJ:
+      Description: "Annual natural gas consumption for the model"
+    ANNUAL_OTHER_FUEL_CONSUMPTION_GJ:
+      Description: "Annual consumption by other fuels than natural gas for the model"
+    
