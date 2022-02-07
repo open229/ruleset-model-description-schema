@@ -1902,18 +1902,18 @@ Weather:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     ground_temperature_schedule:
       Description: "Ground temperature schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     weather_file_name:
       Description: "The file name for the weather file including extension."
       Data Type: "String"
@@ -1927,24 +1927,24 @@ Weather:
       Data Type: "<ClimateZone2019ASHRAE901>"
       Required: True
       Notes: "The enumeration is based on the standard used."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     cooling_design_day_type:
       Description: "The frequency of occurance type for cooling design day"
       Data Type: "<CoolingDesignDayTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     heating_design_day_type:
       Description: "The frequency of occurance type for heating design day"
       Data Type: "<HeatingDesignDayTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
 
 CoolingDesignDayTypeOptions:
   Object Type: "Enumeration"
@@ -1971,121 +1971,121 @@ Elevator:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     motor_power:
       Description: "Elevator peak motor power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "The motor power can be provided either together with or, instead of, the detailed elements used to calculate it."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     cab_counterweight:
       Description: "Elevator car counterweight"
       Data Type: "Numeric"
       Units: "kg"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     cab_weight:
       Description: "Weight of elevator car"
       Data Type: "Numeric"
       Units: "kg"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     design_elevator_load:
       Description: "Elevator load at which to operate"
       Data Type: "Numeric"
       Units: "kg"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     speed:
       Description: "Design speed of the elevator"
       Data Type: "Numeric"
       Units: "m/s"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     cab_area:
       Description: "Floor area of elevator cab"
       Data Type: "Numeric"
       Units: "m2"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     cab_lighting_power:
       Description: "Lighitng power of cab"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     cab_ventilation_fan_power:
       Description: "Ventilation fan power of cab"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     cab_ventilation_fan_flow:
       Description: "Airflow of cab ventfan"
       Data Type: "Numeric"
       Units: "L/s"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
 
 HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
