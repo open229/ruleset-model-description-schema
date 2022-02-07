@@ -4067,116 +4067,116 @@ HeatRejection:
       Data Type: "ID"
       Required: True
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionTypeOptions>"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     fan_type:
       Description: "Heat Rejection Fan Type"
       Data Type: "<HeatRejectionFanTypeOptions>"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     fluid:
       Description: "Fluid Cooled by Heat Rejection"
       Data Type: "<HeatRejectionFluidOptions>"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     range:
       Description: "Heat rejection Range"
       Data Type: "Numeric"
       Units: "C"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     approach:
       Description: "Heat rejection Approach"
       Data Type: "Numeric"
       Units: "C"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     reset_type:
       Description: "Leaving Temperature reset strategy"
       Data Type: "<HeatRejectionResetOptions>"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     minimum_reset_temperature:
       Description: "Minimum leaving temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     fan_power:
       Description: "Fan Power"
       Data Type: "Numeric"
       Units: "W"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_supply_temperature:
       Description: "Design leaving water temperature"
       Data Type: "Numeric"
       Units: "C"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_wetbulb_temperature:
       Description: "Design wetbulb temperature"
       Data Type: "Numeric"
       Units: "C"
       Notes: "0.4% ASHRAE MCWB"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_water_flowrate:
       Description: "Design condenser water flow rate"
       Data Type: "Numeric"
@@ -4263,47 +4263,47 @@ ExternalFluidSource:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :FluidLoop:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     energy_source_type:
       Description: "Source of energy for the external fluid source"
       Data Type: "<EnergySourceTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
 
 ExternalFluidSourceTypeOptions:
   Object Type: "Enumeration"
