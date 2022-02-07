@@ -441,9 +441,9 @@ Zone:
       Data Type: "Numeric"
       Notes: "Used to group zones on a floor so the number indicates that different zones share a floor. The number should increase for increasing heights and be negative values for stories generally below ground and should generally correspond to numbering of floors on the plans. JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     volume:
       Description: "Volume of the space"
       Data Type: "Numeric"
@@ -459,8 +459,8 @@ Zone:
       Notes: "Contains a list of surfaces that define the zone."
       RMR Test: "Secondary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     conditioning_type:
       Description: "Space conditioning category"
       Data Type: "<ConditioningType>"
@@ -482,9 +482,9 @@ Zone:
       Units: "C"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
       Data Type: "$ID"
@@ -501,8 +501,8 @@ Zone:
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "$ID"
@@ -516,10 +516,10 @@ Zone:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
       Notes: "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
       Data Type: "$ID"
