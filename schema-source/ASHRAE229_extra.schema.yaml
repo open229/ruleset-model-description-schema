@@ -3535,49 +3535,49 @@ Pump:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     loop_or_piping:
       Description: "Referenced to the fluid loop or service water heating piping"
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_electric_power:
       Description: "Pump design electric power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "Pump electric power at design conditions. Only used when specification_method is set to Simple"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     motor_nameplate_power:
       Description: "Pump motor nameplate power"
       Data Type: "Numeric"
@@ -3586,41 +3586,41 @@ Pump:
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: False
     design_head:
       Description: "Head of the pump at design flow conditions"
       Data Type: "Numeric"
       Units: "m"
       Notes: "Only used when specification_method is set to Detailed"
       RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     impeller_efficiency:
       Description: "Full load efficiency of the impeller"
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Only used when specification_method is set to Detailed"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Only used when specification_method is set to Detailed"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     speed_control:
       Description: "Options for pump speed control"
       Data Type: "<PumpSpeedControlOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_flow:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
@@ -3633,10 +3633,10 @@ Pump:
       Description: "Minimum Pump Flowrate"
       Data Type: "Numeric"
       Units: "L/s"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
       Data Type: "Boolean"
@@ -3670,33 +3670,33 @@ Boiler:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Secondary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :FluidLoop:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -3710,79 +3710,79 @@ Boiler:
       Data Type: "Numeric"
       Units: "W"
       Notes: "At rating conditions."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     energy_source_type:
       Description: "Source of energy for the boiler"
       Data Type: "<EnergySourceTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     efficiency:
       Description: "Efficiency value based on the selected efficiency_metric"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{BoilerOutputValidationPoint}]"
       Notes: "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     auxiliary_power:
       Description: "Auxiliary power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "Power for boiler pump, combustion fan, or other auxiliary that operates when boiler operates."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     operation_lower_limit:
       Description: "Heating load range operation, lower limit"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     operation_upper_limit:
       Description: "Heating load range operation, upper limit"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
 
 BoilerCombustionOptions:
   Object Type: "Enumeration"
@@ -3810,18 +3810,18 @@ BoilerOutputValidationPoint:
       Data Type: "Numeric"
       Units: "W"
       Notes: "No name and id is needed since typically used as one of a series."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     result:
       Description: "Result"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
 
 Chiller:
   Object Type: "Data Group"
@@ -3830,55 +3830,55 @@ Chiller:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Secondary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: True
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     cooling_loop:
       Description: "Referenced to the cooling fluid loop"
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :FluidLoop:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
       Data Type: "$ID"
       Notes: "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     compressor_type:
       Description: "Compressor Type"
       Data Type: "<ChillerCompressorTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     energy_source_type:
       Description: "Source of energy for the chiller"
       Data Type: "<EnergySourceTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
@@ -3923,39 +3923,39 @@ Chiller:
       Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
       Units: "W/W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     part_load_efficiency_metric:
       Description: "The type of part load efficiency metric used"
       Data Type: "<ChillerPartLoadEfficiencyMetricTypeOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     capacity_validation_points:
       Description: "Capacity validation points"
       Data Type: "[{ChillerCapacityValidationPoint}]"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     power_validation_points:
       Description: "Energy validation points"
       Data Type: "[{ChillerPowerValidationPoint}]"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
 
 ChillerPartLoadEfficiencyMetricTypeOptions:
   Object Type: "Enumeration"
@@ -3975,27 +3975,27 @@ ChillerCapacityValidationPoint:
       Data Type: "Numeric"
       Units: "C"
       Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     condenser_temperature:
       Description: "Second temperature"
       Data Type: "Numeric"
       Units: "C"
       Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
     result:
       Description: "Result"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: False
+      AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: False
+      AppG B_RMR Equals P_RMR: False
 
 ChillerPowerValidationPoint:
   Object Type: "Data Group"
@@ -4005,35 +4005,35 @@ ChillerPowerValidationPoint:
       Data Type: "Numeric"
       Units: "C"
       Notes: "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     condenser_temperature:
       Description: "Second temperature"
       Data Type: "Numeric"
       Units: "C"
       Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     load:
       Description: "Load"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
     result:
       Description: "Result"
       Data Type: "Numeric"
       Units: "W"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
+      RMR Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMR Equals U_RMR: True
+      AppG B_RMR Equals P_RMR: False
 
 ChillerCompressorTypeOptions:
   Object Type: "Enumeration"
