@@ -865,3 +865,6 @@ OutputDescriptors2019ASHRAE901:
       Description: "Annual cost by other fuels than natural gas for the model"
     PERFORMANCE_COST_INDEX_UNITLESS:
       Description: "Performance cost index for the project. This output is appropriate for the overall project not specific instance of a model."
+    BUILDING_PEAK_COOLING_LOAD_WATTS:
+      Description: "The peak coincident cooling load for the building."
+    
