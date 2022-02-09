@@ -769,6 +769,8 @@ VerticalFenestrationBuildingAreaType2019ASHRAE901:
       Description: "School (secondary and university)"
     WAREHOUSE_NONREFRIGERATED:
       Description: "Warehouse (nonrefrigerated)"
+    OTHER:
+      Description: "Other"
 
 SubsurfaceFrameType2019ASHRAE901:
   Object Type: "Enumeration"
