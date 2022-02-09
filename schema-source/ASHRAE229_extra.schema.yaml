@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.7"
+  Version: "0.0.8"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -556,7 +556,7 @@ Zone:
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
-      Notes: "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+      Notes: "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -2193,8 +2193,8 @@ HeatingVentilationAirConditioningSystem:
       AppG B_RMR Equals P_RMR: "unknown"
     fan_systems:
       Description: "Fan systems"
-      Data Type: "[{FanSystem}]"
-      Notes: "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
+      Data Type: "{FanSystem}"
+      Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -2829,22 +2829,6 @@ AirEconomizer:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    design_sensible_effectiveness:
-      Description: "Design sensible effectiveness"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    design_latent_effectiveness:
-      Description: "Design sensible effectiveness"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
 
 AirEnergyRecovery:
   Object Type: "Data Group"
@@ -2898,6 +2882,22 @@ AirEnergyRecovery:
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
       Data Type: "<EnergyRecoverySupplyAirTemperatureControl>"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    design_sensible_effectiveness:
+      Description: "Design sensible effectiveness"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    design_latent_effectiveness:
+      Description: "Design sensible effectiveness"
+      Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3201,26 +3201,42 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    served_by_heating_ventilation_air_conditioning_systems:
-      Description: "HVAC systems serving the terminal"
+    served_by_heating_ventilation_air_conditioning_system:
+      Description: "HVAC system serving the terminal"
       Data Type: "$ID"
       Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    reheat_source:
-      Description: "Source of reheat"
-      Data Type: "<ReheatSourceType>"
-      Notes: "JG to verify if used in test case description."
+    heat_source:
+      Description: "Source of heat"
+      Data Type: "<HeatSourceType>"
+      Notes: "Used for terminal heat including reheat. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    reheat_from_loop:
-      Description: "Referenced to the fluid loop used for reheat"
+    heat_from_loop:
+      Description: "Referenced to the fluid loop used for heat"
       Data Type: "$ID"
-      Notes: "Only used when reheat_source is hot water. Constraint to use when implemented :FluidLoop:"
+      Notes: "Only used when heat_source is hot water. Used for terminal heat including reheat. Constraint to use when implemented :FluidLoop:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    cool_source:
+      Description: "Source of cool"
+      Data Type: "<CoolSourceType>"
+      Notes: "Used for terminal heat including reheat. JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    cool_from_loop:
+      Description: "Referenced to the fluid loop used for cool"
+      Data Type: "$ID"
+      Notes: "Only used when cool_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -3295,10 +3311,19 @@ Terminal:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     heat_capacity:
-      Description: "Heat capacity for baseboard or radiant system"
+      Description: "Heat capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "JG to verify if used in test case description."
+      Notes: "Only includes the heat capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    cool_capacity:
+      Description: "Cool capacity for the radiant system or cooling coil"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "Only includes the cool capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -3307,6 +3332,14 @@ Terminal:
       Description: "True if the the supply is ducted."
       Data Type: "Boolean"
       RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    has_demand_control_ventilation:
+      Description: "True if the zone has demand control ventilation"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      Notes: "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand. JG to verify if used in test case description."
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
@@ -3339,13 +3372,23 @@ TerminalFanConfiguration:
     OTHER:
       Description: "Other"
 
-ReheatSourceType:
+HeatSourceType:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRIC:
       Description: "Electric"
     HOT_WATER:
       Description: "Hot water"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+CoolSourceType:
+  Object Type: "Enumeration"
+  Enumerators:
+    CHILLED_WATER:
+      Description: "Chilled water"
     NONE:
       Description: "None"
     OTHER:
@@ -4953,6 +4996,14 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    hot_water_loop:
+      Description: "Referenced to the hot water fluid loop"
+      Data Type: "$ID"
+      Notes: "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -4963,6 +5014,12 @@ ServiceWaterHeaterType:
       Description: "Heat pump packaged"
     HEAT_PUMP_SPLIT:
       Description: "Heat pump split"
+    HEAT_FROM_HOT_WATER_LOOP:
+      Description: "Heat from hot water loop"
+      Notes: "Should also specifiy hot water loop when this is used"
+    COMBINATION_SERVICE_AND_SPACE:
+      Description: "Combination space and service water heater."
+      Notes: "Should also specifiy hot water loop when this is used"
     OTHER:
       Description: "Other"
 

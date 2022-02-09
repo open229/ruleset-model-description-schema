@@ -6,20 +6,20 @@
 | ASHRAE229                                    | In Development
 | Building                                     | In Development
 | BuildingSegment                              | In Development
-| Zone                                         | Approved by Schema WG
+| Zone                                         | Approved by SPC 229
 | Space                                        | Approved by SPC 229
-| Infiltration                                 | Approved by Schema WG
+| Infiltration                                 | Approved by SPC 229
 | Surface                                      | Approved by SPC 229
 | Construction                                 | Approved by SPC 229
 | Material                                     | Approved by SPC 229
 | SurfaceOpticalProperties                     | Approved by SPC 229
 | Subsurface                                   | Approved by SPC 229
 | InteriorLighting                             | Approved by Schema WG
-| MiscellaneousEquipment                       | Approved by Schema WG
+| MiscellaneousEquipment                       | Approved by SPC 229
 | Transformer                                  | Approved by SPC 229
 | Schedule                                     | Approved by SPC 229
-| Calendar                                     | Approved by Schema WG
-| Weather                                      | Approved by Schema WG
+| Calendar                                     | Approved by SPC 229
+| Weather                                      | Approved by SPC 229
 | Elevator                                     | Approved by Schema WG
 | HeatingVentilationAirConditioningSystem      | Approved by Schema WG (less stable)
 | HeatingSystem                                | Approved by Schema WG (less stable)
