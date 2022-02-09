@@ -2217,7 +2217,7 @@ HeatingSystem:
       Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
@@ -2225,7 +2225,7 @@ HeatingSystem:
       Notes: "JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
@@ -2234,7 +2234,7 @@ HeatingSystem:
       Notes: "JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     full_load_efficiency:
       Description: "Full Low Efficiency expressed as a coefficient of performance or thermal efficiency"
@@ -2285,7 +2285,7 @@ HeatingSystem:
       Data Type: "<HumidificationType>"
       Notes: "JG to verify if used in test case description."
       RMR Test: False
-      AppG Used By TCDs: False
+      AppG Used By TCDs: "Unknown"
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
 
@@ -2389,7 +2389,7 @@ CoolingSystem:
       Notes: "JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
@@ -2397,7 +2397,7 @@ CoolingSystem:
       Notes: "JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
@@ -2405,7 +2405,7 @@ CoolingSystem:
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     condenser_water_loop:
       Description: "Referenced to the Condenser water fluid loop"
@@ -2413,7 +2413,7 @@ CoolingSystem:
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     full_load_efficiency:
       Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
@@ -2422,7 +2422,7 @@ CoolingSystem:
       Notes: "Used for direct expansion. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
@@ -2431,14 +2431,14 @@ CoolingSystem:
       Notes: "Used for direct expansion. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: False
+      AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     dehumidification_type:
       Description: "Dehumidification type"
       Data Type: "<DehumidificationType>"
       Notes: "JG to verify if used in test case description."
       RMR Test: False
-      AppG Used By TCDs: False
+      AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     cooling_turndown_ratio:
