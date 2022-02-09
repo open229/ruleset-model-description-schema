@@ -556,7 +556,7 @@ Zone:
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
-      Notes: "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+      Notes: "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -2193,8 +2193,8 @@ HeatingVentilationAirConditioningSystem:
       AppG B_RMR Equals P_RMR: "unknown"
     fan_systems:
       Description: "Fan systems"
-      Data Type: "[{FanSystem}]"
-      Notes: "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
+      Data Type: "{FanSystem}"
+      Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
