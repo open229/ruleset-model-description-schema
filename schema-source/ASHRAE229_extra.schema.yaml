@@ -3201,8 +3201,8 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    served_by_heating_ventilation_air_conditioning_systems:
-      Description: "HVAC systems serving the terminal"
+    served_by_heating_ventilation_air_conditioning_system:
+      Description: "HVAC system serving the terminal"
       Data Type: "$ID"
       Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
       RMR Test: "unknown"
