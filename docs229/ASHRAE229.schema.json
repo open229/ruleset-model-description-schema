@@ -401,7 +401,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/Terminal"
                     },
-                    "notes": "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+                    "notes": "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
                 },
                 "served_by_service_water_heating_system": {
                     "description": "A service water heating system serving the zone",
@@ -1693,11 +1693,8 @@
                 },
                 "fan_systems": {
                     "description": "Fan systems",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/FanSystem"
-                    },
-                    "notes": "Normally one fan system is used but second fan systems may be used when a direct outdoor air system is used. JG to verify if used in test case description."
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSystem",
+                    "notes": "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem. JG to verify if used in test case description."
                 },
                 "heating_system": {
                     "description": "Heating system",
@@ -2167,16 +2164,6 @@
                     "type": "number",
                     "units": "C",
                     "notes": "JG to verify if used in test case description."
-                },
-                "design_sensible_effectiveness": {
-                    "description": "Design sensible effectiveness",
-                    "type": "number",
-                    "notes": "JG to verify if used in test case description."
-                },
-                "design_latent_effectiveness": {
-                    "description": "Design sensible effectiveness",
-                    "type": "number",
-                    "notes": "JG to verify if used in test case description."
                 }
             },
             "required": [
@@ -2217,6 +2204,16 @@
                 "energy_recovery_supply_air_temperature_control": {
                     "description": "Energy recovery supply air temperature control",
                     "$ref": "ASHRAE229.schema.json#/definitions/EnergyRecoverySupplyAirTemperatureControl",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "design_sensible_effectiveness": {
+                    "description": "Design sensible effectiveness",
+                    "type": "number",
+                    "notes": "JG to verify if used in test case description."
+                },
+                "design_latent_effectiveness": {
+                    "description": "Design sensible effectiveness",
+                    "type": "number",
                     "notes": "JG to verify if used in test case description."
                 }
             },
@@ -2515,18 +2512,27 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/TerminalType",
                     "notes": "JG to verify if used in test case description."
                 },
-                "served_by_heating_ventilation_air_conditioning_systems": {
-                    "description": "HVAC systems serving the terminal",
+                "served_by_heating_ventilation_air_conditioning_system": {
+                    "description": "HVAC system serving the terminal",
                     "notes": "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
                 },
-                "reheat_source": {
-                    "description": "Source of reheat",
-                    "$ref": "ASHRAE229.schema.json#/definitions/ReheatSourceType",
-                    "notes": "JG to verify if used in test case description."
+                "heat_source": {
+                    "description": "Source of heat",
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatSourceType",
+                    "notes": "Used for terminal heat including reheat. JG to verify if used in test case description."
                 },
-                "reheat_from_loop": {
-                    "description": "Referenced to the fluid loop used for reheat",
-                    "notes": "Only used when reheat_source is hot water. Constraint to use when implemented :FluidLoop:"
+                "heat_from_loop": {
+                    "description": "Referenced to the fluid loop used for heat",
+                    "notes": "Only used when heat_source is hot water. Used for terminal heat including reheat. Constraint to use when implemented :FluidLoop:"
+                },
+                "cool_source": {
+                    "description": "Source of cool",
+                    "$ref": "ASHRAE229.schema.json#/definitions/CoolSourceType",
+                    "notes": "Used for terminal heat including reheat. JG to verify if used in test case description."
+                },
+                "cool_from_loop": {
+                    "description": "Referenced to the fluid loop used for cool",
+                    "notes": "Only used when cool_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
                 },
                 "fan": {
                     "description": "Terminal fan",
@@ -2573,14 +2579,25 @@
                     "notes": "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
                 },
                 "heat_capacity": {
-                    "description": "Heat capacity for baseboard or radiant system",
+                    "description": "Heat capacity for baseboard or radiant system or reheat",
                     "type": "number",
                     "units": "W",
-                    "notes": "JG to verify if used in test case description."
+                    "notes": "Only includes the heat capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
+                },
+                "cool_capacity": {
+                    "description": "Cool capacity for the radiant system or cooling coil",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "Only includes the cool capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
                 },
                 "is_supply_ducted": {
                     "description": "True if the the supply is ducted.",
                     "type": "boolean"
+                },
+                "has_demand_control_ventilation": {
+                    "description": "True if the zone has demand control ventilation",
+                    "type": "boolean",
+                    "notes": "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand. JG to verify if used in test case description."
                 }
             },
             "required": [
@@ -2622,7 +2639,7 @@
                 "Other"
             ]
         },
-        "ReheatSourceType": {
+        "HeatSourceType": {
             "type": "string",
             "enum": [
                 "ELECTRIC",
@@ -2633,6 +2650,19 @@
             "descriptions": [
                 "Electric",
                 "Hot water",
+                "None",
+                "Other"
+            ]
+        },
+        "CoolSourceType": {
+            "type": "string",
+            "enum": [
+                "CHILLED_WATER",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Chilled water",
                 "None",
                 "Other"
             ]
@@ -3869,6 +3899,10 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/SolarThermal"
                     },
                     "notes": "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
+                },
+                "hot_water_loop": {
+                    "description": "Referenced to the hot water fluid loop",
+                    "notes": "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
                 }
             },
             "required": [
@@ -3883,13 +3917,25 @@
                 "CONVENTIONAL",
                 "HEAT_PUMP_PACKAGED",
                 "HEAT_PUMP_SPLIT",
+                "HEAT_FROM_HOT_WATER_LOOP",
+                "COMBINATION_SERVICE_AND_SPACE",
                 "OTHER"
             ],
             "descriptions": [
                 "Conventional",
                 "Heat pump packaged",
                 "Heat pump split",
+                "Heat from hot water loop",
+                "Combination space and service water heater.",
                 "Other"
+            ],
+            "notes": [
+                null,
+                null,
+                null,
+                "Should also specifiy hot water loop when this is used",
+                "Should also specifiy hot water loop when this is used",
+                null
             ]
         },
         "ComponentLocation": {
@@ -4481,6 +4527,6 @@
             ]
         }
     },
-    "version": "0.0.7",
+    "version": "0.0.8",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
