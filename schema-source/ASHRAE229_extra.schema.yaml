@@ -3310,6 +3310,14 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    has_demand_control_ventilation:
+      Description: "True if the zone has demand control ventilation"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      Notes: "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand. JG to verify if used in test case description."
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
 
 TerminalType:
   Object Type: "Enumeration"
