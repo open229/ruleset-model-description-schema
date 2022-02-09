@@ -2829,22 +2829,6 @@ AirEconomizer:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    design_sensible_effectiveness:
-      Description: "Design sensible effectiveness"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    design_latent_effectiveness:
-      Description: "Design sensible effectiveness"
-      Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
 
 AirEnergyRecovery:
   Object Type: "Data Group"
@@ -2898,6 +2882,22 @@ AirEnergyRecovery:
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
       Data Type: "<EnergyRecoverySupplyAirTemperatureControl>"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    design_sensible_effectiveness:
+      Description: "Design sensible effectiveness"
+      Data Type: "Numeric"
+      Notes: "JG to verify if used in test case description."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    design_latent_effectiveness:
+      Description: "Design sensible effectiveness"
+      Data Type: "Numeric"
       Notes: "JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
