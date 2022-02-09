@@ -4996,6 +4996,14 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    hot_water_loop:
+      Description: "Referenced to the hot water fluid loop"
+      Data Type: "$ID"
+      Notes: "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
 
 ServiceWaterHeaterType:
   Object Type: "Enumeration"
@@ -5006,6 +5014,12 @@ ServiceWaterHeaterType:
       Description: "Heat pump packaged"
     HEAT_PUMP_SPLIT:
       Description: "Heat pump split"
+    HEAT_FROM_HOT_WATER_LOOP:
+      Description: "Heat from hot water loop"
+      Notes: "Should also specifiy hot water loop when this is used"
+    COMBINATION_SERVICE_AND_SPACE:
+      Description: "Combination space and service water heater."
+      Notes: "Should also specifiy hot water loop when this is used"
     OTHER:
       Description: "Other"
 
