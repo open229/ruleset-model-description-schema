@@ -2426,7 +2426,7 @@
                     "description": "input power of fan",
                     "type": "number",
                     "units": "W",
-                    "notes": "Power delivered to the fan\u2019s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
+                    "notes": "Power delivered to the fan\u00c2\u2019s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
                 },
                 "total_efficiency": {
                     "description": "Total fan efficiency",
@@ -4527,6 +4527,6 @@
             ]
         }
     },
-    "version": "0.0.8",
+    "version": "0.0.9",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }
