@@ -1093,7 +1093,7 @@ Material:
     id:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
-      Required: "unknown"
+      Required: True
       RMR Test: "Secondary"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
