@@ -919,7 +919,8 @@
                 "RETAIL_STRIP_MALL",
                 "SCHOOL_PRIMARY",
                 "SCHOOL_SECONDARY_AND_UNIVERSITY",
-                "WAREHOUSE_NONREFRIGERATED"
+                "WAREHOUSE_NONREFRIGERATED",
+                "OTHER"
             ],
             "descriptions": [
                 "Grocery store",
@@ -936,7 +937,8 @@
                 "Retail (strip mall)",
                 "School (primary)",
                 "School (secondary and university)",
-                "Warehouse (nonrefrigerated)"
+                "Warehouse (nonrefrigerated)",
+                "Other"
             ]
         },
         "SubsurfaceFrameType2019ASHRAE901": {
@@ -1039,6 +1041,23 @@
                 "Retail",
                 "Hospital",
                 "Other non-residential"
+            ]
+        },
+        "OutputDescriptors2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "ANNUAL_ELECTRIC_COST_DOLLARS",
+                "ANNUAL_GAS_COST_DOLLARS",
+                "ANNUAL_OTHER_FUEL_COST_DOLLARS",
+                "PERFORMANCE_COST_INDEX_UNITLESS",
+                "BUILDING_PEAK_COOLING_LOAD_WATTS"
+            ],
+            "descriptions": [
+                "Annual electric cost for the model",
+                "Annual natural gas cost for the model",
+                "Annual cost by other fuels than natural gas for the model",
+                "Performance cost index for the project. This output is appropriate for the overall project not specific instance of a model.",
+                "The peak coincident cooling load for the building."
             ]
         }
     }

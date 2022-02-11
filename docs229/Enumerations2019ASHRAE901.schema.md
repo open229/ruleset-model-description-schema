@@ -387,6 +387,7 @@
 | `SCHOOL_PRIMARY`                  | School (primary)                  |       |
 | `SCHOOL_SECONDARY_AND_UNIVERSITY` | School (secondary and university) |       |
 | `WAREHOUSE_NONREFRIGERATED`       | Warehouse (nonrefrigerated)       |       |
+| `OTHER`                           | Other                             |       |
 
 # SubsurfaceFrameType2019ASHRAE901
 |        Enumerator        |          Description           | Notes |
@@ -441,4 +442,13 @@
 | `RETAIL`                | Retail                |       |
 | `HOSPITAL`              | Hospital              |       |
 | `OTHER_NON_RESIDENTIAL` | Other non-residential |       |
+
+# OutputDescriptors2019ASHRAE901
+|             Enumerator             |                                                         Description                                                          | Notes |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-------|
+| `ANNUAL_ELECTRIC_COST_DOLLARS`     | Annual electric cost for the model                                                                                           |       |
+| `ANNUAL_GAS_COST_DOLLARS`          | Annual natural gas cost for the model                                                                                        |       |
+| `ANNUAL_OTHER_FUEL_COST_DOLLARS`   | Annual cost by other fuels than natural gas for the model                                                                    |       |
+| `PERFORMANCE_COST_INDEX_UNITLESS`  | Performance cost index for the project. This output is appropriate for the overall project not specific instance of a model. |       |
+| `BUILDING_PEAK_COOLING_LOAD_WATTS` | The peak coincident cooling load for the building.                                                                           |       |
 

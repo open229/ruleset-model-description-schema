@@ -1,0 +1,160 @@
+{
+	"id": "ASHRAE229 1",
+	"buildings": [
+		{
+			"id": "Building 1",
+			"building_open_schedule": "Required Building Schedule 1",
+			"building_segments": [
+				{
+					"id": "Building Segment 1",
+					"zones": [
+						{
+							"id": "Thermal Zone 1",
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"terminals": [
+								{
+									"id": "VAV Air Terminal 1",
+									"is_supply_ducted": true,
+									"reheat_source": "ELECTRIC",
+									"fan_configuration": "PARALLEL",
+									"type": "VARIABLE_AIR_VOLUME",
+									"served_by_heating_ventilation_air_conditioning_systems": "VAV System 1"
+								}
+							]
+						},
+						{
+							"id": "Thermal Zone 2",
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"terminals": [
+								{
+									"id": "VAV Air Terminal 2",
+									"is_supply_ducted": true,
+									"reheat_source": "ELECTRIC",
+									"fan_configuration": "PARALLEL",
+									"type": "VARIABLE_AIR_VOLUME",
+									"served_by_heating_ventilation_air_conditioning_systems": "VAV System 1"
+								}
+							]
+						}
+					],
+					"heating_ventilation_air_conditioning_systems": [
+						{
+							"id": "VAV System 1",
+							"cooling_system": {
+								"id": "CHW Coil 1",
+								"cooling_system_type": "FLUID_LOOP"
+							},
+							"heating_system": {
+								"id": "Furnace 1",
+								"heating_system_type": "FURNACE",
+								"energy_source_type": "ELECTRICITY"
+							},
+							"fan_systems": [
+								{
+									"id": "VAV Fan System 1",
+									"is_variable_air_volume": true,
+									"fan_control": "VARIABLE_SPEED_DRIVE",
+									"air_economizer": {
+										"id": "Economizer 1",
+										"type": "DIFFERENTIAL_TEMPERATURE"
+									},
+									"supply_fans": [
+										{
+											"id": "Supply Fan 1"
+										}
+									],
+									"return_fans": [
+										{
+											"id": "Return Fan 1"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "Building Segment 2",
+					"zones": [
+						{
+							"id": "Zone 3",
+							"thermostat_cooling_setpoint_schedule": "Required Cooling Schedule 1",
+							"thermostat_heating_setpoint_schedule": "Required Heating Schedule 1",
+							"terminals": [
+								{
+									"id": "PTAC Terminal 1",
+									"is_supply_ducted": false,
+									"served_by_heating_ventilation_air_conditioning_systems": "PTAC System 1"
+								}
+							]
+						}
+					],
+					"heating_ventilation_air_conditioning_systems": [
+						{
+							"id": "PTAC System 1",
+							"cooling_system": {
+								"id": "PTAC Cooling Coil 1",
+								"cooling_system_type": "DIRECT_EXPANSION"
+							},
+							"heating_system": {
+								"id": "PTAC Heating Coil 1",
+								"heating_system_type": "FLUID_LOOP",
+								"hot_water_loop": "Boiler Loop 1"
+							},
+							"fan_systems": [
+								{
+									"id": "PTAC Fan System 1",
+									"is_variable_air_volume": false,
+									"fan_control": "CONSTANT",
+									"supply_fans": [
+										{
+											"id": "Supply Fan 1"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"boilers": [
+		{
+			"id": "Boiler 1",
+			"energy_source_type": "NATURAL_GAS",
+			"loop": "Boiler Loop 1"
+		}
+	],
+	"chillers": [
+		{
+			"id": "Chiller 1",
+			"cooling_loop": "Chiller Loop 1",
+			"energy_source_type": "ELECTRICITY"
+		}
+	],
+	"pumps": [
+		{
+			"id": "Boiler Pump 1",
+			"loop_or_piping": "Boiler Loop 1",
+			"speed_control": "FIXED_SPEED"
+		},
+		{
+			"id": "Chiller Pump 1",
+			"loop_or_piping": "Chiller Loop 1",
+			"speed_control": "FIXED_SPEED"
+		}
+	],
+	"fluid_loops": [
+		{
+			"id": "Boiler Loop 1",
+			"type": "HEATING"
+		},
+		{
+			"id": "Chiller Loop 1",
+			"type": "COOLING"
+		}
+	]
+}
