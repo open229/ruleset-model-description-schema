@@ -401,7 +401,7 @@
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/Terminal"
                     },
-                    "notes": "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+                    "notes": "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
                 },
                 "served_by_service_water_heating_system": {
                     "description": "A service water heating system serving the zone",
@@ -2088,7 +2088,7 @@
                 "fan_volume_reset_fraction": {
                     "description": "Fan volume reset load fraction",
                     "type": "number",
-                    "notes": "When fan_volume_reset_type is DESIGN_LOAD_RESET this is the fraction of the design load that corresponds to minimum air flow. When fan_volume_reset_type is OPERATING_CAPACITY_RESET this is the fraction of the instanteous operating capacity that corresponds to minimum air flow. JG to verify if used in test case description."
+                    "notes": "When fan_volume_reset_type is LOAD_RESET this is the fraction of the load for minimum air flow.  JG to verify if used in test case description."
                 },
                 "operating_schedule": {
                     "description": "Operating schedule name",
@@ -2426,7 +2426,7 @@
                     "description": "input power of fan",
                     "type": "number",
                     "units": "W",
-                    "notes": "Power delivered to the fan\u2019s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
+                    "notes": "Power delivered to the fan\u00c2\u2019s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
                 },
                 "total_efficiency": {
                     "description": "Total fan efficiency",
@@ -2588,7 +2588,7 @@
                     "description": "Cool capacity for the radiant system or cooling coil",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the cool capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
+                    "notes": "JG to verify if used in test case description."
                 },
                 "is_supply_ducted": {
                     "description": "True if the the supply is ducted.",
@@ -4527,6 +4527,6 @@
             ]
         }
     },
-    "version": "0.0.8",
+    "version": "0.0.9",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
