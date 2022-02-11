@@ -556,7 +556,7 @@ Zone:
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
-      Notes: "Multple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+      Notes: "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -2714,7 +2714,7 @@ FanSystem:
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
-      Notes: "When fan_volume_reset_type is LOAD_RESET this is the fraction of the load for minimum air flow.  JG to verify if used in test case description."
+      Notes: "When fan_volume_reset_type is DESIGN_LOAD_RESET this is the fraction of the design load that corresponds to minimum air flow. When fan_volume_reset_type is OPERATING_CAPACITY_RESET this is the fraction of the instanteous operating capacity that corresponds to minimum air flow. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -3334,7 +3334,6 @@ Terminal:
       Data Type: "Numeric"
       Units: "W"
       Notes: "Only includes the cool capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
-      Notes: "JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
