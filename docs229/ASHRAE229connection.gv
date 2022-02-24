@@ -66,6 +66,7 @@ digraph G {
   Fan -> FanOutputValidationPoint
   Terminal -> HeatingVentilationAirConditioningSystem [color=red] 
   Terminal -> FluidLoop [color=red] 
+  Terminal -> FluidLoop [color=red] 
   Terminal -> Fan
   Terminal -> Schedule [color=red] 
   FluidLoop -> FluidLoop
@@ -97,6 +98,7 @@ digraph G {
   ServiceWaterHeatingEquipment -> HeatPumpWaterHeaterPowerValidationPoint
   ServiceWaterHeatingEquipment -> Tank
   ServiceWaterHeatingEquipment -> SolarThermal
+  ServiceWaterHeatingEquipment -> FluidLoop [color=red] 
   Tank -> Zone [color=red] 
   ServiceWaterHeatingUse -> ServiceWaterHeatingDistributionSystem [color=red] 
   ServiceWaterHeatingUse -> Schedule [color=red] 
