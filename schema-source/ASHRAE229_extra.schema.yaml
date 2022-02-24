@@ -4126,6 +4126,20 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
+    is_chilled_water_pump_interlocked:
+      Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    is_condenser_water_pump_interlocked:
+      Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
 
 ChillerPartLoadEfficiencyMetricTypeOptions:
   Object Type: "Enumeration"
