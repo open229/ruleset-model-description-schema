@@ -1626,22 +1626,23 @@ MiscellaneousEquipment:
       AppG P_RMR Equals U_RMR: False
       AppG B_RMR Equals P_RMR: False
     energy_type:
-      Description: "Source of energy for the miscelleous equipment in the space"
+      Description: "Source of energy for the miscellaneous equipment in the space"
       Data Type: "<EnergySourceTypeOptions>"
       RMR Test: False
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
-    peak_usage:
-      Description: "Average hourly peak power by miscelleous equipment in the space."
+    power:
+      Description: "Power for miscellaneous equipment in the space"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power for each period in the schedule."
       RMR Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
     multiplier_schedule:
-      Description: "Referenced to the schedule containing the multiplier for the miscellenous equipment"
+      Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
       Data Type: "$ID"
       Required: True
       Notes: "Constraint to use when implemented :Schedule:"
