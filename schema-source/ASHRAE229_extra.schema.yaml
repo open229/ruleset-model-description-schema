@@ -2216,8 +2216,8 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: False
       AppG P_RMR Equals U_RMR: False
       AppG B_RMR Equals P_RMR: False
-    fan_systems:
-      Description: "Fan systems"
+    fan_system:
+      Description: "Fan system"
       Data Type: "{FanSystem}"
       Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem. JG to verify if used in test case description."
       RMR Test: "unknown"
