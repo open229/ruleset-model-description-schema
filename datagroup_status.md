@@ -4,6 +4,7 @@
 | Data Group                                   | Status
 |----------------------------------------------|---------------
 | ASHRAE229                                    | In Development
+| RulesetModelInstance                         | In Development
 | Building                                     | In Development
 | BuildingSegment                              | In Development
 | Zone                                         | Approved by SPC 229
@@ -24,7 +25,7 @@
 | HeatingVentilationAirConditioningSystem      | Approved by Schema WG (less stable)
 | HeatingSystem                                | Approved by Schema WG (less stable)
 | CoolingSystem                                | Approved by Schema WG (less stable)
-| FanSystem                                    | In Discussion by Schema WG
+| FanSystem                                    | Approved by Schema WG (less stable)
 | AirEconomizer                                | Approved by Schema WG (less stable)
 | AirEnergyRecovery                            | Approved by Schema WG (less stable)
 | Fan                                          | Approved by Schema WG (less stable)
@@ -50,5 +51,5 @@
 | ServiceWaterHeatingUse                       | Approved by Schema WG (less stable)
 | ExteriorLighting                             | Approved by Schema WG
 | Refrigeration                                | In Discussion by Schema WG
-| OverallSimulationOutputs                     | In Development
+| Output                                       | In Development
 

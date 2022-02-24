@@ -122,13 +122,33 @@ ASHRAE229:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    outputs:
-      Description: "Outputs not related to a specific ruleset model instance."
-      Data Type: "[{Output}]"
+    output_format_type:
+      Description: "Format used for output"
+      Data Type: "<OutputFormatType>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    outputs:
+      Description: "Outputs not related to a specific ruleset model instance."
+      Data Type: "[{Output}]"
+      Notes: "Only used when output_format_type is set to KEY_VALUE_PAIRS and depends on the ruleset."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+
+OutputFormatType:
+  Object Type: "Enumeration"
+  Enumerators:
+    KEY_VALUE_PAIRS:
+      Description: "Key-value pairs"
+    EXTERNAL:
+      Description: "External"
+    OTHER:
+      Description: "Other"
+    NONE:
+      Description: "None"
       
 RulesetModelInstance:
   Object Type: "Data Group"
@@ -206,6 +226,7 @@ RulesetModelInstance:
     outputs:
       Description: "Outputs from the simulation of the model summed for all buildings in the simulation."
       Data Type: "[{Output}]"
+      Notes: "Only used when output_format_type is set to KEY_VALUE_PAIRS."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
