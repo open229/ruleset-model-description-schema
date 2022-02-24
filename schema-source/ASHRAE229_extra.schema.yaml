@@ -3156,6 +3156,32 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    motor_heat_to_airflow_fraction:
+      Description: "Fraction of motor heat added to the airflow."
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Fraction to airflow plus fraction to zone do not necessarily add up to 1.0."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    motor_heat_to_zone_fraction:
+      Description: "Fraction of motor heat added to the zone."
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Fraction to airflow plus fraction to zone do not necessarily add up to 1.0."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    motor_location_zone:
+      Description: "Zone where the heat from the motor goes"
+      Data Type: "$ID"
+      Notes: "When specified, it is the zone the heat from the fan motor get added to"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
@@ -3244,34 +3270,34 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
-    heat_source:
-      Description: "Source of heat"
-      Data Type: "<HeatSourceType>"
-      Notes: "Used for terminal heat including reheat. JG to verify if used in test case description."
+    heating_source:
+      Description: "Source of heating"
+      Data Type: "<HeatingSourceType>"
+      Notes: "Used for terminal heating including reheat. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
-    heat_from_loop:
-      Description: "Referenced to the fluid loop used for heat"
+    heating_from_loop:
+      Description: "References the fluid loop used to provide heating"
       Data Type: "$ID"
-      Notes: "Only used when heat_source is hot water. Used for terminal heat including reheat. Constraint to use when implemented :FluidLoop:"
+      Notes: "Only used when heating_source is hot water. Used for terminal heating including reheat. Constraint to use when implemented :FluidLoop:"
       RMR Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
-    cool_source:
-      Description: "Source of cool"
-      Data Type: "<CoolSourceType>"
-      Notes: "Used for terminal heat including reheat. JG to verify if used in test case description."
+    cooling_source:
+      Description: "Source of cooling"
+      Data Type: "<CoolingSourceType>"
+      Notes: "Used for terminal cooling. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    cool_from_loop:
-      Description: "Referenced to the fluid loop used for cool"
+    cooling_from_loop:
+      Description: "Referenced the fluid loop used to provide cooling"
       Data Type: "$ID"
-      Notes: "Only used when cool_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
+      Notes: "Only used when cooling_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -3345,20 +3371,20 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
-    heat_capacity:
-      Description: "Heat capacity for baseboard or radiant system or reheat"
+    heating_capacity:
+      Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the heat capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
+      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    cool_capacity:
-      Description: "Cool capacity for the radiant system or cooling coil"
+    cooling_capacity:
+      Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the cool capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
+      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
       RMR Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -3408,7 +3434,7 @@ TerminalFanConfiguration:
     OTHER:
       Description: "Other"
 
-HeatSourceType:
+HeatingSourceType:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRIC:
@@ -3420,7 +3446,7 @@ HeatSourceType:
     OTHER:
       Description: "Other"
 
-CoolSourceType:
+CoolingSourceType:
   Object Type: "Enumeration"
   Enumerators:
     CHILLED_WATER:
