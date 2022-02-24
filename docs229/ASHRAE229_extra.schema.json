@@ -38,18 +38,38 @@
                     "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CompliancePathType2019ASHRAE901"
                 },
+                "output_format_type": {
+                    "description": "Format used for output",
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/OutputFormatType"
+                },
                 "outputs": {
                     "description": "Outputs not related to a specific ruleset model instance.",
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/Output"
-                    }
+                    },
+                    "notes": "Only used when output_format_type is set to KEY_VALUE_PAIRS and depends on the ruleset."
                 }
             },
             "required": [
                 "id"
             ],
             "additionalProperties": false
+        },
+        "OutputFormatType": {
+            "type": "string",
+            "enum": [
+                "KEY_VALUE_PAIRS",
+                "EXTERNAL",
+                "OTHER",
+                "NONE"
+            ],
+            "descriptions": [
+                "Key-value pairs",
+                "External",
+                "Other",
+                "None"
+            ]
         },
         "RulesetModelInstance": {
             "type": "object",
@@ -121,7 +141,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/Output"
-                    }
+                    },
+                    "notes": "Only used when output_format_type is set to KEY_VALUE_PAIRS."
                 },
                 "building_rotation_angles": {
                     "description": "A list of angles that building simulations are performed and results are provided.",
@@ -1241,16 +1262,17 @@
                     "type": "string"
                 },
                 "energy_type": {
-                    "description": "Source of energy for the miscelleous equipment in the space",
+                    "description": "Source of energy for the miscellaneous equipment in the space",
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/EnergySourceTypeOptions"
                 },
-                "peak_usage": {
-                    "description": "Average hourly peak power by miscelleous equipment in the space.",
+                "power": {
+                    "description": "Power for miscellaneous equipment in the space",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power for each period in the schedule."
                 },
                 "multiplier_schedule": {
-                    "description": "Referenced to the schedule containing the multiplier for the miscellenous equipment",
+                    "description": "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space.",
                     "notes": "Constraint to use when implemented :Schedule:"
                 },
                 "sensible_fraction": {
@@ -1603,9 +1625,26 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "heat_to_zone": {
-                    "description": "Zone where the heat goes",
-                    "notes": "When specified, it is the zone the heat from the elevator motor and lighting lighting get added to"
+                "motor_location_zone": {
+                    "description": "Zone where the heat from the motor goes",
+                    "notes": "When specified, it is the zone the heat from the elevator motor get added to"
+                },
+                "motor_heat_fraction": {
+                    "description": "Fraction of heat from the motor that is added as a sensible load zone.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "cab_location_zone": {
+                    "description": "Zone where the heat from the cab goes",
+                    "notes": "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat"
+                },
+                "cab_heat_fraction": {
+                    "description": "Fraction of heat from the cab that is added as a sensible load zone.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "When specified, it is the fraction of the heat from the cab that gets added to the zone including lighting heat, fan heat, and accessory heat"
                 },
                 "is_variable_speed_motor": {
                     "description": "If the elevator uses a variable speed motor drive",
@@ -1691,8 +1730,8 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "fan_systems": {
-                    "description": "Fan systems",
+                "fan_system": {
+                    "description": "Fan system",
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/FanSystem",
                     "notes": "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem. JG to verify if used in test case description."
                 },
@@ -2442,6 +2481,24 @@
                     "maximum": 1.0,
                     "notes": "Only used when specification_method is set to Detailed."
                 },
+                "motor_heat_to_airflow_fraction": {
+                    "description": "Fraction of motor heat added to the airflow.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Fraction to airflow plus fraction to zone do not necessarily add up to 1.0."
+                },
+                "motor_heat_to_zone_fraction": {
+                    "description": "Fraction of motor heat added to the zone.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "notes": "Fraction to airflow plus fraction to zone do not necessarily add up to 1.0."
+                },
+                "motor_location_zone": {
+                    "description": "Zone where the heat from the motor goes",
+                    "notes": "When specified, it is the zone the heat from the fan motor get added to"
+                },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
                     "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusType2019T24"
@@ -2516,23 +2573,23 @@
                     "description": "HVAC system serving the terminal",
                     "notes": "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
                 },
-                "heat_source": {
-                    "description": "Source of heat",
-                    "$ref": "ASHRAE229_extra.schema.json#/definitions/HeatSourceType",
-                    "notes": "Used for terminal heat including reheat. JG to verify if used in test case description."
+                "heating_source": {
+                    "description": "Source of heating",
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/HeatingSourceType",
+                    "notes": "Used for terminal heating including reheat. JG to verify if used in test case description."
                 },
-                "heat_from_loop": {
-                    "description": "Referenced to the fluid loop used for heat",
-                    "notes": "Only used when heat_source is hot water. Used for terminal heat including reheat. Constraint to use when implemented :FluidLoop:"
+                "heating_from_loop": {
+                    "description": "References the fluid loop used to provide heating",
+                    "notes": "Only used when heating_source is hot water. Used for terminal heating including reheat. Constraint to use when implemented :FluidLoop:"
                 },
-                "cool_source": {
-                    "description": "Source of cool",
-                    "$ref": "ASHRAE229_extra.schema.json#/definitions/CoolSourceType",
-                    "notes": "Used for terminal heat including reheat. JG to verify if used in test case description."
+                "cooling_source": {
+                    "description": "Source of cooling",
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/CoolingSourceType",
+                    "notes": "Used for terminal cooling. JG to verify if used in test case description."
                 },
-                "cool_from_loop": {
-                    "description": "Referenced to the fluid loop used for cool",
-                    "notes": "Only used when cool_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
+                "cooling_from_loop": {
+                    "description": "Referenced the fluid loop used to provide cooling",
+                    "notes": "Only used when cooling_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
                 },
                 "fan": {
                     "description": "Terminal fan",
@@ -2578,17 +2635,17 @@
                     "description": "Zone terminal minimum outdoor air volume airflow multiplier schedule name",
                     "notes": "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
                 },
-                "heat_capacity": {
-                    "description": "Heat capacity for baseboard or radiant system or reheat",
+                "heating_capacity": {
+                    "description": "Heating capacity for baseboard or radiant system or reheat",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the heat capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
+                    "notes": "Only includes the heating capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
                 },
-                "cool_capacity": {
-                    "description": "Cool capacity for the radiant system or cooling coil",
+                "cooling_capacity": {
+                    "description": "Cooling capacity for the radiant system or cooling coil",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the cool capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
+                    "notes": "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
                 },
                 "is_supply_ducted": {
                     "description": "True if the the supply is ducted.",
@@ -2639,7 +2696,7 @@
                 "Other"
             ]
         },
-        "HeatSourceType": {
+        "HeatingSourceType": {
             "type": "string",
             "enum": [
                 "ELECTRIC",
@@ -2654,7 +2711,7 @@
                 "Other"
             ]
         },
-        "CoolSourceType": {
+        "CoolingSourceType": {
             "type": "string",
             "enum": [
                 "CHILLED_WATER",
@@ -3171,6 +3228,14 @@
                     "items": {
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/ChillerPowerValidationPoint"
                     }
+                },
+                "is_chilled_water_pump_interlocked": {
+                    "description": "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller",
+                    "type": "boolean"
+                },
+                "is_condenser_water_pump_interlocked": {
+                    "description": "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -3664,7 +3729,7 @@
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/ComponentLocation",
                     "notes": "From CBECC-Com."
                 },
-                "zone_location": {
+                "location_zone": {
                     "description": "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocation",
                     "notes": "From CBECC-Com. Constraint to use when implemented :Zone:"
                 },
@@ -4397,7 +4462,7 @@
                     "type": "number",
                     "units": "m2"
                 },
-                "zone_case_location": {
+                "case_zone": {
                     "description": "Zone where case is located"
                 }
             },
@@ -4527,6 +4592,6 @@
             ]
         }
     },
-    "version": "0.0.9",
+    "version": "0.0.10",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }
