@@ -4691,7 +4691,7 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    zone_location:
+    location_zone:
       Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocation"
       Data Type: "$ID"
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
@@ -5658,7 +5658,7 @@ Refrigeration:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    zone_case_location:
+    case_zone:
       Description: "Zone where case is located"
       Data Type: "$ID"
       RMR Test: "unknown"
