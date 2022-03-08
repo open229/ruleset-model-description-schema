@@ -41,3 +41,10 @@
 | `TEMPERATURE_MODULATION_AND_MONITORING` | Temperature modulation and monitoring |       |
 | `OTHER`                                 | Other                                 |       |
 
+# OutputSchema2019T24
+|           Enumerator            |              Description               | Notes |
+|---------------------------------|----------------------------------------|-------|
+| `OUTPUT_SCHEMA_T24_RESIDENTIAL` | Output schema for Title 24 Residential |       |
+| `OUTPUT_SCHEMA_T24_COMMERCIAL`  | Output schema for Title 24 Commercial  |       |
+| `OTHER`                         | other                                  |       |
+

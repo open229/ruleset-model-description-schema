@@ -13,3 +13,9 @@
 | `MULTIFAMILY_BUFFER_SPACE` | Multifamily Buffer Space |       |
 | `COMMON_WALL`              | Common Wall              |       |
 
+# OutputSchemaRESNET
+|       Enumerator       |       Description        | Notes |
+|------------------------|--------------------------|-------|
+| `OUTPUT_SCHEMA_RESNET` | Output schema for RESNET |       |
+| `OTHER`                | other                    |       |
+

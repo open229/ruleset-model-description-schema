@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.10"
+  Version: "0.0.11"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -96,7 +96,7 @@ ASHRAE229:
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
-      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. "
+      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. References between data groups are restricted to be within the same ruleset model instance."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -124,31 +124,11 @@ ASHRAE229:
       AppG B_RMR Equals P_RMR: "unknown"
     output_format_type:
       Description: "Format used for output"
-      Data Type: "<OutputFormatType>"
+      Data Type: "(<OutputSchema2019ASHRAE901>, <OutputSchema2019T24>, OutputSchemaRESNET)"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    outputs:
-      Description: "Outputs not related to a specific ruleset model instance."
-      Data Type: "[{Output}]"
-      Notes: "Only used when output_format_type is set to KEY_VALUE_PAIRS and depends on the ruleset."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-
-OutputFormatType:
-  Object Type: "Enumeration"
-  Enumerators:
-    KEY_VALUE_PAIRS:
-      Description: "Key-value pairs"
-    EXTERNAL:
-      Description: "External"
-    OTHER:
-      Description: "Other"
-    NONE:
-      Description: "None"
       
 RulesetModelInstance:
   Object Type: "Data Group"
@@ -223,14 +203,6 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    outputs:
-      Description: "Outputs from the simulation of the model summed for all buildings in the simulation."
-      Data Type: "[{Output}]"
-      Notes: "Only used when output_format_type is set to KEY_VALUE_PAIRS."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
     building_rotation_angles:
       Description: "A list of angles that building simulations are performed and results are provided."
       Data Type: "[Numeric]"
@@ -254,6 +226,14 @@ RulesetModelInstance:
       Notes: "Contains a list of service water heating distribution systems at the site."
       RMR Test: False
       AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    service_water_heating_equipment:
+      Description: "Service water heating equipment on the site"
+      Data Type: "[{ServiceWaterHeatingEquipment}]"
+      Notes: "Contains a list of service water heating equipment at the site."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     pumps:
@@ -764,7 +744,7 @@ Space:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    service_weater_heating_uses:
+    service_water_heating_uses:
       Description: "List of service water heating uses"
       Data Type: "[{ServiceWaterHeatingUse}]"
       RMR Test: False
@@ -1650,14 +1630,15 @@ MiscellaneousEquipment:
       Description: "Source of energy for the miscellaneous equipment in the space"
       Data Type: "<EnergySourceTypeOptions>"
       RMR Test: False
+      Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
-    power:
-      Description: "Power for miscellaneous equipment in the space"
+    energy_per_time:
+      Description: "The energy per unit time for miscellaneous equipment in the space"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power for each period in the schedule."
+      Notes: "The value of energy per unit time for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
       RMR Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -5526,6 +5507,9 @@ EnergySourceTypeOptions:
       Description: "Propane"
     FUEL_OIL:
       Description: "Fuel oil"
+    NONE:
+      Description: "None"
+      Notes: "No energy consumption by a utility supplied source occurs"
     OTHER:
       Description: "Other"
 
@@ -5786,47 +5770,3 @@ ApplicationTemperatureType:
     OTHER:
       Description: "Other"
 
-Output:
-  Object Type: "Data Group"
-  Data Elements:
-    output_descriptor:
-      Description: "Ruleset specific descriptor of output from simulation program or postprocessed results"
-      Data Type: "(<CommonOutputDescriptors>,<OutputDescriptors2019ASHRAE901>)"
-      Required: True
-      Notes: "The output required for a ruleset is determined by the list of output descriptors for that ruleset. Units are described at the end of each output descriptor preceeded by an underscore or the term UNITLESS."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    data_group_reference:
-      Description: "Optionsal reference to a data group that is related to the output"
-      Data Type: "$ID"
-      Notes: "Typically unused for overall results or references zone, fluidloop, or HVAC data group for outputs that are related to those specific components. For example, annual lighting energy consumption for a specific zone would reference the specific zone."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    values:
-      Description: "The actual values of the output corresponding to the output descriptor"
-      Data Type: "[Numeric]"
-      Units: "W"
-      Notes: "Typically a single output value is listed but for some descriptors a series out output values may be appropriate. If a list of values is required the term LIST should appear in the output_descriptor"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    
-CommonOutputDescriptors:
-  Object Type: "Enumeration"
-  Enumerators:
-    UNMET_LOAD_HOURS_HEATING_HOURS:
-      Description: "Unmet load hours during heating"
-    UNMET_LOAD_HOURS_COOLING_HOURS:
-      Description: "Unmet load hours during cooling"
-    ANNUAL_ELECTRIC_CONSUMPTION_GJ:
-      Description: "Annual electric consumption for the model"
-    ANNUAL_GAS_CONSUMPTION_GJ:
-      Description: "Annual natural gas consumption for the model"
-    ANNUAL_OTHER_FUEL_CONSUMPTION_GJ:
-      Description: "Annual consumption by other fuels than natural gas for the model"
-    

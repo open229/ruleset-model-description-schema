@@ -24,7 +24,7 @@
                     "items": {
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetModelInstance"
                     },
-                    "notes": "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. "
+                    "notes": "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. References between data groups are restricted to be within the same ruleset model instance."
                 },
                 "calendar": {
                     "description": "Information on the calendar used with the simulation.",
@@ -40,36 +40,23 @@
                 },
                 "output_format_type": {
                     "description": "Format used for output",
-                    "$ref": "ASHRAE229_extra.schema.json#/definitions/OutputFormatType"
-                },
-                "outputs": {
-                    "description": "Outputs not related to a specific ruleset model instance.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229_extra.schema.json#/definitions/Output"
-                    },
-                    "notes": "Only used when output_format_type is set to KEY_VALUE_PAIRS and depends on the ruleset."
+                    "oneOf": [
+                        {
+                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/OutputSchema2019ASHRAE901"
+                        },
+                        {
+                            "$ref": "Enumerations2019T24.schema.json#/definitions/OutputSchema2019T24"
+                        },
+                        {
+                            "$ref": "EnumerationsRESNET.schema.json#/definitions/OutputSchemaRESNET"
+                        }
+                    ]
                 }
             },
             "required": [
                 "id"
             ],
             "additionalProperties": false
-        },
-        "OutputFormatType": {
-            "type": "string",
-            "enum": [
-                "KEY_VALUE_PAIRS",
-                "EXTERNAL",
-                "OTHER",
-                "NONE"
-            ],
-            "descriptions": [
-                "Key-value pairs",
-                "External",
-                "Other",
-                "None"
-            ]
         },
         "RulesetModelInstance": {
             "type": "object",
@@ -136,14 +123,6 @@
                     "description": "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building.",
                     "type": "boolean"
                 },
-                "outputs": {
-                    "description": "Outputs from the simulation of the model summed for all buildings in the simulation.",
-                    "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229_extra.schema.json#/definitions/Output"
-                    },
-                    "notes": "Only used when output_format_type is set to KEY_VALUE_PAIRS."
-                },
                 "building_rotation_angles": {
                     "description": "A list of angles that building simulations are performed and results are provided.",
                     "type": "array",
@@ -168,6 +147,14 @@
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/ServiceWaterHeatingDistributionSystem"
                     },
                     "notes": "Contains a list of service water heating distribution systems at the site."
+                },
+                "service_water_heating_equipment": {
+                    "description": "Service water heating equipment on the site",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229_extra.schema.json#/definitions/ServiceWaterHeatingEquipment"
+                    },
+                    "notes": "Contains a list of service water heating equipment at the site."
                 },
                 "pumps": {
                     "description": "Pumps used on the site",
@@ -559,7 +546,7 @@
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceType2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 },
-                "service_weater_heating_uses": {
+                "service_water_heating_uses": {
                     "description": "List of service water heating uses",
                     "type": "array",
                     "items": {
@@ -1263,13 +1250,14 @@
                 },
                 "energy_type": {
                     "description": "Source of energy for the miscellaneous equipment in the space",
-                    "$ref": "ASHRAE229_extra.schema.json#/definitions/EnergySourceTypeOptions"
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/EnergySourceTypeOptions",
+                    "notes": "To indicate that the energy is not accounted for by any utility supplied source, choose NONE"
                 },
-                "power": {
-                    "description": "Power for miscellaneous equipment in the space",
+                "energy_per_time": {
+                    "description": "The energy per unit time for miscellaneous equipment in the space",
                     "type": "number",
                     "units": "W",
-                    "notes": "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power for each period in the schedule."
+                    "notes": "The value of energy per unit time for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
                 },
                 "multiplier_schedule": {
                     "description": "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space.",
@@ -4328,6 +4316,7 @@
                 "NATURAL_GAS",
                 "PROPANE",
                 "FUEL_OIL",
+                "NONE",
                 "OTHER"
             ],
             "descriptions": [
@@ -4335,7 +4324,16 @@
                 "Natural gas",
                 "Propane",
                 "Fuel oil",
+                "None",
                 "Other"
+            ],
+            "notes": [
+                null,
+                null,
+                null,
+                null,
+                "No energy consumption by a utility supplied source occurs",
+                null
             ]
         },
         "ExteriorLighting": {
@@ -4539,59 +4537,8 @@
                 "-26.1 C +/- 1.1 C (-15 F +/- 2 F)",
                 null
             ]
-        },
-        "Output": {
-            "type": "object",
-            "properties": {
-                "output_descriptor": {
-                    "description": "Ruleset specific descriptor of output from simulation program or postprocessed results",
-                    "oneOf": [
-                        {
-                            "$ref": "ASHRAE229_extra.schema.json#/definitions/CommonOutputDescriptors"
-                        },
-                        {
-                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/OutputDescriptors2019ASHRAE901"
-                        }
-                    ],
-                    "notes": "The output required for a ruleset is determined by the list of output descriptors for that ruleset. Units are described at the end of each output descriptor preceeded by an underscore or the term UNITLESS."
-                },
-                "data_group_reference": {
-                    "description": "Optionsal reference to a data group that is related to the output",
-                    "notes": "Typically unused for overall results or references zone, fluidloop, or HVAC data group for outputs that are related to those specific components. For example, annual lighting energy consumption for a specific zone would reference the specific zone."
-                },
-                "values": {
-                    "description": "The actual values of the output corresponding to the output descriptor",
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    },
-                    "units": "W",
-                    "notes": "Typically a single output value is listed but for some descriptors a series out output values may be appropriate. If a list of values is required the term LIST should appear in the output_descriptor"
-                }
-            },
-            "required": [
-                "output_descriptor"
-            ],
-            "additionalProperties": false
-        },
-        "CommonOutputDescriptors": {
-            "type": "string",
-            "enum": [
-                "UNMET_LOAD_HOURS_HEATING_HOURS",
-                "UNMET_LOAD_HOURS_COOLING_HOURS",
-                "ANNUAL_ELECTRIC_CONSUMPTION_GJ",
-                "ANNUAL_GAS_CONSUMPTION_GJ",
-                "ANNUAL_OTHER_FUEL_CONSUMPTION_GJ"
-            ],
-            "descriptions": [
-                "Unmet load hours during heating",
-                "Unmet load hours during cooling",
-                "Annual electric consumption for the model",
-                "Annual natural gas consumption for the model",
-                "Annual consumption by other fuels than natural gas for the model"
-            ]
         }
     },
-    "version": "0.0.10",
+    "version": "0.0.11",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }

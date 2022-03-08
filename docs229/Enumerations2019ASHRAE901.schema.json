@@ -1043,21 +1043,15 @@
                 "Other non-residential"
             ]
         },
-        "OutputDescriptors2019ASHRAE901": {
+        "OutputSchema2019ASHRAE901": {
             "type": "string",
             "enum": [
-                "ANNUAL_ELECTRIC_COST_DOLLARS",
-                "ANNUAL_GAS_COST_DOLLARS",
-                "ANNUAL_OTHER_FUEL_COST_DOLLARS",
-                "PERFORMANCE_COST_INDEX_UNITLESS",
-                "BUILDING_PEAK_COOLING_LOAD_WATTS"
+                "OUTPUT_SCHEMA_ASHRAE901_2019",
+                "OTHER"
             ],
             "descriptions": [
-                "Annual electric cost for the model",
-                "Annual natural gas cost for the model",
-                "Annual cost by other fuels than natural gas for the model",
-                "Performance cost index for the project. This output is appropriate for the overall project not specific instance of a model.",
-                "The peak coincident cooling load for the building."
+                "Output schema for ASHRAE 90.1 2019",
+                "other"
             ]
         }
     }

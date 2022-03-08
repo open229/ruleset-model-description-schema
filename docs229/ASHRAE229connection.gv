@@ -4,13 +4,12 @@ digraph G {
   ASHRAE229 -> RulesetModelInstance
   ASHRAE229 -> Calendar
   ASHRAE229 -> Weather
-  ASHRAE229 -> Output
   RulesetModelInstance -> Transformer
   RulesetModelInstance -> Building
   RulesetModelInstance -> Schedule
-  RulesetModelInstance -> Output
   RulesetModelInstance -> FluidLoop
   RulesetModelInstance -> ServiceWaterHeatingDistributionSystem
+  RulesetModelInstance -> ServiceWaterHeatingEquipment
   RulesetModelInstance -> Pump
   RulesetModelInstance -> Boiler
   RulesetModelInstance -> Chiller

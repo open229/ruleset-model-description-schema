@@ -76,3 +76,12 @@ ServiceWaterHeatingControlType2019T24Com:
     OTHER:
       Description: "Other"
 
+OutputSchema2019T24:
+  Object Type: "Enumeration"
+  Enumerators:
+    OUTPUT_SCHEMA_T24_RESIDENTIAL:
+      Description: "Output schema for Title 24 Residential"
+    OUTPUT_SCHEMA_T24_COMMERCIAL:
+      Description: "Output schema for Title 24 Commercial"
+    OTHER:
+      Description: "other"
