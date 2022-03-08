@@ -96,7 +96,7 @@ ASHRAE229:
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
-      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. "
+      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. References between data groups are restricted to be within the same ruleset model instance."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -226,6 +226,14 @@ RulesetModelInstance:
       Notes: "Contains a list of service water heating distribution systems at the site."
       RMR Test: False
       AppG Used By TCDs: False
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    service_water_heating_equipment:
+      Description: "Service water heating equipment on the site"
+      Data Type: "[{ServiceWaterHeatingEquipment}]"
+      Notes: "Contains a list of service water heating equipment at the site."
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     pumps:
