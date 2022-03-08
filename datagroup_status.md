@@ -50,6 +50,6 @@
 | Tank                                         | Approved by Schema WG (less stable)
 | ServiceWaterHeatingUse                       | Approved by Schema WG (less stable)
 | ExteriorLighting                             | Approved by Schema WG
-| Refrigeration                                | In Discussion by Schema WG
+| Refrigeration                                | Approved by Schema WG
 | Output                                       | In Development
 
