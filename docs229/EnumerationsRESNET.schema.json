@@ -30,6 +30,17 @@
                 "Multifamily Buffer Space",
                 "Common Wall"
             ]
+        },
+        "OutputSchemaRESNET": {
+            "type": "string",
+            "enum": [
+                "OUTPUT_SCHEMA_RESNET",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Output schema for RESNET",
+                "other"
+            ]
         }
     }
 }

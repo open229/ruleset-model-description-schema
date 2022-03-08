@@ -83,6 +83,19 @@
                 "Temperature modulation and monitoring",
                 "Other"
             ]
+        },
+        "OutputSchema2019T24": {
+            "type": "string",
+            "enum": [
+                "OUTPUT_SCHEMA_T24_RESIDENTIAL",
+                "OUTPUT_SCHEMA_T24_COMMERCIAL",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Output schema for Title 24 Residential",
+                "Output schema for Title 24 Commercial",
+                "other"
+            ]
         }
     }
 }
