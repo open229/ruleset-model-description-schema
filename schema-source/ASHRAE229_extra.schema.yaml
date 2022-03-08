@@ -1650,6 +1650,7 @@ MiscellaneousEquipment:
       Description: "Source of energy for the miscellaneous equipment in the space"
       Data Type: "<EnergySourceTypeOptions>"
       RMR Test: False
+      Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
@@ -5526,6 +5527,9 @@ EnergySourceTypeOptions:
       Description: "Propane"
     FUEL_OIL:
       Description: "Fuel oil"
+    NONE:
+      Description: "None"
+      Notes: "No energy consumption by a utility supplied source occurs"
     OTHER:
       Description: "Other"
 
