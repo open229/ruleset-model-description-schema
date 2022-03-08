@@ -124,31 +124,11 @@ ASHRAE229:
       AppG B_RMR Equals P_RMR: "unknown"
     output_format_type:
       Description: "Format used for output"
-      Data Type: "<OutputFormatType>"
+      Data Type: "(<OutputSchema2019ASHRAE901>, <OutputSchema2019T24>, OutputSchemaRESNET)"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    outputs:
-      Description: "Outputs not related to a specific ruleset model instance."
-      Data Type: "[{Output}]"
-      Notes: "Only used when output_format_type is set to KEY_VALUE_PAIRS and depends on the ruleset."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-
-OutputFormatType:
-  Object Type: "Enumeration"
-  Enumerators:
-    KEY_VALUE_PAIRS:
-      Description: "Key-value pairs"
-    EXTERNAL:
-      Description: "External"
-    OTHER:
-      Description: "Other"
-    NONE:
-      Description: "None"
       
 RulesetModelInstance:
   Object Type: "Data Group"
@@ -220,14 +200,6 @@ RulesetModelInstance:
       Description: "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building."
       Data Type: "Boolean"
       RMR Test: False
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    outputs:
-      Description: "Outputs from the simulation of the model summed for all buildings in the simulation."
-      Data Type: "[{Output}]"
-      Notes: "Only used when output_format_type is set to KEY_VALUE_PAIRS."
-      RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
@@ -5790,47 +5762,3 @@ ApplicationTemperatureType:
     OTHER:
       Description: "Other"
 
-Output:
-  Object Type: "Data Group"
-  Data Elements:
-    output_descriptor:
-      Description: "Ruleset specific descriptor of output from simulation program or postprocessed results"
-      Data Type: "(<CommonOutputDescriptors>,<OutputDescriptors2019ASHRAE901>)"
-      Required: True
-      Notes: "The output required for a ruleset is determined by the list of output descriptors for that ruleset. Units are described at the end of each output descriptor preceeded by an underscore or the term UNITLESS."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    data_group_reference:
-      Description: "Optionsal reference to a data group that is related to the output"
-      Data Type: "$ID"
-      Notes: "Typically unused for overall results or references zone, fluidloop, or HVAC data group for outputs that are related to those specific components. For example, annual lighting energy consumption for a specific zone would reference the specific zone."
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    values:
-      Description: "The actual values of the output corresponding to the output descriptor"
-      Data Type: "[Numeric]"
-      Units: "W"
-      Notes: "Typically a single output value is listed but for some descriptors a series out output values may be appropriate. If a list of values is required the term LIST should appear in the output_descriptor"
-      RMR Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMR Equals U_RMR: "unknown"
-      AppG B_RMR Equals P_RMR: "unknown"
-    
-CommonOutputDescriptors:
-  Object Type: "Enumeration"
-  Enumerators:
-    UNMET_LOAD_HOURS_HEATING_HOURS:
-      Description: "Unmet load hours during heating"
-    UNMET_LOAD_HOURS_COOLING_HOURS:
-      Description: "Unmet load hours during cooling"
-    ANNUAL_ELECTRIC_CONSUMPTION_GJ:
-      Description: "Annual electric consumption for the model"
-    ANNUAL_GAS_CONSUMPTION_GJ:
-      Description: "Annual natural gas consumption for the model"
-    ANNUAL_OTHER_FUEL_CONSUMPTION_GJ:
-      Description: "Annual consumption by other fuels than natural gas for the model"
-    

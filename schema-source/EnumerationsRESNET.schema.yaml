@@ -32,3 +32,10 @@ AdditionalSurfaceAdjacentToRESNET:
     COMMON_WALL:
       Description: "Common Wall"
 
+OutputSchemaRESNET:
+  Object Type: "Enumeration"
+  Enumerators:
+    OUTPUT_SCHEMA_RESNET:
+      Description: "Output schema for RESNET"
+    OTHER:
+      Description: "other"
