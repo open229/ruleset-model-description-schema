@@ -744,7 +744,7 @@ Space:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    service_weater_heating_uses:
+    service_water_heating_uses:
       Description: "List of service water heating uses"
       Data Type: "[{ServiceWaterHeatingUse}]"
       RMR Test: False
