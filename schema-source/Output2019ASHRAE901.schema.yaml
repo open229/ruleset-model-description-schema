@@ -114,6 +114,11 @@ OutputInstance:
       Data Type: "Numeric"
       Units: "J"
       Required: True
+    annual_renewable_energy_production:
+      Description: "Total annual renewable energy produced"
+      Data Type: "Numeric"
+      Units: "J"
+      Required: True
     annual_electric_cost:
       Description: "Annual electric cost"
       Data Type: "Numeric"
@@ -129,6 +134,11 @@ OutputInstance:
       Data Type: "Numeric"
       Required: True
       Notes: "The units are the local monetary units such as dollars."
+    annual_renewable_energy_cost:
+      Description: "Annual renewable energy cost"
+      Data Type: "Numeric"
+      Required: True
+      Notes: "Often shown in negative dollars. The units are the local monetary units such as dollars."
     building_peak_cooling_load:
       Description: "Building peak cooling load"
       Data Type: "Numeric"
