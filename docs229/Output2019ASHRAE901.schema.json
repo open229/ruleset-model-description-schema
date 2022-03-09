@@ -1,0 +1,341 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Outputs from ASHRAE 90.1-2019",
+    "description": "Schema addition for ASHRAE 229 related to output required by ASHRAE Standard 90.1-2019",
+    "definitions": {
+        "Output2019ASHRAE901": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group.",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "output_instance": {
+                    "description": "References output that correspond to specific simulation model.",
+                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/OutputInstance",
+                    "notes": "A seperate file is expected for each simulation model including outputs that correspond with building rotations."
+                },
+                "performance_cost_index": {
+                    "description": "Performance cost index for the project",
+                    "type": "number",
+                    "notes": "This output is appropriate for the overall project not specific instance of a model."
+                },
+                "baseline_building_unregulated_energy_cost": {
+                    "description": "baseline building unregulated energy cost.",
+                    "type": "number",
+                    "notes": "The units are the local monetary units such as dollars. This output is appropriate for the overall project not specific instance of a model."
+                },
+                "baseline_building_regulated_energy_cost": {
+                    "description": "baseline building regulated energy cost.",
+                    "type": "number",
+                    "notes": "The units are the local monetary units such as dollars. This output is appropriate for the overall project not specific instance of a model."
+                },
+                "baseline_building_performance_energy_cost": {
+                    "description": "baseline building performance energy cost.",
+                    "type": "number",
+                    "notes": "The units are the local monetary units such as dollars. This output is appropriate for the overall project not specific instance of a model."
+                },
+                "total_area_weighted_building_performance_factor": {
+                    "description": "Total area weighted building performance factor",
+                    "type": "number",
+                    "notes": "This output is appropriate for the overall project not specific instance of a model."
+                },
+                "performance_cost_index_target": {
+                    "description": "Performance cost index target for the project",
+                    "type": "number",
+                    "notes": "This output is appropriate for the overall project not specific instance of a model."
+                },
+                "total_proposed_building_energy_cost_including_renewable_energy": {
+                    "description": "Total proposed building energy cost including renewable energy.",
+                    "type": "number",
+                    "notes": "The units are the local monetary units such as dollars. This output is appropriate for the overall project not specific instance of a model."
+                },
+                "total_proposed_building_energy_cost_excluding_renewable_energy": {
+                    "description": "Total proposed building energy cost excluding renewable energy.",
+                    "type": "number",
+                    "notes": "The units are the local monetary units such as dollars. This output is appropriate for the overall project not specific instance of a model."
+                },
+                "percent_renewable_energy_savings": {
+                    "description": "Percent renewable energy savings",
+                    "type": "number",
+                    "notes": "This output is appropriate for the overall project not specific instance of a model."
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "OutputInstance": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group.",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "ruleset_model_type": {
+                    "description": "Describes the current model instance for rulesets with multiple simulation models"
+                },
+                "rotation_angle": {
+                    "description": "Rotation angle of the building model.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "exclusiveMaximum": 360.0,
+                    "notes": "Usually 0, 90, 180, or 270."
+                },
+                "unmet_load_hours_heating": {
+                    "description": "Unmet load hours for heating",
+                    "type": "number",
+                    "units": "hr"
+                },
+                "unmet_occupied_load_hours_heating": {
+                    "description": "Unmet load hours for heating when the zone is occupied",
+                    "type": "number",
+                    "units": "hr"
+                },
+                "unmet_load_hours_cooling": {
+                    "description": "Unmet load hours for cooling",
+                    "type": "number",
+                    "units": "hr"
+                },
+                "unmet_occupied_load_hours_cooling": {
+                    "description": "Unmet load hours for cooling when the zone is occupied",
+                    "type": "number",
+                    "units": "hr"
+                },
+                "annual_source_results": {
+                    "description": "Annual results by source",
+                    "type": "array",
+                    "items": {
+                        "$ref": "Output2019ASHRAE901.schema.json#/definitions/SourceResult"
+                    },
+                    "notes": "Contains a list of results by energy source."
+                },
+                "building_peak_cooling_load": {
+                    "description": "Building peak cooling load",
+                    "type": "number",
+                    "units": "W"
+                },
+                "annual_end_use_results": {
+                    "description": "Annual end use results",
+                    "type": "array",
+                    "items": {
+                        "$ref": "Output2019ASHRAE901.schema.json#/definitions/EndUseResult"
+                    },
+                    "notes": "Contains a list of results by end use and energy source."
+                }
+            },
+            "required": [
+                "id",
+                "unmet_load_hours_heating",
+                "unmet_occupied_load_hours_heating",
+                "unmet_load_hours_cooling",
+                "unmet_occupied_load_hours_cooling",
+                "building_peak_cooling_load"
+            ],
+            "additionalProperties": false
+        },
+        "SourceResult": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group.",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "energy_source": {
+                    "description": "End use type",
+                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
+                },
+                "annual_consumption": {
+                    "description": "Annual energy consumption",
+                    "type": "number",
+                    "units": "J",
+                    "notes": "For energy_source ON_SITE_RENEWABLES this value is negative."
+                },
+                "annual_demand": {
+                    "description": "Annual site demand",
+                    "type": "number",
+                    "units": "J",
+                    "notes": "This corresponds to the coincident demand for end-use results."
+                },
+                "annual_cost": {
+                    "description": "Annual cost",
+                    "type": "number",
+                    "notes": "The units are the local monetary units such as dollars. For energy_source ON_SITE_RENEWABLES this value is negative."
+                }
+            },
+            "required": [
+                "id",
+                "energy_source",
+                "annual_consumption",
+                "annual_demand",
+                "annual_cost"
+            ],
+            "additionalProperties": false
+        },
+        "EndUseResult": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group.",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "End use type",
+                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EndUseType"
+                },
+                "energy_source": {
+                    "description": "End use type",
+                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
+                },
+                "annual_site_energy_use": {
+                    "description": "Annual site energy use",
+                    "type": "number",
+                    "units": "J"
+                },
+                "annual_site_coincident_demand": {
+                    "description": "Annual site coincident demand",
+                    "type": "number",
+                    "units": "J"
+                },
+                "annual_site_non_coincident_demand": {
+                    "description": "Annual site non-coincident demand",
+                    "type": "number",
+                    "units": "J"
+                },
+                "is_regulated": {
+                    "description": "Indicates whether the end use consumption is from regulated equipment",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "energy_source",
+                "annual_site_energy_use",
+                "annual_site_coincident_demand",
+                "annual_site_non_coincident_demand"
+            ],
+            "additionalProperties": false
+        },
+        "EndUseType": {
+            "type": "string",
+            "enum": [
+                "INTERIOR_LIGHTING",
+                "EXTERIOR_LIGHTING",
+                "SPACE_HEATING",
+                "HEAT_PUMP_SUPPLEMENTAL_HEATING",
+                "SPACE_COOLING",
+                "PUMPS",
+                "HEAT_REJECTION",
+                "FANS_INTERIOR_VENTILATION",
+                "FANS_PARKING_GARAGE",
+                "HUMIDIFICATION",
+                "HEAT_RECOVERY",
+                "SERVICE_WATER_HEATING",
+                "MOTORS",
+                "TRANSFORMERS",
+                "OFFICE_EQUIPMENT",
+                "COMPUTERS_SERVERS",
+                "COMMERCIAL_COOKING",
+                "MISC_EQUIPMENT",
+                "INDUSTRIAL_PROCESS",
+                "REFRIGERATION_EQUIPMENT",
+                "ELEVATORS_ESCALATORS",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Interior lighting",
+                "Exterior lighting",
+                "Space heating",
+                "Heat pump supplemental heating",
+                "Space cooling",
+                "Pumps",
+                "Heat rejection",
+                "Fans - interior ventilation",
+                "Fans - parking garage",
+                "Humidification",
+                "Heat recovery",
+                "Service water heating",
+                "Motors",
+                "Transformers",
+                "Office equipment",
+                "Computers and servers",
+                "Commercial cooking",
+                "Misc equipment",
+                "Industrial process",
+                "Refrigeration equipment",
+                "Elevators and escalators",
+                "Other"
+            ]
+        },
+        "EnergySourceOptions": {
+            "type": "string",
+            "enum": [
+                "ELECTRICITY",
+                "NATURAL_GAS",
+                "PROPANE",
+                "FUEL_OIL",
+                "STEAM",
+                "PURCHASED_HOT_WATER",
+                "PURCHASED_CHILLED_WATER",
+                "ON_SITE_RENEWABLES",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Electricity",
+                "Natural gas",
+                "Propane",
+                "Fuel oil",
+                "Steam",
+                "Purchased hot water",
+                "Purchased chilled water",
+                "On-site renewables",
+                "Other"
+            ],
+            "notes": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "Used primarily in AnnualResult",
+                null
+            ]
+        }
+    }
+}

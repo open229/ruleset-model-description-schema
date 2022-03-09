@@ -421,13 +421,6 @@
 | `AMMONIA`     | Ammonia     |                  |
 | `OTHER`       | Other       |                  |
 
-# HeatRejectionResetOptions
-|  Enumerator  | Description | Notes |
-|--------------|-------------|-------|
-| `CONSTANT`   | Constant    |       |
-| `LOAD_RESET` | Load reset  |       |
-| `OTHER`      | Other       |       |
-
 # HeatRejectionFanSpeedControlOptions
 |    Enumerator    |  Description   | Notes |
 |------------------|----------------|-------|
@@ -1080,7 +1073,6 @@
 | `motor_efficiency`      | Full load efficiency of the pump motor                                       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed                                         | False    | False             | False                   | False                   |
 | `speed_control`         | Options for pump speed control                                               | `<PumpSpeedControlOptions>`        |       |          |     |                                                                                                | Primary  | True              | True                    | False                   |
 | `design_flow`           | Design Pump Flowrate                                                         | `Numeric`                          | L/s   |          |     |                                                                                                | unknown  | unknown           | unknown                 | unknown                 |
-| `minium_flow`           | Minimum Pump Flowrate                                                        | `Numeric`                          | L/s   |          |     |                                                                                                | Primary  | True              | True                    | False                   |
 | `is_flow_autosized`     | True if the design_flow is autosized                                         | `Boolean`                          |       |          |     |                                                                                                | unknown  | unknown           | unknown                 | unknown                 |
 
 # Boiler
@@ -1158,11 +1150,8 @@
 | `fluid`                      | Fluid Cooled by Heat Rejection                                               | `<HeatRejectionFluidOptions>`           |       |       |     |                                                | unknown  | True              | True                    | False                   |
 | `range`                      | Heat rejection Range                                                         | `Numeric`                               | C     |       |     |                                                | unknown  | True              | True                    | False                   |
 | `approach`                   | Heat rejection Approach                                                      | `Numeric`                               | C     |       |     |                                                | unknown  | True              | True                    | False                   |
-| `reset_type`                 | Leaving Temperature reset strategy                                           | `<HeatRejectionResetOptions>`           |       |       |     |                                                | unknown  | True              | True                    | False                   |
-| `minimum_reset_temperature`  | Minimum leaving temperature setpoint                                         | `Numeric`                               | C     |       |     |                                                | unknown  | True              | True                    | False                   |
 | `fan_power`                  | Fan Power                                                                    | `Numeric`                               | W     |       |     |                                                | unknown  | True              | True                    | False                   |
 | `fan_speed_control`          | Fan Speed Control Type                                                       | `<HeatRejectionFanSpeedControlOptions>` |       |       |     |                                                | unknown  | True              | True                    | False                   |
-| `design_supply_temperature`  | Design leaving water temperature                                             | `Numeric`                               | C     |       |     |                                                | unknown  | True              | True                    | False                   |
 | `design_wetbulb_temperature` | Design wetbulb temperature                                                   | `Numeric`                               | C     |       |     | 0.4% ASHRAE MCWB                               | unknown  | True              | True                    | False                   |
 | `design_water_flowrate`      | Design condenser water flow rate                                             | `Numeric`                               | L/s   |       |     |                                                | unknown  | unknown           | unknown                 | unknown                 |
 | `rated_water_flowrate`       | Rated condenser water flow rate                                              | `Numeric`                               | L/s   |       |     | At rating conditions.                          | unknown  | unknown           | unknown                 | unknown                 |

@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.11"
+  Version: "0.0.12"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -3801,14 +3801,6 @@ Pump:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    minium_flow:
-      Description: "Minimum Pump Flowrate"
-      Data Type: "Numeric"
-      Units: "L/s"
-      RMR Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
       Data Type: "Boolean"
@@ -4316,21 +4308,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
-    reset_type:
-      Description: "Leaving Temperature reset strategy"
-      Data Type: "<HeatRejectionResetOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
-    minimum_reset_temperature:
-      Description: "Minimum leaving temperature setpoint"
-      Data Type: "Numeric"
-      Units: "C"
-      RMR Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
     fan_power:
       Description: "Fan Power"
       Data Type: "Numeric"
@@ -4342,14 +4319,6 @@ HeatRejection:
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
-    design_supply_temperature:
-      Description: "Design leaving water temperature"
-      Data Type: "Numeric"
-      Units: "C"
       RMR Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -4417,16 +4386,6 @@ HeatRejectionFluidOptions:
       Notes: "Including R-448A"
     AMMONIA:
       Description: "Ammonia"
-    OTHER:
-      Description: "Other"
-
-HeatRejectionResetOptions:
-  Object Type: "Enumeration"
-  Enumerators:
-    CONSTANT:
-      Description: "Constant"
-    LOAD_RESET:
-      Description: "Load reset"
     OTHER:
       Description: "Other"
 

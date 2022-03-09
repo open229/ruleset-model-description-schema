@@ -421,13 +421,6 @@
 | `AMMONIA`     | Ammonia     |                  |
 | `OTHER`       | Other       |                  |
 
-# HeatRejectionResetOptions
-|  Enumerator  | Description | Notes |
-|--------------|-------------|-------|
-| `CONSTANT`   | Constant    |       |
-| `LOAD_RESET` | Load reset  |       |
-| `OTHER`      | Other       |       |
-
 # HeatRejectionFanSpeedControlOptions
 |    Enumerator    |  Description   | Notes |
 |------------------|----------------|-------|
@@ -1080,7 +1073,6 @@
 | `motor_efficiency`      | Full load efficiency of the pump motor                                       | `Numeric`                          |       | `≥0, ≤1` |     | Only used when specification_method is set to Detailed                                         |
 | `speed_control`         | Options for pump speed control                                               | `<PumpSpeedControlOptions>`        |       |          |     |                                                                                                |
 | `design_flow`           | Design Pump Flowrate                                                         | `Numeric`                          | L/s   |          |     |                                                                                                |
-| `minium_flow`           | Minimum Pump Flowrate                                                        | `Numeric`                          | L/s   |          |     |                                                                                                |
 | `is_flow_autosized`     | True if the design_flow is autosized                                         | `Boolean`                          |       |          |     |                                                                                                |
 
 # Boiler
@@ -1158,11 +1150,8 @@
 | `fluid`                      | Fluid Cooled by Heat Rejection                                               | `<HeatRejectionFluidOptions>`           |       |       |     |                                                |
 | `range`                      | Heat rejection Range                                                         | `Numeric`                               | C     |       |     |                                                |
 | `approach`                   | Heat rejection Approach                                                      | `Numeric`                               | C     |       |     |                                                |
-| `reset_type`                 | Leaving Temperature reset strategy                                           | `<HeatRejectionResetOptions>`           |       |       |     |                                                |
-| `minimum_reset_temperature`  | Minimum leaving temperature setpoint                                         | `Numeric`                               | C     |       |     |                                                |
 | `fan_power`                  | Fan Power                                                                    | `Numeric`                               | W     |       |     |                                                |
 | `fan_speed_control`          | Fan Speed Control Type                                                       | `<HeatRejectionFanSpeedControlOptions>` |       |       |     |                                                |
-| `design_supply_temperature`  | Design leaving water temperature                                             | `Numeric`                               | C     |       |     |                                                |
 | `design_wetbulb_temperature` | Design wetbulb temperature                                                   | `Numeric`                               | C     |       |     | 0.4% ASHRAE MCWB                               |
 | `design_water_flowrate`      | Design condenser water flow rate                                             | `Numeric`                               | L/s   |       |     |                                                |
 | `rated_water_flowrate`       | Rated condenser water flow rate                                              | `Numeric`                               | L/s   |       |     | At rating conditions.                          |
