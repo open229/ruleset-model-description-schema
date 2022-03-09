@@ -177,7 +177,7 @@ EndUseResult:
       Data Type: "<EndUseType>"
     energy_source:
       Description: "End use type"
-      Data Type: "<EnergySourceOutputType>"
+      Data Type: "<EnergySourceOptions>"
     annual_site_energy_use:
       Description: "Annual site energy use"
       Data Type: "Numeric"
@@ -245,7 +245,7 @@ EndUseType:
     OTHER:
       Description: "Other"
 
-EnergySourceOutputType:
+EnergySourceOptions:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRICITY:
