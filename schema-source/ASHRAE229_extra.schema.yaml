@@ -3801,14 +3801,6 @@ Pump:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
-    minium_flow:
-      Description: "Minimum Pump Flowrate"
-      Data Type: "Numeric"
-      Units: "L/s"
-      RMR Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
       Data Type: "Boolean"
