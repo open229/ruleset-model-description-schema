@@ -2966,11 +2966,6 @@
                     "type": "number",
                     "units": "L/s"
                 },
-                "minium_flow": {
-                    "description": "Minimum Pump Flowrate",
-                    "type": "number",
-                    "units": "L/s"
-                },
                 "is_flow_autosized": {
                     "description": "True if the design_flow is autosized",
                     "type": "boolean"
@@ -3364,15 +3359,6 @@
                     "type": "number",
                     "units": "C"
                 },
-                "reset_type": {
-                    "description": "Leaving Temperature reset strategy",
-                    "$ref": "ASHRAE229_extra.schema.json#/definitions/HeatRejectionResetOptions"
-                },
-                "minimum_reset_temperature": {
-                    "description": "Minimum leaving temperature setpoint",
-                    "type": "number",
-                    "units": "C"
-                },
                 "fan_power": {
                     "description": "Fan Power",
                     "type": "number",
@@ -3381,11 +3367,6 @@
                 "fan_speed_control": {
                     "description": "Fan Speed Control Type",
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/HeatRejectionFanSpeedControlOptions"
-                },
-                "design_supply_temperature": {
-                    "description": "Design leaving water temperature",
-                    "type": "number",
-                    "units": "C"
                 },
                 "design_wetbulb_temperature": {
                     "description": "Design wetbulb temperature",
@@ -3462,19 +3443,6 @@
                 "Including R-448A",
                 null,
                 null
-            ]
-        },
-        "HeatRejectionResetOptions": {
-            "type": "string",
-            "enum": [
-                "CONSTANT",
-                "LOAD_RESET",
-                "OTHER"
-            ],
-            "descriptions": [
-                "Constant",
-                "Load reset",
-                "Other"
             ]
         },
         "HeatRejectionFanSpeedControlOptions": {
@@ -4539,6 +4507,6 @@
             ]
         }
     },
-    "version": "0.0.11",
+    "version": "0.0.12",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }
