@@ -109,46 +109,10 @@ OutputInstance:
       Data Type: "Numeric"
       Units: "hr"
       Required: True
-    annual_electric_consumption:
-      Description: "Total annual electric consumption"
-      Data Type: "Numeric"
-      Units: "J"
-      Required: True
-    annual_gas_consumption:
-      Description: "Total annual natural gas consumption"
-      Data Type: "Numeric"
-      Units: "J"
-      Required: True
-    annual_other_fuel_consumption:
-      Description: "Total annual fuel consumption not including natural gas"
-      Data Type: "Numeric"
-      Units: "J"
-      Required: True
-    annual_renewable_energy_production:
-      Description: "Total annual renewable energy produced"
-      Data Type: "Numeric"
-      Units: "J"
-      Required: True
-    annual_electric_cost:
-      Description: "Annual electric cost"
-      Data Type: "Numeric"
-      Required: True
-      Notes: "The units are the local monetary units such as dollars."
-    annual_gas_cost:
-      Description: "Annual natural gas cost"
-      Data Type: "Numeric"
-      Required: True
-      Notes: "The units are the local monetary units such as dollars."
-    annual_other_fuel_cost:
-      Description: "Annual cost of fuels not including natural gas"
-      Data Type: "Numeric"
-      Required: True
-      Notes: "The units are the local monetary units such as dollars."
-    annual_renewable_energy_cost:
-      Description: "Annual renewable energy cost"
-      Data Type: "Numeric"
-      Required: True
-      Notes: "Often shown in negative dollars. The units are the local monetary units such as dollars."
+    annual_source_results:
+      Description: "Annual results by source"
+      Data Type: "[{SourceResult}]"
+      Notes: "Contains a list of results by energy source."
     building_peak_cooling_load:
       Description: "Building peak cooling load"
       Data Type: "Numeric"
@@ -158,6 +122,41 @@ OutputInstance:
       Description: "Annual end use results"
       Data Type: "[{EndUseResult}]"
       Notes: "Contains a list of results by end use and energy source."
+
+SourceResult:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group."
+      Data Type: "ID"
+      Required: True
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+    energy_source:
+      Description: "End use type"
+      Data Type: "<EnergySourceOptions>"
+      Required: True
+    annual_consumption:
+      Description: "Annual energy consumption"
+      Data Type: "Numeric"
+      Units: "J"
+      Required: True
+      Notes: "For energy_source ON_SITE_RENEWABLES this value is negative."
+    annual_demand:
+      Description: "Annual site demand"
+      Data Type: "Numeric"
+      Units: "J"
+      Required: True
+      Notes: "This corresponds to the coincident demand for end-use results."
+    annual_cost:
+      Description: "Annual cost"
+      Data Type: "Numeric"
+      Required: True
+      Notes: "The units are the local monetary units such as dollars. For energy_source ON_SITE_RENEWABLES this value is negative."
     
 EndUseResult:
   Object Type: "Data Group"
@@ -175,9 +174,11 @@ EndUseResult:
     type:
       Description: "End use type"
       Data Type: "<EndUseType>"
+      Required: True
     energy_source:
       Description: "End use type"
       Data Type: "<EnergySourceOptions>"
+      Required: True
     annual_site_energy_use:
       Description: "Annual site energy use"
       Data Type: "Numeric"
@@ -262,6 +263,9 @@ EnergySourceOptions:
       Description: "Purchased hot water"
     PURCHASED_CHILLED_WATER:
       Description: "Purchased chilled water"
+    ON_SITE_RENEWABLES:
+      Description: "On-site renewables"
+      Notes: "Used primarily in AnnualResult"
     OTHER:
       Description: "Other"
 
