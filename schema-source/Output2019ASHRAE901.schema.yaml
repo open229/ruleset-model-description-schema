@@ -94,8 +94,18 @@ OutputInstance:
       Data Type: "Numeric"
       Units: "hr"
       Required: True
+    unmet_occupied_load_hours_heating:
+      Description: "Unmet load hours for heating when the zone is occupied"
+      Data Type: "Numeric"
+      Units: "hr"
+      Required: True
     unmet_load_hours_cooling:
       Description: "Unmet load hours for cooling"
+      Data Type: "Numeric"
+      Units: "hr"
+      Required: True
+    unmet_occupied_load_hours_cooling:
+      Description: "Unmet load hours for cooling when the zone is occupied"
       Data Type: "Numeric"
       Units: "hr"
       Required: True
@@ -147,7 +157,7 @@ OutputInstance:
     annual_end_use_results:
       Description: "Annual end use results"
       Data Type: "[{EndUseResult}]"
-      Notes: "Contains a list of surfaces that define the zone."
+      Notes: "Contains a list of results by end use and energy source."
     
 EndUseResult:
   Object Type: "Data Group"
