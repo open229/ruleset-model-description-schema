@@ -4316,21 +4316,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
-    reset_type:
-      Description: "Leaving Temperature reset strategy"
-      Data Type: "<HeatRejectionResetOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
-    minimum_reset_temperature:
-      Description: "Minimum leaving temperature setpoint"
-      Data Type: "Numeric"
-      Units: "C"
-      RMR Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
     fan_power:
       Description: "Fan Power"
       Data Type: "Numeric"
@@ -4342,14 +4327,6 @@ HeatRejection:
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
-      RMR Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: False
-    design_supply_temperature:
-      Description: "Design leaving water temperature"
-      Data Type: "Numeric"
-      Units: "C"
       RMR Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -4417,16 +4394,6 @@ HeatRejectionFluidOptions:
       Notes: "Including R-448A"
     AMMONIA:
       Description: "Ammonia"
-    OTHER:
-      Description: "Other"
-
-HeatRejectionResetOptions:
-  Object Type: "Enumeration"
-  Enumerators:
-    CONSTANT:
-      Description: "Constant"
-    LOAD_RESET:
-      Description: "Load reset"
     OTHER:
       Description: "Other"
 
