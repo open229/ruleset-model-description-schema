@@ -176,7 +176,7 @@ EndUseResult:
       Data Type: "<EndUseType>"
       Required: True
     energy_source:
-      Description: "End use type"
+      Description: "End source"
       Data Type: "<EnergySourceOptions>"
       Required: True
     annual_site_energy_use:
