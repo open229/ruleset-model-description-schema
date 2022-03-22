@@ -5576,7 +5576,7 @@ ExteriorLighting:
       AppG B_RMR Equals P_RMR: "unknown"
 
 
-Refrigeration:
+RefrigeratedCases:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -5602,15 +5602,15 @@ Refrigeration:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     type:
-      Description: "Refrigeration equipment type"
-      Data Type: "<RefrigerationType>"
+      Description: "Refrigerated case type"
+      Data Type: "<RefrigeratedCaseType>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     equipment_category:
       Description: "Equipment Class from referenced standard"
-      Data Type: "<RefrigerationCategory>"
+      Data Type: "<RefrigeratedCaseEquipmentCategory>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -5632,7 +5632,7 @@ Refrigeration:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     power:
-      Description: "Nominal power of refrigeration"
+      Description: "Nominal power of refrigerated case"
       Data Type: "Numeric"
       Units: "W"
       Range: ">0"
@@ -5641,7 +5641,7 @@ Refrigeration:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     power_multiplier_schedule:
-      Description: "Refrigeration power multiplier schedule name"
+      Description: "Refrigerated case power multiplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
       RMR Test: "unknown"
@@ -5689,7 +5689,7 @@ Refrigeration:
       AppG B_RMR Equals P_RMR: "unknown"
 
 
-RefrigerationType:
+RefrigeratedCaseType:
   Object Type: "Enumeration"
   Enumerators:
     COMMERCIAL_REFRIGERATION:
@@ -5709,7 +5709,7 @@ RefrigerationType:
     OTHER:
       Description: "Other"
 
-RefrigerationCategory:
+RefrigeratedCaseEquipmentCategory:
   Object Type: "Enumeration"
   Enumerators:
     HORIZONTAL_OPEN:
@@ -5740,9 +5740,9 @@ ApplicationTemperatureType:
     LOW:
       Description: "Low temperature"
       Notes: "-17.8 C +/- 1.1 C (0 F +/- 2 F)"
-    ICE_CREAM:
+    VERY_LOW:
       Description: "Ice cream"
-      Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F)"
+      Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F). This corresponds to the ice cream category in AHRI 1200"
     OTHER:
       Description: "Other"
 
