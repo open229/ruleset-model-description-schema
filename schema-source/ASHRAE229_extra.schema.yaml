@@ -191,7 +191,7 @@ RulesetModelInstance:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "Pa"
-      Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions."
+      Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions. For the model of actual building value this value would be measured but for created baseline or reference model this could be an assumed value."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
