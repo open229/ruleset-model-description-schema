@@ -2055,6 +2055,13 @@ Elevator:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    type:
+      Description: "The type of elevator"
+      Data Type: "<ElevatorTypeOptions>"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "$ID"
@@ -2193,6 +2200,16 @@ Elevator:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
+
+ElevatorTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    LABORATORY:
+      Description: "Hydraulic"
+    KITCHEN:
+      Description: "Traction"
+    OTHER:
+      Description: "Other"
 
 HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
@@ -5498,7 +5515,7 @@ ExteriorLighting:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     type:
-      Description: "The type of exterior lighting fixture	none"
+      Description: "The type of exterior lighting fixture"
       Data Type: "<ExteriorLightingAreas2019ASHRAE901TableG36>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
