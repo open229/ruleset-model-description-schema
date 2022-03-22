@@ -1634,11 +1634,11 @@ MiscellaneousEquipment:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
-    energy_per_time:
-      Description: "The energy per unit time for miscellaneous equipment in the space"
+    power:
+      Description: "Power for miscellaneous equipment in the space"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "The value of energy per unit time for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
+      Notes: "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
       RMR Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
