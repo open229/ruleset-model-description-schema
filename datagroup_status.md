@@ -3,10 +3,10 @@
 
 | Data Group                                   | Status
 |----------------------------------------------|---------------
-| ASHRAE229                                    | In Development
+| ASHRAE229                                    | Approved by Schema WG
 | RulesetModelInstance                         | In Development
-| Building                                     | In Development
-| BuildingSegment                              | In Development
+| Building                                     | Approved by Schema WG
+| BuildingSegment                              | Approved by Schema WG
 | Zone                                         | Approved by SPC 229
 | Space                                        | Approved by SPC 229
 | Infiltration                                 | Approved by SPC 229
@@ -15,13 +15,13 @@
 | Material                                     | Approved by SPC 229
 | SurfaceOpticalProperties                     | Approved by SPC 229
 | Subsurface                                   | Approved by SPC 229
-| InteriorLighting                             | Approved by Schema WG
+| InteriorLighting                             | Approved by SPC 229
 | MiscellaneousEquipment                       | Approved by SPC 229
 | Transformer                                  | Approved by SPC 229
 | Schedule                                     | Approved by SPC 229
 | Calendar                                     | Approved by SPC 229
 | Weather                                      | Approved by SPC 229
-| Elevator                                     | Approved by Schema WG
+| Elevator                                     | Approved by SPC 229
 | HeatingVentilationAirConditioningSystem      | Approved by Schema WG (less stable)
 | HeatingSystem                                | Approved by Schema WG (less stable)
 | CoolingSystem                                | Approved by Schema WG (less stable)
@@ -49,7 +49,7 @@
 | HeatPumpWaterHeaterPowerValidationPoint      | Approved by Schema WG (less stable)
 | Tank                                         | Approved by Schema WG (less stable)
 | ServiceWaterHeatingUse                       | Approved by Schema WG (less stable)
-| ExteriorLighting                             | Approved by Schema WG
+| ExteriorLighting                             | Approved by SPC 229
 | Refrigeration                                | Approved by Schema WG
 | Output                                       | In Development
 

@@ -88,7 +88,7 @@
 | `reporting_name`                    | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                |       |       |     |       |
 | `notes`                             | Supplementary information to provide context to the model reviewer           | `String`                |       |       |     |       |
 | `type`                              | End use type                                                                 | `<EndUseType>`          |       |       | ✓   |       |
-| `energy_source`                     | End use type                                                                 | `<EnergySourceOptions>` |       |       | ✓   |       |
+| `energy_source`                     | End source                                                                   | `<EnergySourceOptions>` |       |       | ✓   |       |
 | `annual_site_energy_use`            | Annual site energy use                                                       | `Numeric`               | J     |       | ✓   |       |
 | `annual_site_coincident_demand`     | Annual site coincident demand                                                | `Numeric`               | J     |       | ✓   |       |
 | `annual_site_non_coincident_demand` | Annual site non-coincident demand                                            | `Numeric`               | J     |       | ✓   |       |

@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.12"
+  Version: "0.0.13"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -191,7 +191,7 @@ RulesetModelInstance:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "Pa"
-      Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions."
+      Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions. For the model of actual building value this value would be measured but for created baseline or reference model this could be an assumed value."
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -554,6 +554,24 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
+    minimum_humidity_setpoint_schedule:
+      Description: "Reference to the schedule containing the minimum relative humidity setpoint"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    maximum_humidity_setpoint_schedule:
+      Description: "Reference to the schedule containing the maximum relative humidity setpoint"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
@@ -1634,11 +1652,11 @@ MiscellaneousEquipment:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
-    energy_per_time:
-      Description: "The energy per unit time for miscellaneous equipment in the space"
+    power:
+      Description: "Power for miscellaneous equipment in the space"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "The value of energy per unit time for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
+      Notes: "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
       RMR Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
@@ -2055,6 +2073,13 @@ Elevator:
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
+    type:
+      Description: "The type of elevator"
+      Data Type: "<ElevatorTypeOptions>"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "$ID"
@@ -2193,6 +2218,16 @@ Elevator:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
+
+ElevatorTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    LABORATORY:
+      Description: "Hydraulic"
+    KITCHEN:
+      Description: "Traction"
+    OTHER:
+      Description: "Other"
 
 HeatingVentilationAirConditioningSystem:
   Object Type: "Data Group"
@@ -3652,6 +3687,13 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
+    has_integrated_waterside_economizer:
+      Description: "True if chilled water loop described has an integrated waterside economizer"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     
 
 FluidLoopFlowControlOptions:
@@ -5498,7 +5540,7 @@ ExteriorLighting:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     type:
-      Description: "The type of exterior lighting fixture	none"
+      Description: "The type of exterior lighting fixture"
       Data Type: "<ExteriorLightingAreas2019ASHRAE901TableG36>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5559,7 +5601,7 @@ ExteriorLighting:
       AppG B_RMR Equals P_RMR: "unknown"
 
 
-Refrigeration:
+RefrigeratedCases:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -5585,15 +5627,15 @@ Refrigeration:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     type:
-      Description: "Refrigeration equipment type"
-      Data Type: "<RefrigerationType>"
+      Description: "Refrigerated case type"
+      Data Type: "<RefrigeratedCaseType>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     equipment_category:
       Description: "Equipment Class from referenced standard"
-      Data Type: "<RefrigerationCategory>"
+      Data Type: "<RefrigeratedCaseEquipmentCategory>"
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: "unknown"
@@ -5615,7 +5657,7 @@ Refrigeration:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     power:
-      Description: "Nominal power of refrigeration"
+      Description: "Nominal power of refrigerated case"
       Data Type: "Numeric"
       Units: "W"
       Range: ">0"
@@ -5624,7 +5666,7 @@ Refrigeration:
       AppG P_RMR Equals U_RMR: "unknown"
       AppG B_RMR Equals P_RMR: "unknown"
     power_multiplier_schedule:
-      Description: "Refrigeration power multiplier schedule name"
+      Description: "Refrigerated case power multiplier schedule name"
       Data Type: "$ID"
       Notes: "Constraint to use when implemented :Schedule:"
       RMR Test: "unknown"
@@ -5672,7 +5714,7 @@ Refrigeration:
       AppG B_RMR Equals P_RMR: "unknown"
 
 
-RefrigerationType:
+RefrigeratedCaseType:
   Object Type: "Enumeration"
   Enumerators:
     COMMERCIAL_REFRIGERATION:
@@ -5692,7 +5734,7 @@ RefrigerationType:
     OTHER:
       Description: "Other"
 
-RefrigerationCategory:
+RefrigeratedCaseEquipmentCategory:
   Object Type: "Enumeration"
   Enumerators:
     HORIZONTAL_OPEN:
@@ -5723,9 +5765,9 @@ ApplicationTemperatureType:
     LOW:
       Description: "Low temperature"
       Notes: "-17.8 C +/- 1.1 C (0 F +/- 2 F)"
-    ICE_CREAM:
+    VERY_LOW:
       Description: "Ice cream"
-      Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F)"
+      Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F). This corresponds to the ice cream category in AHRI 1200"
     OTHER:
       Description: "Other"
 

@@ -217,7 +217,7 @@
                     "$ref": "Output2019ASHRAE901.schema.json#/definitions/EndUseType"
                 },
                 "energy_source": {
-                    "description": "End use type",
+                    "description": "End source",
                     "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
                 },
                 "annual_site_energy_use": {

@@ -372,6 +372,12 @@ ExteriorLightingAreas2019ASHRAE901TableG36:
       Description: "Drive-up windows at fast-food restaurants"
     PARKING_NEAR_24HR_RETAIL_ENTRANCES:
       Description: "Parking near 24-hour retail entrances"
+    MISCELLANEOUS_TRADABLE:
+      Description: "Miscellaneous tradable"
+      Notes: "This option would most often be used by software that does not support entire schema and doesn't know if exterior lighting is in a specific type but does know if it is tradable"
+    MISCELLANEOUS_NON_TRADABLE:
+      Description: "Miscellaneous non-tradable"
+      Notes: "This option would most often be used by software that does not support entire schema and doesn't know if exterior lighting is in a specific type but does know if it is non-tradable"
 
 ExteriorLightingZones2019ASHRAE901:
   Object Type: "Enumeration"
