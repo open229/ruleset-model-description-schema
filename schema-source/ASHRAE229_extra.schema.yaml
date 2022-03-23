@@ -554,6 +554,24 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: True
+    minimum_humidity_setpoint_schedule:
+      Description: "Reference to the schedule containing the minimum relative humidity setpoint"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
+    maximum_humidity_setpoint_schedule:
+      Description: "Reference to the schedule containing the maximum relative humidity setpoint"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
