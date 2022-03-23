@@ -535,7 +535,7 @@ Zone:
       RMR Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: True
+      AppG B_RMR Equals P_RMR: False
     design_thermostat_heating_setpoint:
       Description: "Setpoint temperature for heating during occupied hours"
       Data Type: "Numeric"
@@ -544,7 +544,7 @@ Zone:
       RMR Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMR Equals U_RMR: True
-      AppG B_RMR Equals P_RMR: True
+      AppG B_RMR Equals P_RMR: False
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "$ID"
