@@ -117,7 +117,7 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "Pa",
-                    "notes": "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions."
+                    "notes": "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions. For the model of actual building value this value would be measured but for created baseline or reference model this could be an assumed value."
                 },
                 "is_measured_infiltration_based_on_test": {
                     "description": "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building.",
@@ -243,9 +243,7 @@
                 "refrigeration_components": {
                     "description": "Refrigeration",
                     "type": "array",
-                    "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/Refrigeration"
-                    },
+                    "items": {},
                     "notes": "Contains a list of refrigeration components in the building."
                 },
                 "building_open_schedule": {
@@ -403,6 +401,14 @@
                     "description": "Reference to the schedule containing the heating setpoint temperatures",
                     "notes": "Constraint to use when implemented :Schedule:"
                 },
+                "minimum_humidity_setpoint_schedule": {
+                    "description": "Reference to the schedule containing the minimum relative humidity setpoint",
+                    "notes": "Constraint to use when implemented :Schedule:"
+                },
+                "maximum_humidity_setpoint_schedule": {
+                    "description": "Reference to the schedule containing the maximum relative humidity setpoint",
+                    "notes": "Constraint to use when implemented :Schedule:"
+                },
                 "terminals": {
                     "description": "List of terminals",
                     "type": "array",
@@ -459,7 +465,9 @@
             "required": [
                 "id",
                 "thermostat_cooling_setpoint_schedule",
-                "thermostat_heating_setpoint_schedule"
+                "thermostat_heating_setpoint_schedule",
+                "minimum_humidity_setpoint_schedule",
+                "maximum_humidity_setpoint_schedule"
             ],
             "additionalProperties": false
         },
@@ -1253,11 +1261,11 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceTypeOptions",
                     "notes": "To indicate that the energy is not accounted for by any utility supplied source, choose NONE"
                 },
-                "energy_per_time": {
-                    "description": "The energy per unit time for miscellaneous equipment in the space",
+                "power": {
+                    "description": "Power for miscellaneous equipment in the space",
                     "type": "number",
                     "units": "W",
-                    "notes": "The value of energy per unit time for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
+                    "notes": "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
                 },
                 "multiplier_schedule": {
                     "description": "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space.",
@@ -1613,6 +1621,10 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
+                "type": {
+                    "description": "The type of elevator",
+                    "$ref": "ASHRAE229.schema.json#/definitions/ElevatorTypeOptions"
+                },
                 "motor_location_zone": {
                     "description": "Zone where the heat from the motor goes",
                     "notes": "When specified, it is the zone the heat from the elevator motor get added to"
@@ -1702,6 +1714,19 @@
                 "id"
             ],
             "additionalProperties": false
+        },
+        "ElevatorTypeOptions": {
+            "type": "string",
+            "enum": [
+                "LABORATORY",
+                "KITCHEN",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Hydraulic",
+                "Traction",
+                "Other"
+            ]
         },
         "HeatingVentilationAirConditioningSystem": {
             "type": "object",
@@ -2837,6 +2862,10 @@
                     "type": "number",
                     "units": "C",
                     "notes": "Used when temperature_reset_type = LOAD_RESET"
+                },
+                "has_integrated_waterside_economizer": {
+                    "description": "True if chilled water loop described has an integrated waterside economizer",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -4320,7 +4349,7 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The type of exterior lighting fixture\tnone",
+                    "description": "The type of exterior lighting fixture",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingAreas2019ASHRAE901TableG36"
                 },
                 "area": {
@@ -4363,7 +4392,7 @@
             ],
             "additionalProperties": false
         },
-        "Refrigeration": {
+        "RefrigeratedCases": {
             "type": "object",
             "properties": {
                 "id": {
@@ -4379,12 +4408,12 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "Refrigeration equipment type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/RefrigerationType"
+                    "description": "Refrigerated case type",
+                    "$ref": "ASHRAE229.schema.json#/definitions/RefrigeratedCaseType"
                 },
                 "equipment_category": {
                     "description": "Equipment Class from referenced standard",
-                    "$ref": "ASHRAE229.schema.json#/definitions/RefrigerationCategory"
+                    "$ref": "ASHRAE229.schema.json#/definitions/RefrigeratedCaseEquipmentCategory"
                 },
                 "is_self_contained": {
                     "description": "Indicates whether unit is self-contained",
@@ -4397,13 +4426,13 @@
                     "notes": "Based on AHRI 1200"
                 },
                 "power": {
-                    "description": "Nominal power of refrigeration",
+                    "description": "Nominal power of refrigerated case",
                     "type": "number",
                     "exclusiveMinimum": 0.0,
                     "units": "W"
                 },
                 "power_multiplier_schedule": {
-                    "description": "Refrigeration power multiplier schedule name",
+                    "description": "Refrigerated case power multiplier schedule name",
                     "notes": "Constraint to use when implemented :Schedule:"
                 },
                 "sensible_fraction": {
@@ -4437,7 +4466,7 @@
             ],
             "additionalProperties": false
         },
-        "RefrigerationType": {
+        "RefrigeratedCaseType": {
             "type": "string",
             "enum": [
                 "COMMERCIAL_REFRIGERATION",
@@ -4460,7 +4489,7 @@
                 "Other"
             ]
         },
-        "RefrigerationCategory": {
+        "RefrigeratedCaseEquipmentCategory": {
             "type": "string",
             "enum": [
                 "HORIZONTAL_OPEN",
@@ -4490,7 +4519,7 @@
             "enum": [
                 "MEDIUM",
                 "LOW",
-                "ICE_CREAM",
+                "VERY_LOW",
                 "OTHER"
             ],
             "descriptions": [
@@ -4502,11 +4531,11 @@
             "notes": [
                 "3.3 C +/- 1.1 C (38 F +/- 2 F)",
                 "-17.8 C +/- 1.1 C (0 F +/- 2 F)",
-                "-26.1 C +/- 1.1 C (-15 F +/- 2 F)",
+                "-26.1 C +/- 1.1 C (-15 F +/- 2 F). This corresponds to the ice cream category in AHRI 1200",
                 null
             ]
         }
     },
-    "version": "0.0.12",
+    "version": "0.0.13",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }

@@ -488,7 +488,9 @@
                 "ENTRANCE_AND_GATEHOUSE",
                 "EMERGENCY_VEHICLE_LOADING_AREA",
                 "DRIVE_UP_WINDOWS_FAST_FOOD",
-                "PARKING_NEAR_24HR_RETAIL_ENTRANCES"
+                "PARKING_NEAR_24HR_RETAIL_ENTRANCES",
+                "MISCELLANEOUS_TRADABLE",
+                "MISCELLANEOUS_NON_TRADABLE"
             ],
             "descriptions": [
                 "Uncovered parking lots and drives",
@@ -508,7 +510,9 @@
                 "Entrance and gatehouses",
                 "Emergency vehicle loading area",
                 "Drive-up windows at fast-food restaurants",
-                "Parking near 24-hour retail entrances"
+                "Parking near 24-hour retail entrances",
+                "Miscellaneous tradable",
+                "Miscellaneous non-tradable"
             ],
             "notes": [
                 null,
@@ -528,7 +532,9 @@
                 "Entrances and gatehouse inspection stations at guarded facilities.",
                 "Loading areas for law enforcement, fire, ambulance and other emergency service vehicles",
                 null,
-                null
+                null,
+                "This option would most often be used by software that does not support entire schema and doesn't know if exterior lighting is in a specific type but does know if it is tradable",
+                "This option would most often be used by software that does not support entire schema and doesn't know if exterior lighting is in a specific type but does know if it is non-tradable"
             ]
         },
         "ExteriorLightingZones2019ASHRAE901": {
