@@ -18,13 +18,14 @@ digraph G {
   Building -> BuildingSegment
   Building -> Elevator
   Building -> ExteriorLighting
-  Building -> Refrigeration
   Building -> Schedule [color=red] 
   BuildingSegment -> Zone
   BuildingSegment -> HeatingVentilationAirConditioningSystem
   Zone -> Space
   Zone -> Surface
   Zone -> Infiltration
+  Zone -> Schedule [color=red] 
+  Zone -> Schedule [color=red] 
   Zone -> Schedule [color=red] 
   Zone -> Schedule [color=red] 
   Zone -> Terminal
@@ -102,5 +103,5 @@ digraph G {
   ServiceWaterHeatingUse -> ServiceWaterHeatingDistributionSystem [color=red] 
   ServiceWaterHeatingUse -> Schedule [color=red] 
   ExteriorLighting -> Schedule [color=red] 
-  Refrigeration -> Schedule [color=red] 
+  RefrigeratedCases -> Schedule [color=red] 
 }
