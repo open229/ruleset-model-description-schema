@@ -3687,6 +3687,13 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
+    has_integrated_waterside_economizer:
+      Description: "True if chilled water loop described has an integrated waterside economizer"
+      Data Type: "Boolean"
+      RMR Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMR Equals U_RMR: "unknown"
+      AppG B_RMR Equals P_RMR: "unknown"
     
 
 FluidLoopFlowControlOptions:
