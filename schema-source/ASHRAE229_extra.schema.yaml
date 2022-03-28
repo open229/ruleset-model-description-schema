@@ -2427,7 +2427,7 @@ HeatingSystem:
       Data Type: "<HumidificationType>"
       Notes: "JG to verify if used in test case description."
       RMR Test: False
-      AppG Used By TCDs: "Unknown"
+      AppG Used By TCDs: True
       AppG P_RMR Equals U_RMR: True
       AppG B_RMR Equals P_RMR: False
 
