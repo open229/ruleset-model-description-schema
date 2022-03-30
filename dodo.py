@@ -34,10 +34,10 @@ def task_strip_extra_data_element_fields():
           schema229.util_229.strip_extra_data_element_fields_from_yaml,
           [
             [
-              "RMR Test",
+              "RMD Test",
               "AppG Used By TCDs",
-              "AppG P_RMR Equals U_RMR",
-              "AppG B_RMR Equals P_RMR"
+              "AppG P_RMD Equals U_RMD",
+              "AppG B_RMD Equals P_RMD"
             ],
             os.path.join(SOURCE_PATH, 'ASHRAE229_extra.schema.yaml'),
             os.path.join(SOURCE_PATH, 'ASHRAE229.schema.yaml')

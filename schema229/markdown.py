@@ -128,10 +128,10 @@ def write_tables(instance, output_path, append=True):
         "Notes"
         ]
         EXTRA_229_DATA_GROUP_HEADERS = [
-          "RMR Test",
+          "RMD Test",
           "AppG Used By TCDs",
-          "AppG P_RMR Equals U_RMR",
-          "AppG B_RMR Equals P_RMR"
+          "AppG P_RMD Equals U_RMD",
+          "AppG B_RMD Equals P_RMD"
         ]
         writer_headers = copy.copy(ORIGINAL_DATA_GROUP_TABLE_HEADERS)
         elements_obj = data_groups[dg]["Data Elements"]
