@@ -685,7 +685,7 @@ Space:
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: False
     floor_area:
       Description: "The floor area of the space."
       Data Type: "Numeric"
