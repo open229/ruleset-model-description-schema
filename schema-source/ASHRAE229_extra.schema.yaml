@@ -1855,7 +1855,7 @@ Schedule:
       Units: "s"
       Notes: "Used when schedule_sequence_type is EVENT to describe the time of the year in seconds that the schedule changes value."
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     event_values:
@@ -1863,7 +1863,7 @@ Schedule:
       Data Type: "[Numeric]"
       Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     type:
