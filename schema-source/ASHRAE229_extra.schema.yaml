@@ -2790,14 +2790,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    exhaust_schedule:
-      Description: "Exhaust fan schedule name"
-      Data Type: "$ID"
-      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
     minimum_airflow:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
