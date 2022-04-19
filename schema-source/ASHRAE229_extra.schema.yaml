@@ -96,7 +96,7 @@ ASHRAE229:
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
-      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. References between data groups are restricted to be within the same ruleset model instance."
+      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. References between data groups are restricted to be within the same ruleset model instance."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1829,7 +1829,7 @@ Schedule:
     purpose:
       Description: "The purpose of schedule"
       Data Type: "String"
-      Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMRs. Examples include thermostat, multiplier for lighting, availability for equipment."
+      Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMDs. Examples include thermostat, multiplier for lighting, availability for equipment."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
