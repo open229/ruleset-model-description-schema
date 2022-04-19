@@ -3371,7 +3371,7 @@ Terminal:
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
       RMD Test: False
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     supply_temperature_setpoint:
