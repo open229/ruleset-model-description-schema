@@ -5766,7 +5766,7 @@ ApplicationTemperatureType:
       Description: "Low temperature"
       Notes: "-17.8 C +/- 1.1 C (0 F +/- 2 F)"
     VERY_LOW:
-      Description: "Ice cream"
+      Description: "Very low"
       Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F). This corresponds to the ice cream category in AHRI 1200"
     OTHER:
       Description: "Other"
