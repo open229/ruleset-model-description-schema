@@ -2357,10 +2357,10 @@ HeatingSystem:
       Range: ">=0"
       Units: "W"
       Notes: "At rating conditions."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -2539,20 +2539,20 @@ CoolingSystem:
       Range: ">=0"
       Units: "W"
       Notes: "At rating conditions. JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     rated_sensible_cool_capacity:
       Description: "Rated sensible cooling capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
       Notes: "At rating conditions."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -2751,8 +2751,16 @@ FanSystem:
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
+      AppG P_RMD Equals U_RMD: True"unknown"
       AppG B_RMD Equals P_RMD: False
+    has_lock_out_central_heat_during_unoccupied:
+      Description: "Locks out the use of central heating during unoccupied hours"
+      Data Type: "Boolean"
+      Notes: "Typically used when zone has heating coil available that can serve unoccupied heating load. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlType>"
