@@ -2396,6 +2396,15 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    full_load_efficiency_no_fan:
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power"
+      Data Type: "Numeric"
+      Units: "W/W"
+      Notes: "Used for heat pump. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
@@ -2595,6 +2604,15 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    full_load_efficiency_no_fan:
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power"
+      Data Type: "Numeric"
+      Units: "W/W"
+      Notes: "Used for direct expansion. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
