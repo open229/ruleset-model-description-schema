@@ -2342,12 +2342,21 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    heat_capacity:
-      Description: "Heating capacity"
+    design_capacity:
+      Description: "Design heating capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "The design heat capacity."
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+    rated_capacity:
+      Description: "Rated heating capacity"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "At rating conditions."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2504,8 +2513,8 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    total_cool_capacity:
-      Description: "Total cooling capacity"
+    design_total_cool_capacity:
+      Description: "Design total cooling capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
@@ -2514,12 +2523,32 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    sensible_cool_capacity:
-      Description: "Sensible cooling capacity"
+    design_sensible_cool_capacity:
+      Description: "Design sensible cooling capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
       Notes: "Designed sensible cooling capacity"
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+    rated_total_cool_capacity:
+      Description: "Rated total cooling capacity"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "At rating conditions. JG to verify if used in test case description."
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+    rated_sensible_cool_capacity:
+      Description: "Rated sensible cooling capacity"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "At rating conditions."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
