@@ -96,7 +96,7 @@ ASHRAE229:
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
-      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. References between data groups are restricted to be within the same ruleset model instance."
+      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -203,11 +203,11 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    building_rotation_angles:
-      Description: "A list of angles that building simulations are performed and results are provided."
-      Data Type: "[Numeric]"
+    building_rotation_angle:
+      Description: "The angle that building simulations is performed and results are provided."
+      Data Type: "Numeric"
       Units: "degrees"
-      Notes: "List of angles that the building has been rotated."
+      Notes: "The angle that the building has been rotated. Used specifically for rulesets that require the baseline building to be rotated. Usually is set to zero for building model in same orientation as the design building."
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
