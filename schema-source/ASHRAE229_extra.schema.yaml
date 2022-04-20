@@ -1697,6 +1697,14 @@ MiscellaneousEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
+    remaining_fraction_chilled_water_loop:
+      Description: "Referenced to the Chilled water fluid loop for the remaining fraction"
+      Data Type: "$ID"
+      Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
+      RMD Test: unknown"
+      AppG Used By TCDs: unknown"
+      AppG P_RMD Equals U_RMD: unknown"
+      AppG B_RMD Equals P_RMD: unknown"
     miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
       Data Type: "<MiscellaneousEquipmentType>"
