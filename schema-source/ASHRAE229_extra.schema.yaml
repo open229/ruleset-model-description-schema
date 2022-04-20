@@ -607,6 +607,15 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    exhaust_airflow_rate_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     makeup_airflow_rate:
       Description: "Airflow rate for makeup air"
       Data Type: "Numeric"
