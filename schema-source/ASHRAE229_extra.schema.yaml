@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.14"
+  Version: "0.0.15"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -96,7 +96,7 @@ ASHRAE229:
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
-      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. References between data groups are restricted to be within the same ruleset model instance."
+      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -203,11 +203,11 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    building_rotation_angles:
-      Description: "A list of angles that building simulations are performed and results are provided."
-      Data Type: "[Numeric]"
+    building_rotation_angle:
+      Description: "The angle that building simulations is performed and results are provided."
+      Data Type: "Numeric"
       Units: "degrees"
-      Notes: "List of angles that the building has been rotated."
+      Notes: "The angle that the building has been rotated. Used specifically for rulesets that require the baseline building to be rotated. Usually is set to zero for building model in same orientation as the design building."
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -328,10 +328,10 @@ Building:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
-    refrigeration_components:
-      Description: "Refrigeration"
-      Data Type: "[{Refrigeration}]"
-      Notes: "Contains a list of refrigeration components in the building."
+    refrigerated_casess:
+      Description: "Refrigerated cases"
+      Data Type: "[{RefrigeratedCase}]"
+      Notes: "Contains a list of refrigerated cases in the building."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -558,7 +558,7 @@ Zone:
       Description: "Reference to the schedule containing the minimum relative humidity setpoint"
       Data Type: "$ID"
       Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -567,7 +567,7 @@ Zone:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
       Data Type: "$ID"
       Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -603,6 +603,15 @@ Zone:
       Range: ">=0"
       Units: "L/s"
       Notes: "JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    exhaust_airflow_rate_multiplier_schedule:
+      Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
+      Data Type: "$ID"
+      Required: True
+      Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1688,6 +1697,14 @@ MiscellaneousEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
+    remaining_fraction_chilled_water_loop:
+      Description: "Referenced to the Chilled water fluid loop for the remaining fraction"
+      Data Type: "$ID"
+      Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
+      RMD Test: unknown"
+      AppG Used By TCDs: unknown"
+      AppG P_RMD Equals U_RMD: unknown"
+      AppG B_RMD Equals P_RMD: unknown"
     miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
       Data Type: "<MiscellaneousEquipmentType>"
@@ -1829,7 +1846,7 @@ Schedule:
     purpose:
       Description: "The purpose of schedule"
       Data Type: "String"
-      Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMRs. Examples include thermostat, multiplier for lighting, availability for equipment."
+      Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMDs. Examples include thermostat, multiplier for lighting, availability for equipment."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2222,9 +2239,9 @@ Elevator:
 ElevatorTypeOptions:
   Object Type: "Enumeration"
   Enumerators:
-    LABORATORY:
+    HYDRAULIC:
       Description: "Hydraulic"
-    KITCHEN:
+    TRACTION:
       Description: "Traction"
     OTHER:
       Description: "Other"
@@ -2342,16 +2359,25 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    heat_capacity:
-      Description: "Heating capacity"
+    design_capacity:
+      Description: "Design heating capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "The design heat capacity."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    rated_capacity:
+      Description: "Rated heating capacity"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "At rating conditions."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -2387,6 +2413,15 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    full_load_efficiency_no_fan:
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power"
+      Data Type: "Numeric"
+      Units: "W/W"
+      Notes: "Used for heat pump. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
@@ -2504,8 +2539,8 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    total_cool_capacity:
-      Description: "Total cooling capacity"
+    design_total_cool_capacity:
+      Description: "Design total cooling capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
@@ -2514,8 +2549,8 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    sensible_cool_capacity:
-      Description: "Sensible cooling capacity"
+    design_sensible_cool_capacity:
+      Description: "Design sensible cooling capacity"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
@@ -2524,6 +2559,26 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    rated_total_cool_capacity:
+      Description: "Rated total cooling capacity"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "At rating conditions. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    rated_sensible_cool_capacity:
+      Description: "Rated sensible cooling capacity"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      Notes: "At rating conditions."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -2566,6 +2621,15 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    full_load_efficiency_no_fan:
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power"
+      Data Type: "Numeric"
+      Units: "W/W"
+      Notes: "Used for direct expansion. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
@@ -2722,8 +2786,16 @@ FanSystem:
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
+      AppG P_RMD Equals U_RMD: True"unknown"
       AppG B_RMD Equals P_RMD: False
+    has_lock_out_central_heat_during_unoccupied:
+      Description: "Locks out the use of central heating during unoccupied hours"
+      Data Type: "Boolean"
+      Notes: "Typically used when zone has heating coil available that can serve unoccupied heating load. JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlType>"
@@ -2784,14 +2856,6 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
     operating_schedule:
       Description: "Operating schedule name"
-      Data Type: "$ID"
-      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-    exhaust_schedule:
-      Description: "Exhaust fan schedule name"
       Data Type: "$ID"
       Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -5601,7 +5665,7 @@ ExteriorLighting:
       AppG B_RMD Equals P_RMD: "unknown"
 
 
-RefrigeratedCases:
+RefrigeratedCase:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -5766,7 +5830,7 @@ ApplicationTemperatureType:
       Description: "Low temperature"
       Notes: "-17.8 C +/- 1.1 C (0 F +/- 2 F)"
     VERY_LOW:
-      Description: "Ice cream"
+      Description: "Very low"
       Notes: "-26.1 C +/- 1.1 C (-15 F +/- 2 F). This corresponds to the ice cream category in AHRI 1200"
     OTHER:
       Description: "Other"

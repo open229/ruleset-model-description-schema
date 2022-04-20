@@ -51,5 +51,4 @@
 | ServiceWaterHeatingUse                       | Approved by Schema WG (less stable)
 | ExteriorLighting                             | Approved by SPC 229
 | Refrigeration                                | Approved by Schema WG
-| Output                                       | In Development
 
