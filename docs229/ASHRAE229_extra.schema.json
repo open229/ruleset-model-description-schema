@@ -24,7 +24,7 @@
                     "items": {
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetModelInstance"
                     },
-                    "notes": "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMR json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMR json file. References between data groups are restricted to be within the same ruleset model instance."
+                    "notes": "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees."
                 },
                 "calendar": {
                     "description": "Information on the calendar used with the simulation.",
@@ -123,14 +123,11 @@
                     "description": "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building.",
                     "type": "boolean"
                 },
-                "building_rotation_angles": {
-                    "description": "A list of angles that building simulations are performed and results are provided.",
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    },
+                "building_rotation_angle": {
+                    "description": "The angle that building simulations is performed and results are provided.",
+                    "type": "number",
                     "units": "degrees",
-                    "notes": "List of angles that the building has been rotated."
+                    "notes": "The angle that the building has been rotated. Used specifically for rulesets that require the baseline building to be rotated. Usually is set to zero for building model in same orientation as the design building."
                 },
                 "fluid_loops": {
                     "description": "Fluid loops on the site",
@@ -240,11 +237,13 @@
                     },
                     "notes": "Contains a list of exterior lighting systems for the building."
                 },
-                "refrigeration_components": {
-                    "description": "Refrigeration",
+                "refrigerated_casess": {
+                    "description": "Refrigerated cases",
                     "type": "array",
-                    "items": {},
-                    "notes": "Contains a list of refrigeration components in the building."
+                    "items": {
+                        "$ref": "ASHRAE229_extra.schema.json#/definitions/RefrigeratedCase"
+                    },
+                    "notes": "Contains a list of refrigerated cases in the building."
                 },
                 "building_open_schedule": {
                     "description": "Reference to the schedule containing indicating when the building is open",
@@ -403,11 +402,11 @@
                 },
                 "minimum_humidity_setpoint_schedule": {
                     "description": "Reference to the schedule containing the minimum relative humidity setpoint",
-                    "notes": "Constraint to use when implemented :Schedule:"
+                    "notes": "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
                 },
                 "maximum_humidity_setpoint_schedule": {
                     "description": "Reference to the schedule containing the maximum relative humidity setpoint",
-                    "notes": "Constraint to use when implemented :Schedule:"
+                    "notes": "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
                 },
                 "terminals": {
                     "description": "List of terminals",
@@ -433,6 +432,10 @@
                     "minimum": 0.0,
                     "units": "L/s",
                     "notes": "JG to verify if used in test case description."
+                },
+                "exhaust_airflow_rate_multiplier_schedule": {
+                    "description": "Reference to the schedule containing the multiplier for the exhaust airflow rate",
+                    "notes": "Constraint to use when implemented :Schedule:"
                 },
                 "makeup_airflow_rate": {
                     "description": "Airflow rate for makeup air",
@@ -467,7 +470,8 @@
                 "thermostat_cooling_setpoint_schedule",
                 "thermostat_heating_setpoint_schedule",
                 "minimum_humidity_setpoint_schedule",
-                "maximum_humidity_setpoint_schedule"
+                "maximum_humidity_setpoint_schedule",
+                "exhaust_airflow_rate_multiplier_schedule"
             ],
             "additionalProperties": false
         },
@@ -1285,6 +1289,10 @@
                     "maximum": 1.0,
                     "notes": "Sensible plus latent do not necessarily add up to 1.0."
                 },
+                "remaining_fraction_chilled_water_loop": {
+                    "description": "Referenced to the Chilled water fluid loop for the remaining fraction",
+                    "notes": "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
+                },
                 "miscellaneous_equipment_type": {
                     "description": "Type of miscellaneous equipment",
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/MiscellaneousEquipmentType"
@@ -1406,7 +1414,7 @@
                 "purpose": {
                     "description": "The purpose of schedule",
                     "type": "string",
-                    "notes": "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMRs. Examples include thermostat, multiplier for lighting, availability for equipment."
+                    "notes": "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMDs. Examples include thermostat, multiplier for lighting, availability for equipment."
                 },
                 "schedule_sequence_type": {
                     "description": "Schedule sequence type",
@@ -1718,8 +1726,8 @@
         "ElevatorTypeOptions": {
             "type": "string",
             "enum": [
-                "LABORATORY",
-                "KITCHEN",
+                "HYDRAULIC",
+                "TRACTION",
                 "OTHER"
             ],
             "descriptions": [
@@ -1801,12 +1809,18 @@
                     "description": "Referenced to the hot water fluid loop",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
-                "heat_capacity": {
-                    "description": "Heating capacity",
+                "design_capacity": {
+                    "description": "Design heating capacity",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W"
+                },
+                "rated_capacity": {
+                    "description": "Rated heating capacity",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "The design heat capacity."
+                    "notes": "At rating conditions."
                 },
                 "oversizing_factor": {
                     "description": "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing.",
@@ -1830,6 +1844,12 @@
                     "type": "number",
                     "units": "W/W",
                     "notes": "Used for furnace or heat pump. JG to verify if used in test case description."
+                },
+                "full_load_efficiency_no_fan": {
+                    "description": "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power",
+                    "type": "number",
+                    "units": "W/W",
+                    "notes": "Used for heat pump. JG to verify if used in test case description."
                 },
                 "part_load_efficiency": {
                     "description": "Efficiency value based on the selected part_load_efficiency_metric",
@@ -1935,19 +1955,33 @@
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/CoolingSystemType",
                     "notes": "JG to verify if used in test case description."
                 },
-                "total_cool_capacity": {
-                    "description": "Total cooling capacity",
+                "design_total_cool_capacity": {
+                    "description": "Design total cooling capacity",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
                     "notes": "Designed total cooling capacity. JG to verify if used in test case description."
                 },
-                "sensible_cool_capacity": {
-                    "description": "Sensible cooling capacity",
+                "design_sensible_cool_capacity": {
+                    "description": "Design sensible cooling capacity",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
                     "notes": "Designed sensible cooling capacity"
+                },
+                "rated_total_cool_capacity": {
+                    "description": "Rated total cooling capacity",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "At rating conditions. JG to verify if used in test case description."
+                },
+                "rated_sensible_cool_capacity": {
+                    "description": "Rated sensible cooling capacity",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W",
+                    "notes": "At rating conditions."
                 },
                 "oversizing_factor": {
                     "description": "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing.",
@@ -1970,6 +2004,12 @@
                 },
                 "full_load_efficiency": {
                     "description": "Full Low Efficiency expressed as a coefficient of performance (COP)",
+                    "type": "number",
+                    "units": "W/W",
+                    "notes": "Used for direct expansion. JG to verify if used in test case description."
+                },
+                "full_load_efficiency_no_fan": {
+                    "description": "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power",
                     "type": "number",
                     "units": "W/W",
                     "notes": "Used for direct expansion. JG to verify if used in test case description."
@@ -2106,6 +2146,11 @@
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/FanSystemOperationType",
                     "notes": "JG to verify if used in test case description."
                 },
+                "has_lock_out_central_heat_during_unoccupied": {
+                    "description": "Locks out the use of central heating during unoccupied hours",
+                    "type": "boolean",
+                    "notes": "Typically used when zone has heating coil available that can serve unoccupied heating load. JG to verify if used in test case description."
+                },
                 "fan_control": {
                     "description": "Supply fan control type",
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/FanSystemSupplyFanControlType",
@@ -2144,10 +2189,6 @@
                 },
                 "operating_schedule": {
                     "description": "Operating schedule name",
-                    "notes": "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
-                },
-                "exhaust_schedule": {
-                    "description": "Exhaust fan schedule name",
                     "notes": "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
                 },
                 "minimum_airflow": {
@@ -4392,7 +4433,7 @@
             ],
             "additionalProperties": false
         },
-        "RefrigeratedCases": {
+        "RefrigeratedCase": {
             "type": "object",
             "properties": {
                 "id": {
@@ -4525,7 +4566,7 @@
             "descriptions": [
                 "Medium temperature",
                 "Low temperature",
-                "Ice cream",
+                "Very low",
                 "Other"
             ],
             "notes": [
@@ -4536,6 +4577,6 @@
             ]
         }
     },
-    "version": "0.0.14",
+    "version": "0.0.15",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }
