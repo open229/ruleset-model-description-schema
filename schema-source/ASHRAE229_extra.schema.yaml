@@ -328,10 +328,10 @@ Building:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
-    refrigeration_components:
-      Description: "Refrigeration"
-      Data Type: "[{Refrigeration}]"
-      Notes: "Contains a list of refrigeration components in the building."
+    refrigerated_casess:
+      Description: "Refrigerated cases"
+      Data Type: "[{RefrigeratedCase}]"
+      Notes: "Contains a list of refrigerated cases in the building."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5665,7 +5665,7 @@ ExteriorLighting:
       AppG B_RMD Equals P_RMD: "unknown"
 
 
-RefrigeratedCases:
+RefrigeratedCase:
   Object Type: "Data Group"
   Data Elements:
     id:

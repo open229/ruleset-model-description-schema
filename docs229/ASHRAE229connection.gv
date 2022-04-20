@@ -18,6 +18,7 @@ digraph G {
   Building -> BuildingSegment
   Building -> Elevator
   Building -> ExteriorLighting
+  Building -> RefrigeratedCase
   Building -> Schedule [color=red] 
   BuildingSegment -> Zone
   BuildingSegment -> HeatingVentilationAirConditioningSystem
@@ -30,6 +31,7 @@ digraph G {
   Zone -> Schedule [color=red] 
   Zone -> Terminal
   Zone -> ServiceWaterHeatingDistributionSystem [color=red] 
+  Zone -> Schedule [color=red] 
   Space -> InteriorLighting
   Space -> MiscellaneousEquipment
   Space -> Schedule [color=red] 
@@ -43,6 +45,7 @@ digraph G {
   Construction -> Material
   InteriorLighting -> Schedule [color=red] 
   MiscellaneousEquipment -> Schedule [color=red] 
+  MiscellaneousEquipment -> FluidLoop [color=red] 
   Weather -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
@@ -60,7 +63,6 @@ digraph G {
   FanSystem -> Fan
   FanSystem -> AirEconomizer
   FanSystem -> AirEnergyRecovery
-  FanSystem -> Schedule [color=red] 
   FanSystem -> Schedule [color=red] 
   FanSystem -> Schedule [color=red] 
   Fan -> FanOutputValidationPoint
@@ -103,5 +105,5 @@ digraph G {
   ServiceWaterHeatingUse -> ServiceWaterHeatingDistributionSystem [color=red] 
   ServiceWaterHeatingUse -> Schedule [color=red] 
   ExteriorLighting -> Schedule [color=red] 
-  RefrigeratedCases -> Schedule [color=red] 
+  RefrigeratedCase -> Schedule [color=red] 
 }
