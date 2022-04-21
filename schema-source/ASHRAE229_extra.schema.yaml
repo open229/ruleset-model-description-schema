@@ -2671,12 +2671,12 @@ InteriorLighting:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Lights"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Interior Lighting"
+      EPout Column: "first column"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -2685,12 +2685,12 @@ InteriorLighting:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Lights"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Interior Lighting"
+      EPout Column: "first column"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -2720,7 +2720,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     power_per_area:
       Description: "Total power for lights divided by the area of the space."
       Data Type: "Numeric"
@@ -2730,12 +2730,12 @@ InteriorLighting:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Lights"
+      EPin Field: "Lighting Level or Watts per Zone Floor Area or Watts per Person"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Interior Lighting"
+      EPout Column: "Lighting Power Density"
       EP Notes: ""
     lighting_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for lighting"
@@ -2746,12 +2746,12 @@ InteriorLighting:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Lights"
+      EPin Field: "Schedule Name"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Interior Lighting"
+      EPout Column: "Schedule Name"
       EP Notes: ""
     occupancy_control_type:
       Description: "Indicates the type of occupancy controls"
@@ -2766,7 +2766,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     daylighting_control_type:
       Description: "Indicates the type of daylighting controls"
       Data Type: "<LightingDaylightingControlType>"
@@ -2774,12 +2774,12 @@ InteriorLighting:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Daylighting:Controls"
+      EPin Field: "Lighting Control Type"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Daylighting"
+      EPout Column: "Daylighting Method"
       EP Notes: ""
     are_schedules_used_for_modeling_occupancy_control:
       Description: "Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting."
@@ -2794,7 +2794,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Always set to True for energyplus"
     are_schedules_used_for_modeling_daylighting_control:
       Description: "Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting."
       Data Type: "Boolean"
@@ -2809,7 +2809,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Always set to False for energyplus"
 
 LightingDaylightingControlType:
   Object Type: "Enumeration"
