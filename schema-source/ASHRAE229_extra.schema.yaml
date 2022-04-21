@@ -2850,13 +2850,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Zone or ZoneList or Space or SpaceList Name"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal"
+      EPout Column: "Name"
+      EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -2864,13 +2864,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Zone or ZoneList or Space or SpaceList Name"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal"
+      EPout Column: "Name"
+      EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -2893,13 +2893,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "For input based on the type of input object. For output have not tested for all tables created with different input objects."
     power:
       Description: "Power for miscellaneous equipment in the space"
       Data Type: "Numeric"
@@ -2909,13 +2909,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Design Level or Watts per Zone Floor Area or Watts per Person"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
+      EPout Column: "Equipment Level"
+      EP Notes: "Fields may vary based on input object. For output have not tested for all tables created with different input objects."
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
       Data Type: "$ID"
@@ -2925,13 +2925,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Schedule Name"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
+      EPout Column: "Schedule Name"
+      EP Notes: "For output have not tested for all tables created with different input objects."
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
@@ -2941,13 +2941,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Fraction Latent and Fraction Radiant and Fraction Lost"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
+      EPout Column: "Fraction Radiant and Fraction Convected"
+      EP Notes: "Need to compute the fraction sensible based on inputs. Output computed also. For output have not tested for all tables created with different input objects."
     latent_fraction:
       Description: "Fraction of energy that is a latent load on the space."
       Data Type: "Numeric"
@@ -2957,13 +2957,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Fraction Latent"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
+      EPout Column: "Fraction Latent"
+      EP Notes: "For output have not tested for all tables created with different input objects."
     remaining_fraction_chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop for the remaining fraction"
       Data Type: "$ID"
@@ -2972,6 +2972,13 @@ MiscellaneousEquipment:
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
       AppG B_RMD Equals P_RMD: unknown"
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled and LoadProfile:Plant"
+      EPin Field: "Fraction Lost and Load Schedule Name in LoadProfile:Plant"
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EP Notes: "Input need to match between what is lost and what is shown in LoadProfile:Plant."
     miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
       Data Type: "<MiscellaneousEquipmentType>"
@@ -2985,7 +2992,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Partially undeterminable compliance parameter. If ElectricEquipment:ITE:AirCooled then can be set to INFORMATION_TECHNOLOGY_EQUIPMENT but no way to differentiate between PLUG and PROCESS."
     has_automatic_control:
       Description: "Indicates that the receptacles have automatic controls"
       Data Type: "Boolean"
@@ -2999,7 +3006,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
 
 MiscellaneousEquipmentType:
   Object Type: "Enumeration"
