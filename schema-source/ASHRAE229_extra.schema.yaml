@@ -1164,13 +1164,13 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "Space"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Space Summary"
+      EPout Column: "first column"
+      EP Notes: "For many files without spaces, use Zone Name instead."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -1178,13 +1178,13 @@ Space:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "Space"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Space Summary"
+      EPout Column: "first column"
+      EP Notes: "For many files without spaces, use Zone Name instead."
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -1206,13 +1206,13 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "Lights"
+      EPin Field: "Zone or ZoneList or Space or SpaceList Name"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Interior LIghting"
+      EPout Column: "Zone Name or Space Name"
+      EP Notes: "When using ZoneList or SpaceList will have to go to that to determine the Zone or Space."
     miscellaneous_equipment:
       Description: "Miscellaneous equipment loads that produce internal gains for a space."
       Data Type: "[{MiscellaneousEquipment}]"
@@ -1220,13 +1220,13 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
+      EPin Field: "Zone or ZoneList or Space or SpaceList Name"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "ElectricEquipment Internal Gains Nominal"
+      EPout Column: "Name"
+      EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     floor_area:
       Description: "The floor area of the space."
       Data Type: "Numeric"
@@ -1239,10 +1239,10 @@ Space:
       AppG B_RMD Equals P_RMD: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Space Summary"
+      EPout Column: "Area"
       EP Notes: ""
     number_of_occupants:
       Description: "Number of occupants in the space"
@@ -1252,12 +1252,12 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "People"
+      EPin Field: "Number of People or People per Floor Area or Floor Area per Person"
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Space Summary"
+      EPout Column: "People"
       EP Notes: ""
     occupant_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
@@ -1268,12 +1268,12 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "People"
+      EPin Field: "Number of People Schedule Name"
+      EPout File: "table.html"
+      EPout Report: "InitializationSummary"
+      EPout Table: "People Internal Gains Nominal"
+      EPout Column: "Schedule Name"
       EP Notes: ""
     occupant_sensible_heat_gain:
       Description: "Sensible heat gain of each occupant."
@@ -1285,13 +1285,13 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "People"
+      EPin Field: "Sensible Heat Fraction"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Often calculated internally. "
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "(<SpaceStatusType2019ASHRAE901>,<GeneralStatusType2019T24>)"
@@ -1305,7 +1305,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     space_function:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionType>"
@@ -1320,7 +1320,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     lighting_space_type:
       Description: "Lighting space type classification"
       Data Type: "<LightingSpaceType2019ASHRAE901TG37>"
@@ -1335,7 +1335,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     ventilations_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceType2019ASHRAE901>"
@@ -1350,7 +1350,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     service_water_heating_space_type:
       Description: "Service water heating space type classification"
       Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
@@ -1365,7 +1365,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     service_water_heating_uses:
       Description: "List of service water heating uses"
       Data Type: "[{ServiceWaterHeatingUse}]"
@@ -1373,8 +1373,8 @@ Space:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "WaterUse:Equipment or HotWaterEquipment"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
