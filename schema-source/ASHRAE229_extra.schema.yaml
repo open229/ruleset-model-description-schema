@@ -204,15 +204,6 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    building_rotation_angle:
-      Description: "The angle that building simulations is performed and results are provided."
-      Data Type: "Numeric"
-      Units: "degrees"
-      Notes: "The angle that the building has been rotated. Used specifically for rulesets that require the baseline building to be rotated. Usually is set to zero for building model in same orientation as the design building."
-      RMD Test: False
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
     fluid_loops:
       Description: "Fluid loops on the site"
       Data Type: "[{FluidLoop}]"
