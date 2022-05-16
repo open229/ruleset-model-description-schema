@@ -3,7 +3,7 @@
     "title": "Enumerations from Title 24",
     "description": "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications.",
     "definitions": {
-        "RulesetModelType2019T24Com": {
+        "RulesetModelOptions2019T24Com": {
             "type": "string",
             "enum": [
                 "USER",
@@ -20,7 +20,7 @@
                 "The baseline building model"
             ]
         },
-        "RulesetModelType2019T24Res": {
+        "RulesetModelOptions2019T24Res": {
             "type": "string",
             "enum": [
                 "USER",
@@ -35,7 +35,7 @@
                 "The baseline building model"
             ]
         },
-        "GeneralStatusType2019T24": {
+        "GeneralStatusOptions2019T24": {
             "type": "string",
             "enum": [
                 "NEW",
@@ -50,7 +50,7 @@
                 "Existing plus new"
             ]
         },
-        "ServiceWaterHeatingDistributionCompactness2019T24Com": {
+        "ServiceWaterHeatingDistributionCompactnessOptions2019T24Com": {
             "type": "string",
             "enum": [
                 "NOT_COMPACT",
@@ -65,7 +65,7 @@
                 "Other"
             ]
         },
-        "ServiceWaterHeatingControlType2019T24Com": {
+        "ServiceWaterHeatingControlOptions2019T24Com": {
             "type": "string",
             "enum": [
                 "DEMAND_CONTROL",
@@ -84,7 +84,7 @@
                 "Other"
             ]
         },
-        "OutputSchema2019T24": {
+        "OutputSchemaOptions2019T24": {
             "type": "string",
             "enum": [
                 "OUTPUT_SCHEMA_T24_RESIDENTIAL",

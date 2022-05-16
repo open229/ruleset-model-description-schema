@@ -83,7 +83,7 @@ OutputInstance:
       Data Type: "String"
     ruleset_model_type:
       Description: "Describes the current model instance for rulesets with multiple simulation models"
-      Data Type: "<RulesetModelType2019ASHRAE901>"
+      Data Type: "<RulesetModelOptions2019ASHRAE901>"
     rotation_angle:
       Description: "Rotation angle of the building model."
       Data Type: "Numeric"
@@ -173,7 +173,7 @@ EndUseResult:
       Data Type: "String"
     type:
       Description: "End use type"
-      Data Type: "<EndUseType>"
+      Data Type: "<EndUseOptions>"
       Required: True
     energy_source:
       Description: "End source"
@@ -198,7 +198,7 @@ EndUseResult:
       Description: "Indicates whether the end use consumption is from regulated equipment"
       Data Type: "Boolean"
 
-EndUseType:
+EndUseOptions:
   Object Type: "Enumeration"
   Enumerators:
     INTERIOR_LIGHTING:
@@ -268,18 +268,3 @@ EnergySourceOptions:
       Notes: "Used primarily in AnnualResult"
     OTHER:
       Description: "Other"
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
