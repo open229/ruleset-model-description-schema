@@ -214,7 +214,7 @@
                 },
                 "type": {
                     "description": "End use type",
-                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EndUseType"
+                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EndUseOptions"
                 },
                 "energy_source": {
                     "description": "End source",
@@ -250,7 +250,7 @@
             ],
             "additionalProperties": false
         },
-        "EndUseType": {
+        "EndUseOptions": {
             "type": "string",
             "enum": [
                 "INTERIOR_LIGHTING",

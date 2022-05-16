@@ -3,7 +3,7 @@
     "title": "Enumerations from RESNET",
     "description": "Schema addition for ASHRAE 229 related to enumerations found in RESNET publications.",
     "definitions": {
-        "RulesetModelTypeRESNET": {
+        "RulesetModelOptionsRESNET": {
             "type": "string",
             "enum": [
                 "USER",
@@ -20,7 +20,7 @@
                 "The index adjustment design reference model"
             ]
         },
-        "AdditionalSurfaceAdjacentToRESNET": {
+        "AdditionalSurfaceAdjacentToOptions2019ASHRAE901": {
             "type": "string",
             "enum": [
                 "MULTIFAMILY_BUFFER_SPACE",
@@ -31,7 +31,7 @@
                 "Common Wall"
             ]
         },
-        "OutputSchemaRESNET": {
+        "OutputSchemaOptionsRESNET": {
             "type": "string",
             "enum": [
                 "OUTPUT_SCHEMA_RESNET",

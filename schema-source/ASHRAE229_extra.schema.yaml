@@ -4145,7 +4145,7 @@ Chiller:
       AppG B_RMD Equals P_RMD: False
     energy_source_type:
       Description: "Source of energy for the chiller"
-      Data Type: "<EnergySourceTypeOptions>"
+      Data Type: "<EnergySourceOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4568,7 +4568,7 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: True
     energy_source_type:
       Description: "Source of energy for the external fluid source"
-      Data Type: "<EnergySourceTypeOptions>"
+      Data Type: "<EnergySourceOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5578,7 +5578,7 @@ ServiceWaterHeatingUseUnitOptions:
     OTHER:
       Description: "Other"
 
-EnergySourceTypeOptions:
+EnergySourceOptions:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRICITY:

@@ -46,6 +46,7 @@ digraph G {
   InteriorLighting -> Schedule [color=red] 
   MiscellaneousEquipment -> Schedule [color=red] 
   MiscellaneousEquipment -> FluidLoop [color=red] 
+  MiscellaneousEquipment -> FluidLoop [color=red] 
   Weather -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
@@ -83,6 +84,7 @@ digraph G {
   Chiller -> FluidLoop [color=red] 
   Chiller -> ChillerCapacityValidationPoint
   Chiller -> ChillerPowerValidationPoint
+  Chiller -> FluidLoop [color=red] 
   HeatRejection -> FluidLoop [color=red] 
   ExternalFluidSource -> FluidLoop [color=red] 
   ServiceWaterHeatingDistributionSystem -> Tank

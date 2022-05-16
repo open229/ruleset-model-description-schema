@@ -30,11 +30,11 @@
 | AirEnergyRecovery                            | Approved by Schema WG (less stable)
 | Fan                                          | Approved by Schema WG (less stable)
 | Terminal                                     | Approved by Schema WG (less stable)
-| FluidLoop                                    | Approved by Schema WG
-| FluidLoopDesignAndControl                    | Approved by Schema WG
+| FluidLoop                                    | Approved by SPC 229
+| FluidLoopDesignAndControl                    | Approved by SPC 229
 | Pump                                         | Approved by Schema WG
-| Boiler                                       | Approved by Schema WG
-| BoilerOutputValidationPoint                  | Approved by Schema WG
+| Boiler                                       | Approved by SPC 229
+| BoilerOutputValidationPoint                  | Approved by SPC 229
 | Chiller                                      | Approved by Schema WG
 | ChillerCapacityValidationPoint               | Approved by Schema WG
 | ChillerPowerValidationPoint                  | Approved by Schema WG
