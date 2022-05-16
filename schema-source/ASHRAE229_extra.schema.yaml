@@ -1649,7 +1649,7 @@ MiscellaneousEquipment:
       Description: "Source of energy for the miscellaneous equipment in the space"
       Data Type: "<EnergySourceTypeOptions>"
       RMD Test: False
-      Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE"
+      Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE. To indicate equipment with a energy source from a Loop choose OTHER"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -1689,10 +1689,18 @@ MiscellaneousEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-    remaining_fraction_chilled_water_loop:
-      Description: "Referenced to the Chilled water fluid loop for the remaining fraction"
+    remaining_fraction_to_loop:
+      Description: "Referenced to the water fluid loop for the remaining fraction"
       Data Type: "$ID"
-      Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
+      Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
+      RMD Test: unknown"
+      AppG Used By TCDs: unknown"
+      AppG P_RMD Equals U_RMD: unknown"
+      AppG B_RMD Equals P_RMD: unknown"
+    energy_from_loop:
+      Description: "Referenced to the loop serving as the source of energy"
+      Data Type: "$ID"
+      Notes: "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
       RMD Test: unknown"
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
