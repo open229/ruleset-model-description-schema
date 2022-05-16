@@ -331,8 +331,7 @@ Building:
     building_open_schedule:
       Description: "Reference to the schedule containing indicating when the building is open"
       Data Type: "$ID"
-      Required: True
-      Notes: "One represent when the building is open and zero when closed. Constraint to use when implemented :Schedule:"
+      Notes: "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -522,8 +521,7 @@ Zone:
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the design thermostat cooling setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -540,8 +538,7 @@ Zone:
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the design thermostat heating setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -549,7 +546,6 @@ Zone:
     minimum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the minimum relative humidity setpoint"
       Data Type: "$ID"
-      Required: True
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -558,7 +554,6 @@ Zone:
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
       Data Type: "$ID"
-      Required: True
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -602,8 +597,7 @@ Zone:
     exhaust_airflow_rate_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -708,8 +702,7 @@ Space:
     occupant_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -855,7 +848,7 @@ Infiltration:
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
       Data Type: "$ID"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1556,8 +1549,7 @@ InteriorLighting:
     lighting_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for lighting"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1665,8 +1657,7 @@ MiscellaneousEquipment:
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2214,7 +2205,7 @@ Elevator:
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
       Data Type: "$ID"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2222,7 +2213,7 @@ Elevator:
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
       Data Type: "$ID"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2230,7 +2221,7 @@ Elevator:
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
       Data Type: "$ID"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2858,7 +2849,7 @@ FanSystem:
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "$ID"
-      Notes: "Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the fansystem  is always operating. Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3469,7 +3460,7 @@ Terminal:
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "$ID"
-      Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4711,7 +4702,7 @@ ServiceWaterHeatingDistributionSystem:
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "$ID"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5518,8 +5509,7 @@ ServiceWaterHeatingUse:
     use_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5684,8 +5674,7 @@ ExteriorLighting:
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for exterior lighting"
       Data Type: "$ID"
-      Required: True
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5759,7 +5748,7 @@ RefrigeratedCase:
     power_multiplier_schedule:
       Description: "Refrigerated case power multiplier schedule name"
       Data Type: "$ID"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
