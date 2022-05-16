@@ -15,6 +15,7 @@ Schema:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
     - "Enumerations2019T24"
+    - "Output2019ASHRAE901"
   Root Data Group: "ASHRAE229"
 
 # Data Types
