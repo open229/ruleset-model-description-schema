@@ -2365,6 +2365,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
+      Notes: "Design capacity may be an autosized value."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2374,7 +2375,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "At rating conditions."
+      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when that is based on capacity."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2415,10 +2416,10 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     full_load_efficiency_no_fan:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power"
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
       Data Type: "Numeric"
       Units: "W/W"
-      Notes: "Used for heat pump. JG to verify if used in test case description."
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included. JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2623,10 +2624,10 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     full_load_efficiency_no_fan:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including fan power"
+      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
       Data Type: "Numeric"
       Units: "W/W"
-      Notes: "Used for direct expansion. JG to verify if used in test case description."
+      Notes: "Used for direct expansion and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included. JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
