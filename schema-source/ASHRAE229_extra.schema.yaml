@@ -4250,6 +4250,23 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    heat_recovery_loop:
+      Description: "Recovered heat to fluid loop"
+      Data Type: "$ID"
+      Notes: "Constraint to use when implemented :FluidLoop:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    heat_recovery_fraction:
+      Description: "Jeat recovery fraction"
+      Data Type: "Numeric"
+      Range: ">=0, <=1"
+      Notes: "Fraction of total rejected heat that can be recovered at full load"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
 
 ChillerPartLoadEfficiencyMetricTypeOptions:
   Object Type: "Enumeration"
