@@ -125,7 +125,7 @@ ASHRAE229:
       AppG B_RMD Equals P_RMD: "unknown"
     output_format_type:
       Description: "Format used for output"
-      Data Type: "(<OutputSchema2019ASHRAE901>, <OutputSchema2019T24>, OutputSchemaRESNET)"
+      Data Type: "(<OutputSchemaOptions2019ASHRAE901>, <OutputSchemaOptions2019T24>, OutputSchemaOptionsRESNET)"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -158,7 +158,7 @@ RulesetModelInstance:
       AppG B_RMD Equals P_RMD: "unknown"
     ruleset_model_type:
       Description: "Describes the current model instance for rulesets with multiple simulation models"
-      Data Type: "(<RulesetModelType2019ASHRAE901>,<RulesetModelTypeRESNET,<RulesetModelType2019T24Com>,<RulesetModelType2019T24Res>)"
+      Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -265,7 +265,7 @@ RulesetModelInstance:
       AppG B_RMD Equals P_RMD: True
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
-      Data Type: "<ExteriorLightingZones2019ASHRAE901>"
+      Data Type: "<ExteriorLightingZoneOptions2019ASHRAE901>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -413,7 +413,7 @@ BuildingSegment:
       AppG B_RMD Equals P_RMD: False
     area_type_vertical_fenestration:
       Description: "Building area classification used for vertical fenestration"
-      Data Type: "<VerticalFenestrationBuildingAreaType2019ASHRAE901>"
+      Data Type: "<VerticalFenestrationBuildingAreaOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: True
@@ -421,14 +421,14 @@ BuildingSegment:
       AppG B_RMD Equals P_RMD: True
     lighting_building_area_type:
       Description: "Building area lighting area type"
-      Data Type: "<LightingSpaceType2019ASHRAE901T951TG38>"
+      Data Type: "<LightingSpaceOptions2019ASHRAE901T951TG38>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: True
     area_type_heating_ventilation_air_conditioning_system:
       Description: "Classification used for HVAC"
-      Data Type: "<HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901>"
+      Data Type: "<HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used. JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -496,7 +496,7 @@ Zone:
       AppG B_RMD Equals P_RMD: True
     conditioning_type:
       Description: "Space conditioning category"
-      Data Type: "<ConditioningType>"
+      Data Type: "<ConditioningOptions>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -719,14 +719,14 @@ Space:
       AppG B_RMD Equals P_RMD: True
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "(<SpaceStatusType2019ASHRAE901>,<GeneralStatusType2019T24>)"
+      Data Type: "(<SpaceStatusOptions2019ASHRAE901>,<GeneralStatusOptions2019T24>)"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     space_function:
       Description: "Generic function for the space."
-      Data Type: "<SpaceFunctionType>"
+      Data Type: "<SpaceFunctionOptions>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: False
@@ -734,7 +734,7 @@ Space:
       AppG B_RMD Equals P_RMD: "unknown"
     lighting_space_type:
       Description: "Lighting space type classification"
-      Data Type: "<LightingSpaceType2019ASHRAE901TG37>"
+      Data Type: "<LightingSpaceOptions2019ASHRAE901TG37>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: True
@@ -742,7 +742,7 @@ Space:
       AppG B_RMD Equals P_RMD: True
     ventilations_space_type:
       Description: "Ventilation space type classification"
-      Data Type: "<VentilationSpaceType2019ASHRAE901>"
+      Data Type: "<VentilationSpaceOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -750,7 +750,7 @@ Space:
       AppG B_RMD Equals P_RMD: "unknown"
     service_water_heating_space_type:
       Description: "Service water heating space type classification"
-      Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
+      Data Type: "<ServiceWaterHeatingSpaceOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -764,7 +764,7 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ConditioningType:
+ConditioningOptions:
   Object Type: "Enumeration"
   Enumerators:
     HEATED_AND_COOLED:
@@ -776,7 +776,7 @@ ConditioningType:
     UNCONDITIONED:
       Description: "Unconditioned"
 
-SpaceFunctionType:
+SpaceFunctionOptions:
   Object Type: "Enumeration"
   Enumerators:
     LABORATORY:
@@ -813,7 +813,7 @@ Infiltration:
       AppG B_RMD Equals P_RMD: "unknown"
     modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
-      Data Type: "<InfiltrationMethodType>"
+      Data Type: "<InfiltrationMethodOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
@@ -854,7 +854,7 @@ Infiltration:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
 
-InfiltrationMethodType:
+InfiltrationMethodOptions:
   Object Type: "Enumeration"
   Enumerators:
     WEATHER_DRIVEN:
@@ -904,7 +904,7 @@ Surface:
       AppG B_RMD Equals P_RMD: False
     classification:
       Description: "Classification for the surface."
-      Data Type: "<SurfaceClassificationType>"
+      Data Type: "<SurfaceClassificationOptions>"
       Notes: "Options for surface being interior or exterior wall, floor, or ceiling."
       RMD Test: False
       AppG Used By TCDs: False
@@ -941,7 +941,7 @@ Surface:
       AppG B_RMD Equals P_RMD: True
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
-      Data Type: "(<SurfaceAdjacentTo>,<AdditionalSurfaceAdjacentToRESNET>,<AdditionalSurfaceAdjacentTo2019ASHRAE901>)"
+      Data Type: "(<SurfaceAdjacentToOptions>,<AdditionalSurfaceAdjacentToOptionsRESNET>,<AdditionalSurfaceAdjacentToOptions2019ASHRAE901>)"
       Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -978,7 +978,7 @@ Surface:
       AppG B_RMD Equals P_RMD: False
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusType2019T24>"
+      Data Type: "<GeneralStatusOptions2019T24>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1253,7 +1253,7 @@ SurfaceOpticalProperties:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-SurfaceClassificationType:
+SurfaceClassificationOptions:
   Object Type: "Enumeration"
   Enumerators:
     WALL:
@@ -1263,7 +1263,7 @@ SurfaceClassificationType:
     CEILING:
       Description: "Ceiling"
 
-SurfaceAdjacentTo:
+SurfaceAdjacentToOptions:
   Object Type: "Enumeration"
   Enumerators:
     EXTERIOR:
@@ -1312,14 +1312,14 @@ Subsurface:
       AppG B_RMD Equals P_RMD: "unknown"
     classification:
       Description: "Classification for the subsurface being window, skylight, door."
-      Data Type: "<SubsurfaceClassificationType>"
+      Data Type: "<SubsurfaceClassificationOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     subclassification:
       Description: "Standard specific subclassification for subsurfaces"
-      Data Type: "<SubsurfaceSubclassificationType2019ASHRAE901>"
+      Data Type: "<SubsurfaceSubclassificationOptions2019ASHRAE901>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1341,7 +1341,7 @@ Subsurface:
       AppG B_RMD Equals P_RMD: "unknown"
     framing_type:
       Description: "The material of the framing."
-      Data Type: "<SubsurfaceFrameType2019ASHRAE901>"
+      Data Type: "<SubsurfaceFrameOptions2019ASHRAE901>"
       Notes: "This applies to windows and skylights but not to doors."
       RMD Test: False
       AppG Used By TCDs: False
@@ -1377,7 +1377,7 @@ Subsurface:
       AppG B_RMD Equals P_RMD: False
     dynamic_glazing_type:
       Description: "Type of dynamic glazing for the window subsurface"
-      Data Type: "<SubsurfaceDynamicGlazingType>"
+      Data Type: "<SubsurfaceDynamicGlazingOptions>"
       Notes: "Indicates if the glazed subsurface can change it's performance properties and if it is automatic or not."
       RMD Test: False
       AppG Used By TCDs: True
@@ -1476,13 +1476,13 @@ Subsurface:
       AppG B_RMD Equals P_RMD: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusType2019T24>"
+      Data Type: "<GeneralStatusOptions2019T24>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-SubsurfaceClassificationType:
+SubsurfaceClassificationOptions:
   Object Type: "Enumeration"
   Enumerators:
     WINDOW:
@@ -1494,7 +1494,7 @@ SubsurfaceClassificationType:
     OTHER:
       Description: "Other types of subsurfaces that allow light to pass"
 
-SubsurfaceDynamicGlazingType:
+SubsurfaceDynamicGlazingOptions:
   Object Type: "Enumeration"
   Enumerators:
     NOT_DYNAMIC:
@@ -1531,7 +1531,7 @@ InteriorLighting:
       AppG B_RMD Equals P_RMD: False
     purpose_type:
       Description: "Lighting purpose type classification"
-      Data Type: "<LightingPurposeType2019ASHRAE901>"
+      Data Type: "<LightingPurposeOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: False
@@ -1556,14 +1556,14 @@ InteriorLighting:
       AppG B_RMD Equals P_RMD: False
     occupancy_control_type:
       Description: "Indicates the type of occupancy controls"
-      Data Type: "<LightingOccupancyControlType>"
+      Data Type: "<LightingOccupancyControlOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     daylighting_control_type:
       Description: "Indicates the type of daylighting controls"
-      Data Type: "<LightingDaylightingControlType>"
+      Data Type: "<LightingDaylightingControlOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1584,7 +1584,7 @@ InteriorLighting:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-LightingDaylightingControlType:
+LightingDaylightingControlOptions:
   Object Type: "Enumeration"
   Enumerators:
     STEPPED:
@@ -1597,7 +1597,7 @@ LightingDaylightingControlType:
       Description: "None"
       Notes: "No daylighting is used."
 
-LightingOccupancyControlType:
+LightingOccupancyControlOptions:
   Object Type: "Enumeration"
   Enumerators:
     FULL_AUTO_ON:
@@ -1639,7 +1639,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: False
     energy_type:
       Description: "Source of energy for the miscellaneous equipment in the space"
-      Data Type: "<EnergySourceTypeOptions>"
+      Data Type: "<EnergySourceOptions>"
       RMD Test: False
       Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE. To indicate equipment with a energy source from a Loop choose OTHER"
       AppG Used By TCDs: True
@@ -1698,7 +1698,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: unknown"
     miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
-      Data Type: "<MiscellaneousEquipmentType>"
+      Data Type: "<MiscellaneousEquipmentOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1711,7 +1711,7 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-MiscellaneousEquipmentType:
+MiscellaneousEquipmentOptions:
   Object Type: "Enumeration"
   Enumerators:
     PLUG:
@@ -1750,14 +1750,14 @@ Transformer:
       AppG B_RMD Equals P_RMD: False
     type:
       Description: "The type of transformer"
-      Data Type: "<TransformerType>"
+      Data Type: "<TransformerOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     phase:
       Description: "The number of electrical phases"
-      Data Type: "<ElectricalPhase>"
+      Data Type: "<ElectricalPhaseOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1791,7 +1791,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-TransformerType:
+TransformerOptions:
   Object Type: "Enumeration"
   Enumerators:
     DRY_TYPE:
@@ -1801,7 +1801,7 @@ TransformerType:
     OTHER:
       Description: "Other"
 
-ElectricalPhase:
+ElectricalPhaseOptions:
   Object Type: "Enumeration"
   Enumerators:
     SINGLE_PHASE:
@@ -1844,7 +1844,7 @@ Schedule:
       AppG B_RMD Equals P_RMD: False
     schedule_sequence_type:
       Description: "Schedule sequence type"
-      Data Type: "<ScheduleSequenceTypeOptions>"
+      Data Type: "<ScheduleSequenceOptions>"
       RMD Test: "Seconary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1876,7 +1876,7 @@ Schedule:
       AppG B_RMD Equals P_RMD: "unknown"
     type:
       Description: "The type of schedule"
-      Data Type: "<ScheduleTypeOptions>"
+      Data Type: "<ScheduleOptions>"
       Notes: "Primarily indicates if the values may be represented by units such as C for temperature or W for power or m3/s for flow rate or are dimensionless multipliers."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -1884,7 +1884,7 @@ Schedule:
       AppG B_RMD Equals P_RMD: False
     prescribed_schedule:
       Description: "True if any schedule values have changed from what appears in the schedule library"
-      Data Type: "<PrescribedSchedules2019ASHRAE901>"
+      Data Type: "<PrescribedScheduleOptions2019ASHRAE901>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1897,7 +1897,7 @@ Schedule:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ScheduleSequenceTypeOptions:
+ScheduleSequenceOptions:
   Object Type: "Enumeration"
   Enumerators:
     HOURLY:
@@ -1906,7 +1906,7 @@ ScheduleSequenceTypeOptions:
       Description: "Event"
 
 
-ScheduleTypeOptions:
+ScheduleOptions:
   Object Type: "Enumeration"
   Enumerators:
     MULTIPLIER_DIMENSIONLESS:
@@ -1930,7 +1930,7 @@ Calendar:
       AppG B_RMD Equals P_RMD: "unknown"
     day_of_week_for_january_1:
       Description: "Day of the week for January 1"
-      Data Type: "<DayOfWeek>"
+      Data Type: "<DayOfWeekOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1950,7 +1950,7 @@ Calendar:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-DayOfWeek:
+DayOfWeekOptions:
   Object Type: "Enumeration"
   Enumerators:
     SUNDAY:
@@ -1996,7 +1996,7 @@ Weather:
       AppG B_RMD Equals P_RMD: "unknown"
     data_source_type:
       Description: "Data source use for the weather file."
-      Data Type: "<WeatherFileDataSourceTypeOptions>"
+      Data Type: "<WeatherFileDataSourceOptions>"
       Required: True
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -2004,7 +2004,7 @@ Weather:
       AppG B_RMD Equals P_RMD: "unknown"
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
-      Data Type: "<ClimateZone2019ASHRAE901>"
+      Data Type: "<ClimateZoneOptions2019ASHRAE901>"
       Required: True
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
@@ -2013,20 +2013,20 @@ Weather:
       AppG B_RMD Equals P_RMD: True
     cooling_design_day_type:
       Description: "The frequency of occurance type for cooling design day"
-      Data Type: "<CoolingDesignDayTypeOptions>"
+      Data Type: "<CoolingDesignDayOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
     heating_design_day_type:
       Description: "The frequency of occurance type for heating design day"
-      Data Type: "<HeatingDesignDayTypeOptions>"
+      Data Type: "<HeatingDesignDayOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-WeatherFileDataSourceTypeOptions:
+WeatherFileDataSourceOptions:
   Object Type: "Enumeration"
   Enumerators:
     HISTORIC_AGGREGATION:
@@ -2038,7 +2038,7 @@ WeatherFileDataSourceTypeOptions:
     OTHER:
       Description: "Other"
 
-CoolingDesignDayTypeOptions:
+CoolingDesignDayOptions:
   Object Type: "Enumeration"
   Enumerators:
     COOLING_0_4:
@@ -2048,7 +2048,7 @@ CoolingDesignDayTypeOptions:
     COOLING_2_0:
       Description: "Cooling design day 2.0% annual cumulative frequency of occurance"
 
-HeatingDesignDayTypeOptions:
+HeatingDesignDayOptions:
   Object Type: "Enumeration"
   Enumerators:
     HEATING_99_6:
@@ -2083,7 +2083,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: "unknown"
     type:
       Description: "The type of elevator"
-      Data Type: "<ElevatorTypeOptions>"
+      Data Type: "<ElevatorOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2227,7 +2227,7 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-ElevatorTypeOptions:
+ElevatorOptions:
   Object Type: "Enumeration"
   Enumerators:
     HYDRAULIC:
@@ -2296,7 +2296,7 @@ HeatingVentilationAirConditioningSystem:
       AppG B_RMD Equals P_RMD: False
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusType2019T24>"
+      Data Type: "<GeneralStatusOptions2019T24>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
@@ -2329,7 +2329,7 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
     heating_system_type:
       Description: "Heating system type"
-      Data Type: "<HeatingSystemType>"
+      Data Type: "<HeatingSystemOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2337,7 +2337,7 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
     energy_source_type:
       Description: "Source of energy for the chiller"
-      Data Type: "<EnergySourceTypeOptions>"
+      Data Type: "<EnergySourceOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2425,7 +2425,7 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
-      Data Type: "<HeatpumpAuxilliaryHeatType>"
+      Data Type: "<HeatpumpAuxilliaryHeatOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2451,14 +2451,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
     humidification_type:
       Description: "Humidification type"
-      Data Type: "<HumidificationType>"
+      Data Type: "<HumidificationOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-HeatingSystemType:
+HeatingSystemOptions:
   Object Type: "Enumeration"
   Enumerators:
     HEAT_PUMP:
@@ -2476,7 +2476,7 @@ HeatingSystemType:
     OTHER:
       Description: "Other"
 
-HeatpumpAuxilliaryHeatType:
+HeatpumpAuxilliaryHeatOptions:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRIC_RESISTANCE:
@@ -2488,7 +2488,7 @@ HeatpumpAuxilliaryHeatType:
     OTHER:
       Description: "Other"
 
-HumidificationType:
+HumidificationOptions:
   Object Type: "Enumeration"
   Enumerators:
     ADIABATIC:
@@ -2525,7 +2525,7 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
     cooling_system_type:
       Description: "Cooling system type"
-      Data Type: "<CoolingSystemType>"
+      Data Type: "<CoolingSystemOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2633,7 +2633,7 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
     dehumidification_type:
       Description: "Dehumidification type"
-      Data Type: "<DehumidificationType>"
+      Data Type: "<DehumidificationOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -2648,7 +2648,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-CoolingSystemType:
+CoolingSystemOptions:
   Object Type: "Enumeration"
   Enumerators:
     DIRECT_EXPANSION:
@@ -2662,7 +2662,7 @@ CoolingSystemType:
     OTHER:
       Description: "Other"
 
-DehumidificationType:
+DehumidificationOptions:
   Object Type: "Enumeration"
   Enumerators:
     MECHANCIAL_COOLING:
@@ -2758,7 +2758,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
     temperature_control:
       Description: "Supply air temperature control type"
-      Data Type: "<FanSystemTemperatureControlType>"
+      Data Type: "<FanSystemTemperatureControlOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2766,7 +2766,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
     operation_during_occupied:
       Description: "Operation during occupied times type"
-      Data Type: "<FanSystemOperationType>"
+      Data Type: "<FanSystemOperationOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2774,7 +2774,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
-      Data Type: "<FanSystemOperationType>"
+      Data Type: "<FanSystemOperationOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2790,7 +2790,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     fan_control:
       Description: "Supply fan control type"
-      Data Type: "<FanSystemSupplyFanControlType>"
+      Data Type: "<FanSystemSupplyFanControlOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2832,7 +2832,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
-      Data Type: "<FanSystemSupplyFanVolumeResetType>"
+      Data Type: "<FanSystemSupplyFanVolumeResetOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2900,7 +2900,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
     demand_control_ventilation_control:
       Description: "Demand control ventilation control type"
-      Data Type: "<DemandControlVentilationControlType>"
+      Data Type: "<DemandControlVentilationControlOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2934,7 +2934,7 @@ AirEconomizer:
       AppG B_RMD Equals P_RMD: False
     type:
       Description: "Type"
-      Data Type: "<AirEconomizerType>"
+      Data Type: "<AirEconomizerOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2978,7 +2978,7 @@ AirEnergyRecovery:
       AppG B_RMD Equals P_RMD: False
     energy_recovery_type:
       Description: "Energy recovery type"
-      Data Type: "<EnergyRecoveryType>"
+      Data Type: "<EnergyRecoveryOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2994,7 +2994,7 @@ AirEnergyRecovery:
       AppG B_RMD Equals P_RMD: "unknown"
     energy_recovery_operation:
       Description: "Energy recovery operation"
-      Data Type: "<EnergyRecoveryOperation>"
+      Data Type: "<EnergyRecoveryOperationOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3002,7 +3002,7 @@ AirEnergyRecovery:
       AppG B_RMD Equals P_RMD: False
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
-      Data Type: "<EnergyRecoverySupplyAirTemperatureControl>"
+      Data Type: "<EnergyRecoverySupplyAirTemperatureControlOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3025,7 +3025,7 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-FanSystemTemperatureControlType:
+FanSystemTemperatureControlOptions:
   Object Type: "Enumeration"
   Enumerators:
     CONSTANT:
@@ -3043,7 +3043,7 @@ FanSystemTemperatureControlType:
     OTHER:
       Description: "Other"
 
-FanSystemSupplyFanControlType:
+FanSystemSupplyFanControlOptions:
   Object Type: "Enumeration"
   Enumerators:
     CONSTANT:
@@ -3059,7 +3059,7 @@ FanSystemSupplyFanControlType:
     OTHER:
       Description: "Other"
 
-FanSystemOperationType:
+FanSystemOperationOptions:
   Object Type: "Enumeration"
   Enumerators:
     CYCLING:
@@ -3071,7 +3071,7 @@ FanSystemOperationType:
     OTHER:
       Description: "Other"
 
-FanSystemSupplyFanVolumeResetType:
+FanSystemSupplyFanVolumeResetOptions:
   Object Type: "Enumeration"
   Enumerators:
     CONSTANT:
@@ -3083,7 +3083,7 @@ FanSystemSupplyFanVolumeResetType:
     OTHER:
       Description: "Other"
 
-AirEconomizerType:
+AirEconomizerOptions:
   Object Type: "Enumeration"
   Enumerators:
     FIXED_FRACTION:
@@ -3099,7 +3099,7 @@ AirEconomizerType:
     OTHER:
       Description: "Other"
 
-EnergyRecoveryType:
+EnergyRecoveryOptions:
   Object Type: "Enumeration"
   Enumerators:
     SENSIBLE_HEAT_EXHANGE:
@@ -3117,7 +3117,7 @@ EnergyRecoveryType:
     NONE:
       Description: "None"
 
-EnergyRecoveryOperation:
+EnergyRecoveryOperationOptions:
   Object Type: "Enumeration"
   Enumerators:
     WHEN_FANS_ON:
@@ -3131,7 +3131,7 @@ EnergyRecoveryOperation:
     NONE:
       Description: "None"
 
-EnergyRecoverySupplyAirTemperatureControl:
+EnergyRecoverySupplyAirTemperatureControlOptions:
   Object Type: "Enumeration"
   Enumerators:
     FIXED_SETPOINT:
@@ -3143,7 +3143,7 @@ EnergyRecoverySupplyAirTemperatureControl:
     NONE:
       Description: "None"
 
-DemandControlVentilationControlType:
+DemandControlVentilationControlOptions:
   Object Type: "Enumeration"
   Enumerators:
     CO2_RETURN_AIR:
@@ -3278,7 +3278,7 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusType2019T24>"
+      Data Type: "<GeneralStatusOptions2019T24>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3350,7 +3350,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
     type:
       Description: "Type of terminal"
-      Data Type: "<TerminalType>"
+      Data Type: "<TerminalOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3366,7 +3366,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
     heating_source:
       Description: "Source of heating"
-      Data Type: "<HeatingSourceType>"
+      Data Type: "<HeatingSourceOptions>"
       Notes: "Used for terminal heating including reheat. JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3382,7 +3382,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
     cooling_source:
       Description: "Source of cooling"
-      Data Type: "<CoolingSourceType>"
+      Data Type: "<CoolingSourceOptions>"
       Notes: "Used for terminal cooling. JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3406,7 +3406,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
     fan_configuration:
       Description: "Fan configuration"
-      Data Type: "<TerminalFanConfiguration>"
+      Data Type: "<TerminalFanConfigurationOptions>"
       Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
@@ -3500,7 +3500,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
     
 
-TerminalType:
+TerminalOptions:
   Object Type: "Enumeration"
   Enumerators:
     VARIABLE_AIR_VOLUME:
@@ -3518,7 +3518,7 @@ TerminalType:
     OTHER:
       Description: "Other"
 
-TerminalFanConfiguration:
+TerminalFanConfigurationOptions:
   Object Type: "Enumeration"
   Enumerators:
     PARALLEL:
@@ -3528,7 +3528,7 @@ TerminalFanConfiguration:
     OTHER:
       Description: "Other"
 
-HeatingSourceType:
+HeatingSourceOptions:
   Object Type: "Enumeration"
   Enumerators:
     ELECTRIC:
@@ -3540,7 +3540,7 @@ HeatingSourceType:
     OTHER:
       Description: "Other"
 
-CoolingSourceType:
+CoolingSourceOptions:
   Object Type: "Enumeration"
   Enumerators:
     CHILLED_WATER:
@@ -3577,7 +3577,7 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
     type:
       Description: "Type of loop"
-      Data Type: "<FluidLoopTypeOptions>"
+      Data Type: "<FluidLoopOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3693,7 +3693,7 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
-      Data Type: "<TemperatureResetTypeOptions>"
+      Data Type: "<TemperatureResetOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3760,7 +3760,7 @@ FluidLoopFlowControlOptions:
     VARIABLE_FLOW:
       Description: "Variable flow"
 
-FluidLoopTypeOptions:
+FluidLoopOptions:
   Object Type: "Enumeration"
   Enumerators:
     HEATING:
@@ -3774,7 +3774,7 @@ FluidLoopTypeOptions:
     OTHER:
       Description: "Other"
 
-TemperatureResetTypeOptions:
+TemperatureResetOptions:
   Object Type: "Enumeration"
   Enumerators:
     NO_RESET:
@@ -3992,14 +3992,14 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
     energy_source_type:
       Description: "Source of energy for the boiler"
-      Data Type: "<EnergySourceTypeOptions>"
+      Data Type: "<EnergySourceOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     efficiency_metric:
       Description: "The type of efficiency metric used"
-      Data Type: "<BoilerEfficiencyMetricTypeOptions>"
+      Data Type: "<BoilerEfficiencyMetricOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4054,7 +4054,7 @@ BoilerCombustionOptions:
     FORCED:
       Description: "Forced"
 
-BoilerEfficiencyMetricTypeOptions:
+BoilerEfficiencyMetricOptions:
   Object Type: "Enumeration"
   Enumerators:
     ANNUAL_FUEL_UTILIZATION:
@@ -4138,7 +4138,7 @@ Chiller:
       AppG B_RMD Equals P_RMD: False
     compressor_type:
       Description: "Compressor Type"
-      Data Type: "<ChillerCompressorTypeOptions>"
+      Data Type: "<ChillerCompressorOptions>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4208,7 +4208,7 @@ Chiller:
       AppG B_RMD Equals P_RMD: False
     part_load_efficiency_metric:
       Description: "The type of part load efficiency metric used"
-      Data Type: "<ChillerPartLoadEfficiencyMetricTypeOptions>"
+      Data Type: "<ChillerPartLoadEfficiencyMetricOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4259,7 +4259,7 @@ Chiller:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ChillerPartLoadEfficiencyMetricTypeOptions:
+ChillerPartLoadEfficiencyMetricOptions:
   Object Type: "Enumeration"
   Enumerators:
     INTEGRATED_PART_LOAD_VALUE:
@@ -4337,7 +4337,7 @@ ChillerPowerValidationPoint:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
 
-ChillerCompressorTypeOptions:
+ChillerCompressorOptions:
   Object Type: "Enumeration"
   Enumerators:
     SCREW:
@@ -4397,14 +4397,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
     type:
       Description: "Heat Rejection Type"
-      Data Type: "<HeatRejectionTypeOptions>"
+      Data Type: "<HeatRejectionOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     fan_type:
       Description: "Heat Rejection Fan Type"
-      Data Type: "<HeatRejectionFanTypeOptions>"
+      Data Type: "<HeatRejectionFanOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
@@ -4474,7 +4474,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-HeatRejectionTypeOptions:
+HeatRejectionOptions:
   Object Type: "Enumeration"
   Enumerators:
     OPEN_CIRCUIT_COOLING_TOWER:
@@ -4490,7 +4490,7 @@ HeatRejectionTypeOptions:
     OTHER:
       Description: "Other"
 
-HeatRejectionFanTypeOptions:
+HeatRejectionFanOptions:
   Object Type: "Enumeration"
   Enumerators:
     AXIAL:
@@ -4561,7 +4561,7 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: True
     type:
       Description: "Type of external fluid source"
-      Data Type: "<ExternalFluidSourceTypeOptions>"
+      Data Type: "<ExternalFluidSourceOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4574,7 +4574,7 @@ ExternalFluidSource:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
 
-ExternalFluidSourceTypeOptions:
+ExternalFluidSourceOptions:
   Object Type: "Enumeration"
   Enumerators:
     CHILLED_WATER:
@@ -4652,7 +4652,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     distribution_compactness:
       Description: "Type of compact distribution system"
-      Data Type: "<ServiceWaterHeatingDistributionCompactness2019T24Com>"
+      Data Type: "<ServiceWaterHeatingDistributionCompactnessOptions2019T24Com>"
       Notes: "From CBECC-Com."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4660,7 +4660,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     control_type:
       Description: "Type of distribution system"
-      Data Type: "<ServiceWaterHeatingControlType2019T24Com>"
+      Data Type: "<ServiceWaterHeatingControlOptions2019T24Com>"
       Notes: "From CBECC-Com."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4668,7 +4668,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     configuration_type:
       Description: "Type of configuration"
-      Data Type: "<ServiceWaterHeatingConfigurationType>"
+      Data Type: "<ServiceWaterHeatingConfigurationOptions>"
       Notes: "From CBECC-Com."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4693,7 +4693,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
-      Data Type: "<ServiceWaterHeatingHeatRecoveryType>"
+      Data Type: "<ServiceWaterHeatingHeatRecoveryOptions>"
       Notes: "From CBECC-Res."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4723,7 +4723,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ServiceWaterHeatingConfigurationType:
+ServiceWaterHeatingConfigurationOptions:
   Object Type: "Enumeration"
   Enumerators:
     HERS_PARALLEL_PIPING:
@@ -4755,7 +4755,7 @@ ServiceWaterHeatingConfigurationType:
     OTHER:
       Description: "Other"
 
-ServiceWaterHeatingHeatRecoveryType:
+ServiceWaterHeatingHeatRecoveryOptions:
   Object Type: "Enumeration"
   Enumerators:
     NOT_APPLICABLE:
@@ -4811,14 +4811,14 @@ ServiceWaterPiping:
       AppG B_RMD Equals P_RMD: "unknown"
     loop_pipe_location:
       Description: "Loop pipe location"
-      Data Type: "<ComponentLocation>"
+      Data Type: "<ComponentLocationOptions>"
       Notes: "From CBECC-Com."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     location_zone:
-      Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocation"
+      Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
       Data Type: "$ID"
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -4954,7 +4954,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
-      Data Type: "<EnergySourceTypeOptions>"
+      Data Type: "<EnergySourceOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5082,7 +5082,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
-      Data Type: "<ComponentLocation>"
+      Data Type: "<ComponentLocationOptions>"
       Notes: "From CBECC-Res."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5130,7 +5130,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     heater_type:
       Description: "Service water heater type"
-      Data Type: "<ServiceWaterHeaterType>"
+      Data Type: "<ServiceWaterHeaterOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5167,7 +5167,7 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ServiceWaterHeaterType:
+ServiceWaterHeaterOptions:
   Object Type: "Enumeration"
   Enumerators:
     CONVENTIONAL:
@@ -5185,7 +5185,7 @@ ServiceWaterHeaterType:
     OTHER:
       Description: "Other"
 
-ComponentLocation:
+ComponentLocationOptions:
   Object Type: "Enumeration"
   Enumerators:
     IN_ZONE:
@@ -5365,7 +5365,7 @@ Tank:
       AppG B_RMD Equals P_RMD: "unknown"
     type:
       Description: "Service water heater tank type"
-      Data Type: "<ServiceWaterHeaterTankType>"
+      Data Type: "<ServiceWaterHeaterTankOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5402,7 +5402,7 @@ Tank:
       AppG B_RMD Equals P_RMD: "unknown"
     location:
       Description: "Location"
-      Data Type: "<ComponentLocation>"
+      Data Type: "<ComponentLocationOptions>"
       Notes: "From CBECC-Res."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5417,7 +5417,7 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ServiceWaterHeaterTankType:
+ServiceWaterHeaterTankOptions:
   Object Type: "Enumeration"
   Enumerators:
     CONSUMER_INSTANTANEOUS:
@@ -5471,7 +5471,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
     area_type:
       Description: "Service Water Heating Loop Area Type"
-      Data Type: "<ServiceWaterHeatingSpaceType2019ASHRAE901>"
+      Data Type: "<ServiceWaterHeatingSpaceOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5479,7 +5479,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
     water_serves_type:
       Description: "The use of the water serves the type"
-      Data Type: "<ServiceWaterHeatingFixtureType>"
+      Data Type: "<ServiceWaterHeatingFixtureOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5501,7 +5501,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
     use_units:
       Description: "Type of units for use of service hot water"
-      Data Type: "<ServiceWaterHeatingUseUnits>"
+      Data Type: "<ServiceWaterHeatingUseUnitOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5540,7 +5540,7 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
 
-ServiceWaterHeatingFixtureType:
+ServiceWaterHeatingFixtureOptions:
   Object Type: "Enumeration"
   Enumerators:
     SHOWER:
@@ -5560,7 +5560,7 @@ ServiceWaterHeatingFixtureType:
     OTHER:
       Description: "Other"
 
-ServiceWaterHeatingUseUnits:
+ServiceWaterHeatingUseUnitOptions:
   Object Type: "Enumeration"
   Enumerators:
     POWER_PER_PERSON:
@@ -5622,7 +5622,7 @@ ExteriorLighting:
       AppG B_RMD Equals P_RMD: "unknown"
     type:
       Description: "The type of exterior lighting fixture"
-      Data Type: "<ExteriorLightingAreas2019ASHRAE901TableG36>"
+      Data Type: "<ExteriorLightingAreaOptions2019ASHRAE901TableG36>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5708,14 +5708,14 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
     type:
       Description: "Refrigerated case type"
-      Data Type: "<RefrigeratedCaseType>"
+      Data Type: "<RefrigeratedCaseOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     equipment_category:
       Description: "Equipment Class from referenced standard"
-      Data Type: "<RefrigeratedCaseEquipmentCategory>"
+      Data Type: "<RefrigeratedCaseEquipmentCategoryOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5730,7 +5730,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
     application_temperature:
       Description: "Equipment application temperature"
-      Data Type: "<ApplicationTemperatureType>"
+      Data Type: "<ApplicationTemperatureOptions>"
       Notes: "Based on AHRI 1200"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5794,7 +5794,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
 
 
-RefrigeratedCaseType:
+RefrigeratedCaseOptions:
   Object Type: "Enumeration"
   Enumerators:
     COMMERCIAL_REFRIGERATION:
@@ -5814,7 +5814,7 @@ RefrigeratedCaseType:
     OTHER:
       Description: "Other"
 
-RefrigeratedCaseEquipmentCategory:
+RefrigeratedCaseEquipmentCategoryOptions:
   Object Type: "Enumeration"
   Enumerators:
     HORIZONTAL_OPEN:
@@ -5836,7 +5836,7 @@ RefrigeratedCaseEquipmentCategory:
     OTHER:
       Description: "Other"
 
-ApplicationTemperatureType:
+ApplicationTemperatureOptions:
   Object Type: "Enumeration"
   Enumerators:
     MEDIUM:

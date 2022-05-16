@@ -10,7 +10,7 @@ Schema:
   Title: "Enumerations from ASHRAE 90.1-2019"
   Description: "Schema addition for ASHRAE 229 related to enumerations found in ASHRAE Standard 90.1-2019"
 
-RulesetModelType2019ASHRAE901:
+RulesetModelOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     USER:
@@ -26,7 +26,7 @@ RulesetModelType2019ASHRAE901:
     BASELINE_270:
       Description: "The building model that corresponds with the Baseline Buildings Performance column of Appendix G Table G3.1 with 270 degree rotation"
 
-CompliancePathType2019ASHRAE901:
+CompliancePathOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     CODE_COMPLIANT:
@@ -34,7 +34,7 @@ CompliancePathType2019ASHRAE901:
     BEYOND_CODE:
       Description: "Beyond Code"
 
-LightingSpaceType2019ASHRAE901T951TG38:
+LightingSpaceOptions2019ASHRAE901T951TG38:
   # Table 9.5.1 Building Area Types
   # Table G3.8 Performance Rating Method Lighting Power Densities Using the Building Area Method
   # These two tables have the same enumerations but different values.
@@ -108,7 +108,7 @@ LightingSpaceType2019ASHRAE901T951TG38:
       Description: "None"
       Notes: "Indicates that building area method is not used and instead the space-by-space method is used."
 
-LightingSpaceType2019ASHRAE901TG37:
+LightingSpaceOptions2019ASHRAE901TG37:
   # Table G3.7 Performance Rating Method Lighting Power Density Allowances and
   # Occupancy Sensor Reductions Using the Space-by-Space Method
   # Note: the list of space types is slighlty different than table Table 9.6.1
@@ -322,7 +322,7 @@ LightingSpaceType2019ASHRAE901TG37:
     WAREHOUSE_STORAGE_AREA_SMALLER_HAND_CARRIED_ITEMS:
       Description: "Warehouse — Storage Area - Smaller, hand-carried items"
 
-LightingPurposeType2019ASHRAE901:
+LightingPurposeOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     GENERAL:
@@ -334,7 +334,7 @@ LightingPurposeType2019ASHRAE901:
     UNREGULATED:
       Description: "Unregulated"
 
-ExteriorLightingAreas2019ASHRAE901TableG36:
+ExteriorLightingAreaOptions2019ASHRAE901TableG36:
   Object Type: "Enumeration"
   Enumerators:
 # Table G3.6
@@ -385,7 +385,7 @@ ExteriorLightingAreas2019ASHRAE901TableG36:
       Description: "Miscellaneous non-tradable"
       Notes: "This option would most often be used by software that does not support entire schema and doesn't know if exterior lighting is in a specific type but does know if it is non-tradable"
 
-ExteriorLightingZones2019ASHRAE901:
+ExteriorLightingZoneOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
 # Table 9.4.2-1
@@ -407,7 +407,7 @@ ExteriorLightingZones2019ASHRAE901:
 
 # These ventilation space types are from ASHRAE Standard 62.1-2016 plus addenda which is referenced in 90.1-2019.
 # Used 62.1-2019 to construct the list
-VentilationSpaceType2019ASHRAE901:
+VentilationSpaceOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     ANIMAL_FACILITIES_ANIMAL_EXAM_ROOM_VETERINARY_OFFICE:
@@ -629,7 +629,7 @@ VentilationSpaceType2019ASHRAE901:
     TRANSIENT_RESIDENTIAL_DWELLING_UNIT:
       Description: "Transient Residential - Dwelling unit"
 
-ServiceWaterHeatingSpaceType2019ASHRAE901:
+ServiceWaterHeatingSpaceOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
 # Table G3.1.1-2 Baseline Service Water-Heating System  
@@ -705,7 +705,7 @@ ServiceWaterHeatingSpaceType2019ASHRAE901:
     ALL_OTHERS:  # this is different in lighting space types    
       Description: "All others"
  
-ClimateZone2019ASHRAE901:
+ClimateZoneOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     CZ0A:
@@ -748,7 +748,7 @@ ClimateZone2019ASHRAE901:
       Description: "Subarctic/arctic"
 
 
-VerticalFenestrationBuildingAreaType2019ASHRAE901:
+VerticalFenestrationBuildingAreaOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     GROCERY_STORE:
@@ -784,7 +784,7 @@ VerticalFenestrationBuildingAreaType2019ASHRAE901:
     OTHER:
       Description: "Other"
 
-SubsurfaceFrameType2019ASHRAE901:
+SubsurfaceFrameOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     ALUMINUM_WITHOUT_BREAK:
@@ -810,13 +810,13 @@ SubsurfaceFrameType2019ASHRAE901:
     OTHER:
       Description: "Other"
    
-PrescribedSchedules2019ASHRAE901:
+PrescribedScheduleOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     NOT_APPLICABLE:
       Description: "No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets."
 
-SpaceStatusType2019ASHRAE901:
+SpaceStatusOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     NEW:
@@ -824,7 +824,7 @@ SpaceStatusType2019ASHRAE901:
     EXISTING:
       Description: "Existing"
 
-AdditionalSurfaceAdjacentTo2019ASHRAE901:
+AdditionalSurfaceAdjacentToOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     UNENCLOSED:
@@ -836,7 +836,7 @@ AdditionalSurfaceAdjacentTo2019ASHRAE901:
     SEMIHEATED:
       Description: "Surface adjacent to a environment that is semi-heated. The space on the other side of the surface is not explicity modeled."
 
-SubsurfaceSubclassificationType2019ASHRAE901:
+SubsurfaceSubclassificationOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     METAL_COILING_DOOR:
@@ -854,7 +854,7 @@ SubsurfaceSubclassificationType2019ASHRAE901:
     OTHER:
       Description: "other subclassifications"
 
-HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901:
+HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     RESIDENTIAL:
@@ -868,7 +868,7 @@ HeatingVentilationAirConditioningBuildingAreaType2019ASHRAE901:
     OTHER_NON_RESIDENTIAL:
       Description: "Other non-residential"
 
-OutputSchema2019ASHRAE901:
+OutputSchemaOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     OUTPUT_SCHEMA_ASHRAE901_2019:
