@@ -941,7 +941,7 @@ Surface:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "degrees"
-      Notes: "Example values would be 0 = north, 90 = East, 180 = South, 270 = West"
+      Notes: "Example values would be 0 = north, 90 = East, 180 = South, 270 = West. For rulesets with baseline rotations, the angle of the azimuth should be different for each baseline rotation. "
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
