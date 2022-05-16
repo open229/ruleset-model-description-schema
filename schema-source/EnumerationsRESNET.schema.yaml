@@ -10,7 +10,7 @@ Schema:
   Title: "Enumerations from RESNET"
   Description: "Schema addition for ASHRAE 229 related to enumerations found in RESNET publications."
 
-RulesetModelTypeRESNET:
+RulesetModelOptionsRESNET:
   Object Type: "Enumeration"
   Enumerators:
     USER:
@@ -24,7 +24,7 @@ RulesetModelTypeRESNET:
     INDEX_ADJUSTMENT_DESIGN_REFERENCE:
       Description: "The index adjustment design reference model"
 
-AdditionalSurfaceAdjacentToRESNET:
+AdditionalSurfaceAdjacentToOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     MULTIFAMILY_BUFFER_SPACE:
@@ -32,7 +32,7 @@ AdditionalSurfaceAdjacentToRESNET:
     COMMON_WALL:
       Description: "Common Wall"
 
-OutputSchemaRESNET:
+OutputSchemaOptionsRESNET:
   Object Type: "Enumeration"
   Enumerators:
     OUTPUT_SCHEMA_RESNET:

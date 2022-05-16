@@ -10,7 +10,7 @@ Schema:
   Title: "Enumerations from Title 24"
   Description: "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications."
 
-RulesetModelType2019T24Com:
+RulesetModelOptions2019T24Com:
   Object Type: "Enumeration"
   Enumerators:
     USER:
@@ -24,7 +24,7 @@ RulesetModelType2019T24Com:
     BASELINE:
       Description: "The baseline building model"
 
-RulesetModelType2019T24Res:
+RulesetModelOptions2019T24Res:
   Object Type: "Enumeration"
   Enumerators:
     USER:
@@ -36,7 +36,7 @@ RulesetModelType2019T24Res:
     BASELINE:
       Description: "The baseline building model"
 
-GeneralStatusType2019T24:
+GeneralStatusOptions2019T24:
   Object Type: "Enumeration"
   Enumerators:
     NEW:
@@ -48,7 +48,7 @@ GeneralStatusType2019T24:
     EXISTING_PLUS_NEW:
       Description: "Existing plus new"
 
-ServiceWaterHeatingDistributionCompactness2019T24Com:
+ServiceWaterHeatingDistributionCompactnessOptions2019T24Com:
   Object Type: "Enumeration"
   Enumerators:
     NOT_COMPACT:
@@ -60,7 +60,7 @@ ServiceWaterHeatingDistributionCompactness2019T24Com:
     OTHER:
       Description: "Other"
 
-ServiceWaterHeatingControlType2019T24Com:
+ServiceWaterHeatingControlOptions2019T24Com:
   Object Type: "Enumeration"
   Enumerators:
     DEMAND_CONTROL:
@@ -76,7 +76,7 @@ ServiceWaterHeatingControlType2019T24Com:
     OTHER:
       Description: "Other"
 
-OutputSchema2019T24:
+OutputSchemaOptions2019T24:
   Object Type: "Enumeration"
   Enumerators:
     OUTPUT_SCHEMA_T24_RESIDENTIAL:

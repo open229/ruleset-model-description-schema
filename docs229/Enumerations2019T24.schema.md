@@ -1,4 +1,4 @@
-# RulesetModelType2019T24Com
+# RulesetModelOptions2019T24Com
 |    Enumerator     |                             Description                              | Notes |
 |-------------------|----------------------------------------------------------------------|-------|
 | `USER`            | The building model as described without consideration of the ruleset |       |
@@ -7,7 +7,7 @@
 | `PROPOSED`        | The proposed building model                                          |       |
 | `BASELINE`        | The baseline building model                                          |       |
 
-# RulesetModelType2019T24Res
+# RulesetModelOptions2019T24Res
 | Enumerator |                             Description                              | Notes |
 |------------|----------------------------------------------------------------------|-------|
 | `USER`     | The building model as described without consideration of the ruleset |       |
@@ -15,7 +15,7 @@
 | `STANDARD` | The standard building model                                          |       |
 | `BASELINE` | The baseline building model                                          |       |
 
-# GeneralStatusType2019T24
+# GeneralStatusOptions2019T24
 |     Enumerator      |    Description    | Notes |
 |---------------------|-------------------|-------|
 | `NEW`               | New               |       |
@@ -23,7 +23,7 @@
 | `EXISTING`          | Existing          |       |
 | `EXISTING_PLUS_NEW` | Existing plus new |       |
 
-# ServiceWaterHeatingDistributionCompactness2019T24Com
+# ServiceWaterHeatingDistributionCompactnessOptions2019T24Com
 |    Enumerator     |   Description   | Notes |
 |-------------------|-----------------|-------|
 | `NOT_COMPACT`     | Not compact     |       |
@@ -31,7 +31,7 @@
 | `EXPANDED_CREDIT` | Expanded credit |       |
 | `OTHER`           | Other           |       |
 
-# ServiceWaterHeatingControlType2019T24Com
+# ServiceWaterHeatingControlOptions2019T24Com
 |               Enumerator                |              Description              | Notes |
 |-----------------------------------------|---------------------------------------|-------|
 | `DEMAND_CONTROL`                        | Demand control                        |       |
@@ -41,7 +41,7 @@
 | `TEMPERATURE_MODULATION_AND_MONITORING` | Temperature modulation and monitoring |       |
 | `OTHER`                                 | Other                                 |       |
 
-# OutputSchema2019T24
+# OutputSchemaOptions2019T24
 |           Enumerator            |              Description               | Notes |
 |---------------------------------|----------------------------------------|-------|
 | `OUTPUT_SCHEMA_T24_RESIDENTIAL` | Output schema for Title 24 Residential |       |

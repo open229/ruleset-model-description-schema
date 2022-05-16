@@ -1,4 +1,4 @@
-# EndUseType
+# EndUseOptions
 |            Enumerator            |          Description           | Notes |
 |----------------------------------|--------------------------------|-------|
 | `INTERIOR_LIGHTING`              | Interior lighting              |       |
@@ -55,20 +55,20 @@
 | `percent_renewable_energy_savings`                               | Percent renewable energy savings                                             | `Numeric`          |       |       |     | This output is appropriate for the overall project not specific instance of a model.                                                         |
 
 # OutputInstance
-|                Name                 |                                    Description                                    |             Data Type             | Units |   Range    | Req |                          Notes                           |
-|-------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------|-------|------------|-----|----------------------------------------------------------|
-| `id`                                | Scope-unique reference identifier for instances of this data group.               | `ID`                              |       |            | ✓   |                                                          |
-| `reporting_name`                    | Descriptive name used in RCT reports if id is not already a descriptive name      | `String`                          |       |            |     |                                                          |
-| `notes`                             | Supplementary information to provide context to the model reviewer                | `String`                          |       |            |     |                                                          |
-| `ruleset_model_type`                | Describes the current model instance for rulesets with multiple simulation models | `<RulesetModelType2019ASHRAE901>` |       |            |     |                                                          |
-| `rotation_angle`                    | Rotation angle of the building model.                                             | `Numeric`                         |       | `≥0, <360` |     | Usually 0, 90, 180, or 270.                              |
-| `unmet_load_hours_heating`          | Unmet load hours for heating                                                      | `Numeric`                         | hr    |            | ✓   |                                                          |
-| `unmet_occupied_load_hours_heating` | Unmet load hours for heating when the zone is occupied                            | `Numeric`                         | hr    |            | ✓   |                                                          |
-| `unmet_load_hours_cooling`          | Unmet load hours for cooling                                                      | `Numeric`                         | hr    |            | ✓   |                                                          |
-| `unmet_occupied_load_hours_cooling` | Unmet load hours for cooling when the zone is occupied                            | `Numeric`                         | hr    |            | ✓   |                                                          |
-| `annual_source_results`             | Annual results by source                                                          | `[{SourceResult}]`                |       |            |     | Contains a list of results by energy source.             |
-| `building_peak_cooling_load`        | Building peak cooling load                                                        | `Numeric`                         | W     |            | ✓   |                                                          |
-| `annual_end_use_results`            | Annual end use results                                                            | `[{EndUseResult}]`                |       |            |     | Contains a list of results by end use and energy source. |
+|                Name                 |                                    Description                                    |              Data Type               | Units |   Range    | Req |                          Notes                           |
+|-------------------------------------|-----------------------------------------------------------------------------------|--------------------------------------|-------|------------|-----|----------------------------------------------------------|
+| `id`                                | Scope-unique reference identifier for instances of this data group.               | `ID`                                 |       |            | ✓   |                                                          |
+| `reporting_name`                    | Descriptive name used in RCT reports if id is not already a descriptive name      | `String`                             |       |            |     |                                                          |
+| `notes`                             | Supplementary information to provide context to the model reviewer                | `String`                             |       |            |     |                                                          |
+| `ruleset_model_type`                | Describes the current model instance for rulesets with multiple simulation models | `<RulesetModelOptions2019ASHRAE901>` |       |            |     |                                                          |
+| `rotation_angle`                    | Rotation angle of the building model.                                             | `Numeric`                            |       | `≥0, <360` |     | Usually 0, 90, 180, or 270.                              |
+| `unmet_load_hours_heating`          | Unmet load hours for heating                                                      | `Numeric`                            | hr    |            | ✓   |                                                          |
+| `unmet_occupied_load_hours_heating` | Unmet load hours for heating when the zone is occupied                            | `Numeric`                            | hr    |            | ✓   |                                                          |
+| `unmet_load_hours_cooling`          | Unmet load hours for cooling                                                      | `Numeric`                            | hr    |            | ✓   |                                                          |
+| `unmet_occupied_load_hours_cooling` | Unmet load hours for cooling when the zone is occupied                            | `Numeric`                            | hr    |            | ✓   |                                                          |
+| `annual_source_results`             | Annual results by source                                                          | `[{SourceResult}]`                   |       |            |     | Contains a list of results by energy source.             |
+| `building_peak_cooling_load`        | Building peak cooling load                                                        | `Numeric`                            | W     |            | ✓   |                                                          |
+| `annual_end_use_results`            | Annual end use results                                                            | `[{EndUseResult}]`                   |       |            |     | Contains a list of results by end use and energy source. |
 
 # SourceResult
 |         Name         |                                 Description                                  |        Data Type        | Units | Range | Req |                                                        Notes                                                         |
@@ -87,7 +87,7 @@
 | `id`                                | Scope-unique reference identifier for instances of this data group.          | `ID`                    |       |       | ✓   |       |
 | `reporting_name`                    | Descriptive name used in RCT reports if id is not already a descriptive name | `String`                |       |       |     |       |
 | `notes`                             | Supplementary information to provide context to the model reviewer           | `String`                |       |       |     |       |
-| `type`                              | End use type                                                                 | `<EndUseType>`          |       |       | ✓   |       |
+| `type`                              | End use type                                                                 | `<EndUseOptions>`       |       |       | ✓   |       |
 | `energy_source`                     | End source                                                                   | `<EnergySourceOptions>` |       |       | ✓   |       |
 | `annual_site_energy_use`            | Annual site energy use                                                       | `Numeric`               | J     |       | ✓   |       |
 | `annual_site_coincident_demand`     | Annual site coincident demand                                                | `Numeric`               | J     |       | ✓   |       |

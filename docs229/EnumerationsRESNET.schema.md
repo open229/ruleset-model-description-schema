@@ -1,4 +1,4 @@
-# RulesetModelTypeRESNET
+# RulesetModelOptionsRESNET
 |             Enumerator              |                             Description                              | Notes |
 |-------------------------------------|----------------------------------------------------------------------|-------|
 | `USER`                              | The building model as described without consideration of the ruleset |       |
@@ -7,13 +7,13 @@
 | `INDEX_ADJUSTMENT_DESIGN`           | The index adjustment design model                                    |       |
 | `INDEX_ADJUSTMENT_DESIGN_REFERENCE` | The index adjustment design reference model                          |       |
 
-# AdditionalSurfaceAdjacentToRESNET
+# AdditionalSurfaceAdjacentToOptions2019ASHRAE901
 |         Enumerator         |       Description        | Notes |
 |----------------------------|--------------------------|-------|
 | `MULTIFAMILY_BUFFER_SPACE` | Multifamily Buffer Space |       |
 | `COMMON_WALL`              | Common Wall              |       |
 
-# OutputSchemaRESNET
+# OutputSchemaOptionsRESNET
 |       Enumerator       |       Description        | Notes |
 |------------------------|--------------------------|-------|
 | `OUTPUT_SCHEMA_RESNET` | Output schema for RESNET |       |
