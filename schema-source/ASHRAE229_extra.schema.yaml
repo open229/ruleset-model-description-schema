@@ -4085,6 +4085,15 @@ BoilerOutputValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    entering_water_temperature:
+      Description: "Entering water temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "Temperature of water entering the boiler which returned from the loop. This entry is optional since not all curves for boiler performance need this."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     result:
       Description: "Result"
       Data Type: "Numeric"
