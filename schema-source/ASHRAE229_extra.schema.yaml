@@ -2558,8 +2558,8 @@ CoolingSystem:
       Units: "W"
       Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size. JG to verify if used in test case description."
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
     rated_sensible_cool_capacity:
       Description: "Rated sensible cooling capacity"
