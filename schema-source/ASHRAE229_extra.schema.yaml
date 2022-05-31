@@ -4231,16 +4231,16 @@ Chiller:
       Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
       Data Type: "$ID"
