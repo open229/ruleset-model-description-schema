@@ -1994,7 +1994,6 @@ Weather:
     data_source_type:
       Description: "Data source use for the weather file."
       Data Type: "<WeatherFileDataSourceOptions>"
-      Required: True
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2002,7 +2001,6 @@ Weather:
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
       Data Type: "<ClimateZoneOptions2019ASHRAE901>"
-      Required: True
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: True
