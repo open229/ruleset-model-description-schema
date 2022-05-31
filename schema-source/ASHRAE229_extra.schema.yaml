@@ -3244,7 +3244,7 @@ Fan:
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{FanOutputValidationPoint}]"
-      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended. Certain rulesets may have a different minimum number of points. For example, 90.1 Appendix G expects 11 data points."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
