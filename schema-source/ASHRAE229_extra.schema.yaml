@@ -737,7 +737,7 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: True
-    ventilations_space_type:
+    ventilation_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
