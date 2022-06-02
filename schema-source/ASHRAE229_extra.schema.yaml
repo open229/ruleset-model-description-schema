@@ -4151,6 +4151,7 @@ Chiller:
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
+      Units: "W/W"
       Range: ">=0, <=1"
       RMD Test: "Primary"
       AppG Used By TCDs: True
