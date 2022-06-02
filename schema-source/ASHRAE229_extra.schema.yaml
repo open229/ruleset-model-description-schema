@@ -83,6 +83,7 @@ ASHRAE229:
       Description: "Scope-unique reference identifier for instances of this data group."
       Data Type: "ID"
       Required: True
+      Notes: "All id data elements are shown as required so that that every data group can be explicitly identified. Almost no other data elements are shown as required but they may be required by specific rulesets."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3789,7 +3790,7 @@ Pump:
       Description: "Referenced to the fluid loop or service water heating piping"
       Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3916,7 +3917,7 @@ Boiler:
       Description: "Referenced to the fluid loop"
       Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4085,7 +4086,7 @@ Chiller:
       Description: "Referenced to the cooling fluid loop"
       Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4353,7 +4354,7 @@ HeatRejection:
       Description: "Referenced to the fluid loop"
       Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4517,7 +4518,7 @@ ExternalFluidSource:
       Description: "Referenced to the fluid loop"
       Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4926,7 +4927,7 @@ ServiceWaterHeatingEquipment:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
