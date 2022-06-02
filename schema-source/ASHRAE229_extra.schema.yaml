@@ -4218,7 +4218,7 @@ Chiller:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     heat_recovery_fraction:
-      Description: "Jeat recovery fraction"
+      Description: "Heat recovery fraction"
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Fraction of total rejected heat that can be recovered at full load"
