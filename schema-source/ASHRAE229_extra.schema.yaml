@@ -2385,7 +2385,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     full_load_efficiency:
-      Description: "Full Low Efficiency expressed as a coefficient of performance or thermal efficiency"
+      Description: "Full load efficiency expressed as a coefficient of performance or thermal efficiency"
       Data Type: "Numeric"
       Units: "W/W"
       Notes: "Used for furnace or heat pump."
@@ -2394,7 +2394,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     full_load_efficiency_no_fan:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
+      Description: "Full load efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
       Data Type: "Numeric"
       Units: "W/W"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
@@ -2586,7 +2586,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     full_load_efficiency:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
+      Description: "Full load efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
       Units: "W/W"
       Notes: "Used for direct expansion."
@@ -2595,7 +2595,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     full_load_efficiency_no_fan:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
+      Description: "Full load efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
       Data Type: "Numeric"
       Units: "W/W"
       Notes: "Used for direct expansion and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
