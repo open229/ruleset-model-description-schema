@@ -3391,6 +3391,13 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    temperature_control:
+      Description: "Temperature control type"
+      Data Type: "<TerminalTemperatureControlOptions>"
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
       Data Type: "Numeric"
@@ -3475,6 +3482,16 @@ TerminalFanConfigurationOptions:
       Description: "Parallel"
     SERIES:
       Description: "Series"
+    OTHER:
+      Description: "Other"
+
+TerminalTemperatureControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    LOAD_RESET_DIFFERENTIAL_TEMPERATURE:
+      Description: "Load Reset Differential Temperature"
     OTHER:
       Description: "Other"
 
