@@ -3492,6 +3492,8 @@ TerminalTemperatureControlOptions:
       Description: "Constant"
     LOAD_RESET_DIFFERENTIAL_TEMPERATURE:
       Description: "Load Reset Differential Temperature"
+    SCHEDULED:
+      Description: "Scheduled"
     OTHER:
       Description: "Other"
 
