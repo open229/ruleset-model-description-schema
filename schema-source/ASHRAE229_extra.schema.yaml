@@ -2626,33 +2626,23 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    full_load_efficiency:
-      Description: "Full load efficiency expressed as a coefficient of performance (COP)"
-      Data Type: "Numeric"
+    efficiency_metric_values:
+      Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
+      Data Type: "[Numeric]"
       Units: "W/W"
       Notes: "Used for direct expansion."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-    full_load_efficiency_no_fan:
-      Description: "Full load efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
-      Data Type: "Numeric"
-      Units: "W/W"
-      Notes: "Used for direct expansion and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    part_load_efficiency:
-      Description: "Efficiency value based on the selected part_load_efficiency_metric"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
+    efficiency_metric_types:
+      Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
+      Data Type: "[<CoolingMetricOptions>]"
       Notes: "Used for direct expansion."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     dehumidification_type:
       Description: "Dehumidification type"
       Data Type: "<DehumidificationOptions>"
@@ -2697,6 +2687,37 @@ DehumidificationOptions:
     OTHER:
       Description: "Other"
 
+CoolingMetricOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL_LOAD_EFFICIENCY:
+      Description: "Full load efficiency expressed as a coefficient of performance"
+    FULL_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Full load efficiency expressed as a coefficient of performance not including indoor fan power"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    PART_LOAD_EFFICIENCY:
+      Description: "Part load efficiency expressed as a coefficient of performance"
+    PART_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Part load efficiency expressed as a coefficient of performance not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    SEASONAL_EFFICIENCY:
+      Description: "Seasonal efficiency"
+    ENERGY_EFFICIENCY_RATIO:
+      Description: "EER - Energy efficiency ratio"
+    SEASONAL_ENERGY_EFFICIENCY_RATIO:
+      Description: "SEER - Seasonal energy efficiency ratio"
+    SEASONAL_ENERGY_EFFICIENCY_RATIO_2:
+      Description: "SEER2 - Seasonal energy efficiency ratio 2"
+    INTEGRATED_ENERGY_EFFICIENCY_RATIO:
+      Description: "IEER - Integrated energy efficiency ratio"
+    INTEGRATED_PART_LOAD_VALUE:
+      Description: "IPLV - Integrated part load value"
+    COMBINED_ENERGY_EFFICIENCY_RATIO:
+      Description: "CEER - Combined energy efficiency ratio"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
 
 FanSystem:
   Object Type: "Data Group"
