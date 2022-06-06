@@ -640,6 +640,15 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    equipment_count:
+      Description: "Equipment count"
+      Data Type: "Numeric"
+      Range: ">=1"
+      Notes: "Factor that has already been applied for number of identical pieces of HVAC equipment represented by HVAC equipment serving the zone. Used only to confirm the individual size of multiple identical heating or cooling units serving the zone so that the efficency for that size can be looked up in tables of equipment efficency by size.  By dividing the heating and cooling capacity of the zone by this number, indicates the capacity of the individual units represented by equpiment. If only one piece of heating or cooling equipment is used for the zone this value should be one. May also indicate the number of identical zones on different floors already represented by the zone. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
 
 Space:
   Object Type: "Data Group"
