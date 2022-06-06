@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.16"
+  Version: "0.0.17"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -61,6 +61,13 @@ String:
   Examples:
     - "AHU-01"
 
+"Reference":
+  Object Type: "Data Type"
+  Description: "A reference to an ID of a data group."
+  JSON Schema Type: string
+  Examples:
+    - "AHU-01"
+
 "Null":
   Object Type: "Data Type"
   Description: "Indicator that no value is provided. Only used in combination with other data types, e.g., 'Number/Null'."
@@ -76,6 +83,7 @@ ASHRAE229:
       Description: "Scope-unique reference identifier for instances of this data group."
       Data Type: "ID"
       Required: True
+      Notes: "All id data elements are shown as required so that that every data group can be explicitly identified. Almost no other data elements are shown as required but they may be required by specific rulesets."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -97,7 +105,7 @@ ASHRAE229:
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
-      Notes: "For rulesets with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For rulesets where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a RulesetModelInstance should be unique for each type of data group. Between Ruleset ModelInstances, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all RulesetModelInstances except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all RulesetModelInstances. "
+      Notes: "For submissions with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For submissions where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. Some rulesets may restrict the submission process including the number of files and number of instances per file. Multiple model instances may be required by rulesets that require models at various tiers or levels of performance. Instances may also be used by References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a RulesetModelInstance should be unique for each type of data group. Between Ruleset ModelInstances, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all RulesetModelInstances except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all RulesetModelInstances. "
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -330,7 +338,7 @@ Building:
       AppG B_RMD Equals P_RMD: True
     building_open_schedule:
       Description: "Reference to the schedule containing indicating when the building is open"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -373,7 +381,6 @@ BuildingSegment:
       Description: "Number of floors above grade"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -382,7 +389,6 @@ BuildingSegment:
       Description: "Number of floors below grade"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -429,7 +435,7 @@ BuildingSegment:
     area_type_heating_ventilation_air_conditioning_system:
       Description: "Classification used for HVAC"
       Data Type: "<HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901>"
-      Notes: "The enumeration is based on the standard used. JG to verify if used in test case description."
+      Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -472,7 +478,7 @@ Zone:
     floor_name:
       Description: "Floor name"
       Data Type: "String"
-      Notes: "Used to group zones on a floor. Zones with the same floor name are on the same floor. Numbers may be used as part of the floor name such as Level 1. If a number is used it should increase for increasing heights and use negative values for stories generally below ground. The floor name should generally correspond to numbering of floors on the plans. JG to verify if used in test case description."
+      Notes: "Used to group zones on a floor. Zones with the same floor name are on the same floor. Numbers may be used as part of the floor name such as Level 1. If a number is used it should increase for increasing heights and use negative values for stories generally below ground. The floor name should generally correspond to numbering of floors on the plans."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -513,14 +519,13 @@ Zone:
       Description: "Setpoint temperature for cooling during occupied hours"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat cooling setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
@@ -530,14 +535,13 @@ Zone:
       Description: "Setpoint temperature for heating during occupied hours"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat heating setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
@@ -545,7 +549,7 @@ Zone:
       AppG B_RMD Equals P_RMD: True
     minimum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the minimum relative humidity setpoint"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -553,7 +557,7 @@ Zone:
       AppG B_RMD Equals P_RMD: "unknown"
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -562,14 +566,14 @@ Zone:
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
-      Notes: "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard. JG to verify if used in test case description."
+      Notes: "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Contains a single ID of the service water heating system serving the zone - from Unique Identification Number in ServiceWaterHeatingSystem. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -579,7 +583,7 @@ Zone:
       Description: "Airflow rate for transfer air"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "Net transfer air. Positive values indicate transfer air in to the zone and negative values show transfer out of the zone. JG to verify if used in test case description."
+      Notes: "Net transfer air. Positive values indicate transfer air in to the zone and negative values show transfer out of the zone."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -589,14 +593,13 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     exhaust_airflow_rate_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -607,7 +610,6 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -617,7 +619,6 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -627,7 +628,6 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -636,7 +636,15 @@ Zone:
       Description: "Air distribution effectiveness"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "JG to verify if used in test case description."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    equipment_count:
+      Description: "Equipment count"
+      Data Type: "Numeric"
+      Range: ">=1"
+      Notes: "The factor that has already been applied for number of identical pieces of HVAC equipment represented by HVAC equipment serving the zone. Used only to confirm the individual size of multiple identical heating or cooling units serving the zone so that the efficiency for that size can be looked up in tables of equipment efficiency by size.  By dividing the heating and cooling capacity of the zone by this number, indicates the capacity of the individual units represented by equipment. If only one piece of heating or cooling equipment is used for the zone this value should be one. May also indicate the number of identical zones on different floors already represented by the zone. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -701,7 +709,7 @@ Space:
       AppG B_RMD Equals P_RMD: True
     occupant_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -712,7 +720,6 @@ Space:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -740,7 +747,7 @@ Space:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: True
-    ventilations_space_type:
+    ventilation_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
@@ -847,7 +854,7 @@ Infiltration:
       AppG B_RMD Equals P_RMD: False
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -942,14 +949,14 @@ Surface:
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
       Data Type: "(<SurfaceAdjacentToOptions>,<AdditionalSurfaceAdjacentToOptionsRESNET>,<AdditionalSurfaceAdjacentToOptions2019ASHRAE901>)"
-      Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
+      Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used. Commonly, plenums do not need to be explicitly described for many rulesets and instead when a plenum is present in the simulation model, this field should be set to the what is adjacent to the other side of the plenum. For example, on the top floor with a plenum, EXTERIOR would be entered."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     adjacent_zone:
       Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -1548,7 +1555,7 @@ InteriorLighting:
       AppG B_RMD Equals P_RMD: False
     lighting_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for lighting"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -1656,7 +1663,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: False
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -1682,7 +1689,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: True
     remaining_fraction_to_loop:
       Description: "Referenced to the water fluid loop for the remaining fraction"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
       RMD Test: unknown"
       AppG Used By TCDs: unknown"
@@ -1690,7 +1697,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: unknown"
     energy_from_loop:
       Description: "Referenced to the loop serving as the source of energy"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
       RMD Test: unknown"
       AppG Used By TCDs: unknown"
@@ -1980,7 +1987,7 @@ Weather:
       AppG B_RMD Equals P_RMD: False
     ground_temperature_schedule:
       Description: "Ground temperature schedule name"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
@@ -1997,7 +2004,6 @@ Weather:
     data_source_type:
       Description: "Data source use for the weather file."
       Data Type: "<WeatherFileDataSourceOptions>"
-      Required: True
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2005,7 +2011,6 @@ Weather:
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
       Data Type: "<ClimateZoneOptions2019ASHRAE901>"
-      Required: True
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: True
@@ -2090,7 +2095,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: "unknown"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the elevator motor get added to"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -2106,7 +2111,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: "unknown"
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -2124,7 +2129,6 @@ Elevator:
     is_variable_speed_motor:
       Description: "If the elevator uses a variable speed motor drive"
       Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2204,7 +2208,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: False
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -2212,7 +2216,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: True
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -2220,7 +2224,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: False
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
       AppG Used By TCDs: True
@@ -2265,7 +2269,7 @@ HeatingVentilationAirConditioningSystem:
     fan_system:
       Description: "Fan system"
       Data Type: "{FanSystem}"
-      Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem. JG to verify if used in test case description."
+      Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2273,7 +2277,6 @@ HeatingVentilationAirConditioningSystem:
     heating_system:
       Description: "Heating system"
       Data Type: "{HeatingSystem}"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -2281,7 +2284,6 @@ HeatingVentilationAirConditioningSystem:
     cooling_system:
       Description: "Cooling system"
       Data Type: "{CoolingSystem}"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -2289,7 +2291,6 @@ HeatingVentilationAirConditioningSystem:
     preheat_system:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Secondary"
       AppG Used By TCDs: Yes
       AppG P_RMD Equals U_RMD: False
@@ -2330,7 +2331,6 @@ HeatingSystem:
     heating_system_type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2344,7 +2344,7 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2365,7 +2365,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size."
+      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size. It is net heating capacity taking into account the heat from the indoor fan."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2374,7 +2374,7 @@ HeatingSystem:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
+      Notes: "Used for furnace or heat pump."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2382,7 +2382,6 @@ HeatingSystem:
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
       Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2391,42 +2390,30 @@ HeatingSystem:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    full_load_efficiency:
-      Description: "Full Low Efficiency expressed as a coefficient of performance or thermal efficiency"
-      Data Type: "Numeric"
+    efficiency_metric_values:
+      Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
+      Data Type: "[Numeric]"
       Units: "W/W"
-      Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-    full_load_efficiency_no_fan:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
-      Data Type: "Numeric"
-      Units: "W/W"
-      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included. JG to verify if used in test case description."
+      Notes: "Used for furnace or heat pump."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    part_load_efficiency:
-      Description: "Efficiency value based on the selected part_load_efficiency_metric"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
-      Notes: "Used for furnace or heat pump. JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+    efficiency_metric_types:
+      Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
+      Data Type: "[<HeatingMetricOptions>]"
+      Notes: "Used for furnace or heat pump."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
       Data Type: "<HeatpumpAuxilliaryHeatOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2435,7 +2422,6 @@ HeatingSystem:
       Description: "Heatpump auxilliary heat high temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2444,7 +2430,6 @@ HeatingSystem:
       Description: "Heatpump low temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2452,7 +2437,6 @@ HeatingSystem:
     humidification_type:
       Description: "Humidification type"
       Data Type: "<HumidificationOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2498,6 +2482,47 @@ HumidificationOptions:
     OTHER:
       Description: "Other"
 
+
+HeatingMetricOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL_LOAD_EFFICIENCY:
+      Description: "Full load efficiency expressed as a coefficient of performance or thermal efficiency at rated conditions"
+    FULL_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Full load efficiency expressed as a coefficient of performance at rated conditions not including indoor fan power"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    PART_LOAD_EFFICIENCY:
+      Description: "Part load efficiency expressed as a coefficient of performance or thermal efficiency at rated conditions"
+    PART_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Part load efficiency expressed as a coefficient of performance at rated conditions not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    SEASONAL_EFFICIENCY:
+      Description: "Seasonal efficiency"
+    HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE:
+      Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb"
+    HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE:
+      Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb"
+    HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE_NO_FAN:
+      Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE_NO_FAN:
+      Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    THERMAL_EFFICIENCY:
+      Description: "Et - thermal efficiency"
+    COMBUSTION_EFFICIENCY:
+      Description: "Ec - combustion` efficiency"
+    ANNUAL_FUEL_UTILIZATION_EFFICIENCY:
+      Description: "AFUE - annual fuel utilization efficiency"
+    HEATING_SEASONAL_PERFORMANCE_FACTOR:
+      Description: "HSPF - heating seasonal perfomrance factor"
+    HEATING_SEASONAL_PERFORMANCE_FACTOR_2:
+      Description: "HSPF2 - heating seasonal perfomrance factor 2"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
 CoolingSystem:
   Object Type: "Data Group"
   Data Elements:
@@ -2526,7 +2551,6 @@ CoolingSystem:
     cooling_system_type:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2536,7 +2560,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed total cooling capacity. Design capacity may be an autosized value. JG to verify if used in test case description."
+      Notes: "Designed total cooling capacity. Design capacity may be an autosized value."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2556,7 +2580,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size. JG to verify if used in test case description."
+      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size. It is net cooling capacity taking into account the heat from the indoor fan."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2566,7 +2590,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size."
+      Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size.  It is net sensible cooling capacity taking into account the heat from the indoor fan."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2575,7 +2599,6 @@ CoolingSystem:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2583,14 +2606,13 @@ CoolingSystem:
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
       Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2598,43 +2620,32 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
     condenser_water_loop:
       Description: "Referenced to the Condenser water fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    full_load_efficiency:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
-      Data Type: "Numeric"
+    efficiency_metric_values:
+      Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
+      Data Type: "[Numeric]"
       Units: "W/W"
-      Notes: "Used for direct expansion. JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-    full_load_efficiency_no_fan:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
-      Data Type: "Numeric"
-      Units: "W/W"
-      Notes: "Used for direct expansion and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included. JG to verify if used in test case description."
+      Notes: "Used for direct expansion."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    part_load_efficiency:
-      Description: "Efficiency value based on the selected part_load_efficiency_metric"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
-      Notes: "Used for direct expansion. JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+    efficiency_metric_types:
+      Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
+      Data Type: "[<CoolingMetricOptions>]"
+      Notes: "Used for direct expansion."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     dehumidification_type:
       Description: "Dehumidification type"
       Data Type: "<DehumidificationOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
@@ -2642,7 +2653,7 @@ CoolingSystem:
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
       Data Type: "Numeric"
-      Notes: "Cooling capacity turndown before simultanenous heating and cooling occurs. JG to verify if used in test case description."
+      Notes: "Cooling capacity turndown before simultanenous heating and cooling occurs."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
@@ -2676,6 +2687,37 @@ DehumidificationOptions:
     OTHER:
       Description: "Other"
 
+CoolingMetricOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL_LOAD_EFFICIENCY:
+      Description: "Full load efficiency expressed as a coefficient of performance at rated conditions"
+    FULL_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Full load efficiency expressed as a coefficient of performance  at rated conditions not including indoor fan power"
+      Notes: "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    PART_LOAD_EFFICIENCY:
+      Description: "Part load efficiency expressed as a coefficient of performance at rated conditions"
+    PART_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Part load efficiency expressed as a coefficient of performance at rated conditions not including fan"
+      Notes: "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    SEASONAL_EFFICIENCY:
+      Description: "Seasonal efficiency"
+    ENERGY_EFFICIENCY_RATIO:
+      Description: "EER - Energy efficiency ratio"
+    SEASONAL_ENERGY_EFFICIENCY_RATIO:
+      Description: "SEER - Seasonal energy efficiency ratio"
+    SEASONAL_ENERGY_EFFICIENCY_RATIO_2:
+      Description: "SEER2 - Seasonal energy efficiency ratio 2"
+    INTEGRATED_ENERGY_EFFICIENCY_RATIO:
+      Description: "IEER - Integrated energy efficiency ratio"
+    INTEGRATED_PART_LOAD_VALUE:
+      Description: "IPLV - Integrated part load value"
+    COMBINED_ENERGY_EFFICIENCY_RATIO:
+      Description: "CEER - Combined energy efficiency ratio"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
 
 FanSystem:
   Object Type: "Data Group"
@@ -2705,7 +2747,7 @@ FanSystem:
     supply_fans:
       Description: "List of supply fans"
       Data Type: "[{Fan}]"
-      Notes: "List of fans that supply air by the HVAC system and are located in the building. JG to verify if used in test case description."
+      Notes: "List of fans that supply air by the HVAC system and are located in the building."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2713,7 +2755,7 @@ FanSystem:
     return_fans:
       Description: "List of return fans"
       Data Type: "[{Fan}]"
-      Notes: "List of fans that return air to the HVAC system and are located in the building. JG to verify if used in test case description."
+      Notes: "List of fans that return air to the HVAC system and are located in the building."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2721,7 +2763,7 @@ FanSystem:
     exhaust_fans:
       Description: "List of exhaust fans"
       Data Type: "[{Fan}]"
-      Notes: "List of fans that exhaust air from the building either at the air handler or located in various spaces. The fans are located in the building. JG to verify if used in test case description."
+      Notes: "List of fans that exhaust air from the building either at the air handler or located in various spaces. The fans are located in the building."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2729,7 +2771,7 @@ FanSystem:
     relief_fans:
       Description: "List of relief fans"
       Data Type: "[{Fan}]"
-      Notes: "List of fans that exhaust air from the building at the air handler to maintain proper pressurization. The fans are located in the building. JG to verify if used in test case description."
+      Notes: "List of fans that exhaust air from the building at the air handler to maintain proper pressurization. The fans are located in the building."
       RMD Test: "Unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2748,18 +2790,9 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    is_variable_air_volume:
-      Description: "If the fan system is variable air volume."
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
     temperature_control:
       Description: "Supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2767,7 +2800,6 @@ FanSystem:
     operation_during_occupied:
       Description: "Operation during occupied times type"
       Data Type: "<FanSystemOperationOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2775,7 +2807,6 @@ FanSystem:
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
       Data Type: "<FanSystemOperationOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True"unknown"
@@ -2783,7 +2814,7 @@ FanSystem:
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
       Data Type: "Boolean"
-      Notes: "Typically used when zone has heating coil available that can serve unoccupied heating load. JG to verify if used in test case description."
+      Notes: "Typically used when zone has heating coil available that can serve unoccupied heating load."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2791,7 +2822,6 @@ FanSystem:
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2800,7 +2830,6 @@ FanSystem:
       Description: "Supply air temperature setpoint temperarue"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2809,7 +2838,7 @@ FanSystem:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
       Units: "K"
-      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load. JG to verify if used in test case description."
+      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2817,15 +2846,15 @@ FanSystem:
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
-      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. JG to verify if used in test case description."
+      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
-      Data Type: "$ID"
-      Notes: "JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+      Data Type: "Reference"
+      Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2833,7 +2862,6 @@ FanSystem:
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
       Data Type: "<FanSystemSupplyFanVolumeResetOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2841,15 +2869,15 @@ FanSystem:
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
-      Notes: "When fan_volume_reset_type is DESIGN_LOAD_RESET this is the fraction of the design load that corresponds to minimum air flow. When fan_volume_reset_type is OPERATING_CAPACITY_RESET this is the fraction of the instanteous operating capacity that corresponds to minimum air flow. JG to verify if used in test case description."
+      Notes: "When fan_volume_reset_type is DESIGN_LOAD_RESET this is the fraction of the design load that corresponds to minimum air flow. When fan_volume_reset_type is OPERATING_CAPACITY_RESET this is the fraction of the instanteous operating capacity that corresponds to minimum air flow."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     operating_schedule:
       Description: "Operating schedule name"
-      Data Type: "$ID"
-      Notes: "If the schedule is not present, the fansystem  is always operating. Zero when fan is off. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+      Data Type: "Reference"
+      Notes: "If the schedule is not present, the fansystem  is always operating. Zero when fan is off. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2858,7 +2886,6 @@ FanSystem:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2867,7 +2894,6 @@ FanSystem:
       Description: "Minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2876,7 +2902,6 @@ FanSystem:
       Description: "Maximum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2885,7 +2910,6 @@ FanSystem:
       Description: "The MERV rating of the air filter"
       Data Type: "Numeric"
       Range: ">=1, <=20"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2893,7 +2917,6 @@ FanSystem:
     has_fully_ducted_return:
       Description: "If the fan system has fully ducted return."
       Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2901,7 +2924,6 @@ FanSystem:
     demand_control_ventilation_control:
       Description: "Demand control ventilation control type"
       Data Type: "<DemandControlVentilationControlOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2935,7 +2957,6 @@ AirEconomizer:
     type:
       Description: "Type"
       Data Type: "<AirEconomizerOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2944,7 +2965,6 @@ AirEconomizer:
       Description: "High limit temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2979,7 +2999,6 @@ AirEnergyRecovery:
     energy_recovery_type:
       Description: "Energy recovery type"
       Data Type: "<EnergyRecoveryOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2987,7 +3006,6 @@ AirEnergyRecovery:
     enthalpy_recovery_ratio:
       Description: "Enthalpy recovery ratio"
       Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2995,7 +3013,6 @@ AirEnergyRecovery:
     energy_recovery_operation:
       Description: "Energy recovery operation"
       Data Type: "<EnergyRecoveryOperationOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3003,7 +3020,6 @@ AirEnergyRecovery:
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
       Data Type: "<EnergyRecoverySupplyAirTemperatureControlOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3011,7 +3027,6 @@ AirEnergyRecovery:
     design_sensible_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3019,7 +3034,6 @@ AirEnergyRecovery:
     design_latent_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3184,7 +3198,6 @@ Fan:
       Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3200,7 +3213,7 @@ Fan:
       Description: "Design electric fan power"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only used when specification_method is set to Simple. JG to verify if used in test case description."
+      Notes: "Only used when specification_method is set to Simple."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3218,7 +3231,7 @@ Fan:
       Description: "nameplate power of fan"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only used when specification_method is set to Detailed. JG to verify if used in test case description."
+      Notes: "Only used when specification_method is set to Detailed."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3227,7 +3240,7 @@ Fan:
       Description: "input power of fan"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Power delivered to the fans shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed. JG to verify if used in test case description."
+      Notes: "Power delivered to the fans shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3270,7 +3283,7 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the fan motor get added to"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3286,7 +3299,7 @@ Fan:
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{FanOutputValidationPoint}]"
-      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended. Certain rulesets may have a different minimum number of points. For example, 90.1 Appendix G expects 11 data points."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3351,14 +3364,13 @@ Terminal:
     type:
       Description: "Type of terminal"
       Data Type: "<TerminalOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     served_by_heating_ventilation_air_conditioning_system:
       Description: "HVAC system serving the terminal"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3367,14 +3379,14 @@ Terminal:
     heating_source:
       Description: "Source of heating"
       Data Type: "<HeatingSourceOptions>"
-      Notes: "Used for terminal heating including reheat. JG to verify if used in test case description."
+      Notes: "Used for terminal heating including reheat."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     heating_from_loop:
       Description: "References the fluid loop used to provide heating"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Only used when heating_source is hot water. Used for terminal heating including reheat. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3383,14 +3395,14 @@ Terminal:
     cooling_source:
       Description: "Source of cooling"
       Data Type: "<CoolingSourceOptions>"
-      Notes: "Used for terminal cooling. JG to verify if used in test case description."
+      Notes: "Used for terminal cooling."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     cooling_from_loop:
       Description: "Referenced the fluid loop used to provide cooling"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Only used when cooling_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3399,7 +3411,6 @@ Terminal:
     fan:
       Description: "Terminal fan"
       Data Type: "{Fan}"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -3407,7 +3418,6 @@ Terminal:
     fan_configuration:
       Description: "Fan configuration"
       Data Type: "<TerminalFanConfigurationOptions>"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -3416,7 +3426,6 @@ Terminal:
       Description: "Zone terminal primary airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: True
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3425,7 +3434,6 @@ Terminal:
       Description: "Zone terminal secondary_airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
@@ -3434,16 +3442,21 @@ Terminal:
       Description: "Zone terminal supply temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    temperature_control:
+      Description: "Temperature control type"
+      Data Type: "<TerminalTemperatureControlOptions>"
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3452,15 +3465,14 @@ Terminal:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "JG to verify if used in test case description."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
-      Data Type: "$ID"
-      Notes: "If the schedule is not present, the multiplier is always one. JG to verify if used in test case description. Constraint to use when implemented :Schedule:"
+      Data Type: "Reference"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3469,7 +3481,7 @@ Terminal:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. JG to verify if used in test case description."
+      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3478,7 +3490,7 @@ Terminal:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil. JG to verify if used in test case description."
+      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3494,7 +3506,7 @@ Terminal:
       Description: "True if the zone has demand control ventilation"
       Data Type: "Boolean"
       RMD Test: "unknown"
-      Notes: "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand. JG to verify if used in test case description."
+      Notes: "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -3525,6 +3537,18 @@ TerminalFanConfigurationOptions:
       Description: "Parallel"
     SERIES:
       Description: "Series"
+    OTHER:
+      Description: "Other"
+
+TerminalTemperatureControlOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    CONSTANT:
+      Description: "Constant"
+    LOAD_RESET_DIFFERENTIAL_TEMPERATURE:
+      Description: "Load Reset Differential Temperature"
+    SCHEDULED:
+      Description: "Scheduled"
     OTHER:
       Description: "Other"
 
@@ -3678,7 +3702,7 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
     operation_schedule:
       Description: "Operation schedule"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "One represents when the fluid loop is availble to be operating and zero when not available to be operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3825,9 +3849,9 @@ Pump:
       AppG B_RMD Equals P_RMD: False
     loop_or_piping:
       Description: "Referenced to the fluid loop or service water heating piping"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3952,9 +3976,9 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
     loop:
       Description: "Referenced to the fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4121,16 +4145,16 @@ Chiller:
       AppG B_RMD Equals P_RMD: False
     cooling_loop:
       Description: "Referenced to the cooling fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -4201,6 +4225,7 @@ Chiller:
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
+      Units: "W/W"
       Range: ">=0, <=1"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -4243,14 +4268,14 @@ Chiller:
       AppG B_RMD Equals P_RMD: "unknown"
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     heat_recovery_fraction:
-      Description: "Jeat recovery fraction"
+      Description: "Heat recovery fraction"
       Data Type: "Numeric"
       Range: ">=0, <=1"
       Notes: "Fraction of total rejected heat that can be recovered at full load"
@@ -4388,9 +4413,9 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
     loop:
       Description: "Referenced to the fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4552,9 +4577,9 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: False
     loop:
       Description: "Referenced to the fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :FluidLoop:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4701,7 +4726,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4709,7 +4734,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
     entering_water_mains_temperature_schedule:
       Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4819,7 +4844,7 @@ ServiceWaterPiping:
       AppG B_RMD Equals P_RMD: "unknown"
     location_zone:
       Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4961,9 +4986,9 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     service_water_heating_distribution_system:
       Description: "Referenced to the service water heating distribution system"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Required: True
-      Notes: "Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
+      Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5074,7 +5099,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     compressor_zone:
       Description: "Zone reference of where the heat pump for the water heater is located"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5090,7 +5115,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     compressor_heat_rejection_zone:
       Description: "Heat pump heat rejection zone"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "From CBECC-Res. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5160,7 +5185,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5410,7 +5435,7 @@ Tank:
       AppG B_RMD Equals P_RMD: "unknown"
     location_zone:
       Description: "Tank zone location"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "Only used when tank_location indicates the tank is located in a zone. From CBECC-Res. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5486,7 +5511,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
     served_by_distribution_system:
       Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "From CBECC-Res. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5508,7 +5533,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
     use_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5673,7 +5698,7 @@ ExteriorLighting:
       AppG B_RMD Equals P_RMD: "unknown"
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for exterior lighting"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5747,7 +5772,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
     power_multiplier_schedule:
       Description: "Refrigerated case power multiplier schedule name"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5787,7 +5812,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
     case_zone:
       Description: "Zone where case is located"
-      Data Type: "$ID"
+      Data Type: "Reference"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
