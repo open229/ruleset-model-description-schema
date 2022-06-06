@@ -2508,6 +2508,16 @@ HeatingMetricOptions:
     HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE_NO_FAN:
       Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    THERMAL_EFFICIENCY:
+      Description: "Et - thermal efficiency"
+    COMBUSTION_EFFICIENCY:
+      Description: "Ec - combustion` efficiency"
+    ANNUAL_FUEL_UTILIZATION_EFFICIENCY:
+      Description: "AFUE - annual fuel utilization efficiency"
+    HEATING_SEASONAL_PERFORMANCE_FACTOR:
+      Description: "HSPF - heating seasonal perfomrance factor"
+    HEATING_SEASONAL_PERFORMANCE_FACTOR_2:
+      Description: "HSPF2 - heating seasonal perfomrance factor 2"
     NONE:
       Description: "None"
     OTHER:
