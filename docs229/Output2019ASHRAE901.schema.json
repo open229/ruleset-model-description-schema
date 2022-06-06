@@ -168,7 +168,7 @@
                 },
                 "energy_source": {
                     "description": "End use type",
-                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceOptions"
                 },
                 "annual_consumption": {
                     "description": "Annual energy consumption",
@@ -218,7 +218,7 @@
                 },
                 "energy_source": {
                     "description": "End source",
-                    "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/EnergySourceOptions"
                 },
                 "annual_site_energy_use": {
                     "description": "Annual site energy use",
