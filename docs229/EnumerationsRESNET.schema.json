@@ -20,7 +20,7 @@
                 "The index adjustment design reference model"
             ]
         },
-        "AdditionalSurfaceAdjacentToOptions2019ASHRAE901": {
+        "AdditionalSurfaceAdjacentToOptionsRESNET": {
             "type": "string",
             "enum": [
                 "MULTIFAMILY_BUFFER_SPACE",

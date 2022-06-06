@@ -7,7 +7,7 @@
 | `INDEX_ADJUSTMENT_DESIGN`           | The index adjustment design model                                    |       |
 | `INDEX_ADJUSTMENT_DESIGN_REFERENCE` | The index adjustment design reference model                          |       |
 
-# AdditionalSurfaceAdjacentToOptions2019ASHRAE901
+# AdditionalSurfaceAdjacentToOptionsRESNET
 |         Enumerator         |       Description        | Notes |
 |----------------------------|--------------------------|-------|
 | `MULTIFAMILY_BUFFER_SPACE` | Multifamily Buffer Space |       |
