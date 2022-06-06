@@ -2582,8 +2582,8 @@ CoolingSystem:
       Units: "W"
       Notes: "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size. It is net cooling capacity taking into account the heat from the indoor fan."
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
     rated_sensible_cool_capacity:
       Description: "Rated sensible cooling capacity"
@@ -4256,16 +4256,16 @@ Chiller:
       Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
       Data Type: "Reference"
