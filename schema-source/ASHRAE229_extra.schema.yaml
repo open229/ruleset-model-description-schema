@@ -644,7 +644,7 @@ Zone:
       Description: "Equipment count"
       Data Type: "Numeric"
       Range: ">=1"
-      Notes: "Factor that has already been applied for number of identical pieces of HVAC equipment represented by HVAC equipment serving the zone. Used only to confirm the individual size of multiple identical heating or cooling units serving the zone so that the efficency for that size can be looked up in tables of equipment efficency by size.  By dividing the heating and cooling capacity of the zone by this number, indicates the capacity of the individual units represented by equpiment. If only one piece of heating or cooling equipment is used for the zone this value should be one. May also indicate the number of identical zones on different floors already represented by the zone. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
+      Notes: "The factor that has already been applied for number of identical pieces of HVAC equipment represented by HVAC equipment serving the zone. Used only to confirm the individual size of multiple identical heating or cooling units serving the zone so that the efficiency for that size can be looked up in tables of equipment efficiency by size.  By dividing the heating and cooling capacity of the zone by this number, indicates the capacity of the individual units represented by equipment. If only one piece of heating or cooling equipment is used for the zone this value should be one. May also indicate the number of identical zones on different floors already represented by the zone. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2394,33 +2394,23 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    full_load_efficiency:
-      Description: "Full load efficiency expressed as a coefficient of performance or thermal efficiency"
-      Data Type: "Numeric"
+    efficiency_metric_values:
+      Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
+      Data Type: "[Numeric]"
       Units: "W/W"
       Notes: "Used for furnace or heat pump."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-    full_load_efficiency_no_fan:
-      Description: "Full load efficiency expressed as a coefficient of performance (COP) not including indoor fan power"
-      Data Type: "Numeric"
-      Units: "W/W"
-      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    part_load_efficiency:
-      Description: "Efficiency value based on the selected part_load_efficiency_metric"
-      Data Type: "Numeric"
-      Range: ">=0, <=1"
+    efficiency_metric_types:
+      Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
+      Data Type: "[<HeatingMetricOptions>]"
       Notes: "Used for furnace or heat pump."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
       Data Type: "<HeatpumpAuxilliaryHeatOptions>"
@@ -2487,6 +2477,37 @@ HumidificationOptions:
   Enumerators:
     ADIABATIC:
       Description: "Adiabatic"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
+
+
+HeatingMetricOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL_LOAD_EFFICIENCY:
+      Description: "Full load efficiency expressed as a coefficient of performance or thermal efficiency"
+    FULL_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Full load efficiency expressed as a coefficient of performance not including indoor fan power"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    PART_LOAD_EFFICIENCY:
+      Description: "Part load efficiency expressed as a coefficient of performance or thermal efficiency"
+    PART_LOAD_EFFICIENCY_NO_FAN:
+      Description: "Part load efficiency expressed as a coefficient of performance not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    SEASONAL_EFFICIENCY:
+      Description: "Seasonal efficiency"
+    HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE:
+      Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb"
+    HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE:
+      Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb"
+    HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE_NO_FAN:
+      Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
+    HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE_NO_FAN:
+      Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     NONE:
       Description: "None"
     OTHER:
