@@ -1406,13 +1406,13 @@ Infiltration:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "ZoneInfiltration Airflow Stats Nominal"
+      EPout Column: "Name"
+      EP Notes: "Could also be part of airflow network"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -1454,7 +1454,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Set to WEATHER_DRIVEN for ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient and set to PRESSURE_BASED for airflow network"
     algorithm_name:
       Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
       Data Type: "String"
@@ -1468,7 +1468,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Use ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient, or airflow network"
     measured_air_leakage_rate:
       Description: "Meaured air leakage rate from infiltration of outside air"
       Data Type: "Numeric"
@@ -1485,7 +1485,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     infiltration_flow_rate:
       Description: "Design infiltration flow rate"
       Data Type: "Numeric"
@@ -1496,12 +1496,12 @@ Infiltration:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "ZoneInfiltration:DesignFlowRate"
+      EPin Field: "Design Flow Rate"
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "ZoneInfiltration Airflow Stats Nominal"
+      EPout Column: "Design Volume Flow Rate "
       EP Notes: ""
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
@@ -1511,12 +1511,12 @@ Infiltration:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient"
+      EPin Field: "Schedule Name"
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "ZoneInfiltration Airflow Stats Nominal"
+      EPout Column: "Schedule Name"
       EP Notes: ""
 
 InfiltrationMethodOptions:
