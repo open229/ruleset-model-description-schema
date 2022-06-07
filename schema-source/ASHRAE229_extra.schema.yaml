@@ -3029,8 +3029,8 @@ Transformer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ElectricLoadCenter:Transformer"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -3077,7 +3077,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     phase:
       Description: "The number of electrical phases"
       Data Type: "<ElectricalPhaseOptions>"
@@ -3085,8 +3085,8 @@ Transformer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ElectricLoadCenter:Transformer"
+      EPin Field: "Phase"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -3101,8 +3101,8 @@ Transformer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ElectricLoadCenter:Transformer"
+      EPin Field: "Nameplate Efficiency"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -3117,8 +3117,8 @@ Transformer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ElectricLoadCenter:Transformer"
+      EPin Field: "Rated Capacity"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -3134,13 +3134,13 @@ Transformer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
+      EPin Object: "ElectricLoadCenter:Transformer"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Requires finding the peak from the output variable Transformer output Electricity Rate"
 
 TransformerOptions:
   Object Type: "Enumeration"
