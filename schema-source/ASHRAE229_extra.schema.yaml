@@ -2101,13 +2101,13 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Need to identify the exterior and interior materials. Modify the name to add -optical to the end"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -2145,8 +2145,8 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Thermal Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -2161,8 +2161,8 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Solar Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -2177,8 +2177,8 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Visible Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -2193,8 +2193,8 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Thermal Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -2209,8 +2209,8 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Solar Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -2225,8 +2225,8 @@ SurfaceOpticalProperties:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Material"
+      EPin Field: "Visible Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
