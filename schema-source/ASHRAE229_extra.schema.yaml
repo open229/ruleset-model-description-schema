@@ -818,12 +818,12 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Space"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Space Summary"
+      EPout Column: "Name"
       EP Notes: ""
     floor_name:
       Description: "Floor name"
@@ -839,7 +839,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could use Z height of surface as proxy for this"
     volume:
       Description: "Volume of the space"
       Data Type: "Numeric"
@@ -851,10 +851,10 @@ Zone:
       AppG B_RMD Equals P_RMD: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.thml"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Zone Summary"
+      EPout Column: "Volume"
       EP Notes: ""
     surfaces:
       Description: "Surfaces surrounding the zone"
@@ -864,8 +864,8 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "BuildingSurface:Detailed and many others"
+      EPin Field: "zone name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -884,7 +884,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Might be able to figure out if HEATED_AND_COOLED, HEATED_ONLY, or UNCONDITIONED but SEMIHEATED is probably a compliance interpretation or at least complicated."
     infiltration:
       Description: "Airleakage into the zone."
       Data Type: "{Infiltration}"
@@ -893,12 +893,12 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient, "
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "ZoneInfiltration Airflow Stats Nominal"
+      EPout Column: "Name"
       EP Notes: ""
     design_thermostat_cooling_setpoint:
       Description: "Setpoint temperature for cooling during occupied hours"
@@ -908,13 +908,13 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
+      EPin Object: "ThermostatSetpoint:DualSetpoint or ThermostatSetpoint:SingleHeating or ThermostatSetpoint:SingleCooling or ThermostatSetpoint:SingleHeatingOrCooling"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
       Data Type: "Reference"
@@ -923,8 +923,8 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ThermostatSetpoint:DualSetpoint or ThermostatSetpoint:SingleHeating or ThermostatSetpoint:SingleCooling or ThermostatSetpoint:SingleHeatingOrCooling"
+      EPin Field: "Cooling Setpoint Temperature Schedule Name or Setpoint Temperature Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -938,13 +938,13 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
+      EPin Object: "ThermostatSetpoint:DualSetpoint or ThermostatSetpoint:SingleHeating or ThermostatSetpoint:SingleCooling or ThermostatSetpoint:SingleHeatingOrCooling"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "Reference"
@@ -953,8 +953,8 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ThermostatSetpoint:DualSetpoint or ThermostatSetpoint:SingleHeating or ThermostatSetpoint:SingleCooling or ThermostatSetpoint:SingleHeatingOrCooling"
+      EPin Field: "Heating Setpoint Temperature Schedule Name or Setpoint Temperature Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -968,8 +968,8 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ZoneControl:Humidistat"
+      EPin Field: "Humidifying Relative Humidity Setpoint Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -983,8 +983,8 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ZoneControl:Humidistat"
+      EPin Field: "Dehumidifying Relative Humidity Setpoint Schedule"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -1004,7 +1004,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
       Data Type: "Reference"
@@ -1019,7 +1019,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     transfer_airflow_rate:
       Description: "Airflow rate for transfer air"
       Data Type: "Numeric"
@@ -1045,8 +1045,8 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:ZoneExhaust"
+      EPin Field: "Maximum Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -1060,8 +1060,8 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:ZoneExhaust"
+      EPin Field: "Flow Fraction Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -1098,7 +1098,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could be an Electric:Equipment with a specific End-Use Subcategory name"
     non_mechanical_cooling_fan_airflow:
       Description: "Non-mechanical cooling fan airflow"
       Data Type: "Numeric"
@@ -1123,6 +1123,13 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+      EPin Object: DesignSpecification:ZoneAirDistribution""
+      EPin Field: "Zone Air Distribution Effectiveness in Cooling Mode or Zone Air Distribution Effectiveness in Heating Mode"
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EP Notes: ""
     equipment_count:
       Description: "Equipment count"
       Data Type: "Numeric"
@@ -1132,7 +1139,14 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EP Notes: "Undeterminable compliance parameter"
+ 
 Space:
   Object Type: "Data Group"
   Data Elements:
