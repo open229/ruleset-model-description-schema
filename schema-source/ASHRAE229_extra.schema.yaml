@@ -3883,13 +3883,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -3897,13 +3890,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -3911,13 +3897,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_system:
       Description: "Fan system"
       Data Type: "{FanSystem}"
@@ -3926,13 +3905,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_system:
       Description: "Heating system"
       Data Type: "{HeatingSystem}"
@@ -3940,13 +3912,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_system:
       Description: "Cooling system"
       Data Type: "{CoolingSystem}"
@@ -3954,13 +3919,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     preheat_system:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
@@ -3968,13 +3926,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: Yes
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusOptions2019T24>"
@@ -3982,13 +3933,6 @@ HeatingVentilationAirConditioningSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 HeatingSystem:
   Object Type: "Data Group"
@@ -4001,13 +3945,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4015,13 +3952,6 @@ HeatingSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -4029,13 +3959,6 @@ HeatingSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_system_type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemOptions>"
@@ -4043,13 +3966,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the chiller"
       Data Type: "<EnergySourceOptions>"
@@ -4057,13 +3973,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "Reference"
@@ -4072,13 +3981,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_capacity:
       Description: "Design heating capacity"
       Data Type: "Numeric"
@@ -4089,13 +3991,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_capacity:
       Description: "Rated heating capacity"
       Data Type: "Numeric"
@@ -4106,13 +4001,6 @@ HeatingSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -4122,13 +4010,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
       Data Type: "Boolean"
@@ -4136,13 +4017,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
@@ -4175,13 +4049,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heatpump_auxilliary_heat_high_temperature_shutoff:
       Description: "Heatpump auxilliary heat high temperature shutoff"
       Data Type: "Numeric"
@@ -4190,13 +4057,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heatpump_low_temperature_shutoff:
       Description: "Heatpump low temperature shutoff"
       Data Type: "Numeric"
@@ -4205,13 +4065,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     humidification_type:
       Description: "Humidification type"
       Data Type: "<HumidificationOptions>"
@@ -4219,13 +4072,6 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 HeatingSystemOptions:
   Object Type: "Enumeration"
@@ -4319,13 +4165,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4333,13 +4172,6 @@ CoolingSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -4347,13 +4179,6 @@ CoolingSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_system_type:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemOptions>"
@@ -4361,13 +4186,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_total_cool_capacity:
       Description: "Design total cooling capacity"
       Data Type: "Numeric"
@@ -4378,13 +4196,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_sensible_cool_capacity:
       Description: "Design sensible cooling capacity"
       Data Type: "Numeric"
@@ -4395,13 +4206,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_total_cool_capacity:
       Description: "Rated total cooling capacity"
       Data Type: "Numeric"
@@ -4412,13 +4216,6 @@ CoolingSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_sensible_cool_capacity:
       Description: "Rated sensible cooling capacity"
       Data Type: "Numeric"
@@ -4429,13 +4226,6 @@ CoolingSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
@@ -4444,13 +4234,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
       Data Type: "Boolean"
@@ -4458,13 +4241,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
       Data Type: "Reference"
@@ -4473,13 +4249,6 @@ CoolingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_water_loop:
       Description: "Referenced to the Condenser water fluid loop"
       Data Type: "Reference"
@@ -4512,13 +4281,6 @@ CoolingSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
       Data Type: "Numeric"
@@ -4527,13 +4289,6 @@ CoolingSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 CoolingSystemOptions:
   Object Type: "Enumeration"
@@ -4606,13 +4361,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4620,13 +4368,6 @@ FanSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -4634,13 +4375,6 @@ FanSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     supply_fans:
       Description: "List of supply fans"
       Data Type: "[{Fan}]"
@@ -4649,13 +4383,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     return_fans:
       Description: "List of return fans"
       Data Type: "[{Fan}]"
@@ -4664,13 +4391,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     exhaust_fans:
       Description: "List of exhaust fans"
       Data Type: "[{Fan}]"
@@ -4679,13 +4399,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     relief_fans:
       Description: "List of relief fans"
       Data Type: "[{Fan}]"
@@ -4694,13 +4407,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     air_economizer:
       Description: "Air side economizer related to the fan system"
       Data Type: "{AirEconomizer}"
@@ -4708,13 +4414,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     air_energy_recovery:
       Description: "Air side energy recovery related to the fan system"
       Data Type: "{AirEnergyRecovery}"
@@ -4722,13 +4421,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_variable_air_volume:
       Description: "If the fan system is variable air volume."
       Data Type: "Boolean"
@@ -4737,13 +4429,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     temperature_control:
       Description: "Supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlOptions>"
@@ -4751,13 +4436,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operation_during_occupied:
       Description: "Operation during occupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -4765,13 +4443,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -4779,13 +4450,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True"unknown"
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
       Data Type: "Boolean"
@@ -4794,13 +4458,6 @@ FanSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlOptions>"
@@ -4808,13 +4465,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     supply_air_temperature_setpoint:
       Description: "Supply air temperature setpoint temperarue"
       Data Type: "Numeric"
@@ -4823,13 +4473,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
@@ -4839,13 +4482,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
@@ -4854,13 +4490,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
       Data Type: "Reference"
@@ -4869,13 +4498,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
       Data Type: "<FanSystemSupplyFanVolumeResetOptions>"
@@ -4883,13 +4505,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
@@ -4898,13 +4513,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "Reference"
@@ -4913,13 +4521,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_airflow:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
@@ -4928,13 +4529,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_outdoor_airflow:
       Description: "Minimum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -4943,13 +4537,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     maximum_outdoor_airflow:
       Description: "Maximum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -4958,13 +4545,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
       Data Type: "Numeric"
@@ -4973,13 +4553,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     has_fully_ducted_return:
       Description: "If the fan system has fully ducted return."
       Data Type: "Boolean"
@@ -4987,13 +4560,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     demand_control_ventilation_control:
       Description: "Demand control ventilation control type"
       Data Type: "<DemandControlVentilationControlOptions>"
@@ -5001,13 +4567,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 AirEconomizer:
   Object Type: "Data Group"
@@ -5048,13 +4607,6 @@ AirEconomizer:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Type"
       Data Type: "<AirEconomizerOptions>"
@@ -5062,13 +4614,6 @@ AirEconomizer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     high_limit_temperature_shutoff:
       Description: "High limit temperature shutoff"
       Data Type: "Numeric"
@@ -5077,13 +4622,6 @@ AirEconomizer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 
 AirEnergyRecovery:
@@ -5097,13 +4635,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -5111,13 +4642,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -5125,13 +4649,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_recovery_type:
       Description: "Energy recovery type"
       Data Type: "<EnergyRecoveryOptions>"
@@ -5139,13 +4656,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     enthalpy_recovery_ratio:
       Description: "Enthalpy recovery ratio"
       Data Type: "Numeric"
@@ -5153,13 +4663,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_recovery_operation:
       Description: "Energy recovery operation"
       Data Type: "<EnergyRecoveryOperationOptions>"
@@ -5167,13 +4670,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
       Data Type: "<EnergyRecoverySupplyAirTemperatureControlOptions>"
@@ -5181,13 +4677,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_sensible_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
@@ -5195,13 +4684,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_latent_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
@@ -5209,13 +4691,6 @@ AirEnergyRecovery:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 FanSystemTemperatureControlOptions:
   Object Type: "Enumeration"
@@ -5358,13 +4833,6 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -5372,13 +4840,6 @@ Fan:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -5386,13 +4847,6 @@ Fan:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_airflow:
       Description: "Design airflow"
       Data Type: "Numeric"
@@ -5401,13 +4855,6 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     specification_method:
       Description: "Options for how the fan is specified"
       Data Type: "<FanSpecificationMethodOptions>"
@@ -5415,13 +4862,6 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_electric_power:
       Description: "Design electric fan power"
       Data Type: "Numeric"
@@ -5431,13 +4871,6 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_pressure_rise:
       Description: "Pressure rise through fan at design flow conditions"
       Data Type: "Numeric"
@@ -5447,13 +4880,6 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     nameplate_power:
       Description: "nameplate power of fan"
       Data Type: "Numeric"
@@ -5463,13 +4889,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     input_power:
       Description: "input power of fan"
       Data Type: "Numeric"
@@ -5479,13 +4898,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     total_efficiency:
       Description: "Total fan efficiency"
       Data Type: "Numeric"
@@ -5495,13 +4907,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     motor_efficiency:
       Description: "Fan motor efficiency"
       Data Type: "Numeric"
@@ -5511,13 +4916,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     motor_heat_to_airflow_fraction:
       Description: "Fraction of motor heat added to the airflow."
       Data Type: "Numeric"
@@ -5527,13 +4925,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     motor_heat_to_zone_fraction:
       Description: "Fraction of motor heat added to the zone."
       Data Type: "Numeric"
@@ -5543,13 +4934,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
@@ -5558,13 +4942,6 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusOptions2019T24>"
@@ -5572,13 +4949,6 @@ Fan:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{FanOutputValidationPoint}]"
@@ -5587,13 +4957,6 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 FanOutputValidationPoint:
   Object Type: "Data Group"
@@ -5607,13 +4970,6 @@ FanOutputValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -5622,13 +4978,6 @@ FanOutputValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 FanSpecificationMethodOptions:
   Object Type: "Enumeration"
@@ -5651,13 +5000,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -5665,13 +5007,6 @@ Terminal:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -5679,13 +5014,6 @@ Terminal:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Type of terminal"
       Data Type: "<TerminalOptions>"
@@ -5693,13 +5021,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     served_by_heating_ventilation_air_conditioning_system:
       Description: "HVAC system serving the terminal"
       Data Type: "Reference"
@@ -5708,13 +5029,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_source:
       Description: "Source of heating"
       Data Type: "<HeatingSourceOptions>"
@@ -5723,13 +5037,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_from_loop:
       Description: "References the fluid loop used to provide heating"
       Data Type: "Reference"
@@ -5738,13 +5045,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_source:
       Description: "Source of cooling"
       Data Type: "<CoolingSourceOptions>"
@@ -5753,13 +5053,6 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_from_loop:
       Description: "Referenced the fluid loop used to provide cooling"
       Data Type: "Reference"
@@ -5768,13 +5061,6 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan:
       Description: "Terminal fan"
       Data Type: "{Fan}"
@@ -5782,13 +5068,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_configuration:
       Description: "Fan configuration"
       Data Type: "<TerminalFanConfigurationOptions>"
@@ -5796,13 +5075,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     primary_airflow:
       Description: "Zone terminal primary airflow"
       Data Type: "Numeric"
@@ -5811,13 +5083,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     secondary_airflow:
       Description: "Zone terminal secondary_airflow"
       Data Type: "Numeric"
@@ -5826,13 +5091,6 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     supply_temperature_setpoint:
       Description: "Zone terminal supply temperature setpoint"
       Data Type: "Numeric"
@@ -5841,13 +5099,6 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
       Data Type: "Numeric"
@@ -5856,13 +5107,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_outdoor_airflow:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -5871,13 +5115,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "Reference"
@@ -5886,13 +5123,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_capacity:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
@@ -5902,13 +5132,6 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_capacity:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
@@ -5918,13 +5141,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_supply_ducted:
       Description: "True if the the supply is ducted."
       Data Type: "Boolean"
@@ -5932,13 +5148,6 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     has_demand_control_ventilation:
       Description: "True if the zone has demand control ventilation"
       Data Type: "Boolean"
@@ -5947,13 +5156,6 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     
 
 TerminalOptions:
@@ -6029,13 +5231,6 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6043,13 +5238,6 @@ FluidLoop:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -6057,13 +5245,6 @@ FluidLoop:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Type of loop"
       Data Type: "<FluidLoopOptions>"
@@ -6071,13 +5252,6 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     pump_power_per_flow_rate:
       Description: "Total design pump power divided by the loop design flow rate"
       Data Type: "Numeric"
@@ -6087,13 +5261,6 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     child_loops:
       Description: "Other fluid loops connected to this one as children."
       Data Type: "[{FluidLoop}]"
@@ -6102,13 +5269,6 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_or_condensing_design_and_control:
       Description: ""
       Data Type: "{FluidLoopDesignAndControl}"
@@ -6116,13 +5276,6 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heating_design_and_control:
       Description: ""
       Data Type: "{FluidLoopDesignAndControl}"
@@ -6130,13 +5283,6 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 FluidLoopDesignAndControl:
   Object Type: "Data Group"
@@ -6149,13 +5295,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6163,13 +5302,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -6177,13 +5309,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_supply_temperature:
       Description: "Design Supply Temperature"
       Data Type: "Numeric"
@@ -6192,13 +5317,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_return_temperature:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
@@ -6207,13 +5325,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
@@ -6221,13 +5332,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
@@ -6235,13 +5339,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operation:
       Description: "Type of operation used by loop"
       Data Type: "<FluidLoopOperationOptions>"
@@ -6249,13 +5346,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operation_schedule:
       Description: "Operation schedule"
       Data Type: "Reference"
@@ -6264,13 +5354,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     flow_control:
       Description: "Flow control options"
       Data Type: "<FluidLoopFlowControlOptions>"
@@ -6278,13 +5361,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
       Data Type: "<TemperatureResetOptions>"
@@ -6292,13 +5368,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     outdoor_high_for_loop_supply_temperature_reset:
       Description: "Outdoor high for loop supply temp reset"
       Data Type: "Numeric"
@@ -6308,13 +5377,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     outdoor_low_for_loop_supply_temperature_reset:
       Description: "Outdoor low for loop supply temp reset"
       Data Type: "Numeric"
@@ -6324,13 +5386,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop_supply_temperature_at_outdoor_high:
       Description: "Loop supply temperature at outdoor high temperature"
       Data Type: "Numeric"
@@ -6340,13 +5395,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop_supply_temperature_at_outdoor_low:
       Description: "Loop supply temperature at outdoor low temperature"
       Data Type: "Numeric"
@@ -6356,13 +5404,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop_supply_temperature_at_low_load:
       Description: "Loop supply temperature at low load"
       Data Type: "Numeric"
@@ -6372,13 +5413,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     has_integrated_waterside_economizer:
       Description: "True if chilled water loop described has an integrated waterside economizer"
       Data Type: "Boolean"
@@ -6386,13 +5420,6 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     
 
 FluidLoopFlowControlOptions:
@@ -6452,13 +5479,6 @@ Pump:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6466,13 +5486,6 @@ Pump:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -6480,13 +5493,6 @@ Pump:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop_or_piping:
       Description: "Referenced to the fluid loop or service water heating piping"
       Data Type: "Reference"
@@ -6496,13 +5502,6 @@ Pump:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -6510,13 +5509,6 @@ Pump:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_electric_power:
       Description: "Pump design electric power"
       Data Type: "Numeric"
@@ -6526,13 +5518,6 @@ Pump:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     motor_nameplate_power:
       Description: "Pump motor nameplate power"
       Data Type: "Numeric"
@@ -6542,13 +5527,6 @@ Pump:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_head:
       Description: "Head of the pump at design flow conditions"
       Data Type: "Numeric"
@@ -6558,13 +5536,6 @@ Pump:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     impeller_efficiency:
       Description: "Full load efficiency of the impeller"
       Data Type: "Numeric"
@@ -6574,13 +5545,6 @@ Pump:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
       Data Type: "Numeric"
@@ -6590,13 +5554,6 @@ Pump:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     speed_control:
       Description: "Options for pump speed control"
       Data Type: "<PumpSpeedControlOptions>"
@@ -6604,13 +5561,6 @@ Pump:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_flow:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
@@ -6619,13 +5569,6 @@ Pump:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
       Data Type: "Boolean"
@@ -6633,13 +5576,6 @@ Pump:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 PumpSpeedControlOptions:
   Object Type: "Enumeration"
@@ -6670,13 +5606,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6684,13 +5613,6 @@ Boiler:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -6698,13 +5620,6 @@ Boiler:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "Reference"
@@ -6714,13 +5629,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -6729,13 +5637,6 @@ Boiler:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -6745,13 +5646,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
@@ -6759,13 +5653,6 @@ Boiler:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
@@ -6773,13 +5660,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the boiler"
       Data Type: "<EnergySourceOptions>"
@@ -6787,13 +5667,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricOptions>"
@@ -6801,13 +5674,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     efficiency:
       Description: "Efficiency value based on the selected efficiency_metric"
       Data Type: "Numeric"
@@ -6816,13 +5682,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{BoilerOutputValidationPoint}]"
@@ -6831,13 +5690,6 @@ Boiler:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     auxiliary_power:
       Description: "Auxiliary power"
       Data Type: "Numeric"
@@ -6847,13 +5699,6 @@ Boiler:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operation_lower_limit:
       Description: "Heating load range operation, lower limit"
       Data Type: "Numeric"
@@ -6862,13 +5707,6 @@ Boiler:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     operation_upper_limit:
       Description: "Heating load range operation, upper limit"
       Data Type: "Numeric"
@@ -6877,13 +5715,6 @@ Boiler:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 BoilerCombustionOptions:
   Object Type: "Enumeration"
@@ -6915,13 +5746,6 @@ BoilerOutputValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     entering_water_temperature:
       Description: "Entering water temperature"
       Data Type: "Numeric"
@@ -6939,13 +5763,6 @@ BoilerOutputValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 Chiller:
   Object Type: "Data Group"
@@ -6958,13 +5775,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6972,13 +5782,6 @@ Chiller:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -6986,13 +5789,6 @@ Chiller:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     cooling_loop:
       Description: "Referenced to the cooling fluid loop"
       Data Type: "Reference"
@@ -7002,13 +5798,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
       Data Type: "Reference"
@@ -7017,13 +5806,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_type:
       Description: "Compressor Type"
       Data Type: "<ChillerCompressorOptions>"
@@ -7031,13 +5813,6 @@ Chiller:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the chiller"
       Data Type: "<EnergySourceOptions>"
@@ -7045,13 +5820,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
@@ -7060,13 +5828,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_capacity:
       Description: "Chiller Rated Cooling Capacity"
       Data Type: "Numeric"
@@ -7076,13 +5837,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
@@ -7090,13 +5844,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_flow_evaporator:
       Description: "Chiller evaporator design flow"
       Data Type: "Numeric"
@@ -7105,13 +5852,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_flow_condenser:
       Description: "Chiller condenser design flow"
       Data Type: "Numeric"
@@ -7120,13 +5860,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     full_load_efficiency:
       Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
@@ -7135,13 +5868,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
@@ -7151,13 +5877,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     part_load_efficiency_metric:
       Description: "The type of part load efficiency metric used"
       Data Type: "<ChillerPartLoadEfficiencyMetricOptions>"
@@ -7165,13 +5884,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     capacity_validation_points:
       Description: "Capacity validation points"
       Data Type: "[{ChillerCapacityValidationPoint}]"
@@ -7179,13 +5891,6 @@ Chiller:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     power_validation_points:
       Description: "Energy validation points"
       Data Type: "[{ChillerPowerValidationPoint}]"
@@ -7193,13 +5898,6 @@ Chiller:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_chilled_water_pump_interlocked:
       Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
@@ -7207,13 +5905,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
@@ -7221,13 +5912,6 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
       Data Type: "Reference"
@@ -7268,13 +5952,6 @@ ChillerCapacityValidationPoint:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_temperature:
       Description: "Second temperature"
       Data Type: "Numeric"
@@ -7284,13 +5961,6 @@ ChillerCapacityValidationPoint:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -7299,13 +5969,6 @@ ChillerCapacityValidationPoint:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ChillerPowerValidationPoint:
   Object Type: "Data Group"
@@ -7319,13 +5982,6 @@ ChillerPowerValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_temperature:
       Description: "Second temperature"
       Data Type: "Numeric"
@@ -7335,13 +5991,6 @@ ChillerPowerValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     load:
       Description: "Load"
       Data Type: "Numeric"
@@ -7350,13 +5999,6 @@ ChillerPowerValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -7365,13 +6007,6 @@ ChillerPowerValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ChillerCompressorOptions:
   Object Type: "Enumeration"
@@ -7408,13 +6043,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -7422,13 +6050,6 @@ HeatRejection:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -7436,13 +6057,6 @@ HeatRejection:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "Reference"
@@ -7452,13 +6066,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionOptions>"
@@ -7466,13 +6073,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_type:
       Description: "Heat Rejection Fan Type"
       Data Type: "<HeatRejectionFanOptions>"
@@ -7480,13 +6080,6 @@ HeatRejection:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fluid:
       Description: "Fluid Cooled by Heat Rejection"
       Data Type: "<HeatRejectionFluidOptions>"
@@ -7494,13 +6087,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     range:
       Description: "Heat rejection Range"
       Data Type: "Numeric"
@@ -7509,13 +6095,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     approach:
       Description: "Heat rejection Approach"
       Data Type: "Numeric"
@@ -7524,13 +6103,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_power:
       Description: "Fan Power"
       Data Type: "Numeric"
@@ -7539,13 +6111,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
@@ -7553,13 +6118,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_wetbulb_temperature:
       Description: "Design wetbulb temperature"
       Data Type: "Numeric"
@@ -7569,13 +6127,6 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_water_flowrate:
       Description: "Design condenser water flow rate"
       Data Type: "Numeric"
@@ -7584,13 +6135,6 @@ HeatRejection:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_water_flowrate:
       Description: "Rated condenser water flow rate"
       Data Type: "Numeric"
@@ -7600,13 +6144,6 @@ HeatRejection:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 HeatRejectionOptions:
   Object Type: "Enumeration"
@@ -7670,13 +6207,6 @@ ExternalFluidSource:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -7684,13 +6214,6 @@ ExternalFluidSource:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -7698,13 +6221,6 @@ ExternalFluidSource:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
       Data Type: "Reference"
@@ -7714,13 +6230,6 @@ ExternalFluidSource:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceOptions>"
@@ -7757,13 +6266,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -7771,13 +6273,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -7785,13 +6280,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_supply_temperature:
       Description: "Design supply temperature setpoint of service water heating loop"
       Data Type: "Numeric"
@@ -7801,13 +6289,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     design_supply_temperature_difference:
       Description: "Design supply temperature difference (deltaT) of service water heating loop"
       Data Type: "Numeric"
@@ -7817,13 +6298,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     tanks:
       Description: "Tanks within service water heating distribution system"
       Data Type: "[{Tank}]"
@@ -7832,13 +6306,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_central_system:
       Description: "Indicates whether it is a central service water heater distribution system"
       Data Type: "Boolean"
@@ -7847,13 +6314,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     service_water_piping:
       Description: "Other service water piping connected to this one as children."
       Data Type: "[{ServiceWaterPiping}]"
@@ -7861,13 +6321,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     distribution_compactness:
       Description: "Type of compact distribution system"
       Data Type: "<ServiceWaterHeatingDistributionCompactnessOptions2019T24Com>"
@@ -7876,13 +6329,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     control_type:
       Description: "Type of distribution system"
       Data Type: "<ServiceWaterHeatingControlOptions2019T24Com>"
@@ -7891,13 +6337,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     configuration_type:
       Description: "Type of configuration"
       Data Type: "<ServiceWaterHeatingConfigurationOptions>"
@@ -7906,13 +6345,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_recovered_heat_from_drain_used_by_water_heater:
       Description: "Indicates whether the recovered heat from the shower drain used by the service water heater"
       Data Type: "Boolean"
@@ -7921,13 +6353,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
       Data Type: "Numeric"
@@ -7937,13 +6362,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
       Data Type: "<ServiceWaterHeatingHeatRecoveryOptions>"
@@ -7952,13 +6370,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
       Data Type: "Reference"
@@ -7967,13 +6378,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     entering_water_mains_temperature_schedule:
       Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
       Data Type: "Reference"
@@ -7982,13 +6386,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_ground_temperature_used_for_entering_water:
       Description: "Indicates whether ground temperature is the source of the entering water temperature"
       Data Type: "Boolean"
@@ -7996,13 +6393,6 @@ ServiceWaterHeatingDistributionSystem:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ServiceWaterHeatingConfigurationOptions:
   Object Type: "Enumeration"
@@ -8059,13 +6449,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -8073,13 +6456,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -8087,13 +6463,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_recirculation_loop:
       Description: "Indicates if service water heating piping is a loop and recirculates"
       Data Type: "Boolean"
@@ -8101,13 +6470,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     insulation_thickness:
       Description: "Pipe insulation thickness"
       Data Type: "Numeric"
@@ -8118,13 +6480,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     loop_pipe_location:
       Description: "Loop pipe location"
       Data Type: "<ComponentLocationOptions>"
@@ -8133,13 +6488,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     location_zone:
       Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
       Data Type: "Reference"
@@ -8148,13 +6496,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     length:
       Description: "Pipe length"
       Data Type: "Numeric"
@@ -8165,13 +6506,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     diameter:
       Description: "Pipe section diameter"
       Data Type: "Numeric"
@@ -8182,13 +6516,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     child_service_water_piping:
       Description: "Other service water piping connected to this one as children."
       Data Type: "[{ServiceWaterPiping}]"
@@ -8196,13 +6523,6 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 SolarThermal:
   Object Type: "Data Group"
@@ -8215,13 +6535,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -8229,13 +6542,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -8243,13 +6549,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     angle_from_true_north:
       Description: "Solar heater angle from true north, clockwise"
       Data Type: "Numeric"
@@ -8258,13 +6557,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     solar_savings_fraction:
       Description: "Solar savings fraction"
       Data Type: "Numeric"
@@ -8273,13 +6565,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     collector_area:
       Description: "Solar collector area"
       Data Type: "Numeric"
@@ -8288,13 +6573,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     collector_type_description:
       Description: "Description of solar collector type"
       Data Type: "String"
@@ -8303,13 +6581,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     collector_slope:
       Description: "Solar slope from horizontal"
       Data Type: "Numeric"
@@ -8318,13 +6589,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     tank:
       Description: "Tank that is part of the solar thermal system"
       Data Type: "{Tank}"
@@ -8333,13 +6597,6 @@ SolarThermal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ServiceWaterHeatingEquipment:
   Object Type: "Data Group"
@@ -8352,13 +6609,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -8366,13 +6616,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -8380,13 +6623,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
       Data Type: "<EnergySourceOptions>"
@@ -8394,13 +6630,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     service_water_heating_distribution_system:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "Reference"
@@ -8410,13 +6639,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     energy_factor:
       Description: "Energy factor"
       Data Type: "Numeric"
@@ -8426,13 +6648,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     thermal_efficiency:
       Description: "Service water heating heater thermal efficiency"
       Data Type: "Numeric"
@@ -8441,13 +6656,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     standby_loss_fraction:
       Description: "Standby loss fraction"
       Data Type: "Numeric"
@@ -8456,13 +6664,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     uniform_energy_factor:
       Description: "Uniform energy factor"
       Data Type: "Numeric"
@@ -8472,13 +6673,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     first_hour_rating:
       Description: "First hour rating volume"
       Data Type: "Numeric"
@@ -8489,13 +6683,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     output_validation_points:
       Description: "Capacity validation points"
       Data Type: "[{ServiceWaterHeaterValidationPoint}]"
@@ -8503,13 +6690,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     input_power:
       Description: "Input power"
       Data Type: "Numeric"
@@ -8520,13 +6700,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     rated_capacity:
       Description: "Rated capacity"
       Data Type: "Numeric"
@@ -8536,13 +6709,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     minimum_capacity:
       Description: "Minimum capacity"
       Data Type: "Numeric"
@@ -8553,13 +6719,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     recovery_efficiency:
       Description: "Recovery efficiency"
       Data Type: "Numeric"
@@ -8568,13 +6727,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     setpoint_temperature:
       Description: "Set point temperature"
       Units: "C"
@@ -8583,13 +6735,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_location:
       Description: "Description of where the heat pump for the water heater is located"
       Data Type: "String"
@@ -8598,13 +6743,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_zone:
       Description: "Zone reference of where the heat pump for the water heater is located"
       Data Type: "Reference"
@@ -8613,13 +6751,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
       Data Type: "<ComponentLocationOptions>"
@@ -8628,13 +6759,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_heat_rejection_zone:
       Description: "Heat pump heat rejection zone"
       Data Type: "Reference"
@@ -8643,13 +6767,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_capacity_validation_points:
       Description: "Capacity validation points"
       Data Type: "[{HeatPumpWaterHeaterCapacityValidationPoint}]"
@@ -8657,13 +6774,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     compressor_power_validation_points:
       Description: "Coefficient of performance validation points"
       Data Type: "[{HeatPumpWaterHeaterPowerValidationPoint}]"
@@ -8671,13 +6781,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     draft_fan_power:
       Description: "Power for the draft fan "
       Data Type: "Numeric"
@@ -8688,13 +6791,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     has_electrical_ignition:
       Description: "Indicates whether the water heater has electrical ignition"
       Data Type: "Boolean"
@@ -8703,13 +6799,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heater_type:
       Description: "Service water heater type"
       Data Type: "<ServiceWaterHeaterOptions>"
@@ -8717,13 +6806,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     tank:
       Description: "Tank that is part of the service water heating equipment"
       Data Type: "{Tank}"
@@ -8732,13 +6814,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusType2019T24>"
@@ -8746,13 +6821,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     solar_thermal_systems:
       Description: "Solar thermal systems used for heating service water"
       Data Type: "[{SolarThermal}]"
@@ -8761,13 +6829,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "Reference"
@@ -8776,13 +6837,6 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ServiceWaterHeaterOptions:
   Object Type: "Enumeration"
@@ -8838,13 +6892,6 @@ ServiceWaterHeaterValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -8853,13 +6900,6 @@ ServiceWaterHeaterValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 HeatPumpWaterHeaterCapacityValidationPoint:
   Object Type: "Data Group"
@@ -8873,13 +6913,6 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
       Data Type: "Numeric"
@@ -8888,13 +6921,6 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     evaporator_air_flow:
       Description: "Air flow across evaporator"
       Data Type: "Numeric"
@@ -8903,13 +6929,6 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_water_flow:
       Description: "Water flow across condenser"
       Data Type: "Numeric"
@@ -8918,13 +6937,6 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -8933,13 +6945,6 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 HeatPumpWaterHeaterPowerValidationPoint:
   Object Type: "Data Group"
@@ -8953,13 +6958,6 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
       Data Type: "Numeric"
@@ -8968,13 +6966,6 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     evaporator_air_flow:
       Description: "Air flow across evaporator"
       Data Type: "Numeric"
@@ -8983,13 +6974,6 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     condenser_water_flow:
       Description: "Water flow across condenser"
       Data Type: "Numeric"
@@ -8998,13 +6982,6 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     load:
       Description: "Load"
       Data Type: "Numeric"
@@ -9013,13 +6990,6 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -9028,13 +6998,6 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 Tank:
   Object Type: "Data Group"
@@ -9047,13 +7010,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -9061,13 +7017,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -9075,13 +7024,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     storage_capacity:
       Description: "Storage capacity of tank in distribution system"
       Data Type: "Numeric"
@@ -9092,13 +7034,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Service water heater tank type"
       Data Type: "<ServiceWaterHeaterTankOptions>"
@@ -9106,13 +7041,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     height:
       Description: "Tank height"
       Data Type: "Numeric"
@@ -9123,13 +7051,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     interior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
@@ -9140,13 +7061,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     exterior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
@@ -9157,13 +7071,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     location:
       Description: "Location"
       Data Type: "<ComponentLocationOptions>"
@@ -9172,13 +7079,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     location_zone:
       Description: "Tank zone location"
       Data Type: "Reference"
@@ -9187,13 +7087,6 @@ Tank:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ServiceWaterHeaterTankOptions:
   Object Type: "Enumeration"
@@ -9233,13 +7126,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -9247,13 +7133,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -9261,13 +7140,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     area_type:
       Description: "Service Water Heating Loop Area Type"
       Data Type: "<ServiceWaterHeatingSpaceOptions2019ASHRAE901>"
@@ -9276,13 +7148,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     water_serves_type:
       Description: "The use of the water serves the type"
       Data Type: "<ServiceWaterHeatingFixtureOptions>"
@@ -9290,13 +7155,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     served_by_distribution_system:
       Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
       Data Type: "Reference"
@@ -9305,13 +7163,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     use:
       Description: "Usage of service hot water"
       Data Type: "Numeric"
@@ -9319,13 +7170,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     use_units:
       Description: "Type of units for use of service hot water"
       Data Type: "<ServiceWaterHeatingUseUnitOptions>"
@@ -9333,13 +7177,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     use_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "Reference"
@@ -9348,13 +7185,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     temperature_at_fixture:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
       Data Type: "Numeric"
@@ -9364,13 +7194,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_heat_recovered_by_drain:
       Description: "Indicates if heat is being recovered from the drain"
       Data Type: "Boolean"
@@ -9379,13 +7202,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_recovered_heat_used_by_cold_side_feed:
       Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
       Data Type: "Boolean"
@@ -9394,13 +7210,6 @@ ServiceWaterHeatingUse:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 ServiceWaterHeatingFixtureOptions:
   Object Type: "Enumeration"
@@ -9624,13 +7433,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -9638,13 +7440,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -9652,13 +7447,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     type:
       Description: "Refrigerated case type"
       Data Type: "<RefrigeratedCaseOptions>"
@@ -9666,13 +7454,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     equipment_category:
       Description: "Equipment Class from referenced standard"
       Data Type: "<RefrigeratedCaseEquipmentCategoryOptions>"
@@ -9680,13 +7461,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     is_self_contained:
       Description: "Indicates whether unit is self-contained"
       Data Type: "Boolean"
@@ -9695,13 +7469,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     application_temperature:
       Description: "Equipment application temperature"
       Data Type: "<ApplicationTemperatureOptions>"
@@ -9710,13 +7477,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     power:
       Description: "Nominal power of refrigerated case"
       Data Type: "Numeric"
@@ -9726,13 +7486,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     power_multiplier_schedule:
       Description: "Refrigerated case power multiplier schedule name"
       Data Type: "Reference"
@@ -9741,13 +7494,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
       Data Type: "Numeric"
@@ -9756,13 +7502,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     heat_gain_fraction:
       Description: "Fraction of energy that is a heat gain to the space."
       Data Type: "Numeric"
@@ -9771,13 +7510,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     case_volume:
       Description: "volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
@@ -9786,13 +7518,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     total_display_area:
       Description: "display area of a refrigerated case in square meters"
       Data Type: "Numeric"
@@ -9801,13 +7526,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     case_zone:
       Description: "Zone where case is located"
       Data Type: "Reference"
@@ -9815,13 +7533,6 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
 
 
 RefrigeratedCaseOptions:
