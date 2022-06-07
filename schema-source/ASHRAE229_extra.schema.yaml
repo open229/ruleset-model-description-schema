@@ -94,7 +94,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Create a generic ID"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -108,7 +108,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Create a generic ID"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -137,7 +137,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Reference to a generic ID for RulesetModelInstance"
     calendar:
       Description: "Information on the calendar used with the simulation."
       Data Type: "{Calendar}"
@@ -151,7 +151,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Reference to a generic ID for Calendar"
     weather:
       Description: "Information on the local weather conditions used with the simulation."
       Data Type: "{Weather}"
@@ -165,7 +165,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Reference to a generic ID for Weather"
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathType2019ASHRAE901>"
@@ -179,7 +179,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     output_format_type:
       Description: "Format used for output"
       Data Type: "(<OutputSchemaOptions2019ASHRAE901>, <OutputSchemaOptions2019T24>, OutputSchemaOptionsRESNET)"
@@ -193,7 +193,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Set to OUTPUT_SCHEMA_ASHRAE901_2019"
       
 RulesetModelInstance:
   Object Type: "Data Group"
@@ -212,7 +212,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Create a generic ID"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -226,7 +226,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Create a generic ID"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -254,7 +254,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     transformers:
       Description: "Electrical transformers at the building site"
       Data Type: "[{Transformer}]"
@@ -263,8 +263,8 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ElectricLoadCenter:Transformer"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -278,13 +278,13 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
+      EPin Object: "Building"
+      EPin Field: "Name"
+      EPout File: "table.html"
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "it appears in the header of the tabular html file but not in the output:JSON file"
     schedules:
       Description: "Schedules for internal loads, thermostats, equipment operation and control, and any other need."
       Data Type: "[{Schedule}]"
@@ -293,13 +293,13 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "Schedule:Compact (and others)"
+      EPin Field: "Name"
+      EPout File: table.html""
+      EPout Report: "InitializationSummary"
+      EPout Table: "Schedule"
+      EPout Column: "first column"
+      EP Notes: "only produced when Output:Schedules input is used"
     measured_infiltration_pressure_difference:
       Description: "Differential pressure difference used during measurement for infiltration values."
       Data Type: "Numeric"
@@ -316,7 +316,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     is_measured_infiltration_based_on_test:
       Description: "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building."
       Data Type: "Boolean"
@@ -330,7 +330,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     fluid_loops:
       Description: "Fluid loops on the site"
       Data Type: "[{FluidLoop}]"
@@ -339,13 +339,13 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPin Object: "PlantLoop, CondenserLoop"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "PlantLoop"
+      EPout Column: "Name"
+      EP Notes: "Only need this input after supporting this data group"
     service_water_heating_distribution_systems:
       Description: "Service water heating systems on the site"
       Data Type: "[{ServiceWaterHeatingDistributionSystem}]"
@@ -360,7 +360,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     service_water_heating_equipment:
       Description: "Service water heating equipment on the site"
       Data Type: "[{ServiceWaterHeatingEquipment}]"
@@ -375,7 +375,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     pumps:
       Description: "Pumps used on the site"
       Data Type: "[{Pump}]"
@@ -389,7 +389,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     boilers:
       Description: "Boilers used on the site"
       Data Type: "[{Boiler}]"
@@ -403,7 +403,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     chillers:
       Description: "Chillers used on the site"
       Data Type: "[{Chiller}]"
@@ -417,7 +417,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     heat_rejections:
       Description: "HeatRejections used on the site"
       Data Type: "[{HeatRejection}]"
@@ -431,7 +431,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     external_fluid_source:
       Description: "ExternalFluidSources used on the site"
       Data Type: "[{ExternalFluidSource}]"
@@ -445,7 +445,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZoneOptions2019ASHRAE901>"
@@ -459,7 +459,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
 
 Building:
   Object Type: "Data Group"
@@ -472,13 +472,13 @@ Building:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
+      EPin Object: "Building"
+      EPin Field: "Name"
+      EPout File: "table.html"
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "it appears in the header of the tabular html file but not in the output:JSON file"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -521,7 +521,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Reference to a generic ID for BuildingSegments"
     elevators:
       Description: "Elevators"
       Data Type: "[{Elevator}]"
@@ -536,7 +536,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "not specifically supported in EnergyPlus"
     exterior_lighting:
       Description: "Exterior lighting systems"
       Data Type: "[{ExteriorLighting}]"
@@ -545,12 +545,12 @@ Building:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Exterior:Lights"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Lighting Summary"
+      EPout Table: "Exterior Lighting"
+      EPout Column: "Name"
       EP Notes: ""
     refrigerated_casess:
       Description: "Refrigerated cases"
@@ -566,7 +566,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     building_open_schedule:
       Description: "Reference to the schedule containing indicating when the building is open"
       Data Type: "Reference"
@@ -581,7 +581,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter. Could estimate based on occupancy schedules but may not match actual building schedule."
     has_site_shading:
       Description: "Indicates whether the site has features that cast shadows on the building"
       Data Type: "Boolean"
@@ -589,12 +589,12 @@ Building:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
+      EPin Object: "Shading:Site and Shading:Building or Shading:Site:Detailed or Shading:Building:Detailed"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Object Count Summary"
+      EPout Table: "Surfaces by Class"
+      EPout Column: "Building Detached Shading and Fixed Detached Shading"
       EP Notes: ""
 
 BuildingSegment:
@@ -614,7 +614,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Create a generic ID"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -657,7 +657,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Might be estimated based on coordinates used by zones"
     number_of_floors_below_grade:
       Description: "Number of floors below grade"
       Data Type: "Numeric"
@@ -672,7 +672,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Might be estimated based on coordinates used by zones"
     is_all_new:
       Description: "Indicates whether the building segment is completely new construction (true) or existing (false). "
       Data Type: "Boolean"
@@ -687,7 +687,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     zones:
       Description: "Zones in the building"
       Data Type: "[{Zone}]"
@@ -696,12 +696,12 @@ BuildingSegment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Zone"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Zone Summary"
+      EPout Column: "Name"
       EP Notes: ""
     heating_ventilation_air_conditioning_systems:
       Description: "HVAC systems in the building"
@@ -717,7 +717,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Only need this input after supporting this data group"
     area_type_vertical_fenestration:
       Description: "Building area classification used for vertical fenestration"
       Data Type: "<VerticalFenestrationBuildingAreaOptions2019ASHRAE901>"
@@ -732,7 +732,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     lighting_building_area_type:
       Description: "Building area lighting area type"
       Data Type: "<LightingSpaceOptions2019ASHRAE901T951TG38>"
@@ -746,7 +746,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     area_type_heating_ventilation_air_conditioning_system:
       Description: "Classification used for HVAC"
       Data Type: "<HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901>"
@@ -761,7 +761,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
 
 Zone:
   Object Type: "Data Group"
@@ -775,12 +775,12 @@ Zone:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Zone"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "Zone Summary"
+      EPout Column: "Name"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -2955,7 +2955,7 @@ MiscellaneousEquipment:
       EPout Table: ""
       EPout Column: ""
       EP Notes: "Input need to match between what is lost and what is shown in LoadProfile:Plant."
-     energy_from_loop:
+    energy_from_loop:
       Description: "Referenced to the loop serving as the source of energy"
       Data Type: "Reference"
       Notes: "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
@@ -2963,7 +2963,7 @@ MiscellaneousEquipment:
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
       AppG B_RMD Equals P_RMD: unknown"
-   miscellaneous_equipment_type:
+    miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
       Data Type: "<MiscellaneousEquipmentOptions>"
       RMD Test: False
