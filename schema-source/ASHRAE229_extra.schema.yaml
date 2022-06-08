@@ -3173,11 +3173,11 @@ Schedule:
       AppG B_RMD Equals P_RMD: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
+      EPout File: "eplusout_hourly.json or eplusout_timestep.json"
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Need to include  Output:Variable,*,schedule value,hourly; or  Output:Variable,*,schedule value,timestep; in file and then look at eplusout_hourly.json or eplusout_timestep.json"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -3220,7 +3220,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could look at the uses of the schedule and provide the field name of its most common use"
     schedule_sequence_type:
       Description: "Schedule sequence type"
       Data Type: "<ScheduleSequenceOptions>"
@@ -3234,7 +3234,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Set to Hourly"
     hourly_values:
       Description: "Hourly Values of Schedule"
       Data Type: "[Numeric][0..8760]"
@@ -3245,11 +3245,11 @@ Schedule:
       AppG B_RMD Equals P_RMD: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
+      EPout File: "eplusout_hourly.json or eplusout_timestep.json"
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Need to include  Output:Variable,*,schedule value,hourly; or  Output:Variable,*,schedule value,timestep; in file and then look at eplusout_hourly.json or eplusout_timestep.json"
     event_times:
       Description: "Event times when the schedule changes"
       Data Type: "[Numeric]"
@@ -3291,11 +3291,11 @@ Schedule:
       AppG B_RMD Equals P_RMD: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
+      EPout File: "EIO or table.html and eplusout_hourly.json or eplusout_timestep.json"
+      EPout Report: "Intialization Summary"
+      EPout Table: "Schedule"
+      EPout Column: "ScheduleType"
+      EP Notes: "Fraction => MULTIPLIER_DIMENSIONLESS, Temperature => TEMPERATURE, Units of W => POWER, Units of kg/s => FLOW_RATE, anything else => MULTIPLIER_DIMENSIONLESS"
     prescribed_schedule:
       Description: "True if any schedule values have changed from what appears in the schedule library"
       Data Type: "<PrescribedScheduleOptions2019ASHRAE901>"
@@ -3309,7 +3309,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     is_schedule_modified_for_workaround:
       Description: "True if any schedule has been modified for a workaround"
       Data Type: "Boolean"
@@ -3323,7 +3323,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
 
 ScheduleSequenceOptions:
   Object Type: "Enumeration"
