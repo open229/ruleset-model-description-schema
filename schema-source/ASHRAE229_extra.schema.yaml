@@ -3449,13 +3449,13 @@ Weather:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      EPin Object: ""
+      EPin Object: "Site:GroundTemperature:BuildingSurface"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "would need to create a schedule based on the 12 monthly values."
     weather_file_name:
       Description: "The file name for the weather file including extension."
       Data Type: "String"
@@ -3466,10 +3466,10 @@ Weather:
       AppG B_RMD Equals P_RMD: "unknown"
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "General"
+      EPout Column: "Weather File"
       EP Notes: ""
     data_source_type:
       Description: "Data source use for the weather file."
@@ -3484,7 +3484,7 @@ Weather:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Undeterminable compliance parameter"
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
       Data Type: "<ClimateZoneOptions2019ASHRAE901>"
@@ -3495,10 +3495,10 @@ Weather:
       AppG B_RMD Equals P_RMD: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Climatic Data Summary"
+      EPout Table: "Weather Statistics File"
+      EPout Column: "ASHRAE Climate Zone"
       EP Notes: ""
     cooling_design_day_type:
       Description: "The frequency of occurance type for cooling design day"
@@ -3507,13 +3507,13 @@ Weather:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SizingPeriod:DesignDay"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
     heating_design_day_type:
       Description: "The frequency of occurance type for heating design day"
       Data Type: "<HeatingDesignDayOptions>"
@@ -3521,13 +3521,13 @@ Weather:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SizingPeriod:DesignDay"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: ""
+      EP Notes: "Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
 
 WeatherFileDataSourceOptions:
   Object Type: "Enumeration"
