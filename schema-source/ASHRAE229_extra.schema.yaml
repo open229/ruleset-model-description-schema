@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.17"
+  Version: "0.0.18"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -963,6 +963,7 @@ Zone:
     minimum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the minimum relative humidity setpoint"
       Data Type: "Reference"
+      Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -978,6 +979,7 @@ Zone:
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
       Data Type: "Reference"
+      Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -1130,21 +1132,15 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EP Notes: ""
-    equipment_count:
-      Description: "Equipment count"
+    aggregation_factor:
+      Description: "Aggregation factor"
       Data Type: "Numeric"
       Range: ">=1"
-      Notes: "The factor that has already been applied for number of identical pieces of HVAC equipment represented by HVAC equipment serving the zone. Used only to confirm the individual size of multiple identical heating or cooling units serving the zone so that the efficiency for that size can be looked up in tables of equipment efficiency by size.  By dividing the heating and cooling capacity of the zone by this number, indicates the capacity of the individual units represented by equipment. If only one piece of heating or cooling equipment is used for the zone this value should be one. May also indicate the number of identical zones on different floors already represented by the zone. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
+      Notes: "A factor that has already been applied when modeling a zone that represents an aggregation of several individual zones shown on design documents. For example, if five dwelling units facing the same orientation are modeled as a single zone, the total volume of the zone and the total surface area of the zone should be five times the values of a single dwelling unit shown on the design documents and aggregation_factor should be set to 5. Another example, when three identical floors are modeled, the zones modeled for these floors should represent the volume of the zone on three floors, and the aggregation_factor should be set to 3. A final example would be a big box retail store with eight units serving the core zone, the total floor area of the spaces in the core zone should already account for the total area, and the aggregation_factor should be set to 8. The factor is chiefly used to determine the size range for heating and cooling equipment serving that zone. Used only to confirm the individual size of heating or cooling units serving the zone so that the efficiency for that size range can be looked up in tables of equipment efficiency by size range. By dividing the heating and cooling capacity of the zone by the aggregation_factor, the result would indicate the capacity of the individual units represented by equipment. For zones not representing any type of aggregation, this value should be one. The aggregation_factor is typically an integer but occasionally may include a fractional value. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
       EP Notes: "Undeterminable compliance parameter"
  
 Space:
