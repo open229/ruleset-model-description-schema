@@ -278,6 +278,14 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
+    has_been_manually_edited:
+      Description: "The instance has been manually edited."
+      Data Type: "Boolean"
+      Notes: "For instances created by software, including commercial software, that summarize a model this should be set to false. For instances that have been modified using a text editor or a JSON editor this should be set to true. If the instance has been modified by a script that is not commercially distributed this values should be set to true."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
 
 Building:
   Object Type: "Data Group"
