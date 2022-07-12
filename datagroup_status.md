@@ -4,7 +4,7 @@
 | Data Group                                   | Status
 |----------------------------------------------|---------------
 | ASHRAE229                                    | Approved by Schema WG
-| RulesetModelInstance                         | In Development
+| RulesetModelInstance                         | Approved by Schema WG
 | Building                                     | Approved by Schema WG
 | BuildingSegment                              | Approved by Schema WG
 | Zone                                         | Approved by SPC 229
@@ -22,14 +22,14 @@
 | Calendar                                     | Approved by SPC 229
 | Weather                                      | Approved by SPC 229
 | Elevator                                     | Approved by SPC 229
-| HeatingVentilationAirConditioningSystem      | Approved by Schema WG (less stable)
-| HeatingSystem                                | Approved by Schema WG (less stable)
-| CoolingSystem                                | Approved by Schema WG (less stable)
-| FanSystem                                    | Approved by Schema WG (less stable)
-| AirEconomizer                                | Approved by Schema WG (less stable)
-| AirEnergyRecovery                            | Approved by Schema WG (less stable)
-| Fan                                          | Approved by Schema WG (less stable)
-| Terminal                                     | Approved by Schema WG (less stable)
+| HeatingVentilationAirConditioningSystem      | Approved by Schema WG
+| HeatingSystem                                | Approved by Schema WG
+| CoolingSystem                                | Approved by Schema WG
+| FanSystem                                    | Approved by Schema WG
+| AirEconomizer                                | Approved by Schema WG
+| AirEnergyRecovery                            | Approved by Schema WG
+| Fan                                          | Approved by Schema WG
+| Terminal                                     | Approved by Schema WG
 | FluidLoop                                    | Approved by SPC 229
 | FluidLoopDesignAndControl                    | Approved by SPC 229
 | Pump                                         | Approved by Schema WG
@@ -40,15 +40,15 @@
 | ChillerPowerValidationPoint                  | Approved by Schema WG
 | HeatRejection                                | Approved by Schema WG
 | ExternalFluidSource                          | Approved by Schema WG
-| ServiceWaterHeatingDistributionSystem        | Approved by Schema WG (less stable)
-| ServiceWaterPiping                           | Approved by Schema WG (less stable)
-| SolarThermal                                 | Approved by Schema WG (less stable)
-| ServiceWaterHeatingEquipment                 | Approved by Schema WG (less stable)
-| ServiceWaterHeaterValidationPoint            | Approved by Schema WG (less stable)
-| HeatPumpWaterHeaterCapacityValidationPoint   | Approved by Schema WG (less stable)
-| HeatPumpWaterHeaterPowerValidationPoint      | Approved by Schema WG (less stable)
-| Tank                                         | Approved by Schema WG (less stable)
-| ServiceWaterHeatingUse                       | Approved by Schema WG (less stable)
+| ServiceWaterHeatingDistributionSystem        | Approved by Schema WG
+| ServiceWaterPiping                           | Approved by Schema WG
+| SolarThermal                                 | Approved by Schema WG
+| ServiceWaterHeatingEquipment                 | Approved by Schema WG
+| ServiceWaterHeaterValidationPoint            | Approved by Schema WG
+| HeatPumpWaterHeaterCapacityValidationPoint   | Approved by Schema WG
+| HeatPumpWaterHeaterPowerValidationPoint      | Approved by Schema WG
+| Tank                                         | Approved by Schema WG
+| ServiceWaterHeatingUse                       | Approved by Schema WG
 | ExteriorLighting                             | Approved by SPC 229
 | Refrigeration                                | Approved by Schema WG
 
