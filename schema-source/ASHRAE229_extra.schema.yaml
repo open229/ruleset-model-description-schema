@@ -560,19 +560,19 @@ Zone:
       Data Type: "Reference"
       Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
       Data Type: "Reference"
       Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
@@ -603,26 +603,26 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
     exhaust_airflow_rate_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
     makeup_airflow_rate:
       Description: "Airflow rate for makeup air"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
     non_mechanical_cooling_fan_power:
       Description: "Non-mechanical cooling fan power"
@@ -630,9 +630,9 @@ Zone:
       Range: ">=0"
       Units: "W"
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     non_mechanical_cooling_fan_airflow:
       Description: "Non-mechanical cooling fan airflow"
       Data Type: "Numeric"
@@ -646,19 +646,19 @@ Zone:
       Description: "Air distribution effectiveness"
       Data Type: "Numeric"
       Range: ">=0"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     aggregation_factor:
       Description: "Aggregation factor"
       Data Type: "Numeric"
       Range: ">=1"
       Notes: "A factor that has already been applied when modeling a zone that represents an aggregation of several individual zones shown on design documents. For example, if five dwelling units facing the same orientation are modeled as a single zone, the total volume of the zone and the total surface area of the zone should be five times the values of a single dwelling unit shown on the design documents and aggregation_factor should be set to 5. Another example, when three identical floors are modeled, the zones modeled for these floors should represent the volume of the zone on three floors, and the aggregation_factor should be set to 3. A final example would be a big box retail store with eight units serving the core zone, the total floor area of the spaces in the core zone should already account for the total area, and the aggregation_factor should be set to 8. The factor is chiefly used to determine the size range for heating and cooling equipment serving that zone. Used only to confirm the individual size of heating or cooling units serving the zone so that the efficiency for that size range can be looked up in tables of equipment efficiency by size range. By dividing the heating and cooling capacity of the zone by the aggregation_factor, the result would indicate the capacity of the individual units represented by equipment. For zones not representing any type of aggregation, this value should be one. The aggregation_factor is typically an integer but occasionally may include a fractional value. The total area of the spaces and the volume of the zone should already be multiplied by the factor."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
 
 Space:
   Object Type: "Data Group"
