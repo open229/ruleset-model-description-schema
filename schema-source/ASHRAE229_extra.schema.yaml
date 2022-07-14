@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.18"
+  Version: "0.0.19"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -278,6 +278,14 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
+    has_been_manually_edited:
+      Description: "The instance has been manually edited."
+      Data Type: "Boolean"
+      Notes: "For instances created by software, including commercial software, that summarize a model this should be set to false. For instances that have been modified using a text editor or a JSON editor this should be set to true. If the instance has been modified by a script that is not commercially distributed this values should be set to true."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
 
 Building:
   Object Type: "Data Group"
@@ -2488,26 +2496,14 @@ HumidificationOptions:
 HeatingMetricOptions:
   Object Type: "Enumeration"
   Enumerators:
-    FULL_LOAD_EFFICIENCY:
-      Description: "Full load efficiency expressed as a coefficient of performance or thermal efficiency at rated conditions"
-    FULL_LOAD_EFFICIENCY_NO_FAN:
-      Description: "Full load efficiency expressed as a coefficient of performance at rated conditions not including indoor fan power"
-      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
-    PART_LOAD_EFFICIENCY:
-      Description: "Part load efficiency expressed as a coefficient of performance or thermal efficiency at rated conditions"
-    PART_LOAD_EFFICIENCY_NO_FAN:
-      Description: "Part load efficiency expressed as a coefficient of performance at rated conditions not including fan"
-      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
-    SEASONAL_EFFICIENCY:
-      Description: "Seasonal efficiency"
-    HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE:
+    HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_HIGH_TEMPERATURE:
       Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb"
-    HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE:
+    HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE:
       Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb"
-    HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE_NO_FAN:
+    HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_HIGH_TEMPERATURE_NO_FAN:
       Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
-    HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE_NO_FAN:
+    HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE_NO_FAN:
       Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     THERMAL_EFFICIENCY:
@@ -2692,18 +2688,11 @@ DehumidificationOptions:
 CoolingMetricOptions:
   Object Type: "Enumeration"
   Enumerators:
-    FULL_LOAD_EFFICIENCY:
-      Description: "Full load efficiency expressed as a coefficient of performance at rated conditions"
-    FULL_LOAD_EFFICIENCY_NO_FAN:
-      Description: "Full load efficiency expressed as a coefficient of performance  at rated conditions not including indoor fan power"
+    FULL_LOAD_COEFFICIENT_OF_PERFORMANCE:
+      Description: "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions"
+    FULL_LOAD_COEFFICIENT_OF_PERFORMANCE_NO_FAN:
+      Description: "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions not including indoor fan power"
       Notes: "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
-    PART_LOAD_EFFICIENCY:
-      Description: "Part load efficiency expressed as a coefficient of performance at rated conditions"
-    PART_LOAD_EFFICIENCY_NO_FAN:
-      Description: "Part load efficiency expressed as a coefficient of performance at rated conditions not including fan"
-      Notes: "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
-    SEASONAL_EFFICIENCY:
-      Description: "Seasonal efficiency"
     ENERGY_EFFICIENCY_RATIO:
       Description: "EER - Energy efficiency ratio"
     SEASONAL_ENERGY_EFFICIENCY_RATIO:

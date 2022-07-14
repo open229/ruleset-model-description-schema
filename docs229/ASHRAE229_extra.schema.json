@@ -185,6 +185,11 @@
                 "site_zone_type": {
                     "description": "Site zone type for Sec 9.4.2",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingZoneOptions2019ASHRAE901"
+                },
+                "has_been_manually_edited": {
+                    "description": "The instance has been manually edited.",
+                    "type": "boolean",
+                    "notes": "For instances created by software, including commercial software, that summarize a model this should be set to false. For instances that have been modified using a text editor or a JSON editor this should be set to true. If the instance has been modified by a script that is not commercially distributed this values should be set to true."
                 }
             },
             "required": [
@@ -1932,15 +1937,10 @@
         "HeatingMetricOptions": {
             "type": "string",
             "enum": [
-                "FULL_LOAD_EFFICIENCY",
-                "FULL_LOAD_EFFICIENCY_NO_FAN",
-                "PART_LOAD_EFFICIENCY",
-                "PART_LOAD_EFFICIENCY_NO_FAN",
-                "SEASONAL_EFFICIENCY",
-                "HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE",
-                "HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE",
-                "HEAT_PUMP_EFFICIENCY_HIGH_TEMPERATURE_NO_FAN",
-                "HEAT_PUMP_EFFICIENCY_LOW_TEMPERATURE_NO_FAN",
+                "HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_HIGH_TEMPERATURE",
+                "HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE",
+                "HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_HIGH_TEMPERATURE_NO_FAN",
+                "HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE_NO_FAN",
                 "THERMAL_EFFICIENCY",
                 "COMBUSTION_EFFICIENCY",
                 "ANNUAL_FUEL_UTILIZATION_EFFICIENCY",
@@ -1950,11 +1950,6 @@
                 "OTHER"
             ],
             "descriptions": [
-                "Full load efficiency expressed as a coefficient of performance or thermal efficiency at rated conditions",
-                "Full load efficiency expressed as a coefficient of performance at rated conditions not including indoor fan power",
-                "Part load efficiency expressed as a coefficient of performance or thermal efficiency at rated conditions",
-                "Part load efficiency expressed as a coefficient of performance at rated conditions not including fan",
-                "Seasonal efficiency",
                 "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb",
                 "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb",
                 "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan",
@@ -1968,11 +1963,6 @@
                 "Other"
             ],
             "notes": [
-                null,
-                "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
-                null,
-                "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
-                null,
                 null,
                 null,
                 "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
@@ -2121,11 +2111,8 @@
         "CoolingMetricOptions": {
             "type": "string",
             "enum": [
-                "FULL_LOAD_EFFICIENCY",
-                "FULL_LOAD_EFFICIENCY_NO_FAN",
-                "PART_LOAD_EFFICIENCY",
-                "PART_LOAD_EFFICIENCY_NO_FAN",
-                "SEASONAL_EFFICIENCY",
+                "FULL_LOAD_COEFFICIENT_OF_PERFORMANCE",
+                "FULL_LOAD_COEFFICIENT_OF_PERFORMANCE_NO_FAN",
                 "ENERGY_EFFICIENCY_RATIO",
                 "SEASONAL_ENERGY_EFFICIENCY_RATIO",
                 "SEASONAL_ENERGY_EFFICIENCY_RATIO_2",
@@ -2136,11 +2123,8 @@
                 "OTHER"
             ],
             "descriptions": [
-                "Full load efficiency expressed as a coefficient of performance at rated conditions",
-                "Full load efficiency expressed as a coefficient of performance  at rated conditions not including indoor fan power",
-                "Part load efficiency expressed as a coefficient of performance at rated conditions",
-                "Part load efficiency expressed as a coefficient of performance at rated conditions not including fan",
-                "Seasonal efficiency",
+                "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions",
+                "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions not including indoor fan power",
                 "EER - Energy efficiency ratio",
                 "SEER - Seasonal energy efficiency ratio",
                 "SEER2 - Seasonal energy efficiency ratio 2",
@@ -2153,9 +2137,6 @@
             "notes": [
                 null,
                 "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
-                null,
-                "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
-                null,
                 null,
                 null,
                 null,
@@ -4700,6 +4681,6 @@
             ]
         }
     },
-    "version": "0.0.18",
+    "version": "0.0.19",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }
