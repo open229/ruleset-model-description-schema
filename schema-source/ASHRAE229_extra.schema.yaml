@@ -520,6 +520,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingInput"
       EP Notes: "it appears in the header of the tabular html file but not in the output:JSON file"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -534,6 +535,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -548,6 +550,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     building_segments:
       Description: "Large portions of a building that share a building area type"
@@ -563,6 +566,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Reference to a generic ID for BuildingSegments"
     elevators:
       Description: "Elevators"
@@ -578,6 +582,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "not specifically supported in EnergyPlus"
     exterior_lighting:
       Description: "Exterior lighting systems"
@@ -593,6 +598,7 @@ Building:
       EPout Report: "Lighting Summary"
       EPout Table: "Exterior Lighting"
       EPout Column: "Name"
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     refrigerated_casess:
       Description: "Refrigerated cases"
@@ -608,6 +614,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     building_open_schedule:
       Description: "Reference to the schedule containing indicating when the building is open"
@@ -623,6 +630,7 @@ Building:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "PartialUsingConstant"
       EP Notes: "Undeterminable compliance parameter. Could estimate based on occupancy schedules but may not match actual building schedule."
     has_site_shading:
       Description: "Indicates whether the site has features that cast shadows on the building"
@@ -637,6 +645,7 @@ Building:
       EPout Report: "Object Count Summary"
       EPout Table: "Surfaces by Class"
       EPout Column: "Building Detached Shading and Fixed Detached Shading"
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 BuildingSegment:
@@ -656,6 +665,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Create a generic ID"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -670,6 +680,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -684,6 +695,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     number_of_floors_above_grade:
       Description: "Number of floors above grade"
@@ -699,6 +711,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Might be estimated based on coordinates used by zones"
     number_of_floors_below_grade:
       Description: "Number of floors below grade"
@@ -714,6 +727,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Might be estimated based on coordinates used by zones"
     is_all_new:
       Description: "Indicates whether the building segment is completely new construction (true) or existing (false). "
@@ -729,6 +743,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     zones:
       Description: "Zones in the building"
@@ -744,6 +759,7 @@ BuildingSegment:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Zone Summary"
       EPout Column: "Name"
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     heating_ventilation_air_conditioning_systems:
       Description: "HVAC systems in the building"
@@ -759,6 +775,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     area_type_vertical_fenestration:
       Description: "Building area classification used for vertical fenestration"
@@ -774,6 +791,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     lighting_building_area_type:
       Description: "Building area lighting area type"
@@ -788,6 +806,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     area_type_heating_ventilation_air_conditioning_system:
       Description: "Classification used for HVAC"
@@ -803,6 +822,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
 
 Zone:
