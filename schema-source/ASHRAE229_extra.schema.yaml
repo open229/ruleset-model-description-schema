@@ -2439,6 +2439,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Name"
+      EPstatus: "PartialUsingOutput"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -2453,6 +2454,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -2467,6 +2469,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     classification:
       Description: "Classification for the subsurface being window, skylight, door."
@@ -2481,6 +2484,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: ""
+      EPstatus: "PartialUsingOutput"
       EP Notes: "If shown presume to be WINDOW"
     subclassification:
       Description: "Standard specific subclassification for subsurfaces"
@@ -2495,6 +2499,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     is_operable:
       Description: "Identifies whether window subsurface can be opened and closed including by pivoting or sliding."
@@ -2510,6 +2515,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     has_open_sensor:
       Description: "Has sensor and reports to building control system when the window or door is open."
@@ -2524,6 +2530,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     framing_type:
       Description: "The material of the framing."
@@ -2539,6 +2546,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     glazed_area:
       Description: "Area of subsurface including glass and transparent surfaces"
@@ -2555,6 +2563,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Glass Area"
+      EPstatus: "PartialUsingOutput"
       EP Notes: ""
     opaque_area:
       Description: "Area of subsurface framing for a window or skylight or opaque portion for a door."
@@ -2571,6 +2580,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Frame Area plus Divider Area"
+      EPstatus: "PartialUsingOutput"
       EP Notes: ""
     u_factor:
       Description: "Overall Subsurface U-factor"
@@ -2588,6 +2598,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Assembly U-Factor"
+      EPstatus: "PartialUsingOutput"
       EP Notes: "Use glass u-factor if assembly not available "
     dynamic_glazing_type:
       Description: "Type of dynamic glazing for the window subsurface"
@@ -2603,6 +2614,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Use AUTOMATIC_DYNAMIC or NOT_DYNAMIC"
     solar_heat_gain_coefficient:
       Description: "Subsurface SHGC"
@@ -2619,6 +2631,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Assembly SHGC"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Use Glass SHGC if assembly not available "
     maximum_solar_heat_gain_coefficient:
       Description: "Maximum Subsurface SHGC for Dynamic Glazing"
@@ -2635,6 +2648,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration Shaded State"
       EPout Column: "Assembly SHGC"
+      EPstatus: "NotStarted"
       EP Notes: "Use Glass SHGC if assembly not available "
     visible_transmittance:
       Description: "Subsurface VT"
@@ -2651,6 +2665,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Assembly Visible Transmittance"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Use Glass Visible Transmittance if assembly not available "
     minimum_visible_transmittance:
       Description: "Minimum Subsurface VT for Dynamic Glazing"
@@ -2667,6 +2682,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration Shaded State"
       EPout Column: "Assembly Visible Transmittance"
+      EPstatus: "NotStarted"
       EP Notes: "Use Glass Visible Transmittance if assembly not available "
     depth_of_overhang:
       Description: "Distance from the edge of the overhang to the subsurface."
@@ -2683,6 +2699,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_shading_overhang:
       Description: "Identifies whether subsurface has overhangs"
@@ -2697,6 +2714,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_shading_sidefins:
       Description: "Identifies whether subsurface has sidefins"
@@ -2711,6 +2729,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_manual_interior_shades:
       Description: "Are there manually-operated interior shading such as blinds, curtains or shades"
@@ -2725,6 +2744,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     solar_transmittance_multiplier_summer:
       Description: "Solar transmittance multiplier for summer"
@@ -2741,6 +2761,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "approach not used by EnergyPlus"
     solar_transmittance_multiplier_winter:
       Description: "Solar transmittance multiplier for summer"
@@ -2757,6 +2778,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "approach not used by EnergyPlus"
     has_automatic_shades:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
@@ -2771,6 +2793,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Shade Control"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -2785,6 +2808,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
 
 SubsurfaceClassificationOptions:
@@ -2826,6 +2850,7 @@ InteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Interior Lighting"
       EPout Column: "first column"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -2840,6 +2865,7 @@ InteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Interior Lighting"
       EPout Column: "first column"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -2854,6 +2880,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     purpose_type:
       Description: "Lighting purpose type classification"
@@ -2869,6 +2896,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     power_per_area:
       Description: "Total power for lights divided by the area of the space."
@@ -2885,6 +2913,7 @@ InteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Interior Lighting"
       EPout Column: "Lighting Power Density"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     lighting_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for lighting"
@@ -2900,6 +2929,7 @@ InteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Interior Lighting"
       EPout Column: "Schedule Name"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     occupancy_control_type:
       Description: "Indicates the type of occupancy controls"
@@ -2914,6 +2944,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     daylighting_control_type:
       Description: "Indicates the type of daylighting controls"
@@ -2928,6 +2959,7 @@ InteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Daylighting"
       EPout Column: "Daylighting Method"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     are_schedules_used_for_modeling_occupancy_control:
       Description: "Indicates that schedule values are used for modeling the impacts of occupancy controls on lighting."
@@ -2942,6 +2974,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Always set to True for energyplus"
     are_schedules_used_for_modeling_daylighting_control:
       Description: "Indicates that schedule values are used for modeling the impacts of daylighting controls on lighting."
@@ -2957,6 +2990,7 @@ InteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Always set to False for energyplus"
 
 LightingDaylightingControlOptions:
@@ -3004,6 +3038,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal"
       EPout Column: "Name"
+      EPstatus: "NotStarted"
       EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -3018,6 +3053,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal"
       EPout Column: "Name"
+      EPstatus: "NotRequired"
       EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -3032,6 +3068,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     energy_type:
       Description: "Source of energy for the miscellaneous equipment in the space"
@@ -3047,6 +3084,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "For input based on the type of input object. For output have not tested for all tables created with different input objects."
     power:
       Description: "Power for miscellaneous equipment in the space"
@@ -3063,6 +3101,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Equipment Level"
+      EPstatus: "NotStarted"
       EP Notes: "Fields may vary based on input object. For output have not tested for all tables created with different input objects."
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
@@ -3078,6 +3117,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Schedule Name"
+      EPstatus: "NotStarted"
       EP Notes: "For output have not tested for all tables created with different input objects."
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
@@ -3094,6 +3134,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Fraction Radiant and Fraction Convected"
+      EPstatus: "NotStarted"
       EP Notes: "Need to compute the fraction sensible based on inputs. Output computed also. For output have not tested for all tables created with different input objects."
     latent_fraction:
       Description: "Fraction of energy that is a latent load on the space."
@@ -3110,6 +3151,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Fraction Latent"
+      EPstatus: "NotStarted"
       EP Notes: "For output have not tested for all tables created with different input objects."
     remaining_fraction_chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop for the remaining fraction"
@@ -3125,6 +3167,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Input need to match between what is lost and what is shown in LoadProfile:Plant."
     energy_from_loop:
       Description: "Referenced to the loop serving as the source of energy"
@@ -3134,6 +3177,14 @@ MiscellaneousEquipment:
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
       AppG B_RMD Equals P_RMD: unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
+      EP Notes: ""
     miscellaneous_equipment_type:
       Description: "Type of miscellaneous equipment"
       Data Type: "<MiscellaneousEquipmentOptions>"
@@ -3147,6 +3198,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Partially undeterminable compliance parameter. If ElectricEquipment:ITE:AirCooled then can be set to INFORMATION_TECHNOLOGY_EQUIPMENT but no way to differentiate between PLUG and PROCESS."
     has_automatic_control:
       Description: "Indicates that the receptacles have automatic controls"
@@ -3161,6 +3213,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
 
 MiscellaneousEquipmentOptions:
@@ -3192,6 +3245,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -3206,6 +3260,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -3220,6 +3275,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "The type of transformer"
@@ -3234,6 +3290,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     phase:
       Description: "The number of electrical phases"
@@ -3248,6 +3305,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency:
       Description: "Transformer efficiency"
@@ -3264,6 +3322,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     capacity:
       Description: "Rated Capacity of the Transformer"
@@ -3280,6 +3339,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     peak_load:
       Description: "Annual Peak electric load on the transformer"
@@ -3297,6 +3357,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Requires finding the peak from the output variable Transformer output Electricity Rate"
 
 TransformerOptions:
@@ -3334,6 +3395,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Need to include  Output:Variable,*,schedule value,hourly; or  Output:Variable,*,schedule value,timestep; in file and then look at eplusout_hourly.json or eplusout_timestep.json"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -3348,6 +3410,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -3362,6 +3425,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     purpose:
       Description: "The purpose of schedule"
@@ -3377,6 +3441,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Could look at the uses of the schedule and provide the field name of its most common use"
     schedule_sequence_type:
       Description: "Schedule sequence type"
@@ -3391,6 +3456,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Set to Hourly"
     hourly_values:
       Description: "Hourly Values of Schedule"
@@ -3406,6 +3472,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Need to include  Output:Variable,*,schedule value,hourly; or  Output:Variable,*,schedule value,timestep; in file and then look at eplusout_hourly.json or eplusout_timestep.json"
     event_times:
       Description: "Event times when the schedule changes"
@@ -3422,6 +3489,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     event_values:
       Description: "Event value at corresponding event time."
@@ -3437,6 +3505,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "The type of schedule"
@@ -3452,6 +3521,7 @@ Schedule:
       EPout Report: "Intialization Summary"
       EPout Table: "Schedule"
       EPout Column: "ScheduleType"
+      EPstatus: "NotStarted"
       EP Notes: "Fraction => MULTIPLIER_DIMENSIONLESS, Temperature => TEMPERATURE, Units of W => POWER, Units of kg/s => FLOW_RATE, anything else => MULTIPLIER_DIMENSIONLESS"
     prescribed_schedule:
       Description: "True if any schedule values have changed from what appears in the schedule library"
@@ -3466,6 +3536,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     is_schedule_modified_for_workaround:
       Description: "True if any schedule has been modified for a workaround"
@@ -3480,6 +3551,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
 
 ScheduleSequenceOptions:
@@ -3519,6 +3591,7 @@ Calendar:
       EPout Report: "initialization summary"
       EPout Table: "Environment"
       EPout Column: "name"
+      EPstatus: "NotStarted"
       EP Notes: ""
     day_of_week_for_january_1:
       Description: "Day of the week for January 1"
@@ -3533,6 +3606,7 @@ Calendar:
       EPout Report: "initialization summary"
       EPout Table: "Environment"
       EPout Column: "Start DayOfWeek and check if StartDate is 01/01"
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_leap_year:
       Description: "The schedules assume it is a leap year"
@@ -3547,6 +3621,7 @@ Calendar:
       EPout Report: "initialization summary"
       EPout Table: "Environment"
       EPout Column: "Duration (if 366)"
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_daylight_saving_time:
       Description: "The schedules adjust for Daylight Saving Time"
@@ -3561,6 +3636,7 @@ Calendar:
       EPout Report: "initialization summary"
       EPout Table: "Environment"
       EPout Column: "Use Daylight Saving"
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 DayOfWeekOptions:
@@ -3597,6 +3673,7 @@ Weather:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     ground_temperature_schedule:
       Description: "Ground temperature schedule name"
@@ -3612,6 +3689,7 @@ Weather:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "would need to create a schedule based on the 12 monthly values."
     weather_file_name:
       Description: "The file name for the weather file including extension."
@@ -3627,6 +3705,7 @@ Weather:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "General"
       EPout Column: "Weather File"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     data_source_type:
       Description: "Data source use for the weather file."
@@ -3641,6 +3720,7 @@ Weather:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Undeterminable compliance parameter"
     climate_zone:
       Description: "The designation of the climate zone where the building is located"
@@ -3656,6 +3736,7 @@ Weather:
       EPout Report: "Climatic Data Summary"
       EPout Table: "Weather Statistics File"
       EPout Column: "ASHRAE Climate Zone"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     cooling_design_day_type:
       Description: "The frequency of occurance type for cooling design day"
@@ -3670,6 +3751,7 @@ Weather:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "PartialUsingOutput"
       EP Notes: "Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
     heating_design_day_type:
       Description: "The frequency of occurance type for heating design day"
@@ -3684,6 +3766,7 @@ Weather:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "PartialUsingOutput"
       EP Notes: "Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
 
 WeatherFileDataSourceOptions:
@@ -3733,6 +3816,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -3747,6 +3831,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -3761,6 +3846,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "The type of elevator"
@@ -3775,6 +3861,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
@@ -3790,6 +3877,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_heat_fraction:
       Description: "Fraction of heat from the motor that is added as a sensible load zone."
@@ -3805,6 +3893,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
@@ -3820,6 +3909,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_heat_fraction:
       Description: "Fraction of heat from the cab that is added as a sensible load zone."
@@ -3836,6 +3926,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_variable_speed_motor:
       Description: "If the elevator uses a variable speed motor drive"
@@ -3850,6 +3941,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_power:
       Description: "Elevator average hourly peak motor power"
@@ -3866,6 +3958,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_counterweight:
       Description: "Elevator car counterweight"
@@ -3881,6 +3974,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_weight:
       Description: "Weight of elevator car"
@@ -3896,6 +3990,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_elevator_load:
       Description: "Elevator load at which to operate"
@@ -3911,6 +4006,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     speed:
       Description: "Design speed of the elevator"
@@ -3926,6 +4022,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_area:
       Description: "Floor area of elevator cab"
@@ -3941,6 +4038,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_lighting_power:
       Description: "Lighitng power of cab"
@@ -3956,6 +4054,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_ventilation_fan_power:
       Description: "Ventilation fan power of cab"
@@ -3971,6 +4070,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_ventilation_fan_flow:
       Description: "Airflow of cab ventfan"
@@ -3986,6 +4086,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
@@ -4001,6 +4102,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
@@ -4016,6 +4118,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
@@ -4031,6 +4134,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ElevatorOptions:
@@ -4731,13 +4835,6 @@ AirEconomizer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4745,13 +4842,6 @@ AirEconomizer:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
@@ -7435,6 +7525,7 @@ ExteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Exterior Lighting"
       EPout Column: "name"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -7449,6 +7540,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7463,6 +7555,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "The type of exterior lighting fixture"
@@ -7477,6 +7570,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     area:
       Description: "Area of the exterior functional space."
@@ -7493,6 +7587,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     length:
       Description: "Linear length measure for exterior functional space"
@@ -7510,6 +7605,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     power:
       Description: "Nominal power  of exterior lighting fixtures"
@@ -7526,6 +7622,7 @@ ExteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Exterior Lighting"
       EPout Column: "total watts"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     fixture_height:
       Description: "Installation height of exterior fixture"
@@ -7542,6 +7639,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     is_exempt:
       Description: "Indicates whether the exterior lighting is exempted from requirements"
@@ -7556,6 +7654,7 @@ ExteriorLighting:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for exterior lighting"
@@ -7571,6 +7670,7 @@ ExteriorLighting:
       EPout Report: "Lighting Summary"
       EPout Table: "Exterior Lighting"
       EPout Column: "Schedule Name"
+      EPstatus: "PartialUsingOutput"
       EP Notes: "If using Astronomical Clock option, could use output variable Exterior Lights Electricity Rate and create a schedule."
 
 
