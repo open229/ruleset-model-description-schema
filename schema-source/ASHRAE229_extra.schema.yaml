@@ -94,6 +94,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Create a generic ID"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -108,6 +109,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: "Create a generic ID"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -122,6 +124,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     ruleset_model_instances:  
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
@@ -137,6 +140,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Reference to a generic ID for RulesetModelInstance"
     calendar:
       Description: "Information on the calendar used with the simulation."
@@ -151,6 +155,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Reference to a generic ID for Calendar"
     weather:
       Description: "Information on the local weather conditions used with the simulation."
@@ -165,6 +170,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Reference to a generic ID for Weather"
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
@@ -179,6 +185,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     output_format_type:
       Description: "Format used for output"
@@ -193,6 +200,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Set to OUTPUT_SCHEMA_ASHRAE901_2019"
       
 RulesetModelInstance:
@@ -212,6 +220,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Create a generic ID"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -226,6 +235,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: "Create a generic ID"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -240,6 +250,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     ruleset_model_type:
       Description: "Describes the current model instance for rulesets with multiple simulation models"
@@ -254,6 +265,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     transformers:
       Description: "Electrical transformers at the building site"
@@ -269,6 +281,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     buildings:
       Description: "Buildings on the site"
@@ -284,6 +297,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "it appears in the header of the tabular html file but not in the output:JSON file"
     schedules:
       Description: "Schedules for internal loads, thermostats, equipment operation and control, and any other need."
@@ -299,6 +313,7 @@ RulesetModelInstance:
       EPout Report: "InitializationSummary"
       EPout Table: "Schedule"
       EPout Column: "first column"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "only produced when Output:Schedules input is used"
     measured_infiltration_pressure_difference:
       Description: "Differential pressure difference used during measurement for infiltration values."
@@ -316,6 +331,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     is_measured_infiltration_based_on_test:
       Description: "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building."
@@ -330,6 +346,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     fluid_loops:
       Description: "Fluid loops on the site"
@@ -345,6 +362,7 @@ RulesetModelInstance:
       EPout Report: "Component Sizing Summary"
       EPout Table: "PlantLoop"
       EPout Column: "Name"
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     service_water_heating_distribution_systems:
       Description: "Service water heating systems on the site"
@@ -360,6 +378,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     service_water_heating_equipment:
       Description: "Service water heating equipment on the site"
@@ -375,6 +394,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     pumps:
       Description: "Pumps used on the site"
@@ -389,6 +409,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     boilers:
       Description: "Boilers used on the site"
@@ -403,6 +424,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     chillers:
       Description: "Chillers used on the site"
@@ -417,6 +439,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     heat_rejections:
       Description: "HeatRejections used on the site"
@@ -431,6 +454,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     external_fluid_source:
       Description: "ExternalFluidSources used on the site"
@@ -445,6 +469,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
@@ -459,6 +484,7 @@ RulesetModelInstance:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     has_been_manually_edited:
       Description: "The instance has been manually edited."
@@ -468,6 +494,14 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
+      EP Notes: "Undeterminable compliance parameter"
 
 Building:
   Object Type: "Data Group"
