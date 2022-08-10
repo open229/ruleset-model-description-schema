@@ -1516,6 +1516,7 @@ Infiltration:
       EPout Report: "Initialization Summary"
       EPout Table: "ZoneInfiltration Airflow Stats Nominal"
       EPout Column: "Name"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Could also be part of airflow network"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -1530,6 +1531,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -1544,6 +1546,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
@@ -1558,6 +1561,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "PartialUsingConstant"
       EP Notes: "Set to WEATHER_DRIVEN for ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient and set to PRESSURE_BASED for airflow network"
     algorithm_name:
       Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
@@ -1572,6 +1576,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "PartialUsingConstant"
       EP Notes: "Use ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient, or airflow network"
     measured_air_leakage_rate:
       Description: "Meaured air leakage rate from infiltration of outside air"
@@ -1589,6 +1594,7 @@ Infiltration:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     infiltration_flow_rate:
       Description: "Design infiltration flow rate"
@@ -1606,6 +1612,7 @@ Infiltration:
       EPout Report: "Initialization Summary"
       EPout Table: "ZoneInfiltration Airflow Stats Nominal"
       EPout Column: "Design Volume Flow Rate "
+      EPstatus: "PartialUsingOutput"
       EP Notes: ""
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
@@ -1621,6 +1628,7 @@ Infiltration:
       EPout Report: "Initialization Summary"
       EPout Table: "ZoneInfiltration Airflow Stats Nominal"
       EPout Column: "Schedule Name"
+      EPstatus: "PartialUsingOutput"
       EP Notes: ""
 
 InfiltrationMethodOptions:
@@ -1655,6 +1663,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "name"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Many other input objects could contain this like Wall:Exterior, Roof, etc…"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -1669,6 +1678,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "name"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -1683,6 +1693,7 @@ Surface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     subsurfaces:
       Description: "Suburfaces that are on the surface"
@@ -1698,6 +1709,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Parent Surface"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Many other input objects could contain this (Window, Door, GlazedDoor, etc.). For report, need to map backwards."
     classification:
       Description: "Classification for the surface."
@@ -1713,6 +1725,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Exterior Fenestration"
       EPout Column: "Tilt"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Need to map tilt angle to wall, floor or ceiling"
     area:
       Description: "area of the surface"
@@ -1730,6 +1743,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "Gross Area"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     tilt:
       Description: "Angle between vertical and the surface outward normal"
@@ -1746,6 +1760,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "Tilt"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     azimuth:
       Description: "Clockwise angle between North and the horizontal projection of the wall's outward normal."
@@ -1763,6 +1778,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "Azimuth"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
@@ -1778,6 +1794,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "PartialUsingOutput"
       EP Notes: "Complicated mapping from input. Determine with table it is for exterior or interior but not others. Probably cannot be fully deteremined."
     adjacent_zone:
       Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
@@ -1793,6 +1810,7 @@ Surface:
       EPout Report: "InitializationSummary"
       EPout Table: "HeatTransfer Surface"
       EPout Column: "ExtBoundCondition"
+      EPstatus: "DoneUsingInput"
       EP Notes: "Also accessible in EIO file. Only available if Output:Surfaces:List,details is used."
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
@@ -1807,6 +1825,7 @@ Surface:
       EPout Report: "InitializationSummary"
       EPout Table: "Shading Surface"
       EPout Column: "Surface Name"
+      EPstatus: "NotStarted"
       EP Notes: "Also accessible in EIO file. Need to igore mirror mir- lines. May also be determined by Surface Shadowing Summary tabular report."
     construction:
       Description: "Construction description of surface."
@@ -1821,6 +1840,7 @@ Surface:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "Construction"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Also accessible in EIO file"
     surface_optical_properties:
       Description: "Optical properties of the surface."
@@ -1835,6 +1855,7 @@ Surface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -1849,6 +1870,7 @@ Surface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
 
 Construction:
@@ -1868,6 +1890,7 @@ Construction:
       EPout Report: "InitializationSummary"
       EPout Table: "Construction CTF"
       EPout Column: "Construction Name"
+      EPstatus: "PartialUsingInput"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -1882,6 +1905,7 @@ Construction:
       EPout Report: "InitializationSummary"
       EPout Table: "Construction CTF"
       EPout Column: "Construction Name"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -1896,6 +1920,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
@@ -1910,6 +1935,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Always use LAYERS"
     fraction_framing:
       Description: "Fraction of the construction that is framing."
@@ -1926,6 +1952,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: "Always leave entry blank since no framing"
     primary_layers:
       Description: "List of names of layer descriptions starting from the outside surface for primary heat path"
@@ -1941,6 +1968,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: "For Construction input object use all material layers. Could be added to EIO/InitializationSummary - Material CTF Summary easily."
     framing_layers:
       Description: "List of names of layer descriptions starting from the outside surface for the framing heat path"
@@ -1956,6 +1984,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: "Always leave entry blank since no framing"
     insulation_location:
       Description: "The location of the insulation related to the surface"
@@ -1970,6 +1999,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: "Always leave entry blank since using layers"
     u_factor:
       Description: "suface U-factor"
@@ -1987,6 +2017,7 @@ Construction:
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
       EPout Column: "U-Factor with Film"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Always leave entry blank since using layers"
     c_factor:
       Description: "surface C-factor"
@@ -2003,6 +2034,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Always leave entry blank since using layers"
     f_factor:
       Description: "surface F-factor"
@@ -2019,6 +2051,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Always leave entry blank since using layers"
     r_value:
       Description: "r-value of the insulation for the surface"
@@ -2035,6 +2068,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Always leave entry blank since using layers"
     has_radiant_heating:
       Description: "Includes embedded radiant heating elements"
@@ -2049,6 +2083,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Need to look at multiple input objects to determine, see use of RadiantSurfaceNames"
     has_radiant_cooling:
       Description: "Includes embedded radiant cooling elements"
@@ -2063,6 +2098,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Look at multiple fields Surface X Name"
 
 Material:
@@ -2082,6 +2118,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary"
       EPout Column: "Material Name"
+      EPstatus: "PartialUsingInput"
       EP Notes: "EPout currently no way of determining what construction this is used in."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -2096,6 +2133,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary"
       EPout Column: "Material Name"
+      EPstatus: "NotRequired"
       EP Notes: "EPout currently no way of determining what construction this is used in."
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -2110,6 +2148,7 @@ Material:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     thickness:
       Description: "The thickness of the material layer"
@@ -2126,6 +2165,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary"
       EPout Column: "Thickness"
+      EPstatus: "PartialUsingInput"
       EP Notes: "EPout currently no way of determining what construction this is used in."
     thermal_conductivity:
       Description: "The thermal conductivity of the material layer"
@@ -2143,6 +2183,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary"
       EPout Column: "Conductivity"
+      EPstatus: "PartialUsingInput"
       EP Notes: "EPout currently no way of determining what construction this is used in."
     density:
       Description: "The density of the material layer"
@@ -2159,6 +2200,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary"
       EPout Column: "Density"
+      EPstatus: "PartialUsingInput"
       EP Notes: "EPout currently no way of determining what construction this is used in."
     specific_heat:
       Description: "The specific heat of the material layer"
@@ -2175,6 +2217,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary"
       EPout Column: "Specific Heat"
+      EPstatus: "PartialUsingInput"
       EP Notes: "EPout currently no way of determining what construction this is used in."
     r_value:
       Description: "r-value of the insulation for the material layer"
@@ -2192,6 +2235,7 @@ Material:
       EPout Report: "InitializationSummary"
       EPout Table: "Material CTF Summary or Material:Air"
       EPout Column: "ThermalResistance "
+      EPstatus: "PartialUsingInput"
       EP Notes: ""
 
 SurfaceOpticalProperties:
@@ -2211,6 +2255,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Need to identify the exterior and interior materials. Modify the name to add -optical to the end"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -2225,6 +2270,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -2239,6 +2285,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     absorptance_thermal_exterior:
       Description: "Thermal absorptance of long wavelength radiation on the exterior surface."
@@ -2255,6 +2302,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     absorptance_solar_exterior:
       Description: "Thermal absorptance of short wavelength radiation on the exterior surface."
@@ -2271,6 +2319,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     absorptance_visible_exterior:
       Description: "Thermal absorptance of visible radiation on the exterior surface."
@@ -2287,6 +2336,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     absorptance_thermal_interior:
       Description: "Thermal absorptance of long wavelength radiation on the interior surface."
@@ -2303,6 +2353,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     absorptance_solar_interior:
       Description: "Thermal absorptance of short wavelength radiation on the interior surface."
@@ -2319,6 +2370,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     absorptance_visible_interior:
       Description: "Thermal absorptance of visible radiation on the interior surface."
@@ -2335,6 +2387,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 SurfaceClassificationOptions:
