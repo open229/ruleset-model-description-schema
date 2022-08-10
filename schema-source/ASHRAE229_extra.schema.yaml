@@ -843,6 +843,7 @@ Zone:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Zone Summary"
       EPout Column: "Name"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -857,6 +858,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -871,6 +873,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     spaces:
       Description: "Spaces in the zone"
@@ -886,6 +889,7 @@ Zone:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Space Summary"
       EPout Column: "Name"
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     floor_name:
       Description: "Floor name"
@@ -901,6 +905,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Could use Z height of surface as proxy for this"
     volume:
       Description: "Volume of the space"
@@ -917,6 +922,7 @@ Zone:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Zone Summary"
       EPout Column: "Volume"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     surfaces:
       Description: "Surfaces surrounding the zone"
@@ -932,6 +938,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     conditioning_type:
       Description: "Space conditioning category"
@@ -946,6 +953,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Might be able to figure out if HEATED_AND_COOLED, HEATED_ONLY, or UNCONDITIONED but SEMIHEATED is probably a compliance interpretation or at least complicated."
     infiltration:
       Description: "Airleakage into the zone."
@@ -961,6 +969,7 @@ Zone:
       EPout Report: "Initialization Summary"
       EPout Table: "ZoneInfiltration Airflow Stats Nominal"
       EPout Column: "Name"
+      EPstatus: "DoneUsingConstant"
       EP Notes: ""
     design_thermostat_cooling_setpoint:
       Description: "Setpoint temperature for cooling during occupied hours"
@@ -976,6 +985,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
@@ -991,6 +1001,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     design_thermostat_heating_setpoint:
       Description: "Setpoint temperature for heating during occupied hours"
@@ -1006,6 +1017,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
@@ -1021,6 +1033,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     minimum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the minimum relative humidity setpoint"
@@ -1037,6 +1050,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
@@ -1053,6 +1067,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     terminals:
       Description: "List of terminals"
@@ -1068,6 +1083,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     served_by_service_water_heating_system:
       Description: "A service water heating system serving the zone"
@@ -1083,6 +1099,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     transfer_airflow_rate:
       Description: "Airflow rate for transfer air"
@@ -1099,6 +1116,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     exhaust_airflow_rate:
       Description: "Airflow rate for exhaust air"
@@ -1115,6 +1133,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     exhaust_airflow_rate_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
@@ -1130,6 +1149,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     makeup_airflow_rate:
       Description: "Airflow rate for makeup air"
@@ -1146,6 +1166,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     non_mechanical_cooling_fan_power:
       Description: "Non-mechanical cooling fan power"
@@ -1162,6 +1183,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Could be an Electric:Equipment with a specific End-Use Subcategory name"
     non_mechanical_cooling_fan_airflow:
       Description: "Non-mechanical cooling fan airflow"
@@ -1178,6 +1200,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     air_distribution_effectiveness:
       Description: "Air distribution effectiveness"
@@ -1193,6 +1216,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     aggregation_factor:
       Description: "Aggregation factor"
@@ -1203,6 +1227,13 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
  
 Space:
@@ -1222,6 +1253,7 @@ Space:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Space Summary"
       EPout Column: "first column"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "For many files without spaces, use Zone Name instead."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -1236,6 +1268,7 @@ Space:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Space Summary"
       EPout Column: "first column"
+      EPstatus: "NotRequired"
       EP Notes: "For many files without spaces, use Zone Name instead."
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -1250,6 +1283,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     interior_lighting:
       Description: "Internal lighting that produce internal gains for a space."
@@ -1264,6 +1298,7 @@ Space:
       EPout Report: "Lighting Summary"
       EPout Table: "Interior LIghting"
       EPout Column: "Zone Name or Space Name"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "When using ZoneList or SpaceList will have to go to that to determine the Zone or Space."
     miscellaneous_equipment:
       Description: "Miscellaneous equipment loads that produce internal gains for a space."
@@ -1278,6 +1313,7 @@ Space:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal"
       EPout Column: "Name"
+      EPstatus: "NotStarted"
       EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     floor_area:
       Description: "The floor area of the space."
@@ -1295,6 +1331,7 @@ Space:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Space Summary"
       EPout Column: "Area"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     number_of_occupants:
       Description: "Number of occupants in the space"
@@ -1310,6 +1347,7 @@ Space:
       EPout Report: "Input Verification and Results Summary"
       EPout Table: "Space Summary"
       EPout Column: "People"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     occupant_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
@@ -1325,6 +1363,7 @@ Space:
       EPout Report: "InitializationSummary"
       EPout Table: "People Internal Gains Nominal"
       EPout Column: "Schedule Name"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
     occupant_sensible_heat_gain:
       Description: "Sensible heat gain of each occupant."
@@ -1341,6 +1380,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Often calculated internally. "
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -1355,6 +1395,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     space_function:
       Description: "Generic function for the space."
@@ -1370,6 +1411,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     lighting_space_type:
       Description: "Lighting space type classification"
@@ -1385,7 +1427,8 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: "Undeterminable compliance parameter"
+      EPstatus: "DoneUsingOutput"
+      EP Notes: "Undeterminable compliance parameter. Inputs in Space input object allow pass through of the enumeration value from user input."
     ventilations_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceOptions2019ASHRAE901>"
@@ -1400,7 +1443,8 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: "Undeterminable compliance parameter"
+      EPstatus: "DoneUsingOutput"
+      EP Notes: "Undeterminable compliance parameter. Inputs in Space input object allow pass through of the enumeration value from user input."
     service_water_heating_space_type:
       Description: "Service water heating space type classification"
       Data Type: "<ServiceWaterHeatingSpaceOptions2019ASHRAE901>"
@@ -1415,7 +1459,8 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EP Notes: "Undeterminable compliance parameter"
+      EPstatus: "DoneUsingOutput"
+      EP Notes: "Undeterminable compliance parameter. Inputs in Space input object allow pass through of the enumeration value from user input."
     service_water_heating_uses:
       Description: "List of service water heating uses"
       Data Type: "[{ServiceWaterHeatingUse}]"
@@ -1429,6 +1474,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ConditioningOptions:
