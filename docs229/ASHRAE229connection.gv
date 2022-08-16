@@ -31,6 +31,7 @@ digraph G {
   Zone -> Schedule [color=red] 
   Zone -> Terminal
   Zone -> ServiceWaterHeatingDistributionSystem [color=red] 
+  Zone -> Fan
   Zone -> Schedule [color=red] 
   Space -> InteriorLighting
   Space -> MiscellaneousEquipment
