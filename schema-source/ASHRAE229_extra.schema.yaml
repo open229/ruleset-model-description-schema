@@ -2421,7 +2421,7 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    heatpump_auxilliary_heat_high_temperature_shutoff:
+    heatpump_auxilliary_heat_high_shutoff_temperature:
       Description: "Heatpump auxilliary heat high temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
@@ -2429,7 +2429,7 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    heatpump_low_temperature_shutoff:
+    heatpump_low_shutoff_temperature:
       Description: "Heatpump low temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
@@ -2809,7 +2809,7 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    supply_air_temperature_setpoint:
+    supply_air_setpoint_temperature:
       Description: "Supply air temperature setpoint temperarue"
       Data Type: "Numeric"
       Units: "C"
@@ -2944,7 +2944,7 @@ AirEconomizer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    high_limit_temperature_shutoff:
+    high_limit_shutoff_temperature:
       Description: "High limit temperature shutoff"
       Data Type: "Numeric"
       Units: "C"
@@ -3422,7 +3422,7 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    supply_temperature_setpoint:
+    supply_setpoint_temperature:
       Description: "Zone terminal supply temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
@@ -3703,7 +3703,7 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    outdoor_high_for_loop_supply_temperature_reset:
+    outdoor_high_for_loop_supply_reset_temperature:
       Description: "Outdoor high for loop supply temp reset"
       Data Type: "Numeric"
       Units: "C"
@@ -3712,7 +3712,7 @@ FluidLoopDesignAndControl:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    outdoor_low_for_loop_supply_temperature_reset:
+    outdoor_low_for_loop_supply_reset_temperature:
       Description: "Outdoor low for loop supply temp reset"
       Data Type: "Numeric"
       Units: "C"
@@ -4482,14 +4482,22 @@ HeatRejection:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    fan_power:
-      Description: "Fan Power"
+    fan_electric_input_power:
+      Description: "Fan Electric Input Power"
       Data Type: "Numeric"
       Units: "W"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    fan_nameplate_power:
+      Description: "Fan Nameplate Power"
+      Data Type: "Numeric"
+      Units: "W"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
@@ -4519,6 +4527,14 @@ HeatRejection:
       Data Type: "Numeric"
       Units: "L/s"
       Notes: "At rating conditions."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    leaving_water_setpoint_temperature:
+      Description: "leaving water setpoint temperature"
+      Data Type: "Numeric"
+      Units: "C"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
