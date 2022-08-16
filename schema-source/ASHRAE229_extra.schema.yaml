@@ -3481,6 +3481,7 @@ Terminal:
     is_supply_ducted:
       Description: "True if the the supply is ducted."
       Data Type: "Boolean"
+      Notes: "Packaged terminal air conditioners (PTAC), packaged terminal heat pumps (PTHP), and window or through the wall air conditioners should be False and other DX systems including rooftop units should be True"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
