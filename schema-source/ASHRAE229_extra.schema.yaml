@@ -4199,7 +4199,7 @@ Chiller:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     full_load_efficiency:
-      Description: "Full Low Efficiency expressed as a coefficient of performance (COP)"
+      Description: "Full Load Efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
       Units: "W/W"
       RMD Test: "Primary"
