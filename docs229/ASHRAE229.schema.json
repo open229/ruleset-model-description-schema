@@ -185,11 +185,6 @@
                 "site_zone_type": {
                     "description": "Site zone type for Sec 9.4.2",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingZoneOptions2019ASHRAE901"
-                },
-                "has_been_manually_edited": {
-                    "description": "The instance has been manually edited.",
-                    "type": "boolean",
-                    "notes": "For instances created by software, including commercial software, that summarize a model this should be set to false. For instances that have been modified using a text editor or a JSON editor this should be set to true. If the instance has been modified by a script that is not commercially distributed this values should be set to true."
                 }
             },
             "required": [
@@ -430,11 +425,9 @@
                     "units": "L/s",
                     "notes": "Net transfer air. Positive values indicate transfer air in to the zone and negative values show transfer out of the zone."
                 },
-                "exhaust_airflow_rate": {
-                    "description": "Airflow rate for exhaust air",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "L/s"
+                "zonal_exhaust_fan": {
+                    "description": "Zonal exhaust fan",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Fan"
                 },
                 "exhaust_airflow_rate_multiplier_schedule": {
                     "description": "Reference to the schedule containing the multiplier for the exhaust airflow rate",
@@ -1804,7 +1797,8 @@
                 },
                 "heating_system_type": {
                     "description": "Heating system type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystemOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystemOptions",
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
                 },
                 "energy_source_type": {
                     "description": "Source of energy for the chiller",
@@ -1865,12 +1859,12 @@
                     "description": "Heatpump auxilliary heat type used for backup",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatpumpAuxilliaryHeatOptions"
                 },
-                "heatpump_auxilliary_heat_high_temperature_shutoff": {
+                "heatpump_auxilliary_heat_high_shutoff_temperature": {
                     "description": "Heatpump auxilliary heat high temperature shutoff",
                     "type": "number",
                     "units": "C"
                 },
-                "heatpump_low_temperature_shutoff": {
+                "heatpump_low_shutoff_temperature": {
                     "description": "Heatpump low temperature shutoff",
                     "type": "number",
                     "units": "C"
@@ -1892,7 +1886,6 @@
                 "FURNACE",
                 "ELECTRIC_RESISTANCE",
                 "FLUID_LOOP",
-                "BASEBOARD",
                 "NONE",
                 "OTHER"
             ],
@@ -1901,7 +1894,6 @@
                 "Furnace",
                 "Electric resistance",
                 "Fluid loop",
-                "Baseboard",
                 "None",
                 "Other"
             ]
@@ -1993,7 +1985,8 @@
                 },
                 "cooling_system_type": {
                     "description": "Cooling system type",
-                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystemOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystemOptions",
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
                 },
                 "design_total_cool_capacity": {
                     "description": "Design total cooling capacity",
@@ -2223,7 +2216,7 @@
                     "description": "Supply fan control type",
                     "$ref": "ASHRAE229.schema.json#/definitions/FanSystemSupplyFanControlOptions"
                 },
-                "supply_air_temperature_setpoint": {
+                "supply_air_setpoint_temperature": {
                     "description": "Supply air temperature setpoint temperarue",
                     "type": "number",
                     "units": "C"
@@ -2312,7 +2305,7 @@
                     "description": "Type",
                     "$ref": "ASHRAE229.schema.json#/definitions/AirEconomizerOptions"
                 },
-                "high_limit_temperature_shutoff": {
+                "high_limit_shutoff_temperature": {
                     "description": "High limit temperature shutoff",
                     "type": "number",
                     "units": "C"
@@ -2673,7 +2666,8 @@
                 },
                 "type": {
                     "description": "Type of terminal",
-                    "$ref": "ASHRAE229.schema.json#/definitions/TerminalOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/TerminalOptions",
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
                 },
                 "served_by_heating_ventilation_air_conditioning_system": {
                     "description": "HVAC system serving the terminal",
@@ -2718,7 +2712,7 @@
                     "type": "number",
                     "units": "L/s"
                 },
-                "supply_temperature_setpoint": {
+                "supply_setpoint_temperature": {
                     "description": "Zone terminal supply temperature setpoint",
                     "type": "number",
                     "units": "C"
@@ -2756,7 +2750,8 @@
                 },
                 "is_supply_ducted": {
                     "description": "True if the the supply is ducted.",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "notes": "Packaged terminal air conditioners (PTAC), packaged terminal heat pumps (PTHP), and window or through the wall air conditioners should be False and other DX systems including rooftop units should be True"
                 },
                 "has_demand_control_ventilation": {
                     "description": "True if the zone has demand control ventilation",
@@ -2775,8 +2770,6 @@
                 "VARIABLE_AIR_VOLUME",
                 "CONSTANT_AIR_VOLUME",
                 "RADIANT",
-                "FOUR_PIPE_FAN_COIL_UNIT",
-                "TWO_PIPE_FAN_COIL_UNIT",
                 "BASEBOARD",
                 "OTHER"
             ],
@@ -2784,8 +2777,6 @@
                 "Variable air volume",
                 "Constant air volume",
                 "Radiant",
-                "Four pipe fan coil unit",
-                "Two pipe fan coil unit",
                 "Baseboard",
                 "Other"
             ]
@@ -2943,13 +2934,13 @@
                     "description": "Type of temperature reset used by loop",
                     "$ref": "ASHRAE229.schema.json#/definitions/TemperatureResetOptions"
                 },
-                "outdoor_high_for_loop_supply_temperature_reset": {
+                "outdoor_high_for_loop_supply_reset_temperature": {
                     "description": "Outdoor high for loop supply temp reset",
                     "type": "number",
                     "units": "C",
                     "notes": "Used when temperature_reset_type = OUTSIDE_AIR_RESET"
                 },
-                "outdoor_low_for_loop_supply_temperature_reset": {
+                "outdoor_low_for_loop_supply_reset_temperature": {
                     "description": "Outdoor low for loop supply temp reset",
                     "type": "number",
                     "units": "C",
@@ -3318,6 +3309,18 @@
                     "units": "W",
                     "notes": "At rating conditions."
                 },
+                "rated_entering_condenser_temperature": {
+                    "description": "Rated entering condenser temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "The rated outside air dry-bulb temperature for air cooled chillers or design entering condenser water temperature for water cooled chillers. For AHRI conditions for inch-pound ratings for air cooled chillers are 35C/95F and water cooled are 29.4C/85F"
+                },
+                "rated_leaving_evaporator_temperature": {
+                    "description": "Rated leaving evaporator temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "For AHRI conditions for inch-pound ratings are 12.2C/54F"
+                },
                 "minimum_load_ratio": {
                     "description": "Minimum fraction of full load allowed",
                     "type": "number"
@@ -3332,8 +3335,19 @@
                     "type": "number",
                     "units": "L/s"
                 },
+                "design_entering_condenser_temperature": {
+                    "description": "Design entering condenser temperature",
+                    "type": "number",
+                    "units": "C",
+                    "notes": "The design outside air dry-bulb temperature for air cooled chillers or design entering condenser water temperature for water cooled chillers."
+                },
+                "design_leaving_evaporator_temperature": {
+                    "description": "Design leaving evaporator temperature",
+                    "type": "number",
+                    "units": "C"
+                },
                 "full_load_efficiency": {
-                    "description": "Full Low Efficiency expressed as a coefficient of performance (COP)",
+                    "description": "Full Load Efficiency expressed as a coefficient of performance (COP)",
                     "type": "number",
                     "units": "W/W"
                 },
@@ -3445,6 +3459,12 @@
                     "type": "number",
                     "units": "W"
                 },
+                "is_at_full_capacity": {
+                    "description": "True if chiller is at full capacity",
+                    "type": "boolean",
+                    "units": "W",
+                    "notes": "True if chiller is operating at full copacity for the given temperture conditions"
+                },
                 "result": {
                     "description": "Result",
                     "type": "number",
@@ -3522,8 +3542,13 @@
                     "type": "number",
                     "units": "C"
                 },
-                "fan_power": {
-                    "description": "Fan Power",
+                "fan_electric_input_power": {
+                    "description": "Fan Electric Input Power",
+                    "type": "number",
+                    "units": "W"
+                },
+                "fan_nameplate_power": {
+                    "description": "Fan Nameplate Power",
                     "type": "number",
                     "units": "W"
                 },
@@ -3547,6 +3572,11 @@
                     "type": "number",
                     "units": "L/s",
                     "notes": "At rating conditions."
+                },
+                "leaving_water_setpoint_temperature": {
+                    "description": "leaving water setpoint temperature",
+                    "type": "number",
+                    "units": "C"
                 }
             },
             "required": [
@@ -4681,6 +4711,6 @@
             ]
         }
     },
-    "version": "0.0.19",
+    "version": "0.0.20",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
