@@ -4175,6 +4175,24 @@ Chiller:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    rated_entering_condenser_temperature:
+      Description: "Rated entering condenser temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "The rated outside air dry-bulb temperature for air cooled chillers or design entering condenser water temperature for water cooled chillers. For AHRI conditions for inch-pound ratings for air cooled chillers are 35C/95F and water cooled are 29.4C/85F"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    rated_leaving_evaporator_temperature:
+      Description: "Rated leaving evaporator temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "For AHRI conditions for inch-pound ratings are 12.2C/54F"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
@@ -4194,6 +4212,23 @@ Chiller:
       Description: "Chiller condenser design flow"
       Data Type: "Numeric"
       Units: "L/s"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    design_entering_condenser_temperature:
+      Description: "Design entering condenser temperature"
+      Data Type: "Numeric"
+      Units: "C"
+      Notes: "The design outside air dry-bulb temperature for air cooled chillers or design entering condenser water temperature for water cooled chillers."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    design_leaving_evaporator_temperature:
+      Description: "Design leaving evaporator temperature"
+      Data Type: "Numeric"
+      Units: "C"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4337,6 +4372,15 @@ ChillerPowerValidationPoint:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    is_at_full_capacity:
+      Description: "True if chiller is at full capacity"
+      Data Type: "Boolean"
+      Units: "W"
+      Notes: "True if chiller is operating at full copacity for the given temperture conditions"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     result:
       Description: "Result"
       Data Type: "Numeric"
