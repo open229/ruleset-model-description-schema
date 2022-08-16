@@ -2333,6 +2333,7 @@ HeatingSystem:
     heating_system_type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemOptions>"
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2455,8 +2456,6 @@ HeatingSystemOptions:
       Description: "Electric resistance"
     FLUID_LOOP:
       Description: "Fluid loop"
-    BASEBOARD:
-      Description: "Baseboard"
     NONE:
       Description: "None"
     OTHER:
@@ -2541,6 +2540,7 @@ CoolingSystem:
     cooling_system_type:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemOptions>"
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3347,6 +3347,7 @@ Terminal:
     type:
       Description: "Type of terminal"
       Data Type: "<TerminalOptions>"
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3505,10 +3506,6 @@ TerminalOptions:
       Description: "Constant air volume"
     RADIANT:
       Description: "Radiant"
-    FOUR_PIPE_FAN_COIL_UNIT:
-      Description: "Four pipe fan coil unit"
-    TWO_PIPE_FAN_COIL_UNIT:
-      Description: "Two pipe fan coil unit"
     BASEBOARD:
       Description: "Baseboard"
     OTHER:
