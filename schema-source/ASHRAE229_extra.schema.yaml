@@ -1411,7 +1411,7 @@ Space:
       EPout Column: ""
       EPstatus: "DoneUsingOutput"
       EP Notes: "Undeterminable compliance parameter. Inputs in Space input object allow pass through of the enumeration value from user input."
-    ventilations_space_type:
+    ventilation_space_type:
       Description: "Ventilation space type classification"
       Data Type: "<VentilationSpaceOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
@@ -3135,10 +3135,10 @@ MiscellaneousEquipment:
       EPout Column: "Fraction Latent"
       EPstatus: "NotStarted"
       EP Notes: "For output have not tested for all tables created with different input objects."
-    remaining_fraction_chilled_water_loop:
-      Description: "Referenced to the Chilled water fluid loop for the remaining fraction"
+    remaining_fraction_to_loop:
+      Description: "Referenced to the water fluid loop for the remaining fraction"
       Data Type: "$ID"
-      Notes: "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
+      Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
       RMD Test: unknown"
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
@@ -4659,14 +4659,6 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    is_variable_air_volume:
-      Description: "If the fan system is variable air volume."
-      Data Type: "Boolean"
-      Notes: "JG to verify if used in test case description."
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
     temperature_control:
       Description: "Supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlOptions>"
@@ -5324,6 +5316,13 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    temperature_control:
+      Description: "Temperature control type"
+      Data Type: "<TerminalTemperatureControlOptions>"
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
       Data Type: "Numeric"
