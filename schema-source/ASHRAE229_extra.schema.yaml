@@ -3137,7 +3137,7 @@ MiscellaneousEquipment:
       EP Notes: "For output have not tested for all tables created with different input objects."
     remaining_fraction_to_loop:
       Description: "Referenced to the water fluid loop for the remaining fraction"
-      Data Type: "$ID"
+      Data Type: "Reference"
       Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
       RMD Test: unknown"
       AppG Used By TCDs: unknown"
