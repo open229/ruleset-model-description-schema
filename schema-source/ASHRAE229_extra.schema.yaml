@@ -200,7 +200,7 @@ ASHRAE229:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Set to OUTPUT_SCHEMA_ASHRAE901_2019"
       
 RulesetModelInstance:
@@ -629,7 +629,7 @@ Building:
       EPout Report: "Object Count Summary"
       EPout Table: "Surfaces by Class"
       EPout Column: "Building Detached Shading and Fixed Detached Shading"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingOutput"
       EP Notes: ""
 
 BuildingSegment:
@@ -1295,7 +1295,7 @@ Space:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal"
       EPout Column: "Name"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     floor_area:
       Description: "The floor area of the space."
@@ -1805,10 +1805,10 @@ Surface:
       EPin Field: "Shading Zone Group 1 ZoneList Name"
       EPout File: "table.html"
       EPout Report: "InitializationSummary"
-      EPout Table: "Shading Surface"
-      EPout Column: "Surface Name"
-      EPstatus: "NotStarted"
-      EP Notes: "Also accessible in EIO file. Need to igore mirror mir- lines. May also be determined by Surface Shadowing Summary tabular report."
+      EPout Table: "Building Information"
+      EPout Column: "Solar Distribution"
+      EPstatus: "DoneUsingOutput"
+      EP Notes: "It is a universal flag if surfaces cast shadows always True unless Solar Distribution is set to MinimalShadowing"
     construction:
       Description: "Construction description of surface."
       Data Type: "{Construction}"
@@ -3020,7 +3020,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal"
       EPout Column: "Name"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Not sure it the InitializationSummary covers all possible input objects."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -3066,7 +3066,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingConstant"
       EP Notes: "For input based on the type of input object. For output have not tested for all tables created with different input objects."
     power:
       Description: "Power for miscellaneous equipment in the space"
@@ -3083,7 +3083,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Equipment Level"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Fields may vary based on input object. For output have not tested for all tables created with different input objects."
     multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
@@ -3099,7 +3099,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Schedule Name"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "For output have not tested for all tables created with different input objects."
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
@@ -3116,7 +3116,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Fraction Radiant and Fraction Convected"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "Need to compute the fraction sensible based on inputs. Output computed also. For output have not tested for all tables created with different input objects."
     latent_fraction:
       Description: "Fraction of energy that is a latent load on the space."
@@ -3133,7 +3133,7 @@ MiscellaneousEquipment:
       EPout Report: "InitializationSummary"
       EPout Table: "ElectricEquipment Internal Gains Nominal or other related tables"
       EPout Column: "Fraction Latent"
-      EPstatus: "NotStarted"
+      EPstatus: "DoneUsingOutput"
       EP Notes: "For output have not tested for all tables created with different input objects."
     remaining_fraction_to_loop:
       Description: "Referenced to the water fluid loop for the remaining fraction"
