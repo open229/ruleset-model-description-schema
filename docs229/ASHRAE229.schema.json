@@ -811,7 +811,7 @@
                     "description": "surface F-factor",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W/m-K"
+                    "units": "W/m2-K"
                 },
                 "r_value": {
                     "description": "r-value of the insulation for the surface",
