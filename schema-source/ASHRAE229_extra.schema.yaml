@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.20"
+  Version: "0.0.21"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -2331,7 +2331,7 @@ HeatingSystem:
     heating_system_type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemOptions>"
-      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2538,7 +2538,7 @@ CoolingSystem:
     cooling_system_type:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemOptions>"
-      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3345,7 +3345,7 @@ Terminal:
     type:
       Description: "Type of terminal"
       Data Type: "<TerminalOptions>"
-      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3588,7 +3588,7 @@ FluidLoop:
     pump_power_per_flow_rate:
       Description: "Total design pump power divided by the loop design flow rate"
       Data Type: "Numeric"
-      Units: "W/s-L"
+      Units: "W-s/L"
       Notes: "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
       RMD Test: True
       AppG Used By TCDs: True

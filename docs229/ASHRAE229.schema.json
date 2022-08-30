@@ -1798,7 +1798,7 @@
                 "heating_system_type": {
                     "description": "Heating system type",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystemOptions",
-                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "energy_source_type": {
                     "description": "Source of energy for the chiller",
@@ -1986,7 +1986,7 @@
                 "cooling_system_type": {
                     "description": "Cooling system type",
                     "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystemOptions",
-                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "design_total_cool_capacity": {
                     "description": "Design total cooling capacity",
@@ -2667,7 +2667,7 @@
                 "type": {
                     "description": "Type of terminal",
                     "$ref": "ASHRAE229.schema.json#/definitions/TerminalOptions",
-                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) shall be modeled using HeatingSystem and CoolingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) shall be modeled using Terminal."
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "served_by_heating_ventilation_air_conditioning_system": {
                     "description": "HVAC system serving the terminal",
@@ -2859,7 +2859,7 @@
                 "pump_power_per_flow_rate": {
                     "description": "Total design pump power divided by the loop design flow rate",
                     "type": "number",
-                    "units": "W/s-L",
+                    "units": "W-s/L",
                     "notes": "This is the pump power per flow rate for the entire pumping system on the current FluidLoop. The power and flow rate should be for the current FluidLoop only and does not include power and flow rate in any child loops."
                 },
                 "child_loops": {
@@ -4711,6 +4711,6 @@
             ]
         }
     },
-    "version": "0.0.20",
+    "version": "0.0.21",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
