@@ -4202,6 +4202,14 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "HVAC Name"
+      EPstatus: "NotStarted"
+      EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4249,6 +4257,14 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Final Gross Total Capacity"
+      EPstatus: "NotStarted"
+      EP Notes: "Find maximum capacity for all coils serving the HVAC Name with System Sizing Method Capacity being HeatingDesignCapacity"
     rated_capacity:
       Description: "Rated heating capacity"
       Data Type: "Numeric"
@@ -4386,7 +4402,7 @@ HeatingMetricOptions:
     THERMAL_EFFICIENCY:
       Description: "Et - thermal efficiency"
     COMBUSTION_EFFICIENCY:
-      Description: "Ec - combustion` efficiency"
+      Description: "Ec - combustion efficiency"
     ANNUAL_FUEL_UTILIZATION_EFFICIENCY:
       Description: "AFUE - annual fuel utilization efficiency"
     HEATING_SEASONAL_PERFORMANCE_FACTOR:
@@ -5109,7 +5125,7 @@ Fan:
       Description: "input power of fan"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Power delivered to the fans shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed."
+      Notes: "Power delivered to the fans shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
