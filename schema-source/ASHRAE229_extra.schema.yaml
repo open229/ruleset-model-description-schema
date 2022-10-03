@@ -409,9 +409,9 @@ BuildingSegment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-    heating_ventilation_air_conditioning_systems:
+    heating_ventilating_air_conditioning_systems:
       Description: "HVAC systems in the building segment"
-      Data Type: "[{HeatingVentilationAirConditioningSystem}]"
+      Data Type: "[{HeatingVentilatingAirConditioningSystem}]"
       Notes: "Contains a list of HVAC systems in the building."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -432,9 +432,9 @@ BuildingSegment:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: True
-    area_type_heating_ventilation_air_conditioning_system:
+    area_type_heating_ventilating_air_conditioning_system:
       Description: "Classification used for HVAC"
-      Data Type: "<HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901>"
+      Data Type: "<HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -2241,7 +2241,7 @@ ElevatorOptions:
     OTHER:
       Description: "Other"
 
-HeatingVentilationAirConditioningSystem:
+HeatingVentilatingAirConditioningSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -2269,7 +2269,7 @@ HeatingVentilationAirConditioningSystem:
     fan_system:
       Description: "Fan system"
       Data Type: "{FanSystem}"
-      Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem."
+      Notes: "One FanSystem for each HeatingVentilatingAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilatingAirConditioningSystem."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3382,10 +3382,10 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    served_by_heating_ventilation_air_conditioning_system:
+    served_by_heating_ventilating_air_conditioning_system:
       Description: "HVAC system serving the terminal"
       Data Type: "Reference"
-      Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
+      Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilatingAirConditioningSystem. Constraint to use when implemented :HeatingVentilatingAirConditioningSystem:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True

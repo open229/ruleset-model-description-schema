@@ -854,7 +854,7 @@ SubsurfaceSubclassificationOptions2019ASHRAE901:
     OTHER:
       Description: "other subclassifications"
 
-HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901:
+HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     RESIDENTIAL:
