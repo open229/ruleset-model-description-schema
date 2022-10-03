@@ -4,6 +4,7 @@ digraph G {
   ASHRAE229 -> RulesetModelInstance
   ASHRAE229 -> Calendar
   ASHRAE229 -> Weather
+  ASHRAE229 -> FeaturePresentChecklist
   RulesetModelInstance -> Transformer
   RulesetModelInstance -> Building
   RulesetModelInstance -> Schedule
@@ -21,7 +22,7 @@ digraph G {
   Building -> RefrigeratedCase
   Building -> Schedule [color=red] 
   BuildingSegment -> Zone
-  BuildingSegment -> HeatingVentilationAirConditioningSystem
+  BuildingSegment -> HeatingVentilatingAirConditioningSystem
   Zone -> Space
   Zone -> Surface
   Zone -> Infiltration
@@ -52,10 +53,11 @@ digraph G {
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
-  HeatingVentilationAirConditioningSystem -> FanSystem
-  HeatingVentilationAirConditioningSystem -> HeatingSystem
-  HeatingVentilationAirConditioningSystem -> CoolingSystem
-  HeatingVentilationAirConditioningSystem -> HeatingSystem
+  HeatingVentilatingAirConditioningSystem -> FanSystem
+  HeatingVentilatingAirConditioningSystem -> HeatingSystem
+  HeatingVentilatingAirConditioningSystem -> CoolingSystem
+  HeatingVentilatingAirConditioningSystem -> HeatingSystem
+  HeatingSystem -> FluidLoop [color=red] 
   HeatingSystem -> FluidLoop [color=red] 
   CoolingSystem -> FluidLoop [color=red] 
   CoolingSystem -> FluidLoop [color=red] 
@@ -68,7 +70,7 @@ digraph G {
   FanSystem -> Schedule [color=red] 
   FanSystem -> Schedule [color=red] 
   Fan -> FanOutputValidationPoint
-  Terminal -> HeatingVentilationAirConditioningSystem [color=red] 
+  Terminal -> HeatingVentilatingAirConditioningSystem [color=red] 
   Terminal -> FluidLoop [color=red] 
   Terminal -> FluidLoop [color=red] 
   Terminal -> Fan
