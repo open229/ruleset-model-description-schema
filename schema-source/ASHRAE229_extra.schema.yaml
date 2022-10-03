@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.21"
+  Version: "0.0.22"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -202,7 +202,15 @@ ASHRAE229:
       EPout Column: ""
       EPstatus: "DoneUsingConstant"
       EP Notes: "Set to OUTPUT_SCHEMA_ASHRAE901_2019"
-      
+    feature_present_checklist:
+      Description: "Feature present checklist"
+      Data Type: "{FeaturePresentChecklist}"
+      Notes: "A checklist of features present in the model to be completely and quickly. Indicates what is in the original native simulation model rather than what has been implemented by the vendor when creating the RMD export for their software. To be checked quickly against other building documentation and allows the RCT to flag places were the RMD file does not provide information in detail but those features are present in the original native model. The elements in this data group are all booleans and required."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+            
 RulesetModelInstance:
   Object Type: "Data Group"
   Data Elements:
@@ -487,6 +495,81 @@ RulesetModelInstance:
       EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
 
+FeaturePresentChecklist:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Scope-unique reference identifier for instances of this data group"
+      Data Type: "ID"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    reporting_name:
+      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
+      Data Type: "String"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    notes:
+      Description: "Supplementary information to provide context to the model reviewer"
+      Data Type: "String"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    is_infiltration_present:
+      Description: "Identifies whether infiltration is part of the native simulation model."
+      Data Type: "Boolean"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    are_chillers_present:
+      Description: "Identifies whether one or more chillers are part of the native simulation model."
+      Data Type: "Boolean"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    are_interior_shades_present:
+      Description: "Identifies whether one or more interior shades are part of the native simulation model."
+      Data Type: "Boolean"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    are_transformers_present:
+      Description: "Identifies whether one or more transformers are part of the native simulation model."
+      Data Type: "Boolean"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    are_opaque_surface_material_properties_present:
+      Description: "Identifies whether one or more opaque surface material properties are part of the native simulation model."
+      Data Type: "Boolean"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    are_fans_present:
+      Description: "Identifies whether one or more fans are part of the native simulation model."
+      Data Type: "Boolean"
+      Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+
+
 Building:
   Object Type: "Data Group"
   Data Elements:
@@ -601,7 +684,7 @@ Building:
       EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     building_open_schedule:
-      Description: "Reference to the schedule containing indicating when the building is open"
+      Description: "Reference to the schedule indicating when the building is open"
       Data Type: "Reference"
       Notes: "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -730,7 +813,7 @@ BuildingSegment:
       EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     zones:
-      Description: "Zones in the building"
+      Description: "Zones in the building segment"
       Data Type: "[{Zone}]"
       Notes: "Contains a list of zones in the building."
       RMD Test: "Secondary"
@@ -745,8 +828,8 @@ BuildingSegment:
       EPout Column: "Name"
       EPstatus: "DoneUsingConstant"
       EP Notes: ""
-    heating_ventilation_air_conditioning_systems:
-      Description: "HVAC systems in the building"
+    heating_ventilating_air_conditioning_systems:
+      Description: "HVAC systems in the building segment"
       Data Type: "[{HeatingVentilationAirConditioningSystem}]"
       Notes: "Contains a list of HVAC systems in the building."
       RMD Test: "Secondary"
@@ -779,7 +862,7 @@ BuildingSegment:
       EP Notes: "Undeterminable compliance parameter"
     lighting_building_area_type:
       Description: "Building area lighting area type"
-      Data Type: "<LightingSpaceOptions2019ASHRAE901T951TG38>"
+      Data Type: "<LightingBuildingAreaOptions2019ASHRAE901T951TG38>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
@@ -792,9 +875,9 @@ BuildingSegment:
       EPout Column: ""
       EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
-    area_type_heating_ventilation_air_conditioning_system:
+    area_type_heating_ventilating_air_conditioning_system:
       Description: "Classification used for HVAC"
-      Data Type: "<HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901>"
+      Data Type: "<HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -4129,7 +4212,7 @@ ElevatorOptions:
     OTHER:
       Description: "Other"
 
-HeatingVentilationAirConditioningSystem:
+HeatingVentilatingAirConditioningSystem:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -4157,7 +4240,7 @@ HeatingVentilationAirConditioningSystem:
     fan_system:
       Description: "Fan system"
       Data Type: "{FanSystem}"
-      Notes: "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem."
+      Notes: "One FanSystem for each HeatingVentilatingAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilatingAirConditioningSystem."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4247,6 +4330,14 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    condenser_water_loop:
+      Description: "Referenced to the condenser water fluid loop to support water source heat pumps"
+      Data Type: "Reference"
+      Notes: "Constraint to use when implemented :FluidLoop:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     design_capacity:
       Description: "Design heating capacity"
       Data Type: "Numeric"
@@ -4409,6 +4500,18 @@ HeatingMetricOptions:
       Description: "HSPF - heating seasonal perfomrance factor"
     HEATING_SEASONAL_PERFORMANCE_FACTOR_2:
       Description: "HSPF2 - heating seasonal perfomrance factor 2"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-2"
     NONE:
       Description: "None"
     OTHER:
@@ -4599,6 +4702,18 @@ CoolingMetricOptions:
       Description: "IPLV - Integrated part load value"
     COMBINED_ENERGY_EFFICIENCY_RATIO:
       Description: "CEER - Combined energy efficiency ratio"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-2"
     NONE:
       Description: "None"
     OTHER:
@@ -5254,10 +5369,10 @@ Terminal:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    served_by_heating_ventilation_air_conditioning_system:
+    served_by_heating_ventilating_air_conditioning_system:
       Description: "HVAC system serving the terminal"
       Data Type: "Reference"
-      Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
+      Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilatingAirConditioningSystem. Constraint to use when implemented :HeatingVentilatingAirConditioningSystem:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True

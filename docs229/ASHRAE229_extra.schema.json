@@ -51,6 +51,11 @@
                             "$ref": "EnumerationsRESNET.schema.json#/definitions/OutputSchemaOptionsRESNET"
                         }
                     ]
+                },
+                "feature_present_checklist": {
+                    "description": "Feature present checklist",
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/FeaturePresentChecklist",
+                    "notes": "A checklist of features present in the model to be completely and quickly. Indicates what is in the original native simulation model rather than what has been implemented by the vendor when creating the RMD export for their software. To be checked quickly against other building documentation and allows the RCT to flag places were the RMD file does not provide information in detail but those features are present in the original native model. The elements in this data group are all booleans and required."
                 }
             },
             "required": [
@@ -192,6 +197,57 @@
             ],
             "additionalProperties": false
         },
+        "FeaturePresentChecklist": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scope-unique reference identifier for instances of this data group",
+                    "type": "string"
+                },
+                "reporting_name": {
+                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
+                    "type": "string"
+                },
+                "notes": {
+                    "description": "Supplementary information to provide context to the model reviewer",
+                    "type": "string"
+                },
+                "is_infiltration_present": {
+                    "description": "Identifies whether infiltration is part of the native simulation model.",
+                    "type": "boolean"
+                },
+                "are_chillers_present": {
+                    "description": "Identifies whether one or more chillers are part of the native simulation model.",
+                    "type": "boolean"
+                },
+                "are_interior_shades_present": {
+                    "description": "Identifies whether one or more interior shades are part of the native simulation model.",
+                    "type": "boolean"
+                },
+                "are_transformers_present": {
+                    "description": "Identifies whether one or more transformers are part of the native simulation model.",
+                    "type": "boolean"
+                },
+                "are_opaque_surface_material_properties_present": {
+                    "description": "Identifies whether one or more opaque surface material properties are part of the native simulation model.",
+                    "type": "boolean"
+                },
+                "are_fans_present": {
+                    "description": "Identifies whether one or more fans are part of the native simulation model.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "is_infiltration_present",
+                "are_chillers_present",
+                "are_interior_shades_present",
+                "are_transformers_present",
+                "are_opaque_surface_material_properties_present",
+                "are_fans_present"
+            ],
+            "additionalProperties": false
+        },
         "Building": {
             "type": "object",
             "properties": {
@@ -240,7 +296,7 @@
                     "notes": "Contains a list of refrigerated cases in the building."
                 },
                 "building_open_schedule": {
-                    "description": "Reference to the schedule containing indicating when the building is open",
+                    "description": "Reference to the schedule indicating when the building is open",
                     "type": "string",
                     "notes": "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
                 },
@@ -285,18 +341,18 @@
                     "notes": "Projects that include additions should have a building segments that are existing (false) and for the addition (true). Curtain rules such as baseline fenestration area will apply differently to each portion."
                 },
                 "zones": {
-                    "description": "Zones in the building",
+                    "description": "Zones in the building segment",
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229_extra.schema.json#/definitions/Zone"
                     },
                     "notes": "Contains a list of zones in the building."
                 },
-                "heating_ventilation_air_conditioning_systems": {
-                    "description": "HVAC systems in the building",
+                "heating_ventilating_air_conditioning_systems": {
+                    "description": "HVAC systems in the building segment",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229_extra.schema.json#/definitions/HeatingVentilationAirConditioningSystem"
+                        "$ref": "ASHRAE229_extra.schema.json#/definitions/HeatingVentilatingAirConditioningSystem"
                     },
                     "notes": "Contains a list of HVAC systems in the building."
                 },
@@ -307,11 +363,11 @@
                 },
                 "lighting_building_area_type": {
                     "description": "Building area lighting area type",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingSpaceOptions2019ASHRAE901T951TG38"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingBuildingAreaOptions2019ASHRAE901T951TG38"
                 },
-                "area_type_heating_ventilation_air_conditioning_system": {
+                "area_type_heating_ventilating_air_conditioning_system": {
                     "description": "Classification used for HVAC",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 }
             },
@@ -1738,7 +1794,7 @@
                 "Other"
             ]
         },
-        "HeatingVentilationAirConditioningSystem": {
+        "HeatingVentilatingAirConditioningSystem": {
             "type": "object",
             "properties": {
                 "id": {
@@ -1756,7 +1812,7 @@
                 "fan_system": {
                     "description": "Fan system",
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/FanSystem",
-                    "notes": "One FanSystem for each HeatingVentilationAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilationAirConditioningSystem."
+                    "notes": "One FanSystem for each HeatingVentilatingAirConditioningSystem so if a direct outdoor air system is used a second Zone Terminal should be specified with a separate HeatingVentilatingAirConditioningSystem."
                 },
                 "heating_system": {
                     "description": "Heating system",
@@ -1806,6 +1862,11 @@
                 },
                 "hot_water_loop": {
                     "description": "Referenced to the hot water fluid loop",
+                    "type": "string",
+                    "notes": "Constraint to use when implemented :FluidLoop:"
+                },
+                "condenser_water_loop": {
+                    "description": "Referenced to the condenser water fluid loop to support water source heat pumps",
                     "type": "string",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
@@ -1938,6 +1999,12 @@
                 "ANNUAL_FUEL_UTILIZATION_EFFICIENCY",
                 "HEATING_SEASONAL_PERFORMANCE_FACTOR",
                 "HEATING_SEASONAL_PERFORMANCE_FACTOR_2",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER",
+                "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER",
+                "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP",
                 "NONE",
                 "OTHER"
             ],
@@ -1951,6 +2018,12 @@
                 "AFUE - annual fuel utilization efficiency",
                 "HSPF - heating seasonal perfomrance factor",
                 "HSPF2 - heating seasonal perfomrance factor 2",
+                "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-2",
+                "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-2",
+                "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-2",
                 "None",
                 "Other"
             ],
@@ -1959,6 +2032,12 @@
                 null,
                 "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
                 "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -2112,6 +2191,12 @@
                 "INTEGRATED_ENERGY_EFFICIENCY_RATIO",
                 "INTEGRATED_PART_LOAD_VALUE",
                 "COMBINED_ENERGY_EFFICIENCY_RATIO",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER",
+                "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER",
+                "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP",
                 "NONE",
                 "OTHER"
             ],
@@ -2124,12 +2209,24 @@
                 "IEER - Integrated energy efficiency ratio",
                 "IPLV - Integrated part load value",
                 "CEER - Combined energy efficiency ratio",
+                "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-2",
+                "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-2",
+                "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-2",
                 "None",
                 "Other"
             ],
             "notes": [
                 null,
                 "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included.",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -2669,10 +2766,10 @@
                     "$ref": "ASHRAE229_extra.schema.json#/definitions/TerminalOptions",
                     "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
-                "served_by_heating_ventilation_air_conditioning_system": {
+                "served_by_heating_ventilating_air_conditioning_system": {
                     "description": "HVAC system serving the terminal",
                     "type": "string",
-                    "notes": "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilationAirConditioningSystem. Constraint to use when implemented :HeatingVentilationAirConditioningSystem:"
+                    "notes": "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilatingAirConditioningSystem. Constraint to use when implemented :HeatingVentilatingAirConditioningSystem:"
                 },
                 "heating_source": {
                     "description": "Source of heating",
@@ -4711,6 +4808,6 @@
             ]
         }
     },
-    "version": "0.0.21",
+    "version": "0.0.22",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
 }

@@ -14,7 +14,7 @@
 | `CODE_COMPLIANT` | Code Compliance |       |
 | `BEYOND_CODE`    | Beyond Code     |       |
 
-# LightingSpaceOptions2019ASHRAE901T951TG38
+# LightingBuildingAreaOptions2019ASHRAE901T951TG38
 |          Enumerator          |         Description         |                                             Notes                                              |
 |------------------------------|-----------------------------|------------------------------------------------------------------------------------------------|
 | `AUTOMOTIVE_FACILITY`        | Automotive facility         |                                                                                                |
@@ -439,7 +439,7 @@
 | `GLASS_BLOCK`           | a translucent, hollow or solid block of glass for glazing openings or constructing partitions                                                                                             |       |
 | `OTHER`                 | other subclassifications                                                                                                                                                                  |       |
 
-# HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901
+# HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901
 |       Enumerator        |      Description      | Notes |
 |-------------------------|-----------------------|-------|
 | `RESIDENTIAL`           | Residential           |       |
