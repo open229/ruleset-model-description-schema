@@ -2351,6 +2351,14 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    condenser_water_loop:
+      Description: "Referenced to the condenser water fluid loop to support water source heat pumps"
+      Data Type: "Reference"
+      Notes: "Constraint to use when implemented :FluidLoop:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     design_capacity:
       Description: "Design heating capacity"
       Data Type: "Numeric"
@@ -2505,6 +2513,18 @@ HeatingMetricOptions:
       Description: "HSPF - heating seasonal perfomrance factor"
     HEATING_SEASONAL_PERFORMANCE_FACTOR_2:
       Description: "HSPF2 - heating seasonal perfomrance factor 2"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-2"
     NONE:
       Description: "None"
     OTHER:
@@ -2695,6 +2715,18 @@ CoolingMetricOptions:
       Description: "IPLV - Integrated part load value"
     COMBINED_ENERGY_EFFICIENCY_RATIO:
       Description: "CEER - Combined energy efficiency ratio"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
+      Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
+      Description: "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-2"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP:
+      Description: "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-2"
     NONE:
       Description: "None"
     OTHER:
