@@ -337,7 +337,7 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     building_open_schedule:
-      Description: "Reference to the schedule containing indicating when the building is open"
+      Description: "Reference to the schedule indicating when the building is open"
       Data Type: "Reference"
       Notes: "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -402,7 +402,7 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     zones:
-      Description: "Zones in the building"
+      Description: "Zones in the building segment"
       Data Type: "[{Zone}]"
       Notes: "Contains a list of zones in the building."
       RMD Test: "Secondary"
@@ -410,7 +410,7 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     heating_ventilation_air_conditioning_systems:
-      Description: "HVAC systems in the building"
+      Description: "HVAC systems in the building segment"
       Data Type: "[{HeatingVentilationAirConditioningSystem}]"
       Notes: "Contains a list of HVAC systems in the building."
       RMD Test: "Secondary"
@@ -427,7 +427,7 @@ BuildingSegment:
       AppG B_RMD Equals P_RMD: True
     lighting_building_area_type:
       Description: "Building area lighting area type"
-      Data Type: "<LightingSpaceOptions2019ASHRAE901T951TG38>"
+      Data Type: "<LightingBuildingAreaOptions2019ASHRAE901T951TG38>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
