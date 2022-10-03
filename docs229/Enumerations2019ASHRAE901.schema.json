@@ -33,7 +33,7 @@
                 "Beyond Code"
             ]
         },
-        "LightingSpaceOptions2019ASHRAE901T951TG38": {
+        "LightingBuildingAreaOptions2019ASHRAE901T951TG38": {
             "type": "string",
             "enum": [
                 "AUTOMOTIVE_FACILITY",
@@ -1038,7 +1038,7 @@
                 "other subclassifications"
             ]
         },
-        "HeatingVentilationAirConditioningBuildingAreaOptions2019ASHRAE901": {
+        "HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901": {
             "type": "string",
             "enum": [
                 "RESIDENTIAL",

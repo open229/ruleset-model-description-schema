@@ -3,10 +3,10 @@
 
 | Data Group                                   | Status
 |----------------------------------------------|---------------
-| ASHRAE229                                    | Approved by Schema WG
-| RulesetModelInstance                         | Approved by Schema WG
-| Building                                     | Approved by Schema WG
-| BuildingSegment                              | Approved by Schema WG
+| ASHRAE229                                    | Approved by SPC 229
+| RulesetModelInstance                         | Approved by SPC 229
+| Building                                     | Approved by SPC 229
+| BuildingSegment                              | Approved by SPC 229
 | Zone                                         | Approved by SPC 229
 | Space                                        | Approved by SPC 229
 | Infiltration                                 | Approved by SPC 229
@@ -29,17 +29,18 @@
 | AirEconomizer                                | Approved by Schema WG
 | AirEnergyRecovery                            | Approved by Schema WG
 | Fan                                          | Approved by Schema WG
+| FanOutputValidationPoint                     | Approved by Schema WG
 | Terminal                                     | Approved by Schema WG
 | FluidLoop                                    | Approved by SPC 229
 | FluidLoopDesignAndControl                    | Approved by SPC 229
-| Pump                                         | Approved by Schema WG
+| Pump                                         | Approved by SPC 229
 | Boiler                                       | Approved by SPC 229
 | BoilerOutputValidationPoint                  | Approved by SPC 229
 | Chiller                                      | Approved by Schema WG
 | ChillerCapacityValidationPoint               | Approved by Schema WG
 | ChillerPowerValidationPoint                  | Approved by Schema WG
-| HeatRejection                                | Approved by Schema WG
-| ExternalFluidSource                          | Approved by Schema WG
+| HeatRejection                                | Approved by SPC 229
+| ExternalFluidSource                          | Approved by SPC 229
 | ServiceWaterHeatingDistributionSystem        | Approved by Schema WG
 | ServiceWaterPiping                           | Approved by Schema WG
 | SolarThermal                                 | Approved by Schema WG
@@ -51,4 +52,5 @@
 | ServiceWaterHeatingUse                       | Approved by Schema WG
 | ExteriorLighting                             | Approved by SPC 229
 | Refrigeration                                | Approved by Schema WG
+| FeaturePresentChecklist                      | In development by Schema WG
 
