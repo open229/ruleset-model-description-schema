@@ -1411,7 +1411,7 @@ Subsurface:
       Description: "Standard specific subclassification for subsurfaces"
       Data Type: "<SubsurfaceSubclassificationOptions2019ASHRAE901>"
       RMD Test: False
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     is_operable:
