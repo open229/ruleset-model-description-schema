@@ -1488,7 +1488,7 @@ Subsurface:
       Range: ">=0"
       Notes: "Only used for dynamic glazing"
       RMD Test: False
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     visible_transmittance:
@@ -1515,14 +1515,14 @@ Subsurface:
       Units: "m"
       Range: ">=0"
       RMD Test: False
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     has_shading_overhang:
       Description: "Identifies whether subsurface has overhangs"
       Data Type: "Boolean"
       RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     has_shading_sidefins:
