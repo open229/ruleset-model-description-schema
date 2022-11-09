@@ -2441,8 +2441,8 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    condenser_water_loop:
-      Description: "Referenced to the condenser water fluid loop to support water source heat pumps"
+    water_source_heat_pump_loop:
+      Description: "Referenced to the water fluid loop to support water source heat pumps"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
