@@ -680,6 +680,14 @@ Zone:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
+    transfer_airflow_source_zone:
+      Description: "ID of the source zone for transfer air."
+      Data Type: "Reference"
+      Notes: "Constraint to use when implemented :Zone:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     zonal_exhaust_fan:
       Description: "Zonal exhaust fan"
       Data Type: "{Fan}"
