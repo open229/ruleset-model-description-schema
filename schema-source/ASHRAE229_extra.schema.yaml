@@ -4589,7 +4589,7 @@ HeatRejection:
     range:
       Description: "Heat rejection Range"
       Data Type: "Numeric"
-      Units: "C"
+      Units: "K"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4597,7 +4597,7 @@ HeatRejection:
     approach:
       Description: "Heat rejection Approach"
       Data Type: "Numeric"
-      Units: "C"
+      Units: "K"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
