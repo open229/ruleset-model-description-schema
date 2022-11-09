@@ -132,7 +132,7 @@ ASHRAE229:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     output_format_type:
-      Description: "Format used for output"
+      Description: "Indicates the chosen format for output"
       Data Type: "(<OutputSchemaOptions2019ASHRAE901>, <OutputSchemaOptions2019T24>, OutputSchemaOptionsRESNET)"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -286,6 +286,13 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
+    output:
+      Description: "Output"
+      Data Type: "({Output2019ASHRAE901})"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
 
 FeaturePresentChecklist:
   Object Type: "Data Group"
