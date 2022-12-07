@@ -84,7 +84,7 @@ ASHRAE229:
       Data Type: "ID"
       Required: True
       Notes: "All id data elements are shown as required so that that every data group can be explicitly identified. Almost no other data elements are shown as required but they may be required by specific rulesets."
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -106,10 +106,10 @@ ASHRAE229:
       Description: "References an instance of a ruleset model with a unique ruleset_model_type."
       Data Type: "[{RulesetModelInstance}]"
       Notes: "For submissions with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For submissions where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. Some rulesets may restrict the submission process including the number of files and number of instances per file. Multiple model instances may be required by rulesets that require models at various tiers or levels of performance. Instances may also be used by References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a RulesetModelInstance should be unique for each type of data group. Between Ruleset ModelInstances, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all RulesetModelInstances except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all RulesetModelInstances. "
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     calendar:
       Description: "Information on the calendar used with the simulation."
       Data Type: "{Calendar}"
@@ -127,7 +127,7 @@ ASHRAE229:
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathType2019ASHRAE901>"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -142,7 +142,7 @@ ASHRAE229:
       Description: "Feature present checklist"
       Data Type: "{FeaturePresentChecklist}"
       Notes: "A checklist of features present in the model to be completely and quickly. Indicates what is in the original native simulation model rather than what has been implemented by the vendor when creating the RMD export for their software. To be checked quickly against other building documentation and allows the RCT to flag places were the RMD file does not provide information in detail but those features are present in the original native model. The elements in this data group are all booleans and required."
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -154,31 +154,31 @@ RulesetModelInstance:
       Description: "Scope-unique reference identifier for instances of this data group"
       Data Type: "ID"
       Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: False
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: False
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     ruleset_model_type:
       Description: "Describes the current model instance for rulesets with multiple simulation models"
       Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     transformers:
       Description: "Electrical transformers at the building site"
       Data Type: "[{Transformer}]"
@@ -209,22 +209,22 @@ RulesetModelInstance:
       Range: ">=0"
       Units: "Pa"
       Notes: "Used as rating conditions for air leakage for a building. The most common values used are 50 Pa or 75 Pa since they correspond to common rating conditions. For the model of actual building value this value would be measured but for created baseline or reference model this could be an assumed value."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     is_measured_infiltration_based_on_test:
       Description: "Indicates whether the differential pressure difference used during measurement for infiltration values is based on pressure testing of the building."
       Data Type: "Boolean"
       RMD Test: False
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     fluid_loops:
       Description: "Fluid loops on the site"
       Data Type: "[{FluidLoop}]"
       Notes: "Contains a list of fluid loops on the site."
-      RMD Test: "Secondary"
+      RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
@@ -247,21 +247,21 @@ RulesetModelInstance:
     pumps:
       Description: "Pumps used on the site"
       Data Type: "[{Pump}]"
-      RMD Test: "Secondary"
+      RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     boilers:
       Description: "Boilers used on the site"
       Data Type: "[{Boiler}]"
-      RMD Test: "Secondary"
+      RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     chillers:
       Description: "Chillers used on the site"
       Data Type: "[{Chiller}]"
-      RMD Test: "Secondary"
+      RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
@@ -391,7 +391,7 @@ Building:
       Description: "Large portions of a building that share a building area type"
       Data Type: "[{BuildingSegment}]"
       Notes: "Contains a list of building segments in the building."
-      RMD Test: False
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -410,7 +410,7 @@ Building:
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: False
     refrigerated_casess:
       Description: "Refrigerated cases"
       Data Type: "[{RefrigeratedCase}]"
@@ -418,7 +418,7 @@ Building:
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: True
+      AppG B_RMD Equals P_RMD: False
     building_open_schedule:
       Description: "Reference to the schedule indicating when the building is open"
       Data Type: "Reference"
@@ -562,7 +562,7 @@ Zone:
       Description: "Floor name"
       Data Type: "String"
       Notes: "Used to group zones on a floor. Zones with the same floor name are on the same floor. Numbers may be used as part of the floor name such as Level 1. If a number is used it should increase for increasing heights and use negative values for stories generally below ground. The floor name should generally correspond to numbering of floors on the plans."
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -602,7 +602,7 @@ Zone:
       Description: "Setpoint temperature for cooling during occupied hours"
       Data Type: "Numeric"
       Units: "C"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -610,7 +610,7 @@ Zone:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat cooling setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
@@ -618,7 +618,7 @@ Zone:
       Description: "Setpoint temperature for heating during occupied hours"
       Data Type: "Numeric"
       Units: "C"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
@@ -626,7 +626,7 @@ Zone:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat heating setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -761,14 +761,14 @@ Space:
     interior_lighting:
       Description: "Internal lighting that produce internal gains for a space."
       Data Type: "[{InteriorLighting}]"
-      RMD Test: "unknown"
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     miscellaneous_equipment:
       Description: "Miscellaneous equipment loads that produce internal gains for a space."
       Data Type: "[{MiscellaneousEquipment}]"
-      RMD Test: "unknown"
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
@@ -786,7 +786,7 @@ Space:
       Description: "Number of occupants in the space"
       Data Type: "Numeric"
       Range: ">=0"
-      RMD Test: False
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -794,7 +794,7 @@ Space:
       Description: "Reference to the schedule containing the multiplier for the number of occupants"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: False
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -803,7 +803,7 @@ Space:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      RMD Test: False
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -811,7 +811,7 @@ Space:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "(<SpaceStatusOptions2019ASHRAE901>,<GeneralStatusOptions2019T24>)"
       RMD Test: False
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     space_function:
@@ -828,7 +828,7 @@ Space:
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: "unknown"
+      AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
     ventilation_space_type:
       Description: "Ventilation space type classification"
@@ -892,21 +892,21 @@ Infiltration:
       Data Type: "String"
       RMD Test: False
       AppG Used By TCDs: False
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
       RMD Test: False
       AppG Used By TCDs: False
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      AppG P_RMD Equals U_RMD: False
+      AppG B_RMD Equals P_RMD: False
     modeling_method:
       Description: "The software methodology chosen for modeling infiltration"
       Data Type: "<InfiltrationMethodOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: "unknown"
+      AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: True
     algorithm_name:
       Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
@@ -921,10 +921,10 @@ Infiltration:
       Range: ">=0"
       Units: "m3/s"
       Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
-      RMD Test: "unknown"
-      AppG Used By TCDs: False
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
     infiltration_flow_rate:
       Description: "Design infiltration flow rate"
       Data Type: "Numeric"
@@ -1041,7 +1041,7 @@ Surface:
       Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
-      RMD Test: False
+      RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -1179,7 +1179,7 @@ Construction:
       Description: "Includes embedded radiant heating elements"
       Data Type: "Boolean"
       RMD Test: False
-      AppG Used By TCDs: "unknown"
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     has_radiant_cooling:
@@ -1204,15 +1204,15 @@ Material:
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
+      RMD Test: False
+      AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     thickness:
@@ -1284,7 +1284,7 @@ SurfaceOpticalProperties:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
-      RMD Test: "unknown"
+      RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
@@ -1295,7 +1295,7 @@ SurfaceOpticalProperties:
       Notes: "May also be called thermal emittance, emittance or emissivity and represents the fraction of incident long wavelength radiation that is absorbed by the material"
       RMD Test: False
       AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: False
+      AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     absorptance_solar_exterior:
       Description: "Thermal absorptance of short wavelength radiation on the exterior surface."
@@ -1304,7 +1304,7 @@ SurfaceOpticalProperties:
       Notes: "Equals one minus the solar reflectance (for opaque materials) and represents the fraction of incident solar radiation that is absorbed by the material"
       RMD Test: False
       AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: False
+      AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     absorptance_visible_exterior:
       Description: "Thermal absorptance of visible radiation on the exterior surface."
