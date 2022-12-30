@@ -3332,14 +3332,14 @@ Fan:
     design_pressure_rise:
       Description: "Pressure rise through fan at design flow conditions"
       Data Type: "Numeric"
-      Units: "m"
+      Units: "Pa"
       Notes: "Only used when specification_method is set to Detailed"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    nameplate_power:
-      Description: "nameplate power of fan"
+    fan_motor_nameplate_power:
+      Description: "nameplate power of fan motor"
       Data Type: "Numeric"
       Units: "W"
       Notes: "Only used when specification_method is set to Detailed."
@@ -3347,8 +3347,8 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    input_power:
-      Description: "input power of fan"
+    fan_shaft_power:
+      Description: "fan shaft power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "Power delivered to the fans shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed."
@@ -3360,7 +3360,7 @@ Fan:
       Description: "Total fan efficiency"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-      Notes: "Only used when specification_method is set to Detailed."
+      Notes: "Only used when specification_method is set to Detailed. It includes the overall efficiency of the combination of the fan, drive, and motor."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
