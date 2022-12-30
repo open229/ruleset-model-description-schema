@@ -2937,19 +2937,11 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    supply_air_setpoint_temperature:
-      Description: "Supply air temperature setpoint temperarue"
-      Data Type: "Numeric"
-      Units: "C"
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
       Units: "K"
-      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load."
+      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load. The supply air temperature is specified in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2957,7 +2949,7 @@ FanSystem:
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
-      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero."
+      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. The supply air temperature is specified in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2965,7 +2957,7 @@ FanSystem:
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
       Data Type: "Reference"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3309,10 +3301,18 @@ Fan:
       Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "This value should be provided if automatically sized or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    is_airflow_autosized:
+      Description: "True if the airflow is automatically sized by the simulation software"
+      Data Type: "Boolean"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     specification_method:
       Description: "Options for how the fan is specified"
       Data Type: "<FanSpecificationMethodOptions>"
@@ -3550,8 +3550,16 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    supply_setpoint_temperature:
-      Description: "Zone terminal supply temperature setpoint"
+    supply_design_heating_setpoint_temperature:
+      Description: "Zone terminal supply design heating temperature setpoint"
+      Data Type: "Numeric"
+      Units: "C"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    supply_design_cooling_etpoint_temperature:
+      Description: "Zone terminal supply design cooling temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
       RMD Test: "unknown"
