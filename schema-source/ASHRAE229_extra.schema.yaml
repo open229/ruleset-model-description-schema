@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.22"
+  Version: "0.0.23"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -188,7 +188,7 @@ ASHRAE229:
       EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
     output_format_type:
-      Description: "Format used for output"
+      Description: "Indicates the chosen format for output"
       Data Type: "(<OutputSchemaOptions2019ASHRAE901>, <OutputSchemaOptions2019T24>, OutputSchemaOptionsRESNET)"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -494,6 +494,13 @@ RulesetModelInstance:
       EPout Column: ""
       EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
+    output:
+      Description: "Output"
+      Data Type: "({Output2019ASHRAE901})"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
 
 FeaturePresentChecklist:
   Object Type: "Data Group"
@@ -1185,6 +1192,14 @@ Zone:
       EPout Column: ""
       EPstatus: "NotStarted"
       EP Notes: ""
+    transfer_airflow_source_zone:
+      Description: "ID of the source zone for transfer air."
+      Data Type: "Reference"
+      Notes: "Constraint to use when implemented :Zone:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     zonal_exhaust_fan:
       Description: "Zonal exhaust fan"
       Data Type: "{Fan}"
@@ -4330,8 +4345,8 @@ HeatingSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    condenser_water_loop:
-      Description: "Referenced to the condenser water fluid loop to support water source heat pumps"
+    water_source_heat_pump_loop:
+      Description: "Referenced to the water fluid loop to support water source heat pumps"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -6486,7 +6501,7 @@ HeatRejection:
     range:
       Description: "Heat rejection Range"
       Data Type: "Numeric"
-      Units: "C"
+      Units: "K"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -6494,7 +6509,7 @@ HeatRejection:
     approach:
       Description: "Heat rejection Approach"
       Data Type: "Numeric"
-      Units: "C"
+      Units: "K"
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
