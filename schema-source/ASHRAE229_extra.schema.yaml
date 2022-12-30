@@ -5585,7 +5585,7 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     exterior_insulation:
-      Description: "Tank interior insulation R-value"
+      Description: "Tank exterior insulation R-value"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "K-m2/W"
