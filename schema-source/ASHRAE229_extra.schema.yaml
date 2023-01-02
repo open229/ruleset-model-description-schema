@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.23"
+  Version: "0.0.24"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -2194,7 +2194,7 @@ Elevator:
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
-      Notes: "When specified, it is the zone the heat from the elevator motor get added to"
+      Notes: "When specified, it is the zone the heat from the elevator motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2210,7 +2210,7 @@ Elevator:
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
       Data Type: "Reference"
-      Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat"
+      Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2435,7 +2435,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
     energy_source_type:
-      Description: "Source of energy for the chiller"
+      Description: "Source of energy for the heating system"
       Data Type: "<EnergySourceOptions>"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2462,7 +2462,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Design capacity may be an autosized value."
+      Notes: "Design capacity may be an autosized value.  This value should be provided if automatically sized or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2666,7 +2666,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed total cooling capacity. Design capacity may be an autosized value."
+      Notes: "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2676,7 +2676,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed sensible cooling capacity. Design capacity may be an autosized value."
+      Notes: "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2937,19 +2937,11 @@ FanSystem:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    supply_air_setpoint_temperature:
-      Description: "Supply air temperature setpoint temperarue"
-      Data Type: "Numeric"
-      Units: "C"
-      RMD Test: "Primary"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
       Units: "K"
-      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load."
+      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load. The supply air temperature is specified in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2957,7 +2949,7 @@ FanSystem:
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
-      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero."
+      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. The supply air temperature is specified in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2965,7 +2957,7 @@ FanSystem:
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
       Data Type: "Reference"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3309,10 +3301,18 @@ Fan:
       Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "This value should be provided if automatically sized or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    is_airflow_autosized:
+      Description: "True if the airflow is automatically sized by the simulation software"
+      Data Type: "Boolean"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     specification_method:
       Description: "Options for how the fan is specified"
       Data Type: "<FanSpecificationMethodOptions>"
@@ -3332,14 +3332,14 @@ Fan:
     design_pressure_rise:
       Description: "Pressure rise through fan at design flow conditions"
       Data Type: "Numeric"
-      Units: "m"
+      Units: "Pa"
       Notes: "Only used when specification_method is set to Detailed"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    nameplate_power:
-      Description: "nameplate power of fan"
+    fan_motor_nameplate_power:
+      Description: "nameplate power of fan motor"
       Data Type: "Numeric"
       Units: "W"
       Notes: "Only used when specification_method is set to Detailed."
@@ -3347,8 +3347,8 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    input_power:
-      Description: "input power of fan"
+    fan_shaft_power:
+      Description: "fan shaft power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "Power delivered to the fans shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed."
@@ -3360,7 +3360,7 @@ Fan:
       Description: "Total fan efficiency"
       Data Type: "Numeric"
       Range: ">=0, <=1"
-      Notes: "Only used when specification_method is set to Detailed."
+      Notes: "Only used when specification_method is set to Detailed. It includes the overall efficiency of the combination of the fan, drive, and motor."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3395,7 +3395,7 @@ Fan:
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
-      Notes: "When specified, it is the zone the heat from the fan motor get added to"
+      Notes: "When specified, it is the zone the heat from the fan motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3550,8 +3550,25 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    supply_setpoint_temperature:
-      Description: "Zone terminal supply temperature setpoint"
+    max_heating_airflow:
+      Description: "Zone terminal maximum heating airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "Entry only needed if maximum heating airflow is different than the pimary airflow such as when describing a dual maximum VAV box control."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    supply_design_heating_setpoint_temperature:
+      Description: "Zone terminal supply design heating temperature setpoint"
+      Data Type: "Numeric"
+      Units: "C"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+    supply_design_cooling_etpoint_temperature:
+      Description: "Zone terminal supply design cooling temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
       RMD Test: "unknown"
@@ -3577,6 +3594,7 @@ Terminal:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "This value should be provided if fan airflow is automatically sized or explicitly provided."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3593,7 +3611,7 @@ Terminal:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil."
+      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if automatically sized or explicitly provided."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3602,7 +3620,7 @@ Terminal:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil."
+      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if automatically sized or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4029,6 +4047,7 @@ Pump:
       Data Type: "Numeric"
       Units: "L/s"
       RMD Test: "unknown"
+      Notes: "This value should be provided if automatically sized or explicitly provided."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -5585,7 +5604,7 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
     exterior_insulation:
-      Description: "Tank interior insulation R-value"
+      Description: "Tank exterior insulation R-value"
       Data Type: "Numeric"
       Range: ">=0"
       Units: "K-m2/W"
@@ -5982,6 +6001,7 @@ RefrigeratedCase:
     case_zone:
       Description: "Zone where case is located"
       Data Type: "Reference"
+      Notes: "Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"

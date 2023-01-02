@@ -1703,7 +1703,7 @@
                 "motor_location_zone": {
                     "description": "Zone where the heat from the motor goes",
                     "type": "string",
-                    "notes": "When specified, it is the zone the heat from the elevator motor get added to"
+                    "notes": "When specified, it is the zone the heat from the elevator motor get added to. Constraint to use when implemented :Zone:"
                 },
                 "motor_heat_fraction": {
                     "description": "Fraction of heat from the motor that is added as a sensible load zone.",
@@ -1714,7 +1714,7 @@
                 "cab_location_zone": {
                     "description": "Zone where the heat from the cab goes",
                     "type": "string",
-                    "notes": "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat"
+                    "notes": "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat. Constraint to use when implemented :Zone:"
                 },
                 "cab_heat_fraction": {
                     "description": "Fraction of heat from the cab that is added as a sensible load zone.",
@@ -1870,7 +1870,7 @@
                     "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "energy_source_type": {
-                    "description": "Source of energy for the chiller",
+                    "description": "Source of energy for the heating system",
                     "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
                 },
                 "hot_water_loop": {
@@ -1888,7 +1888,7 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "Design capacity may be an autosized value."
+                    "notes": "Design capacity may be an autosized value.  This value should be provided if automatically sized or explicitly provided."
                 },
                 "rated_capacity": {
                     "description": "Rated heating capacity",
@@ -2085,14 +2085,14 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "Designed total cooling capacity. Design capacity may be an autosized value."
+                    "notes": "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized or explicitly provided."
                 },
                 "design_sensible_cool_capacity": {
                     "description": "Design sensible cooling capacity",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "Designed sensible cooling capacity. Design capacity may be an autosized value."
+                    "notes": "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized or explicitly provided."
                 },
                 "rated_total_cool_capacity": {
                     "description": "Rated total cooling capacity",
@@ -2326,26 +2326,21 @@
                     "description": "Supply fan control type",
                     "$ref": "ASHRAE229.schema.json#/definitions/FanSystemSupplyFanControlOptions"
                 },
-                "supply_air_setpoint_temperature": {
-                    "description": "Supply air temperature setpoint temperarue",
-                    "type": "number",
-                    "units": "C"
-                },
                 "reset_differential_temperature": {
                     "description": "Supply air temperature reset differential temperature at minimum cooling load",
                     "type": "number",
                     "units": "K",
-                    "notes": "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load."
+                    "notes": "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE this temperate is added to the supply air temperature at minimum cooling load conditions. When temperature_control is LOAD_RESET_DIFFERENTIAL_TEMPERATURE this temperate is the temperate below space tempature when no cooling load. The supply air temperature is specified in Terminal."
                 },
                 "supply_air_temperature_reset_load_fraction": {
                     "description": "Supply air temperature reset load fraction",
                     "type": "number",
-                    "notes": "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero."
+                    "notes": "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. The supply air temperature is specified in Terminal."
                 },
                 "supply_air_temperature_reset_schedule": {
                     "description": "Supply air temperature reset schedule",
                     "type": "string",
-                    "notes": "Constraint to use when implemented :Schedule:"
+                    "notes": "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
                 },
                 "fan_volume_reset_type": {
                     "description": "Fan volume reset control type",
@@ -2646,7 +2641,12 @@
                 "design_airflow": {
                     "description": "Design airflow",
                     "type": "number",
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "This value should be provided if automatically sized or explicitly provided."
+                },
+                "is_airflow_autosized": {
+                    "description": "True if the airflow is automatically sized by the simulation software",
+                    "type": "boolean"
                 },
                 "specification_method": {
                     "description": "Options for how the fan is specified",
@@ -2661,17 +2661,17 @@
                 "design_pressure_rise": {
                     "description": "Pressure rise through fan at design flow conditions",
                     "type": "number",
-                    "units": "m",
+                    "units": "Pa",
                     "notes": "Only used when specification_method is set to Detailed"
                 },
-                "nameplate_power": {
-                    "description": "nameplate power of fan",
+                "fan_motor_nameplate_power": {
+                    "description": "nameplate power of fan motor",
                     "type": "number",
                     "units": "W",
                     "notes": "Only used when specification_method is set to Detailed."
                 },
-                "input_power": {
-                    "description": "input power of fan",
+                "fan_shaft_power": {
+                    "description": "fan shaft power",
                     "type": "number",
                     "units": "W",
                     "notes": "Power delivered to the fan\u00c2\u2019s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units. Only used when specification_method is set to Detailed."
@@ -2681,7 +2681,7 @@
                     "type": "number",
                     "minimum": 0.0,
                     "maximum": 1.0,
-                    "notes": "Only used when specification_method is set to Detailed."
+                    "notes": "Only used when specification_method is set to Detailed. It includes the overall efficiency of the combination of the fan, drive, and motor."
                 },
                 "motor_efficiency": {
                     "description": "Fan motor efficiency",
@@ -2707,7 +2707,7 @@
                 "motor_location_zone": {
                     "description": "Zone where the heat from the motor goes",
                     "type": "string",
-                    "notes": "When specified, it is the zone the heat from the fan motor get added to"
+                    "notes": "When specified, it is the zone the heat from the fan motor get added to. Constraint to use when implemented :Zone:"
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
@@ -2822,8 +2822,19 @@
                     "type": "number",
                     "units": "L/s"
                 },
-                "supply_setpoint_temperature": {
-                    "description": "Zone terminal supply temperature setpoint",
+                "max_heating_airflow": {
+                    "description": "Zone terminal maximum heating airflow",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "Entry only needed if maximum heating airflow is different than the pimary airflow such as when describing a dual maximum VAV box control."
+                },
+                "supply_design_heating_setpoint_temperature": {
+                    "description": "Zone terminal supply design heating temperature setpoint",
+                    "type": "number",
+                    "units": "C"
+                },
+                "supply_design_cooling_etpoint_temperature": {
+                    "description": "Zone terminal supply design cooling temperature setpoint",
                     "type": "number",
                     "units": "C"
                 },
@@ -2839,7 +2850,8 @@
                 "minimum_outdoor_airflow": {
                     "description": "Zone terminal minimum outdoor air volume airflow",
                     "type": "number",
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "This value should be provided if fan airflow is automatically sized or explicitly provided."
                 },
                 "minimum_outdoor_airflow_multiplier_schedule": {
                     "description": "Zone terminal minimum outdoor air volume airflow multiplier schedule name",
@@ -2850,13 +2862,13 @@
                     "description": "Heating capacity for baseboard or radiant system or reheat",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the heating capacity of the terminal for hot water or electric coil."
+                    "notes": "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if automatically sized or explicitly provided."
                 },
                 "cooling_capacity": {
                     "description": "Cooling capacity for the radiant system or cooling coil",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil."
+                    "notes": "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if automatically sized or explicitly provided."
                 },
                 "is_supply_ducted": {
                     "description": "True if the the supply is ducted.",
@@ -3205,7 +3217,8 @@
                 "design_flow": {
                     "description": "Design Pump Flowrate",
                     "type": "number",
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "This value should be provided if automatically sized or explicitly provided."
                 },
                 "is_flow_autosized": {
                     "description": "True if the design_flow is autosized",
@@ -4423,7 +4436,7 @@
                     "notes": "Insulation that is part of the tank and is inside of the housing. From CBECC-Res."
                 },
                 "exterior_insulation": {
-                    "description": "Tank interior insulation R-value",
+                    "description": "Tank exterior insulation R-value",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "K-m2/W",
@@ -4743,7 +4756,8 @@
                 },
                 "case_zone": {
                     "description": "Zone where case is located",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Constraint to use when implemented :Zone:"
                 }
             },
             "required": [
@@ -4821,6 +4835,6 @@
             ]
         }
     },
-    "version": "0.0.23",
+    "version": "0.0.24",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
