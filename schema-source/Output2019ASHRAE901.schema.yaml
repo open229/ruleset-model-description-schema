@@ -89,6 +89,12 @@ OutputInstance:
       Data Type: "Numeric"
       Range: ">=0, <360"
       Notes: "Usually 0, 90, 180, or 270."
+    unmet_load_hours:
+      Description: "Unmet load hours for heating and cooling"
+      Data Type: "Numeric"
+      Units: "hr"
+      Required: True
+      Notes: "This would be the coincident unmet load hours so if the same hour is during heating and during cooling it would only count as one hour."
     unmet_load_hours_heating:
       Description: "Unmet load hours for heating"
       Data Type: "Numeric"

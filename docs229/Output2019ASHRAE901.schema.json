@@ -99,6 +99,12 @@
                     "exclusiveMaximum": 360.0,
                     "notes": "Usually 0, 90, 180, or 270."
                 },
+                "unmet_load_hours": {
+                    "description": "Unmet load hours for heating and cooling",
+                    "type": "number",
+                    "units": "hr",
+                    "notes": "This would be the coincident unmet load hours so if the same hour is during heating and during cooling it would only count as one hour."
+                },
                 "unmet_load_hours_heating": {
                     "description": "Unmet load hours for heating",
                     "type": "number",
@@ -143,6 +149,7 @@
             },
             "required": [
                 "id",
+                "unmet_load_hours",
                 "unmet_load_hours_heating",
                 "unmet_occupied_load_hours_heating",
                 "unmet_load_hours_cooling",

@@ -22,9 +22,9 @@
 | Calendar                                     | Approved by SPC 229
 | Weather                                      | Approved by SPC 229
 | Elevator                                     | Approved by SPC 229
-| HeatingVentilationAirConditioningSystem      | Approved by Schema WG
-| HeatingSystem                                | Approved by Schema WG
-| CoolingSystem                                | Approved by Schema WG
+| HeatingVentilationAirConditioningSystem      | Approved by SPC 229
+| HeatingSystem                                | Approved by SPC 229
+| CoolingSystem                                | Approved by SPC 229
 | FanSystem                                    | Approved by SPC 229
 | AirEconomizer                                | Approved by SPC 229
 | AirEnergyRecovery                            | Approved by SPC 229
@@ -43,14 +43,14 @@
 | ExternalFluidSource                          | Approved by SPC 229
 | ServiceWaterHeatingDistributionSystem        | Approved by SPC 229
 | ServiceWaterPiping                           | Approved by SPC 229
-| SolarThermal                                 | Approved by Schema WG
-| ServiceWaterHeatingEquipment                 | Approved by Schema WG
-| ServiceWaterHeaterValidationPoint            | Approved by Schema WG
-| HeatPumpWaterHeaterCapacityValidationPoint   | Approved by Schema WG
-| HeatPumpWaterHeaterPowerValidationPoint      | Approved by Schema WG
-| Tank                                         | Approved by Schema WG
-| ServiceWaterHeatingUse                       | Approved by Schema WG
+| SolarThermal                                 | Approved by SPC 229
+| ServiceWaterHeatingEquipment                 | Approved by SPC 229
+| ServiceWaterHeaterValidationPoint            | Approved by SPC 229
+| HeatPumpWaterHeaterCapacityValidationPoint   | Approved by SPC 229
+| HeatPumpWaterHeaterPowerValidationPoint      | Approved by SPC 229
+| Tank                                         | Approved by SPC 229
+| ServiceWaterHeatingUse                       | Approved by SPC 229
 | ExteriorLighting                             | Approved by SPC 229
-| Refrigeration                                | Approved by Schema WG
+| RefrigeratedCase                             | Approved by SPC 229
 | FeaturePresentChecklist                      | In development by Schema WG
 
