@@ -2194,7 +2194,7 @@ Elevator:
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
-      Notes: "When specified, it is the zone the heat from the elevator motor get added to"
+      Notes: "When specified, it is the zone the heat from the elevator motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2210,7 +2210,7 @@ Elevator:
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
       Data Type: "Reference"
-      Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat"
+      Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3395,7 +3395,7 @@ Fan:
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
-      Notes: "When specified, it is the zone the heat from the fan motor get added to"
+      Notes: "When specified, it is the zone the heat from the fan motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5992,6 +5992,7 @@ RefrigeratedCase:
     case_zone:
       Description: "Zone where case is located"
       Data Type: "Reference"
+      Notes: "Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
