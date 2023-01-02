@@ -51,6 +51,8 @@ digraph G {
   MiscellaneousEquipment -> FluidLoop [color=red] 
   MiscellaneousEquipment -> FluidLoop [color=red] 
   Weather -> Schedule [color=red] 
+  Elevator -> Zone [color=red] 
+  Elevator -> Zone [color=red] 
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
   Elevator -> Schedule [color=red] 
@@ -70,6 +72,7 @@ digraph G {
   FanSystem -> AirEnergyRecovery
   FanSystem -> Schedule [color=red] 
   FanSystem -> Schedule [color=red] 
+  Fan -> Zone [color=red] 
   Fan -> FanOutputValidationPoint
   Terminal -> HeatingVentilatingAirConditioningSystem [color=red] 
   Terminal -> FluidLoop [color=red] 
@@ -112,4 +115,5 @@ digraph G {
   ServiceWaterHeatingUse -> Schedule [color=red] 
   ExteriorLighting -> Schedule [color=red] 
   RefrigeratedCase -> Schedule [color=red] 
+  RefrigeratedCase -> Zone [color=red] 
 }
