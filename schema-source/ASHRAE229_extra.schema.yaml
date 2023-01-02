@@ -3550,6 +3550,15 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+    max_heating_airflow:
+      Description: "Zone terminal maximum heating airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "Entry only needed if maximum heating airflow is different than the pimary airflow such as when describing a dual maximum VAV box control."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
     supply_design_heating_setpoint_temperature:
       Description: "Zone terminal supply design heating temperature setpoint"
       Data Type: "Numeric"
