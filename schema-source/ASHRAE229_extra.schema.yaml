@@ -4437,7 +4437,7 @@ ChillerPowerValidationPoint:
       Description: "True if chiller is at full capacity"
       Data Type: "Boolean"
       Units: "W"
-      Notes: "True if chiller is operating at full copacity for the given temperture conditions"
+      Notes: "True if chiller is operating at full copacity for the given temperature conditions"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
