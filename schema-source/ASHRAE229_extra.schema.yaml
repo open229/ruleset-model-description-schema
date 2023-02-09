@@ -3484,7 +3484,7 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    supply_design_cooling_etpoint_temperature:
+    supply_design_cooling_setpoint_temperature:
       Description: "Zone terminal supply design cooling temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
