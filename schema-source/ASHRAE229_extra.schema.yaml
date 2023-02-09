@@ -264,7 +264,7 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    external_fluid_source:
+    external_fluid_sources:
       Description: "ExternalFluidSources used on the site"
       Data Type: "[{ExternalFluidSource}]"
       RMD Test: False
