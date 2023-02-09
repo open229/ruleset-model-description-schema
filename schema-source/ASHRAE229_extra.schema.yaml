@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.24"
+  Version: "0.0.25"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -134,14 +134,6 @@ ASHRAE229:
     output_format_type:
       Description: "Indicates the chosen format for output"
       Data Type: "(<OutputSchemaOptions2019ASHRAE901>, <OutputSchemaOptions2019T24>, OutputSchemaOptionsRESNET)"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    feature_present_checklist:
-      Description: "Feature present checklist"
-      Data Type: "{FeaturePresentChecklist}"
-      Notes: "A checklist of features present in the model to be completely and quickly. Indicates what is in the original native simulation model rather than what has been implemented by the vendor when creating the RMD export for their software. To be checked quickly against other building documentation and allows the RCT to flag places were the RMD file does not provide information in detail but those features are present in the original native model. The elements in this data group are all booleans and required."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -272,7 +264,7 @@ RulesetModelInstance:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    external_fluid_source:
+    external_fluid_sources:
       Description: "ExternalFluidSources used on the site"
       Data Type: "[{ExternalFluidSource}]"
       RMD Test: False
@@ -293,81 +285,6 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-
-FeaturePresentChecklist:
-  Object Type: "Data Group"
-  Data Elements:
-    id:
-      Description: "Scope-unique reference identifier for instances of this data group"
-      Data Type: "ID"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    reporting_name:
-      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
-      Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    notes:
-      Description: "Supplementary information to provide context to the model reviewer"
-      Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    is_infiltration_present:
-      Description: "Identifies whether infiltration is part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_chillers_present:
-      Description: "Identifies whether one or more chillers are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_interior_shades_present:
-      Description: "Identifies whether one or more interior shades are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_transformers_present:
-      Description: "Identifies whether one or more transformers are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_opaque_surface_material_properties_present:
-      Description: "Identifies whether one or more opaque surface material properties are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_fans_present:
-      Description: "Identifies whether one or more fans are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-
 
 Building:
   Object Type: "Data Group"
@@ -600,7 +517,7 @@ Zone:
     infiltration:
       Description: "Airleakage into the zone."
       Data Type: "{Infiltration}"
-      Notes: "References a single infiltration data group."
+      Notes: "References a single infiltration data group. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -935,7 +852,7 @@ Infiltration:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
+      Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
       RMD Test: "unknown"
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -945,7 +862,7 @@ Infiltration:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines."
+      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -953,7 +870,7 @@ Infiltration:
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
       Data Type: "Reference"
-      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2429,7 +2346,7 @@ HeatingSystem:
     heating_system_type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemOptions>"
-      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elemetns (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2656,7 +2573,7 @@ CoolingSystem:
     cooling_system_type:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemOptions>"
-      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elemetns (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3338,7 +3255,7 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    fan_motor_nameplate_power:
+    motor_nameplate_power:
       Description: "nameplate power of fan motor"
       Data Type: "Numeric"
       Units: "W"
@@ -3347,7 +3264,7 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    fan_shaft_power:
+    shaft_power:
       Description: "fan shaft power"
       Data Type: "Numeric"
       Units: "W"
@@ -3475,7 +3392,7 @@ Terminal:
     type:
       Description: "Type of terminal"
       Data Type: "<TerminalOptions>"
-      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
+      Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elemetns (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3567,7 +3484,7 @@ Terminal:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    supply_design_cooling_etpoint_temperature:
+    supply_design_cooling_setpoint_temperature:
       Description: "Zone terminal supply design cooling temperature setpoint"
       Data Type: "Numeric"
       Units: "C"
@@ -4332,7 +4249,7 @@ Chiller:
       Description: "Rated leaving evaporator temperature"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "For AHRI conditions for inch-pound ratings are 12.2C/54F"
+      Notes: "For AHRI conditions for inch-pound ratings are 6.7C/44F"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4520,7 +4437,7 @@ ChillerPowerValidationPoint:
       Description: "True if chiller is at full capacity"
       Data Type: "Boolean"
       Units: "W"
-      Notes: "True if chiller is operating at full copacity for the given temperture conditions"
+      Notes: "True if chiller is operating at full copacity for the given temperature conditions"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
