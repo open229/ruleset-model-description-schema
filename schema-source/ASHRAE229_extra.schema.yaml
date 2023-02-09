@@ -517,7 +517,7 @@ Zone:
     infiltration:
       Description: "Airleakage into the zone."
       Data Type: "{Infiltration}"
-      Notes: "References a single infiltration data group."
+      Notes: "References a single infiltration data group. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -852,7 +852,7 @@ Infiltration:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
+      Notes: "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
       RMD Test: "unknown"
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -862,7 +862,7 @@ Infiltration:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "m3/s"
-      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines."
+      Notes: "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -870,7 +870,7 @@ Infiltration:
     multiplier_schedule:
       Description: "Referenced to the schedule containing the multiplier for the infiltration"
       Data Type: "Reference"
-      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      Notes: "If the schedule is not present, the multiplier is always one. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
