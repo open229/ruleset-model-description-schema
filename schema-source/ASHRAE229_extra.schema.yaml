@@ -4249,7 +4249,7 @@ Chiller:
       Description: "Rated leaving evaporator temperature"
       Data Type: "Numeric"
       Units: "C"
-      Notes: "For AHRI conditions for inch-pound ratings are 12.2C/54F"
+      Notes: "For AHRI conditions for inch-pound ratings are 6.7C/44F"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
