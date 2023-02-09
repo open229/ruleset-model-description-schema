@@ -138,14 +138,6 @@ ASHRAE229:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    feature_present_checklist:
-      Description: "Feature present checklist"
-      Data Type: "{FeaturePresentChecklist}"
-      Notes: "A checklist of features present in the model to be completely and quickly. Indicates what is in the original native simulation model rather than what has been implemented by the vendor when creating the RMD export for their software. To be checked quickly against other building documentation and allows the RCT to flag places were the RMD file does not provide information in detail but those features are present in the original native model. The elements in this data group are all booleans and required."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
       
 RulesetModelInstance:
   Object Type: "Data Group"
@@ -293,81 +285,6 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-
-FeaturePresentChecklist:
-  Object Type: "Data Group"
-  Data Elements:
-    id:
-      Description: "Scope-unique reference identifier for instances of this data group"
-      Data Type: "ID"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    reporting_name:
-      Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
-      Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    notes:
-      Description: "Supplementary information to provide context to the model reviewer"
-      Data Type: "String"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    is_infiltration_present:
-      Description: "Identifies whether infiltration is part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_chillers_present:
-      Description: "Identifies whether one or more chillers are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_interior_shades_present:
-      Description: "Identifies whether one or more interior shades are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_transformers_present:
-      Description: "Identifies whether one or more transformers are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_opaque_surface_material_properties_present:
-      Description: "Identifies whether one or more opaque surface material properties are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-    are_fans_present:
-      Description: "Identifies whether one or more fans are part of the native simulation model."
-      Data Type: "Boolean"
-      Required: True
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-
 
 Building:
   Object Type: "Data Group"
