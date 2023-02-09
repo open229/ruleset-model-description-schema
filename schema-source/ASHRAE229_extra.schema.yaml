@@ -3255,7 +3255,7 @@ Fan:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    fan_motor_nameplate_power:
+    motor_nameplate_power:
       Description: "nameplate power of fan motor"
       Data Type: "Numeric"
       Units: "W"
@@ -3264,7 +3264,7 @@ Fan:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    fan_shaft_power:
+    shaft_power:
       Description: "fan shaft power"
       Data Type: "Numeric"
       Units: "W"
