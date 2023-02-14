@@ -52,5 +52,5 @@
 | ServiceWaterHeatingUse                       | Approved by SPC 229
 | ExteriorLighting                             | Approved by SPC 229
 | RefrigeratedCase                             | Approved by SPC 229
-| FeaturePresentChecklist                      | In development by Schema WG
+
 
