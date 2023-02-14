@@ -51,11 +51,6 @@
                             "$ref": "EnumerationsRESNET.schema.json#/definitions/OutputSchemaOptionsRESNET"
                         }
                     ]
-                },
-                "feature_present_checklist": {
-                    "description": "Feature present checklist",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FeaturePresentChecklist",
-                    "notes": "A checklist of features present in the model to be completely and quickly. Indicates what is in the original native simulation model rather than what has been implemented by the vendor when creating the RMD export for their software. To be checked quickly against other building documentation and allows the RCT to flag places were the RMD file does not provide information in detail but those features are present in the original native model. The elements in this data group are all booleans and required."
                 }
             },
             "required": [
@@ -180,7 +175,7 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/HeatRejection"
                     }
                 },
-                "external_fluid_source": {
+                "external_fluid_sources": {
                     "description": "ExternalFluidSources used on the site",
                     "type": "array",
                     "items": {
@@ -202,57 +197,6 @@
             },
             "required": [
                 "id"
-            ],
-            "additionalProperties": false
-        },
-        "FeaturePresentChecklist": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "Scope-unique reference identifier for instances of this data group",
-                    "type": "string"
-                },
-                "reporting_name": {
-                    "description": "Descriptive name used in RCT reports if id is not already a descriptive name",
-                    "type": "string"
-                },
-                "notes": {
-                    "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
-                },
-                "is_infiltration_present": {
-                    "description": "Identifies whether infiltration is part of the native simulation model.",
-                    "type": "boolean"
-                },
-                "are_chillers_present": {
-                    "description": "Identifies whether one or more chillers are part of the native simulation model.",
-                    "type": "boolean"
-                },
-                "are_interior_shades_present": {
-                    "description": "Identifies whether one or more interior shades are part of the native simulation model.",
-                    "type": "boolean"
-                },
-                "are_transformers_present": {
-                    "description": "Identifies whether one or more transformers are part of the native simulation model.",
-                    "type": "boolean"
-                },
-                "are_opaque_surface_material_properties_present": {
-                    "description": "Identifies whether one or more opaque surface material properties are part of the native simulation model.",
-                    "type": "boolean"
-                },
-                "are_fans_present": {
-                    "description": "Identifies whether one or more fans are part of the native simulation model.",
-                    "type": "boolean"
-                }
-            },
-            "required": [
-                "id",
-                "is_infiltration_present",
-                "are_chillers_present",
-                "are_interior_shades_present",
-                "are_transformers_present",
-                "are_opaque_surface_material_properties_present",
-                "are_fans_present"
             ],
             "additionalProperties": false
         },
@@ -434,7 +378,7 @@
                 "infiltration": {
                     "description": "Airleakage into the zone.",
                     "$ref": "ASHRAE229.schema.json#/definitions/Infiltration",
-                    "notes": "References a single infiltration data group."
+                    "notes": "References a single infiltration data group. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone."
                 },
                 "design_thermostat_cooling_setpoint": {
                     "description": "Setpoint temperature for cooling during occupied hours",
@@ -690,19 +634,19 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m3/s",
-                    "notes": "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference."
+                    "notes": "Based on the pressure described in ASHRAE229.measured_infiltration_pressure_difference. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
                 },
                 "infiltration_flow_rate": {
                     "description": "Design infiltration flow rate",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "m3/s",
-                    "notes": "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines."
+                    "notes": "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
                 },
                 "multiplier_schedule": {
                     "description": "Referenced to the schedule containing the multiplier for the infiltration",
                     "type": "string",
-                    "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+                    "notes": "If the schedule is not present, the multiplier is always one. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone. Constraint to use when implemented :Schedule:"
                 }
             },
             "required": [
@@ -1867,7 +1811,7 @@
                 "heating_system_type": {
                     "description": "Heating system type",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystemOptions",
-                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elemetns (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "energy_source_type": {
                     "description": "Source of energy for the heating system",
@@ -2078,7 +2022,7 @@
                 "cooling_system_type": {
                     "description": "Cooling system type",
                     "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystemOptions",
-                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elemetns (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "design_total_cool_capacity": {
                     "description": "Design total cooling capacity",
@@ -2664,13 +2608,13 @@
                     "units": "Pa",
                     "notes": "Only used when specification_method is set to Detailed"
                 },
-                "fan_motor_nameplate_power": {
+                "motor_nameplate_power": {
                     "description": "nameplate power of fan motor",
                     "type": "number",
                     "units": "W",
                     "notes": "Only used when specification_method is set to Detailed."
                 },
-                "fan_shaft_power": {
+                "shaft_power": {
                     "description": "fan shaft power",
                     "type": "number",
                     "units": "W",
@@ -2777,7 +2721,7 @@
                 "type": {
                     "description": "Type of terminal",
                     "$ref": "ASHRAE229.schema.json#/definitions/TerminalOptions",
-                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal but their central components for chilled water and hot water systems should be described in HeatingSystem and CoolingSystem. Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
+                    "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elemetns (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "served_by_heating_ventilating_air_conditioning_system": {
                     "description": "HVAC system serving the terminal",
@@ -2833,7 +2777,7 @@
                     "type": "number",
                     "units": "C"
                 },
-                "supply_design_cooling_etpoint_temperature": {
+                "supply_design_cooling_setpoint_temperature": {
                     "description": "Zone terminal supply design cooling temperature setpoint",
                     "type": "number",
                     "units": "C"
@@ -3442,7 +3386,7 @@
                     "description": "Rated leaving evaporator temperature",
                     "type": "number",
                     "units": "C",
-                    "notes": "For AHRI conditions for inch-pound ratings are 12.2C/54F"
+                    "notes": "For AHRI conditions for inch-pound ratings are 6.7C/44F"
                 },
                 "minimum_load_ratio": {
                     "description": "Minimum fraction of full load allowed",
@@ -3586,7 +3530,7 @@
                     "description": "True if chiller is at full capacity",
                     "type": "boolean",
                     "units": "W",
-                    "notes": "True if chiller is operating at full copacity for the given temperture conditions"
+                    "notes": "True if chiller is operating at full copacity for the given temperature conditions"
                 },
                 "result": {
                     "description": "Result",
@@ -4835,6 +4779,6 @@
             ]
         }
     },
-    "version": "0.0.24",
+    "version": "0.0.25",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }

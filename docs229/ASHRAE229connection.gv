@@ -4,7 +4,6 @@ digraph G {
   ASHRAE229 -> RulesetModelInstance
   ASHRAE229 -> Calendar
   ASHRAE229 -> Weather
-  ASHRAE229 -> FeaturePresentChecklist
   RulesetModelInstance -> Transformer
   RulesetModelInstance -> Building
   RulesetModelInstance -> Schedule
