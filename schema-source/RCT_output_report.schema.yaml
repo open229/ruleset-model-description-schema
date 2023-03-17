@@ -28,7 +28,7 @@ RulesetCheckingToolOutputReport:
     date_run:
       Description: "Time stamp for the output report"
       Data Type: "String"
-      Notes: "Existing template value shows- 2022-02-01T18:25:43-05:00"
+      Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2022-02-01T18:25:43-05:00"
     rmr_files:  
       Description: "A list of names of RMD files"
       Data Type: "[String]"
@@ -40,6 +40,10 @@ RulesetCheckingToolOutputReport:
 Rule:
   Object Type: "Data Group"
   Data Elements:
+    name:
+      Description: "Name of the rule"
+      Data Type: "String"
+      Notes: "Nested like dicationary instead of as list. Existing template value shows- rule_name1"
     rule_id:
       Description: "The identification of the specific rule"
       Data Type: "String"
@@ -51,19 +55,19 @@ Rule:
     source_value_name:
       Description: "The RMD instance for the source of values"
       Data Type: "String"
-      Notes: "Existing template value shows- USER_RMR"
+      Notes: "May be enumeration. Existing template value shows- USER_RMR"
     expected_value_name:
       Description: "The RMD instance for the expected values "
       Data Type: "String"
-      Notes: "Existing template value shows- PROPOSED_RMR"
+      Notes: "May be enumeration. Existing template value shows- PROPOSED_RMR"
     assertion:
       Description: "Type of assertion"
       Data Type: "String"
-      Notes: "Existing template value shows- EQUALS"
+      Notes: "May be enumeration. Existing template value shows- EQUALS"
     primary_rule:
       Description: "Indictor if full evaluated rule"
       Data Type: "String"
-      Notes: "Existing template value shows- Y"
+      Notes: "May be enumeration. Existing template value shows- Y"
     standard_section:
       Description: "Section number for rule"
       Data Type: "String"
@@ -71,7 +75,7 @@ Rule:
     rule_evaluation_output:
       Description: "Expected output"
       Data Type: "String"
-      Notes: "Existing template value shows- PASS"
+      Notes: "May be enumeration. Existing template value shows- PASS"
     evaluations:
       Description: "List of evalations perfomed"
       Data Type: "[{Evaluation}]"
@@ -91,11 +95,10 @@ Evaluation:
     messages:
       Description: "List of messages from evaluation"
       Data Type: "[String]"
-      Notes: "Existing template value shows- "
     calculated_values:
       Description: ""
       Data Type: "[{CalculatedValue}]"
-      Notes: "Existing template value shows- "
+      Notes: "Not same as template since template shows key-value pairs"
 
 OutcomeOptions:
   Object Type: "Enumeration"
