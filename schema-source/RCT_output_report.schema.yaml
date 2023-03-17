@@ -8,7 +8,7 @@ Schema:
   References:
     - "ASHRAE229"
   Title: "Outputs from Ruleset Checking Tool"
-  Description: "Schema addition for ASHRAE 229 related to output required by ASHRAE Standard 90.1-2019"
+  Description: "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool"
 
 RulesetCheckingToolOutputReport:
   Object Type: "Data Group"
