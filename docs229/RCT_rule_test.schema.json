@@ -1,0 +1,124 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Rule Tests for the Ruleset Checking Tool",
+    "description": "Schema addition for ASHRAE 229 related to rule tests",
+    "definitions": {
+        "RulesetCheckingToolRuleTest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Title of output report from Ruleset Checking Tool",
+                    "type": "string",
+                    "notes": "Nested like dicationary instead of as list. Existing example value shows- rule-21-10-a"
+                },
+                "section": {
+                    "description": "Section number",
+                    "type": "integer",
+                    "notes": "Capital data element name. Existing example value shows- 21"
+                },
+                "rule": {
+                    "description": "Rule number",
+                    "type": "integer",
+                    "notes": "Capital data element name. Existing example value shows- 10"
+                },
+                "test": {
+                    "description": "Test case letter",
+                    "type": "string",
+                    "notes": "Capital data element name. Existing example value shows- a"
+                },
+                "test_description": {
+                    "description": "Textual description of the rule",
+                    "type": "string",
+                    "notes": "Existing example value shows- Baseline RMR has HHW plant with the hot water pump that serves a total of 100,000 ft2 floor area. The pump's speed control value is correctly set to FIXED_SPEED"
+                },
+                "expected_rule_outcome": {
+                    "description": "Expected outcome from the rule",
+                    "type": "string",
+                    "notes": "May be an enumeration. Existing example value shows- pass"
+                },
+                "standard": {
+                    "description": "List of rule that is being evalated",
+                    "$ref": "RCT_rule_test.schema.json#/definitions/Standard"
+                },
+                "rmr_transformations": {
+                    "description": "List of  RMD transformations",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_rule_test.schema.json#/definitions/RmdTransformations"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "Standard": {
+            "type": "object",
+            "properties": {
+                "rule_id": {
+                    "description": "The identification of the specific rule",
+                    "type": "string",
+                    "notes": "Existing example value shows- 21-10"
+                },
+                "ruleset_reference": {
+                    "description": "Section number from the ruleset",
+                    "type": "string",
+                    "notes": "Existing example value shows- G3.1.3.5"
+                },
+                "rule_description": {
+                    "description": "Textual description of the rule",
+                    "type": "string",
+                    "notes": "Existing example value shows- When the baseline building uses boiler)s) or purchased hot water, the hot water pump shall be modeled as riding the pump curve if the hot water system serves less than 120,000 ft^2 otherwise it shall be modeled with a VFD."
+                },
+                "applicable_rmr": {
+                    "description": "Applicable RMR",
+                    "type": "string",
+                    "notes": "May be an enumeration. Existing example value shows- Baseline RMR"
+                },
+                "rule_assertion": {
+                    "description": "Rule assertion",
+                    "type": "string",
+                    "notes": "May be an enumeration. Existing example value shows- ="
+                },
+                "comparison_value": {
+                    "description": "Comparison value",
+                    "type": "string",
+                    "notes": "May be an enumeration. Existing example value shows- Expected Value"
+                },
+                "primary_rule": {
+                    "description": "Primary rule",
+                    "type": "string",
+                    "notes": "May be an enumeration. Existing example value shows- Yes"
+                },
+                "schema_version": {
+                    "description": "Primary rule",
+                    "type": "string",
+                    "notes": "May be type of version. Existing example value shows- 0.0.23"
+                }
+            },
+            "additionalProperties": false
+        },
+        "RmdTransformations": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name of the transformation",
+                    "type": "string",
+                    "notes": "Nested like dicationary instead of as list. Existing example value shows- baseline"
+                },
+                "id": {
+                    "description": "The identification of the specific set of transformations",
+                    "type": "string",
+                    "notes": "Existing example value shows- 21-10"
+                },
+                "ruleset_model_instances": {
+                    "description": "List of ruleset model instances",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
+                    },
+                    "notes": "References the root element of the RMD specification"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
