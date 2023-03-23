@@ -2379,7 +2379,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Design capacity may be an autosized value.  This value should be provided if automatically sized or explicitly provided."
+      Notes: "Design capacity may be an autosized value.  This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2583,7 +2583,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized or explicitly provided."
+      Notes: "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2593,7 +2593,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized or explicitly provided."
+      Notes: "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2906,6 +2906,7 @@ FanSystem:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3218,7 +3219,7 @@ Fan:
       Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if automatically sized or explicitly provided."
+      Notes: "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
