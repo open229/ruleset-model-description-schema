@@ -164,7 +164,7 @@ RulesetModelInstance:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    ruleset_model_type:
+    type:
       Description: "Describes the current model instance for rulesets with multiple simulation models"
       Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
       RMD Test: "unknown"
@@ -746,7 +746,7 @@ Space:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    space_function:
+    function:
       Description: "Generic function for the space."
       Data Type: "<SpaceFunctionOptions>"
       Notes: "The enumeration is based on the standard used."
@@ -857,7 +857,7 @@ Infiltration:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    infiltration_flow_rate:
+    flow_rate:
       Description: "Design infiltration flow rate"
       Data Type: "Numeric"
       Range: ">=0"
@@ -991,7 +991,7 @@ Surface:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    surface_optical_properties:
+    optical_properties:
       Description: "Optical properties of the surface."
       Data Type: "{SurfaceOpticalProperties}"
       RMD Test: "unknown"
@@ -1718,7 +1718,7 @@ MiscellaneousEquipment:
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
       AppG B_RMD Equals P_RMD: unknown"
-    miscellaneous_equipment_type:
+    type:
       Description: "Type of miscellaneous equipment"
       Data Type: "<MiscellaneousEquipmentOptions>"
       RMD Test: False
@@ -1864,7 +1864,7 @@ Schedule:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-    schedule_sequence_type:
+    sequence_type:
       Description: "Schedule sequence type"
       Data Type: "<ScheduleSequenceOptions>"
       RMD Test: "Seconary"
@@ -1904,14 +1904,14 @@ Schedule:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-    prescribed_schedule:
-      Description: "True if any schedule values have changed from what appears in the schedule library"
+    prescribed_type:
+      Description: "Options when any schedule values have changed from what appears in the schedule library"
       Data Type: "<PrescribedScheduleOptions2019ASHRAE901>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-    is_schedule_modified_for_workaround:
+    is_modified_for_workaround:
       Description: "True if any schedule has been modified for a workaround"
       Data Type: "Boolean"
       RMD Test: False
@@ -2008,7 +2008,7 @@ Weather:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-    weather_file_name:
+    file_name:
       Description: "The file name for the weather file including extension."
       Data Type: "String"
       Notes: "The file name for the annual weather file such as from TMY, TRY, CWEC, CTZ, WYEC or other sources."
@@ -2173,7 +2173,7 @@ Elevator:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-    design_elevator_load:
+    design_load:
       Description: "Elevator load at which to operate"
       Data Type: "Numeric"
       Units: "kg"
@@ -2343,7 +2343,7 @@ HeatingSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-    heating_system_type:
+    type:
       Description: "Heating system type"
       Data Type: "<HeatingSystemOptions>"
       Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elements (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
@@ -2570,7 +2570,7 @@ CoolingSystem:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-    cooling_system_type:
+    type:
       Description: "Cooling system type"
       Data Type: "<CoolingSystemOptions>"
       Notes: "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. System configurations that are at the zone and only include fans and coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, and chilled beams) should be reported in the schema using Terminal with the chilled water and hot water systems described in the cooling_source and heating_source data elements (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
@@ -3017,7 +3017,7 @@ AirEnergyRecovery:
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
-    energy_recovery_type:
+    type:
       Description: "Energy recovery type"
       Data Type: "<EnergyRecoveryOptions>"
       RMD Test: "Primary"
@@ -4976,7 +4976,7 @@ ServiceWaterPiping:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    child_service_water_piping:
+    child:
       Description: "Other service water piping connected to this one as children."
       Data Type: "[{ServiceWaterPiping}]"
       RMD Test: "unknown"
@@ -5090,7 +5090,7 @@ ServiceWaterHeatingEquipment:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    service_water_heating_distribution_system:
+    distribution_system:
       Description: "Referenced to the service water heating distribution system"
       Data Type: "Reference"
       Required: True
@@ -5900,7 +5900,7 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    case_volume:
+    volume:
       Description: "volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
       Units: "m3"
@@ -5916,7 +5916,7 @@ RefrigeratedCase:
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
-    case_zone:
+    zone:
       Description: "Zone where case is located"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
