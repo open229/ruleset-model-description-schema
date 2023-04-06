@@ -36,9 +36,9 @@
 | Pump                                         | Approved by SPC 229
 | Boiler                                       | Approved by SPC 229
 | BoilerOutputValidationPoint                  | Approved by SPC 229
-| Chiller                                      | Approved by Schema WG
-| ChillerCapacityValidationPoint               | Approved by Schema WG
-| ChillerPowerValidationPoint                  | Approved by Schema WG
+| Chiller                                      | Approved by SPC 229
+| ChillerCapacityValidationPoint               | Approved by SPC 229
+| ChillerPowerValidationPoint                  | Approved by SPC 229
 | HeatRejection                                | Approved by SPC 229
 | ExternalFluidSource                          | Approved by SPC 229
 | ServiceWaterHeatingDistributionSystem        | Approved by SPC 229
