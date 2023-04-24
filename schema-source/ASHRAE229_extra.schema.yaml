@@ -4264,7 +4264,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -4315,7 +4315,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
@@ -4333,7 +4333,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_heat_fraction:
       Description: "Fraction of heat from the motor that is added as a sensible load zone."
@@ -4351,7 +4351,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
@@ -4369,7 +4369,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_heat_fraction:
       Description: "Fraction of heat from the cab that is added as a sensible load zone."
@@ -4388,7 +4388,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_variable_speed_motor:
       Description: "If the elevator uses a variable speed motor drive"
@@ -4405,7 +4405,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_power:
       Description: "Elevator average hourly peak motor power"
@@ -4424,7 +4424,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_counterweight:
       Description: "Elevator car counterweight"
@@ -4442,7 +4442,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_weight:
       Description: "Weight of elevator car"
@@ -4460,7 +4460,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_load:
       Description: "Elevator load at which to operate"
@@ -4478,7 +4478,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     speed:
       Description: "Design speed of the elevator"
@@ -4496,7 +4496,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_area:
       Description: "Floor area of elevator cab"
@@ -4514,7 +4514,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_lighting_power:
       Description: "Lighitng power of cab"
@@ -4532,7 +4532,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_ventilation_fan_power:
       Description: "Ventilation fan power of cab"
@@ -4550,7 +4550,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_ventilation_fan_flow:
       Description: "Airflow of cab ventfan"
@@ -4568,7 +4568,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
@@ -4586,7 +4586,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
@@ -4604,7 +4604,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
@@ -4622,7 +4622,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ElevatorOptions:
@@ -4654,7 +4654,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -4671,7 +4671,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -4688,7 +4688,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_system:
       Description: "Fan system"
@@ -4706,7 +4706,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heating_system:
       Description: "Heating system"
@@ -4723,7 +4723,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_system:
       Description: "Cooling system"
@@ -4740,7 +4740,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     preheat_system:
       Description: "Pre-heating system"
@@ -4757,7 +4757,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -4774,7 +4774,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 HeatingSystem:
@@ -4796,7 +4796,7 @@ HeatingSystem:
       EPout Report: "Coil Sizing Details"
       EPout Table: "Coils"
       EPout Column: "HVAC Name"
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -4813,7 +4813,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -4830,7 +4830,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Heating system type"
@@ -4848,7 +4848,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the heating system"
@@ -4865,7 +4865,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
@@ -4883,7 +4883,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     water_source_heat_pump_loop:
       Description: "Referenced to the water fluid loop to support water source heat pumps"
@@ -4901,7 +4901,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_capacity:
       Description: "Design heating capacity"
@@ -4941,7 +4941,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
@@ -4960,7 +4960,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
@@ -4977,7 +4977,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
@@ -4995,7 +4995,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_values:
       Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
@@ -5014,7 +5014,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_types:
       Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
@@ -5032,7 +5032,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
@@ -5049,7 +5049,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heatpump_auxilliary_heat_high_shutoff_temperature:
       Description: "Heatpump auxilliary heat high temperature shutoff"
@@ -5067,7 +5067,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heatpump_low_shutoff_temperature:
       Description: "Heatpump low temperature shutoff"
@@ -5085,7 +5085,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     humidification_type:
       Description: "Humidification type"
@@ -5102,7 +5102,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 HeatingSystemOptions:
@@ -5203,7 +5203,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -5220,7 +5220,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -5237,7 +5237,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Cooling system type"
@@ -5255,7 +5255,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_total_cool_capacity:
       Description: "Design total cooling capacity"
@@ -5275,7 +5275,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_sensible_cool_capacity:
       Description: "Design sensible cooling capacity"
@@ -5295,7 +5295,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_total_cool_capacity:
       Description: "Rated total cooling capacity"
@@ -5315,7 +5315,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_sensible_cool_capacity:
       Description: "Rated sensible cooling capacity"
@@ -5335,7 +5335,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     oversizing_factor:
       Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
@@ -5353,7 +5353,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
@@ -5370,7 +5370,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
@@ -5388,7 +5388,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_water_loop:
       Description: "Referenced to the Condenser water fluid loop"
@@ -5406,7 +5406,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_values:
       Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
@@ -5425,7 +5425,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_types:
       Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
@@ -5443,7 +5443,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     dehumidification_type:
       Description: "Dehumidification type"
@@ -5460,7 +5460,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
@@ -5478,7 +5478,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 CoolingSystemOptions:
@@ -5565,7 +5565,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -5582,7 +5582,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -5599,7 +5599,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     supply_fans:
       Description: "List of supply fans"
@@ -5617,7 +5617,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     return_fans:
       Description: "List of return fans"
@@ -5635,7 +5635,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     exhaust_fans:
       Description: "List of exhaust fans"
@@ -5653,7 +5653,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     relief_fans:
       Description: "List of relief fans"
@@ -5671,7 +5671,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     air_economizer:
       Description: "Air side economizer related to the fan system"
@@ -5688,7 +5688,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     air_energy_recovery:
       Description: "Air side energy recovery related to the fan system"
@@ -5705,7 +5705,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     temperature_control:
       Description: "Supply air temperature control type"
@@ -5722,7 +5722,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operation_during_occupied:
       Description: "Operation during occupied times type"
@@ -5739,7 +5739,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
@@ -5756,7 +5756,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
@@ -5774,7 +5774,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_control:
       Description: "Supply fan control type"
@@ -5791,7 +5791,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
@@ -5810,7 +5810,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
@@ -5828,7 +5828,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
@@ -5846,7 +5846,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
@@ -5863,7 +5863,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
@@ -5881,7 +5881,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operating_schedule:
       Description: "Operating schedule name"
@@ -5899,7 +5899,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_airflow:
       Description: "Minimum volume airflow"
@@ -5918,7 +5918,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_outdoor_airflow:
       Description: "Minimum outdoor air volume airflow"
@@ -5936,7 +5936,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     maximum_outdoor_airflow:
       Description: "Maximum outdoor air volume airflow"
@@ -5954,7 +5954,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
@@ -5972,7 +5972,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_fully_ducted_return:
       Description: "If the fan system has fully ducted return."
@@ -5989,7 +5989,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     demand_control_ventilation_control:
       Description: "Demand control ventilation control type"
@@ -6006,7 +6006,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 AirEconomizer:
@@ -6028,7 +6028,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -6045,7 +6045,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6062,7 +6062,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Type"
@@ -6079,7 +6079,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     high_limit_shutoff_temperature:
       Description: "High limit temperature shutoff"
@@ -6097,7 +6097,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 
@@ -6120,7 +6120,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -6137,7 +6137,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6154,7 +6154,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Energy recovery type"
@@ -6171,7 +6171,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     enthalpy_recovery_ratio:
       Description: "Enthalpy recovery ratio"
@@ -6188,7 +6188,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_recovery_operation:
       Description: "Energy recovery operation"
@@ -6205,7 +6205,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
@@ -6222,7 +6222,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_sensible_effectiveness:
       Description: "Design sensible effectiveness"
@@ -6239,7 +6239,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_latent_effectiveness:
       Description: "Design sensible effectiveness"
@@ -6256,7 +6256,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 FanSystemTemperatureControlOptions:
@@ -6408,7 +6408,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -6425,7 +6425,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6442,7 +6442,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_airflow:
       Description: "Design airflow"
@@ -6461,7 +6461,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_airflow_autosized:
       Description: "True if the airflow is automatically sized by the simulation software"
@@ -6478,7 +6478,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     specification_method:
       Description: "Options for how the fan is specified"
@@ -6495,7 +6495,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_electric_power:
       Description: "Design electric fan power"
@@ -6514,7 +6514,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_pressure_rise:
       Description: "Pressure rise through fan at design flow conditions"
@@ -6533,7 +6533,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_nameplate_power:
       Description: "nameplate power of fan motor"
@@ -6552,7 +6552,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     shaft_power:
       Description: "fan shaft power"
@@ -6571,7 +6571,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     total_efficiency:
       Description: "Total fan efficiency"
@@ -6590,7 +6590,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_efficiency:
       Description: "Fan motor efficiency"
@@ -6609,7 +6609,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_heat_to_airflow_fraction:
       Description: "Fraction of motor heat added to the airflow."
@@ -6628,7 +6628,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_heat_to_zone_fraction:
       Description: "Fraction of motor heat added to the zone."
@@ -6647,7 +6647,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
@@ -6665,7 +6665,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -6682,7 +6682,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     output_validation_points:
       Description: "Energy validation points"
@@ -6700,7 +6700,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 FanOutputValidationPoint:
@@ -6723,7 +6723,7 @@ FanOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -6741,7 +6741,7 @@ FanOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 FanSpecificationMethodOptions:
@@ -6773,7 +6773,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -6790,7 +6790,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6807,7 +6807,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Type of terminal"
@@ -6825,7 +6825,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     served_by_heating_ventilating_air_conditioning_system:
       Description: "HVAC system serving the terminal"
@@ -6843,7 +6843,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heating_source:
       Description: "Source of heating"
@@ -6861,7 +6861,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heating_from_loop:
       Description: "References the fluid loop used to provide heating"
@@ -6879,7 +6879,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_source:
       Description: "Source of cooling"
@@ -6897,7 +6897,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_from_loop:
       Description: "Referenced the fluid loop used to provide cooling"
@@ -6915,7 +6915,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan:
       Description: "Terminal fan"
@@ -6932,7 +6932,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_configuration:
       Description: "Fan configuration"
@@ -6949,7 +6949,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     primary_airflow:
       Description: "Zone terminal primary airflow"
@@ -6967,7 +6967,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     secondary_airflow:
       Description: "Zone terminal secondary_airflow"
@@ -6985,7 +6985,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     max_heating_airflow:
       Description: "Zone terminal maximum heating airflow"
@@ -7004,7 +7004,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     supply_design_heating_setpoint_temperature:
       Description: "Zone terminal supply design heating temperature setpoint"
@@ -7022,7 +7022,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     supply_design_cooling_setpoint_temperature:
       Description: "Zone terminal supply design cooling temperature setpoint"
@@ -7040,7 +7040,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     temperature_control:
       Description: "Temperature control type"
@@ -7057,7 +7057,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
@@ -7075,7 +7075,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_outdoor_airflow:
       Description: "Zone terminal minimum outdoor air volume airflow"
@@ -7094,7 +7094,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
@@ -7112,7 +7112,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heating_capacity:
       Description: "Heating capacity for baseboard or radiant system or reheat"
@@ -7131,7 +7131,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_capacity:
       Description: "Cooling capacity for the radiant system or cooling coil"
@@ -7150,7 +7150,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_supply_ducted:
       Description: "True if the the supply is ducted."
@@ -7168,7 +7168,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_demand_control_ventilation:
       Description: "True if the zone has demand control ventilation"
@@ -7186,7 +7186,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     
 
@@ -7267,7 +7267,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -7284,7 +7284,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7301,7 +7301,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Type of loop"
@@ -7318,7 +7318,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     pump_power_per_flow_rate:
       Description: "Total design pump power divided by the loop design flow rate"
@@ -7337,7 +7337,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     child_loops:
       Description: "Other fluid loops connected to this one as children."
@@ -7355,7 +7355,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_or_condensing_design_and_control:
       Description: ""
@@ -7372,7 +7372,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heating_design_and_control:
       Description: ""
@@ -7389,7 +7389,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 FluidLoopDesignAndControl:
@@ -7411,7 +7411,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -7428,7 +7428,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7445,7 +7445,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_supply_temperature:
       Description: "Design Supply Temperature"
@@ -7463,7 +7463,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_return_temperature:
       Description: "Design Return Temperature"
@@ -7481,7 +7481,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
@@ -7498,7 +7498,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
@@ -7515,7 +7515,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operation:
       Description: "Type of operation used by loop"
@@ -7532,7 +7532,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operation_schedule:
       Description: "Operation schedule"
@@ -7550,7 +7550,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     flow_control:
       Description: "Flow control options"
@@ -7567,7 +7567,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
@@ -7584,7 +7584,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     outdoor_high_for_loop_supply_reset_temperature:
       Description: "Outdoor high for loop supply temp reset"
@@ -7603,7 +7603,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     outdoor_low_for_loop_supply_reset_temperature:
       Description: "Outdoor low for loop supply temp reset"
@@ -7622,7 +7622,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop_supply_temperature_at_outdoor_high:
       Description: "Loop supply temperature at outdoor high temperature"
@@ -7641,7 +7641,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop_supply_temperature_at_outdoor_low:
       Description: "Loop supply temperature at outdoor low temperature"
@@ -7660,7 +7660,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop_supply_temperature_at_low_load:
       Description: "Loop supply temperature at low load"
@@ -7679,7 +7679,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_integrated_waterside_economizer:
       Description: "True if chilled water loop described has an integrated waterside economizer"
@@ -7696,7 +7696,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     
 
@@ -7765,7 +7765,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -7782,7 +7782,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7799,7 +7799,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop_or_piping:
       Description: "Referenced to the fluid loop or service water heating piping"
@@ -7818,7 +7818,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     specification_method:
       Description: "Options for how the pump is specified"
@@ -7835,7 +7835,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_electric_power:
       Description: "Pump design electric power"
@@ -7854,7 +7854,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_nameplate_power:
       Description: "Pump motor nameplate power"
@@ -7873,7 +7873,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_head:
       Description: "Head of the pump at design flow conditions"
@@ -7892,7 +7892,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     impeller_efficiency:
       Description: "Full load efficiency of the impeller"
@@ -7911,7 +7911,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
@@ -7930,7 +7930,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     speed_control:
       Description: "Options for pump speed control"
@@ -7947,7 +7947,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_flow:
       Description: "Design Pump Flowrate"
@@ -7966,7 +7966,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_flow_autosized:
       Description: "True if the design_flow is autosized"
@@ -7983,7 +7983,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 PumpSpeedControlOptions:
@@ -8023,7 +8023,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -8040,7 +8040,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -8057,7 +8057,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
@@ -8076,7 +8076,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_capacity:
       Description: "Heating capacity"
@@ -8094,7 +8094,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_capacity:
       Description: "Heating capacity"
@@ -8113,7 +8113,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
@@ -8130,7 +8130,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     draft_type:
       Description: "Combustion option"
@@ -8147,7 +8147,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the boiler"
@@ -8164,7 +8164,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric:
       Description: "The type of efficiency metric used"
@@ -8181,7 +8181,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     efficiency:
       Description: "Efficiency value based on the selected efficiency_metric"
@@ -8199,7 +8199,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     output_validation_points:
       Description: "Energy validation points"
@@ -8217,7 +8217,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     auxiliary_power:
       Description: "Auxiliary power"
@@ -8236,7 +8236,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operation_lower_limit:
       Description: "Heating load range operation, lower limit"
@@ -8254,7 +8254,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     operation_upper_limit:
       Description: "Heating load range operation, upper limit"
@@ -8272,7 +8272,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 BoilerCombustionOptions:
@@ -8313,7 +8313,7 @@ BoilerOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     entering_water_temperature:
       Description: "Entering water temperature"
@@ -8332,7 +8332,7 @@ BoilerOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -8350,7 +8350,7 @@ BoilerOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 Chiller:
@@ -8372,7 +8372,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -8389,7 +8389,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -8406,7 +8406,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     cooling_loop:
       Description: "Referenced to the cooling fluid loop"
@@ -8425,7 +8425,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
@@ -8443,7 +8443,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_type:
       Description: "Compressor Type"
@@ -8460,7 +8460,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the chiller"
@@ -8477,7 +8477,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
@@ -8495,7 +8495,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_capacity:
       Description: "Chiller Rated Cooling Capacity"
@@ -8514,7 +8514,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_entering_condenser_temperature:
       Description: "Rated entering condenser temperature"
@@ -8533,7 +8533,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_leaving_evaporator_temperature:
       Description: "Rated leaving evaporator temperature"
@@ -8552,7 +8552,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
@@ -8569,7 +8569,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_flow_evaporator:
       Description: "Chiller evaporator design flow"
@@ -8587,7 +8587,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_flow_condenser:
       Description: "Chiller condenser design flow"
@@ -8605,7 +8605,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_entering_condenser_temperature:
       Description: "Design entering condenser temperature"
@@ -8624,7 +8624,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_leaving_evaporator_temperature:
       Description: "Design leaving evaporator temperature"
@@ -8642,7 +8642,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     full_load_efficiency:
       Description: "Full Load Efficiency expressed as a coefficient of performance (COP)"
@@ -8660,7 +8660,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     part_load_efficiency:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
@@ -8679,7 +8679,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     part_load_efficiency_metric:
       Description: "The type of part load efficiency metric used"
@@ -8696,7 +8696,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     capacity_validation_points:
       Description: "Capacity validation points"
@@ -8713,7 +8713,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     power_validation_points:
       Description: "Energy validation points"
@@ -8730,7 +8730,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_chilled_water_pump_interlocked:
       Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
@@ -8747,7 +8747,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
@@ -8764,7 +8764,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
@@ -8782,7 +8782,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heat_recovery_fraction:
       Description: "Heat recovery fraction"
@@ -8801,7 +8801,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ChillerPartLoadEfficiencyMetricOptions:
@@ -8834,7 +8834,7 @@ ChillerCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_temperature:
       Description: "Second temperature"
@@ -8853,7 +8853,7 @@ ChillerCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -8871,7 +8871,7 @@ ChillerCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ChillerPowerValidationPoint:
@@ -8894,7 +8894,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_temperature:
       Description: "Second temperature"
@@ -8913,7 +8913,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     load:
       Description: "Load"
@@ -8931,7 +8931,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_at_full_capacity:
       Description: "True if chiller is at full capacity"
@@ -8950,7 +8950,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -8968,7 +8968,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ChillerCompressorOptions:
@@ -9014,7 +9014,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -9031,7 +9031,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9048,7 +9048,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
@@ -9067,7 +9067,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Heat Rejection Type"
@@ -9084,7 +9084,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_type:
       Description: "Heat Rejection Fan Type"
@@ -9101,7 +9101,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fluid:
       Description: "Fluid Cooled by Heat Rejection"
@@ -9118,7 +9118,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     range:
       Description: "Heat rejection Range"
@@ -9136,7 +9136,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     approach:
       Description: "Heat rejection Approach"
@@ -9154,7 +9154,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_electric_input_power:
       Description: "Fan Electric Input Power"
@@ -9172,7 +9172,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_nameplate_power:
       Description: "Fan Nameplate Power"
@@ -9190,7 +9190,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     fan_speed_control:
       Description: "Fan Speed Control Type"
@@ -9207,7 +9207,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_wetbulb_temperature:
       Description: "Design wetbulb temperature"
@@ -9226,7 +9226,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_water_flowrate:
       Description: "Design condenser water flow rate"
@@ -9244,7 +9244,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_water_flowrate:
       Description: "Rated condenser water flow rate"
@@ -9263,7 +9263,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     leaving_water_setpoint_temperature:
       Description: "leaving water setpoint temperature"
@@ -9281,7 +9281,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 HeatRejectionOptions:
@@ -9354,7 +9354,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -9371,7 +9371,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9388,7 +9388,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
@@ -9407,7 +9407,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Type of external fluid source"
@@ -9424,7 +9424,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the external fluid source"
@@ -9441,7 +9441,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ExternalFluidSourceOptions:
@@ -9473,7 +9473,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -9490,7 +9490,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9507,7 +9507,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_supply_temperature:
       Description: "Design supply temperature setpoint of service water heating loop"
@@ -9526,7 +9526,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     design_supply_temperature_difference:
       Description: "Design supply temperature difference (deltaT) of service water heating loop"
@@ -9545,7 +9545,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     tanks:
       Description: "Tanks within service water heating distribution system"
@@ -9563,7 +9563,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_central_system:
       Description: "Indicates whether it is a central service water heater distribution system"
@@ -9581,7 +9581,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     service_water_piping:
       Description: "Other service water piping connected to this one as children."
@@ -9598,7 +9598,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     distribution_compactness:
       Description: "Type of compact distribution system"
@@ -9616,7 +9616,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     control_type:
       Description: "Type of distribution system"
@@ -9634,7 +9634,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     configuration_type:
       Description: "Type of configuration"
@@ -9652,7 +9652,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_recovered_heat_from_drain_used_by_water_heater:
       Description: "Indicates whether the recovered heat from the shower drain used by the service water heater"
@@ -9670,7 +9670,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
@@ -9689,7 +9689,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
@@ -9707,7 +9707,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
@@ -9725,7 +9725,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     entering_water_mains_temperature_schedule:
       Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
@@ -9743,7 +9743,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_ground_temperature_used_for_entering_water:
       Description: "Indicates whether ground temperature is the source of the entering water temperature"
@@ -9760,7 +9760,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ServiceWaterHeatingConfigurationOptions:
@@ -9826,7 +9826,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -9843,7 +9843,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9860,7 +9860,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_recirculation_loop:
       Description: "Indicates if service water heating piping is a loop and recirculates"
@@ -9877,7 +9877,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     insulation_thickness:
       Description: "Pipe insulation thickness"
@@ -9897,7 +9897,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     loop_pipe_location:
       Description: "Loop pipe location"
@@ -9915,7 +9915,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     location_zone:
       Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
@@ -9933,7 +9933,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     length:
       Description: "Pipe length"
@@ -9953,7 +9953,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     diameter:
       Description: "Pipe section diameter"
@@ -9973,7 +9973,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     child:
       Description: "Other service water piping connected to this one as children."
@@ -9990,7 +9990,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 SolarThermal:
@@ -10012,7 +10012,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -10029,7 +10029,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -10046,7 +10046,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     angle_from_true_north:
       Description: "Solar heater angle from true north, clockwise"
@@ -10064,7 +10064,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     solar_savings_fraction:
       Description: "Solar savings fraction"
@@ -10082,7 +10082,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     collector_area:
       Description: "Solar collector area"
@@ -10100,7 +10100,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     collector_type_description:
       Description: "Description of solar collector type"
@@ -10118,7 +10118,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     collector_slope:
       Description: "Solar slope from horizontal"
@@ -10136,7 +10136,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     tank:
       Description: "Tank that is part of the solar thermal system"
@@ -10154,7 +10154,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ServiceWaterHeatingEquipment:
@@ -10176,7 +10176,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -10193,7 +10193,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -10210,7 +10210,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
@@ -10227,7 +10227,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     distribution_system:
       Description: "Referenced to the service water heating distribution system"
@@ -10246,7 +10246,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     energy_factor:
       Description: "Energy factor"
@@ -10265,7 +10265,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     thermal_efficiency:
       Description: "Service water heating heater thermal efficiency"
@@ -10283,7 +10283,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     standby_loss_fraction:
       Description: "Standby loss fraction"
@@ -10301,7 +10301,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     uniform_energy_factor:
       Description: "Uniform energy factor"
@@ -10320,7 +10320,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     first_hour_rating:
       Description: "First hour rating volume"
@@ -10340,7 +10340,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     output_validation_points:
       Description: "Capacity validation points"
@@ -10357,7 +10357,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     input_power:
       Description: "Input power"
@@ -10377,7 +10377,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     rated_capacity:
       Description: "Rated capacity"
@@ -10396,7 +10396,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     minimum_capacity:
       Description: "Minimum capacity"
@@ -10416,7 +10416,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     recovery_efficiency:
       Description: "Recovery efficiency"
@@ -10434,7 +10434,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     setpoint_temperature:
       Description: "Set point temperature"
@@ -10452,7 +10452,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_location:
       Description: "Description of where the heat pump for the water heater is located"
@@ -10470,7 +10470,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_zone:
       Description: "Zone reference of where the heat pump for the water heater is located"
@@ -10488,7 +10488,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
@@ -10506,7 +10506,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_heat_rejection_zone:
       Description: "Heat pump heat rejection zone"
@@ -10524,7 +10524,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_capacity_validation_points:
       Description: "Capacity validation points"
@@ -10541,7 +10541,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     compressor_power_validation_points:
       Description: "Coefficient of performance validation points"
@@ -10558,7 +10558,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     draft_fan_power:
       Description: "Power for the draft fan "
@@ -10578,7 +10578,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     has_electrical_ignition:
       Description: "Indicates whether the water heater has electrical ignition"
@@ -10596,7 +10596,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heater_type:
       Description: "Service water heater type"
@@ -10613,7 +10613,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     tank:
       Description: "Tank that is part of the service water heating equipment"
@@ -10631,7 +10631,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -10648,7 +10648,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     solar_thermal_systems:
       Description: "Solar thermal systems used for heating service water"
@@ -10666,7 +10666,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
@@ -10684,7 +10684,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ServiceWaterHeaterOptions:
@@ -10749,7 +10749,7 @@ ServiceWaterHeaterValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -10767,7 +10767,7 @@ ServiceWaterHeaterValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 HeatPumpWaterHeaterCapacityValidationPoint:
@@ -10790,7 +10790,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
@@ -10808,7 +10808,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     evaporator_air_flow:
       Description: "Air flow across evaporator"
@@ -10826,7 +10826,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_water_flow:
       Description: "Water flow across condenser"
@@ -10844,7 +10844,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -10862,7 +10862,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 HeatPumpWaterHeaterPowerValidationPoint:
@@ -10885,7 +10885,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
@@ -10903,7 +10903,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     evaporator_air_flow:
       Description: "Air flow across evaporator"
@@ -10921,7 +10921,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     condenser_water_flow:
       Description: "Water flow across condenser"
@@ -10939,7 +10939,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     load:
       Description: "Load"
@@ -10957,7 +10957,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     result:
       Description: "Result"
@@ -10975,7 +10975,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 Tank:
@@ -10997,7 +10997,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -11014,7 +11014,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -11031,7 +11031,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     storage_capacity:
       Description: "Storage capacity of tank in distribution system"
@@ -11051,7 +11051,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Service water heater tank type"
@@ -11068,7 +11068,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     height:
       Description: "Tank height"
@@ -11088,7 +11088,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     interior_insulation:
       Description: "Tank interior insulation R-value"
@@ -11108,7 +11108,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     exterior_insulation:
       Description: "Tank exterior insulation R-value"
@@ -11128,7 +11128,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     location:
       Description: "Location"
@@ -11146,7 +11146,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     location_zone:
       Description: "Tank zone location"
@@ -11164,7 +11164,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ServiceWaterHeaterTankOptions:
@@ -11213,7 +11213,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -11230,7 +11230,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -11247,7 +11247,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     area_type:
       Description: "Service Water Heating Loop Area Type"
@@ -11265,7 +11265,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     water_serves_type:
       Description: "The use of the water serves the type"
@@ -11282,7 +11282,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     served_by_distribution_system:
       Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
@@ -11300,7 +11300,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     use:
       Description: "Usage of service hot water"
@@ -11317,7 +11317,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     use_units:
       Description: "Type of units for use of service hot water"
@@ -11334,7 +11334,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     use_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
@@ -11352,7 +11352,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     temperature_at_fixture:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
@@ -11371,7 +11371,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_heat_recovered_by_drain:
       Description: "Indicates if heat is being recovered from the drain"
@@ -11389,7 +11389,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_recovered_heat_used_by_cold_side_feed:
       Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
@@ -11407,7 +11407,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 ServiceWaterHeatingFixtureOptions:
@@ -11670,7 +11670,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -11687,7 +11687,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -11704,7 +11704,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     type:
       Description: "Refrigerated case type"
@@ -11721,7 +11721,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     equipment_category:
       Description: "Equipment Class from referenced standard"
@@ -11738,7 +11738,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_self_contained:
       Description: "Indicates whether unit is self-contained"
@@ -11756,7 +11756,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     application_temperature:
       Description: "Equipment application temperature"
@@ -11774,7 +11774,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     power:
       Description: "Nominal power of refrigerated case"
@@ -11793,7 +11793,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     power_multiplier_schedule:
       Description: "Refrigerated case power multiplier schedule name"
@@ -11811,7 +11811,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
@@ -11829,7 +11829,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     heat_gain_fraction:
       Description: "Fraction of energy that is a heat gain to the space."
@@ -11847,7 +11847,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     volume:
       Description: "volume of a refrigerated case in cubic meters"
@@ -11865,7 +11865,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     total_display_area:
       Description: "display area of a refrigerated case in square meters"
@@ -11883,7 +11883,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     zone:
       Description: "Zone where case is located"
@@ -11901,7 +11901,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
 
 
