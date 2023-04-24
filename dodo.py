@@ -38,6 +38,7 @@ def task_strip_extra_data_element_fields():
               "AppG Used By TCDs",
               "AppG P_RMD Equals U_RMD",
               "AppG B_RMD Equals P_RMD",
+              "Used by RCT Test",
               "EPin Object",
               "EPin Field",
               "EPout File",

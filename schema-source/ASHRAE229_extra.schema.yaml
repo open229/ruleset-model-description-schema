@@ -428,7 +428,7 @@ RulesetModelInstance:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: "False
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -657,7 +657,7 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: "False
+      Used by RCT Test: False
       EPin Object: "Exterior:Lights"
       EPin Field: "Name"
       EPout File: "table.html"
@@ -2600,7 +2600,7 @@ SurfaceOpticalProperties:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: "False
+      Used by RCT Test: False
       EPin Object: "Material"
       EPin Field: "Solar Absorptance"
       EPout File: ""
@@ -3660,7 +3660,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: "False
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -3694,7 +3694,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: "True
+      Used by RCT Test: True
       EPin Object: "ElectricLoadCenter:Transformer"
       EPin Field: "Phase"
       EPout File: ""
@@ -4264,7 +4264,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: """
+      EPstatus: ""
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -4351,7 +4351,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "
+      EPstatus: ""
       EP Notes: ""
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
@@ -7381,7 +7381,7 @@ FluidLoop:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
-      AppG B_RMDs Same: "unknown"v
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
