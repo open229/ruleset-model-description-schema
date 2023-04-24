@@ -4671,7 +4671,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -4688,7 +4688,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     fan_system:
       Description: "Fan system"
@@ -4813,7 +4813,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -4830,7 +4830,7 @@ HeatingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Heating system type"
@@ -5220,7 +5220,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -5237,7 +5237,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Cooling system type"
@@ -5582,7 +5582,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -5599,7 +5599,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     supply_fans:
       Description: "List of supply fans"
@@ -6045,7 +6045,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6062,7 +6062,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Type"
@@ -6137,7 +6137,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6154,7 +6154,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Energy recovery type"
@@ -6425,7 +6425,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6442,7 +6442,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     design_airflow:
       Description: "Design airflow"
@@ -6790,7 +6790,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -6807,7 +6807,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Type of terminal"
@@ -7284,7 +7284,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7301,7 +7301,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Type of loop"
@@ -7428,7 +7428,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7445,7 +7445,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     design_supply_temperature:
       Description: "Design Supply Temperature"
@@ -7782,7 +7782,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -7799,7 +7799,7 @@ Pump:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     loop_or_piping:
       Description: "Referenced to the fluid loop or service water heating piping"
@@ -8040,7 +8040,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -8057,7 +8057,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
@@ -8389,7 +8389,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -8406,7 +8406,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     cooling_loop:
       Description: "Referenced to the cooling fluid loop"
@@ -9031,7 +9031,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9048,7 +9048,7 @@ HeatRejection:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
@@ -9371,7 +9371,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9388,7 +9388,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     loop:
       Description: "Referenced to the fluid loop"
@@ -9490,7 +9490,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9507,7 +9507,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     design_supply_temperature:
       Description: "Design supply temperature setpoint of service water heating loop"
@@ -9843,7 +9843,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -9860,7 +9860,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     is_recirculation_loop:
       Description: "Indicates if service water heating piping is a loop and recirculates"
@@ -10029,7 +10029,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -10046,7 +10046,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     angle_from_true_north:
       Description: "Solar heater angle from true north, clockwise"
@@ -10193,7 +10193,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -10210,7 +10210,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     heater_fuel_type:
       Description: "Service water heating heater fuel type"
@@ -11014,7 +11014,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -11031,7 +11031,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     storage_capacity:
       Description: "Storage capacity of tank in distribution system"
@@ -11230,7 +11230,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -11247,7 +11247,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     area_type:
       Description: "Service Water Heating Loop Area Type"
@@ -11687,7 +11687,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -11704,7 +11704,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Refrigerated case type"
