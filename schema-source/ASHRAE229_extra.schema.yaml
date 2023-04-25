@@ -7261,12 +7261,12 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "PlantLoop, CondenserLoop"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "PlantLoop, CondenserLoop"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -7312,14 +7312,14 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "PlantLoop, CondenserLoop"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "can determine Condenser by type of input object but heating vs cooling would need to examine pieces on loop"
     pump_power_per_flow_rate:
       Description: "Total design pump power divided by the loop design flow rate"
       Data Type: "Numeric"
