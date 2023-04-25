@@ -7759,12 +7759,12 @@ Pump:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -7812,14 +7812,14 @@ Pump:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Inlet Node Name, Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Can find the branch based on node names"
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -7836,7 +7836,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Set to constant of SIMPLE"
     design_electric_power:
       Description: "Pump design electric power"
       Data Type: "Numeric"
@@ -7848,12 +7848,12 @@ Pump:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Design Power Consumption"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "Electricity Rate"
       EPstatus: "NotStarted"
       EP Notes: ""
     motor_nameplate_power:
@@ -7874,7 +7874,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     design_head:
       Description: "Head of the pump at design flow conditions"
       Data Type: "Numeric"
@@ -7886,8 +7886,8 @@ Pump:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Design Pump Head"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -7912,7 +7912,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
       Data Type: "Numeric"
@@ -7924,12 +7924,12 @@ Pump:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Motor Efficiency"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "Motor Efficiency"
       EPstatus: "NotStarted"
       EP Notes: ""
     speed_control:
@@ -7941,14 +7941,14 @@ Pump:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "Type"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "based on type of input object"
     design_flow:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
@@ -7960,12 +7960,12 @@ Pump:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Design Maximum Flow Rate"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "Water Flow"
       EPstatus: "NotStarted"
       EP Notes: ""
     is_flow_autosized:
@@ -7977,14 +7977,14 @@ Pump:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
+      EPin Field: "Design Maximum Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Set to Autosize"
 
 PumpSpeedControlOptions:
   Object Type: "Enumeration"
