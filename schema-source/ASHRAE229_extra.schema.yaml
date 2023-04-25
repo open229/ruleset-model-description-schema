@@ -8017,12 +8017,12 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Central Plant"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -8070,14 +8070,14 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Boiler Water Inlet Node Name, Boiler Water Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Can find the branch based on node names"
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -8088,12 +8088,12 @@ Boiler:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Nominal Capacity"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Central Plant"
+      EPout Column: "Reference Capacity"
       EPstatus: "NotStarted"
       EP Notes: ""
     rated_capacity:
@@ -8109,10 +8109,10 @@ Boiler:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Central Plant"
+      EPout Column: "Rated Capacity"
       EPstatus: "NotStarted"
       EP Notes: ""
     minimum_load_ratio:
@@ -8124,8 +8124,8 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Minimum Part Load Ratio"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -8148,7 +8148,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Perhaps could infer based on efficiency or performance curve"
     energy_source_type:
       Description: "Source of energy for the boiler"
       Data Type: "<EnergySourceOptions>"
@@ -8158,14 +8158,14 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Fuel Type"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "For a single boiler could look at ABUPS End Use by Subcategory"
     efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricOptions>"
@@ -8182,7 +8182,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Constant, always put in THERMAL"
     efficiency:
       Description: "Efficiency value based on the selected efficiency_metric"
       Data Type: "Numeric"
@@ -8193,12 +8193,12 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Nominal Thermal Efficiency"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Central Plant"
+      EPout Column: "Reference Efficiency "
       EPstatus: "NotStarted"
       EP Notes: ""
     output_validation_points:
@@ -8211,8 +8211,8 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Normalized Boiler Efficiency Curve Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -8230,8 +8230,8 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Boiler:HotWater, Boiler:Steam"
+      EPin Field: "Parasitic Electric Load"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -8248,8 +8248,8 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantEquipmentOperation:HeatingLoad"
+      EPin Field: "Load Range <#> Lower Limit, Range <#> Equipment List Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -8266,8 +8266,8 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantEquipmentOperation:HeatingLoad"
+      EPin Field: "Load Range <#> Upper Limit, Range <#> Equipment List Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
