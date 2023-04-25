@@ -9008,12 +9008,12 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Central Plant"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -9061,14 +9061,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Water Inlet Node Name, Water Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Can find the branch based on node names"
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionOptions>"
@@ -9078,14 +9078,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Partially supported based on object type"
     fan_type:
       Description: "Heat Rejection Fan Type"
       Data Type: "<HeatRejectionFanOptions>"
@@ -9102,7 +9102,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Would need to be compliance parameter"
     fluid:
       Description: "Fluid Cooled by Heat Rejection"
       Data Type: "<HeatRejectionFluidOptions>"
@@ -9112,8 +9112,8 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantLoop"
+      EPin Field: "Fluid Type, User Defined Fluid Type"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -9130,8 +9130,8 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Design Range Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -9148,8 +9148,8 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Design Approach Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -9166,8 +9166,8 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Design Fan Power"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -9191,7 +9191,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "compliance parameter"
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
@@ -9201,14 +9201,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Based on input object type"
     design_wetbulb_temperature:
       Description: "Design wetbulb temperature"
       Data Type: "Numeric"
@@ -9220,8 +9220,8 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Design Inlet Air Wet-Bulb Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -9238,12 +9238,12 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Design Water Flow Rate"
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPout Column: "Design Water Flow Rate"
       EPstatus: "NotStarted"
       EP Notes: ""
     rated_water_flowrate:
@@ -9264,7 +9264,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     leaving_water_setpoint_temperature:
       Description: "leaving water setpoint temperature"
       Data Type: "Numeric"
@@ -9275,14 +9275,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "SetpointManager:Scheduled"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Need to find node that is controlled and look for SetpointManager"
 
 HeatRejectionOptions:
   Object Type: "Enumeration"
