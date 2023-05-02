@@ -6402,12 +6402,12 @@ Fan:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Equipmend Summary"
+      EPout Table: "Fans"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -6455,12 +6455,12 @@ Fan:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Design Maximum Air Flow Rate, Maximum Flow Rate"
+      EPout File: "table.html"
+      EPout Report: "Equipmend Summary"
+      EPout Table: "Fans"
+      EPout Column: "Max Air Flow Rate"
       EPstatus: "NotStarted"
       EP Notes: ""
     is_airflow_autosized:
@@ -6472,14 +6472,14 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Design Maximum Air Flow Rate, Maximum Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "if field is set to Autosize"
     specification_method:
       Description: "Options for how the fan is specified"
       Data Type: "<FanSpecificationMethodOptions>"
@@ -6508,12 +6508,12 @@ Fan:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Design Electric Power Consumption"
+      EPout File: "table.html"
+      EPout Report: "Equipmend Summary"
+      EPout Table: "Fans"
+      EPout Column: "Rated Electricity Rate"
       EPstatus: "NotStarted"
       EP Notes: ""
     design_pressure_rise:
@@ -6527,12 +6527,12 @@ Fan:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Design Pressure Rise"
+      EPout File: "table.html"
+      EPout Report: "Equipmend Summary"
+      EPout Table: "Fans"
+      EPout Column: "Rated Electricity Rate"
       EPstatus: "NotStarted"
       EP Notes: ""
     motor_nameplate_power:
@@ -6553,7 +6553,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     shaft_power:
       Description: "fan shaft power"
       Data Type: "Numeric"
@@ -6572,7 +6572,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     total_efficiency:
       Description: "Total fan efficiency"
       Data Type: "Numeric"
@@ -6584,12 +6584,12 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: Fan Total Efficiency""
+      EPout File: "table.html"
+      EPout Report: "Equipmend Summary"
+      EPout Table: "Fans"
+      EPout Column: "Total Efficiency"
       EPstatus: "NotStarted"
       EP Notes: ""
     motor_efficiency:
@@ -6603,8 +6603,8 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Motor Efficiency"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -6622,12 +6622,12 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Motor In Air Stream Fraction"
+      EPout File: "table.html"
+      EPout Report: "Equipmend Summary"
+      EPout Table: "Fans"
+      EPout Column: "Motor Heat In Air Fraction"
       EPstatus: "NotStarted"
       EP Notes: ""
     motor_heat_to_zone_fraction:
@@ -6641,14 +6641,14 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Motor Loss Radiative Fraction"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "this is only part of the loss, the rest is convective and together they are based on the motor efficiency"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
@@ -6659,8 +6659,8 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Motor Loss Zone Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -6683,7 +6683,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Comnpliance parameter"
     output_validation_points:
       Description: "Energy validation points"
       Data Type: "[{FanOutputValidationPoint}]"
@@ -6694,14 +6694,14 @@ Fan:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Electric Power Function of Flow Fraction Curve Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Need to go to the curve and pick points"
 
 FanOutputValidationPoint:
   Object Type: "Data Group"
@@ -6717,14 +6717,14 @@ FanOutputValidationPoint:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Electric Power Function of Flow Fraction Curve Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Need to go to the curve and pick points"
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -6735,14 +6735,14 @@ FanOutputValidationPoint:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
+      EPin Field: "Electric Power Function of Flow Fraction Curve Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Need to go to the curve and pick points"
 
 FanSpecificationMethodOptions:
   Object Type: "Enumeration"
