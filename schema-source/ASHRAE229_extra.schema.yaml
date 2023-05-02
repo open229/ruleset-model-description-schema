@@ -5197,14 +5197,14 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Only for CoilType=Coil:Cooling:DX:*"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -5249,14 +5249,14 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Type"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "based on the type of coil "
     design_total_cool_capacity:
       Description: "Design total cooling capacity"
       Data Type: "Numeric"
@@ -5269,12 +5269,12 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Gross Rated Total Cooling Capacity"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Final Gross Total Capacity [W]"
       EPstatus: "NotStarted"
       EP Notes: ""
     design_sensible_cool_capacity:
@@ -5289,14 +5289,14 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Gross Rated Sensible Heat Ratio"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Final Gross Sensible Capacity [W]"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Multiply ratio by total gross total capacity in last data element"
     rated_total_cool_capacity:
       Description: "Rated total cooling capacity"
       Data Type: "Numeric"
@@ -5311,10 +5311,10 @@ CoolingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Total Capacity at Rating Conditions"
       EPstatus: "NotStarted"
       EP Notes: ""
     rated_sensible_cool_capacity:
@@ -5331,10 +5331,10 @@ CoolingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Sensible Capacity at Rating Conditions"
       EPstatus: "NotStarted"
       EP Notes: ""
     oversizing_factor:
@@ -5349,12 +5349,12 @@ CoolingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Total Capacity at Ideal Loads Peak and Coil Final Gross Total Capacity"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "compute the sizing factor"
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
       Data Type: "Boolean"
@@ -5364,14 +5364,14 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Gross Rated Total Cooling Capacity"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Autosized Coil Capacity?"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Indicated in input by Autosize"
     chilled_water_loop:
       Description: "Referenced to the Chilled water fluid loop"
       Data Type: "Reference"
@@ -5382,8 +5382,8 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Water Inlet Node Name, Water Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -5400,8 +5400,8 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Water Inlet Node Name, Water Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -5421,10 +5421,10 @@ CoolingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "DX Cooling Coils, DX Cooling Coils [ SEER2 ]"
+      EPout Column: "SEER Standard, IEER, EER2, SEER2 Standard, IEER2  "
       EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_types:
@@ -5439,12 +5439,12 @@ CoolingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "DX Cooling Coils, DX Cooling Coils [ SEER2 ]"
+      EPout Column: "SEER Standard, IEER, EER2, SEER2 Standard, IEER2  "
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Use the various types reported"
     dehumidification_type:
       Description: "Dehumidification type"
       Data Type: "<DehumidificationOptions>"
@@ -5454,14 +5454,14 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Based on the EnergyPlus input object, usually Mechanical cooling."
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
       Data Type: "Numeric"
