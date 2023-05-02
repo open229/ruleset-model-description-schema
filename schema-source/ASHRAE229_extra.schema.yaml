@@ -4790,12 +4790,12 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
+      EPin Field: "Name"
       EPout File: "table.html"
       EPout Report: "Coil Sizing Details"
       EPout Table: "Coils"
-      EPout Column: "HVAC Name"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -4842,14 +4842,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Type"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "based on the type of coil"
     energy_source_type:
       Description: "Source of energy for the heating system"
       Data Type: "<EnergySourceOptions>"
@@ -4859,14 +4859,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "based on the type of coil"
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
       Data Type: "Reference"
@@ -4877,14 +4877,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Heating:Water, Coil:Heating:Steam"
+      EPin Field: "Water Inlet Node Name, Water Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "find loop based on nodes"
     water_source_heat_pump_loop:
       Description: "Referenced to the water fluid loop to support water source heat pumps"
       Data Type: "Reference"
@@ -4895,14 +4895,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Heating:WaterToAirHeatPump:EquationFit, Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, Coil:Heating:WaterToAirHeatPump:ParameterEstimation"
+      EPin Field: "Water Inlet Node Name, Water Outlet Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "find loop based on nodes"
     design_capacity:
       Description: "Design heating capacity"
       Data Type: "Numeric"
@@ -4915,8 +4915,8 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Heating:*"
+      EPin Field: "Gross Rated Heating Capacity"
       EPout File: "table.html"
       EPout Report: "Coil Sizing Details"
       EPout Table: "Coils"
@@ -4937,10 +4937,10 @@ HeatingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Total Capacity at Rating Conditions"
       EPstatus: "NotStarted"
       EP Notes: ""
     oversizing_factor:
@@ -4956,12 +4956,12 @@ HeatingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Total Capacity at Ideal Loads Peak and Coil Final Gross Total Capacity"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "compute the sizing factor"
     is_autosized:
       Description: "True if the component is automatically sized by the simulation software"
       Data Type: "Boolean"
@@ -4971,14 +4971,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Heating:*"
+      EPin Field: "Gross Rated Heating Capacity"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Autosized Coil Capacity?"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Indicated in input by Autosize"
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
@@ -4991,10 +4991,10 @@ HeatingSystem:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Leaving Air Drybulb at Rating Conditions"
       EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_values:
@@ -5010,10 +5010,10 @@ HeatingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "DX Heating Coils, DX Heating Coils [ HSPF2 ], Heating Coils"
+      EPout Column: "HSPF, HSPF2, Nominal Efficiency   "
       EPstatus: "NotStarted"
       EP Notes: ""
     efficiency_metric_types:
@@ -5028,12 +5028,12 @@ HeatingSystem:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "DX Heating Coils, DX Heating Coils [ HSPF2 ], Heating Coils"
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "parial support for heat pumps and furnaces "
     heatpump_auxilliary_heat_type:
       Description: "Heatpump auxilliary heat type used for backup"
       Data Type: "<HeatpumpAuxilliaryHeatOptions>"
@@ -5050,7 +5050,7 @@ HeatingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "May be able to find supplementary coil by looking at branch for second heating coil"
     heatpump_auxilliary_heat_high_shutoff_temperature:
       Description: "Heatpump auxilliary heat high temperature shutoff"
       Data Type: "Numeric"
@@ -5079,8 +5079,8 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Coil:Heating:DX:*"
+      EPin Field: "Minimum Outdoor Dry-Bulb Temperature for Compressor Operation"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -5103,7 +5103,7 @@ HeatingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Look for Humidifier:Steam:Electric, Humidifier:steam:Gas on branch."
 
 HeatingSystemOptions:
   Object Type: "Enumeration"
@@ -5204,7 +5204,7 @@ CoolingSystem:
       EPout Table: "Coils"
       EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: "Only for CoilType=Coil:Cooling:DX:*"
+      EP Notes: "Only for CoilType=Coil:Cooling:*"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
