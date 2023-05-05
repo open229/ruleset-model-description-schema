@@ -824,7 +824,7 @@ SpaceStatusOptions2019ASHRAE901:
     EXISTING:
       Description: "Existing"
 
-AdditionalSurfaceAdjacentToOptions2019ASHRAE901:
+AdditionalSurfaceAdjacencyOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     UNENCLOSED:

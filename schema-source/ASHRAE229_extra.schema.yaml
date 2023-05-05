@@ -1077,7 +1077,7 @@ Surface:
       AppG B_RMDs Same: "unknown"
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
-      Data Type: "(<SurfaceAdjacentToOptions>,<AdditionalSurfaceAdjacentToOptionsRESNET>,<AdditionalSurfaceAdjacentToOptions2019ASHRAE901>)"
+      Data Type: "(<SurfaceAdjacencyOptions>,<AdditionalSurfaceAdjacencyOptionsRESNET>,<AdditionalSurfaceAdjacencyOptions2019ASHRAE901>)"
       Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used. Commonly, plenums do not need to be explicitly described for many rulesets and instead when a plenum is present in the simulation model, this field should be set to the what is adjacent to the other side of the plenum. For example, on the top floor with a plenum, EXTERIOR would be entered."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -1436,7 +1436,7 @@ SurfaceClassificationOptions:
     CEILING:
       Description: "Ceiling"
 
-SurfaceAdjacentToOptions:
+SurfaceAdjacencyOptions:
   Object Type: "Enumeration"
   Enumerators:
     EXTERIOR:
