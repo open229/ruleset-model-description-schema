@@ -5018,20 +5018,32 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    fan_electric_input_power:
-      Description: "Fan Electric Input Power"
+    fan_shaft_power:
+      Description: "Fan Shaft Power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "Power delivered to the fan’s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units."
       RMD Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    fan_nameplate_power:
-      Description: "Fan Nameplate Power"
+    fan_motor_efficiency:
+      Description: "Efficiency of the fan motor at rating conditions"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "From CBECC-Com."
       RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    fan_motor_nameplate_power:
+      Description: "Fan Motor Nameplate Power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "From CBECC-Com."
+      RMD Test: "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
