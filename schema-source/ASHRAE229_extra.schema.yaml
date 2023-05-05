@@ -2083,7 +2083,7 @@ Schedule:
       AppG B_RMDs Same: "unknown"
     hourly_values:
       Description: "Hourly Values of Schedule"
-      Data Type: "[Numeric][0..8760]"
+      Data Type: "[Numeric][0..8784]"
       Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
       RMD Test: True
       AppG Used By TCDs: True
