@@ -3391,6 +3391,24 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+    outdoor_airflow:
+      Description: "Outdoor airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    exhaust_airflow:
+      Description: "Exhaust airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
 
 FanSystemTemperatureControlOptions:
   Object Type: "Enumeration"
