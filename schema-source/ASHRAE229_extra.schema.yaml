@@ -3226,6 +3226,7 @@ FanSystem:
       Description: "Minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "If the minimum_outdoor_airflow is equal to the maximum_outdoor_airflow and equal to the total supply fan volume that indicates a constant volume dedicated outdoor air system. If only the  maximum_outdoor_airflow and equal to the total supply fan volume but the minimum_outdoor_airflow is lower that indicates an air side economizer."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3235,6 +3236,7 @@ FanSystem:
       Description: "Maximum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "If the minimum_outdoor_airflow is equal to the maximum_outdoor_airflow and equal to the total supply fan volume that indicates a constant volume dedicated outdoor air system. If only the  maximum_outdoor_airflow and equal to the total supply fan volume but the minimum_outdoor_airflow is lower that indicates an air side economizer."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
