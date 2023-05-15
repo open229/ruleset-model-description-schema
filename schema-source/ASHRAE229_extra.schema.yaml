@@ -1154,6 +1154,14 @@ Construction:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
+    classification:
+      Description: "Classification for the subsurface being window, skylight, door."
+      Data Type: "(<ConstructionClassificationOptions2019ASHRAE901>, <ConstructionClassificationOptions2019T24>)"
+      RMD Test: False
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
@@ -1193,8 +1201,8 @@ Construction:
     insulation_locations:
       Description: "List of locations for the insulation related to the surface that correspoond to the values in the r_values list"
       Data Type: "[<InsulationLocationOptions>]"
-      RMD Test: False
-      AppG Used By TCDs: False
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
