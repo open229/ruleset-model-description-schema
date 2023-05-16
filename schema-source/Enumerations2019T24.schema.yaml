@@ -48,6 +48,35 @@ GeneralStatusOptions2019T24:
     EXISTING_PLUS_NEW:
       Description: "Existing plus new"
 
+ConstructionClassificationOptions2019T24:
+  Object Type: "Enumeration"
+  Enumerators:
+    METAL_BUILDING: 
+      Description: "Metal building"
+    WOOD_FRAMED:
+      Description: "Wood-framed"
+    MASS_LIGHT:
+      Description: "Mass, light"
+      Notes: "Light mass walls are walls with a heat capacity of at least 7.0 Btu/ft^2^-^o^F and less than 15.0 Btu/ft^2^-^o^F"
+    MASS_HEAVY:
+      Description: "Mass, heavy"
+      Notes: "Heavy mass walls are walls with a heat capacity of at least 15.0 Btu/ft^2^-^o^F"
+    RAISED_MASS:
+      Description: "Raised mass"
+      Notes: "Heavy mass walls are walls with a heat capacity of at least 15.0 Btu/ft^2^-^o^F"
+    INSULATION_ENTIRELY_ABOVE_DECK:
+      Description: "Insulation entirely above deck"
+    ATTIC:
+      Description: "Attic"
+    BELOW_GRADE_WALL:
+      Description: "Below-grade wall"
+    STEEL_JOIST:
+      Description: "Steel joist"
+    SLAB_ON_GRADE:
+      Description: "Slab-on-grade"
+    OTHER:
+      Description: "Other"
+
 ServiceWaterHeatingDistributionCompactnessOptions2019T24Com:
   Object Type: "Enumeration"
   Enumerators:

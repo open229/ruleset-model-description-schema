@@ -20,7 +20,7 @@
                 "The index adjustment design reference model"
             ]
         },
-        "AdditionalSurfaceAdjacentToOptionsRESNET": {
+        "AdditionalSurfaceAdjacencyOptionsRESNET": {
             "type": "string",
             "enum": [
                 "MULTIFAMILY_BUFFER_SPACE",

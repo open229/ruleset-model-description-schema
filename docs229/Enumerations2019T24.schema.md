@@ -23,6 +23,21 @@
 | `EXISTING`          | Existing          |       |
 | `EXISTING_PLUS_NEW` | Existing plus new |       |
 
+# ConstructionClassificationOptions2019T24
+|            Enumerator            |          Description           |                                                      Notes                                                       |
+|----------------------------------|--------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `METAL_BUILDING`                 | Metal building                 |                                                                                                                  |
+| `WOOD_FRAMED`                    | Wood-framed                    |                                                                                                                  |
+| `MASS_LIGHT`                     | Mass, light                    | Light mass walls are walls with a heat capacity of at least 7.0 Btu/ft^2^-^o^F and less than 15.0 Btu/ft^2^-^o^F |
+| `MASS_HEAVY`                     | Mass, heavy                    | Heavy mass walls are walls with a heat capacity of at least 15.0 Btu/ft^2^-^o^F                                  |
+| `RAISED_MASS`                    | Raised mass                    | Heavy mass walls are walls with a heat capacity of at least 15.0 Btu/ft^2^-^o^F                                  |
+| `INSULATION_ENTIRELY_ABOVE_DECK` | Insulation entirely above deck |                                                                                                                  |
+| `ATTIC`                          | Attic                          |                                                                                                                  |
+| `BELOW_GRADE_WALL`               | Below-grade wall               |                                                                                                                  |
+| `STEEL_JOIST`                    | Steel joist                    |                                                                                                                  |
+| `SLAB_ON_GRADE`                  | Slab-on-grade                  |                                                                                                                  |
+| `OTHER`                          | Other                          |                                                                                                                  |
+
 # ServiceWaterHeatingDistributionCompactnessOptions2019T24Com
 |    Enumerator     |   Description   | Notes |
 |-------------------|-----------------|-------|

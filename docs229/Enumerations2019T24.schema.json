@@ -50,6 +50,48 @@
                 "Existing plus new"
             ]
         },
+        "ConstructionClassificationOptions2019T24": {
+            "type": "string",
+            "enum": [
+                "METAL_BUILDING",
+                "WOOD_FRAMED",
+                "MASS_LIGHT",
+                "MASS_HEAVY",
+                "RAISED_MASS",
+                "INSULATION_ENTIRELY_ABOVE_DECK",
+                "ATTIC",
+                "BELOW_GRADE_WALL",
+                "STEEL_JOIST",
+                "SLAB_ON_GRADE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Metal building",
+                "Wood-framed",
+                "Mass, light",
+                "Mass, heavy",
+                "Raised mass",
+                "Insulation entirely above deck",
+                "Attic",
+                "Below-grade wall",
+                "Steel joist",
+                "Slab-on-grade",
+                "Other"
+            ],
+            "notes": [
+                null,
+                null,
+                "Light mass walls are walls with a heat capacity of at least 7.0 Btu/ft^2^-^o^F and less than 15.0 Btu/ft^2^-^o^F",
+                "Heavy mass walls are walls with a heat capacity of at least 15.0 Btu/ft^2^-^o^F",
+                "Heavy mass walls are walls with a heat capacity of at least 15.0 Btu/ft^2^-^o^F",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
         "ServiceWaterHeatingDistributionCompactnessOptions2019T24Com": {
             "type": "string",
             "enum": [
