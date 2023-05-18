@@ -1571,13 +1571,13 @@ Space:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       EPin Object: "People"
-      EPin Field: ""
+      EPin Field: "Sensible Heat Fraction"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "One minus the sensible. Often calculated internally."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "(<SpaceStatusOptions2019ASHRAE901>,<GeneralStatusOptions2019T24>)"
@@ -2194,8 +2194,8 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
-      EP Notes: ""
+      EPstatus: "NotStarted"
+      EP Notes: "Might be partially derivable but difficult. Probably compliance parameter."
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
@@ -3960,7 +3960,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     hourly_cooling_design_day:
       Description: "Hourly values for cooling design day"
@@ -4034,7 +4034,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     event_values_heating_design_day:
       Description: "Event value at corresponding event time for heating design day"
@@ -4052,7 +4052,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     event_times_cooling_design_day:
       Description: "Event times when the schedule changes for cooling design day"
@@ -4071,7 +4071,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     event_values_cooling_design_day:
       Description: "Event value at corresponding event time for cooling design day"
@@ -4089,7 +4089,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "The type of schedule"
@@ -9371,14 +9371,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
-      EPin Field: "Design Fan Power"
+      EPin Object: ""
+      EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     fan_motor_efficiency:
       Description: "Efficiency of the fan motor at rating conditions"
       Data Type: "Numeric"
@@ -9396,7 +9396,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
     fan_motor_nameplate_power:
       Description: "Fan Motor Nameplate Power"
       Data Type: "Numeric"
