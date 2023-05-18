@@ -420,13 +420,27 @@
 | `NEW`      | New         |       |
 | `EXISTING` | Existing    |       |
 
-# AdditionalSurfaceAdjacentToOptions2019ASHRAE901
+# AdditionalSurfaceAdjacencyOptions2019ASHRAE901
 |   Enumerator    |                                                                   Description                                                                   | Notes |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------|
 | `UNENCLOSED`    | The space on the other side of the surface is assumed to be unenclosed. The space on the other side of the surface is not explicity modeled.    |       |
 | `UNCONDITIONED` | The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled. |       |
 | `UNHEATED`      | Surface adjacent to a environment that is not heated but enclosed. The space on the other side of the surface is not explicity modeled.         |       |
 | `SEMIHEATED`    | Surface adjacent to a environment that is semi-heated. The space on the other side of the surface is not explicity modeled.                     |       |
+
+# ConstructionClassificationOptions2019ASHRAE901
+|            Enumerator            |          Description           | Notes |
+|----------------------------------|--------------------------------|-------|
+| `METAL_BUILDING`                 | Metal building                 |       |
+| `WOOD_FRAMED`                    | Wood-framed                    |       |
+| `STEEL_FRAMED`                   | Steel-framed                   |       |
+| `MASS`                           | Mass                           |       |
+| `INSULATION_ENTIRELY_ABOVE_DECK` | Insulation entirely above deck |       |
+| `ATTIC`                          | Attic                          |       |
+| `BELOW_GRADE_WALL`               | Below-grade wall               |       |
+| `STEEL_JOIST`                    | Steel joist                    |       |
+| `SLAB_ON_GRADE`                  | Slab-on-grade                  |       |
+| `OTHER`                          | Other                          |       |
 
 # SubsurfaceSubclassificationOptions2019ASHRAE901
 |       Enumerator        |                                                                                        Description                                                                                        | Notes |

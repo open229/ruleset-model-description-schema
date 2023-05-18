@@ -24,7 +24,7 @@ RulesetModelOptionsRESNET:
     INDEX_ADJUSTMENT_DESIGN_REFERENCE:
       Description: "The index adjustment design reference model"
 
-AdditionalSurfaceAdjacentToOptionsRESNET:
+AdditionalSurfaceAdjacencyOptionsRESNET:
   Object Type: "Enumeration"
   Enumerators:
     MULTIFAMILY_BUFFER_SPACE:
