@@ -5027,10 +5027,10 @@ HeatingSystem:
       Used by RCT Test: True
       EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "Coil Type"
       EPstatus: "NotStarted"
       EP Notes: "based on the type of coil"
     hot_water_loop:
@@ -5209,14 +5209,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirLoopHVAC:UnitarySystem"
+      EPin Field: "Supplemental Heating Coil Object Type"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "May be able to find supplementary coil by looking at branch for second heating coil"
+      EP Notes: "May be able to find supplementary coil by looking at branch for second heating coil. Add column to Heating Coils table in Equipment Summary."
     heatpump_auxilliary_heat_high_shutoff_temperature:
       Description: "Heatpump auxilliary heat high temperature shutoff"
       Data Type: "Numeric"
@@ -5227,14 +5227,14 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirLoopHVAC:UnitarySystem"
+      EPin Field: "Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add column to Heating Coils table in Equipment Summary."
     heatpump_low_shutoff_temperature:
       Description: "Heatpump low temperature shutoff"
       Data Type: "Numeric"
@@ -5725,12 +5725,12 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirloopHVAC"
+      EPin Field: "name"
       EPout File: ""
       EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout Table: "Coil Sizing Details"
+      EPout Column: "HVAC Name"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -5780,11 +5780,11 @@ FanSystem:
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
-      EPout Report: ""
+      EPout Report: "Coil details"
       EPout Table: ""
-      EPout Column: ""
+      EPout Column: "Supply Fan Type for Coil"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Look at code to figure out how it is classified as a supply fan"
     return_fans:
       Description: "List of return fans"
       Data Type: "[{Fan}]"
@@ -5802,7 +5802,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "add equipment summary report, fans table, add airloop and branch names, maybe easier in topology report. dispvent1zoneoffice.idf is an example. Maybe look at the code in coil details to see how supply fans are classified."
     exhaust_fans:
       Description: "List of exhaust fans"
       Data Type: "[{Fan}]"
@@ -5820,7 +5820,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "in zone equipment, could be a problem if more than one airloop serving zone, termreheatzoneexh.idf is example. shows up in fans table in equpment summary"
     relief_fans:
       Description: "List of relief fans"
       Data Type: "[{Fan}]"
@@ -5831,14 +5831,14 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "outdoor air system equipment list"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "5zoneaircooled-convectioncoeff example has relief fan. no outdoor air equipment reporting currently. easy to figure out if it's outlet is outdoors but more complex if through HX."
     air_economizer:
       Description: "Air side economizer related to the fan system"
       Data Type: "{AirEconomizer}"
@@ -5851,11 +5851,11 @@ FanSystem:
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPout Report: "system summary"
+      EPout Table: "economizer"
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Controller:outsideair. either add connections here or add to topology report. should be coupled with airloop name"
     air_energy_recovery:
       Description: "Air side energy recovery related to the fan system"
       Data Type: "{AirEnergyRecovery}"
@@ -5872,7 +5872,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "outdoor air equipment. ashrae large hotel has examples of this. Listed in componennt sizing summary. Need to differentiate if HX is used for outdoor air."
     temperature_control:
       Description: "Supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlOptions>"
@@ -5882,14 +5882,14 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "set point managers"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "setpoint managers are not reported on. need to find node name to find what airloop it is on. maybe brand new report."
     operation_during_occupied:
       Description: "Operation during occupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -5906,7 +5906,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "for unitary see supply fan operating mode schedule. for central no cycling except night-cycle avail manager"
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -5923,7 +5923,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "for unitary see supply fan operating mode schedule. for central no cycling except night-cycle avail manager. look at other availability managers. may need to check schedule to see when it is actually doing night cycling. maybe look at max and min on a schedule."
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
       Data Type: "Boolean"
@@ -5941,7 +5941,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "availability manager or schedule on heating coil, use other field related to unoccupied, "
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlOptions>"
@@ -5958,7 +5958,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "variable speed, multispeed, constant is knowable but type of variable speed can't be figured out"
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
@@ -5977,7 +5977,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "setpoint manager warmest - difference betewen max and min temperature"
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
@@ -5995,7 +5995,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "maybe related to setpoint manager warmest temperature flow turndown ratio"
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
       Data Type: "Reference"
@@ -6013,7 +6013,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "setpoint manager scheduled"
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
       Data Type: "<FanSystemSupplyFanVolumeResetOptions>"
@@ -6030,7 +6030,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "not sure"
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
@@ -6048,7 +6048,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "not sure"
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "Reference"
@@ -6066,7 +6066,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "schedule in availability manager scheduled and nightcycle"
     minimum_airflow:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
@@ -6085,7 +6085,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "stnd 62 summary, System Ventilation Calculations for Cooling Design, Sum of Min Zone Primary Airflow - Vpz-min"
     minimum_outdoor_airflow:
       Description: "Minimum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -6100,11 +6100,11 @@ FanSystem:
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "Controller:OutdoorAir"
+      EPout Column: "Minimum Outdoor Air Flow Rate "
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "this doesn't report correctly when DCV using Controller:MechanicalVentilation. maybe look at the 62.1 summary instead "
     maximum_outdoor_airflow:
       Description: "Maximum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -6119,11 +6119,11 @@ FanSystem:
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "Controller:OutdoorAir"
+      EPout Column: "Maximum Outdoor Air Flow Rate "
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "this doesn't report correctly when DCV using Controller:MechanicalVentilation. maybe look at the 62.1 summary instead "
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
       Data Type: "Numeric"
@@ -6141,7 +6141,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "compliance parameter"
     has_fully_ducted_return:
       Description: "If the fan system has fully ducted return."
       Data Type: "Boolean"
