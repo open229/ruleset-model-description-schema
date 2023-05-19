@@ -6683,7 +6683,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "if field is set to Autosize"
+      EP Notes: "if field is set to Autosize. Added to Equipment Summary - Fans table."
     specification_method:
       Description: "Options for how the fan is specified"
       Data Type: "<FanSpecificationMethodOptions>"
@@ -6700,7 +6700,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Provide constant"
     design_electric_power:
       Description: "Design electric fan power"
       Data Type: "Numeric"
@@ -6814,7 +6814,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Fans table."
     motor_heat_to_airflow_fraction:
       Description: "Fraction of motor heat added to the airflow."
       Data Type: "Numeric"
@@ -6852,7 +6852,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "this is only part of the loss, the rest is convective and together they are based on the motor efficiency"
+      EP Notes: "this is only part of the loss, the rest is convective and together they are based on the motor efficiency. To be added to Equipment Summary - Fans"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
@@ -6870,7 +6870,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "To be added to Equipment Summary - Fans"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusOptions2019T24>"
@@ -8023,7 +8023,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Can find the branch based on node names"
+      EP Notes: "Can find the branch based on node names. Part of topology report."
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
