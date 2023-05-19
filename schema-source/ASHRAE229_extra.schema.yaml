@@ -5050,7 +5050,7 @@ HeatingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "find loop based on nodes"
+      EP Notes: "find loop based on nodes, should be covered by new topology report"
     water_source_heat_pump_loop:
       Description: "Referenced to the water fluid loop to support water source heat pumps"
       Data Type: "Reference"
@@ -5068,7 +5068,7 @@ HeatingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "find loop based on nodes"
+      EP Notes: "find loop based on nodes, should be covered by new topology report"
     design_capacity:
       Description: "Design heating capacity"
       Data Type: "Numeric"
@@ -5252,7 +5252,7 @@ HeatingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add column to DX Heating Coils table in Equipment Summary."
     humidification_type:
       Description: "Humidification type"
       Data Type: "<HumidificationOptions>"
@@ -5269,7 +5269,7 @@ HeatingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Look for Humidifier:Steam:Electric, Humidifier:steam:Gas on branch."
+      EP Notes: "Look for Humidifier:Steam:Electric, Humidifier:steam:Gas on branch. Should be covered by topology report."
 
 HeatingSystemOptions:
   Object Type: "Enumeration"
@@ -5555,7 +5555,7 @@ CoolingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "should be covered by new topology report"
     condenser_water_loop:
       Description: "Referenced to the Condenser water fluid loop"
       Data Type: "Reference"
@@ -5573,7 +5573,7 @@ CoolingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "should be covered by new topology report"
     efficiency_metric_values:
       Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
       Data Type: "[Numeric]"
@@ -5627,7 +5627,7 @@ CoolingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Based on the EnergyPlus input object, usually Mechanical cooling."
+      EP Notes: "Based on the EnergyPlus input object, usually Mechanical cooling. Should be covered by new topology report"
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
       Data Type: "Numeric"
@@ -5645,7 +5645,7 @@ CoolingSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
 
 CoolingSystemOptions:
   Object Type: "Enumeration"
@@ -5906,7 +5906,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager."
+      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager. Add to Equipment Summary Fans"
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -5923,7 +5923,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager."
+      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager.  Add to Equipment Summary Fans"
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
       Data Type: "Boolean"
@@ -5954,9 +5954,9 @@ FanSystem:
       EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: ""
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout Report: "Equipment Summary"
+      EPout Table: "Fans"
+      EPout Column: "Type"
       EPstatus: "NotStarted"
       EP Notes: "Examine type of Fan:* object used but within variable speed can't determine if variable speed drive, inlet vane or discharge damper since those are based on the shape of the curve.""
     reset_differential_temperature:
@@ -5977,7 +5977,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Use difference between max and min temperature"
+      EP Notes: "Use difference between max and min temperature. Added to new setpoint manager report."
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
@@ -5995,7 +5995,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Not sure if mapping is complete"
+      EP Notes: "Not sure if mapping is complete. Added to new setpoint manager report."
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
       Data Type: "Reference"
@@ -6013,7 +6013,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Added to new setpoint manager report."
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
       Data Type: "<FanSystemSupplyFanVolumeResetOptions>"
@@ -6030,7 +6030,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "not sure"
+      EP Notes: "Ask MJW"
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
@@ -6048,7 +6048,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "not sure"
+      EP Notes: "Ask MJW"
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "Reference"
@@ -6066,7 +6066,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Added to new Controls report"
     minimum_airflow:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
@@ -6175,7 +6175,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Ask MJW"
 
 AirEconomizer:
   Object Type: "Data Group"
