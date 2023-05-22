@@ -6928,7 +6928,7 @@ FanOutputValidationPoint:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Need to go to the curve and pick points"
+      EP Notes: "Need to go to the curve and pick points. Do we need an input to specify these?"
     result:
       Description: "Result"
       Data Type: "Numeric"
@@ -8078,7 +8078,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Compliance parameter"
+      EP Notes: "Not used since using SIMPLE. Compliance parameter."
     design_head:
       Description: "Head of the pump at design flow conditions"
       Data Type: "Numeric"
@@ -8092,10 +8092,10 @@ Pump:
       Used by RCT Test: False
       EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
       EPin Field: "Design Pump Head"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "Head"
       EPstatus: "NotStarted"
       EP Notes: ""
     impeller_efficiency:
@@ -8116,7 +8116,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Compliance parameter"
+      EP Notes: "Not used since using SIMPLE. Compliance parameter."
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
       Data Type: "Numeric"
@@ -8188,7 +8188,7 @@ Pump:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Set to Autosize"
+      EP Notes: "if field is set to Autosize. Added to Equipment Summary - Pumps table"
 
 PumpSpeedControlOptions:
   Object Type: "Enumeration"
@@ -8335,7 +8335,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant report"
     draft_type:
       Description: "Combustion option"
       Data Type: "<BoilerCombustionOptions>"
@@ -8369,7 +8369,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "For a single boiler could look at ABUPS End Use by Subcategory"
+      EP Notes: "Add to Equipment Summary - Central Plant report. For a single boiler could look at ABUPS End Use by Subcategory. "
     efficiency_metric:
       Description: "The type of efficiency metric used"
       Data Type: "<BoilerEfficiencyMetricOptions>"
@@ -8402,7 +8402,7 @@ Boiler:
       EPout File: "table.html"
       EPout Report: "Equipment Summary"
       EPout Table: "Central Plant"
-      EPout Column: "Reference Efficiency "
+      EPout Column: "Reference Efficiency, Rated Efficiency "
       EPstatus: "NotStarted"
       EP Notes: ""
     output_validation_points:
@@ -8422,7 +8422,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Need to go to the curve and pick points"
     auxiliary_power:
       Description: "Auxiliary power"
       Data Type: "Numeric"
@@ -8441,7 +8441,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant report"
     operation_lower_limit:
       Description: "Heating load range operation, lower limit"
       Data Type: "Numeric"
@@ -8459,7 +8459,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add new report and table covering PlantEquipmentOperation:HeatingLoad"
     operation_upper_limit:
       Description: "Heating load range operation, upper limit"
       Data Type: "Numeric"
@@ -8477,7 +8477,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add new report and table covering PlantEquipmentOperation:HeatingLoad"
 
 BoilerCombustionOptions:
   Object Type: "Enumeration"
@@ -8738,7 +8738,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "This would be a constant depending on the rating"
+      EP Notes: "This would be a constant depending on the rating. Add to Equipment Summary - Central Plant."
     rated_leaving_evaporator_temperature:
       Description: "Rated leaving evaporator temperature"
       Data Type: "Numeric"
@@ -8757,7 +8757,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "This would be a constant depending on the rating"
+      EP Notes: "This would be a constant depending on the rating.  Add to Equipment Summary - Central Plant."
     minimum_load_ratio:
       Description: "Minimum fraction of full load allowed"
       Data Type: "Numeric"
@@ -8774,7 +8774,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     design_flow_evaporator:
       Description: "Chiller evaporator design flow"
       Data Type: "Numeric"
@@ -8792,7 +8792,7 @@ Chiller:
       EPout Table: "Component Sizing Information"
       EPout Column: "Design Size Reference Chilled Water Flow Rate"
       EPstatus: "NotStarted"
-      EP Notes: "This is a specific row label not a column name"
+      EP Notes: "This is a specific row label not a column name. Add to Equipment Summary - Central Plant"
     design_flow_condenser:
       Description: "Chiller condenser design flow"
       Data Type: "Numeric"
@@ -8810,7 +8810,7 @@ Chiller:
       EPout Table: "Component Sizing Information"
       EPout Column: "Design Size Reference Condenser Fluid Flow Rate"
       EPstatus: "NotStarted"
-      EP Notes: "This is a specific row label not a column name"
+      EP Notes: "This is a specific row label not a column name. Add to Equipment Summary - Central Plant"
     design_entering_condenser_temperature:
       Description: "Design entering condenser temperature"
       Data Type: "Numeric"
@@ -8829,7 +8829,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     design_leaving_evaporator_temperature:
       Description: "Design leaving evaporator temperature"
       Data Type: "Numeric"
@@ -8847,7 +8847,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     full_load_efficiency:
       Description: "Full Load Efficiency expressed as a coefficient of performance (COP)"
       Data Type: "Numeric"
@@ -8952,7 +8952,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
@@ -8969,7 +8969,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
       Data Type: "Reference"
@@ -8987,7 +8987,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add loop information to Equipment Summary - Central Plant and in topology report"
     heat_recovery_fraction:
       Description: "Heat recovery fraction"
       Data Type: "Numeric"
@@ -9006,7 +9006,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
 
 ChillerPartLoadEfficiencyMetricOptions:
   Object Type: "Enumeration"
@@ -9272,7 +9272,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Can find the branch based on node names"
+      EP Notes: "Can find the branch based on node names. Add to Equipment Summary - Central Plant and topology report"
     type:
       Description: "Heat Rejection Type"
       Data Type: "<HeatRejectionOptions>"
@@ -9323,7 +9323,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     range:
       Description: "Heat rejection Range"
       Data Type: "Numeric"
@@ -9341,7 +9341,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     approach:
       Description: "Heat rejection Approach"
       Data Type: "Numeric"
@@ -9359,7 +9359,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     fan_shaft_power:
       Description: "Fan Shaft Power"
       Data Type: "Numeric"
@@ -9407,14 +9407,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
+      EPin Field: "Design Fan Power"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
@@ -9426,10 +9426,10 @@ HeatRejection:
       Used by RCT Test: False
       EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Central Plant"
+      EPout Column: "type"
       EPstatus: "NotStarted"
       EP Notes: "Based on input object type"
     design_wetbulb_temperature:
@@ -9450,7 +9450,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     design_water_flowrate:
       Description: "Design condenser water flow rate"
       Data Type: "Numeric"
@@ -9468,7 +9468,7 @@ HeatRejection:
       EPout Table: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
       EPout Column: "Design Water Flow Rate"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to Equipment Summary - Central Plant"
     rated_water_flowrate:
       Description: "Rated condenser water flow rate"
       Data Type: "Numeric"
@@ -9505,7 +9505,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Need to find node that is controlled and look for SetpointManager"
+      EP Notes: "Need to find node that is controlled and look for SetpointManager. Add to Equipment Summary - Central Plant."
 
 HeatRejectionOptions:
   Object Type: "Enumeration"
