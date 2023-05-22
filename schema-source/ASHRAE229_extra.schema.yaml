@@ -7472,7 +7472,7 @@ FluidLoop:
       EPout Table: "PlantLoop, CondenserLoop"
       EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to new Equipment Summary - PlantLoop or CondenserLoop report"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -7523,7 +7523,7 @@ FluidLoop:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "can determine Condenser by type of input object but heating vs cooling would need to examine pieces on loop"
+      EP Notes: "can determine Condenser by type of input object but heating vs cooling would need to examine pieces on loop. Add to new Equipment Summary - PlantLoop or CondenserLoop report"
     pump_power_per_flow_rate:
       Description: "Total design pump power divided by the loop design flow rate"
       Data Type: "Numeric"
@@ -7535,14 +7535,14 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantLoop"
+      EPin Field: "Maximum Loop Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "pump power from looking at all pumps on loop, the flow rate from Maximum Loop Flow Rate. Add to new Equipment Summary - PlantLoop or CondenserLoop "
     child_loops:
       Description: "Other fluid loops connected to this one as children."
       Data Type: "[{FluidLoop}]"
@@ -7560,7 +7560,7 @@ FluidLoop:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "from topology report"
     cooling_or_condensing_design_and_control:
       Description: ""
       Data Type: "{FluidLoopDesignAndControl}"
@@ -7577,7 +7577,7 @@ FluidLoop:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "base name on the name of the PlantLoop or CondenserLoop plus -cooling or -condensing"
     heating_design_and_control:
       Description: ""
       Data Type: "{FluidLoopDesignAndControl}"
@@ -7594,7 +7594,7 @@ FluidLoop:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "base name on the name of the PlantLoop or CondenserLoop plus -heating"
 
 FluidLoopDesignAndControl:
   Object Type: "Data Group"
@@ -7609,14 +7609,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "PlantLoop, CondenserLoop"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "PlantLoop, CondenserLoop"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to new Equipment Summary - PlantLoop or CondenserLoop report and use -cooling, -heating, -condensing"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -7668,7 +7668,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     design_return_temperature:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
@@ -7686,7 +7686,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
@@ -7703,7 +7703,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
@@ -7713,14 +7713,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantLoop, CondenserLoop"
+      EPin Field: "Maximum Loop Flow Rate, Minimum Loop Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "divide the minimum by maximum. add to Equipment Summary - PlantLoop or CondenserLoop table"
     operation:
       Description: "Type of operation used by loop"
       Data Type: "<FluidLoopOperationOptions>"
@@ -7737,7 +7737,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     operation_schedule:
       Description: "Operation schedule"
       Data Type: "Reference"
@@ -7755,7 +7755,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW but I think it is AvailabilityManager:Scheduled or else the pump availability schedule"
     flow_control:
       Description: "Flow control options"
       Data Type: "<FluidLoopFlowControlOptions>"
@@ -7765,14 +7765,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantLoop, CondenserLoop"
+      EPin Field: "Maximum Loop Flow Rate, Minimum Loop Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "If maximum=minimum then FIXED_FLOW otherwise VARIABLE_FLOW"
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
       Data Type: "<TemperatureResetOptions>"
@@ -7782,14 +7782,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "PlantLoop, SetpointManager:Scheduled, SetpointManager:OutdoorAirReset, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater"
+      EPin Field: "Loop Temperature Setpoint Node Name, "
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW. Look at SetpointManager using the specified node."
     outdoor_high_for_loop_supply_reset_temperature:
       Description: "Outdoor high for loop supply temp reset"
       Data Type: "Numeric"
@@ -7801,14 +7801,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SetpointManager:OutdoorAirReset"
+      EPin Field: "Outdoor High Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to new table of Controls - Setpoint Managers"
     outdoor_low_for_loop_supply_reset_temperature:
       Description: "Outdoor low for loop supply temp reset"
       Data Type: "Numeric"
@@ -7820,14 +7820,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SetpointManager:OutdoorAirReset"
+      EPin Field: "Outdoor Low Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to new table of Controls - Setpoint Managers"
     loop_supply_temperature_at_outdoor_high:
       Description: "Loop supply temperature at outdoor high temperature"
       Data Type: "Numeric"
@@ -7839,14 +7839,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SetpointManager:OutdoorAirReset"
+      EPin Field: "Setpoint at Outdoor High Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to new table of Controls - Setpoint Managers"
     loop_supply_temperature_at_outdoor_low:
       Description: "Loop supply temperature at outdoor low temperature"
       Data Type: "Numeric"
@@ -7858,14 +7858,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SetpointManager:OutdoorAirReset"
+      EPin Field: "Setpoint at Outdoor Low Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Add to new table of Controls - Setpoint Managers"
     loop_supply_temperature_at_low_load:
       Description: "Loop supply temperature at low load"
       Data Type: "Numeric"
@@ -7877,14 +7877,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     has_integrated_waterside_economizer:
       Description: "True if chilled water loop described has an integrated waterside economizer"
       Data Type: "Boolean"
@@ -7901,7 +7901,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW"
     
 
 FluidLoopFlowControlOptions:
