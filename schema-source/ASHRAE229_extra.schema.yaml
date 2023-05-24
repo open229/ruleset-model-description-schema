@@ -6971,8 +6971,8 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:*, ZoneHVAC:Baseboard:*, ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
+      EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
@@ -7023,14 +7023,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "AirTerminal:*, ZoneHVAC:Baseboard:*, ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Based on the type of input object"
     served_by_heating_ventilating_air_conditioning_system:
       Description: "HVAC system serving the terminal"
       Data Type: "Reference"
@@ -7041,14 +7041,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "AirTerminal:*, ZoneHVAC:Baseboard:*, ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Follow the nodes to identify the central air handling system. Part of topology report."
     heating_source:
       Description: "Source of heating"
       Data Type: "<HeatingSourceOptions>"
@@ -7059,14 +7059,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat, ..."
+      EPin Field: "Reheat Coil Object Type"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals, Heat/Reheat Coil Object Type"
     heating_from_loop:
       Description: "References the fluid loop used to provide heating"
       Data Type: "Reference"
@@ -7077,14 +7077,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat, ..."
+      EPin Field: "Reheat Coil Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "From coil use nodes to identify loop. New report Equipment Summary - AirTerminals, Hot Water Plant Loop Name"
     cooling_source:
       Description: "Source of cooling"
       Data Type: "<CoolingSourceOptions>"
@@ -7095,14 +7095,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, AirTerminal:SingleDuct:ConstantVolume:CooledBeam"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "If present then CHILLED_WATER. New report Equipment Summary - AirTerminals, Chilled Water Coil Object Type"
     cooling_from_loop:
       Description: "Referenced the fluid loop used to provide cooling"
       Data Type: "Reference"
@@ -7113,14 +7113,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, AirTerminal:SingleDuct:ConstantVolume:CooledBeam"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "From coil use nodes to identify loop. New report Equipment Summary - AirTerminals, Chilled Water Plant Loop Name"
     fan:
       Description: "Terminal fan"
       Data Type: "{Fan}"
@@ -7130,14 +7130,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
+      EPin Field: "Fan Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals, Fan Name"
     fan_configuration:
       Description: "Fan configuration"
       Data Type: "<TerminalFanConfigurationOptions>"
@@ -7147,14 +7147,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Based on type of object. New report Equipment Summary - AirTerminals, type of input object"
     primary_airflow:
       Description: "Zone terminal primary airflow"
       Data Type: "Numeric"
@@ -7165,14 +7165,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:*, ZoneHVAC:Baseboard:*, ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
+      EPin Field: "Maximum Air Flow Rate, Primary Air Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals, Primary Air Flow Rate"
     secondary_airflow:
       Description: "Zone terminal secondary_airflow"
       Data Type: "Numeric"
@@ -7183,14 +7183,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:ParallelPIU:Reheat"
+      EPin Field: "Maximum Secondary Air Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals, Secondary Air Flow Rate"
     max_heating_airflow:
       Description: "Zone terminal maximum heating airflow"
       Data Type: "Numeric"
@@ -7202,14 +7202,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat"
+      EPin Field: "Maximum Flow per Zone Floor Area During Reheat, Maximum Flow Fraction During Reheat"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals, Maximum Flow During Reheat"
     supply_design_heating_setpoint_temperature:
       Description: "Zone terminal supply design heating temperature setpoint"
       Data Type: "Numeric"
@@ -7220,14 +7220,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:*:Reheat"
+      EPin Field: "Maximum Reheat Air Temperature"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Field names may vary by object. New report Equipment Summary - AirTerminals, Supply heating setpoint"
     supply_design_cooling_setpoint_temperature:
       Description: "Zone terminal supply design cooling temperature setpoint"
       Data Type: "Numeric"
@@ -7245,7 +7245,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW. New report Equipment Summary - AirTerminals, Supply cooling setpoint"
     temperature_control:
       Description: "Temperature control type"
       Data Type: "<TerminalTemperatureControlOptions>"
@@ -7262,7 +7262,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW. New report Equipment Summary - AirTerminals, Temperature control"
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
       Data Type: "Numeric"
@@ -7292,14 +7292,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
+      EPin Field: "variety of fields"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "From input would need to calculate. New report Equipment Summary - AirTerminals, Minimum Flow"
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "Reference"
@@ -7310,14 +7310,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
+      EPin Field: "Minimum Air FLow Fraction Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals, Minimum Flow Schedule Name"
     heating_capacity:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
@@ -7329,14 +7329,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "ZoneHVAC:Baseboard:* AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat, ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
+      EPin Field: "variety"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW about baseboard capacity. For reheat, add to new Equipment Summary - AirTerminals, heating capacity. For fancoils look for the coil associated and find its capacity. Need topology report. For ZoneHVAC:LowTemperatureRadiant already in Component Sizing Summary"
     cooling_capacity:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
@@ -7348,14 +7348,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary, Coil Sizing Details "
+      EPout Table: "ZoneHVAC:LowTemperatureRadiant, Coils"
+      EPout Column: "Design Size Cooling Design Capacity,Coil Final Gross Total Capacity"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "For reheat, add to new Equipment Summary - AirTerminals, heating capacity. For fancoils look for the coil associated and find its capacity. Need topology report. For ZoneHVAC:LowTemperatureRadiant already in Component Sizing Summary"
     is_supply_ducted:
       Description: "True if the the supply is ducted."
       Data Type: "Boolean"
@@ -7373,7 +7373,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW. Probably compliance parameter"
     has_demand_control_ventilation:
       Description: "True if the zone has demand control ventilation"
       Data Type: "Boolean"
@@ -7384,12 +7384,12 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Controller:MechanicalVentilation"
+      EPin Field: "Demand Controlled Ventilation"
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout Report: "System Summary, Outdoor Air Details "
+      EPout Table: "Demand Controlled Ventilation using Controller:MechanicalVentilation, Outdoor Air Controller Limiting Factors by AirLoop"
+      EPout Column: "Controller:MechanicalVentilation Name, Demand Controlled Ventilation "
       EPstatus: "NotStarted"
       EP Notes: ""
     
