@@ -849,7 +849,7 @@ BuildingSegment:
       EP Notes: ""
     heating_ventilating_air_conditioning_systems:
       Description: "HVAC systems in the building segment"
-      Data Type: "[{HeatingVentilationAirConditioningSystem}]"
+      Data Type: "[{HeatingVentilatingAirConditioningSystem}]"
       Notes: "Contains a list of HVAC systems in the building."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -4821,7 +4821,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "create name based on combining fansystem, heatingsystem, coolingsystem names"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4866,12 +4866,12 @@ HeatingVentilatingAirConditioningSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "AirloopHVAC"
+      EPin Field: "name"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "HVAC Name"
       EPstatus: "NotStarted"
       EP Notes: ""
     heating_system:
@@ -4883,12 +4883,12 @@ HeatingVentilatingAirConditioningSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     cooling_system:
@@ -4900,14 +4900,14 @@ HeatingVentilatingAirConditioningSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Only for CoilType=Coil:Cooling:*"
     preheat_system:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
@@ -4917,14 +4917,14 @@ HeatingVentilatingAirConditioningSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "Coil Sizing Details"
+      EPout Table: "Coils"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Would need to analyze structure of topology to determine if this is preheat system."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<GeneralStatusOptions2019T24>"
@@ -4941,7 +4941,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "Compliance parameter"
 
 HeatingSystem:
   Object Type: "Data Group"
@@ -5958,7 +5958,7 @@ FanSystem:
       EPout Table: "Fans"
       EPout Column: "Type"
       EPstatus: "NotStarted"
-      EP Notes: "Examine type of Fan:* object used but within variable speed can't determine if variable speed drive, inlet vane or discharge damper since those are based on the shape of the curve.""
+      EP Notes: "Examine type of Fan:* object used but within variable speed can't determine if variable speed drive, inlet vane or discharge damper since those are based on the shape of the curve."
     reset_differential_temperature:
       Description: "Supply air temperature reset differential temperature at minimum cooling load"
       Data Type: "Numeric"
