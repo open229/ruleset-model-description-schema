@@ -5869,7 +5869,7 @@ FanSystem:
       EPin Field: "Component X Name, Name"
       EPout File: "table.html"
       EPout Report: "Component Sizing Summary"
-      EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent"
+      EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
       EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: "ASHRAE901_HotelLarge_STD2019_Denver.idf has examples of this. Need to differentiate if HX is used for outdoor air."
@@ -5941,7 +5941,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Examine AvailabilityManager or schedule on heating coil, use other field related to unoccupied, "
+      EP Notes: "Examine AvailabilityManager or schedule on heating coil, use other field related to unoccupied"
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlOptions>"
@@ -5953,7 +5953,7 @@ FanSystem:
       Used by RCT Test: True
       EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: ""
-      EPout File: ""
+      EPout File: "table.html"
       EPout Report: "Equipment Summary"
       EPout Table: "Fans"
       EPout Column: "Type"
@@ -6123,7 +6123,7 @@ FanSystem:
       EPout Table: "Controller:OutdoorAir"
       EPout Column: "Maximum Outdoor Air Flow Rate "
       EPstatus: "NotStarted"
-      EP Notes: "This doesn't report correctly when DCV using Controller:MechanicalVentilation. Maybe look at the 62.1 summary instead "
+      EP Notes: "ASK MJW. This doesn't report correctly when DCV using Controller:MechanicalVentilation. Maybe look at the 62.1 summary instead "
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
       Data Type: "Numeric"
@@ -6357,7 +6357,7 @@ AirEnergyRecovery:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Probably compliance parameter"
+      EP Notes: "Compliance parameter"
     energy_recovery_operation:
       Description: "Energy recovery operation"
       Data Type: "<EnergyRecoveryOperationOptions>"
@@ -6408,7 +6408,7 @@ AirEnergyRecovery:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
+      EP Notes: "ASK MJW. Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
     design_latent_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
@@ -6425,7 +6425,7 @@ AirEnergyRecovery:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
+      EP Notes: "ASK MJW. Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
     outdoor_airflow:
       Description: "Outdoor airflow"
       Data Type: "Numeric"
@@ -6978,7 +6978,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "New report Equipment Summary - AirTerminals"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -7030,7 +7030,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Based on the type of input object"
+      EP Notes: "Based on the type of input object. New report Equipment Summary - AirTerminals"
     served_by_heating_ventilating_air_conditioning_system:
       Description: "HVAC system serving the terminal"
       Data Type: "Reference"
@@ -7273,14 +7273,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
+      EPin Field: "variety of fields"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: ""
+      EP Notes: "ASK MJW. From input would need to calculate. New report Equipment Summary - AirTerminals, Minimum Flow"
     minimum_outdoor_airflow:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -7292,14 +7292,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
-      EPin Field: "variety of fields"
+      EPin Object: ""
+      EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "From input would need to calculate. New report Equipment Summary - AirTerminals, Minimum Flow"
+      EP Notes: "ASK MJW"
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "Reference"
@@ -8281,7 +8281,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Can find the branch based on node names"
+      EP Notes: "Can find the branch based on node names. Find in topology report."
     design_capacity:
       Description: "Heating capacity"
       Data Type: "Numeric"
@@ -8352,7 +8352,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Perhaps could infer based on efficiency or performance curve"
+      EP Notes: "Compliance parameter. Perhaps could infer based on efficiency or performance curve"
     energy_source_type:
       Description: "Source of energy for the boiler"
       Data Type: "<EnergySourceOptions>"
@@ -8630,7 +8630,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Can find the branch based on node names"
+      EP Notes: "Can find the branch based on node names. Part of topology report."
     condensing_loop:
       Description: "Referenced to the condensing fluid loop"
       Data Type: "Reference"
@@ -8648,7 +8648,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Can find the branch based on node names"
+      EP Notes: "Can find the branch based on node names. Part of topology report."
     compressor_type:
       Description: "Compressor Type"
       Data Type: "<ChillerCompressorOptions>"
@@ -8682,7 +8682,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "For most chillers it is electric, for non-electric chillers some have Fuel Type field"
+      EP Notes: "For most chillers it is electric, for non-electric chillers some have Fuel Type field. Added to Equipment Summary - Central Plant"
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
@@ -9289,7 +9289,7 @@ HeatRejection:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Partially supported based on object type"
+      EP Notes: "ASK MJW. Partially supported based on object type"
     fan_type:
       Description: "Heat Rejection Fan Type"
       Data Type: "<HeatRejectionFanOptions>"
