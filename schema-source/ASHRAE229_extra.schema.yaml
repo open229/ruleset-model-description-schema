@@ -6190,12 +6190,12 @@ AirEconomizer:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Controller:OutdoorAir"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "System Summary"
+      EPout Table: "Economizer"
+      EPout Column: "first column"
       EPstatus: "NotStarted"
       EP Notes: ""
     reporting_name:
@@ -6241,12 +6241,12 @@ AirEconomizer:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Controller:OutdoorAir"
+      EPin Field: "Economizer Control Type"
+      EPout File: "table.html"
+      EPout Report: "System Summary"
+      EPout Table: "Economizer"
+      EPout Column: "High Limit Shutoff Control"
       EPstatus: "NotStarted"
       EP Notes: ""
     high_limit_shutoff_temperature:
@@ -6259,12 +6259,12 @@ AirEconomizer:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Controller:OutdoorAir"
+      EPin Field: "Economizer Maximum Limit Dry-Bulb Temperature"
+      EPout File: "table.html"
+      EPout Report: "System Summary"
+      EPout Table: "Economizer"
+      EPout Column: "Outdoor Air Temperature Limit "
       EPstatus: "NotStarted"
       EP Notes: ""
 
