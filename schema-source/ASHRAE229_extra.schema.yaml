@@ -5645,7 +5645,7 @@ CoolingSystem:
       EPout Table: "AirTerminal:SingleDuct:VAV:Reheat, etc."
       EPout Column: "Design Size Maximum Air Flow Rate, Design Size Minimum Air Flow Rate, or User-Specified, names vary by terminal unit type"
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW: At the zone level, this is the VAV terminal unit minimum supply flow ratio. Would the system value be the weighted average?"
+      EP Notes: "At the zone level, this is the VAV terminal unit minimum supply flow ratio. Use the  the weighted average for the system value."
 
 CoolingSystemOptions:
   Object Type: "Enumeration"
@@ -6030,7 +6030,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW: Is this talking about the SingleZoneVAV control type in PTAC/PTHP and UnitarySystem?"
+      EP Notes: "Ask MJW: Is this talking about the SingleZoneVAV control type in PTAC/PTHP and UnitarySystem? JG: I don't remember. Lets skip this one for now."
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
@@ -6048,7 +6048,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW: See above."
+      EP Notes: "Ask MJW: See above.JG: see above"
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "Reference"
@@ -6123,7 +6123,7 @@ FanSystem:
       EPout Table: "Controller:OutdoorAir"
       EPout Column: "Maximum Outdoor Air Flow Rate "
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW: The specified or autosized Max OA Flow Rate should be accurate here, but that doesn't mean it will ever operate at that flow. But EnergyPlus autosizing does not check for economizer operation and size this to match the min OA flow rate. So the Note above won't work with current EnergyPlus autosizing."
+      EP Notes: "The specified or autosized Max OA Flow Rate should be accurate here, but that doesn't mean it will ever operate at that flow. But EnergyPlus autosizing does not check for economizer operation and size this to match the min OA flow rate. So the Note above won't work with current EnergyPlus autosizing."
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
       Data Type: "Numeric"
@@ -6175,7 +6175,7 @@ FanSystem:
       EPout Table: "Demand Controlled Ventilation using Controller:MechanicalVentilation"
       EPout Column: "New column"
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW: The only options currently supported are CO2 zone and Other. Need to add this info to the table output."
+      EP Notes: "The only options currently supported are CO2 zone and Other. Need to add this info to the table output."
 
 AirEconomizer:
   Object Type: "Data Group"
@@ -6368,13 +6368,13 @@ AirEnergyRecovery:
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate, Controller:OutdoorAir"
-      EPin Field: "Economizer Lockout, Heat Recovery Bypass Control Type"
+      EPin Field: "Economizer Lockout, Economizer Lockout, Heat Recovery Bypass Control Type"
       EPout File: "table.html"
-      EPout Report: "Component Sizing Summary"
-      EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent and HeatExchanger:AirToAir:FlatPlate"
-      EPout Column: "New column"
+      EPout Report: "Controls"
+      EPout Table: "Heat Recovery"
+      EPout Column: "New column - Operation With Economizer"
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW: Add new output to table."
+      EP Notes: "Add new output to table. Add to new Controls report - Heat Recovery Operation With Economizer"
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
       Data Type: "<EnergyRecoverySupplyAirTemperatureControlOptions>"
@@ -6387,11 +6387,11 @@ AirEnergyRecovery:
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate "
       EPin Field: "Supply Air Outlet Temperature Control"
       EPout File: "table.html"
-      EPout Report: "Component Sizing Summary"
-      EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent and HeatExchanger:AirToAir:FlatPlate"
-      EPout Column: "New column"
+      EPout Report: "Controls"
+      EPout Table: "Heat Recovery"
+      EPout Column: "New column - Supply Air Temperature Control"
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW: For HeatExchanger:AirToAir:FlatPlate this is always None. For HeatExchanger:AirToAir:SensibleAndLatent, if Supply Air Outlet Temperature Control is Yes, then whether it's Fixed of Mixed Air Reset depends on the SetpoinManager that is on they HX supply outlet node."
+      EP Notes: "For HeatExchanger:AirToAir:FlatPlate this is always None. For HeatExchanger:AirToAir:SensibleAndLatent, if Supply Air Outlet Temperature Control is Yes, then whether it's Fixed of Mixed Air Reset depends on the SetpoinManager that is on they HX supply outlet node."
     design_sensible_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
