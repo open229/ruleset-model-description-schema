@@ -7782,8 +7782,8 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: "PlantLoop, SetpointManager:Scheduled, SetpointManager:OutdoorAirReset, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater, SetpointManager:FollowOutdoorAirTemperature, SetpointManager:FollowSystemNodeTemperature, SetpointManager:FollowGroundTemperature, SetpointManager:CondenserEnteringReset, SetpointManager:CondenserEnteringReset:Ideal, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater, SetpointManager:SystemNodeReset:Temperature, ""
-      EPin Field: "Loop Temperature Setpoint Node Name, "
+      EPin Object: "PlantLoop, SetpointManager:Scheduled, SetpointManager:OutdoorAirReset, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater, SetpointManager:FollowOutdoorAirTemperature, SetpointManager:FollowSystemNodeTemperature, SetpointManager:FollowGroundTemperature, SetpointManager:CondenserEnteringReset, SetpointManager:CondenserEnteringReset:Ideal, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater, SetpointManager:SystemNodeReset:Temperature"
+      EPin Field: "Loop Temperature Setpoint Node Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
