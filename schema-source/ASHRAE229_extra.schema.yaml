@@ -6030,7 +6030,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW: Is this talking about the SingleZoneVAV control type in PTAC/PTHP and UnitarySystem? JG: I don't remember. Lets skip this one for now."
+      EP Notes: "Is this talking about the SingleZoneVAV control type in PTAC/PTHP and UnitarySystem? I don't remember. Lets skip this one for now."
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
       Data Type: "Numeric"
@@ -6048,7 +6048,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW: See above.JG: see above"
+      EP Notes: "See previous."
     operating_schedule:
       Description: "Operating schedule name"
       Data Type: "Reference"
@@ -6408,7 +6408,7 @@ AirEnergyRecovery:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
+      EP Notes: "Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
     design_latent_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
@@ -6425,7 +6425,7 @@ AirEnergyRecovery:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
+      EP Notes: "Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
     outdoor_airflow:
       Description: "Outdoor airflow"
       Data Type: "Numeric"
@@ -6443,7 +6443,7 @@ AirEnergyRecovery:
       EPout Table: "Component Sizing Summary"
       EPout Column: "Design Size Nominal Supply Air Flow Rate"
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW. Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Outdoor airflow"
+      EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Outdoor airflow"
     exhaust_airflow:
       Description: "Exhaust airflow"
       Data Type: "Numeric"
@@ -6461,7 +6461,7 @@ AirEnergyRecovery:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Ask MJW. Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Exhaust airflow"
+      EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Exhaust airflow"
 
 FanSystemTemperatureControlOptions:
   Object Type: "Enumeration"
@@ -7227,7 +7227,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Field names may vary by object. New report Equipment Summary - AirTerminals, Supply heating setpoint"
+      EP Notes: "Field names may vary by object. New report Equipment Summary - AirTerminals, Supply heating setpoint. If there's a reheat coil, could also use Coil Sizing Details, Coil Leaving Air Drybulb at Ideal Loads Peak or Coil Leaving Air Drybulb at Rating Conditions."
     supply_design_cooling_setpoint_temperature:
       Description: "Zone terminal supply design cooling temperature setpoint"
       Data Type: "Numeric"
@@ -7245,7 +7245,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. New report Equipment Summary - AirTerminals, Supply cooling setpoint"
+      EP Notes: "New report Equipment Summary - AirTerminals, Supply cooling setpoint. If there's a recool coil, could  use Coil Sizing Details, Coil Leaving Air Drybulb at Ideal Loads Peak or Coil Leaving Air Drybulb at Rating Conditions. Can we assume there will always be autosizing? If so, we could be adding the zone design supply temps (from Sizing:Zone) to the HVAC Sizing Summary as new columns. No we cannot assume autosizing will always occur."
     temperature_control:
       Description: "Temperature control type"
       Data Type: "<TerminalTemperatureControlOptions>"
@@ -7262,7 +7262,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. New report Equipment Summary - AirTerminals, Temperature control"
+      EP Notes: "New report Equipment Summary - AirTerminals, Temperature control"
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
       Data Type: "Numeric"
@@ -7275,12 +7275,12 @@ Terminal:
       Used by RCT Test: True
       EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
       EPin Field: "variety of fields"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "html"
+      EPout Report: "Standard 62.1 Summary"
+      EPout Table: "Zone Ventilation Calculations for Cooling Design, Zone Ventilation Calculations for Heating Design"
+      EPout Column: "Minimum Zone Primary Airflow - Vpz-min, Minimum Zone Primary Airflow - Vpz-min  "
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. From input would need to calculate. New report Equipment Summary - AirTerminals, Minimum Flow"
+      EP Notes: "Take lower of two values."
     minimum_outdoor_airflow:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -7294,12 +7294,12 @@ Terminal:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.thml"
+      EPout Report: "Standard 62.1 Summary"
+      EPout Table: "Zone Ventilation Calculations for Cooling Design, Zone Ventilation Calculations for Heating Design"
+      EPout Column: "Zone Outdoor Airflow Cooling - Voz-clg [m3/s], Zone Outdoor Airflow Heating - Voz-htg [m3/s]"
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Take lower of two values."
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "Reference"
@@ -7310,14 +7310,14 @@ Terminal:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat"
-      EPin Field: "Minimum Air FLow Fraction Schedule Name"
+      EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat, DesignSpecification:OutdoorAir"
+      EPin Field: "Minimum Air FLow Fraction Schedule Name, schedule"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "New report Equipment Summary - AirTerminals, Minimum Flow Schedule Name"
+      EP Notes: "New report Equipment Summary - AirTerminals, Minimum Flow Schedule Name. We do have the option for some terminal units to include a DesignSpecification:OutdoorAir option, and that input has a schedule."
     heating_capacity:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
@@ -7336,7 +7336,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW about baseboard capacity. For reheat, add to new Equipment Summary - AirTerminals, heating capacity. For fancoils look for the coil associated and find its capacity. Need topology report. For ZoneHVAC:LowTemperatureRadiant already in Component Sizing Summary"
+      EP Notes: "Add to new Equipment Summary - AirTerminals, heating capacity. For fancoils look for the coil associated and find its capacity. Need topology report. For ZoneHVAC:LowTemperatureRadiant already in Component Sizing Summary. For ZoneHVAC:Baseboard:RadiantConvective:Water it is in Component Sizing Summary."
     cooling_capacity:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
@@ -7373,7 +7373,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. Probably compliance parameter"
+      EP Notes: "Compliance parameter"
     has_demand_control_ventilation:
       Description: "True if the zone has demand control ventilation"
       Data Type: "Boolean"
@@ -7668,7 +7668,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Add new column to Component Sizing Summary - PlantLoop"
     design_return_temperature:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
@@ -7686,7 +7686,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Add new column to Component Sizing Summary - PlantLoop"
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
@@ -7696,14 +7696,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "SizingPlant"
+      EPin Field: "Sizing Option"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Add new column to Component Sizing Summary - PlantLoop"
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
@@ -7730,14 +7730,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Pump:*"
+      EPin Field: "Pump Control Type"
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Pumps"
+      EPout Column: "Control"
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Pump Control Type will indicate Intermittent or Continous (. If continuous, then availability manager will indicate if it's scheduled or continuous."
     operation_schedule:
       Description: "Operation schedule"
       Data Type: "Reference"
@@ -7748,14 +7748,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "AvailabilityManager:*, Pump:*"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW but I think it is AvailabilityManager:Scheduled or else the pump availability schedule"
+      EP Notes: "AvailabilityManager:Scheduled or else the pump availability schedule. Availability managers can be stacked, so it could be temperature based or scheduled or some combination of both. Add to new Controls -- AvailabilityManager table."
     flow_control:
       Description: "Flow control options"
       Data Type: "<FluidLoopFlowControlOptions>"
@@ -7765,14 +7765,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: "PlantLoop, CondenserLoop"
-      EPin Field: "Maximum Loop Flow Rate, Minimum Loop Flow Rate"
+      EPin Object: "Pump:*"
+      EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "If maximum=minimum then FIXED_FLOW otherwise VARIABLE_FLOW"
+      EP Notes: "Based on type of pump. Add new field Equipment Summary - Pumps for type."
     temperature_reset_type:
       Description: "Type of temperature reset used by loop"
       Data Type: "<TemperatureResetOptions>"
@@ -7782,14 +7782,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: "PlantLoop, SetpointManager:Scheduled, SetpointManager:OutdoorAirReset, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater"
+      EPin Object: "PlantLoop, SetpointManager:Scheduled, SetpointManager:OutdoorAirReset, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater, SetpointManager:FollowOutdoorAirTemperature, SetpointManager:FollowSystemNodeTemperature, SetpointManager:FollowGroundTemperature, SetpointManager:CondenserEnteringReset, SetpointManager:CondenserEnteringReset:Ideal, SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater, SetpointManager:SystemNodeReset:Temperature, ""
       EPin Field: "Loop Temperature Setpoint Node Name, "
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. Look at SetpointManager using the specified node."
+      EP Notes: "Look at SetpointManager using the specified node."
     outdoor_high_for_loop_supply_reset_temperature:
       Description: "Outdoor high for loop supply temp reset"
       Data Type: "Numeric"
@@ -7878,13 +7878,13 @@ FluidLoopDesignAndControl:
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
       EPin Object: "SetpointManager:ReturnTemperature:ChilledWater, SetpointManager:ReturnTemperature:HotWater"
-      EPin Field: ""
+      EPin Field: "Minimum Supply Temperature Setpoint, Maximum Supply Temperature Setpoint"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Min for a heating loop, max for a cooling loop. Add to new table of Controls - Setpoint Managers"
     has_integrated_waterside_economizer:
       Description: "True if chilled water loop described has an integrated waterside economizer"
       Data Type: "Boolean"
@@ -7894,14 +7894,14 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: ""
+      EPin Object: "HeatExchanger:FluidToFluid"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "If it's on the same branch as a chiller, then it's integrated, if on it's own branch, then it's non-integrated. Diff example files: WaterSideEconomizer_Integrated and WaterSideEconomizer_NonIntegrated. Add Plantloop branch name to Equipment Summary - Central Plant"
     
 
 FluidLoopFlowControlOptions:
@@ -8945,14 +8945,14 @@ Chiller:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "Pump:*, Chiller:*"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Topology report. If it's a branch pump (same branch as the chiller), then it's interlocked."
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
@@ -8962,14 +8962,14 @@ Chiller:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
-      EPin Object: ""
+      EPin Object: "Pump:*, CoolingTower:*"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW"
+      EP Notes: "Topology report. It it's on the same branch as the cooling tower, then it's interlocked (but I don't think this is supported yet)."
     heat_recovery_loop:
       Description: "Recovered heat to fluid loop"
       Data Type: "Reference"
@@ -9282,14 +9282,14 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
-      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
-      EPin Field: ""
+      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed, Chiller:*"
+      EPin Field: "Chiller:* Condenser Type for Air Cooled or Evap Cooled"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "ASK MJW. Partially supported based on object type"
+      EP Notes: "Partially supported based on object type. Add this to Equipment Summary - Central Plant"
     fan_type:
       Description: "Heat Rejection Fan Type"
       Data Type: "<HeatRejectionFanOptions>"
