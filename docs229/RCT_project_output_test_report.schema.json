@@ -38,7 +38,7 @@
                     "description": "List of rule that is being evaluated",
                     "type": "array",
                     "items": {
-                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/Rule"
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/Rule"
                     }
                 }
             },
@@ -59,7 +59,7 @@
                 },
                 "evaluation_type": {
                     "description": "Indicator if full evaluated rule",
-                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/EvaluationTypeOptions"
+                    "$ref": "RCT_project_output_test_report.schema.json#/definitions/EvaluationTypeOptions"
                 },
                 "standard_section": {
                     "description": "Section number for rule",
@@ -70,7 +70,7 @@
                     "description": "List of evalations perfomed",
                     "type": "array",
                     "items": {
-                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/Evaluation"
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/Evaluation"
                     },
                     "notes": "Existing template value shows- "
                 }
@@ -87,7 +87,7 @@
                 },
                 "outcome": {
                     "description": "Expected outcome",
-                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/OutcomeOptions",
+                    "$ref": "RCT_project_output_test_report.schema.json#/definitions/OutcomeOptions",
                     "notes": "Existing template value shows- PASS"
                 },
                 "messages": {
@@ -101,7 +101,7 @@
                     "description": "",
                     "type": "array",
                     "items": {
-                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/CalculatedValue"
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/CalculatedValue"
                     },
                     "notes": "Not same as template since template shows key-value pairs"
                 }

@@ -1,15 +1,15 @@
 ---
-# RCT_software_output_test_report.schema.yaml
+# RCT_project_output_test_report.schema.yaml
 # The purpose file is to provide a separated source from the main schema file to describe the
 # output reports from the Ruleset Checking Tool
 # Based on 
-# https://github.com/pnnl/ruleset-checking-tool/blob/RR/WX/validate_output_report/docs/_output_software_test_report_template.md
+# https://github.com/pnnl/ruleset-checking-tool/blob/RR/WX/validate_output_report/docs/_output_project_test_report_template.md
 
 Schema:
   Object Type: "Meta"
   References:
     - "ASHRAE229"
-  Title: "Software Output Test Report from Ruleset Checking Tool"
+  Title: "Project Output Test Report from Ruleset Checking Tool"
   Description: "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing"
 
 RulesetCheckingToolOutputReport:
