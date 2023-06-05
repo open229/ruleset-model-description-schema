@@ -29,21 +29,17 @@ RulesetCheckingToolOutputReport:
       Description: "Time stamp for the output report"
       Data Type: "String"
       Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2022-02-01T18:25:43-05:00"
-    rmr_files:  
+    rmd_files:  
       Description: "A list of names of RMD files"
       Data Type: "[String]"
       Notes: "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
     rules:
-      Description: "List of rule that is being evalated"
+      Description: "List of rule that is being evaluated"
       Data Type: "[{Rule}]"
 
 Rule:
   Object Type: "Data Group"
   Data Elements:
-    name:
-      Description: "Name of the rule"
-      Data Type: "String"
-      Notes: "Nested like dicationary instead of as list. Existing template value shows- rule_name1"
     rule_id:
       Description: "The identification of the specific rule"
       Data Type: "String"
@@ -52,30 +48,13 @@ Rule:
       Description: "Textual description of the rule"
       Data Type: "String"
       Notes: "Existing template value shows- Description of rule 1-1."
-    source_value_name:
-      Description: "The RMD instance for the source of values"
-      Data Type: "String"
-      Notes: "May be enumeration. Existing template value shows- USER_RMR"
-    expected_value_name:
-      Description: "The RMD instance for the expected values "
-      Data Type: "String"
-      Notes: "May be enumeration. Existing template value shows- PROPOSED_RMR"
-    assertion:
-      Description: "Type of assertion"
-      Data Type: "String"
-      Notes: "May be enumeration. Existing template value shows- EQUALS"
-    primary_rule:
-      Description: "Indictor if full evaluated rule"
-      Data Type: "String"
-      Notes: "May be enumeration. Existing template value shows- Y"
+    evaluation_type:
+      Description: "Indicator if full evaluated rule"
+      Data Type: "<EvaluationTypeOptions>"
     standard_section:
       Description: "Section number for rule"
       Data Type: "String"
       Notes: "Existing template value shows- G3.1.2.2"
-    rule_evaluation_output:
-      Description: "Expected output"
-      Data Type: "String"
-      Notes: "May be enumeration. Existing template value shows- PASS"
     evaluations:
       Description: "List of evalations perfomed"
       Data Type: "[{Evaluation}]"
@@ -112,6 +91,14 @@ OutcomeOptions:
     UNDETERMINED:
       Description: "Undetermined"
 
+EvaluationTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL:
+      Description: "Full Evaluation"
+    APPLICABILITY:
+      Description: "Applicability Evaluation"
+
 CalculatedValue:
   Object Type: "Data Group"
   Data Elements:
@@ -121,5 +108,5 @@ CalculatedValue:
       Notes: "Existing template value shows- calculated_value1"
     value:
       Description: "Value"
-      Data Type: "Numeric"
+      Data Type: "(Numeric, String)"
       Notes: "Existing template value shows- 1.0"
