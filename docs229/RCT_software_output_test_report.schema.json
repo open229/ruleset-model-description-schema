@@ -26,7 +26,7 @@
                     "type": "string",
                     "notes": "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2022-02-01T18:25:43-05:00"
                 },
-                "rmr_files": {
+                "rmd_files": {
                     "description": "A list of names of RMD files",
                     "type": "array",
                     "items": {
@@ -35,10 +35,10 @@
                     "notes": "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
                 },
                 "rules": {
-                    "description": "List of rule that is being evalated",
+                    "description": "List of rule that is being evaluated",
                     "type": "array",
                     "items": {
-                        "$ref": "RCT_output_report.schema.json#/definitions/Rule"
+                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/Rule"
                     }
                 }
             },
@@ -47,11 +47,6 @@
         "Rule": {
             "type": "object",
             "properties": {
-                "name": {
-                    "description": "Name of the rule",
-                    "type": "string",
-                    "notes": "Nested like dicationary instead of as list. Existing template value shows- rule_name1"
-                },
                 "rule_id": {
                     "description": "The identification of the specific rule",
                     "type": "string",
@@ -62,41 +57,20 @@
                     "type": "string",
                     "notes": "Existing template value shows- Description of rule 1-1."
                 },
-                "source_value_name": {
-                    "description": "The RMD instance for the source of values",
-                    "type": "string",
-                    "notes": "May be enumeration. Existing template value shows- USER_RMR"
-                },
-                "expected_value_name": {
-                    "description": "The RMD instance for the expected values ",
-                    "type": "string",
-                    "notes": "May be enumeration. Existing template value shows- PROPOSED_RMR"
-                },
-                "assertion": {
-                    "description": "Type of assertion",
-                    "type": "string",
-                    "notes": "May be enumeration. Existing template value shows- EQUALS"
-                },
-                "primary_rule": {
-                    "description": "Indictor if full evaluated rule",
-                    "type": "string",
-                    "notes": "May be enumeration. Existing template value shows- Y"
+                "evaluation_type": {
+                    "description": "Indicator if full evaluated rule",
+                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/EvaluationTypeOptions"
                 },
                 "standard_section": {
                     "description": "Section number for rule",
                     "type": "string",
                     "notes": "Existing template value shows- G3.1.2.2"
                 },
-                "rule_evaluation_output": {
-                    "description": "Expected output",
-                    "type": "string",
-                    "notes": "May be enumeration. Existing template value shows- PASS"
-                },
                 "evaluations": {
                     "description": "List of evalations perfomed",
                     "type": "array",
                     "items": {
-                        "$ref": "RCT_output_report.schema.json#/definitions/Evaluation"
+                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/Evaluation"
                     },
                     "notes": "Existing template value shows- "
                 }
@@ -113,7 +87,7 @@
                 },
                 "outcome": {
                     "description": "Expected outcome",
-                    "$ref": "RCT_output_report.schema.json#/definitions/OutcomeOptions",
+                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/OutcomeOptions",
                     "notes": "Existing template value shows- PASS"
                 },
                 "messages": {
@@ -127,7 +101,7 @@
                     "description": "",
                     "type": "array",
                     "items": {
-                        "$ref": "RCT_output_report.schema.json#/definitions/CalculatedValue"
+                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/CalculatedValue"
                     },
                     "notes": "Not same as template since template shows key-value pairs"
                 }
@@ -149,6 +123,17 @@
                 "Undetermined"
             ]
         },
+        "EvaluationTypeOptions": {
+            "type": "string",
+            "enum": [
+                "FULL",
+                "APPLICABILITY"
+            ],
+            "descriptions": [
+                "Full Evaluation",
+                "Applicability Evaluation"
+            ]
+        },
         "CalculatedValue": {
             "type": "object",
             "properties": {
@@ -159,7 +144,14 @@
                 },
                 "value": {
                     "description": "Value",
-                    "type": "number",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
                     "notes": "Existing template value shows- 1.0"
                 }
             },
