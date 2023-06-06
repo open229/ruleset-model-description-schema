@@ -18,11 +18,11 @@ RulesetCheckingToolOutputReport:
     title:
       Description: "Title of output report from Ruleset Checking Tool"
       Data Type: "String"
-      Notes: "Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL"
+      Notes: "Existing template value shows- RULESET CHECKING TOOL"
     purpose:
       Description: "Reason for the report"
       Data Type: "String"
-      Notes: "Existing template value shows- Project Testing Report"
+      Notes: "Existing template value shows- RCT Ruleset Software Testing Report"
     ruleset:  
       Description: "References output that correspond to specific simulation model."
       Data Type: "String"
@@ -30,34 +30,54 @@ RulesetCheckingToolOutputReport:
     date_run:
       Description: "Time stamp for the output report"
       Data Type: "String"
-      Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2022-02-01T18:25:43-05:00"
-    rmd_files:  
-      Description: "A list of names of RMD files"
-      Data Type: "[String]"
-      Notes: "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
-    rules:
+      Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2023-03-16T14:45:33-05:00"
+    schema_version:  
+      Description: "Version of the schema corresponding to the tests."
+      Data Type: "String"
+      Notes: "Existing template value shows- 0.0.23"
+    rules_tests:
       Description: "List of rule that is being evaluated"
-      Data Type: "[{Rule}]"
+      Data Type: "[{RuleTest}]"
 
-Rule:
+RuleTest:
   Object Type: "Data Group"
   Data Elements:
     rule_id:
       Description: "The identification of the specific rule"
       Data Type: "String"
-      Notes: "Existing template value shows- 1-1"
-    description:
-      Description: "Textual description of the rule"
+      Notes: "Existing template value shows- 5-5"
+    test_id:
+      Description: "The identification of the test case for the specific rule"
       Data Type: "String"
-      Notes: "Existing template value shows- Description of rule 1-1."
+      Notes: "Existing template value shows- a"
+    test_description:
+      Description: "Textual description of the test for the rule"
+      Data Type: "String"
+      Notes: "Existing template value shows- Description of rule: Building is located in climate zone 4A and includes a space that has residential occupancy type and is conditioned based on heating capacity of the HVAC system that servies the parent zone. The baseline roof U-factor for the space is established correctly."
+    ruleset_section:
+      Description: "Section reference from the ruleset"
+      Data Type: "String"
+      Notes: "Existing template value shows- Table G3.1(5) Baseline Building Performance (b)"
+    ruleset_section_title:
+      Description: "Title of the section referenced from the ruleset"
+      Data Type: "String"
+      Notes: "Existing template value shows- Envelope"
     evaluation_type:
       Description: "Indicator if full evaluated rule"
       Data Type: "<EvaluationTypeOptions>"
-    standard_section:
-      Description: "Section number for rule"
-      Data Type: "String"
-      Notes: "Existing template value shows- G3.1.2.2"
-    evaluations:
+    rule_unit_test_outcome_agreement:
+      Description: "True if the expected and actual agree"
+      Data Type: "Boolean"
+      Notes: "Existing template value shows- false"
+    expected_rule_unit_test_evaluation_outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Notes: "Existing template value shows- PASS"
+    actual_rule_unit_test_evaluation_outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Notes: "Existing template value shows- UNDETERMINED"
+    rule_unit_test_evaluations:
       Description: "List of evalations perfomed"
       Data Type: "[{Evaluation}]"
       Notes: "Existing template value shows- "
@@ -67,19 +87,20 @@ Evaluation:
   Data Elements:
     id:
       Description: "Identifier"
-      Data Type: "Integer"
-      Notes: "Existing template value shows- 1"
-    outcome:
-      Description: "Expected outcome"
-      Data Type: "<OutcomeOptions>"
-      Notes: "Existing template value shows- PASS"
+      Data Type: "String"
+      Notes: "Existing template value shows- Surface 1"
     messages:
       Description: "List of messages from evaluation"
       Data Type: "[String]"
+      Notes: "Existing template value shows- message"
+    evaluation_outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Notes: "Existing template value shows- PASS"
     calculated_values:
-      Description: ""
+      Description: "a list of calculated values from the evaluation"
       Data Type: "[{CalculatedValue}]"
-      Notes: "Not same as template since template shows key-value pairs"
+      Notes: "Used to help understand and debug rule evaulation"
 
 OutcomeOptions:
   Object Type: "Enumeration"
@@ -107,8 +128,12 @@ CalculatedValue:
     variable:
       Description: "Variable"
       Data Type: "String"
-      Notes: "Existing template value shows- calculated_value1"
+      Notes: "Existing template value shows- roof_u_factor"
     value:
       Description: "Value"
       Data Type: "(Numeric, String)"
-      Notes: "Existing template value shows- 1.0"
+      Notes: "Existing template value shows- 0.063"
+    units:
+      Description: "Units"
+      Data Type: "String"
+      Notes: "Existing template value shows- Btu/(hr*ft2*R)"
