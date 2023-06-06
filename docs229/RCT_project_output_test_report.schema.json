@@ -1,13 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Software Output Test Report from Ruleset Checking Tool",
+    "title": "Project Output Test Report from Ruleset Checking Tool",
     "description": "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing",
     "definitions": {
-        "RulesetCheckingToolOutputReport": {
+        "RulesetCheckingToolProjectOutputReport": {
             "type": "object",
             "properties": {
                 "title": {
-                    "description": "Title of output report from Ruleset Checking Tool",
+                    "description": "Title of project output report from Ruleset Checking Tool",
                     "type": "string",
                     "notes": "Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL"
                 },

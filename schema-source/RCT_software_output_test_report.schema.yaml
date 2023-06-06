@@ -12,11 +12,11 @@ Schema:
   Title: "Software Output Test Report from Ruleset Checking Tool"
   Description: "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing"
 
-RulesetCheckingToolOutputReport:
+RulesetCheckingToolSoftwareOutputReport:
   Object Type: "Data Group"
   Data Elements:
     title:
-      Description: "Title of output report from Ruleset Checking Tool"
+      Description: "Title of software output report from Ruleset Checking Tool"
       Data Type: "String"
       Notes: "Existing template value shows- RULESET CHECKING TOOL"
     purpose:

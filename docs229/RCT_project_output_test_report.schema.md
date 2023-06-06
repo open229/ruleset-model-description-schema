@@ -12,10 +12,10 @@
 | `FULL`          | Full Evaluation          |       |
 | `APPLICABILITY` | Applicability Evaluation |       |
 
-# RulesetCheckingToolOutputReport
+# RulesetCheckingToolProjectOutputReport
 |    Name     |                           Description                           | Data Type  | Units | Range | Req |                                                           Notes                                                           |
 |-------------|-----------------------------------------------------------------|------------|-------|-------|-----|---------------------------------------------------------------------------------------------------------------------------|
-| `title`     | Title of output report from Ruleset Checking Tool               | `String`   |       |       |     | Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL                                                      |
+| `title`     | Title of project output report from Ruleset Checking Tool       | `String`   |       |       |     | Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL                                                      |
 | `purpose`   | Reason for the report                                           | `String`   |       |       |     | Existing template value shows- Project Testing Report                                                                     |
 | `ruleset`   | References output that correspond to specific simulation model. | `String`   |       |       |     | Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)                                    |
 | `date_run`  | Time stamp for the output report                                | `String`   |       |       |     | This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2022-02-01T18:25:43-05:00 |
