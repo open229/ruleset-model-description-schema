@@ -54,6 +54,13 @@ String:
   Examples:
     - "Indirect evaporative cooler"
 
+Timestamp:
+  Object Type: "String Type"
+  Description: "Date with UTC time formatted per ISO 8601 (ISO 2004)"
+  JSON Schema Pattern: "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}Z"
+  Examples:
+    - "2016-06-29T14:35Z"
+
 "ID":
   Object Type: "Data Type"
   Description: "A referencencable identification for a data group and sequence of characters of any length using any (specified) character set."

@@ -24,16 +24,16 @@ RulesetCheckingToolProjectOutputReport:
       Data Type: "String"
       Notes: "Existing template value shows- Project Testing Report"
     ruleset:  
-      Description: "References output that correspond to specific simulation model."
+      Description: "Names the ruleset including appropriate year, organization, and section."
       Data Type: "String"
       Notes: "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
     date_run:
       Description: "Time stamp for the output report"
-      Data Type: "String"
-      Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2022-02-01T18:25:43-05:00"
+      Data Type: "Timestamp"
+      Notes: "Existing template value shows- 2022-02-01T18:25:43-05:00"
     rmd_files:  
       Description: "A list of names of RMD files"
-      Data Type: "[String]"
+      Data Type: "[{FileDescription}]"
       Notes: "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
     rules:
       Description: "List of rule that is being evaluated"
@@ -112,3 +112,16 @@ CalculatedValue:
       Description: "Value"
       Data Type: "(Numeric, String)"
       Notes: "Existing template value shows- 1.0"
+
+FileDescription:
+  Object Type: "Data Group"
+  Data Elements:
+    ruleset_model_type:
+      Description: "Describes the type of model associated with the file."
+      Data Type: "<RulesetModelOptions2019ASHRAE901>"
+      Notes: "For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270"
+    file_name:
+      Description: "Value"
+      Data Type: "String"
+      Notes: "The name of the json file with file extension and may include the file path. Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+
