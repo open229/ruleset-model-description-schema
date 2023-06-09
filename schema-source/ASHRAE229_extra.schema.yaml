@@ -855,6 +855,15 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+    envelope_space_type:
+      Description: "Envelope space type classification"
+      Data Type: "<EnvelopeSpaceOptions2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used. Often refered to as occupancy type."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: True
+      AppG B_RMDs Same: "unknown"
     lighting_space_type:
       Description: "Lighting space type classification"
       Data Type: "<LightingSpaceOptions2019ASHRAE901TG37>"
