@@ -34,6 +34,18 @@ CompliancePathOptions2019ASHRAE901:
     BEYOND_CODE:
       Description: "Beyond Code"
 
+EnvelopeSpaceOptions2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    NONRESIDENTIAL_CONDITIONED:
+      Description: "Nonresidential conditioned"
+    RESIDENTIAL_CONDITIONED:
+      Description: "Residential conditioned"
+    SEMIHEATED:
+      Description: "Semiheated"
+    UNCONDITIONED:
+      Description: "Unconditioned"
+
 LightingBuildingAreaOptions2019ASHRAE901T951TG38:
   # Table 9.5.1 Building Area Types
   # Table G3.8 Performance Rating Method Lighting Power Densities Using the Building Area Method
@@ -889,6 +901,8 @@ HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901:
       Description: "Retail"
     HOSPITAL:  
       Description: "Hospital"
+    HEATED_ONLY_STORAGE:
+      Description: "Heated only storage"
     OTHER_NON_RESIDENTIAL:
       Description: "Other non-residential"
 

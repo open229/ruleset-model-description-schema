@@ -33,6 +33,21 @@
                 "Beyond Code"
             ]
         },
+        "EnvelopeSpaceOptions2019ASHRAE901": {
+            "type": "string",
+            "enum": [
+                "NONRESIDENTIAL_CONDITIONED",
+                "RESIDENTIAL_CONDITIONED",
+                "SEMIHEATED",
+                "UNCONDITIONED"
+            ],
+            "descriptions": [
+                "Nonresidential conditioned",
+                "Residential conditioned",
+                "Semiheated",
+                "Unconditioned"
+            ]
+        },
         "LightingBuildingAreaOptions2019ASHRAE901T951TG38": {
             "type": "string",
             "enum": [
@@ -1072,6 +1087,7 @@
                 "PUBLIC_ASSEMBLY",
                 "RETAIL",
                 "HOSPITAL",
+                "HEATED_ONLY_STORAGE",
                 "OTHER_NON_RESIDENTIAL"
             ],
             "descriptions": [
@@ -1079,6 +1095,7 @@
                 "Public assembly",
                 "Retail",
                 "Hospital",
+                "Heated only storage",
                 "Other non-residential"
             ]
         },
