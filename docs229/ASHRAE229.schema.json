@@ -259,6 +259,18 @@
                 "has_site_shading": {
                     "description": "Indicates whether the site has features that cast shadows on the building",
                     "type": "boolean"
+                },
+                "number_of_floors_above_grade": {
+                    "description": "Number of floors above grade",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "For the entire building including all building segments. Does not include floors devoted solely to parking."
+                },
+                "number_of_floors_below_grade": {
+                    "description": "Number of floors below grade",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "For the entire building including all building segments. Does not include floors devoted solely to parking."
                 }
             },
             "required": [
@@ -284,12 +296,14 @@
                 "number_of_floors_above_grade": {
                     "description": "Number of floors above grade",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "For the portion of the building represented by the BuildingSegment."
                 },
                 "number_of_floors_below_grade": {
                     "description": "Number of floors below grade",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "For the portion of the building represented by the BuildingSegment."
                 },
                 "is_all_new": {
                     "description": "Indicates whether the building segment is completely new construction (true) or existing (false). ",
@@ -559,6 +573,11 @@
                     "description": "Generic function for the space.",
                     "$ref": "ASHRAE229.schema.json#/definitions/SpaceFunctionOptions",
                     "notes": "The enumeration is based on the standard used."
+                },
+                "envelope_space_type": {
+                    "description": "Envelope space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/EnvelopeSpaceOptions2019ASHRAE901",
+                    "notes": "The enumeration is based on the standard used. Often refered to as occupancy type."
                 },
                 "lighting_space_type": {
                     "description": "Lighting space type classification",
@@ -879,6 +898,7 @@
                 "ABOVE_GROUND_WALL_EXTERIOR_CONTINUOUS",
                 "ABOVE_GROUND_WALL_INTERIOR_CONTINUOUS",
                 "ABOVE_GROUND_WALL_FULL_CAVITY",
+                "ABOVE_GROUND_WALL_FULL_CAVITY_DOUBLE_STUD",
                 "ABOVE_GROUND_WALL_PARTIAL_CAVITY",
                 "SLAB_HORIZONTAL_PERIMETER",
                 "SLAB_HORIZONTAL_FULL",
@@ -890,6 +910,7 @@
                 "Continous insulation on exterior of an above ground wall",
                 "Continous insulation on interior of an above ground wall",
                 "Insulation within the cavity of an above ground wall that fills the entire cavity",
+                "Insulation within the cavity of an above ground wall that fills the entire cavity using double stud wall framing.",
                 "Insulation within the cavity of an above ground wall that fills only part of the cavity",
                 "Insulation on underside of the slab covering the perimeter",
                 "Insulation fully covering the underside of the slab",
@@ -4906,6 +4927,6 @@
             ]
         }
     },
-    "version": "0.0.28",
+    "version": "0.0.29",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }
