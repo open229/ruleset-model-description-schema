@@ -901,6 +901,8 @@ HeatingVentilatingAirConditioningBuildingAreaOptions2019ASHRAE901:
       Description: "Retail"
     HOSPITAL:  
       Description: "Hospital"
+    HEATED_ONLY_STORAGE:
+      Description: "Heated only storage"
     OTHER_NON_RESIDENTIAL:
       Description: "Other non-residential"
 
