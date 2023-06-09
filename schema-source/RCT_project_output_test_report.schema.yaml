@@ -1,0 +1,127 @@
+---
+# RCT_project_output_test_report.schema.yaml
+# The purpose file is to provide a separated source from the main schema file to describe the
+# output reports from the Ruleset Checking Tool
+# Based on 
+# https://github.com/pnnl/ruleset-checking-tool/blob/RR/WX/validate_output_report/docs/_output_project_test_report_template.md
+
+Schema:
+  Object Type: "Meta"
+  References:
+    - "ASHRAE229"
+  Title: "Project Output Test Report from Ruleset Checking Tool"
+  Description: "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing"
+
+RulesetCheckingToolProjectOutputReport:
+  Object Type: "Data Group"
+  Data Elements:
+    title:
+      Description: "Title of project output report from Ruleset Checking Tool"
+      Data Type: "String"
+      Notes: "Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL"
+    purpose:
+      Description: "Reason for the report"
+      Data Type: "String"
+      Notes: "Existing template value shows- Project Testing Report"
+    ruleset:  
+      Description: "Names the ruleset including appropriate year, organization, and section."
+      Data Type: "String"
+      Notes: "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
+    date_run:
+      Description: "Time stamp for the output report"
+      Data Type: "Timestamp"
+      Notes: "Existing template value shows- 2022-02-01T18:25:43-05:00"
+    rmd_files:  
+      Description: "A list of names of RMD files"
+      Data Type: "[{FileDescription}]"
+      Notes: "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+    rules:
+      Description: "List of rule that is being evaluated"
+      Data Type: "[{Rule}]"
+
+Rule:
+  Object Type: "Data Group"
+  Data Elements:
+    rule_id:
+      Description: "The identification of the specific rule"
+      Data Type: "String"
+      Notes: "Existing template value shows- 1-1"
+    description:
+      Description: "Textual description of the rule"
+      Data Type: "String"
+      Notes: "Existing template value shows- Description of rule 1-1."
+    evaluation_type:
+      Description: "Indicator if full evaluated rule"
+      Data Type: "<EvaluationTypeOptions>"
+    standard_section:
+      Description: "Section number for rule"
+      Data Type: "String"
+      Notes: "Existing template value shows- G3.1.2.2"
+    evaluations:
+      Description: "List of evalations perfomed"
+      Data Type: "[{Evaluation}]"
+      Notes: "Existing template value shows- "
+
+Evaluation:
+  Object Type: "Data Group"
+  Data Elements:
+    id:
+      Description: "Identifier"
+      Data Type: "Integer"
+      Notes: "Existing template value shows- 1"
+    outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Notes: "Existing template value shows- PASS"
+    messages:
+      Description: "List of messages from evaluation"
+      Data Type: "[String]"
+    calculated_values:
+      Description: ""
+      Data Type: "[{CalculatedValue}]"
+      Notes: "Not same as template since template shows key-value pairs"
+
+OutcomeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    PASS:
+      Description: "Pass"
+    FAIL:
+      Description: "Fail"
+    NOT_APPLICABLE:
+      Description: "Not applicable"
+    UNDETERMINED:
+      Description: "Undetermined"
+
+EvaluationTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL:
+      Description: "Full Evaluation"
+    APPLICABILITY:
+      Description: "Applicability Evaluation"
+
+CalculatedValue:
+  Object Type: "Data Group"
+  Data Elements:
+    variable:
+      Description: "Variable"
+      Data Type: "String"
+      Notes: "Existing template value shows- calculated_value1"
+    value:
+      Description: "Value"
+      Data Type: "(Numeric, String)"
+      Notes: "Existing template value shows- 1.0"
+
+FileDescription:
+  Object Type: "Data Group"
+  Data Elements:
+    ruleset_model_type:
+      Description: "Describes the type of model associated with the file."
+      Data Type: "<RulesetModelOptions2019ASHRAE901>"
+      Notes: "For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270"
+    file_name:
+      Description: "Value"
+      Data Type: "String"
+      Notes: "The name of the json file with file extension and may include the file path. Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+

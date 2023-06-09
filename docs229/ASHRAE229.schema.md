@@ -9,6 +9,11 @@
 | `Reference` | A reference to an ID of a data group.                                                                                           | string           | AHU-01                      |
 | `Null`      | Indicator that no value is provided. Only used in combination with other data types, e.g., 'Number/Null'.                       | null             | null                        |
 
+# String Types
+| String Type |                     Description                      |              JSON Schema Pattern              |     Examples      |
+|-------------|------------------------------------------------------|-----------------------------------------------|-------------------|
+| `Timestamp` | Date with UTC time formatted per ISO 8601 (ISO 2004) | [0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}Z | 2016-06-29T14:35Z |
+
 # ConditioningOptions
 |     Enumerator      |    Description    | Notes |
 |---------------------|-------------------|-------|

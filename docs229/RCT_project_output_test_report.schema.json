@@ -1,0 +1,176 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Project Output Test Report from Ruleset Checking Tool",
+    "description": "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing",
+    "definitions": {
+        "RulesetCheckingToolProjectOutputReport": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "description": "Title of project output report from Ruleset Checking Tool",
+                    "type": "string",
+                    "notes": "Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL"
+                },
+                "purpose": {
+                    "description": "Reason for the report",
+                    "type": "string",
+                    "notes": "Existing template value shows- Project Testing Report"
+                },
+                "ruleset": {
+                    "description": "Names the ruleset including appropriate year, organization, and section.",
+                    "type": "string",
+                    "notes": "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
+                },
+                "date_run": {
+                    "description": "Time stamp for the output report",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
+                    "notes": "Existing template value shows- 2022-02-01T18:25:43-05:00"
+                },
+                "rmd_files": {
+                    "description": "A list of names of RMD files",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/FileDescription"
+                    },
+                    "notes": "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+                },
+                "rules": {
+                    "description": "List of rule that is being evaluated",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/Rule"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "Rule": {
+            "type": "object",
+            "properties": {
+                "rule_id": {
+                    "description": "The identification of the specific rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- 1-1"
+                },
+                "description": {
+                    "description": "Textual description of the rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- Description of rule 1-1."
+                },
+                "evaluation_type": {
+                    "description": "Indicator if full evaluated rule",
+                    "$ref": "RCT_project_output_test_report.schema.json#/definitions/EvaluationTypeOptions"
+                },
+                "standard_section": {
+                    "description": "Section number for rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- G3.1.2.2"
+                },
+                "evaluations": {
+                    "description": "List of evalations perfomed",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/Evaluation"
+                    },
+                    "notes": "Existing template value shows- "
+                }
+            },
+            "additionalProperties": false
+        },
+        "Evaluation": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Identifier",
+                    "type": "integer",
+                    "notes": "Existing template value shows- 1"
+                },
+                "outcome": {
+                    "description": "Expected outcome",
+                    "$ref": "RCT_project_output_test_report.schema.json#/definitions/OutcomeOptions",
+                    "notes": "Existing template value shows- PASS"
+                },
+                "messages": {
+                    "description": "List of messages from evaluation",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "calculated_values": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/CalculatedValue"
+                    },
+                    "notes": "Not same as template since template shows key-value pairs"
+                }
+            },
+            "additionalProperties": false
+        },
+        "OutcomeOptions": {
+            "type": "string",
+            "enum": [
+                "PASS",
+                "FAIL",
+                "NOT_APPLICABLE",
+                "UNDETERMINED"
+            ],
+            "descriptions": [
+                "Pass",
+                "Fail",
+                "Not applicable",
+                "Undetermined"
+            ]
+        },
+        "EvaluationTypeOptions": {
+            "type": "string",
+            "enum": [
+                "FULL",
+                "APPLICABILITY"
+            ],
+            "descriptions": [
+                "Full Evaluation",
+                "Applicability Evaluation"
+            ]
+        },
+        "CalculatedValue": {
+            "type": "object",
+            "properties": {
+                "variable": {
+                    "description": "Variable",
+                    "type": "string",
+                    "notes": "Existing template value shows- calculated_value1"
+                },
+                "value": {
+                    "description": "Value",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "notes": "Existing template value shows- 1.0"
+                }
+            },
+            "additionalProperties": false
+        },
+        "FileDescription": {
+            "type": "object",
+            "properties": {
+                "ruleset_model_type": {
+                    "description": "Describes the type of model associated with the file.",
+                    "notes": "For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270"
+                },
+                "file_name": {
+                    "description": "Value",
+                    "type": "string",
+                    "notes": "The name of the json file with file extension and may include the file path. Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
