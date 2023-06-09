@@ -824,7 +824,7 @@ SpaceStatusOptions2019ASHRAE901:
     EXISTING:
       Description: "Existing"
 
-AdditionalSurfaceAdjacentToOptions2019ASHRAE901:
+AdditionalSurfaceAdjacencyOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
     UNENCLOSED:
@@ -835,6 +835,30 @@ AdditionalSurfaceAdjacentToOptions2019ASHRAE901:
       Description: "Surface adjacent to a environment that is not heated but enclosed. The space on the other side of the surface is not explicity modeled."
     SEMIHEATED:
       Description: "Surface adjacent to a environment that is semi-heated. The space on the other side of the surface is not explicity modeled."
+
+ConstructionClassificationOptions2019ASHRAE901:
+  Object Type: "Enumeration"
+  Enumerators:
+    METAL_BUILDING: 
+      Description: "Metal building"
+    WOOD_FRAMED:
+      Description: "Wood-framed"
+    STEEL_FRAMED:
+      Description: "Steel-framed"
+    MASS:
+      Description: "Mass"
+    INSULATION_ENTIRELY_ABOVE_DECK:
+      Description: "Insulation entirely above deck"
+    ATTIC:
+      Description: "Attic"
+    BELOW_GRADE_WALL:
+      Description: "Below-grade wall"
+    STEEL_JOIST:
+      Description: "Steel joist"
+    SLAB_ON_GRADE:
+      Description: "Slab-on-grade"
+    OTHER:
+      Description: "Other"
 
 SubsurfaceSubclassificationOptions2019ASHRAE901:
   Object Type: "Enumeration"

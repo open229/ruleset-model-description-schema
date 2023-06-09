@@ -538,6 +538,12 @@
                     "minimum": 0.0,
                     "units": "W"
                 },
+                "occupant_latent_heat_gain": {
+                    "description": "Latent heat gain of each occupant.",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "units": "W"
+                },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
                     "oneOf": [
@@ -727,13 +733,13 @@
                     "description": "Used to classify the conditions on the surface.",
                     "oneOf": [
                         {
-                            "$ref": "ASHRAE229.schema.json#/definitions/SurfaceAdjacentToOptions"
+                            "$ref": "ASHRAE229.schema.json#/definitions/SurfaceAdjacencyOptions"
                         },
                         {
-                            "$ref": "EnumerationsRESNET.schema.json#/definitions/AdditionalSurfaceAdjacentToOptionsRESNET"
+                            "$ref": "EnumerationsRESNET.schema.json#/definitions/AdditionalSurfaceAdjacencyOptionsRESNET"
                         },
                         {
-                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/AdditionalSurfaceAdjacentToOptions2019ASHRAE901"
+                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/AdditionalSurfaceAdjacencyOptions2019ASHRAE901"
                         }
                     ],
                     "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used. Commonly, plenums do not need to be explicitly described for many rulesets and instead when a plenum is present in the simulation model, this field should be set to the what is adjacent to the other side of the plenum. For example, on the top floor with a plenum, EXTERIOR would be entered."
@@ -780,6 +786,17 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
+                "classification": {
+                    "description": "Classification for the subsurface being window, skylight, door.",
+                    "oneOf": [
+                        {
+                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ConstructionClassificationOptions2019ASHRAE901"
+                        },
+                        {
+                            "$ref": "Enumerations2019T24.schema.json#/definitions/ConstructionClassificationOptions2019T24"
+                        }
+                    ]
+                },
                 "surface_construction_input_option": {
                     "description": "Identifies whether construction is entered layer-by-layer or simplified (R-value)",
                     "$ref": "ASHRAE229.schema.json#/definitions/SurfaceConstructionInputOptions"
@@ -807,9 +824,12 @@
                     },
                     "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing otherwise leave blank. Air films should not be included in the list of layers."
                 },
-                "insulation_location": {
-                    "description": "The location of the insulation related to the surface",
-                    "type": "string"
+                "insulation_locations": {
+                    "description": "List of locations for the insulation related to the surface that correspoond to the values in the r_values list",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/InsulationLocationOptions"
+                    }
                 },
                 "u_factor": {
                     "description": "suface U-factor",
@@ -830,10 +850,13 @@
                     "minimum": 0.0,
                     "units": "W/m-K"
                 },
-                "r_value": {
-                    "description": "r-value of the insulation for the surface",
-                    "type": "number",
-                    "minimum": 0.0,
+                "r_values": {
+                    "description": "List of r-value of the insulation for the surface that correspond to values in the insulation_locations list",
+                    "type": "array",
+                    "items": {
+                        "type": "number",
+                        "minimum": 0.0
+                    },
                     "units": "K-m2/W"
                 },
                 "has_radiant_heating": {
@@ -849,6 +872,31 @@
                 "id"
             ],
             "additionalProperties": false
+        },
+        "InsulationLocationOptions": {
+            "type": "string",
+            "enum": [
+                "ABOVE_GROUND_WALL_EXTERIOR_CONTINUOUS",
+                "ABOVE_GROUND_WALL_INTERIOR_CONTINUOUS",
+                "ABOVE_GROUND_WALL_FULL_CAVITY",
+                "ABOVE_GROUND_WALL_PARTIAL_CAVITY",
+                "SLAB_HORIZONTAL_PERIMETER",
+                "SLAB_HORIZONTAL_FULL",
+                "SLAB_VERTICAL",
+                "NONE",
+                "OTHER"
+            ],
+            "descriptions": [
+                "Continous insulation on exterior of an above ground wall",
+                "Continous insulation on interior of an above ground wall",
+                "Insulation within the cavity of an above ground wall that fills the entire cavity",
+                "Insulation within the cavity of an above ground wall that fills only part of the cavity",
+                "Insulation on underside of the slab covering the perimeter",
+                "Insulation fully covering the underside of the slab",
+                "Insulation applied vertically next to edge of slab",
+                "None",
+                "Other"
+            ]
         },
         "Material": {
             "type": "object",
@@ -973,7 +1021,7 @@
                 "Ceiling"
             ]
         },
-        "SurfaceAdjacentToOptions": {
+        "SurfaceAdjacencyOptions": {
             "type": "string",
             "enum": [
                 "EXTERIOR",
@@ -1442,11 +1490,31 @@
                     "description": "Hourly Values of Schedule",
                     "type": "array",
                     "minItems": 0,
-                    "maxItems": 8760,
+                    "maxItems": 8784,
                     "items": {
                         "type": "number"
                     },
                     "notes": "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+                },
+                "hourly_heating_design_day": {
+                    "description": "Hourly values for heating design day",
+                    "type": "array",
+                    "minItems": 0,
+                    "maxItems": 24,
+                    "items": {
+                        "type": "number"
+                    },
+                    "notes": "Used when schedule_sequence_type is HOURLY."
+                },
+                "hourly_cooling_design_day": {
+                    "description": "Hourly values for cooling design day",
+                    "type": "array",
+                    "minItems": 0,
+                    "maxItems": 24,
+                    "items": {
+                        "type": "number"
+                    },
+                    "notes": "Used when schedule_sequence_type is HOURLY."
                 },
                 "event_times": {
                     "description": "Event times when the schedule changes",
@@ -1464,6 +1532,40 @@
                         "type": "number"
                     },
                     "notes": "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+                },
+                "event_times_heating_design_day": {
+                    "description": "Event times when the schedule changes for heating design day",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "units": "s",
+                    "notes": "Used when schedule_sequence_type is EVENT."
+                },
+                "event_values_heating_design_day": {
+                    "description": "Event value at corresponding event time for heating design day",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "notes": "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second."
+                },
+                "event_times_cooling_design_day": {
+                    "description": "Event times when the schedule changes for cooling design day",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "units": "s",
+                    "notes": "Used when schedule_sequence_type is EVENT."
+                },
+                "event_values_cooling_design_day": {
+                    "description": "Event value at corresponding event time for cooling design day",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "notes": "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second."
                 },
                 "type": {
                     "description": "The type of schedule",
@@ -2313,12 +2415,14 @@
                 "minimum_outdoor_airflow": {
                     "description": "Minimum outdoor air volume airflow",
                     "type": "number",
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "If the minimum_outdoor_airflow is equal to the maximum_outdoor_airflow and equal to the total supply fan volume that indicates a constant volume dedicated outdoor air system. If only the  maximum_outdoor_airflow and equal to the total supply fan volume but the minimum_outdoor_airflow is lower that indicates an air side economizer."
                 },
                 "maximum_outdoor_airflow": {
                     "description": "Maximum outdoor air volume airflow",
                     "type": "number",
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "If the minimum_outdoor_airflow is equal to the maximum_outdoor_airflow and equal to the total supply fan volume that indicates a constant volume dedicated outdoor air system. If only the  maximum_outdoor_airflow and equal to the total supply fan volume but the minimum_outdoor_airflow is lower that indicates an air side economizer."
                 },
                 "air_filter_merv_rating": {
                     "description": "The MERV rating of the air filter",
@@ -2408,6 +2512,16 @@
                 "design_latent_effectiveness": {
                     "description": "Design sensible effectiveness",
                     "type": "number"
+                },
+                "outdoor_airflow": {
+                    "description": "Outdoor airflow",
+                    "type": "number",
+                    "units": "L/s"
+                },
+                "exhaust_airflow": {
+                    "description": "Exhaust airflow",
+                    "type": "number",
+                    "units": "L/s"
                 }
             },
             "required": [
@@ -3614,15 +3728,23 @@
                     "type": "number",
                     "units": "K"
                 },
-                "fan_electric_input_power": {
-                    "description": "Fan Electric Input Power",
+                "fan_shaft_power": {
+                    "description": "Fan Shaft Power",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "Power delivered to the fan\u00e2\u20ac\u2122s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units."
                 },
-                "fan_nameplate_power": {
-                    "description": "Fan Nameplate Power",
+                "fan_motor_efficiency": {
+                    "description": "Efficiency of the fan motor at rating conditions",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "From CBECC-Com."
+                },
+                "fan_motor_nameplate_power": {
+                    "description": "Fan Motor Nameplate Power",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "From CBECC-Com."
                 },
                 "fan_speed_control": {
                     "description": "Fan Speed Control Type",
@@ -4784,6 +4906,6 @@
             ]
         }
     },
-    "version": "0.0.27",
+    "version": "0.0.28",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }

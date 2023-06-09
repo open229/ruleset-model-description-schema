@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.27"
+  Version: "0.0.28"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -828,6 +828,16 @@ Space:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: "unknown"
+    occupant_latent_heat_gain:
+      Description: "Latent heat gain of each occupant."
+      Data Type: "Numeric"
+      Range: ">=0"
+      Units: "W"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "(<SpaceStatusOptions2019ASHRAE901>,<GeneralStatusOptions2019T24>)"
@@ -1074,7 +1084,7 @@ Surface:
       AppG B_RMDs Same: "unknown"
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
-      Data Type: "(<SurfaceAdjacentToOptions>,<AdditionalSurfaceAdjacentToOptionsRESNET>,<AdditionalSurfaceAdjacentToOptions2019ASHRAE901>)"
+      Data Type: "(<SurfaceAdjacencyOptions>,<AdditionalSurfaceAdjacencyOptionsRESNET>,<AdditionalSurfaceAdjacencyOptions2019ASHRAE901>)"
       Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used. Commonly, plenums do not need to be explicitly described for many rulesets and instead when a plenum is present in the simulation model, this field should be set to the what is adjacent to the other side of the plenum. For example, on the top floor with a plenum, EXTERIOR would be entered."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
@@ -1151,6 +1161,14 @@ Construction:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
+    classification:
+      Description: "Classification for the subsurface being window, skylight, door."
+      Data Type: "(<ConstructionClassificationOptions2019ASHRAE901>, <ConstructionClassificationOptions2019T24>)"
+      RMD Test: False
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
     surface_construction_input_option:
       Description: "Identifies whether construction is entered layer-by-layer or simplified (R-value)"
       Data Type: "<SurfaceConstructionInputOptions>"
@@ -1187,11 +1205,11 @@ Construction:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    insulation_location:
-      Description: "The location of the insulation related to the surface"
-      Data Type: "String"  # this might make sense as an enumeration but I'm not sure the source of the options
-      RMD Test: False
-      AppG Used By TCDs: False
+    insulation_locations:
+      Description: "List of locations for the insulation related to the surface that correspoond to the values in the r_values list"
+      Data Type: "[<InsulationLocationOptions>]"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
@@ -1226,9 +1244,9 @@ Construction:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    r_value:
-      Description: "r-value of the insulation for the surface"
-      Data Type: "Numeric"
+    r_values:
+      Description: "List of r-value of the insulation for the surface that correspond to values in the insulation_locations list"
+      Data Type: "[Numeric]"
       Range: ">=0"
       Units: "K-m2/W"
       RMD Test: False
@@ -1252,6 +1270,28 @@ Construction:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+
+InsulationLocationOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    ABOVE_GROUND_WALL_EXTERIOR_CONTINUOUS:
+      Description: "Continous insulation on exterior of an above ground wall"
+    ABOVE_GROUND_WALL_INTERIOR_CONTINUOUS:
+      Description: "Continous insulation on interior of an above ground wall"
+    ABOVE_GROUND_WALL_FULL_CAVITY:
+      Description: "Insulation within the cavity of an above ground wall that fills the entire cavity"
+    ABOVE_GROUND_WALL_PARTIAL_CAVITY:
+      Description: "Insulation within the cavity of an above ground wall that fills only part of the cavity"
+    SLAB_HORIZONTAL_PERIMETER:
+      Description: "Insulation on underside of the slab covering the perimeter"
+    SLAB_HORIZONTAL_FULL:
+      Description: "Insulation fully covering the underside of the slab"
+    SLAB_VERTICAL:
+      Description: "Insulation applied vertically next to edge of slab"
+    NONE:
+      Description: "None"
+    OTHER:
+      Description: "Other"
 
 Material:
   Object Type: "Data Group"
@@ -1433,7 +1473,7 @@ SurfaceClassificationOptions:
     CEILING:
       Description: "Ceiling"
 
-SurfaceAdjacentToOptions:
+SurfaceAdjacencyOptions:
   Object Type: "Enumeration"
   Enumerators:
     EXTERIOR:
@@ -2080,12 +2120,30 @@ Schedule:
       AppG B_RMDs Same: "unknown"
     hourly_values:
       Description: "Hourly Values of Schedule"
-      Data Type: "[Numeric][0..8760]"
+      Data Type: "[Numeric][0..8784]"
       Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
       RMD Test: True
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: "unknown"
+    hourly_heating_design_day:
+      Description: "Hourly values for heating design day"
+      Data Type: "[Numeric][0..24]"
+      Notes: "Used when schedule_sequence_type is HOURLY."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    hourly_cooling_design_day:
+      Description: "Hourly values for cooling design day"
+      Data Type: "[Numeric][0..24]"
+      Notes: "Used when schedule_sequence_type is HOURLY."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     event_times:
       Description: "Event times when the schedule changes"
@@ -2101,6 +2159,44 @@ Schedule:
       Description: "Event value at corresponding event time."
       Data Type: "[Numeric]"
       Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    event_times_heating_design_day:
+      Description: "Event times when the schedule changes for heating design day"
+      Data Type: "[Numeric]"
+      Units: "s"
+      Notes: "Used when schedule_sequence_type is EVENT."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    event_values_heating_design_day:
+      Description: "Event value at corresponding event time for heating design day"
+      Data Type: "[Numeric]"
+      Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    event_times_cooling_design_day:
+      Description: "Event times when the schedule changes for cooling design day"
+      Data Type: "[Numeric]"
+      Units: "s"
+      Notes: "Used when schedule_sequence_type is EVENT."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    event_values_cooling_design_day:
+      Description: "Event value at corresponding event time for cooling design day"
+      Data Type: "[Numeric]"
+      Notes: "Used when schedule_sequence_type is EVENT. New values starting at corresponding to the event time until following event time minus one second."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3223,6 +3319,7 @@ FanSystem:
       Description: "Minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "If the minimum_outdoor_airflow is equal to the maximum_outdoor_airflow and equal to the total supply fan volume that indicates a constant volume dedicated outdoor air system. If only the  maximum_outdoor_airflow and equal to the total supply fan volume but the minimum_outdoor_airflow is lower that indicates an air side economizer."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3232,6 +3329,7 @@ FanSystem:
       Description: "Maximum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "If the minimum_outdoor_airflow is equal to the maximum_outdoor_airflow and equal to the total supply fan volume that indicates a constant volume dedicated outdoor air system. If only the  maximum_outdoor_airflow and equal to the total supply fan volume but the minimum_outdoor_airflow is lower that indicates an air side economizer."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3381,6 +3479,24 @@ AirEnergyRecovery:
     design_latent_effectiveness:
       Description: "Design sensible effectiveness"
       Data Type: "Numeric"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    outdoor_airflow:
+      Description: "Outdoor airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    exhaust_airflow:
+      Description: "Exhaust airflow"
+      Data Type: "Numeric"
+      Units: "L/s"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5015,20 +5131,32 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    fan_electric_input_power:
-      Description: "Fan Electric Input Power"
+    fan_shaft_power:
+      Description: "Fan Shaft Power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "Power delivered to the fan’s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units."
       RMD Test: "unknown"
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    fan_nameplate_power:
-      Description: "Fan Nameplate Power"
+    fan_motor_efficiency:
+      Description: "Efficiency of the fan motor at rating conditions"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "From CBECC-Com."
       RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    fan_motor_nameplate_power:
+      Description: "Fan Motor Nameplate Power"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "From CBECC-Com."
+      RMD Test: "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
