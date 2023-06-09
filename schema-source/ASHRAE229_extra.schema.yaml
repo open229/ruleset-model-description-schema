@@ -401,6 +401,26 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: "unknown"
+    number_of_floors_above_grade:
+      Description: "Number of floors above grade"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "For the entire building including all building segments. Does not include floors devoted solely to parking."
+      RMD Test: "Secondary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
+      AppG B_RMDs Same: "unknown"
+    number_of_floors_below_grade:
+      Description: "Number of floors below grade"
+      Data Type: "Numeric"
+      Range: ">=0"
+      Notes: "For the entire building including all building segments. Does not include floors devoted solely to parking."
+      RMD Test: "Secondary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: True
+      AppG B_RMDs Same: "unknown"
 
 BuildingSegment:
   Object Type: "Data Group"
@@ -434,6 +454,7 @@ BuildingSegment:
       Description: "Number of floors above grade"
       Data Type: "Numeric"
       Range: ">=0"
+      Notes: "For the portion of the building represented by the BuildingSegment."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -443,6 +464,7 @@ BuildingSegment:
       Description: "Number of floors below grade"
       Data Type: "Numeric"
       Range: ">=0"
+      Notes: "For the portion of the building represented by the BuildingSegment."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
