@@ -85,10 +85,10 @@ RuleTest:
 Evaluation:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Identifier"
-      Data Type: "String"
-      Notes: "Existing template value shows- Surface 1"
+    data_group:
+      Description: "Reference to a data group being evaluated"
+      Data Type: "Reference"
+      Notes: "Can reference any type of data group. Existing template value shows- Surface 1"
     messages:
       Description: "List of messages from evaluation"
       Data Type: "[String]"

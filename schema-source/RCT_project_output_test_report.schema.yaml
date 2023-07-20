@@ -65,10 +65,10 @@ Rule:
 Evaluation:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Identifier"
-      Data Type: "Integer"
-      Notes: "Existing template value shows- 1"
+    data_group:
+      Description: "Reference to a data group being evaluated"
+      Data Type: "Reference"
+      Notes: "Can reference any type of data group. Existing template value shows- 1"
     outcome:
       Description: "Outcome"
       Data Type: "<OutcomeOptions>"
