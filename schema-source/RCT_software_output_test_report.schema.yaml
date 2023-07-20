@@ -8,7 +8,7 @@
 Schema:
   Object Type: "Meta"
   References:
-    - "ASHRAE229"
+    - "RulesetProjectDescription"
   Title: "Software Output Test Report from Ruleset Checking Tool"
   Description: "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing"
 

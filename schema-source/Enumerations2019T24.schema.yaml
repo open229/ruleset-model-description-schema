@@ -6,7 +6,7 @@
 Schema:
   Object Type: "Meta"
   References:
-    - "ASHRAE229"
+    - "RulesetProjectDescription"
   Title: "Enumerations from Title 24"
   Description: "Schema addition for ASHRAE 229 related to enumerations related to California Title 24 publications."
 
