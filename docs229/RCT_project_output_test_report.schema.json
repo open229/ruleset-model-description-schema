@@ -26,6 +26,10 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
                     "notes": "Existing template value shows- 2022-02-01T18:25:43-05:00"
                 },
+                "schema_version": {
+                    "description": "Version of the schema corresponding to the tests.",
+                    "type": "string"
+                },
                 "rmd_files": {
                     "description": "A list of names of RMD files",
                     "type": "array",
@@ -80,13 +84,13 @@
         "Evaluation": {
             "type": "object",
             "properties": {
-                "id": {
-                    "description": "Identifier",
-                    "type": "integer",
-                    "notes": "Existing template value shows- 1"
+                "data_group": {
+                    "description": "Reference to a data group being evaluated",
+                    "type": "string",
+                    "notes": "Can reference any type of data group. Existing template value shows- 1"
                 },
                 "outcome": {
-                    "description": "Expected outcome",
+                    "description": "Outcome",
                     "$ref": "RCT_project_output_test_report.schema.json#/definitions/OutcomeOptions",
                     "notes": "Existing template value shows- PASS"
                 },
@@ -143,7 +147,7 @@
                     "notes": "Existing template value shows- calculated_value1"
                 },
                 "value": {
-                    "description": "Value",
+                    "description": "Value with Units",
                     "oneOf": [
                         {
                             "type": "number"

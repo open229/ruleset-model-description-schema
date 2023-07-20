@@ -31,6 +31,9 @@ RulesetCheckingToolProjectOutputReport:
       Description: "Time stamp for the output report"
       Data Type: "Timestamp"
       Notes: "Existing template value shows- 2022-02-01T18:25:43-05:00"
+    schema_version:  
+      Description: "Version of the schema corresponding to the tests."
+      Data Type: "String"
     rmd_files:  
       Description: "A list of names of RMD files"
       Data Type: "[{FileDescription}]"
@@ -65,12 +68,12 @@ Rule:
 Evaluation:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Identifier"
-      Data Type: "Integer"
-      Notes: "Existing template value shows- 1"
+    data_group:
+      Description: "Reference to a data group being evaluated"
+      Data Type: "Reference"
+      Notes: "Can reference any type of data group. Existing template value shows- 1"
     outcome:
-      Description: "Expected outcome"
+      Description: "Outcome"
       Data Type: "<OutcomeOptions>"
       Notes: "Existing template value shows- PASS"
     messages:
@@ -109,7 +112,7 @@ CalculatedValue:
       Data Type: "String"
       Notes: "Existing template value shows- calculated_value1"
     value:
-      Description: "Value"
+      Description: "Value with Units"
       Data Type: "(Numeric, String)"
       Notes: "Existing template value shows- 1.0"
 

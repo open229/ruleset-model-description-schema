@@ -85,10 +85,10 @@ RuleTest:
 Evaluation:
   Object Type: "Data Group"
   Data Elements:
-    id:
-      Description: "Identifier"
-      Data Type: "String"
-      Notes: "Existing template value shows- Surface 1"
+    data_group:
+      Description: "Reference to a data group being evaluated"
+      Data Type: "Reference"
+      Notes: "Can reference any type of data group. Existing template value shows- Surface 1"
     messages:
       Description: "List of messages from evaluation"
       Data Type: "[String]"
@@ -130,10 +130,6 @@ CalculatedValue:
       Data Type: "String"
       Notes: "Existing template value shows- roof_u_factor"
     value:
-      Description: "Value"
+      Description: "Value with Units"
       Data Type: "(Numeric, String)"
-      Notes: "Existing template value shows- 0.063"
-    units:
-      Description: "Units"
-      Data Type: "String"
-      Notes: "Existing template value shows- Btu/(hr*ft2*R)"
+      Notes: "As an example- 5 Btu. Existing template value shows- 0.063"

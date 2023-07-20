@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.29"
+  Version: "0.0.30"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -112,11 +112,10 @@ ASHRAE229:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    ruleset_model_instances:  
-      Description: "References an instance of a ruleset model with a unique ruleset_model_type."
-      Data Type: "[{RulesetModelInstance}]"
-      Notes: "For submissions with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For submissions where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. Some rulesets may restrict the submission process including the number of files and number of instances per file. Multiple model instances may be required by rulesets that require models at various tiers or levels of performance. Instances may also be used by References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a RulesetModelInstance should be unique for each type of data group. Between Ruleset ModelInstances, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all RulesetModelInstances except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all RulesetModelInstances. "
-      RMD Test: "unknown"
+    ruleset_model_descriptions:  
+      Description: "A list of the ruleset model descriptions within the project each with a unique ruleset_model_type."
+      Data Type: "[{RulesetModelDescription}]"
+      Notes: "For submissions with ruleset model descriptions (i.e., user, proposed, baseline,..) generated as separate files, only one model description would be defined for each ASHRAE229 ruleset project description json file. For submissions where the software always produces all ruleset model descriptions together, multiple model descriptions would appear in the same ASHRAE229 ruleset project description json file. Some rulesets may restrict the submission process including the number of files and number of model descriptions per file. Multiple model descriptions may be required by rulesets that require models at various tiers or levels of performance. Model descriptions may also be used by References between data groups and are restricted to be within the same ruleset model description. For 90.1-2019 appendix G model descriptions would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a ruleset model description should be unique for each type of data group. Between ruleset model descriptions, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all ruleset model descriptions except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all ruleset model descriptions."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -139,7 +138,7 @@ ASHRAE229:
       AppG B_RMDs Same: "unknown"
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
-      Data Type: "<CompliancePathType2019ASHRAE901>"
+      Data Type: "<CompliancePathOptions2019ASHRAE901>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -154,7 +153,7 @@ ASHRAE229:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
       
-RulesetModelInstance:
+RulesetModelDescription:
   Object Type: "Data Group"
   Data Elements:
     id:
@@ -183,8 +182,8 @@ RulesetModelInstance:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     type:
-      Description: "Describes the current model instance for rulesets with multiple simulation models"
-      Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
+      Description: "Describes the current ruleset model description for rulesets with multiple simulation models"
+      Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET>,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -375,7 +374,7 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    refrigerated_casess:
+    refrigerated_cases:
       Description: "Refrigerated cases"
       Data Type: "[{RefrigeratedCase}]"
       Notes: "Contains a list of refrigerated cases in the building."
@@ -405,7 +404,7 @@ Building:
       Description: "Number of floors above grade"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "For the entire building including all building segments. Does not include floors devoted solely to parking."
+      Notes: "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -415,7 +414,7 @@ Building:
       Description: "Number of floors below grade"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "For the entire building including all building segments. Does not include floors devoted solely to parking."
+      Notes: "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1311,8 +1310,6 @@ InsulationLocationOptions:
       Description: "Continous insulation on interior of an above ground wall"
     ABOVE_GROUND_WALL_FULL_CAVITY:
       Description: "Insulation within the cavity of an above ground wall that fills the entire cavity"
-    ABOVE_GROUND_WALL_FULL_CAVITY_DOUBLE_STUD:
-      Description: "Insulation within the cavity of an above ground wall that fills the entire cavity using double stud wall framing."
     ABOVE_GROUND_WALL_PARTIAL_CAVITY:
       Description: "Insulation within the cavity of an above ground wall that fills only part of the cavity"
     SLAB_HORIZONTAL_PERIMETER:
@@ -4194,7 +4191,7 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
     cooling_or_condensing_design_and_control:
-      Description: ""
+      Description: "Fluid loop design and control used for cooling or condensing loops"
       Data Type: "{FluidLoopDesignAndControl}"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -4202,7 +4199,7 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
     heating_design_and_control:
-      Description: ""
+      Description: "Fluid loop design and control used for heaing loops"
       Data Type: "{FluidLoopDesignAndControl}"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -5188,8 +5185,8 @@ HeatRejection:
       Description: "Fan Motor Nameplate Power"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "From CBECC-Com."
-      RMD Test: "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower."
+      Notes: "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower.From CBECC-Com."
+      RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -5980,7 +5977,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusType2019T24>"
+      Data Type: "<GeneralStatusOptions2019T24>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
