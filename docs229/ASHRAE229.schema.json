@@ -23,13 +23,13 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
-                "ruleset_model_instances": {
-                    "description": "References an instance of a ruleset model with a unique ruleset_model_type.",
+                "ruleset_model_descriptions": {
+                    "description": "A list of the ruleset model descriptions within the project each with a unique ruleset_model_type.",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/RulesetModelInstance"
+                        "$ref": "ASHRAE229.schema.json#/definitions/RulesetModelDescription"
                     },
-                    "notes": "For submissions with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For submissions where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. Some rulesets may restrict the submission process including the number of files and number of instances per file. Multiple model instances may be required by rulesets that require models at various tiers or levels of performance. Instances may also be used by References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a RulesetModelInstance should be unique for each type of data group. Between Ruleset ModelInstances, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all RulesetModelInstances except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all RulesetModelInstances. "
+                    "notes": "For submissions with ruleset model descriptions (i.e., user, proposed, baseline,..) generated as separate files, only one model description would be defined for each ASHRAE229 ruleset project description json file. For submissions where the software always produces all ruleset model descriptions together, multiple model descriptions would appear in the same ASHRAE229 ruleset project description json file. Some rulesets may restrict the submission process including the number of files and number of model descriptions per file. Multiple model descriptions may be required by rulesets that require models at various tiers or levels of performance. Model descriptions may also be used by References between data groups and are restricted to be within the same ruleset model description. For 90.1-2019 appendix G model descriptions would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a ruleset model description should be unique for each type of data group. Between ruleset model descriptions, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all ruleset model descriptions except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all ruleset model descriptions."
                 },
                 "calendar": {
                     "description": "Information on the calendar used with the simulation.",
@@ -40,7 +40,8 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/Weather"
                 },
                 "compliance_path": {
-                    "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
+                    "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CompliancePathOptions2019ASHRAE901"
                 },
                 "output_format_type": {
                     "description": "Indicates the chosen format for output",
@@ -62,7 +63,7 @@
             ],
             "additionalProperties": false
         },
-        "RulesetModelInstance": {
+        "RulesetModelDescription": {
             "type": "object",
             "properties": {
                 "id": {
@@ -78,12 +79,14 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "Describes the current model instance for rulesets with multiple simulation models",
+                    "description": "Describes the current ruleset model description for rulesets with multiple simulation models",
                     "oneOf": [
                         {
                             "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/RulesetModelOptions2019ASHRAE901"
                         },
-                        {},
+                        {
+                            "$ref": "EnumerationsRESNET.schema.json#/definitions/RulesetModelOptionsRESNET"
+                        },
                         {
                             "$ref": "Enumerations2019T24.schema.json#/definitions/RulesetModelOptions2019T24Com"
                         },
@@ -243,7 +246,7 @@
                     },
                     "notes": "Contains a list of exterior lighting systems for the building."
                 },
-                "refrigerated_casess": {
+                "refrigerated_cases": {
                     "description": "Refrigerated cases",
                     "type": "array",
                     "items": {
@@ -264,13 +267,13 @@
                     "description": "Number of floors above grade",
                     "type": "number",
                     "minimum": 0.0,
-                    "notes": "For the entire building including all building segments. Does not include floors devoted solely to parking."
+                    "notes": "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
                 },
                 "number_of_floors_below_grade": {
                     "description": "Number of floors below grade",
                     "type": "number",
                     "minimum": 0.0,
-                    "notes": "For the entire building including all building segments. Does not include floors devoted solely to parking."
+                    "notes": "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
                 }
             },
             "required": [
@@ -898,7 +901,6 @@
                 "ABOVE_GROUND_WALL_EXTERIOR_CONTINUOUS",
                 "ABOVE_GROUND_WALL_INTERIOR_CONTINUOUS",
                 "ABOVE_GROUND_WALL_FULL_CAVITY",
-                "ABOVE_GROUND_WALL_FULL_CAVITY_DOUBLE_STUD",
                 "ABOVE_GROUND_WALL_PARTIAL_CAVITY",
                 "SLAB_HORIZONTAL_PERIMETER",
                 "SLAB_HORIZONTAL_FULL",
@@ -910,7 +912,6 @@
                 "Continous insulation on exterior of an above ground wall",
                 "Continous insulation on interior of an above ground wall",
                 "Insulation within the cavity of an above ground wall that fills the entire cavity",
-                "Insulation within the cavity of an above ground wall that fills the entire cavity using double stud wall framing.",
                 "Insulation within the cavity of an above ground wall that fills only part of the cavity",
                 "Insulation on underside of the slab covering the perimeter",
                 "Insulation fully covering the underside of the slab",
@@ -3077,11 +3078,11 @@
                     "notes": "Secondary loops should be described as child loops."
                 },
                 "cooling_or_condensing_design_and_control": {
-                    "description": "",
+                    "description": "Fluid loop design and control used for cooling or condensing loops",
                     "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl"
                 },
                 "heating_design_and_control": {
-                    "description": "",
+                    "description": "Fluid loop design and control used for heaing loops",
                     "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl"
                 }
             },
@@ -3765,7 +3766,7 @@
                     "description": "Fan Motor Nameplate Power",
                     "type": "number",
                     "units": "W",
-                    "notes": "From CBECC-Com."
+                    "notes": "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower.From CBECC-Com."
                 },
                 "fan_speed_control": {
                     "description": "Fan Speed Control Type",
@@ -4325,7 +4326,8 @@
                     "notes": "Contains a storage tank that is part of the service water heating equipment."
                 },
                 "status_type": {
-                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset."
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
                 },
                 "solar_thermal_systems": {
                     "description": "Solar thermal systems used for heating service water",
@@ -4927,6 +4929,6 @@
             ]
         }
     },
-    "version": "0.0.29",
+    "version": "0.0.30",
     "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
 }

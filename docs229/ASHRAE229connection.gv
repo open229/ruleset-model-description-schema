@@ -1,20 +1,20 @@
 digraph G {
     size="7.5, 20";
     rankdir=LR;
-  ASHRAE229 -> RulesetModelInstance
+  ASHRAE229 -> RulesetModelDescription
   ASHRAE229 -> Calendar
   ASHRAE229 -> Weather
-  RulesetModelInstance -> Transformer
-  RulesetModelInstance -> Building
-  RulesetModelInstance -> Schedule
-  RulesetModelInstance -> FluidLoop
-  RulesetModelInstance -> ServiceWaterHeatingDistributionSystem
-  RulesetModelInstance -> ServiceWaterHeatingEquipment
-  RulesetModelInstance -> Pump
-  RulesetModelInstance -> Boiler
-  RulesetModelInstance -> Chiller
-  RulesetModelInstance -> HeatRejection
-  RulesetModelInstance -> ExternalFluidSource
+  RulesetModelDescription -> Transformer
+  RulesetModelDescription -> Building
+  RulesetModelDescription -> Schedule
+  RulesetModelDescription -> FluidLoop
+  RulesetModelDescription -> ServiceWaterHeatingDistributionSystem
+  RulesetModelDescription -> ServiceWaterHeatingEquipment
+  RulesetModelDescription -> Pump
+  RulesetModelDescription -> Boiler
+  RulesetModelDescription -> Chiller
+  RulesetModelDescription -> HeatRejection
+  RulesetModelDescription -> ExternalFluidSource
   Building -> BuildingSegment
   Building -> Elevator
   Building -> ExteriorLighting
