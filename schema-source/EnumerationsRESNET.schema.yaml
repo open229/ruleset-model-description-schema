@@ -6,7 +6,7 @@
 Schema:
   Object Type: "Meta"
   References:
-    - "RulesetProjectDescription"
+    - "ASHRAE229"
   Title: "Enumerations from RESNET"
   Description: "Schema addition for ASHRAE 229 related to enumerations found in RESNET publications."
 

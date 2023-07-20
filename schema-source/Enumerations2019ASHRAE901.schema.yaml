@@ -6,7 +6,7 @@
 Schema:
   Object Type: "Meta"
   References:
-    - "RulesetProjectDescription"
+    - "ASHRAE229"
   Title: "Enumerations from ASHRAE 90.1-2019"
   Description: "Schema addition for ASHRAE 229 related to enumerations found in ASHRAE Standard 90.1-2019"
 

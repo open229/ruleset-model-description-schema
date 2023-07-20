@@ -16,7 +16,7 @@ Schema:
     - "EnumerationsRESNET"
     - "Enumerations2019T24"
     - "Output2019ASHRAE901"
-  Root Data Group: "RulesetProjectDescription"
+  Root Data Group: "ASHRAE229"
 
 # Data Types
 
@@ -83,7 +83,7 @@ Timestamp:
     - "null"
 
 # Common Data Groups
-RulesetProjectDescription:
+ASHRAE229:
   Object Type: "Data Group"
   Data Elements:
     id:
