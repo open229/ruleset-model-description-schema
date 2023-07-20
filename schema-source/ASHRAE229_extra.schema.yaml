@@ -4191,7 +4191,7 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
     cooling_or_condensing_design_and_control:
-      Description: ""
+      Description: "Fluid loop design and control used for cooling or condensing loops"
       Data Type: "{FluidLoopDesignAndControl}"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -4199,7 +4199,7 @@ FluidLoop:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
     heating_design_and_control:
-      Description: ""
+      Description: "Fluid loop design and control used for heaing loops"
       Data Type: "{FluidLoopDesignAndControl}"
       RMD Test: "Primary"
       AppG Used By TCDs: True
