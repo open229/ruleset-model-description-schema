@@ -405,7 +405,7 @@ Building:
       Description: "Number of floors above grade"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "For the entire building including all building segments. Does not include floors devoted solely to parking."
+      Notes: "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -415,7 +415,7 @@ Building:
       Description: "Number of floors below grade"
       Data Type: "Numeric"
       Range: ">=0"
-      Notes: "For the entire building including all building segments. Does not include floors devoted solely to parking."
+      Notes: "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
