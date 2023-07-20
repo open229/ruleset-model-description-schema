@@ -70,7 +70,7 @@ Evaluation:
       Data Type: "Integer"
       Notes: "Existing template value shows- 1"
     outcome:
-      Description: "Expected outcome"
+      Description: "Outcome"
       Data Type: "<OutcomeOptions>"
       Notes: "Existing template value shows- PASS"
     messages:
