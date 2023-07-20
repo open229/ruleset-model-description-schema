@@ -112,7 +112,7 @@ CalculatedValue:
       Data Type: "String"
       Notes: "Existing template value shows- calculated_value1"
     value:
-      Description: "Value"
+      Description: "Value with Units"
       Data Type: "(Numeric, String)"
       Notes: "Existing template value shows- 1.0"
 
