@@ -375,7 +375,7 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    refrigerated_casess:
+    refrigerated_cases:
       Description: "Refrigerated cases"
       Data Type: "[{RefrigeratedCase}]"
       Notes: "Contains a list of refrigerated cases in the building."
