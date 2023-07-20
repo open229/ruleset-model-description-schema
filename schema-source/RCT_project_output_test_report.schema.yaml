@@ -31,6 +31,9 @@ RulesetCheckingToolProjectOutputReport:
       Description: "Time stamp for the output report"
       Data Type: "Timestamp"
       Notes: "Existing template value shows- 2022-02-01T18:25:43-05:00"
+    schema_version:  
+      Description: "Version of the schema corresponding to the tests."
+      Data Type: "String"
     rmd_files:  
       Description: "A list of names of RMD files"
       Data Type: "[{FileDescription}]"
