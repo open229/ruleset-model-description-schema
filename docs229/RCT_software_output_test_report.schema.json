@@ -102,10 +102,10 @@
         "Evaluation": {
             "type": "object",
             "properties": {
-                "data_group": {
-                    "description": "Reference to a data group being evaluated",
+                "data_group_id": {
+                    "description": "The ID of the data group being evaluated",
                     "type": "string",
-                    "notes": "Can reference any type of data group. Existing template value shows- Surface 1"
+                    "notes": "The ID of any type of data group. Existing template value shows- Surface 1"
                 },
                 "messages": {
                     "description": "List of messages from evaluation",
@@ -166,16 +166,29 @@
                     "notes": "Existing template value shows- roof_u_factor"
                 },
                 "value": {
-                    "description": "Value with Units",
+                    "description": "Value",
                     "oneOf": [
                         {
                             "type": "number"
                         },
                         {
+                            "type": "boolean"
+                        },
+                        {
                             "type": "string"
                         }
                     ],
-                    "notes": "As an example- 5 Btu. Existing template value shows- 0.063"
+                    "notes": "Existing template value shows- 0.063"
+                },
+                "units": {
+                    "description": "Units",
+                    "type": "string",
+                    "notes": "Existing template value shows- Btu/(hr*ft2*R)"
+                },
+                "ruleset_model_type": {
+                    "description": "The identification of model for the RulesetModelDescription",
+                    "type": "string",
+                    "notes": "A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
                 }
             },
             "additionalProperties": false

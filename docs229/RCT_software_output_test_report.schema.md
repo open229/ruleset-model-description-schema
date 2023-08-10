@@ -37,16 +37,18 @@
 | `rule_unit_test_evaluations`                 | List of evalations perfomed                               | `[{Evaluation}]`          |       |       |     | Existing template value shows-                                                                                                                                                                                                                                                                                       |
 
 # Evaluation
-|         Name         |                   Description                   |       Data Type       | Units | Range | Req |                                     Notes                                      |
-|----------------------|-------------------------------------------------|-----------------------|-------|-------|-----|--------------------------------------------------------------------------------|
-| `data_group`         | Reference to a data group being evaluated       | `Reference`           |       |       |     | Can reference any type of data group. Existing template value shows- Surface 1 |
-| `messages`           | List of messages from evaluation                | `[String]`            |       |       |     | Existing template value shows- message                                         |
-| `evaluation_outcome` | Expected outcome                                | `<OutcomeOptions>`    |       |       |     | Existing template value shows- PASS                                            |
-| `calculated_values`  | a list of calculated values from the evaluation | `[{CalculatedValue}]` |       |       |     | Used to help understand and debug rule evaulation                              |
+|         Name         |                   Description                   |       Data Type       | Units | Range | Req |                                   Notes                                    |
+|----------------------|-------------------------------------------------|-----------------------|-------|-------|-----|----------------------------------------------------------------------------|
+| `data_group_id`      | The ID of the data group being evaluated        | `String`              |       |       |     | The ID of any type of data group. Existing template value shows- Surface 1 |
+| `messages`           | List of messages from evaluation                | `[String]`            |       |       |     | Existing template value shows- message                                     |
+| `evaluation_outcome` | Expected outcome                                | `<OutcomeOptions>`    |       |       |     | Existing template value shows- PASS                                        |
+| `calculated_values`  | a list of calculated values from the evaluation | `[{CalculatedValue}]` |       |       |     | Used to help understand and debug rule evaulation                          |
 
 # CalculatedValue
-|    Name    |   Description    |      Data Type      | Units | Range | Req |                           Notes                            |
-|------------|------------------|---------------------|-------|-------|-----|------------------------------------------------------------|
-| `variable` | Variable         | `String`            |       |       |     | Existing template value shows- roof_u_factor               |
-| `value`    | Value with Units | `(Numeric, String)` |       |       |     | As an example- 5 Btu. Existing template value shows- 0.063 |
+|         Name         |                         Description                         |          Data Type           | Units | Range | Req |                                                                                                           Notes                                                                                                           |
+|----------------------|-------------------------------------------------------------|------------------------------|-------|-------|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `variable`           | Variable                                                    | `String`                     |       |       |     | Existing template value shows- roof_u_factor                                                                                                                                                                              |
+| `value`              | Value                                                       | `(Numeric, Boolean, String)` |       |       |     | Existing template value shows- 0.063                                                                                                                                                                                      |
+| `units`              | Units                                                       | `String`                     |       |       |     | Existing template value shows- Btu/(hr*ft2*R)                                                                                                                                                                             |
+| `ruleset_model_type` | The identification of model for the RulesetModelDescription | `String`                     |       |       |     | A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270. |
 

@@ -7,7 +7,7 @@
             "type": "string",
             "pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}Z"
         },
-        "ASHRAE229": {
+        "RulesetProjectDescription": {
             "type": "object",
             "properties": {
                 "id": {
@@ -4929,6 +4929,6 @@
             ]
         }
     },
-    "version": "0.0.30",
-    "$ref": "ASHRAE229_extra.schema.json#/definitions/ASHRAE229"
+    "version": "0.0.31",
+    "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
