@@ -137,7 +137,7 @@ CalculatedValue:
       Description: "Units"
       Data Type: "String"
       Notes: "Existing template value shows- Btu/(hr*ft2*R)"
-    ruleset_model_type:
-      Description: "The identification of model for the RulesetModelDescription"
+    source:
+      Description: "The source of the value"
       Data Type: "String"
-      Notes: "A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
+      Notes: "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
