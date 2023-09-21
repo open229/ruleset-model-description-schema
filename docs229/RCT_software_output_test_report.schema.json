@@ -23,7 +23,7 @@
                 },
                 "date_run": {
                     "description": "Time stamp for the output report",
-                    "type": "string",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
                     "notes": "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2023-03-16T14:45:33-05:00"
                 },
                 "schema_version": {
@@ -39,6 +39,12 @@
                     }
                 }
             },
+            "required": [
+                "ruleset",
+                "date_run",
+                "schema_version",
+                "rules_tests"
+            ],
             "additionalProperties": false
         },
         "RuleTest": {
@@ -97,6 +103,13 @@
                     "notes": "Existing template value shows- "
                 }
             },
+            "required": [
+                "rule_id",
+                "test_id",
+                "rule_unit_test_outcome_agreement",
+                "expected_rule_unit_test_evaluation_outcome",
+                "rule_unit_test_evaluations"
+            ],
             "additionalProperties": false
         },
         "Evaluation": {
@@ -129,6 +142,10 @@
                     "notes": "Used to help understand and debug rule evaulation"
                 }
             },
+            "required": [
+                "data_group_id",
+                "evaluation_outcome"
+            ],
             "additionalProperties": false
         },
         "OutcomeOptions": {
@@ -180,15 +197,15 @@
                     ],
                     "notes": "Existing template value shows- 0.063"
                 },
-                "units": {
+                "unit": {
                     "description": "Units",
                     "type": "string",
                     "notes": "Existing template value shows- Btu/(hr*ft2*R)"
                 },
-                "ruleset_model_type": {
-                    "description": "The identification of model for the RulesetModelDescription",
+                "source": {
+                    "description": "The source of the value",
                     "type": "string",
-                    "notes": "A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
+                    "notes": "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
                 }
             },
             "additionalProperties": false

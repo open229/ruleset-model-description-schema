@@ -26,18 +26,22 @@ RulesetCheckingToolSoftwareOutputReport:
     ruleset:  
       Description: "References output that correspond to specific simulation model."
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
     date_run:
       Description: "Time stamp for the output report"
-      Data Type: "String"
+      Data Type: "Timestamp"
+      Required: True
       Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2023-03-16T14:45:33-05:00"
     schema_version:  
       Description: "Version of the schema corresponding to the tests."
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- 0.0.23"
     rules_tests:
       Description: "List of rule that is being evaluated"
       Data Type: "[{RuleTest}]"
+      Required: True
 
 RuleTest:
   Object Type: "Data Group"
@@ -45,10 +49,12 @@ RuleTest:
     rule_id:
       Description: "The identification of the specific rule"
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- 5-5"
     test_id:
       Description: "The identification of the test case for the specific rule"
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- a"
     test_description:
       Description: "Textual description of the test for the rule"
@@ -68,10 +74,12 @@ RuleTest:
     rule_unit_test_outcome_agreement:
       Description: "True if the expected and actual agree"
       Data Type: "Boolean"
+      Required: True
       Notes: "Existing template value shows- false"
     expected_rule_unit_test_evaluation_outcome:
       Description: "Expected outcome"
       Data Type: "<OutcomeOptions>"
+      Required: True
       Notes: "Existing template value shows- PASS"
     actual_rule_unit_test_evaluation_outcome:
       Description: "Expected outcome"
@@ -80,6 +88,7 @@ RuleTest:
     rule_unit_test_evaluations:
       Description: "List of evalations perfomed"
       Data Type: "[{Evaluation}]"
+      Required: True
       Notes: "Existing template value shows- "
 
 Evaluation:
@@ -88,6 +97,7 @@ Evaluation:
     data_group_id:
       Description: "The ID of the data group being evaluated"
       Data Type: "String"
+      Required: True
       Notes: "The ID of any type of data group. Existing template value shows- Surface 1"
     messages:
       Description: "List of messages from evaluation"
@@ -96,6 +106,7 @@ Evaluation:
     evaluation_outcome:
       Description: "Expected outcome"
       Data Type: "<OutcomeOptions>"
+      Required: True
       Notes: "Existing template value shows- PASS"
     calculated_values:
       Description: "a list of calculated values from the evaluation"
@@ -133,11 +144,11 @@ CalculatedValue:
       Description: "Value"
       Data Type: "(Numeric, Boolean, String)"
       Notes: "Existing template value shows- 0.063"
-    units:
+    unit:
       Description: "Units"
       Data Type: "String"
       Notes: "Existing template value shows- Btu/(hr*ft2*R)"
-    ruleset_model_type:
-      Description: "The identification of model for the RulesetModelDescription"
+    source:
+      Description: "The source of the value"
       Data Type: "String"
-      Notes: "A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
+      Notes: "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
