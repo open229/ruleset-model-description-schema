@@ -23,6 +23,17 @@
                     "description": "Supplementary information to provide context to the model reviewer",
                     "type": "string"
                 },
+                "data_timestamp": {
+                    "description": "Date and time of data publication",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
+                    "notes": "Date and time of publication of the data"
+                },
+                "data_version": {
+                    "description": "Integer version identifier for the data",
+                    "type": "integer",
+                    "minimum": 1,
+                    "notes": "Used by data publisher to track revisions of the data and shall be incremented for each data revision"
+                },
                 "ruleset_model_descriptions": {
                     "description": "A list of the ruleset model descriptions within the project each with a unique ruleset_model_type.",
                     "type": "array",
@@ -59,7 +70,8 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "data_timestamp"
             ],
             "additionalProperties": false
         },
@@ -4929,6 +4941,6 @@
             ]
         }
     },
-    "version": "0.0.31",
+    "version": "0.0.32",
     "$ref": "ASHRAE229.schema.json#/definitions/RulesetProjectDescription"
 }
