@@ -130,8 +130,7 @@
                 }
             },
             "required": [
-                "data_group_id",
-                "calculated_values"
+                "data_group_id"
             ],
             "additionalProperties": false
         },
@@ -184,7 +183,7 @@
                     ],
                     "notes": "Existing template value shows- 1.0"
                 },
-                "units": {
+                "unit": {
                     "description": "Units",
                     "type": "string",
                     "notes": "For example- Btu/(hr*ft2*R)"
@@ -195,11 +194,6 @@
                     "notes": "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
                 }
             },
-            "required": [
-                "variable",
-                "value",
-                "units"
-            ],
             "additionalProperties": false
         },
         "FileDescription": {
