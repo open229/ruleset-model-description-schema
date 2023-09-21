@@ -94,7 +94,6 @@ Evaluation:
     calculated_values:
       Description: ""
       Data Type: "[{CalculatedValue}]"
-      Required: True
       Notes: "Not same as template since template shows key-value pairs"
 
 OutcomeOptions:
@@ -123,17 +122,14 @@ CalculatedValue:
     variable:
       Description: "Variable"
       Data Type: "String"
-      Required: True
       Notes: "Existing template value shows- calculated_value1"
     value:
       Description: "Value"
       Data Type: "(Numeric, Boolean, String)"
-      Required: True
       Notes: "Existing template value shows- 1.0"
-    units:
+    unit:
       Description: "Units"
       Data Type: "String"
-      Required: True
       Notes: "For example- Btu/(hr*ft2*R)"
     source:
       Description: "The source of the value"

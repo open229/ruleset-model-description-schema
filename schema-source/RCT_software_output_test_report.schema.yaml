@@ -111,7 +111,6 @@ Evaluation:
     calculated_values:
       Description: "a list of calculated values from the evaluation"
       Data Type: "[{CalculatedValue}]"
-      Required: True
       Notes: "Used to help understand and debug rule evaulation"
 
 OutcomeOptions:
@@ -140,17 +139,14 @@ CalculatedValue:
     variable:
       Description: "Variable"
       Data Type: "String"
-      Required: True
       Notes: "Existing template value shows- roof_u_factor"
     value:
       Description: "Value"
       Data Type: "(Numeric, Boolean, String)"
-      Required: True
       Notes: "Existing template value shows- 0.063"
-    units:
+    unit:
       Description: "Units"
       Data Type: "String"
-      Required: True
       Notes: "Existing template value shows- Btu/(hr*ft2*R)"
     source:
       Description: "The source of the value"
