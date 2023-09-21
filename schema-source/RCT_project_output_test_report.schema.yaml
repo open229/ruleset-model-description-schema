@@ -26,21 +26,26 @@ RulesetCheckingToolProjectOutputReport:
     ruleset:  
       Description: "Names the ruleset including appropriate year, organization, and section."
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
     date_run:
       Description: "Time stamp for the output report"
       Data Type: "Timestamp"
+      Required: True
       Notes: "Existing template value shows- 2022-02-01T18:25:43-05:00"
     schema_version:  
       Description: "Version of the Standard 229 Rule Evaluation Schema corresponding to the tests."
+      Required: True
       Data Type: "String"
     rpd_files:  
       Description: "A list of names of RPD files"
       Data Type: "[{FileDescription}]"
       Notes: "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+      Required: True
     rules:
       Description: "List of rule that is being evaluated"
       Data Type: "[{Rule}]"
+      Required: True
 
 Rule:
   Object Type: "Data Group"
@@ -48,6 +53,7 @@ Rule:
     rule_id:
       Description: "The identification of the specific rule"
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- 1-1"
     description:
       Description: "Textual description of the rule"
@@ -67,6 +73,7 @@ Rule:
     evaluations:
       Description: "List of evalations perfomed"
       Data Type: "[{Evaluation}]"
+      Required: True
       Notes: "Existing template value shows- "
 
 Evaluation:
@@ -75,6 +82,7 @@ Evaluation:
     data_group_id:
       Description: "The ID of the data group being evaluated"
       Data Type: "String"
+      Required: True
       Notes: "The ID of any type of data group. This is a string and not a reference data type since the RPD file would be separate. Existing template value shows- 1"
     outcome:
       Description: "Outcome"
@@ -86,6 +94,7 @@ Evaluation:
     calculated_values:
       Description: ""
       Data Type: "[{CalculatedValue}]"
+      Required: True
       Notes: "Not same as template since template shows key-value pairs"
 
 OutcomeOptions:
@@ -114,14 +123,17 @@ CalculatedValue:
     variable:
       Description: "Variable"
       Data Type: "String"
+      Required: True
       Notes: "Existing template value shows- calculated_value1"
     value:
       Description: "Value"
       Data Type: "(Numeric, Boolean, String)"
+      Required: True
       Notes: "Existing template value shows- 1.0"
     units:
       Description: "Units"
       Data Type: "String"
+      Required: True
       Notes: "For example- Btu/(hr*ft2*R)"
     source:
       Description: "The source of the value"
@@ -134,9 +146,11 @@ FileDescription:
     ruleset_model_type:
       Description: "Describes the type of model associated with the file."
       Data Type: "String"
+      Required: True
       Notes: "A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270"
     file_name:
       Description: "Value"
       Data Type: "String"
+      Required: True
       Notes: "The name of the json file with file extension and may include the file path. Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
 
