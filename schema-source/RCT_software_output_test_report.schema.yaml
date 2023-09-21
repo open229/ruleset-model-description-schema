@@ -30,7 +30,7 @@ RulesetCheckingToolSoftwareOutputReport:
       Notes: "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
     date_run:
       Description: "Time stamp for the output report"
-      Data Type: "String"
+      Data Type: "Timestamp"
       Required: True
       Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2023-03-16T14:45:33-05:00"
     schema_version:  
