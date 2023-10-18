@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.33"
+  Version: "0.0.34"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -107,6 +107,7 @@ RulesetProjectDescription:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -187,6 +188,7 @@ RulesetModelDescription:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
       RMD Test: "unknown"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -194,6 +196,7 @@ RulesetModelDescription:
     type:
       Description: "Describes the current ruleset model description for rulesets with multiple simulation models"
       Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET>,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
+      Notes: "Will usually designate which simulation this RulesetModelDescription refers to such as: PROPOSED, BASELINE_0, USER, RATED, REFERENCE"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -307,6 +310,7 @@ RulesetModelDescription:
     external_fluid_sources:
       Description: "ExternalFluidSources used on the site"
       Data Type: "[{ExternalFluidSource}]"
+      Notes: "The sources of energy, such as district chilled water, district hot water, and district steam."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -315,6 +319,7 @@ RulesetModelDescription:
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZoneOptions2019ASHRAE901>"
+      Notes: "The site designation type for exterior lighting classification."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -352,6 +357,7 @@ Building:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -454,6 +460,7 @@ BuildingSegment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -518,6 +525,7 @@ BuildingSegment:
     lighting_building_area_type:
       Description: "Building area lighting area type"
       Data Type: "<LightingBuildingAreaOptions2019ASHRAE901T951TG38>"
+      Notes: "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
@@ -557,6 +565,7 @@ Zone:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -620,6 +629,7 @@ Zone:
       Description: "Setpoint temperature for cooling during occupied hours"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "The cooling setpoint temperature for the zone at design conditions."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -638,6 +648,7 @@ Zone:
       Description: "Setpoint temperature for heating during occupied hours"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "The heating setpoint temperature for the zone at design conditions."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: True
@@ -712,6 +723,7 @@ Zone:
     zonal_exhaust_fan:
       Description: "Zonal exhaust fan"
       Data Type: "{Fan}"
+      Notes: "References a fan that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -741,6 +753,7 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
+      Notes: "The power consumed by a fan used in a non-mechancial cooling device such as a ceiling fan."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -751,6 +764,7 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
+      Notes: "The airflow of a fan used in a non-mechancial cooling device such as a ceiling fan."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -799,6 +813,7 @@ Space:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -807,6 +822,7 @@ Space:
     interior_lighting:
       Description: "Internal lighting that produce internal gains for a space."
       Data Type: "[{InteriorLighting}]"
+      Notes: "References one or more InteriorLighting data groups that collectively define all interior lighting within the space."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -815,6 +831,7 @@ Space:
     miscellaneous_equipment:
       Description: "Miscellaneous equipment loads that produce internal gains for a space."
       Data Type: "[{MiscellaneousEquipment}]"
+      Notes: "References one or more MiscellaneousEquipment that collectively describe all of the miscellaneous equipment in the space."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -976,6 +993,7 @@ Infiltration:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1067,6 +1085,7 @@ Surface:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1196,6 +1215,7 @@ Construction:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1269,6 +1289,7 @@ Construction:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W/m2-K"
+      Notes: "Typically used to describe the thermal perfromance of constructions used in below grade walls. It is the time rate of steady-state heat flow through unit area of a material or construction, induced by a unit temperature difference between the body surfaces. Note that the C-factor does not include soil or air films."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1279,6 +1300,7 @@ Construction:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W/m-K"
+      Notes: "Typically used to describe the thermal perfromance of constructions used in slab-on-grade floors. It is the heat transfer through the floor, induced by a unit temperature difference between the outside and inside air temperature, on the per linear length of the exposed perimeter of the floor."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1356,6 +1378,7 @@ Material:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1437,6 +1460,7 @@ SurfaceOpticalProperties:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1558,6 +1582,7 @@ Subsurface:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1801,6 +1826,7 @@ InteriorLighting:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1919,6 +1945,7 @@ MiscellaneousEquipment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2042,6 +2069,7 @@ Transformer:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2136,6 +2164,7 @@ Schedule:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2254,6 +2283,7 @@ Schedule:
     prescribed_type:
       Description: "Options when any schedule values have changed from what appears in the schedule library"
       Data Type: "<PrescribedScheduleOptions2019ASHRAE901>"
+      Notes: "Some rule sets prescribe which schedules to use for modeling purposes. This option indicates if the schedule is as prescribed or has been modified."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2262,6 +2292,7 @@ Schedule:
     is_modified_for_workaround:
       Description: "True if any schedule has been modified for a workaround"
       Data Type: "Boolean"
+      Notes: "Not all technologies can be modeled directly in the simulation program.  Modifiying schedules is a common workaround for modeling some technologies.  This flag is used to indicate when a schedule has been modified for this purpose."
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2295,6 +2326,7 @@ Calendar:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2311,6 +2343,7 @@ Calendar:
     is_leap_year:
       Description: "The schedules assume it is a leap year"
       Data Type: "Boolean"
+      Notes: "This value is true if the calendar and schedules include February 29."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2319,6 +2352,7 @@ Calendar:
     has_daylight_saving_time:
       Description: "The schedules adjust for Daylight Saving Time"
       Data Type: "Boolean"
+      Notes: "This value should be true if the modeled calendar includes daylight saving time."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2349,6 +2383,7 @@ Weather:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2459,6 +2494,7 @@ Elevator:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2660,6 +2696,7 @@ HeatingVentilatingAirConditioningSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2677,6 +2714,7 @@ HeatingVentilatingAirConditioningSystem:
     heating_system:
       Description: "Heating system"
       Data Type: "{HeatingSystem}"
+      Notes: "References the HeatingSystem data group that acts as the main heating system or coil for this HVAC System.  If the HVAC system does not have a heating system, this entry can be left blank, or the HeatingSystem HeatingSystemOptions can be set to equal NONE."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -2685,6 +2723,7 @@ HeatingVentilatingAirConditioningSystem:
     cooling_system:
       Description: "Cooling system"
       Data Type: "{CoolingSystem}"
+      Notes: "References the CoolingSystem data group associated with this HVAC System.  If the HVAC system does not have a cooling system, this entry can be left blank, or the CoolingSystem CoolingSystemOptions can be set to equal NONE."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -2693,6 +2732,7 @@ HeatingVentilatingAirConditioningSystem:
     preheat_system:
       Description: "Pre-heating system"
       Data Type: "{HeatingSystem}"
+      Notes: "References a HeatingSystem data group that provides preheat to this HVAC System. Preheat is typically a coil used to temper cold air entering an HVAC systm often when high quantities of outdoor air is expected. If the HVAC system does not have a preheat system, this entry can be left blank, or the HeatingSystem HeatingSystemOptions can be set to equal NONE in the referenced data group."
       RMD Test: "Secondary"
       AppG Used By TCDs: Yes
       AppG P_RMD Equals U_RMD: False
@@ -2730,6 +2770,7 @@ HeatingSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2813,6 +2854,7 @@ HeatingSystem:
     heating_coil_setpoint:
       Description: "Setpoint of the air leaving the heating coil"
       Data Type: "Numeric"
+      Notes: "The setpoint of the air leaving the heating coil at design conditions."
       Units: "C"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -2975,6 +3017,7 @@ CoolingSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3193,6 +3236,7 @@ FanSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3424,6 +3468,7 @@ AirEconomizer:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3471,6 +3516,7 @@ AirEnergyRecovery:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3487,6 +3533,7 @@ AirEnergyRecovery:
     enthalpy_recovery_ratio:
       Description: "Enthalpy recovery ratio"
       Data Type: "Numeric"
+      Notes: "The change in the enthalpy of the outdoor air supply divided by the difference between the outdoor air and entering exhaust air enthalpy, expressed as a percentage."
       RMD Test: "Primary"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3517,7 +3564,7 @@ AirEnergyRecovery:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     design_latent_effectiveness:
-      Description: "Design sensible effectiveness"
+      Description: "Design latent effectiveness"
       Data Type: "Numeric"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3696,6 +3743,7 @@ Fan:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3722,6 +3770,7 @@ Fan:
     specification_method:
       Description: "Options for how the fan is specified"
       Data Type: "<FanSpecificationMethodOptions>"
+      Notes: "Indicates if the fan is specified using the SIMPLE method of just the design electric power or using the DETAILED method of using pressure rise, nameplate power, shaft power, total efficiency, and motor efficiency."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3851,6 +3900,7 @@ FanOutputValidationPoint:
       Description: "Result"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The rate of energy used by the fan at the given airflow."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3890,6 +3940,7 @@ Terminal:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3952,6 +4003,7 @@ Terminal:
     fan:
       Description: "Terminal fan"
       Data Type: "{Fan}"
+      Notes: "The fan data group associated with the terminal.  If no fan is modeled for this terminal, this field should be left blank."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
@@ -3969,6 +4021,7 @@ Terminal:
       Description: "Zone terminal primary airflow"
       Data Type: "Numeric"
       Units: "L/s"
+      Notes: "Zone terminal primary airflow at design conditions."
       RMD Test: True
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4168,6 +4221,7 @@ FluidLoop:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4203,6 +4257,7 @@ FluidLoop:
     cooling_or_condensing_design_and_control:
       Description: "Fluid loop design and control used for cooling or condensing loops"
       Data Type: "{FluidLoopDesignAndControl}"
+      Notes: "References a FluidLoopDesignAndControl data group which describes how this FluidLoop is sized and controlled in cooling or condensing mode."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4211,6 +4266,7 @@ FluidLoop:
     heating_design_and_control:
       Description: "Fluid loop design and control used for heaing loops"
       Data Type: "{FluidLoopDesignAndControl}"
+      Notes: "References a FluidLoopDesignAndControl data group which describes how this FluidLoop is sized and controlled in heating mode."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4240,6 +4296,7 @@ FluidLoopDesignAndControl:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4274,6 +4331,7 @@ FluidLoopDesignAndControl:
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
+      Notes: "The minimum flow rate expressed as a fraction of the loop design flow rate."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4441,6 +4499,7 @@ Pump:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4582,6 +4641,7 @@ Boiler:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4680,6 +4740,7 @@ Boiler:
       Description: "Heating load range operation, lower limit"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The heating rate below which the boiler will not operate. This is often used in plants that have multiple boilers to specify how they should be sequenced."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4689,6 +4750,7 @@ Boiler:
       Description: "Heating load range operation, upper limit"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The heating rate above which the boiler will not operate. This is often used in plants that have multiple boilers to specify how they should be sequenced."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4769,6 +4831,7 @@ Chiller:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4812,6 +4875,7 @@ Chiller:
     design_capacity:
       Description: "Chiller Design Cooling Capacity"
       Data Type: "Numeric"
+      Notes: "The capacity of the chiller at design conditions."
       Units: "W"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4878,6 +4942,7 @@ Chiller:
       Description: "Design entering condenser temperature"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "The temperature entering the condenser portion of the chiller at design conditions."
       Notes: "The design outside air dry-bulb temperature for air cooled chillers or design entering condenser water temperature for water cooled chillers."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4888,6 +4953,7 @@ Chiller:
       Description: "Design leaving evaporator temperature"
       Data Type: "Numeric"
       Units: "C"
+      Notes: "The temperature leaving the evaporator portion of the chiller at design conditions."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4939,6 +5005,7 @@ Chiller:
     is_chilled_water_pump_interlocked:
       Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
+      Notes: "Should be set to true when the chiller and the chiller water pump are controlled to turn on an off at the same time."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4947,6 +5014,7 @@ Chiller:
     is_condenser_water_pump_interlocked:
       Description: "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller"
       Data Type: "Boolean"
+      Notes: "Should be set to true when the chiller and the condenser water pump are controlled to turn on an off at the same time."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5114,6 +5182,7 @@ HeatRejection:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -5322,6 +5391,7 @@ ExternalFluidSource:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -5387,6 +5457,7 @@ ServiceWaterHeatingDistributionSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5587,6 +5658,7 @@ ServiceWaterPiping:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5683,6 +5755,7 @@ SolarThermal:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5766,6 +5839,7 @@ ServiceWaterHeatingEquipment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6209,6 +6283,7 @@ Tank:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6335,6 +6410,7 @@ ServiceWaterHeatingUse:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6369,6 +6445,7 @@ ServiceWaterHeatingUse:
     use:
       Description: "Usage of service hot water"
       Data Type: "Numeric"
+      Notes: "This field together with the use_units and use_multiplier_schedule fields allow detailed description of the ServiceWaterHeating use in the units selected in the use_units field."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6498,6 +6575,7 @@ ExteriorLighting:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6516,6 +6594,7 @@ ExteriorLighting:
       Data Type: "Numeric"
       Units: "m2"    # use ft2 for IP units
       Range: ">0"
+      Notes: "The lit area, when the lighting allowance specified by the type is based on area."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6594,6 +6673,7 @@ RefrigeratedCase:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
