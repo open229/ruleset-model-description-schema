@@ -107,6 +107,7 @@ RulesetProjectDescription:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -187,6 +188,7 @@ RulesetModelDescription:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
       RMD Test: "unknown"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -352,6 +354,7 @@ Building:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -454,6 +457,7 @@ BuildingSegment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -557,6 +561,7 @@ Zone:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -799,6 +804,7 @@ Space:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -976,6 +982,7 @@ Infiltration:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1067,6 +1074,7 @@ Surface:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1196,6 +1204,7 @@ Construction:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1356,6 +1365,7 @@ Material:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1437,6 +1447,7 @@ SurfaceOpticalProperties:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1558,6 +1569,7 @@ Subsurface:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1801,6 +1813,7 @@ InteriorLighting:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -1919,6 +1932,7 @@ MiscellaneousEquipment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2042,6 +2056,7 @@ Transformer:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2136,6 +2151,7 @@ Schedule:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2295,6 +2311,7 @@ Calendar:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2349,6 +2366,7 @@ Weather:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2459,6 +2477,7 @@ Elevator:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2660,6 +2679,7 @@ HeatingVentilatingAirConditioningSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2730,6 +2750,7 @@ HeatingSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -2975,6 +2996,7 @@ CoolingSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3193,6 +3215,7 @@ FanSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3424,6 +3447,7 @@ AirEconomizer:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3471,6 +3495,7 @@ AirEnergyRecovery:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3696,6 +3721,7 @@ Fan:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -3890,6 +3916,7 @@ Terminal:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4168,6 +4195,7 @@ FluidLoop:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4240,6 +4268,7 @@ FluidLoopDesignAndControl:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4441,6 +4470,7 @@ Pump:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4582,6 +4612,7 @@ Boiler:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4769,6 +4800,7 @@ Chiller:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -5114,6 +5146,7 @@ HeatRejection:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -5322,6 +5355,7 @@ ExternalFluidSource:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -5387,6 +5421,7 @@ ServiceWaterHeatingDistributionSystem:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5587,6 +5622,7 @@ ServiceWaterPiping:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5683,6 +5719,7 @@ SolarThermal:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -5766,6 +5803,7 @@ ServiceWaterHeatingEquipment:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6209,6 +6247,7 @@ Tank:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6335,6 +6374,7 @@ ServiceWaterHeatingUse:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6498,6 +6538,7 @@ ExteriorLighting:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6594,6 +6635,7 @@ RefrigeratedCase:
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
       Data Type: "String"
+      Notes: "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
