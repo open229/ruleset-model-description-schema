@@ -790,7 +790,6 @@ Building:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: "unknown"
 
-
 BuildingSegment:
   Object Type: "Data Group"
   Data Elements:
@@ -1697,6 +1696,24 @@ Space:
       EPout Column: ""
       EPstatus: "NotStarted"
       EP Notes: "Undeterminable compliance parameter"
+    envelope_space_type:
+      Description: "Envelope space type classification"
+      Data Type: "<EnvelopeSpaceOptions2019ASHRAE901>"
+      Notes: "The enumeration is based on the standard used. Often refered to as occupancy type."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: True
+      AppG B_RMDs Same: "unknown"
+      Used by RCT Test: "unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: ""
+      EP Notes: ""
     lighting_space_type:
       Description: "Lighting space type classification"
       Data Type: "<LightingSpaceOptions2019ASHRAE901TG37>"
@@ -3691,6 +3708,7 @@ MiscellaneousEquipment:
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
       AppG B_RMD Equals P_RMD: unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled and LoadProfile:Plant"
       EPin Field: "Fraction Lost and Load Schedule Name in LoadProfile:Plant"
@@ -3708,6 +3726,7 @@ MiscellaneousEquipment:
       AppG Used By TCDs: unknown"
       AppG P_RMD Equals U_RMD: unknown"
       AppG B_RMD Equals P_RMD: unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
