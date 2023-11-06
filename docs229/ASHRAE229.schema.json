@@ -3,7 +3,11 @@
     "title": "ASHRAE 229",
     "description": "Base schema for ASHRAE 229 representations",
     "definitions": {
-        "ASHRAE229": {
+        "Timestamp": {
+            "type": "string",
+            "pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}Z"
+        },
+        "RulesetProjectDescription": {
             "type": "object",
             "properties": {
                 "id": {
@@ -17,15 +21,27 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
-                "ruleset_model_instances": {
-                    "description": "References an instance of a ruleset model with a unique ruleset_model_type.",
+                "data_timestamp": {
+                    "description": "Date and time of data publication",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
+                    "notes": "Date and time of publication of the data"
+                },
+                "data_version": {
+                    "description": "Integer version identifier for the data",
+                    "type": "integer",
+                    "minimum": 1,
+                    "notes": "Used by data publisher to track revisions of the data and shall be incremented for each data revision"
+                },
+                "ruleset_model_descriptions": {
+                    "description": "A list of the ruleset model descriptions within the project each with a unique ruleset_model_type.",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/RulesetModelInstance"
+                        "$ref": "ASHRAE229.schema.json#/definitions/RulesetModelDescription"
                     },
-                    "notes": "For submissions with ruleset model instances (i.e., user, proposed, baseline,..) generated as separate files, only one instance would be defined for each ASHRAE229 RMD json file. For submissions where the software always produces all ruleset model instances together, multiple ruleset model instances would appear in the same ASHRAE229 RMD json file. Some rulesets may restrict the submission process including the number of files and number of instances per file. Multiple model instances may be required by rulesets that require models at various tiers or levels of performance. Instances may also be used by References between data groups are restricted to be within the same ruleset model instance. For 90.1-2019 appendix G instances would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a RulesetModelInstance should be unique for each type of data group. Between Ruleset ModelInstances, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all RulesetModelInstances except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all RulesetModelInstances. "
+                    "notes": "For submissions with ruleset model descriptions (i.e., user, proposed, baseline,..) generated as separate files, only one model description would be defined for each ASHRAE229 ruleset project description json file. For submissions where the software always produces all ruleset model descriptions together, multiple model descriptions would appear in the same ASHRAE229 ruleset project description json file. Some rulesets may restrict the submission process including the number of files and number of model descriptions per file. Multiple model descriptions may be required by rulesets that require models at various tiers or levels of performance. Model descriptions may also be used by References between data groups and are restricted to be within the same ruleset model description. For 90.1-2019 appendix G model descriptions would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a ruleset model description should be unique for each type of data group. Between ruleset model descriptions, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all ruleset model descriptions except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all ruleset model descriptions."
                 },
                 "calendar": {
                     "description": "Information on the calendar used with the simulation.",
@@ -36,7 +52,8 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/Weather"
                 },
                 "compliance_path": {
-                    "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
+                    "description": "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/CompliancePathOptions2019ASHRAE901"
                 },
                 "output_format_type": {
                     "description": "Indicates the chosen format for output",
@@ -54,11 +71,12 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "data_timestamp"
             ],
             "additionalProperties": false
         },
-        "RulesetModelInstance": {
+        "RulesetModelDescription": {
             "type": "object",
             "properties": {
                 "id": {
@@ -71,22 +89,26 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
-                    "description": "Describes the current model instance for rulesets with multiple simulation models",
+                    "description": "Describes the current ruleset model description for rulesets with multiple simulation models",
                     "oneOf": [
                         {
                             "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/RulesetModelOptions2019ASHRAE901"
                         },
-                        {},
+                        {
+                            "$ref": "EnumerationsRESNET.schema.json#/definitions/RulesetModelOptionsRESNET"
+                        },
                         {
                             "$ref": "Enumerations2019T24.schema.json#/definitions/RulesetModelOptions2019T24Com"
                         },
                         {
                             "$ref": "Enumerations2019T24.schema.json#/definitions/RulesetModelOptions2019T24Res"
                         }
-                    ]
+                    ],
+                    "notes": "Will usually designate which simulation this RulesetModelDescription refers to such as: PROPOSED, BASELINE_0, USER, RATED, REFERENCE"
                 },
                 "transformers": {
                     "description": "Electrical transformers at the building site",
@@ -180,11 +202,13 @@
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/ExternalFluidSource"
-                    }
+                    },
+                    "notes": "The sources of energy, such as district chilled water, district hot water, and district steam."
                 },
                 "site_zone_type": {
                     "description": "Site zone type for Sec 9.4.2",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingZoneOptions2019ASHRAE901"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ExteriorLightingZoneOptions2019ASHRAE901",
+                    "notes": "The site designation type for exterior lighting classification."
                 },
                 "output": {
                     "description": "Output",
@@ -213,7 +237,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "building_segments": {
                     "description": "Large portions of a building that share a building area type",
@@ -239,7 +264,7 @@
                     },
                     "notes": "Contains a list of exterior lighting systems for the building."
                 },
-                "refrigerated_casess": {
+                "refrigerated_cases": {
                     "description": "Refrigerated cases",
                     "type": "array",
                     "items": {
@@ -255,6 +280,18 @@
                 "has_site_shading": {
                     "description": "Indicates whether the site has features that cast shadows on the building",
                     "type": "boolean"
+                },
+                "number_of_floors_above_grade": {
+                    "description": "Number of floors above grade",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
+                },
+                "number_of_floors_below_grade": {
+                    "description": "Number of floors below grade",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "notes": "For the entire building including all building segments. Includes only floors that are not devoted solely to parking or unconditioned space."
                 }
             },
             "required": [
@@ -275,17 +312,20 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "number_of_floors_above_grade": {
                     "description": "Number of floors above grade",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "For the portion of the building represented by the BuildingSegment."
                 },
                 "number_of_floors_below_grade": {
                     "description": "Number of floors below grade",
                     "type": "number",
-                    "minimum": 0.0
+                    "minimum": 0.0,
+                    "notes": "For the portion of the building represented by the BuildingSegment."
                 },
                 "is_all_new": {
                     "description": "Indicates whether the building segment is completely new construction (true) or existing (false). ",
@@ -315,7 +355,8 @@
                 },
                 "lighting_building_area_type": {
                     "description": "Building area lighting area type",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingBuildingAreaOptions2019ASHRAE901T951TG38"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingBuildingAreaOptions2019ASHRAE901T951TG38",
+                    "notes": "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations."
                 },
                 "area_type_heating_ventilating_air_conditioning_system": {
                     "description": "Classification used for HVAC",
@@ -342,7 +383,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "spaces": {
                     "description": "Spaces in the zone",
@@ -383,7 +425,8 @@
                 "design_thermostat_cooling_setpoint": {
                     "description": "Setpoint temperature for cooling during occupied hours",
                     "type": "number",
-                    "units": "C"
+                    "units": "C",
+                    "notes": "The cooling setpoint temperature for the zone at design conditions."
                 },
                 "thermostat_cooling_setpoint_schedule": {
                     "description": "Reference to the schedule containing the cooling setpoint temperatures",
@@ -393,7 +436,8 @@
                 "design_thermostat_heating_setpoint": {
                     "description": "Setpoint temperature for heating during occupied hours",
                     "type": "number",
-                    "units": "C"
+                    "units": "C",
+                    "notes": "The heating setpoint temperature for the zone at design conditions."
                 },
                 "thermostat_heating_setpoint_schedule": {
                     "description": "Reference to the schedule containing the heating setpoint temperatures",
@@ -440,7 +484,8 @@
                 },
                 "zonal_exhaust_fan": {
                     "description": "Zonal exhaust fan",
-                    "$ref": "ASHRAE229.schema.json#/definitions/Fan"
+                    "$ref": "ASHRAE229.schema.json#/definitions/Fan",
+                    "notes": "References a fan that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group."
                 },
                 "exhaust_airflow_rate_multiplier_schedule": {
                     "description": "Reference to the schedule containing the multiplier for the exhaust airflow rate",
@@ -457,13 +502,15 @@
                     "description": "Non-mechanical cooling fan power",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The power consumed by a fan used in a non-mechancial cooling device such as a ceiling fan."
                 },
                 "non_mechanical_cooling_fan_airflow": {
                     "description": "Non-mechanical cooling fan airflow",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "The airflow of a fan used in a non-mechancial cooling device such as a ceiling fan."
                 },
                 "air_distribution_effectiveness": {
                     "description": "Air distribution effectiveness",
@@ -495,21 +542,24 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "interior_lighting": {
                     "description": "Internal lighting that produce internal gains for a space.",
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/InteriorLighting"
-                    }
+                    },
+                    "notes": "References one or more InteriorLighting data groups that collectively define all interior lighting within the space."
                 },
                 "miscellaneous_equipment": {
                     "description": "Miscellaneous equipment loads that produce internal gains for a space.",
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/MiscellaneousEquipment"
-                    }
+                    },
+                    "notes": "References one or more MiscellaneousEquipment that collectively describe all of the miscellaneous equipment in the space."
                 },
                 "floor_area": {
                     "description": "The floor area of the space.",
@@ -555,6 +605,11 @@
                     "description": "Generic function for the space.",
                     "$ref": "ASHRAE229.schema.json#/definitions/SpaceFunctionOptions",
                     "notes": "The enumeration is based on the standard used."
+                },
+                "envelope_space_type": {
+                    "description": "Envelope space type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/EnvelopeSpaceOptions2019ASHRAE901",
+                    "notes": "The enumeration is based on the standard used. Often refered to as occupancy type."
                 },
                 "lighting_space_type": {
                     "description": "Lighting space type classification",
@@ -625,7 +680,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "modeling_method": {
                     "description": "The software methodology chosen for modeling infiltration",
@@ -690,7 +746,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "subsurfaces": {
                     "description": "Suburfaces that are on the surface",
@@ -780,7 +837,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "classification": {
                     "description": "Classification for the subsurface being window, skylight, door.",
@@ -838,13 +896,15 @@
                     "description": "surface C-factor",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W/m2-K"
+                    "units": "W/m2-K",
+                    "notes": "Typically used to describe the thermal perfromance of constructions used in below grade walls. It is the time rate of steady-state heat flow through unit area of a material or construction, induced by a unit temperature difference between the body surfaces. Note that the C-factor does not include soil or air films."
                 },
                 "f_factor": {
                     "description": "surface F-factor",
                     "type": "number",
                     "minimum": 0.0,
-                    "units": "W/m-K"
+                    "units": "W/m-K",
+                    "notes": "Typically used to describe the thermal perfromance of constructions used in slab-on-grade floors. It is the heat transfer through the floor, induced by a unit temperature difference between the outside and inside air temperature, on the per linear length of the exposed perimeter of the floor."
                 },
                 "r_values": {
                     "description": "List of r-value of the insulation for the surface that correspond to values in the insulation_locations list",
@@ -907,7 +967,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "thickness": {
                     "description": "The thickness of the material layer",
@@ -960,7 +1021,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "absorptance_thermal_exterior": {
                     "description": "Thermal absorptance of long wavelength radiation on the exterior surface.",
@@ -1058,7 +1120,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "classification": {
                     "description": "Classification for the subsurface being window, skylight, door.",
@@ -1215,7 +1278,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "purpose_type": {
                     "description": "Lighting purpose type classification",
@@ -1314,7 +1378,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "energy_type": {
                     "description": "Source of energy for the miscellaneous equipment in the space",
@@ -1398,7 +1463,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "The type of transformer",
@@ -1471,7 +1537,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "purpose": {
                     "description": "The purpose of schedule",
@@ -1570,11 +1637,13 @@
                 },
                 "prescribed_type": {
                     "description": "Options when any schedule values have changed from what appears in the schedule library",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/PrescribedScheduleOptions2019ASHRAE901"
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/PrescribedScheduleOptions2019ASHRAE901",
+                    "notes": "Some rule sets prescribe which schedules to use for modeling purposes. This option indicates if the schedule is as prescribed or has been modified."
                 },
                 "is_modified_for_workaround": {
                     "description": "True if any schedule has been modified for a workaround",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "notes": "Not all technologies can be modeled directly in the simulation program.  Modifiying schedules is a common workaround for modeling some technologies.  This flag is used to indicate when a schedule has been modified for this purpose."
                 }
             },
             "required": [
@@ -1613,7 +1682,8 @@
             "properties": {
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "day_of_week_for_january_1": {
                     "description": "Day of the week for January 1",
@@ -1621,11 +1691,13 @@
                 },
                 "is_leap_year": {
                     "description": "The schedules assume it is a leap year",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "notes": "This value is true if the calendar and schedules include February 29."
                 },
                 "has_daylight_saving_time": {
                     "description": "The schedules adjust for Daylight Saving Time",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "notes": "This value should be true if the modeled calendar includes daylight saving time."
                 }
             },
             "additionalProperties": false
@@ -1656,7 +1728,8 @@
             "properties": {
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "ground_temperature_schedule": {
                     "description": "Ground temperature schedule name",
@@ -1740,7 +1813,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "The type of elevator",
@@ -1866,7 +1940,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "fan_system": {
                     "description": "Fan system",
@@ -1875,15 +1950,18 @@
                 },
                 "heating_system": {
                     "description": "Heating system",
-                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystem"
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystem",
+                    "notes": "References the HeatingSystem data group that acts as the main heating system or coil for this HVAC System.  If the HVAC system does not have a heating system, this entry can be left blank, or the HeatingSystem HeatingSystemOptions can be set to equal NONE."
                 },
                 "cooling_system": {
                     "description": "Cooling system",
-                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystem"
+                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingSystem",
+                    "notes": "References the CoolingSystem data group associated with this HVAC System.  If the HVAC system does not have a cooling system, this entry can be left blank, or the CoolingSystem CoolingSystemOptions can be set to equal NONE."
                 },
                 "preheat_system": {
                     "description": "Pre-heating system",
-                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystem"
+                    "$ref": "ASHRAE229.schema.json#/definitions/HeatingSystem",
+                    "notes": "References a HeatingSystem data group that provides preheat to this HVAC System. Preheat is typically a coil used to temper cold air entering an HVAC systm often when high quantities of outdoor air is expected. If the HVAC system does not have a preheat system, this entry can be left blank, or the HeatingSystem HeatingSystemOptions can be set to equal NONE in the referenced data group."
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
@@ -1908,7 +1986,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Heating system type",
@@ -1956,7 +2035,8 @@
                 "heating_coil_setpoint": {
                     "description": "Setpoint of the air leaving the heating coil",
                     "type": "number",
-                    "units": "C"
+                    "units": "C",
+                    "notes": "The setpoint of the air leaving the heating coil at design conditions."
                 },
                 "efficiency_metric_values": {
                     "description": "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list",
@@ -2119,7 +2199,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Cooling system type",
@@ -2309,7 +2390,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "supply_fans": {
                     "description": "List of supply fans",
@@ -2453,7 +2535,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Type",
@@ -2483,7 +2566,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Energy recovery type",
@@ -2491,7 +2575,8 @@
                 },
                 "enthalpy_recovery_ratio": {
                     "description": "Enthalpy recovery ratio",
-                    "type": "number"
+                    "type": "number",
+                    "notes": "The change in the enthalpy of the outdoor air supply divided by the difference between the outdoor air and entering exhaust air enthalpy, expressed as a percentage."
                 },
                 "energy_recovery_operation": {
                     "description": "Energy recovery operation",
@@ -2506,7 +2591,7 @@
                     "type": "number"
                 },
                 "design_latent_effectiveness": {
-                    "description": "Design sensible effectiveness",
+                    "description": "Design latent effectiveness",
                     "type": "number"
                 },
                 "outdoor_airflow": {
@@ -2695,7 +2780,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "design_airflow": {
                     "description": "Design airflow",
@@ -2709,7 +2795,8 @@
                 },
                 "specification_method": {
                     "description": "Options for how the fan is specified",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FanSpecificationMethodOptions"
+                    "$ref": "ASHRAE229.schema.json#/definitions/FanSpecificationMethodOptions",
+                    "notes": "Indicates if the fan is specified using the SIMPLE method of just the design electric power or using the DETAILED method of using pressure rise, nameplate power, shaft power, total efficiency, and motor efficiency."
                 },
                 "design_electric_power": {
                     "description": "Design electric fan power",
@@ -2798,7 +2885,8 @@
                 "result": {
                     "description": "Result",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The rate of energy used by the fan at the given airflow."
                 }
             },
             "additionalProperties": false
@@ -2831,7 +2919,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Type of terminal",
@@ -2865,7 +2954,8 @@
                 },
                 "fan": {
                     "description": "Terminal fan",
-                    "$ref": "ASHRAE229.schema.json#/definitions/Fan"
+                    "$ref": "ASHRAE229.schema.json#/definitions/Fan",
+                    "notes": "The fan data group associated with the terminal.  If no fan is modeled for this terminal, this field should be left blank."
                 },
                 "fan_configuration": {
                     "description": "Fan configuration",
@@ -2874,7 +2964,8 @@
                 "primary_airflow": {
                     "description": "Zone terminal primary airflow",
                     "type": "number",
-                    "units": "L/s"
+                    "units": "L/s",
+                    "notes": "Zone terminal primary airflow at design conditions."
                 },
                 "secondary_airflow": {
                     "description": "Zone terminal secondary_airflow",
@@ -3031,7 +3122,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Type of loop",
@@ -3052,12 +3144,14 @@
                     "notes": "Secondary loops should be described as child loops."
                 },
                 "cooling_or_condensing_design_and_control": {
-                    "description": "",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl"
+                    "description": "Fluid loop design and control used for cooling or condensing loops",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl",
+                    "notes": "References a FluidLoopDesignAndControl data group which describes how this FluidLoop is sized and controlled in cooling or condensing mode."
                 },
                 "heating_design_and_control": {
-                    "description": "",
-                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl"
+                    "description": "Fluid loop design and control used for heaing loops",
+                    "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopDesignAndControl",
+                    "notes": "References a FluidLoopDesignAndControl data group which describes how this FluidLoop is sized and controlled in heating mode."
                 }
             },
             "required": [
@@ -3078,7 +3172,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "design_supply_temperature": {
                     "description": "Design Supply Temperature",
@@ -3096,7 +3191,8 @@
                 },
                 "minimum_flow_fraction": {
                     "description": "Minimum fraction of full flow allowed",
-                    "type": "number"
+                    "type": "number",
+                    "notes": "The minimum flow rate expressed as a fraction of the loop design flow rate."
                 },
                 "operation": {
                     "description": "Type of operation used by loop",
@@ -3226,7 +3322,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop_or_piping": {
                     "description": "Referenced to the fluid loop or service water heating piping",
@@ -3329,7 +3426,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop": {
                     "description": "Referenced to the fluid loop",
@@ -3386,12 +3484,14 @@
                 "operation_lower_limit": {
                     "description": "Heating load range operation, lower limit",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The heating rate below which the boiler will not operate. This is often used in plants that have multiple boilers to specify how they should be sequenced."
                 },
                 "operation_upper_limit": {
                     "description": "Heating load range operation, upper limit",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The heating rate above which the boiler will not operate. This is often used in plants that have multiple boilers to specify how they should be sequenced."
                 }
             },
             "required": [
@@ -3460,7 +3560,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "cooling_loop": {
                     "description": "Referenced to the cooling fluid loop",
@@ -3483,7 +3584,8 @@
                 "design_capacity": {
                     "description": "Chiller Design Cooling Capacity",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The capacity of the chiller at design conditions."
                 },
                 "rated_capacity": {
                     "description": "Chiller Rated Cooling Capacity",
@@ -3526,7 +3628,8 @@
                 "design_leaving_evaporator_temperature": {
                     "description": "Design leaving evaporator temperature",
                     "type": "number",
-                    "units": "C"
+                    "units": "C",
+                    "notes": "The temperature leaving the evaporator portion of the chiller at design conditions."
                 },
                 "full_load_efficiency": {
                     "description": "Full Load Efficiency expressed as a coefficient of performance (COP)",
@@ -3560,11 +3663,13 @@
                 },
                 "is_chilled_water_pump_interlocked": {
                     "description": "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "notes": "Should be set to true when the chiller and the chiller water pump are controlled to turn on an off at the same time."
                 },
                 "is_condenser_water_pump_interlocked": {
                     "description": "Indicates if the operation of the condenser water pump is interlocked with the operation of the chiller",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "notes": "Should be set to true when the chiller and the condenser water pump are controlled to turn on an off at the same time."
                 },
                 "heat_recovery_loop": {
                     "description": "Recovered heat to fluid loop",
@@ -3695,7 +3800,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop": {
                     "description": "Referenced to the fluid loop",
@@ -3740,7 +3846,7 @@
                     "description": "Fan Motor Nameplate Power",
                     "type": "number",
                     "units": "W",
-                    "notes": "From CBECC-Com."
+                    "notes": "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower.From CBECC-Com."
                 },
                 "fan_speed_control": {
                     "description": "Fan Speed Control Type",
@@ -3856,7 +3962,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop": {
                     "description": "Referenced to the fluid loop",
@@ -3904,7 +4011,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "design_supply_temperature": {
                     "description": "Design supply temperature setpoint of service water heating loop",
@@ -4053,7 +4161,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "is_recirculation_loop": {
                     "description": "Indicates if service water heating piping is a loop and recirculates",
@@ -4116,7 +4225,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "angle_from_true_north": {
                     "description": "Solar heater angle from true north, clockwise",
@@ -4167,7 +4277,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "heater_fuel_type": {
                     "description": "Service water heating heater fuel type",
@@ -4300,7 +4411,8 @@
                     "notes": "Contains a storage tank that is part of the service water heating equipment."
                 },
                 "status_type": {
-                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset."
+                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
+                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
                 },
                 "solar_thermal_systems": {
                     "description": "Solar thermal systems used for heating service water",
@@ -4475,7 +4587,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "storage_capacity": {
                     "description": "Storage capacity of tank in distribution system",
@@ -4574,7 +4687,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "area_type": {
                     "description": "Service Water Heating Loop Area Type",
@@ -4592,7 +4706,8 @@
                 },
                 "use": {
                     "description": "Usage of service hot water",
-                    "type": "number"
+                    "type": "number",
+                    "notes": "This field together with the use_units and use_multiplier_schedule fields allow detailed description of the ServiceWaterHeating use in the units selected in the use_units field."
                 },
                 "use_units": {
                     "description": "Type of units for use of service hot water",
@@ -4709,7 +4824,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "The type of exterior lighting fixture",
@@ -4719,7 +4835,8 @@
                     "description": "Area of the exterior functional space.",
                     "type": "number",
                     "exclusiveMinimum": 0.0,
-                    "units": "m2"
+                    "units": "m2",
+                    "notes": "The lit area, when the lighting allowance specified by the type is based on area."
                 },
                 "length": {
                     "description": "Linear length measure for exterior functional space",
@@ -4768,7 +4885,8 @@
                 },
                 "notes": {
                     "description": "Supplementary information to provide context to the model reviewer",
-                    "type": "string"
+                    "type": "string",
+                    "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "type": {
                     "description": "Refrigerated case type",
@@ -4902,6 +5020,6 @@
             ]
         }
     },
-    "version": "0.0.28",
-    "$ref": "ASHRAE229.schema.json#/definitions/ASHRAE229"
+    "version": "0.0.34",
+    "$ref": "ASHRAE229.schema.json#/definitions/RulesetProjectDescription"
 }

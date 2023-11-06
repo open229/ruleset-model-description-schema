@@ -1,0 +1,8 @@
+digraph G {
+    size="7.5, 20";
+    rankdir=LR;
+  RulesetCheckingToolProjectOutputReport -> FileDescription
+  RulesetCheckingToolProjectOutputReport -> Rule
+  Rule -> Evaluation
+  Evaluation -> CalculatedValue
+}

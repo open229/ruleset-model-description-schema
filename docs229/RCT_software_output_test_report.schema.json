@@ -1,0 +1,223 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Software Output Test Report from Ruleset Checking Tool",
+    "description": "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing",
+    "definitions": {
+        "RulesetCheckingToolSoftwareOutputReport": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "description": "Title of software output report from Ruleset Checking Tool",
+                    "type": "string",
+                    "notes": "Existing template value shows- RULESET CHECKING TOOL"
+                },
+                "purpose": {
+                    "description": "Reason for the report",
+                    "type": "string",
+                    "notes": "Existing template value shows- RCT Ruleset Software Testing Report"
+                },
+                "tool_name": {
+                    "description": "Name of the ruleset checking tool that produced the data file",
+                    "type": "string"
+                },
+                "tool_version": {
+                    "description": "Versions number of the ruleset checking tool that produced the data file",
+                    "type": "string",
+                    "notes": "Generally a version number for the software such as 1.0.2"
+                },
+                "ruleset": {
+                    "description": "References output that correspond to specific simulation model.",
+                    "type": "string",
+                    "notes": "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
+                },
+                "date_run": {
+                    "description": "Time stamp for the output report",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
+                    "notes": "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2023-03-16T14:45:33-05:00"
+                },
+                "schema_version": {
+                    "description": "Version of the schema corresponding to the tests.",
+                    "type": "string",
+                    "notes": "Existing template value shows- 0.0.23"
+                },
+                "rules_tests": {
+                    "description": "List of rule that is being evaluated",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/RuleTest"
+                    }
+                }
+            },
+            "required": [
+                "ruleset",
+                "date_run",
+                "schema_version",
+                "rules_tests"
+            ],
+            "additionalProperties": false
+        },
+        "RuleTest": {
+            "type": "object",
+            "properties": {
+                "rule_id": {
+                    "description": "The identification of the specific rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- 5-5"
+                },
+                "test_id": {
+                    "description": "The identification of the test case for the specific rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- a"
+                },
+                "test_description": {
+                    "description": "Textual description of the test for the rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- Description of rule: Building is located in climate zone 4A and includes a space that has residential occupancy type and is conditioned based on heating capacity of the HVAC system that servies the parent zone. The baseline roof U-factor for the space is established correctly."
+                },
+                "ruleset_section": {
+                    "description": "Section reference from the ruleset",
+                    "type": "string",
+                    "notes": "Existing template value shows- Table G3.1(5) Baseline Building Performance (b)"
+                },
+                "ruleset_section_title": {
+                    "description": "Title of the section referenced from the ruleset",
+                    "type": "string",
+                    "notes": "Existing template value shows- Envelope"
+                },
+                "evaluation_type": {
+                    "description": "Indicator if full evaluated rule",
+                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/EvaluationTypeOptions"
+                },
+                "rule_unit_test_outcome_agreement": {
+                    "description": "True if the expected and actual agree",
+                    "type": "boolean",
+                    "notes": "Existing template value shows- false"
+                },
+                "expected_rule_unit_test_evaluation_outcome": {
+                    "description": "Expected outcome",
+                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/OutcomeOptions",
+                    "notes": "Existing template value shows- PASS"
+                },
+                "actual_rule_unit_test_evaluation_outcome": {
+                    "description": "Expected outcome",
+                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/OutcomeOptions",
+                    "notes": "Existing template value shows- UNDETERMINED"
+                },
+                "rule_unit_test_evaluations": {
+                    "description": "List of evalations perfomed",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/Evaluation"
+                    },
+                    "notes": "Existing template value shows- "
+                }
+            },
+            "required": [
+                "rule_id",
+                "test_id",
+                "rule_unit_test_outcome_agreement",
+                "expected_rule_unit_test_evaluation_outcome",
+                "rule_unit_test_evaluations"
+            ],
+            "additionalProperties": false
+        },
+        "Evaluation": {
+            "type": "object",
+            "properties": {
+                "data_group_id": {
+                    "description": "The ID of the data group being evaluated",
+                    "type": "string",
+                    "notes": "The ID of any type of data group. Existing template value shows- Surface 1"
+                },
+                "messages": {
+                    "description": "List of messages from evaluation",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "notes": "Existing template value shows- message"
+                },
+                "evaluation_outcome": {
+                    "description": "Expected outcome",
+                    "$ref": "RCT_software_output_test_report.schema.json#/definitions/OutcomeOptions",
+                    "notes": "Existing template value shows- PASS"
+                },
+                "calculated_values": {
+                    "description": "a list of calculated values from the evaluation",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_software_output_test_report.schema.json#/definitions/CalculatedValue"
+                    },
+                    "notes": "Used to help understand and debug rule evaulation"
+                }
+            },
+            "required": [
+                "data_group_id",
+                "evaluation_outcome"
+            ],
+            "additionalProperties": false
+        },
+        "OutcomeOptions": {
+            "type": "string",
+            "enum": [
+                "PASS",
+                "FAIL",
+                "NOT_APPLICABLE",
+                "UNDETERMINED"
+            ],
+            "descriptions": [
+                "Pass",
+                "Fail",
+                "Not applicable",
+                "Undetermined"
+            ]
+        },
+        "EvaluationTypeOptions": {
+            "type": "string",
+            "enum": [
+                "FULL",
+                "APPLICABILITY"
+            ],
+            "descriptions": [
+                "Full Evaluation",
+                "Applicability Evaluation"
+            ]
+        },
+        "CalculatedValue": {
+            "type": "object",
+            "properties": {
+                "variable": {
+                    "description": "Variable",
+                    "type": "string",
+                    "notes": "Existing template value shows- roof_u_factor"
+                },
+                "value": {
+                    "description": "Value",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "notes": "Existing template value shows- 0.063"
+                },
+                "unit": {
+                    "description": "Units",
+                    "type": "string",
+                    "notes": "Existing template value shows- Btu/(hr*ft2*R)"
+                },
+                "source": {
+                    "description": "The source of the value",
+                    "type": "string",
+                    "notes": "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

@@ -14,6 +14,14 @@
 | `CODE_COMPLIANT` | Code Compliance |       |
 | `BEYOND_CODE`    | Beyond Code     |       |
 
+# EnvelopeSpaceOptions2019ASHRAE901
+|          Enumerator          |        Description         | Notes |
+|------------------------------|----------------------------|-------|
+| `NONRESIDENTIAL_CONDITIONED` | Nonresidential conditioned |       |
+| `RESIDENTIAL_CONDITIONED`    | Residential conditioned    |       |
+| `SEMIHEATED`                 | Semiheated                 |       |
+| `UNCONDITIONED`              | Unconditioned              |       |
+
 # LightingBuildingAreaOptions2019ASHRAE901T951TG38
 |          Enumerator          |         Description         |                                             Notes                                              |
 |------------------------------|-----------------------------|------------------------------------------------------------------------------------------------|
@@ -460,6 +468,7 @@
 | `PUBLIC_ASSEMBLY`       | Public assembly       |       |
 | `RETAIL`                | Retail                |       |
 | `HOSPITAL`              | Hospital              |       |
+| `HEATED_ONLY_STORAGE`   | Heated only storage   |       |
 | `OTHER_NON_RESIDENTIAL` | Other non-residential |       |
 
 # OutputSchemaOptions2019ASHRAE901

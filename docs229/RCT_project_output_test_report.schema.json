@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Project Output Test Report from Ruleset Checking Tool",
+    "description": "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing",
+    "definitions": {
+        "RulesetCheckingToolProjectOutputReport": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "description": "Title of project output report from Ruleset Checking Tool",
+                    "type": "string",
+                    "notes": "Existing template value shows- ASHRAE STD 229P RULESET CHECKING TOOL"
+                },
+                "purpose": {
+                    "description": "Reason for the report",
+                    "type": "string",
+                    "notes": "Existing template value shows- Project Testing Report"
+                },
+                "tool_name": {
+                    "description": "Name of the ruleset checking tool that produced the data file",
+                    "type": "string"
+                },
+                "tool_version": {
+                    "description": "Versions number of the ruleset checking tool that produced the data file",
+                    "type": "string",
+                    "notes": "Generally a version number for the software such as 1.0.2"
+                },
+                "ruleset": {
+                    "description": "Names the ruleset including appropriate year, organization, and section.",
+                    "type": "string",
+                    "notes": "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
+                },
+                "date_run": {
+                    "description": "Time stamp for the output report",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Timestamp",
+                    "notes": "Existing template value shows- 2022-02-01T18:25:43-05:00"
+                },
+                "schema_version": {
+                    "description": "Version of the Standard 229 Rule Evaluation Schema corresponding to the tests.",
+                    "type": "string"
+                },
+                "rpd_files": {
+                    "description": "A list of names of RPD files",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/FileDescription"
+                    },
+                    "notes": "Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+                },
+                "rules": {
+                    "description": "List of rule that is being evaluated",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/Rule"
+                    }
+                }
+            },
+            "required": [
+                "ruleset",
+                "date_run",
+                "schema_version",
+                "rpd_files",
+                "rules"
+            ],
+            "additionalProperties": false
+        },
+        "Rule": {
+            "type": "object",
+            "properties": {
+                "rule_id": {
+                    "description": "The identification of the specific rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- 1-1"
+                },
+                "description": {
+                    "description": "Textual description of the rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- Description of rule 1-1."
+                },
+                "evaluation_type": {
+                    "description": "Indicator if full evaluated rule",
+                    "$ref": "RCT_project_output_test_report.schema.json#/definitions/EvaluationTypeOptions"
+                },
+                "standard_section": {
+                    "description": "Section number for rule",
+                    "type": "string",
+                    "notes": "Existing template value shows- G3.1.2.2"
+                },
+                "data_group_names": {
+                    "description": "A list of names of the data groups being evaluated",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "notes": "The would include the names of the Standard 229 Rule Evaluation Schema data groups as strings such as Space or FluidLoop. For more complex rules it may not be practical to list all the data groups and this could be then left empty."
+                },
+                "evaluations": {
+                    "description": "List of evalations perfomed",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/Evaluation"
+                    },
+                    "notes": "Existing template value shows- "
+                }
+            },
+            "required": [
+                "rule_id",
+                "evaluations"
+            ],
+            "additionalProperties": false
+        },
+        "Evaluation": {
+            "type": "object",
+            "properties": {
+                "data_group_id": {
+                    "description": "The ID of the data group being evaluated",
+                    "type": "string",
+                    "notes": "The ID of any type of data group. This is a string and not a reference data type since the RPD file would be separate. Existing template value shows- 1"
+                },
+                "outcome": {
+                    "description": "Outcome",
+                    "$ref": "RCT_project_output_test_report.schema.json#/definitions/OutcomeOptions",
+                    "notes": "Existing template value shows- PASS"
+                },
+                "messages": {
+                    "description": "List of messages from evaluation",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "calculated_values": {
+                    "description": "",
+                    "type": "array",
+                    "items": {
+                        "$ref": "RCT_project_output_test_report.schema.json#/definitions/CalculatedValue"
+                    },
+                    "notes": "Not same as template since template shows key-value pairs"
+                }
+            },
+            "required": [
+                "data_group_id"
+            ],
+            "additionalProperties": false
+        },
+        "OutcomeOptions": {
+            "type": "string",
+            "enum": [
+                "PASS",
+                "FAIL",
+                "NOT_APPLICABLE",
+                "UNDETERMINED"
+            ],
+            "descriptions": [
+                "Pass",
+                "Fail",
+                "Not applicable",
+                "Undetermined"
+            ]
+        },
+        "EvaluationTypeOptions": {
+            "type": "string",
+            "enum": [
+                "FULL",
+                "APPLICABILITY"
+            ],
+            "descriptions": [
+                "Full Evaluation",
+                "Applicability Evaluation"
+            ]
+        },
+        "CalculatedValue": {
+            "type": "object",
+            "properties": {
+                "variable": {
+                    "description": "Variable",
+                    "type": "string",
+                    "notes": "Existing template value shows- calculated_value1"
+                },
+                "value": {
+                    "description": "Value",
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "notes": "Existing template value shows- 1.0"
+                },
+                "unit": {
+                    "description": "Units",
+                    "type": "string",
+                    "notes": "For example- Btu/(hr*ft2*R)"
+                },
+                "source": {
+                    "description": "The source of the value",
+                    "type": "string",
+                    "notes": "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
+                }
+            },
+            "additionalProperties": false
+        },
+        "FileDescription": {
+            "type": "object",
+            "properties": {
+                "ruleset_model_type": {
+                    "description": "Describes the type of model associated with the file.",
+                    "type": "string",
+                    "notes": "A string representation of the enumeration value for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270"
+                },
+                "file_name": {
+                    "description": "Value",
+                    "type": "string",
+                    "notes": "The name of the json file with file extension and may include the file path. Existing template value shows- user_rmr.json, baseline_rmr.json, proposed_rmr.json"
+                }
+            },
+            "required": [
+                "ruleset_model_type",
+                "file_name"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

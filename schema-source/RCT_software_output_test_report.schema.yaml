@@ -1,0 +1,161 @@
+---
+# RCT_software_output_test_report.schema.yaml
+# The purpose file is to provide a separated source from the main schema file to describe the
+# output reports from the Ruleset Checking Tool
+# Based on 
+# https://github.com/pnnl/ruleset-checking-tool/blob/RR/WX/validate_output_report/docs/_output_software_test_report_template.md
+
+Schema:
+  Object Type: "Meta"
+  References:
+    - "ASHRAE229"
+  Title: "Software Output Test Report from Ruleset Checking Tool"
+  Description: "Schema addition for ASHRAE 229 related to output from the Ruleset Checking Tool for Software Testing"
+
+RulesetCheckingToolSoftwareOutputReport:
+  Object Type: "Data Group"
+  Data Elements:
+    title:
+      Description: "Title of software output report from Ruleset Checking Tool"
+      Data Type: "String"
+      Notes: "Existing template value shows- RULESET CHECKING TOOL"
+    purpose:
+      Description: "Reason for the report"
+      Data Type: "String"
+      Notes: "Existing template value shows- RCT Ruleset Software Testing Report"
+    tool_name:
+      Description: "Name of the ruleset checking tool that produced the data file"
+      Data Type: "String"
+    tool_version:
+      Description: "Versions number of the ruleset checking tool that produced the data file"
+      Data Type: "String"
+      Notes: "Generally a version number for the software such as 1.0.2"
+    ruleset:  
+      Description: "References output that correspond to specific simulation model."
+      Data Type: "String"
+      Required: True
+      Notes: "Existing template value shows- ASHRAE 90.1-2019 Performance Rating Method (Appendix G)"
+    date_run:
+      Description: "Time stamp for the output report"
+      Data Type: "Timestamp"
+      Required: True
+      Notes: "This does not seem exactly like a TimeStamp data type but close. Existing template value shows- 2023-03-16T14:45:33-05:00"
+    schema_version:  
+      Description: "Version of the schema corresponding to the tests."
+      Data Type: "String"
+      Required: True
+      Notes: "Existing template value shows- 0.0.23"
+    rules_tests:
+      Description: "List of rule that is being evaluated"
+      Data Type: "[{RuleTest}]"
+      Required: True
+
+RuleTest:
+  Object Type: "Data Group"
+  Data Elements:
+    rule_id:
+      Description: "The identification of the specific rule"
+      Data Type: "String"
+      Required: True
+      Notes: "Existing template value shows- 5-5"
+    test_id:
+      Description: "The identification of the test case for the specific rule"
+      Data Type: "String"
+      Required: True
+      Notes: "Existing template value shows- a"
+    test_description:
+      Description: "Textual description of the test for the rule"
+      Data Type: "String"
+      Notes: "Existing template value shows- Description of rule: Building is located in climate zone 4A and includes a space that has residential occupancy type and is conditioned based on heating capacity of the HVAC system that servies the parent zone. The baseline roof U-factor for the space is established correctly."
+    ruleset_section:
+      Description: "Section reference from the ruleset"
+      Data Type: "String"
+      Notes: "Existing template value shows- Table G3.1(5) Baseline Building Performance (b)"
+    ruleset_section_title:
+      Description: "Title of the section referenced from the ruleset"
+      Data Type: "String"
+      Notes: "Existing template value shows- Envelope"
+    evaluation_type:
+      Description: "Indicator if full evaluated rule"
+      Data Type: "<EvaluationTypeOptions>"
+    rule_unit_test_outcome_agreement:
+      Description: "True if the expected and actual agree"
+      Data Type: "Boolean"
+      Required: True
+      Notes: "Existing template value shows- false"
+    expected_rule_unit_test_evaluation_outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Required: True
+      Notes: "Existing template value shows- PASS"
+    actual_rule_unit_test_evaluation_outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Notes: "Existing template value shows- UNDETERMINED"
+    rule_unit_test_evaluations:
+      Description: "List of evalations perfomed"
+      Data Type: "[{Evaluation}]"
+      Required: True
+      Notes: "Existing template value shows- "
+
+Evaluation:
+  Object Type: "Data Group"
+  Data Elements:
+    data_group_id:
+      Description: "The ID of the data group being evaluated"
+      Data Type: "String"
+      Required: True
+      Notes: "The ID of any type of data group. Existing template value shows- Surface 1"
+    messages:
+      Description: "List of messages from evaluation"
+      Data Type: "[String]"
+      Notes: "Existing template value shows- message"
+    evaluation_outcome:
+      Description: "Expected outcome"
+      Data Type: "<OutcomeOptions>"
+      Required: True
+      Notes: "Existing template value shows- PASS"
+    calculated_values:
+      Description: "a list of calculated values from the evaluation"
+      Data Type: "[{CalculatedValue}]"
+      Notes: "Used to help understand and debug rule evaulation"
+
+OutcomeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    PASS:
+      Description: "Pass"
+    FAIL:
+      Description: "Fail"
+    NOT_APPLICABLE:
+      Description: "Not applicable"
+    UNDETERMINED:
+      Description: "Undetermined"
+
+EvaluationTypeOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    FULL:
+      Description: "Full Evaluation"
+    APPLICABILITY:
+      Description: "Applicability Evaluation"
+
+CalculatedValue:
+  Object Type: "Data Group"
+  Data Elements:
+    variable:
+      Description: "Variable"
+      Data Type: "String"
+      Notes: "Existing template value shows- roof_u_factor"
+    value:
+      Description: "Value"
+      Data Type: "(Numeric, Boolean, String)"
+      Notes: "Existing template value shows- 0.063"
+    unit:
+      Description: "Units"
+      Data Type: "String"
+      Notes: "Existing template value shows- Btu/(hr*ft2*R)"
+    source:
+      Description: "The source of the value"
+      Data Type: "String"
+      Notes: "The source of the value which may be that is a from one or more models, from the ruleset, or an expected value. If from a model the strings should represent the enumeration values for RulesetModelDescription.type in the 229 Ruleset Evaluation Schema. For 90.1 Appendix G would be USER, PROPOSED, BASELINE_0, BASELINE_90, BASELINE_180, BASELINE_270."
