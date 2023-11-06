@@ -131,7 +131,7 @@ RulesetProjectDescription:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: True
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -139,7 +139,7 @@ RulesetProjectDescription:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "DoneUsingConstant"
-      EP Notes: "Reference to a generic ID for RulesetModelInstance"
+      EP Notes: ""
     data_timestamp:
       Description: "Date and time of data publication"
       Data Type: "Timestamp"
@@ -193,8 +193,8 @@ RulesetProjectDescription:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
-      EP Notes: ""
+      EPstatus: "DoneUsingConstant"
+      EP Notes: "Reference to a generic ID for RulesetModelInstance"
     calendar:
       Description: "Information on the calendar used with the simulation."
       Data Type: "{Calendar}"
