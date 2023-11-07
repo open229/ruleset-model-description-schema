@@ -176,7 +176,7 @@ RulesetProjectDescription:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     ruleset_model_descriptions:  
       Description: "A list of the ruleset model descriptions within the project each with a unique ruleset_model_type."
@@ -1712,7 +1712,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     lighting_space_type:
       Description: "Lighting space type classification"
@@ -4093,7 +4093,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     event_times:
       Description: "Event times when the schedule changes"
