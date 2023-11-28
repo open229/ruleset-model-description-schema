@@ -4459,8 +4459,6 @@ TemperatureResetOptions:
   Enumerators:
     NO_RESET:
       Description: "No Reset"
-    CONSTANT:
-      Description: "Constant"
     OUTSIDE_AIR_RESET:
       Description: "Outside air reset"
     LOAD_RESET:
