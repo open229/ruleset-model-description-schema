@@ -3493,6 +3493,15 @@ AirEconomizer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
+    is_integrated:
+      Description: "True if the economizer and mechanical cooling system can work together"
+      Data Type: "Boolean"
+      Notes: "When the economizer is integrated with the mechanical cooling system it is capable of providing partial cooling even when additional mechanical cooling is required to meet the remainder of the cooling load."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
 
 
 AirEnergyRecovery:
