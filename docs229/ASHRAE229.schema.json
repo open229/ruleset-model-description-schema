@@ -72,7 +72,8 @@
             },
             "required": [
                 "id",
-                "data_timestamp"
+                "data_timestamp",
+                "ruleset_model_descriptions"
             ],
             "additionalProperties": false
         },
@@ -220,7 +221,8 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "type"
             ],
             "additionalProperties": false
         },
@@ -2546,6 +2548,11 @@
                     "description": "High limit temperature shutoff",
                     "type": "number",
                     "units": "C"
+                },
+                "is_integrated": {
+                    "description": "True if the economizer and mechanical cooling system can work together",
+                    "type": "boolean",
+                    "notes": "When the economizer is integrated with the mechanical cooling system it is capable of providing partial cooling even when additional mechanical cooling is required to meet the remainder of the cooling load."
                 }
             },
             "required": [
@@ -3283,14 +3290,12 @@
             "type": "string",
             "enum": [
                 "NO_RESET",
-                "CONSTANT",
                 "OUTSIDE_AIR_RESET",
                 "LOAD_RESET",
                 "OTHER"
             ],
             "descriptions": [
                 "No Reset",
-                "Constant",
                 "Outside air reset",
                 "Load Reset",
                 "Other"
@@ -5020,6 +5025,6 @@
             ]
         }
     },
-    "version": "0.0.34",
+    "version": "0.0.35",
     "$ref": "ASHRAE229.schema.json#/definitions/RulesetProjectDescription"
 }

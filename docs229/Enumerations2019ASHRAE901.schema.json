@@ -1010,11 +1010,13 @@
             "type": "string",
             "enum": [
                 "NEW",
-                "EXISTING"
+                "EXISTING",
+                "ALTERED"
             ],
             "descriptions": [
                 "New",
-                "Existing"
+                "Existing",
+                "Altered"
             ]
         },
         "AdditionalSurfaceAdjacencyOptions2019ASHRAE901": {

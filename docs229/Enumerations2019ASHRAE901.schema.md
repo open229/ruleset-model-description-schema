@@ -427,6 +427,7 @@
 |------------|-------------|-------|
 | `NEW`      | New         |       |
 | `EXISTING` | Existing    |       |
+| `ALTERED`  | Altered     |       |
 
 # AdditionalSurfaceAdjacencyOptions2019ASHRAE901
 |   Enumerator    |                                                                   Description                                                                   | Notes |
