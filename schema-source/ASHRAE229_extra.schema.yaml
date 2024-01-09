@@ -4617,6 +4617,15 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+    output_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{PumpOutputValidationPoint}]"
+      Notes: "Pump flow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
 
 PumpSpeedControlOptions:
   Object Type: "Enumeration"
@@ -4635,6 +4644,30 @@ PumpSpecificationMethodOptions:
     DETAILED:
       Description: "Detailed"
       Notes: "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
+
+PumpOutputValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    flow:
+      Description: "Flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "No name and id is needed since typically used as one of a series."
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: "unknown"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "The rate of energy used by the pump at the given flow rate."
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: "unknown"
 
 Boiler:
   Object Type: "Data Group"
