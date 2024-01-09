@@ -2818,7 +2818,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Design capacity may be an autosized value.  This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "Design capacity may be determined by sizing performed by the software.  This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2845,8 +2845,8 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    is_autosized:
-      Description: "True if the component is automatically sized by the simulation software"
+    is_sized_based_on_design_day:
+      Description: "True if the component is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3039,7 +3039,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "Designed total cooling capacity. Design capacity may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3050,7 +3050,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "Designed sensible cooling capacity. Design sensible capacity may be determined by sizing performed by the software. This value should be provided if sized by the simulation as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3087,8 +3087,8 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    is_autosized:
-      Description: "True if the component is automatically sized by the simulation software"
+    is_sized_based_on_design_day:
+      Description: "True if the component is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3395,7 +3395,7 @@ FanSystem:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "The minimum airflow may be determined by sizing performed by the softare. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3764,14 +3764,14 @@ Fan:
       Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "The design airlow may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    is_airflow_autosized:
-      Description: "True if the airflow is automatically sized by the simulation software"
+    is_airflow_sized_based_on_design_day:
+      Description: "True if the airflow is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -4096,7 +4096,7 @@ Terminal:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if fan airflow is automatically sized or explicitly provided."
+      Notes: "This value should be provided if fan airflow determined by sizing performed by the software or explicitly provided."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4115,7 +4115,7 @@ Terminal:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if automatically sized or explicitly provided."
+      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if determined by sizing performed by the software or explicitly provided."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4125,7 +4125,7 @@ Terminal:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if automatically sized or explicitly provided."
+      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if determined by sizing performed by the software or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4604,13 +4604,13 @@ Pump:
       Data Type: "Numeric"
       Units: "L/s"
       RMD Test: "unknown"
-      Notes: "This value should be provided if automatically sized or explicitly provided."
+      Notes: "This value should be provided if determined by sizing performed by the software or explicitly provided."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    is_flow_autosized:
-      Description: "True if the design_flow is autosized"
+    is_flow_sized_based_on_design_day:
+      Description: "True if the design_flow is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
