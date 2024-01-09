@@ -828,16 +828,6 @@ PrescribedScheduleOptions2019ASHRAE901:
     NOT_APPLICABLE:
       Description: "No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets."
 
-SpaceStatusOptions2019ASHRAE901:
-  Object Type: "Enumeration"
-  Enumerators:
-    NEW:
-      Description: "New"
-    EXISTING:
-      Description: "Existing"
-    ALTERED:
-      Description: "Altered"
-
 AdditionalSurfaceAdjacencyOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:

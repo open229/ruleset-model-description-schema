@@ -889,8 +889,8 @@ Space:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     status_type:
-      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "(<SpaceStatusOptions2019ASHRAE901>,<GeneralStatusOptions2019T24>)"
+      Description: "Choice of new, existing, addition, alteration, etc."
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -969,6 +969,20 @@ SpaceFunctionOptions:
       Description: "Laboratory"
     KITCHEN:
       Description: "Kitchen"
+    OTHER:
+      Description: "Other"
+
+StatusOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NEW:
+      Description: "New"
+    EXISTING:
+      Description: "Existing"
+    EXISTING_PLUS_NEW:
+      Description: "Existing plus new"
+    ALTERED:
+      Description: "Altered"
     OTHER:
       Description: "Other"
 
@@ -1187,7 +1201,7 @@ Surface:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1776,7 +1790,7 @@ Subsurface:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2742,7 +2756,7 @@ HeatingVentilatingAirConditioningSystem:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
@@ -3878,7 +3892,7 @@ Fan:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -6112,7 +6126,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
