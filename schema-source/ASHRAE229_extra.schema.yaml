@@ -527,7 +527,7 @@ BuildingSegment:
     lighting_building_area_type:
       Description: "Building area lighting area type"
       Data Type: "<LightingBuildingAreaOptions2019ASHRAE901T951TG38>"
-      Notes: "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations."
+      Notes: "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations. This data element may also be used for determining the building area type for other purposes such as target setting targets (like 90.1 building performanc factors) so it should be completed even when the lighting building area method is not used."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
