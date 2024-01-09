@@ -3079,7 +3079,7 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     oversizing_factor:
-      Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
+      Description: "The oversizing factor applied to the peak load that results in the cool capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
       Range: ">=0"
       RMD Test: "Primary"
