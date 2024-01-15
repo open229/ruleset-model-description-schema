@@ -35,21 +35,6 @@
                 "The baseline building model"
             ]
         },
-        "GeneralStatusOptions2019T24": {
-            "type": "string",
-            "enum": [
-                "NEW",
-                "ALTERED",
-                "EXISTING",
-                "EXISTING_PLUS_NEW"
-            ],
-            "descriptions": [
-                "New",
-                "Altered",
-                "Existing",
-                "Existing plus new"
-            ]
-        },
         "ConstructionClassificationOptions2019T24": {
             "type": "string",
             "enum": [

@@ -36,18 +36,6 @@ RulesetModelOptions2019T24Res:
     BASELINE:
       Description: "The baseline building model"
 
-GeneralStatusOptions2019T24:
-  Object Type: "Enumeration"
-  Enumerators:
-    NEW:
-      Description: "New"
-    ALTERED:
-      Description: "Altered"
-    EXISTING:
-      Description: "Existing"
-    EXISTING_PLUS_NEW:
-      Description: "Existing plus new"
-
 ConstructionClassificationOptions2019T24:
   Object Type: "Enumeration"
   Enumerators:
