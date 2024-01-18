@@ -340,7 +340,7 @@ RulesetModelDescription:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Undeterminable compliance parameter"
+      EP Notes: "Used by RCT. Undeterminable compliance parameter"
     transformers:
       Description: "Electrical transformers at the building site"
       Data Type: "[{Transformer}]"
@@ -753,7 +753,7 @@ Building:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "PartialUsingConstant"
-      EP Notes: "Undeterminable compliance parameter. Could estimate based on occupancy schedules but may not match actual building schedule."
+      EP Notes: "Used by RCT. Undeterminable compliance parameter. Could estimate based on occupancy schedules but may not match actual building schedule."
     has_site_shading:
       Description: "Indicates whether the site has features that cast shadows on the building"
       Data Type: "Boolean"
@@ -1233,7 +1233,7 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
+      EP Notes: "Used by RCT. Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "Reference"
@@ -2174,7 +2174,7 @@ Surface:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "PartialUsingOutput"
-      EP Notes: "Complicated mapping from input. Determine with table it is for exterior or interior but not others. Probably cannot be fully deteremined."
+      EP Notes: "Used by RCT. Complicated mapping from input. Determine with table it is for exterior or interior but not others. Probably cannot be fully deteremined."
     adjacent_zone:
       Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "Reference"
@@ -2192,7 +2192,7 @@ Surface:
       EPout Table: "HeatTransfer Surface"
       EPout Column: "ExtBoundCondition"
       EPstatus: "DoneUsingInput"
-      EP Notes: "Also accessible in EIO file. Only available if Output:Surfaces:List,details is used."
+      EP Notes: "Used by RCT. Also accessible in EIO file. Only available if Output:Surfaces:List,details is used."
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
       Data Type: "Boolean"
@@ -4534,7 +4534,7 @@ Weather:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "PartialUsingOutput"
-      EP Notes: "Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
+      EP Notes: "Used by RCT. Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
 
 WeatherFileDataSourceOptions:
   Object Type: "Enumeration"
@@ -5084,7 +5084,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Table: "Coils"
       EPout Column: "first column"
       EPstatus: "NotStarted"
-      EP Notes: "Would need to analyze structure of topology to determine if this is preheat system."
+      EP Notes: "Used by RCT. Would need to analyze structure of topology to determine if this is preheat system."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<StatusOptions>"
@@ -6053,7 +6053,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Add new SetpointManager report. Would need to find node name to find what AirLoop it is on. "
+      EP Notes: "Used by RCT. Add new SetpointManager report. Would need to find node name to find what AirLoop it is on. "
     operation_during_occupied:
       Description: "Operation during occupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -7210,7 +7210,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Based on the type of input object. New report Equipment Summary - AirTerminals"
+      EP Notes: "Used by RCT. Based on the type of input object. New report Equipment Summary - AirTerminals"
     served_by_heating_ventilating_air_conditioning_system:
       Description: "HVAC system serving the terminal"
       Data Type: "Reference"
@@ -7228,7 +7228,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "Follow the nodes to identify the central air handling system. Part of topology report."
+      EP Notes: "Used by RCT. Follow the nodes to identify the central air handling system. Part of topology report."
     heating_source:
       Description: "Source of heating"
       Data Type: "<HeatingSourceOptions>"
@@ -7246,7 +7246,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "New report Equipment Summary - AirTerminals, Heat/Reheat Coil Object Type"
+      EP Notes: "Used by RCT. New report Equipment Summary - AirTerminals, Heat/Reheat Coil Object Type"
     heating_from_loop:
       Description: "References the fluid loop used to provide heating"
       Data Type: "Reference"
@@ -7264,7 +7264,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "From coil use nodes to identify loop. New report Equipment Summary - AirTerminals, Hot Water Plant Loop Name"
+      EP Notes: "Used by RCT. From coil use nodes to identify loop. New report Equipment Summary - AirTerminals, Hot Water Plant Loop Name"
     cooling_source:
       Description: "Source of cooling"
       Data Type: "<CoolingSourceOptions>"
@@ -7354,7 +7354,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotStarted"
-      EP Notes: "New report Equipment Summary - AirTerminals, Primary Air Flow Rate"
+      EP Notes: "Used by RCT. New report Equipment Summary - AirTerminals, Primary Air Flow Rate"
     secondary_airflow:
       Description: "Zone terminal secondary_airflow"
       Data Type: "Numeric"
@@ -7462,7 +7462,7 @@ Terminal:
       EPout Table: "Zone Ventilation Calculations for Cooling Design, Zone Ventilation Calculations for Heating Design"
       EPout Column: "Minimum Zone Primary Airflow - Vpz-min, Minimum Zone Primary Airflow - Vpz-min  "
       EPstatus: "NotStarted"
-      EP Notes: "Take lower of two values."
+      EP Notes: "Used by RCT. Take lower of two values."
     minimum_outdoor_airflow:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
@@ -7481,7 +7481,7 @@ Terminal:
       EPout Table: "Zone Ventilation Calculations for Cooling Design, Zone Ventilation Calculations for Heating Design"
       EPout Column: "Zone Outdoor Airflow Cooling - Voz-clg [m3/s], Zone Outdoor Airflow Heating - Voz-htg [m3/s]"
       EPstatus: "NotStarted"
-      EP Notes: "Take lower of two values."
+      EP Notes: "Used by RCT. Take lower of two values."
     minimum_outdoor_airflow_multiplier_schedule:
       Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
       Data Type: "Reference"
