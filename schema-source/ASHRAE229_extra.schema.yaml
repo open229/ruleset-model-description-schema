@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.0.34"
+  Version: "0.0.36"
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -126,6 +126,7 @@ RulesetProjectDescription:
     ruleset_model_descriptions:  
       Description: "A list of the ruleset model descriptions within the project each with a unique ruleset_model_type."
       Data Type: "[{RulesetModelDescription}]"
+      Required: True
       Notes: "For submissions with ruleset model descriptions (i.e., user, proposed, baseline,..) generated as separate files, only one model description would be defined for each ASHRAE229 ruleset project description json file. For submissions where the software always produces all ruleset model descriptions together, multiple model descriptions would appear in the same ASHRAE229 ruleset project description json file. Some rulesets may restrict the submission process including the number of files and number of model descriptions per file. Multiple model descriptions may be required by rulesets that require models at various tiers or levels of performance. Model descriptions may also be used by References between data groups and are restricted to be within the same ruleset model description. For 90.1-2019 appendix G model descriptions would be created for the following models: user, proposed, baseline at 0 degrees, baseline at 90 degrees, baseline at 180 degrees, and baseline at 270 degrees. All IDs within a ruleset model description should be unique for each type of data group. Between ruleset model descriptions, IDs should be the same for the same component. For example, a Surface with an ID of LobbyFrontSurface is very likely to have the same geometry for all ruleset model descriptions except perhaps the azimuth so that surface should have the ID LobbyFrontSurface for all ruleset model descriptions."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -196,6 +197,7 @@ RulesetModelDescription:
     type:
       Description: "Describes the current ruleset model description for rulesets with multiple simulation models"
       Data Type: "(<RulesetModelOptions2019ASHRAE901>,<RulesetModelOptionsRESNET>,<RulesetModelOptions2019T24Com>,<RulesetModelOptions2019T24Res>)"
+      Required: True
       Notes: "Will usually designate which simulation this RulesetModelDescription refers to such as: PROPOSED, BASELINE_0, USER, RATED, REFERENCE"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -525,7 +527,7 @@ BuildingSegment:
     lighting_building_area_type:
       Description: "Building area lighting area type"
       Data Type: "<LightingBuildingAreaOptions2019ASHRAE901T951TG38>"
-      Notes: "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations."
+      Notes: "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations. This data element may also be used for determining the building area type for other purposes such as target setting targets (like 90.1 building performanc factors) so it should be completed even when the lighting building area method is not used."
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: "unknown"
@@ -887,8 +889,8 @@ Space:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     status_type:
-      Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "(<SpaceStatusOptions2019ASHRAE901>,<GeneralStatusOptions2019T24>)"
+      Description: "Choice of new, existing, addition, alteration, etc."
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -967,6 +969,20 @@ SpaceFunctionOptions:
       Description: "Laboratory"
     KITCHEN:
       Description: "Kitchen"
+    OTHER:
+      Description: "Other"
+
+StatusOptions:
+  Object Type: "Enumeration"
+  Enumerators:
+    NEW:
+      Description: "New"
+    EXISTING:
+      Description: "Existing"
+    EXISTING_PLUS_NEW:
+      Description: "Existing plus new"
+    ALTERED:
+      Description: "Altered"
     OTHER:
       Description: "Other"
 
@@ -1185,7 +1201,7 @@ Surface:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1774,7 +1790,7 @@ Subsurface:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2740,7 +2756,7 @@ HeatingVentilatingAirConditioningSystem:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: True
@@ -2816,7 +2832,7 @@ HeatingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Design capacity may be an autosized value.  This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "Design capacity may be determined by sizing performed by the software.  This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2843,8 +2859,8 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    is_autosized:
-      Description: "True if the component is automatically sized by the simulation software"
+    is_sized_based_on_design_day:
+      Description: "True if the component is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3037,7 +3053,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "Designed total cooling capacity. Design capacity may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3048,7 +3064,7 @@ CoolingSystem:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "W"
-      Notes: "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "Designed sensible cooling capacity. Design sensible capacity may be determined by sizing performed by the software. This value should be provided if sized by the simulation as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3077,7 +3093,7 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
     oversizing_factor:
-      Description: "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing."
+      Description: "The oversizing factor applied to the peak load that results in the cool capacity. Zero indicates no oversizing."
       Data Type: "Numeric"
       Range: ">=0"
       RMD Test: "Primary"
@@ -3085,8 +3101,8 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    is_autosized:
-      Description: "True if the component is automatically sized by the simulation software"
+    is_sized_based_on_design_day:
+      Description: "True if the component is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "Primary"
       AppG Used By TCDs: True
@@ -3348,7 +3364,7 @@ FanSystem:
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
       Data Type: "Numeric"
-      Notes: "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. The supply air temperature is specified in Terminal."
+      Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE, this is the threshold fraction below which supply air temperature reset begins.  Between the stated load fraction and 0% load the supply air temperature is ramped linearally until the supply air temperature reaches the zone. The supply air temperature is specified in Terminal."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3393,7 +3409,7 @@ FanSystem:
       Description: "Minimum volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "The minimum airflow may be determined by sizing performed by the softare. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -3490,6 +3506,15 @@ AirEconomizer:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: "unknown"
+    is_integrated:
+      Description: "True if the economizer and mechanical cooling system can work together"
+      Data Type: "Boolean"
+      Notes: "When the economizer is integrated with the mechanical cooling system it is capable of providing partial cooling even when additional mechanical cooling is required to meet the remainder of the cooling load."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
 
 
@@ -3753,14 +3778,14 @@ Fan:
       Description: "Design airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+      Notes: "The design airlow may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: "unknown"
-    is_airflow_autosized:
-      Description: "True if the airflow is automatically sized by the simulation software"
+    is_airflow_sized_based_on_design_day:
+      Description: "True if the airflow is sized by the simulation software for the design day"
       Data Type: "Boolean"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -3867,7 +3892,7 @@ Fan:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
@@ -4085,7 +4110,7 @@ Terminal:
       Description: "Zone terminal minimum outdoor air volume airflow"
       Data Type: "Numeric"
       Units: "L/s"
-      Notes: "This value should be provided if fan airflow is automatically sized or explicitly provided."
+      Notes: "This value should be provided if fan airflow determined by sizing performed by the software or explicitly provided."
       RMD Test: "unknown"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4104,7 +4129,7 @@ Terminal:
       Description: "Heating capacity for baseboard or radiant system or reheat"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if automatically sized or explicitly provided."
+      Notes: "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if determined by sizing performed by the software or explicitly provided."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4114,7 +4139,7 @@ Terminal:
       Description: "Cooling capacity for the radiant system or cooling coil"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if automatically sized or explicitly provided."
+      Notes: "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if determined by sizing performed by the software or explicitly provided."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -4134,6 +4159,15 @@ Terminal:
       Data Type: "Boolean"
       RMD Test: "unknown"
       Notes: "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand."
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    is_fan_first_stage_heat:
+      Description: "True if the the only source of first stage heating is the heat from the fan itself"
+      Data Type: "Boolean"
+      RMD Test: "unknown"
+      Notes: "Only appropriate with variable volume boxes that are fan powered"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
@@ -4457,8 +4491,6 @@ TemperatureResetOptions:
   Enumerators:
     NO_RESET:
       Description: "No Reset"
-    CONSTANT:
-      Description: "Constant"
     OUTSIDE_AIR_RESET:
       Description: "Outside air reset"
     LOAD_RESET:
@@ -4586,14 +4618,23 @@ Pump:
       Data Type: "Numeric"
       Units: "L/s"
       RMD Test: "unknown"
-      Notes: "This value should be provided if automatically sized or explicitly provided."
+      Notes: "This value should be provided if determined by sizing performed by the software or explicitly provided."
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-    is_flow_autosized:
-      Description: "True if the design_flow is autosized"
+    is_flow_sized_based_on_design_day:
+      Description: "True if the design_flow is sized by the simulation software for the design day"
       Data Type: "Boolean"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+    output_validation_points:
+      Description: "Energy validation points"
+      Data Type: "[{PumpOutputValidationPoint}]"
+      Notes: "Pump flow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4617,6 +4658,30 @@ PumpSpecificationMethodOptions:
     DETAILED:
       Description: "Detailed"
       Notes: "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
+
+PumpOutputValidationPoint:
+  Object Type: "Data Group"
+  Data Elements:
+    flow:
+      Description: "Flow rate"
+      Data Type: "Numeric"
+      Units: "L/s"
+      Notes: "No name and id is needed since typically used as one of a series."
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: "unknown"
+    result:
+      Description: "Result"
+      Data Type: "Numeric"
+      Units: "W"
+      Notes: "The rate of energy used by the pump at the given flow rate."
+      RMD Test: "Primary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: "unknown"
 
 Boiler:
   Object Type: "Data Group"
@@ -4972,7 +5037,7 @@ Chiller:
       Description: "Efficiency value based on the selected part_load_efficiency_metric"
       Data Type: "Numeric"
       Units: "W/W"
-      Range: ">=0, <=1"
+      Range: ">=0"
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -6061,7 +6126,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMDs Same: "unknown"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
-      Data Type: "<GeneralStatusOptions2019T24>"
+      Data Type: "<StatusOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"

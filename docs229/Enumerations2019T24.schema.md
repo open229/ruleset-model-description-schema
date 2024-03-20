@@ -15,14 +15,6 @@
 | `STANDARD` | The standard building model                                          |       |
 | `BASELINE` | The baseline building model                                          |       |
 
-# GeneralStatusOptions2019T24
-|     Enumerator      |    Description    | Notes |
-|---------------------|-------------------|-------|
-| `NEW`               | New               |       |
-| `ALTERED`           | Altered           |       |
-| `EXISTING`          | Existing          |       |
-| `EXISTING_PLUS_NEW` | Existing plus new |       |
-
 # ConstructionClassificationOptions2019T24
 |            Enumerator            |          Description           |                                                      Notes                                                       |
 |----------------------------------|--------------------------------|------------------------------------------------------------------------------------------------------------------|

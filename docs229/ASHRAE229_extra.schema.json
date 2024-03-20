@@ -72,7 +72,8 @@
             },
             "required": [
                 "id",
-                "data_timestamp"
+                "data_timestamp",
+                "ruleset_model_descriptions"
             ],
             "additionalProperties": false
         },
@@ -220,7 +221,8 @@
                 }
             },
             "required": [
-                "id"
+                "id",
+                "type"
             ],
             "additionalProperties": false
         },
@@ -356,7 +358,7 @@
                 "lighting_building_area_type": {
                     "description": "Building area lighting area type",
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/LightingBuildingAreaOptions2019ASHRAE901T951TG38",
-                    "notes": "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations."
+                    "notes": "The lighting building area type for the building segment. If used, options are provided in the ruleset specific enumerations. This data element may also be used for determining the building area type for other purposes such as target setting targets (like 90.1 building performanc factors) so it should be completed even when the lighting building area method is not used."
                 },
                 "area_type_heating_ventilating_air_conditioning_system": {
                     "description": "Classification used for HVAC",
@@ -591,15 +593,8 @@
                     "units": "W"
                 },
                 "status_type": {
-                    "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
-                    "oneOf": [
-                        {
-                            "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/SpaceStatusOptions2019ASHRAE901"
-                        },
-                        {
-                            "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
-                        }
-                    ]
+                    "description": "Choice of new, existing, addition, alteration, etc.",
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/StatusOptions"
                 },
                 "function": {
                     "description": "Generic function for the space.",
@@ -664,6 +659,23 @@
             "descriptions": [
                 "Laboratory",
                 "Kitchen",
+                "Other"
+            ]
+        },
+        "StatusOptions": {
+            "type": "string",
+            "enum": [
+                "NEW",
+                "EXISTING",
+                "EXISTING_PLUS_NEW",
+                "ALTERED",
+                "OTHER"
+            ],
+            "descriptions": [
+                "New",
+                "Existing",
+                "Existing plus new",
+                "Altered",
                 "Other"
             ]
         },
@@ -816,7 +828,7 @@
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
-                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/StatusOptions"
                 }
             },
             "required": [
@@ -1229,7 +1241,7 @@
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
-                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/StatusOptions"
                 }
             },
             "required": [
@@ -1965,7 +1977,7 @@
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
-                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/StatusOptions"
                 }
             },
             "required": [
@@ -2013,7 +2025,7 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "Design capacity may be an autosized value.  This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+                    "notes": "Design capacity may be determined by sizing performed by the software.  This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
                 },
                 "rated_capacity": {
                     "description": "Rated heating capacity",
@@ -2028,8 +2040,8 @@
                     "minimum": 0.0,
                     "notes": "Used for furnace or heat pump."
                 },
-                "is_autosized": {
-                    "description": "True if the component is automatically sized by the simulation software",
+                "is_sized_based_on_design_day": {
+                    "description": "True if the component is sized by the simulation software for the design day",
                     "type": "boolean"
                 },
                 "heating_coil_setpoint": {
@@ -2212,14 +2224,14 @@
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "Designed total cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+                    "notes": "Designed total cooling capacity. Design capacity may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
                 },
                 "design_sensible_cool_capacity": {
                     "description": "Design sensible cooling capacity",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "W",
-                    "notes": "Designed sensible cooling capacity. Design capacity may be an autosized value. This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+                    "notes": "Designed sensible cooling capacity. Design sensible capacity may be determined by sizing performed by the software. This value should be provided if sized by the simulation as an output or explicitly provided as a simulation input."
                 },
                 "rated_total_cool_capacity": {
                     "description": "Rated total cooling capacity",
@@ -2236,12 +2248,12 @@
                     "notes": "At rating conditions. The rated capacity is generally used to determine efficiency level when efficiency level is based on size.  It is net sensible cooling capacity taking into account the heat from the indoor fan."
                 },
                 "oversizing_factor": {
-                    "description": "The oversizing factor applied to the peak load that results in the heat capacity. Zero indicates no oversizing.",
+                    "description": "The oversizing factor applied to the peak load that results in the cool capacity. Zero indicates no oversizing.",
                     "type": "number",
                     "minimum": 0.0
                 },
-                "is_autosized": {
-                    "description": "True if the component is automatically sized by the simulation software",
+                "is_sized_based_on_design_day": {
+                    "description": "True if the component is sized by the simulation software for the design day",
                     "type": "boolean"
                 },
                 "chilled_water_loop": {
@@ -2463,7 +2475,7 @@
                 "supply_air_temperature_reset_load_fraction": {
                     "description": "Supply air temperature reset load fraction",
                     "type": "number",
-                    "notes": "When temperature_control is a reset option this is the threshold fraction to use below which supply air temperature reset begins and ramps down to zero. The supply air temperature is specified in Terminal."
+                    "notes": "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE, this is the threshold fraction below which supply air temperature reset begins.  Between the stated load fraction and 0% load the supply air temperature is ramped linearally until the supply air temperature reaches the zone. The supply air temperature is specified in Terminal."
                 },
                 "supply_air_temperature_reset_schedule": {
                     "description": "Supply air temperature reset schedule",
@@ -2488,7 +2500,7 @@
                     "description": "Minimum volume airflow",
                     "type": "number",
                     "units": "L/s",
-                    "notes": "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+                    "notes": "The minimum airflow may be determined by sizing performed by the softare. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
                 },
                 "minimum_outdoor_airflow": {
                     "description": "Minimum outdoor air volume airflow",
@@ -2546,6 +2558,11 @@
                     "description": "High limit temperature shutoff",
                     "type": "number",
                     "units": "C"
+                },
+                "is_integrated": {
+                    "description": "True if the economizer and mechanical cooling system can work together",
+                    "type": "boolean",
+                    "notes": "When the economizer is integrated with the mechanical cooling system it is capable of providing partial cooling even when additional mechanical cooling is required to meet the remainder of the cooling load."
                 }
             },
             "required": [
@@ -2787,10 +2804,10 @@
                     "description": "Design airflow",
                     "type": "number",
                     "units": "L/s",
-                    "notes": "This value should be provided if automatically sized as a simulation output or explicitly provided as a simulation input."
+                    "notes": "The design airlow may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
                 },
-                "is_airflow_autosized": {
-                    "description": "True if the airflow is automatically sized by the simulation software",
+                "is_airflow_sized_based_on_design_day": {
+                    "description": "True if the airflow is sized by the simulation software for the design day",
                     "type": "boolean"
                 },
                 "specification_method": {
@@ -2857,7 +2874,7 @@
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
-                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/StatusOptions"
                 },
                 "output_validation_points": {
                     "description": "Energy validation points",
@@ -3001,7 +3018,7 @@
                     "description": "Zone terminal minimum outdoor air volume airflow",
                     "type": "number",
                     "units": "L/s",
-                    "notes": "This value should be provided if fan airflow is automatically sized or explicitly provided."
+                    "notes": "This value should be provided if fan airflow determined by sizing performed by the software or explicitly provided."
                 },
                 "minimum_outdoor_airflow_multiplier_schedule": {
                     "description": "Zone terminal minimum outdoor air volume airflow multiplier schedule name",
@@ -3012,13 +3029,13 @@
                     "description": "Heating capacity for baseboard or radiant system or reheat",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if automatically sized or explicitly provided."
+                    "notes": "Only includes the heating capacity of the terminal for hot water or electric coil. This value should be provided if determined by sizing performed by the software or explicitly provided."
                 },
                 "cooling_capacity": {
                     "description": "Cooling capacity for the radiant system or cooling coil",
                     "type": "number",
                     "units": "W",
-                    "notes": "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if automatically sized or explicitly provided."
+                    "notes": "Only includes the cooling capacity of the terminal for chilled water coil for radiant or fan coil.  This value should be provided if determined by sizing performed by the software or explicitly provided."
                 },
                 "is_supply_ducted": {
                     "description": "True if the the supply is ducted.",
@@ -3029,6 +3046,11 @@
                     "description": "True if the zone has demand control ventilation",
                     "type": "boolean",
                     "notes": "The zone is either served by an air handler that responds to demand control ventilation signals from that zone or is served by a DOAS that specifically provides air to that zone on demand."
+                },
+                "is_fan_first_stage_heat": {
+                    "description": "True if the the only source of first stage heating is the heat from the fan itself",
+                    "type": "boolean",
+                    "notes": "Only appropriate with variable volume boxes that are fan powered"
                 }
             },
             "required": [
@@ -3283,14 +3305,12 @@
             "type": "string",
             "enum": [
                 "NO_RESET",
-                "CONSTANT",
                 "OUTSIDE_AIR_RESET",
                 "LOAD_RESET",
                 "OTHER"
             ],
             "descriptions": [
                 "No Reset",
-                "Constant",
                 "Outside air reset",
                 "Load Reset",
                 "Other"
@@ -3374,11 +3394,19 @@
                     "description": "Design Pump Flowrate",
                     "type": "number",
                     "units": "L/s",
-                    "notes": "This value should be provided if automatically sized or explicitly provided."
+                    "notes": "This value should be provided if determined by sizing performed by the software or explicitly provided."
                 },
-                "is_flow_autosized": {
-                    "description": "True if the design_flow is autosized",
+                "is_flow_sized_based_on_design_day": {
+                    "description": "True if the design_flow is sized by the simulation software for the design day",
                     "type": "boolean"
+                },
+                "output_validation_points": {
+                    "description": "Energy validation points",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229_extra.schema.json#/definitions/PumpOutputValidationPoint"
+                    },
+                    "notes": "Pump flow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
                 }
             },
             "required": [
@@ -3412,6 +3440,24 @@
                 "Specify the electric power input of pump",
                 "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
             ]
+        },
+        "PumpOutputValidationPoint": {
+            "type": "object",
+            "properties": {
+                "flow": {
+                    "description": "Flow rate",
+                    "type": "number",
+                    "units": "L/s",
+                    "notes": "No name and id is needed since typically used as one of a series."
+                },
+                "result": {
+                    "description": "Result",
+                    "type": "number",
+                    "units": "W",
+                    "notes": "The rate of energy used by the pump at the given flow rate."
+                }
+            },
+            "additionalProperties": false
         },
         "Boiler": {
             "type": "object",
@@ -3640,7 +3686,6 @@
                     "description": "Efficiency value based on the selected part_load_efficiency_metric",
                     "type": "number",
                     "minimum": 0.0,
-                    "maximum": 1.0,
                     "units": "W/W"
                 },
                 "part_load_efficiency_metric": {
@@ -4412,7 +4457,7 @@
                 },
                 "status_type": {
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
-                    "$ref": "Enumerations2019T24.schema.json#/definitions/GeneralStatusOptions2019T24"
+                    "$ref": "ASHRAE229_extra.schema.json#/definitions/StatusOptions"
                 },
                 "solar_thermal_systems": {
                     "description": "Solar thermal systems used for heating service water",
@@ -5020,6 +5065,6 @@
             ]
         }
     },
-    "version": "0.0.34",
+    "version": "0.0.36",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
