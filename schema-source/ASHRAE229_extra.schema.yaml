@@ -149,7 +149,7 @@ RulesetProjectDescription:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -166,14 +166,15 @@ RulesetProjectDescription:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Not needed now but will be needed."
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathOptions2019ASHRAE901>"
@@ -216,12 +217,13 @@ RulesetProjectDescription:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
-      EPout Column: ""
+      EPout Column: "ToDo"
       EPstatus: "NotStarted"
       EP Notes: ""
       
@@ -238,19 +240,21 @@ Metadata:
       Description: "Unique data set identifier"
       Data Type: "UUID"
       Notes: "Assigned by *data publisher* to identify this data. `id` shall remain unchanged for revisions of the same data."
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Will be required"
     schema_author:
       Description: "Name of the organization that published the schema"
       Data Type: "String"
       Required: True
       Notes: "Identifies the organization that defined the schema. Is should be set to: ASHRAE SPC 229 Schema Working Group"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -264,6 +268,7 @@ Metadata:
       Data Type: "String"
       Required: True
       Notes: "Identifies the schema used to define the data content. It should be set to Ruleset Evaluation Schema"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -277,6 +282,7 @@ Metadata:
       Data Type: "Version"
       Required: True
       Notes: "Common versions may include 0.0.36 from the first public review period. This is the value of the version field in the top of the ASRAE229.schema.json file or the version in the ASHRAE229.schema.yaml Schema data group."
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -289,6 +295,7 @@ Metadata:
       Description: "The Uniform Resource Locator (url) for the schema definition and/or documentation"
       Data Type: "String"
       Notes: "Should be set to: https://github.com/open229/ruleset-model-description-schema"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -302,6 +309,7 @@ Metadata:
       Data Type: "String"
       Required: True
       Notes: "Identifies the organization that created the file"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -314,6 +322,7 @@ Metadata:
       Description: "Description of data content (suitable for display)"
       Data Type: "String"
       Required: True
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -327,30 +336,33 @@ Metadata:
       Data Type: "Timestamp"
       Required: True
       Notes: "Updated anytime any data content is modified."
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Was RulesetProjectDescription.data_timestamp in 0.0.36"
     version:
       Description: "Integer version identifier for the data"
       Data Type: "Version"
       Notes: "Used by data publisher to track revisions of the data. Shall be incremented for each data revision"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Was RulesetProjectDescription.data_timestamp in 0.0.36"
     source:
       Description: "Source(s) of the data"
       Data Type: "String"
       Notes: "Used by data publisher to document methods (e.g., software and version) used to generate data. **Informative note:** `source` may be different from other data source(s) included elsewhere within the data"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -362,6 +374,7 @@ Metadata:
     disclaimer:
       Description: "Characterization of accuracy, limitations, and applicability of this data"
       Data Type: "String"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -373,6 +386,7 @@ Metadata:
     notes:
       Description: "Additional Information"
       Data Type: "String"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -473,7 +487,7 @@ RulesetModelDescription:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     buildings:
       Description: "Buildings on the site"
@@ -559,14 +573,15 @@ RulesetModelDescription:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
+      Used by RCT Test: "unknown"
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
-      EP Notes: ""
+      EPstatus: "NotStarted"
+      EP Notes: "Probably will be needed but not sure."
     fluid_loops:
       Description: "Fluid loops on the site"
       Data Type: "[{FluidLoop}]"
@@ -594,15 +609,15 @@ RulesetModelDescription:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: "Only need this input after supporting this data group"
+      EPstatus: "ToDo"
+      EP Notes: ""
     service_water_heating_equipment:
       Description: "Service water heating equipment on the site"
       Data Type: "[{ServiceWaterHeatingEquipment}]"
@@ -612,15 +627,15 @@ RulesetModelDescription:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: "Only need this input after supporting this data group"
+      EPstatus: "ToDo"
+      EP Notes: ""
     pumps:
       Description: "Pumps used on the site"
       Data Type: "[{Pump}]"
@@ -637,7 +652,7 @@ RulesetModelDescription:
       EPout Table: "Pumps"
       EPout Column: "Name"
       EPstatus: "DoneUsingOutput"
-      EP Notes: "Only need this input after supporting this data group"
+      EP Notes: ""
     boilers:
       Description: "Boilers used on the site"
       Data Type: "[{Boiler}]"
@@ -654,7 +669,7 @@ RulesetModelDescription:
       EPout Table: "Boilers"
       EPout Column: "Name"
       EPstatus: "DoneUsingOutput"
-      EP Notes: "Only need this input after supporting this data group"
+      EP Notes: ""
     chillers:
       Description: "Chillers used on the site"
       Data Type: "[{Chiller}]"
@@ -671,7 +686,7 @@ RulesetModelDescription:
       EPout Table: "Chillers"
       EPout Column: "Name"
       EPstatus: "DoneUsingOutput"
-      EP Notes: "Only need this input after supporting this data group"
+      EP Notes: ""
     heat_rejections:
       Description: "HeatRejections used on the site"
       Data Type: "[{HeatRejection}]"
@@ -688,7 +703,7 @@ RulesetModelDescription:
       EPout Table: "Cooling Towers and Fluid Coolers"
       EPout Column: "Name"
       EPstatus: "DoneUsingOutput"
-      EP Notes: "Only need this input after supporting this data group"
+      EP Notes: ""
     external_fluid_sources:
       Description: "ExternalFluidSources used on the site"
       Data Type: "[{ExternalFluidSource}]"
@@ -698,15 +713,15 @@ RulesetModelDescription:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: "Only need this input after supporting this data group"
+      EPstatus: "ToDo"
+      EP Notes: ""
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZoneOptions2019ASHRAE901>"
@@ -740,8 +755,8 @@ RulesetModelDescription:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "DoneUsingConstant"
-      EP Notes: "Nest the Calendar data group"
+      EPstatus: "ToDo"
+      EP Notes: "Previously completed but has changed locations."
     weather:
       Description: "Information on the local weather conditions used with the simulation."
       Data Type: "{Weather}"
@@ -757,8 +772,8 @@ RulesetModelDescription:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "DoneUsingConstant"
-      EP Notes: "Nest the Calendar data group"
+      EPstatus: "ToDo"
+      EP Notes: "Previously completed but has changed locations."
     model_output:
       Description: "Model output for a single instance"
       Data Type: "({OutputInstance2019ASHRAE901})"
@@ -774,8 +789,8 @@ RulesetModelDescription:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "May already be implemented"
 
 CommonRulesetModelOptions:
   Object Type: "Enumeration"
@@ -869,14 +884,14 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: "not specifically supported in EnergyPlus"
     exterior_lighting:
       Description: "Exterior lighting systems"
@@ -905,14 +920,14 @@ Building:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Only need this input after supporting this data group"
     building_open_schedule:
       Description: "Reference to the schedule indicating when the building is open"
@@ -1199,15 +1214,15 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: ""
+      Used by RCT Test: "unknown"
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "New element probably needed."
     service_water_heating_uses:
       Description: "List of service water heating uses"
       Data Type: "[({ServiceWaterHeatingUse}, Reference)]"
@@ -1217,15 +1232,15 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: ""
+      Used by RCT Test: "unknown"
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "New element probably needed."
 
 Zone:
   Object Type: "Data Group"
@@ -1311,14 +1326,14 @@ Zone:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Could use Z height of surface as proxy for this"
     volume:
       Description: "Volume of the space"
@@ -1402,14 +1417,14 @@ Zone:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ThermostatSetpoint:DualSetpoint or ThermostatSetpoint:SingleHeating or ThermostatSetpoint:SingleCooling or ThermostatSetpoint:SingleHeatingOrCooling"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
@@ -1446,7 +1461,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Used by RCT. Could examine schedule looking for setpoint that corresonds to when occupancy is high."
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
@@ -1476,14 +1491,14 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ZoneControl:Humidistat"
       EPin Field: "Humidifying Relative Humidity Setpoint Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
@@ -1495,14 +1510,14 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ZoneControl:Humidistat"
       EPin Field: "Dehumidifying Relative Humidity Setpoint Schedule"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     terminals:
       Description: "List of terminals"
@@ -1586,14 +1601,14 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Fan:ZoneExhaust"
       EPin Field: "Maximum Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     exhaust_airflow_rate_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
@@ -1663,14 +1678,14 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     air_distribution_effectiveness:
       Description: "Air distribution effectiveness"
@@ -1682,14 +1697,14 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: DesignSpecification:ZoneAirDistribution""
       EPin Field: "Zone Air Distribution Effectiveness in Cooling Mode or Zone Air Distribution Effectiveness in Heating Mode"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     aggregation_factor:
       Description: "Aggregation factor"
@@ -1701,7 +1716,7 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -1794,7 +1809,7 @@ Space:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
       EPin Field: "Zone or ZoneList or Space or SpaceList Name"
       EPout File: "table.html"
@@ -1832,7 +1847,7 @@ Space:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "People"
       EPin Field: "Number of People or People per Floor Area or Floor Area per Person"
       EPout File: "table.html"
@@ -1869,14 +1884,14 @@ Space:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "People"
       EPin Field: "Sensible Heat Fraction"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Often calculated internally. "
     occupant_latent_heat_gain:
       Description: "Latent heat gain of each occupant."
@@ -1888,13 +1903,14 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      Used by RCT Test: True
       EPin Object: "People"
       EPin Field: "Sensible Heat Fraction"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "One minus the sensible. Often calculated internally."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc."
@@ -1904,7 +1920,7 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -1922,7 +1938,7 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -1940,7 +1956,7 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -1976,7 +1992,7 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -1994,7 +2010,7 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -2012,14 +2028,14 @@ Space:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "WaterUse:Equipment or HotWaterEquipment"
       EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
 
 ConditioningOptions:
@@ -2192,7 +2208,7 @@ Infiltration:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ZoneInfiltration:DesignFlowRate"
       EPin Field: "Design Flow Rate"
       EPout File: "table.html"
@@ -2421,7 +2437,7 @@ Surface:
       EPout Table: "HeatTransfer Surface"
       EPout Column: "ExtBoundCondition"
       EPstatus: "DoneUsingInput"
-      EP Notes: "Used by RCT. Also accessible in EIO file. Only available if Output:Surfaces:List,details is used."
+      EP Notes: "Also accessible in EIO file. Only available if Output:Surfaces:List,details is used."
     does_cast_shade:
       Description: "Determines whether the surface is modeled as casting shade on other exterior surfaces"
       Data Type: "Boolean"
@@ -2465,14 +2481,14 @@ Surface:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Construction"
       EPin Field: "Outside Layer"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -2556,6 +2572,7 @@ Construction:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -2674,7 +2691,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Always leave entry blank since using layers"
     f_factor:
       Description: "surface F-factor"
@@ -2694,7 +2711,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Always leave entry blank since using layers"
     r_values:
       Description: "List of r-value of the insulation for the surface that correspond to values in the insulation_locations list"
@@ -2959,14 +2976,14 @@ SurfaceOpticalProperties:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Material"
       EPin Field: "Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Need to identify the exterior and interior materials. Modify the name to add -optical to the end"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -3013,14 +3030,14 @@ SurfaceOpticalProperties:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Material"
       EPin Field: "Thermal Absorptance"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     absorptance_solar_exterior:
       Description: "Thermal absorptance of short wavelength radiation on the exterior surface."
@@ -3039,7 +3056,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     absorptance_visible_exterior:
       Description: "Thermal absorptance of visible radiation on the exterior surface."
@@ -3223,7 +3240,7 @@ Subsurface:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -3352,14 +3369,14 @@ Subsurface:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "WindowShadingControl or WindowMaterial:Glazing:Group:Thermochromic"
       EPin Field: "WindowShadingControl if Shading Type == SwitchableGlazing. "
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Use AUTOMATIC_DYNAMIC or NOT_DYNAMIC"
     solar_heat_gain_coefficient:
       Description: "Subsurface SHGC"
@@ -3464,14 +3481,14 @@ Subsurface:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Shading:Overhang or Shading:Overhang:Projection"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     has_shading_sidefins:
       Description: "Identifies whether subsurface has sidefins"
@@ -3481,14 +3498,14 @@ Subsurface:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Shading:Fin or Shading:Fin:Projection"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     has_manual_interior_shades:
       Description: "Are there manually-operated interior shading such as blinds, curtains or shades"
@@ -3823,7 +3840,7 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
       EPin Field: "Zone or ZoneList or Space or SpaceList Name"
       EPout File: "table.html"
@@ -3876,7 +3893,7 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
       EPin Field: ""
       EPout File: "table.html"
@@ -3895,7 +3912,7 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
       EPin Field: "Design Level or Watts per Zone Floor Area or Watts per Person"
       EPout File: "table.html"
@@ -3913,7 +3930,7 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ElectricEquipment or GasEquipment or HotWaterEquipment or SteamEquipment or OtherEquipment or ElectricEquipment:ITE:AirCooled"
       EPin Field: "Schedule Name"
       EPout File: "table.html"
@@ -4004,7 +4021,7 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -4022,14 +4039,15 @@ MiscellaneousEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "may have previously implemented has_automatic_control"
 
 MiscellaneousEquipmentOptions:
   Object Type: "Enumeration"
@@ -4055,7 +4073,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: True
+      Used by RCT Test: False
       EPin Object: "ElectricLoadCenter:Transformer"
       EPin Field: "Name"
       EPout File: ""
@@ -4107,7 +4125,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: True
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -4124,7 +4142,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: True
+      Used by RCT Test: False
       EPin Object: "ElectricLoadCenter:Transformer"
       EPin Field: "Phase"
       EPout File: ""
@@ -4143,7 +4161,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: True
+      Used by RCT Test: False
       EPin Object: "ElectricLoadCenter:Transformer"
       EPin Field: "Nameplate Efficiency"
       EPout File: ""
@@ -4162,7 +4180,7 @@ Transformer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: True
+      Used by RCT Test: False
       EPin Object: "ElectricLoadCenter:Transformer"
       EPin Field: "Rated Capacity"
       EPout File: ""
@@ -4328,14 +4346,14 @@ Schedule:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     hourly_heating_design_year:
       Description: "Hourly values for heating design year"
@@ -4346,15 +4364,15 @@ Schedule:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Presuming will be used by RCT in near future"
     hourly_cooling_design_day:
       Description: "Hourly values for cooling design day"
       Data Type: "[Numeric][0..24]"
@@ -4364,14 +4382,14 @@ Schedule:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     hourly_cooling_design_year:
       Description: "Hourly values for cooling design year"
@@ -4382,15 +4400,15 @@ Schedule:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Presuming will be used by RCT in near future"
     event_times:
       Description: "Event times when the schedule changes"
       Data Type: "[Numeric]"
@@ -4511,14 +4529,14 @@ Schedule:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "EIO or table.html and eplusout_hourly.json or eplusout_timestep.json"
       EPout Report: "Intialization Summary"
       EPout Table: "Schedule"
       EPout Column: "ScheduleType"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Fraction => MULTIPLIER_DIMENSIONLESS, Temperature => TEMPERATURE, Units of W => POWER, Units of kg/s => FLOW_RATE, anything else => MULTIPLIER_DIMENSIONLESS"
     prescribed_type:
       Description: "Options when any schedule values have changed from what appears in the schedule library"
@@ -4590,7 +4608,7 @@ Calendar:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -4607,7 +4625,7 @@ Calendar:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "RunPeriod"
       EPin Field: "Day of Week for Start Day"
       EPout File: "table.html"
@@ -4701,14 +4719,14 @@ Weather:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Site:GroundTemperature:BuildingSurface"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "would need to create a schedule based on the 12 monthly values."
     file_name:
       Description: "The file name for the weather file including extension."
@@ -4840,14 +4858,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -4899,7 +4917,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     number_of_floors_served:
       Description: "Number of floors served by the elevator. This includes all unique full height building levels adjacent to the elevator shaft that are between the top and bottom floors where the elevator opens. Exclude levels serving only parking garages or other levels explicity not part of the building."
@@ -4910,14 +4928,15 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ComplianceParameter"
+      EP Notes: "Not sure it is used by RCT"
     motor_location_zone:
       Description: "Zone where the heat from the motor goes"
       Data Type: "Reference"
@@ -4934,7 +4953,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     motor_heat_fraction:
       Description: "Fraction of heat from the motor that is added as a sensible load zone."
@@ -4952,7 +4971,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     cab_location_zone:
       Description: "Zone where the heat from the cab goes"
@@ -4970,7 +4989,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     cab_heat_fraction:
       Description: "Fraction of heat from the cab that is added as a sensible load zone."
@@ -4989,7 +5008,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     is_variable_speed_motor:
       Description: "If the elevator uses a variable speed motor drive"
@@ -5006,7 +5025,7 @@ Elevator:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     motor_power:
       Description: "Elevator average hourly peak motor power"
@@ -5018,14 +5037,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_counterweight:
       Description: "Elevator car counterweight"
@@ -5036,14 +5055,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_weight:
       Description: "Weight of elevator car"
@@ -5054,14 +5073,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     design_load:
       Description: "Elevator load at which to operate"
@@ -5072,14 +5091,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     speed:
       Description: "Design speed of the elevator"
@@ -5090,14 +5109,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_area:
       Description: "Floor area of elevator cab"
@@ -5108,14 +5127,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_lighting_power:
       Description: "Lighitng power of cab"
@@ -5126,14 +5145,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_ventilation_fan_power:
       Description: "Ventilation fan power of cab"
@@ -5144,14 +5163,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_ventilation_fan_flow:
       Description: "Airflow of cab ventfan"
@@ -5162,14 +5181,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
@@ -5180,14 +5199,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_ventilation_fan_multiplier_schedule:
       Description: "Elevator ventilation fan operation mulitplier schedule name"
@@ -5198,14 +5217,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
@@ -5216,14 +5235,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ComplianceParameter"
       EP Notes: ""
 
 ElevatorOptions:
@@ -5362,7 +5381,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Report: "Coil Sizing Details"
       EPout Table: "Coils"
       EPout Column: "first column"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Used by RCT. Would need to analyze structure of topology to determine if this is preheat system."
     humidification_type:
       Description: "Humidification type"
@@ -5372,14 +5391,15 @@ HeatingVentilatingAirConditioningSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "New element not sure if used by RCT. Maybe previously worked on when part of HeatingSystem"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<StatusOptions>"
@@ -5463,7 +5483,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
       EPin Field: ""
       EPout File: "table.html"
@@ -5574,7 +5594,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -5592,7 +5612,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Heating:*"
       EPin Field: "Gross Rated Heating Capacity"
       EPout File: "table.html"
@@ -5630,7 +5650,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -5648,7 +5668,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -5665,14 +5685,14 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     heatpump_auxiliary_heat_high_shutoff_temperature:
       Description: "Heatpump auxiliary heat high temperature shutoff"
@@ -5684,14 +5704,14 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "AirLoopHVAC:UnitarySystem"
       EPin Field: "Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add column to Heating Coils table in Equipment Summary."
     heatpump_low_shutoff_temperature:
       Description: "Heatpump low temperature shutoff"
@@ -5703,7 +5723,7 @@ HeatingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Heating:DX:*"
       EPin Field: "Minimum Outdoor Dry-Bulb Temperature for Compressor Operation"
       EPout File: "table.html"
@@ -5857,7 +5877,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: ""
       EPout File: "table.html"
@@ -5877,7 +5897,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: "Gross Rated Total Cooling Capacity"
       EPout File: "table.html"
@@ -5954,7 +5974,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -5972,7 +5992,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: "Gross Rated Total Cooling Capacity"
       EPout File: "table.html"
@@ -6027,7 +6047,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -6045,7 +6065,7 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -6062,14 +6082,14 @@ CoolingSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Based on the EnergyPlus input object, usually Mechanical cooling. Should be covered by new topology report"
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
@@ -6245,7 +6265,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add equipment summary report, fans table, add airloop and branch names, maybe easier in topology report. DisplacementVent_1ZoneOffice.idf is an example. Maybe look at the code in coil sizing details to see how supply fans are classified."
     exhaust_fans:
       Description: "List of exhaust fans"
@@ -6256,7 +6276,7 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Fan:ZoneExhaust"
       EPin Field: "Name"
       EPout File: "table.html"
@@ -6274,14 +6294,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "AirLoopHVAC:OutdoorAirSystem:EquipmentList, Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: "Component X Name, Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "5ZoneAirCooledConvCoef.idf example has relief fan. No outdoor air equipment reporting currently. Easy to figure out if it's outlet is outdoors but more complex if through HX. The Annual Heat Emissions Report shows the HVAC Relief Air so perhaps an approach to identify relief already exists in the code."
     air_economizer:
       Description: "Air side economizer related to the fan system"
@@ -6291,14 +6311,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Controller:OutdoorAir"
       EPin Field: "Name"
       EPout File: "table.html"
       EPout Report: "System Summary"
       EPout Table: "Economizer"
       EPout Column: "first column"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Controller:outsideair. either add connections here or add to topology report. should be coupled with airloop name"
     air_energy_recovery:
       Description: "Air side energy recovery related to the fan system"
@@ -6308,14 +6328,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "AirLoopHVAC:OutdoorAirSystem:EquipmentList, ZoneHVAC:OutdoorAirUnit:EquipmentList, HeatExchanger:AirToAir:FlatPlate, HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Component X Name, Name"
       EPout File: "table.html"
       EPout Report: "Component Sizing Summary"
       EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
       EPout Column: "first column"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "ASHRAE901_HotelLarge_STD2019_Denver.idf has examples of this. Need to differentiate if HX is used for outdoor air."
     temperature_control:
       Description: "Supply air temperature control type"
@@ -6332,7 +6352,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Used by RCT. Add new SetpointManager report. Would need to find node name to find what AirLoop it is on. "
     operation_during_occupied:
       Description: "Operation during occupied times type"
@@ -6342,14 +6362,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager. Add to Equipment Summary Fans"
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
@@ -6359,14 +6379,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True"unknown"
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager.  Add to Equipment Summary Fans"
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
@@ -6420,7 +6440,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Use difference between max and min temperature. Added to new setpoint manager report."
     supply_air_temperature_reset_load_fraction:
       Description: "Supply air temperature reset load fraction"
@@ -6431,14 +6451,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "SetpointManager:WarmestTemperatureFlow"
       EPin Field: "Minimum Turndown Ratio"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Not sure if mapping is complete. Added to new setpoint manager report."
     supply_air_temperature_reset_schedule:
       Description: "Supply air temperature reset schedule"
@@ -6466,14 +6486,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Is this talking about the SingleZoneVAV control type in PTAC/PTHP and UnitarySystem? I don't remember. Lets skip this one for now."
     fan_volume_reset_fraction:
       Description: "Fan volume reset load fraction"
@@ -6484,14 +6504,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "See previous."
     operating_schedule:
       Description: "Operating schedule name"
@@ -6502,14 +6522,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "AvailabilityManager:Scheduled, AvailabilityManager:NightCycle"
       EPin Field: "Schedule Name, Applicability Schedule Name"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Added to new Controls report"
     minimum_airflow:
       Description: "Minimum volume airflow"
@@ -6521,7 +6541,7 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -6540,7 +6560,7 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -6559,14 +6579,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: "Component Sizing Summary"
       EPout Table: "Controller:OutdoorAir"
       EPout Column: "Maximum Outdoor Air Flow Rate "
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "The specified or autosized Max OA Flow Rate should be accurate here, but that doesn't mean it will ever operate at that flow. But EnergyPlus autosizing does not check for economizer operation and size this to match the min OA flow rate. So the Note above won't work with current EnergyPlus autosizing. No output report associates the Controller:OutdoorAir with a system so skip for now."
     air_filter_merv_rating:
       Description: "The MERV rating of the air filter"
@@ -6611,14 +6631,14 @@ FanSystem:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Controller:MechanicalVentilation, ZoneControl:ContaminantController"
       EPin Field: "Demand Controlled Ventilation, System Outdoor Air Method"
       EPout File: "table.html"
       EPout Report: "System Summary"
       EPout Table: "Demand Controlled Ventilation using Controller:MechanicalVentilation"
       EPout Column: "New column"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "The only options currently supported are CO2 zone and Other. Need to add this info to the table output."
 
 AirEconomizer:
@@ -6633,14 +6653,14 @@ AirEconomizer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Controller:OutdoorAir"
       EPin Field: "Name"
       EPout File: "table.html"
       EPout Report: "System Summary"
       EPout Table: "Economizer"
       EPout Column: "first column"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -6685,14 +6705,14 @@ AirEconomizer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Controller:OutdoorAir"
       EPin Field: "Economizer Control Type"
       EPout File: "table.html"
       EPout Report: "System Summary"
       EPout Table: "Economizer"
       EPout Column: "High Limit Shutoff Control"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     high_limit_shutoff_temperature:
       Description: "High limit temperature shutoff"
@@ -6703,14 +6723,14 @@ AirEconomizer:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Controller:OutdoorAir"
       EPin Field: "Economizer Maximum Limit Dry-Bulb Temperature"
       EPout File: "table.html"
       EPout Report: "System Summary"
       EPout Table: "Economizer"
       EPout Column: "Outdoor Air Temperature Limit "
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     is_integrated:
       Description: "True if the economizer and mechanical cooling system can work together"
@@ -6721,7 +6741,7 @@ AirEconomizer:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -6744,14 +6764,14 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
       EPin Field: "Name"
       EPout File: "table.html"
       EPout Report: "Component Sizing Summary"
       EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
       EPout Column: "first column"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -6814,7 +6834,7 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -6831,14 +6851,14 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate, Controller:OutdoorAir"
       EPin Field: "Economizer Lockout, Economizer Lockout, Heat Recovery Bypass Control Type"
       EPout File: "table.html"
       EPout Report: "Controls"
       EPout Table: "Heat Recovery"
       EPout Column: "New column - Operation With Economizer"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add new output to table. Add to new Controls report - Heat Recovery Operation With Economizer"
     energy_recovery_supply_air_temperature_control:
       Description: "Energy recovery supply air temperature control"
@@ -6865,14 +6885,14 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
     design_latent_effectiveness:
       Description: "Design latent effectiveness"
@@ -6882,14 +6902,14 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
     outdoor_airflow:
       Description: "Outdoor airflow"
@@ -6900,14 +6920,14 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:FlatPlate, HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Nominal Supply Air Flow Rate or Nominal Secondary Air Flow Rate"
       EPout File: "table.html"
       EPout Report: "Component Sizing Summary"
       EPout Table: "Component Sizing Summary"
       EPout Column: "Design Size Nominal Supply Air Flow Rate"
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Outdoor airflow"
     exhaust_airflow:
       Description: "Exhaust airflow"
@@ -6918,14 +6938,14 @@ AirEnergyRecovery:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:FlatPlate, HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Nominal Supply Air Flow Rate or Nominal Secondary Air Flow Rate, Nominal Supply Air Flow Rate"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Exhaust airflow"
 
 FanSystemTemperatureControlOptions:
@@ -7142,7 +7162,7 @@ Fan:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: "Design Maximum Air Flow Rate, Maximum Flow Rate"
       EPout File: "table.html"
@@ -7160,7 +7180,7 @@ Fan:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -7179,7 +7199,7 @@ Fan:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: "Design Electric Power Consumption"
       EPout File: "table.html"
@@ -7372,7 +7392,7 @@ Fan:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Need to go to the curve and pick points"
 
 FanOutputValidationPoint:
@@ -7395,7 +7415,7 @@ FanOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Need to go to the curve and pick points. Do we need an input to specify these?"
     result:
       Description: "Result"
@@ -7414,7 +7434,7 @@ FanOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Need to go to the curve and pick points"
 
 FanSpecificationMethodOptions:
@@ -7691,7 +7711,7 @@ Terminal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "AirTerminal:*:Reheat"
       EPin Field: "Maximum Reheat Air Temperature"
       EPout File: "table.html"
@@ -7709,7 +7729,7 @@ Terminal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: "table.html"
@@ -7781,7 +7801,7 @@ Terminal:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat, DesignSpecification:OutdoorAir"
       EPin Field: "Minimum Air FLow Fraction Schedule Name, schedule"
       EPout File: ""
@@ -7800,7 +7820,7 @@ Terminal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "ZoneHVAC:Baseboard:* AirTerminal:SingleDuct:VAV:Reheat:VariableSpeedFan, AirTerminal:SingleDuct:SeriesPIU:Reheat, AirTerminal:SingleDuct:ParallelPIU:Reheat, ZoneHVAC:FourPipeFanCoil, ZoneHVAC:LowTemperatureRadiant"
       EPin Field: "variety"
       EPout File: "table.html"
@@ -7855,14 +7875,14 @@ Terminal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Controller:MechanicalVentilation"
       EPin Field: "Demand Controlled Ventilation"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "The Demand Controlled Ventilation field in the Controller:MechanicalVentilation should be added to the System Summary report"
     is_fan_first_stage_heat:
       Description: "True if the the only source of first stage heating is the heat from the fan itself"
@@ -7873,7 +7893,15 @@ Terminal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    
+      Used by RCT Test: True
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "ToDo"
+      EP Notes: ""
 
 TerminalOptions:
   Object Type: "Enumeration"
@@ -8043,7 +8071,7 @@ FluidLoop:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "from topology report"
     cooling_or_condensing_design_and_control:
       Description: "Fluid loop design and control used for cooling or condensing loops"
@@ -8154,7 +8182,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
     design_return_temperature:
       Description: "Design Return Temperature"
@@ -8172,7 +8200,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
@@ -8189,7 +8217,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
@@ -8207,7 +8235,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Divide the minimum by maximum. These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
     operation:
       Description: "Type of operation used by loop"
@@ -8276,7 +8304,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Look at SetpointManager using the specified node."
     outdoor_high_for_loop_supply_reset_temperature:
       Description: "Outdoor high for loop supply temp reset"
@@ -8295,7 +8323,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add to new table of Controls - Setpoint Managers"
     outdoor_low_for_loop_supply_reset_temperature:
       Description: "Outdoor low for loop supply temp reset"
@@ -8314,7 +8342,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add to new table of Controls - Setpoint Managers"
     loop_supply_temperature_at_outdoor_high:
       Description: "Loop supply temperature at outdoor high temperature"
@@ -8333,7 +8361,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add to new table of Controls - Setpoint Managers"
     loop_supply_temperature_at_outdoor_low:
       Description: "Loop supply temperature at outdoor low temperature"
@@ -8352,7 +8380,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add to new table of Controls - Setpoint Managers"
     loop_supply_temperature_at_low_load:
       Description: "Loop supply temperature at low load"
@@ -8371,7 +8399,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Min for a heating loop, max for a cooling loop. Add to new table of Controls - Setpoint Managers"
     has_integrated_waterside_economizer:
       Description: "True if chilled water loop described has an integrated waterside economizer"
@@ -8381,7 +8409,7 @@ FluidLoopDesignAndControl:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "HeatExchanger:FluidToFluid"
       EPin Field: ""
       EPout File: "table.html"
@@ -8538,7 +8566,7 @@ Pump:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "Pump:VariableSpeed, Pump:ConstantSpeed, HeaderedPumps:ConstantSpeed, HeaderedPumps:VariableSpeed"
       EPin Field: "Design Power Consumption"
       EPout File: "table.html"
@@ -8912,6 +8940,7 @@ Boiler:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -8919,7 +8948,7 @@ Boiler:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "DoneUsingConstant"
-      EP Notes: "Constant, always put in THERMAL, need to revise."
+      EP Notes: "Constant, always put in THERMAL, need to revise. May need to revise."
     efficiency_metric_values:
       Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
       Data Type: "[Numeric]"
@@ -8929,6 +8958,7 @@ Boiler:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      Used by RCT Test: True
       EPin Object: "Boiler:HotWater, Boiler:Steam"
       EPin Field: "Nominal Thermal Efficiency"
       EPout File: "table.html"
@@ -8991,7 +9021,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add new report and table covering PlantEquipmentOperation:HeatingLoad"
     operation_upper_limit:
       Description: "Heating load range operation, upper limit"
@@ -9010,7 +9040,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: "Add new report and table covering PlantEquipmentOperation:HeatingLoad"
 
 BoilerCombustionOptions:
@@ -9320,6 +9350,7 @@ Chiller:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      Used by RCT Test: "unknown"
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -9373,7 +9404,7 @@ Chiller:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: "unknown"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -9431,6 +9462,7 @@ Chiller:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      Used by RCT Test: True
       EPin Object: "Chiller:Electric:EIR, Chiller:Electric:ReformulatedEIR, ..."
       EPin Field: "Reference COP"
       EPout File: "table.html"
@@ -9447,13 +9479,14 @@ Chiller:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     capacity_validation_points:
       Description: "Capacity validation points"
@@ -9862,7 +9895,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed, Chiller:*"
       EPin Field: "Chiller:* Condenser Type for Air Cooled or Evap Cooled"
       EPout File: "table.html"
@@ -9879,7 +9912,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -9914,6 +9947,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      Used by RCT Test: "unknown"
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -9968,15 +10002,15 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
-      Used by RCT Test: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Not sure used by RCT Test"
     fan_shaft_power:
       Description: "Fan Shaft Power"
       Data Type: "Numeric"
@@ -9987,7 +10021,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -10042,7 +10076,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
       EPin Field: ""
       EPout File: "table.html"
@@ -10098,7 +10132,7 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -10189,14 +10223,14 @@ ExternalFluidSource:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -10243,14 +10277,14 @@ ExternalFluidSource:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     type:
       Description: "Type of external fluid source"
@@ -10260,14 +10294,14 @@ ExternalFluidSource:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     energy_source_type:
       Description: "Source of energy for the external fluid source"
@@ -10309,14 +10343,14 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -10400,14 +10434,14 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     is_central_system:
       Description: "Indicates whether it is a central service water heater distribution system"
@@ -10436,14 +10470,14 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     distribution_compactness:
       Description: "Type of compact distribution system"
@@ -10527,14 +10561,14 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
@@ -10581,14 +10615,14 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     is_ground_temperature_used_for_entering_water:
       Description: "Indicates whether ground temperature is the source of the entering water temperature"
@@ -10664,14 +10698,14 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -10716,14 +10750,14 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     are_thermal_losses_modeled:
       Description: "Indicates if thermal losses from the service water heating piping are modeled"
@@ -10733,7 +10767,7 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: ""
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -10864,15 +10898,15 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Not sure if needed by RCT now but may be soon"
       
 SolarThermal:
   Object Type: "Data Group"
@@ -11051,14 +11085,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -11103,14 +11137,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     distribution_system:
       Description: "Referenced to the service water heating distribution system"
@@ -11122,14 +11156,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     efficiency_metric_types:
       Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
@@ -11194,14 +11228,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     output_validation_points:
       Description: "Capacity validation points"
@@ -11231,14 +11265,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     rated_capacity:
       Description: "Rated capacity"
@@ -11468,14 +11502,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
@@ -11503,14 +11537,14 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     hot_water_loop:
       Description: "Referenced to the hot water fluid loop"
@@ -11855,14 +11889,14 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -11910,14 +11944,14 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     type:
       Description: "Service water heater tank type"
@@ -11927,14 +11961,14 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     height:
       Description: "Tank height"
@@ -12072,14 +12106,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -12125,14 +12159,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     water_serves_type:
       Description: "The use of the water serves the type"
@@ -12161,14 +12195,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     use:
       Description: "Usage of service hot water"
@@ -12179,14 +12213,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     use_units:
       Description: "Type of units for use of service hot water"
@@ -12196,14 +12230,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     use_multiplier_schedule:
       Description: "Reference to the schedule containing the multiplier for the use of service hot water"
@@ -12214,14 +12248,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     temperature_at_fixture:
       Description: "Temperature leaving the fixture that is result of mixing hot water from the water heater and cold water from the tap."
@@ -12233,14 +12267,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     is_heat_recovered_by_drain:
       Description: "Indicates if heat is being recovered from the drain"
@@ -12251,14 +12285,14 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     is_recovered_heat_used_by_cold_side_feed:
       Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
@@ -12540,14 +12574,14 @@ RefrigeratedCase:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -12592,14 +12626,14 @@ RefrigeratedCase:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: False
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "ToDo"
       EP Notes: ""
     equipment_category:
       Description: "Equipment Class from referenced standard"
