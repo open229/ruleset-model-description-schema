@@ -223,8 +223,8 @@ RulesetProjectDescription:
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
-      EPout Column: "ToDo"
-      EPstatus: "NotStarted"
+      EPout Column: ""
+      EPstatus: "ToDo"
       EP Notes: ""
       
 CommonOutputSchemaOptions:
@@ -261,7 +261,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     schema_name:
       Description: "Schema name or identifier"
@@ -275,7 +275,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     schema_version:
       Description: "The version of the schema the data complies with"
@@ -289,7 +289,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     schema_url:
       Description: "The Uniform Resource Locator (url) for the schema definition and/or documentation"
@@ -302,7 +302,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     author:
       Description: "Name of the entity creating the serialization"
@@ -316,7 +316,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     description:
       Description: "Description of data content (suitable for display)"
@@ -329,7 +329,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     time_of_creation:
       Description: "Timestamp indicating when the serialization was created"
@@ -369,7 +369,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     disclaimer:
       Description: "Characterization of accuracy, limitations, and applicability of this data"
@@ -381,7 +381,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Additional Information"
@@ -393,7 +393,7 @@ Metadata:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 RulesetModelDescription:
@@ -1076,7 +1076,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Might be estimated based on coordinates used by zones"
     number_of_floors_below_grade:
       Description: "Number of floors below grade"
@@ -1095,7 +1095,7 @@ BuildingSegment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Might be estimated based on coordinates used by zones"
     is_all_new:
       Description: "Indicates whether the building segment is completely new construction (true) or existing (false). "
@@ -1553,7 +1553,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Only need this input after supporting this data group"
     transfer_airflow_rate:
       Description: "Airflow rate for transfer air"
@@ -1572,7 +1572,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     transfer_airflow_source_zone:
       Description: "ID of the source zone for transfer air."
@@ -1590,7 +1590,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     zonal_exhaust_fan:
       Description: "Zonal exhaust fan"
@@ -1626,7 +1626,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     makeup_airflow_rate:
       Description: "Airflow rate for makeup air"
@@ -1645,7 +1645,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     non_mechanical_cooling_fan_power:
       Description: "Non-mechanical cooling fan power"
@@ -1665,7 +1665,7 @@ Zone:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Could be an Electric:Equipment with a specific End-Use Subcategory name"
     non_mechanical_cooling_fan_airflow:
       Description: "Non-mechanical cooling fan airflow"
@@ -1963,7 +1963,7 @@ Space:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     lighting_space_type:
       Description: "Lighting space type classification"
@@ -2731,7 +2731,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Always leave entry blank since using layers"
     has_radiant_heating:
       Description: "Includes embedded radiant heating elements"
@@ -2748,7 +2748,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Need to look at multiple input objects to determine, see use of RadiantSurfaceNames"
     has_radiant_cooling:
       Description: "Includes embedded radiant cooling elements"
@@ -2765,7 +2765,7 @@ Construction:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Look at multiple fields Surface X Name"
 
 InsulationLocationOptions:
@@ -3000,7 +3000,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     notes:
       Description: "Supplementary information to provide context to the model reviewer"
@@ -3018,7 +3018,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     absorptance_thermal_exterior:
       Description: "Thermal absorptance of long wavelength radiation on the exterior surface."
@@ -3056,7 +3056,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "ToDo"
+      EPstatus: "NotRequired"
       EP Notes: ""
     absorptance_visible_exterior:
       Description: "Thermal absorptance of visible radiation on the exterior surface."
@@ -3075,7 +3075,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     absorptance_thermal_interior:
       Description: "Thermal absorptance of long wavelength radiation on the interior surface."
@@ -3094,7 +3094,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     absorptance_solar_interior:
       Description: "Thermal absorptance of short wavelength radiation on the interior surface."
@@ -3113,7 +3113,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     absorptance_visible_interior:
       Description: "Thermal absorptance of visible radiation on the interior surface."
@@ -3132,7 +3132,7 @@ SurfaceOpticalProperties:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 SurfaceClassificationOptions:
@@ -3414,7 +3414,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration Shaded State"
       EPout Column: "Assembly SHGC"
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Use Glass SHGC if assembly not available "
     visible_transmittance:
       Description: "Subsurface VT"
@@ -3452,7 +3452,7 @@ Subsurface:
       EPout Report: "EnvelopeSummary"
       EPout Table: "Exterior Fenestration Shaded State"
       EPout Column: "Assembly Visible Transmittance"
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Use Glass Visible Transmittance if assembly not available "
     depth_of_overhang:
       Description: "Distance from the edge of the overhang to the subsurface."
@@ -3471,7 +3471,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     has_shading_overhang:
       Description: "Identifies whether subsurface has overhangs"
@@ -3541,7 +3541,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "approach not used by EnergyPlus"
     solar_transmittance_multiplier_winter:
       Description: "Solar transmittance multiplier for summer"
@@ -3560,7 +3560,7 @@ Subsurface:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "approach not used by EnergyPlus"
     has_automatic_shades:
       Description: "Are there automatic interior shading such as blinds, curtains or shades"
@@ -3993,7 +3993,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Input need to match between what is lost and what is shown in LoadProfile:Plant."
     energy_from_loop:
       Description: "Referenced to the loop serving as the source of energy"
@@ -4011,7 +4011,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     type:
       Description: "Type of miscellaneous equipment"
@@ -4149,7 +4149,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     efficiency:
       Description: "Transformer efficiency"
@@ -4168,7 +4168,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     capacity:
       Description: "Rated Capacity of the Transformer"
@@ -4187,7 +4187,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     peak_load:
       Description: "Annual Peak electric load on the transformer"
@@ -4207,7 +4207,7 @@ Transformer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Requires finding the peak from the output variable Transformer output Electricity Rate"
 
 TransformerOptions:
@@ -4300,7 +4300,7 @@ Schedule:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Could look at the uses of the schedule and provide the field name of its most common use"
     sequence_type:
       Description: "Schedule sequence type"
@@ -6035,7 +6035,7 @@ CoolingSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "should be covered by new topology report"
     efficiency_metric_values:
       Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
@@ -6107,7 +6107,7 @@ CoolingSystem:
       EPout Report: "Component Sizing Summary"
       EPout Table: "AirTerminal:SingleDuct:VAV:Reheat, etc."
       EPout Column: "Design Size Maximum Air Flow Rate, Design Size Minimum Air Flow Rate, or User-Specified, names vary by terminal unit type"
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "At the zone level, this is the VAV terminal unit minimum supply flow ratio. Use the  the weighted average for the system value."
 
 CoolingSystemOptions:
@@ -6404,7 +6404,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Examine AvailabilityManager or schedule on heating coil, use other field related to unoccupied"
     fan_control:
       Description: "Supply fan control type"
@@ -6476,7 +6476,7 @@ FanSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Added to new setpoint manager report."
     fan_volume_reset_type:
       Description: "Fan volume reset control type"
@@ -6748,7 +6748,7 @@ AirEconomizer:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 
@@ -6823,7 +6823,7 @@ AirEnergyRecovery:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Can determine some options by input but not all. Partial support. Add to new Equipment Summary - Air Heat Recovery report."
     enthalpy_recovery_ratio:
       Description: "Enthalpy recovery ratio"
@@ -6875,7 +6875,7 @@ AirEnergyRecovery:
       EPout Report: "Controls"
       EPout Table: "Heat Recovery"
       EPout Column: "New column - Supply Air Temperature Control"
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "For HeatExchanger:AirToAir:FlatPlate this is always None. For HeatExchanger:AirToAir:SensibleAndLatent, if Supply Air Outlet Temperature Control is Yes, then whether it's Fixed of Mixed Air Reset depends on the SetpoinManager that is on they HX supply outlet node."
     design_sensible_effectiveness:
       Description: "Design sensible effectiveness"
@@ -7753,7 +7753,7 @@ Terminal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "New report Equipment Summary - AirTerminals, Temperature control"
     minimum_airflow:
       Description: "Zone terminal minimum volume airflow"
@@ -8270,7 +8270,7 @@ FluidLoopDesignAndControl:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "AvailabilityManager:Scheduled or else the pump availability schedule. Availability managers can be stacked, so it could be temperature based or scheduled or some combination of both. Add to new Controls -- AvailabilityManager table."
     flow_control:
       Description: "Flow control options"
@@ -8714,13 +8714,14 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 PumpSpeedControlOptions:
@@ -8983,7 +8984,7 @@ Boiler:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: "Need to go to the curve and pick points"
     auxiliary_power:
       Description: "Auxiliary power"
@@ -9081,7 +9082,7 @@ BoilerOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     entering_water_temperature:
       Description: "Entering water temperature"
@@ -9100,7 +9101,7 @@ BoilerOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     result:
       Description: "Result"
@@ -9118,7 +9119,7 @@ BoilerOutputValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 Chiller:
@@ -9411,7 +9412,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     design_entering_condenser_temperature:
       Description: "Design entering condenser temperature"
@@ -9503,7 +9504,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     power_validation_points:
       Description: "Energy validation points"
@@ -9520,7 +9521,7 @@ Chiller:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     is_chilled_water_pump_interlocked:
       Description: "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller"
@@ -9634,7 +9635,7 @@ ChillerCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     condenser_temperature:
       Description: "Second temperature"
@@ -9653,7 +9654,7 @@ ChillerCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     result:
       Description: "Result"
@@ -9671,7 +9672,7 @@ ChillerCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ChillerPowerValidationPoint:
@@ -9694,7 +9695,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     condenser_temperature:
       Description: "Second temperature"
@@ -9713,7 +9714,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     load:
       Description: "Load"
@@ -9731,7 +9732,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     is_at_full_capacity:
       Description: "True if chiller is at full capacity"
@@ -9750,7 +9751,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     result:
       Description: "Result"
@@ -9768,7 +9769,7 @@ ChillerPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ChillerCompressorOptions:
@@ -10318,7 +10319,7 @@ ExternalFluidSource:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ExternalFluidSourceOptions:
@@ -10404,7 +10405,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     design_supply_temperature_difference:
       Description: "Design supply temperature difference (deltaT) of service water heating loop"
@@ -10423,7 +10424,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     tanks:
       Description: "Tanks within service water heating distribution system"
@@ -10459,7 +10460,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     service_water_piping:
       Description: "Connected service water piping"
@@ -10495,7 +10496,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     control_type:
       Description: "Type of distribution system"
@@ -10513,7 +10514,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     configuration_type:
       Description: "Type of configuration"
@@ -10531,7 +10532,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     is_recovered_heat_from_drain_used_by_water_heater:
       Description: "Indicates whether the recovered heat from the shower drain used by the service water heater"
@@ -10549,7 +10550,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
@@ -10586,7 +10587,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     flow_multiplier_schedule:
       Description: "service water heating Loop flow muliplier schedule name"
@@ -10604,7 +10605,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     entering_water_mains_temperature_schedule:
       Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
@@ -10639,7 +10640,7 @@ ServiceWaterHeatingDistributionSystem:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ServiceWaterHeatingConfigurationOptions:
@@ -10774,7 +10775,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
+      EPstatus: "NotRequired"
       EP Notes: ""
     insulation_thickness:
       Description: "Pipe insulation thickness"
@@ -10794,7 +10795,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     loop_pipe_location:
       Description: "Loop pipe location"
@@ -10812,7 +10813,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     location_zone:
       Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
@@ -10830,7 +10831,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     length:
       Description: "Pipe length"
@@ -10850,7 +10851,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     diameter:
       Description: "Pipe section diameter"
@@ -10870,7 +10871,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     child:
       Description: "Other service water piping connected to this one as children."
@@ -10887,7 +10888,7 @@ ServiceWaterPiping:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     service_water_heating_design_and_control:
       Description: "Design and control used for service heating piping"
@@ -10927,7 +10928,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
@@ -10980,7 +10981,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     solar_savings_fraction:
       Description: "Solar savings fraction"
@@ -10998,7 +10999,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     collector_area:
       Description: "Solar collector area"
@@ -11016,7 +11017,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     collector_type_description:
       Description: "Description of solar collector type"
@@ -11034,7 +11035,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     collector_slope:
       Description: "Solar slope from horizontal"
@@ -11052,7 +11053,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     tank:
       Description: "Tank that is part of the solar thermal system"
@@ -11070,7 +11071,7 @@ SolarThermal:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ServiceWaterHeatingEquipment:
@@ -11208,15 +11209,15 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: ""
+      Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: ""
-      EP Notes: ""
+      EPstatus: "ToDo"
+      EP Notes: "Not sure if used by RCT tests"
     first_hour_rating:
       Description: "First hour rating volume"
       Data Type: "Numeric"
@@ -11252,7 +11253,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     input_power:
       Description: "Input power"
@@ -11291,7 +11292,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     minimum_capacity:
       Description: "Minimum capacity"
@@ -11311,7 +11312,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     recovery_efficiency:
       Description: "Recovery efficiency"
@@ -11329,7 +11330,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     setpoint_temperature:
       Description: "Set point temperature"
@@ -11347,7 +11348,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     compressor_location:
       Description: "Description of where the heat pump for the water heater is located"
@@ -11365,7 +11366,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     compressor_zone:
       Description: "Zone reference of where the heat pump for the water heater is located"
@@ -11383,7 +11384,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
@@ -11401,7 +11402,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     compressor_heat_rejection_zone:
       Description: "Heat pump heat rejection zone"
@@ -11419,7 +11420,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     compressor_capacity_validation_points:
       Description: "Capacity validation points"
@@ -11436,7 +11437,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     compressor_power_validation_points:
       Description: "Coefficient of performance validation points"
@@ -11453,7 +11454,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     draft_fan_power:
       Description: "Power for the draft fan "
@@ -11473,7 +11474,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     has_electrical_ignition:
       Description: "Indicates whether the water heater has electrical ignition"
@@ -11491,7 +11492,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     tank:
       Description: "Tank that is part of the service water heating equipment"
@@ -11526,7 +11527,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     solar_thermal_systems:
       Description: "Solar thermal systems used for heating service water"
@@ -11562,7 +11563,7 @@ ServiceWaterHeatingEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ServiceWaterHeatingEfficiencyMetricOptions:
@@ -11648,7 +11649,7 @@ ServiceWaterHeaterValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     result:
       Description: "Result"
@@ -11666,7 +11667,7 @@ ServiceWaterHeaterValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 HeatPumpWaterHeaterCapacityValidationPoint:
@@ -11689,7 +11690,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
@@ -11707,7 +11708,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     evaporator_air_flow:
       Description: "Air flow across evaporator"
@@ -11725,7 +11726,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     condenser_water_flow:
       Description: "Water flow across condenser"
@@ -11743,7 +11744,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     result:
       Description: "Result"
@@ -11761,7 +11762,7 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 HeatPumpWaterHeaterPowerValidationPoint:
@@ -11784,7 +11785,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
@@ -11802,7 +11803,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     evaporator_air_flow:
       Description: "Air flow across evaporator"
@@ -11820,7 +11821,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     condenser_water_flow:
       Description: "Water flow across condenser"
@@ -11838,7 +11839,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     load:
       Description: "Load"
@@ -11856,7 +11857,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     result:
       Description: "Result"
@@ -11874,7 +11875,7 @@ HeatPumpWaterHeaterPowerValidationPoint:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 Tank:
@@ -11988,7 +11989,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     interior_insulation:
       Description: "Tank interior insulation R-value"
@@ -12008,7 +12009,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     exterior_insulation:
       Description: "Tank exterior insulation R-value"
@@ -12028,7 +12029,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     location:
       Description: "Location"
@@ -12046,7 +12047,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     location_zone:
       Description: "Tank zone location"
@@ -12064,7 +12065,7 @@ Tank:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ServiceWaterHeaterTankOptions:
@@ -12183,7 +12184,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     served_by_distribution_system:
       Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
@@ -12310,7 +12311,7 @@ ServiceWaterHeatingUse:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 ServiceWaterHeatingFixtureOptions:
@@ -12650,7 +12651,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     is_self_contained:
       Description: "Indicates whether unit is self-contained"
@@ -12668,7 +12669,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     application_temperature:
       Description: "Equipment application temperature"
@@ -12686,7 +12687,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     power:
       Description: "Nominal power of refrigerated case"
@@ -12705,7 +12706,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     power_multiplier_schedule:
       Description: "Refrigerated case power multiplier schedule name"
@@ -12723,7 +12724,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     sensible_fraction:
       Description: "Fraction of energy that is a sensible load on the space."
@@ -12741,7 +12742,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     heat_gain_fraction:
       Description: "Fraction of energy that is a heat gain to the space."
@@ -12759,7 +12760,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     volume:
       Description: "volume of a refrigerated case in cubic meters"
@@ -12777,7 +12778,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     total_display_area:
       Description: "display area of a refrigerated case in square meters"
@@ -12795,7 +12796,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
     zone:
       Description: "Zone where case is located"
@@ -12813,7 +12814,7 @@ RefrigeratedCase:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "NotStarted"
+      EPstatus: "NotRequired"
       EP Notes: ""
 
 
