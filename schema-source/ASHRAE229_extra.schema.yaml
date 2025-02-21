@@ -174,7 +174,7 @@ RulesetProjectDescription:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Not needed now but will be needed."
+      EP Notes: "Should be a constant reference to a sub data group."
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathOptions2019ASHRAE901>"
@@ -225,7 +225,7 @@ RulesetProjectDescription:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Should be a constant reference to a sub data group."
       
 CommonOutputSchemaOptions:
   Object Type: "Enumeration"
@@ -248,7 +248,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Will be required"
+      EP Notes: "Should be constant name"
     schema_author:
       Description: "Name of the organization that published the schema"
       Data Type: "String"
@@ -262,7 +262,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Set to a constant for now. ASHRAE SPC 229 Schema Working Group"
     schema_name:
       Description: "Schema name or identifier"
       Data Type: "String"
@@ -276,7 +276,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Set to a constant for now. ASHRAE Standard 229P Ruleset Evaluation Schema"
     schema_version:
       Description: "The version of the schema the data complies with"
       Data Type: "Version"
@@ -290,7 +290,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Set to a constant based on schema version supported"
     schema_url:
       Description: "The Uniform Resource Locator (url) for the schema definition and/or documentation"
       Data Type: "String"
@@ -303,7 +303,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Set to a constant: https://github.com/open229/ruleset-model-description-schema"
     author:
       Description: "Name of the entity creating the serialization"
       Data Type: "String"
@@ -317,7 +317,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Could be an optional compliance parameter"
     description:
       Description: "Description of data content (suitable for display)"
       Data Type: "String"
@@ -330,7 +330,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Could be an optional compliance parameter"
     time_of_creation:
       Description: "Timestamp indicating when the serialization was created"
       Data Type: "Timestamp"
@@ -365,10 +365,10 @@ Metadata:
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Input Verification and Results Summary"
+      EPout Table: "General"
+      EPout Column: "Program Version and Build 	EnergyPlus"
       EPstatus: "NotRequired"
       EP Notes: ""
     disclaimer:
@@ -382,7 +382,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Could be an optional compliance parameter"
     notes:
       Description: "Additional Information"
       Data Type: "String"
@@ -394,7 +394,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Could be an optional compliance parameter"
 
 RulesetModelDescription:
   Object Type: "Data Group"
@@ -714,14 +714,14 @@ RulesetModelDescription:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "DistrictCooling, DistrictHeating:Water, DistrictHeating:Steam"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Plant Loop Component Arrangement"
+      EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Look for these component types."
     site_zone_type:
       Description: "Site zone type for Sec 9.4.2"
       Data Type: "<ExteriorLightingZoneOptions2019ASHRAE901>"
@@ -790,7 +790,7 @@ RulesetModelDescription:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "May already be implemented"
+      EP Notes: "May already be implemented. Probably a constant. Maybe based on RulesetModelDescription.type name which is compliance parameter."
 
 CommonRulesetModelOptions:
   Object Type: "Enumeration"
@@ -1329,12 +1329,12 @@ Zone:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Zone Information"
+      EPout Column: "Minimum Z"
       EPstatus: "ToDo"
-      EP Notes: "Could use Z height of surface as proxy for this"
+      EP Notes: "Could use Z height of surface as proxy for this."
     volume:
       Description: "Volume of the space"
       Data Type: "Numeric"
@@ -1425,7 +1425,7 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high."
+      EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high. Or perhaps it is simply the lowest cooling setpoint in the schedule."
     thermostat_cooling_setpoint_schedule:
       Description: "Reference to the schedule containing the cooling setpoint temperatures"
       Data Type: "Reference"
@@ -1462,7 +1462,7 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Used by RCT. Could examine schedule looking for setpoint that corresonds to when occupancy is high."
+      EP Notes: "Used by RCT. Could examine schedule looking for setpoint that corresonds to when occupancy is high. Or perhaps it is simply the highest heating setpoint in the schedule."
     thermostat_heating_setpoint_schedule:
       Description: "Reference to the schedule containing the heating setpoint temperatures"
       Data Type: "Reference"
@@ -1499,7 +1499,7 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Could examine schedule looking for humidity setpoint that corresonds to when occupancy is high. "
     maximum_humidity_setpoint_schedule:
       Description: "Reference to the schedule containing the maximum relative humidity setpoint"
       Data Type: "Reference"
@@ -1518,7 +1518,7 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Could examine schedule looking for humidity setpoint that corresonds to when occupancy is high. "
     terminals:
       Description: "List of terminals"
       Data Type: "[{Terminal}]"
@@ -1603,10 +1603,10 @@ Zone:
       AppG B_RMDs Same: True
       Used by RCT Test: True
       EPin Object: "Fan:ZoneExhaust"
-      EPin Field: "Maximum Flow Rate"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Zone Equipment Component Arrangement, Air Loop Supply Side Component Arrangement"
       EPout Column: ""
       EPstatus: "ToDo"
       EP Notes: ""
@@ -1686,7 +1686,7 @@ Zone:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Not sure how to do this one."
     air_distribution_effectiveness:
       Description: "Air distribution effectiveness"
       Data Type: "Numeric"
@@ -1700,10 +1700,10 @@ Zone:
       Used by RCT Test: True
       EPin Object: DesignSpecification:ZoneAirDistribution""
       EPin Field: "Zone Air Distribution Effectiveness in Cooling Mode or Zone Air Distribution Effectiveness in Heating Mode"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Standard 62.1 Summary"
+      EPout Table: "Zone Ventilation Parameters"
+      EPout Column: "Cooling Zone Air Distribution Effectiveness, Heating Zone Air Distribution Effectiveness - Ez-htg"
       EPstatus: "ToDo"
       EP Notes: ""
     aggregation_factor:
@@ -2484,12 +2484,12 @@ Surface:
       Used by RCT Test: True
       EPin Object: "Construction"
       EPin Field: "Outside Layer"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Envelope Summary"
+      EPout Table: "Opaque Exterior"
+      EPout Column: "Construction"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Use name of construction plus OpticalProperties to point to data group"
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<StatusOptions>"
@@ -2685,14 +2685,14 @@ Construction:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Construction:CfactorUndergroundWall"
+      EPin Field: "C-Factor"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Always leave entry blank since using layers"
+      EP Notes: "Only available when user is using this input object."
     f_factor:
       Description: "surface F-factor"
       Data Type: "Numeric"
@@ -2705,14 +2705,14 @@ Construction:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
+      EPin Object: "Construction:FfactorGroundFloor"
+      EPin Field: "F-Factor"
       EPout File: ""
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Always leave entry blank since using layers"
+      EP Notes: "Only available when user is using this input object."
     r_values:
       Description: "List of r-value of the insulation for the surface that correspond to values in the insulation_locations list"
       Data Type: "[Numeric]"
@@ -2979,12 +2979,14 @@ SurfaceOpticalProperties:
       Used by RCT Test: True
       EPin Object: "Material"
       EPin Field: "Name"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "Construction"
+      EPin Field: "Outside Layer"
+      EPout File: "table.html"
+      EPout Report: "Envelope Summary"
+      EPout Table: "Opaque Exterior"
+      EPout Column: "Construction"
       EPstatus: "ToDo"
-      EP Notes: "Need to identify the exterior and interior materials. Modify the name to add -optical to the end"
+      EP Notes: "Use name of construction plus OpticalProperties to name data group. This requires adding Output:Constructions, Constructions, Materials;"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -3033,12 +3035,12 @@ SurfaceOpticalProperties:
       Used by RCT Test: True
       EPin Object: "Material"
       EPin Field: "Thermal Absorptance"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Construction CTF"
+      EPout Column: "OuterThermalAbsorptance"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Will need to use construction name Envelope Summary for each surface. from This requires adding Output:Constructions, Constructions, Materials;"
     absorptance_solar_exterior:
       Description: "Thermal absorptance of short wavelength radiation on the exterior surface."
       Data Type: "Numeric"
@@ -3052,12 +3054,12 @@ SurfaceOpticalProperties:
       Used by RCT Test: False
       EPin Object: "Material"
       EPin Field: "Solar Absorptance"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Construction CTF"
+      EPout Column: "OuterSolarAbsorptance"
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Will need to use construction name Envelope Summary for each surface. from This requires adding Output:Constructions, Constructions, Materials;"
     absorptance_visible_exterior:
       Description: "Thermal absorptance of visible radiation on the exterior surface."
       Data Type: "Numeric"
@@ -3071,12 +3073,12 @@ SurfaceOpticalProperties:
       Used by RCT Test: False
       EPin Object: "Material"
       EPin Field: "Visible Absorptance"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Material Details"
+      EPout Column: "Absorptance:Visible"
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Will need to figure out order of materials"
     absorptance_thermal_interior:
       Description: "Thermal absorptance of long wavelength radiation on the interior surface."
       Data Type: "Numeric"
@@ -3090,12 +3092,12 @@ SurfaceOpticalProperties:
       Used by RCT Test: False
       EPin Object: "Material"
       EPin Field: "Thermal Absorptance"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Construction CTF"
+      EPout Column: "InnerThermalAbsorptance"
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Will need to use construction name Envelope Summary for each surface. from This requires adding Output:Constructions, Constructions, Materials;"
     absorptance_solar_interior:
       Description: "Thermal absorptance of short wavelength radiation on the interior surface."
       Data Type: "Numeric"
@@ -3109,12 +3111,12 @@ SurfaceOpticalProperties:
       Used by RCT Test: False
       EPin Object: "Material"
       EPin Field: "Solar Absorptance"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Construction CTF"
+      EPout Column: "InnerSolarAbsorptance"
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Will need to use construction name Envelope Summary for each surface. from This requires adding Output:Constructions, Constructions, Materials;"
     absorptance_visible_interior:
       Description: "Thermal absorptance of visible radiation on the interior surface."
       Data Type: "Numeric"
@@ -3128,12 +3130,12 @@ SurfaceOpticalProperties:
       Used by RCT Test: False
       EPin Object: "Material"
       EPin Field: "Visible Absorptance"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Material Details"
+      EPout Column: "Absorptance:Visible"
       EPstatus: "NotRequired"
-      EP Notes: ""
+      EP Notes: "Will need to figure out order of materials"
 
 SurfaceClassificationOptions:
   Object Type: "Enumeration"
@@ -3372,12 +3374,12 @@ Subsurface:
       Used by RCT Test: True
       EPin Object: "WindowShadingControl or WindowMaterial:Glazing:Group:Thermochromic"
       EPin Field: "WindowShadingControl if Shading Type == SwitchableGlazing. "
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Envelope Summary"
+      EPout Table: Exterior Fenestration Shaded State"
+      EPout Column: "Frame and Divider"
       EPstatus: "ToDo"
-      EP Notes: "Use AUTOMATIC_DYNAMIC or NOT_DYNAMIC"
+      EP Notes: "Use AUTOMATIC_DYNAMIC or NOT_DYNAMIC not sure how to do MANUAL_DYNAMIC from current outputs"
     solar_heat_gain_coefficient:
       Description: "Subsurface SHGC"
       Data Type: "Numeric"
@@ -4046,7 +4048,7 @@ MiscellaneousEquipment:
       EPout Report: ""
       EPout Table: ""
       EPout Column: ""
-      EPstatus: "ToDo"
+      EPstatus: "ComplianceParameter"
       EP Notes: "may have previously implemented has_automatic_control"
 
 MiscellaneousEquipmentOptions:
@@ -4722,9 +4724,9 @@ Weather:
       Used by RCT Test: True
       EPin Object: "Site:GroundTemperature:BuildingSurface"
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPout File: "table.html"
+      EPout Report: "Initialization Summary"
+      EPout Table: "Site:GroundTemperature:BuildingSurface"
       EPout Column: ""
       EPstatus: "ToDo"
       EP Notes: "would need to create a schedule based on the 12 monthly values."
@@ -5378,11 +5380,11 @@ HeatingVentilatingAirConditioningSystem:
       EPin Object: "Coil:Heating:Water, Coil:Heating:Steam, Coil:Heating:Electric, Coil:Heating:Electric:MultiStage, Coil:Heating:Fuel, Coil:Heating:Gas:MultiStage, Coil:Heating:DX:SingleSpeed, Coil:Heating:DX:MultiSpeed, Coil:Heating:DX:VariableSpeed"
       EPin Field: "Name"
       EPout File: "table.html"
-      EPout Report: "Coil Sizing Details"
-      EPout Table: "Coils"
-      EPout Column: "first column"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Air Loop Supply Side Component Arrangement"
+      EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: "Used by RCT. Would need to analyze structure of topology to determine if this is preheat system."
+      EP Notes: "Used by RCT. May be multiple ways to configure a preheat (central) heating coil when additional heat is added at the zone or as a second central coil. Generically, trace the air flow path through the topology and see if it passes through two heating coils and if so one can be considered a preheat coil."
     humidification_type:
       Description: "Humidification type"
       Data Type: "<HumidificationOptions>"
@@ -5394,12 +5396,12 @@ HeatingVentilatingAirConditioningSystem:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "New element not sure if used by RCT. Maybe previously worked on when part of HeatingSystem"
+      EP Notes: "New element not sure if used by RCT. Maybe previously worked on when part of HeatingSystem. EnergyPlus has steam humidifiers so they would be Other using Humidifier:Steam:Gas and Humidifier:Steam:Electric. See if either is in the HVAC Topology. It is possible that Adiabitic might be able to use EvaporativeCooler:* in the supply side."
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<StatusOptions>"
@@ -5688,12 +5690,12 @@ HeatingSystem:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Air Loop Supply Side Component Arrangement"
+      EPout Column: "Sub-Component Type"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Look for AIRLOOPHVAC:UNITARYSYSTEM in Component Type and see if COIL:HEATING:DX:* is in the sub-component type and if so check if another COIL:HEATING:* is also present. Use the type of the coil to determine this. There are probably additional configuration options that should also be checked."
     heatpump_auxiliary_heat_high_shutoff_temperature:
       Description: "Heatpump auxiliary heat high temperature shutoff"
       Data Type: "Numeric"
@@ -6086,11 +6088,11 @@ CoolingSystem:
       EPin Object: "Coil:Cooling:DX, Coil:Cooling:DX:CurveFit:Performance, Coil:Cooling:DX:SingleSpeed, Coil:Cooling:DX:TwoSpeed, Coil:Cooling:DX:MultiSpeed, Coil:Cooling:DX:VariableSpeed, Coil:Cooling:DX:TwoStageWithHumidityControlMode, Coil:Cooling:DX:VariableRefrigerantFlow, Coil:Cooling:Water, Coil:Cooling:Water:DetailedGeometry"
       EPin Field: ""
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPout Report: "table.html"
+      EPout Table: "HVAC Topology"
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Based on the EnergyPlus input object, usually Mechanical cooling. Should be covered by new topology report"
+      EP Notes: "CoilSystem:Cooling:Water:HeatexchangerAssisted and Dehumidifier:Desiccant:NoFans would indicate SERIES_HEAT_RECOVERY and DESICCANT. Any place where a cooling coil is followed by a heating coil could do dehumidification also. Seems like the topology report should provide enough input for this. May need to check for many different configurations."
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
       Data Type: "Numeric"
@@ -6262,11 +6264,11 @@ FanSystem:
       EPin Object: "Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: "Name"
       EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout Report: "HVAC Topology"
+      EPout Table: "Air Loop Supply Side Component Arrangement"
+      EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: "Add equipment summary report, fans table, add airloop and branch names, maybe easier in topology report. DisplacementVent_1ZoneOffice.idf is an example. Maybe look at the code in coil sizing details to see how supply fans are classified."
+      EP Notes: "DisplacementVent_1ZoneOffice.idf is an example. See when a fan:* appears before outdoor air portion or when two fans appear in the list."
     exhaust_fans:
       Description: "List of exhaust fans"
       Data Type: "[{Fan}]"
@@ -6297,12 +6299,12 @@ FanSystem:
       Used by RCT Test: True
       EPin Object: "AirLoopHVAC:OutdoorAirSystem:EquipmentList, Fan:SystemModel, Fan:ConstantVolume, Fan:VariableVolume, Fan:OnOff, Fan:ComponentModel"
       EPin Field: "Component X Name, Name"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Air Loop Supply Side Component Arrangement"
+      EPout Column: "Sub-Component Type"
       EPstatus: "ToDo"
-      EP Notes: "5ZoneAirCooledConvCoef.idf example has relief fan. No outdoor air equipment reporting currently. Easy to figure out if it's outlet is outdoors but more complex if through HX. The Annual Heat Emissions Report shows the HVAC Relief Air so perhaps an approach to identify relief already exists in the code."
+      EP Notes: "5ZoneAirCooledConvCoef.idf example has relief fan. No outdoor air equipment reporting currently. Easy to figure out if it's outlet is outdoors but more complex if through HX. The Annual Heat Emissions Report shows the HVAC Relief Air so perhaps an approach to identify relief already exists in the code. If the AIRLOOPHVAC:OUTDOORAIRSYSTEM includes a subcomponent that is a fan it may be a relief fan. Need additional clarification on this."
     air_economizer:
       Description: "Air side economizer related to the fan system"
       Data Type: "{AirEconomizer}"
@@ -6319,7 +6321,7 @@ FanSystem:
       EPout Table: "Economizer"
       EPout Column: "first column"
       EPstatus: "ToDo"
-      EP Notes: "Controller:outsideair. either add connections here or add to topology report. should be coupled with airloop name"
+      EP Notes: "Controller:outsideair. Should be coupled with airloop name. The association of the Controller:OutdoorAir with the AirLoopHVAC:OutdoorAirSystem and AirLoop is missing."
     air_energy_recovery:
       Description: "Air side energy recovery related to the fan system"
       Data Type: "{AirEnergyRecovery}"
@@ -6332,11 +6334,11 @@ FanSystem:
       EPin Object: "AirLoopHVAC:OutdoorAirSystem:EquipmentList, ZoneHVAC:OutdoorAirUnit:EquipmentList, HeatExchanger:AirToAir:FlatPlate, HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Component X Name, Name"
       EPout File: "table.html"
-      EPout Report: "Component Sizing Summary"
-      EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
-      EPout Column: "first column"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Air Loop Supply Side Component Arrangement"
+      EPout Column: "Sub-Component Type"
       EPstatus: "ToDo"
-      EP Notes: "ASHRAE901_HotelLarge_STD2019_Denver.idf has examples of this. Need to differentiate if HX is used for outdoor air."
+      EP Notes: "ASHRAE901_HotelLarge_STD2019_Denver.idf has examples of this. Need to differentiate if HX is used for outdoor air. The HeatExchanger:* component is showsn as part of the AIRLOOPHVAC:OUTDOORAIRSYSTEM"
     temperature_control:
       Description: "Supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlOptions>"
@@ -6353,7 +6355,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Used by RCT. Add new SetpointManager report. Would need to find node name to find what AirLoop it is on. "
+      EP Notes: "Used by RCT. Add new SetpointManager report. Would need to find node name to find what AirLoop it is on. Not yet implemented in output reporting."
     operation_during_occupied:
       Description: "Operation during occupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -6370,7 +6372,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager. Add to Equipment Summary Fans"
+      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager. Add to Equipment Summary Fans. Not yet implemented in output reporting."
     operation_during_unoccupied:
       Description: "Operation during unoccupied times type"
       Data Type: "<FanSystemOperationOptions>"
@@ -6387,7 +6389,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager.  Add to Equipment Summary Fans"
+      EP Notes: "For unitary systems could see supply fan operating mode schedule. For central system no cycling except night-cycle avail manager.  Add to Equipment Summary Fans. Not yet implemented in output reporting."
     has_lock_out_central_heat_during_unoccupied:
       Description: "Locks out the use of central heating during unoccupied hours"
       Data Type: "Boolean"
@@ -6405,7 +6407,7 @@ FanSystem:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "NotRequired"
-      EP Notes: "Examine AvailabilityManager or schedule on heating coil, use other field related to unoccupied"
+      EP Notes: "Examine AvailabilityManager or schedule on heating coil, use other field related to unoccupied. Not yet implemented in output reporting."
     fan_control:
       Description: "Supply fan control type"
       Data Type: "<FanSystemSupplyFanControlOptions>"
@@ -6661,7 +6663,7 @@ AirEconomizer:
       EPout Table: "Economizer"
       EPout Column: "first column"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Controller:outsideair. Should be coupled with airloop name. The association of the  Controller:OutdoorAir with the AirLoopHVAC:OutdoorAirSystem and AirLoop is missing."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6713,7 +6715,7 @@ AirEconomizer:
       EPout Table: "Economizer"
       EPout Column: "High Limit Shutoff Control"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Controller:outsideair. Should be coupled with airloop name. The association of the  Controller:OutdoorAir with the AirLoopHVAC:OutdoorAirSystem and AirLoop is missing."
     high_limit_shutoff_temperature:
       Description: "High limit temperature shutoff"
       Data Type: "Numeric"
@@ -6731,7 +6733,7 @@ AirEconomizer:
       EPout Table: "Economizer"
       EPout Column: "Outdoor Air Temperature Limit "
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Controller:outsideair. Should be coupled with airloop name. The association of the  Controller:OutdoorAir with the AirLoopHVAC:OutdoorAirSystem and AirLoop is missing."
     is_integrated:
       Description: "True if the economizer and mechanical cooling system can work together"
       Data Type: "Boolean"
@@ -6768,11 +6770,11 @@ AirEnergyRecovery:
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
       EPin Field: "Name"
       EPout File: "table.html"
-      EPout Report: "Component Sizing Summary"
-      EPout Table: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
-      EPout Column: "first column"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Air Loop Supply Side Component Arrangement"
+      EPout Column: "Sub-Component Type"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "ASHRAE901_HotelLarge_STD2019_Denver.idf has examples of this. Need to differentiate if HX is used for outdoor air. The HeatExchanger:* component is shown as part of the AIRLOOPHVAC:OUTDOORAIRSYSTEM"
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6819,12 +6821,12 @@ AirEnergyRecovery:
       Used by RCT Test: False
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent, HeatExchanger:AirToAir:FlatPlate"
       EPin Field: "HeatExchanger:AirToAir:SensibleAndLatent.Heat Exchanger Type"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Air Heat Recovery"
+      EPout Column: "Input object type, Plate/Rotary"
       EPstatus: "NotRequired"
-      EP Notes: "Can determine some options by input but not all. Partial support. Add to new Equipment Summary - Air Heat Recovery report."
+      EP Notes: "Can determine some options by input but not all. Partial support. "
     enthalpy_recovery_ratio:
       Description: "Enthalpy recovery ratio"
       Data Type: "Numeric"
@@ -6888,12 +6890,12 @@ AirEnergyRecovery:
       Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Air Heat Recovery"
+      EPout Column: "Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
       EPstatus: "ToDo"
-      EP Notes: "Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
+      EP Notes: ""
     design_latent_effectiveness:
       Description: "Design latent effectiveness"
       Data Type: "Numeric"
@@ -6905,12 +6907,12 @@ AirEnergyRecovery:
       Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Air Heat Recovery"
+      EPout Column: "Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
       EPstatus: "ToDo"
-      EP Notes: "Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
+      EP Notes: ""
     outdoor_airflow:
       Description: "Outdoor airflow"
       Data Type: "Numeric"
@@ -6928,7 +6930,7 @@ AirEnergyRecovery:
       EPout Table: "Component Sizing Summary"
       EPout Column: "Design Size Nominal Supply Air Flow Rate"
       EPstatus: "ToDo"
-      EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Outdoor airflow"
+      EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Outdoor airflow. Also shown in Equipment Summary Air Heat Recovery table although shown as a zero so it may be a bug."
     exhaust_airflow:
       Description: "Exhaust airflow"
       Data Type: "Numeric"
@@ -6941,12 +6943,12 @@ AirEnergyRecovery:
       Used by RCT Test: True
       EPin Object: "HeatExchanger:AirToAir:FlatPlate, HeatExchanger:AirToAir:SensibleAndLatent"
       EPin Field: "Nominal Supply Air Flow Rate or Nominal Secondary Air Flow Rate, Nominal Supply Air Flow Rate"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Air Heat Recovery"
+      EPout Column: "Exhaust Airflow "
       EPstatus: "ToDo"
-      EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Exhaust airflow"
+      EP Notes: "The example file shows zero for this, it may be a bug"
 
 FanSystemTemperatureControlOptions:
   Object Type: "Enumeration"
@@ -7393,7 +7395,7 @@ Fan:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Need to go to the curve and pick points"
+      EP Notes: "Need to go to the curve and pick points. No EnergyPlus output report for this"
 
 FanOutputValidationPoint:
   Object Type: "Data Group"
@@ -7901,7 +7903,7 @@ Terminal:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Maybe this is a compliance parameter"
 
 TerminalOptions:
   Object Type: "Enumeration"
@@ -8067,12 +8069,12 @@ FluidLoop:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Plant Loop Component Arrangement"
+      EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: "from topology report"
+      EP Notes: "Find both a constant and variable speed pump on the same plant loop. Probably other configurations need to be identified also. Can be a common pipe or a plate HX."
     cooling_or_condensing_design_and_control:
       Description: "Fluid loop design and control used for cooling or condensing loops"
       Data Type: "{FluidLoopDesignAndControl}"
@@ -8178,12 +8180,12 @@ FluidLoopDesignAndControl:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "PlantLoop"
+      EPout Column: "Design Supply Temperature "
       EPstatus: "ToDo"
-      EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
+      EP Notes: "Partially implemented and do not appear for the Large Office example."
     design_return_temperature:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
@@ -8196,12 +8198,12 @@ FluidLoopDesignAndControl:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "PlantLoop"
+      EPout Column: "Design Supply Temperature "
       EPstatus: "ToDo"
-      EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
+      EP Notes: "Partially implemented and do not appear for the Large Office example. Bug: For ASHRAE901_HotelLarge_STD2019_Denver example the return temperature for cooling loop is lower than supply temperature."
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
@@ -8213,12 +8215,12 @@ FluidLoopDesignAndControl:
       Used by RCT Test: True
       EPin Object: "SizingPlant"
       EPin Field: "Sizing Option"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Component Sizing Summary"
+      EPout Table: "PlantLoop"
+      EPout Column: "Sizing option (Coincident/NonCoincident)"
       EPstatus: "ToDo"
-      EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
+      EP Notes: "Bug: The value shown is 1.0 instead of either coincident or noncoincedent. Partially implemented and do not appear for the Large Office example."
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
@@ -8236,7 +8238,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Divide the minimum by maximum. These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
+      EP Notes: "Divide the minimum by maximum. Bug: Partially implemented and do not appear for the Large Office example."
     operation:
       Description: "Type of operation used by loop"
       Data Type: "<FluidLoopOperationOptions>"
@@ -9470,8 +9472,8 @@ Chiller:
       EPout Report: "Equipment Summary"
       EPout Table: "Chiller"
       EPout Column: "Rated Efficiency "
-      EPstatus: "DoneUsingOutput"
-      EP Notes: "Need to revise"
+      EPstatus: "ToDo"
+      EP Notes: "Previously done some of these and need to revise"
     efficiency_metric_types:
       Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
       Data Type: "[<ChillerEfficiencyMetricOptions>]"
@@ -9488,7 +9490,7 @@ Chiller:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Previously done some of these and need to revise"
     capacity_validation_points:
       Description: "Capacity validation points"
       Data Type: "[{ChillerCapacityValidationPoint}]"
@@ -10006,10 +10008,10 @@ HeatRejection:
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Cooling Towers and Fluid Coolers"
+      EPout Column: "Design Fan Power"
       EPstatus: "ToDo"
       EP Notes: "Not sure used by RCT Test"
     fan_shaft_power:
@@ -10225,14 +10227,14 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "DistrictCooling, DistrictHeating:Water, DistrictHeating:Steam"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Plant Loop Component Arrangement"
+      EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Look for these component types."
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -10279,14 +10281,14 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "DistrictCooling, DistrictHeating:Water, DistrictHeating:Steam"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Plant Loop Component Arrangement"
+      EPout Column: "Loop Name"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Look for these component types in component type."
     type:
       Description: "Type of external fluid source"
       Data Type: "<ExternalFluidSourceOptions>"
@@ -10296,14 +10298,14 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
       Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
+      EPin Object: "DistrictCooling, DistrictHeating:Water, DistrictHeating:Steam"
+      EPin Field: "Name"
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Plant Loop Component Arrangement"
+      EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Look for these component types."
     energy_source_type:
       Description: "Source of energy for the external fluid source"
       Data Type: "<EnergySourceOptions>"
