@@ -2564,16 +2564,25 @@ Weather:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
-    cooling_design_day_type:
-      Description: "The frequency of occurance type for cooling design day"
+    cooling_dry_bulb_design_day_type:
+      Description: "The frequency of occurance type for cooling design day based on dry-bulb temperature"
       Data Type: "<CoolingDesignDayOptions>"
       RMD Test: False
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-    heating_design_day_type:
-      Description: "The frequency of occurance type for heating design day"
+    evaporation_wet_bulb_design_day_type:
+      Description: "The frequency of occurance type for evaporation wet-bulb design day"
+      Data Type: "<CoolingDesignDayOptions>"
+      Notes: "This may also be known as cooling design wet-bulb temperature day type."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+    heating_dry_bulb_design_day_type:
+      Description: "The frequency of occurance type for heating design day based on dry-bulb temperature"
       Data Type: "<HeatingDesignDayOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
