@@ -827,19 +827,19 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    zonal_exhaust_fan:
-      Description: "Zonal exhaust fan"
-      Data Type: "{Fan}"
-      Notes: "References a fan that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group."
+    zonal_supply_fans:
+      Description: "A list of zonal supply fans"
+      Data Type: "[{Fan}]"
+      Notes: "A list of references to one or more fans that is used to supply air to the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    exhaust_airflow_rate_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
-      Data Type: "Reference"
-      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+    zonal_exhaust_fans:
+      Description: "A list of zonal exhaust fans"
+      Data Type: "[{Fan}]"
+      Notes: "A list of references to one or more fans that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -850,28 +850,6 @@ Zone:
       Data Type: "Numeric"
       Range: ">=0"
       Units: "L/s"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-    non_mechanical_cooling_fan_power:
-      Description: "Non-mechanical cooling fan power"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "W"
-      Notes: "The power consumed by a fan used in a non-mechancial cooling device such as supply or exhaust fans typically for warehouse applications with high air change rates."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-    non_mechanical_cooling_fan_airflow:
-      Description: "Non-mechanical cooling fan airflow"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "L/s"
-      Notes: "The airflow of a fan used in a non-mechancial cooling device such as a supply or exhaust fans typically for warehouse applications with high air change rates."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2780,7 +2758,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     cab_lighting_power:
-      Description: "Lighitng power of cab"
+      Description: "Lighting power of cab"
       Data Type: "Numeric"
       Units: "W"
       RMD Test: False
@@ -2788,24 +2766,14 @@ Elevator:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-    cab_ventilation_fan_power:
-      Description: "Ventilation fan power of cab"
-      Data Type: "Numeric"
-      Units: "W"
-      RMD Test: False
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+    cab_ventilation_fan:
+      Description: "Ventilation fan for the cab"
+      Data Type: "{Fan}"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    cab_ventilation_fan_flow:
-      Description: "Airflow of cab ventfan"
-      Data Type: "Numeric"
-      Units: "L/s"
-      RMD Test: False
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-      AppG B_RMDs Same: False
     cab_motor_multiplier_schedule:
       Description: "Elevator motor operation multiplier schedule name"
       Data Type: "Reference"
@@ -2814,15 +2782,6 @@ Elevator:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      AppG B_RMDs Same: True
-    cab_ventilation_fan_multiplier_schedule:
-      Description: "Elevator ventilation fan operation mulitplier schedule name"
-      Data Type: "Reference"
-      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: False
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     cab_lighting_multiplier_schedule:
       Description: "Elevator lighting multiplier schedule name"
@@ -3941,6 +3900,15 @@ Fan:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+    airflow_rate_multiplier_schedule:
+      Description: "Reference to a schedule containing the multiplier for the airflow rate"
+      Data Type: "[Reference]"
+      Notes: "Only used when fan is referenced outside of a FanSystem. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
     is_airflow_calculated:
       Description: "True if the airflow is sized by software"
       Data Type: "Boolean"
@@ -5476,6 +5444,14 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+    fan:
+      Description: "Heat Rejection Fan"
+      Data Type: "{Fan}"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
     fluid:
       Description: "Fluid Cooled by Heat Rejection"
       Data Type: "<HeatRejectionFluidOptions>"
@@ -5511,46 +5487,6 @@ HeatRejection:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-    fan_design_electric_power:
-      Description: "Fan design electric power"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "Only used when fan_shaft_power and fan_motor_efficiency and fan_motor_nameplate_power cannot be provided."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: "unknown"
-    fan_shaft_power:
-      Description: "Fan Shaft Power"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "Power delivered to the fan’s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-    fan_motor_efficiency:
-      Description: "Efficiency of the fan motor at rating conditions"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "From CBECC-Com."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-    fan_motor_nameplate_power:
-      Description: "Fan Motor Nameplate Power"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower.From CBECC-Com."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
     fan_speed_control:
       Description: "Fan Speed Control Type"
       Data Type: "<HeatRejectionFanSpeedControlOptions>"
@@ -6308,11 +6244,9 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    draft_fan_power:
-      Description: "Power for the draft fan "
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">=0"
+    draft_fan:
+      Description: "Draft fan "
+      Data Type: "{Fan}"
       Notes: "From CBECC-Com."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
