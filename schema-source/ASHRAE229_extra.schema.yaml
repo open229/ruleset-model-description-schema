@@ -5289,11 +5289,11 @@ ChillerEfficiencyMetricOptions:
       Description: "Full Load Efficiency expressed as a coefficient of performance (COP) at design conditions"
       Notes: "This should correspond with the design_entering_condenser_temperature and design_leaving_evaporator_temperature."
     INTEGRATED_PART_LOAD_VALUE:
-      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP) at rated conditions"
-      Notes: "This should correspond with the rated_entering_condenser_temperature and rated_leaving_evaporator_temperature and should corresond with the AHRI rated conditions for the equipment."
+      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
+      Notes: "This should corresond with the AHRI rated conditions for the equipment, see AHRI 550/590"
     NONSTANDARD_PART_LOAD_VALUE:
-      Description: "Nonstandard part load value efficiency expressed as a coefficient of performance (COP) at design conditions"
-      Notes: "This should correspond with the design_entering_condenser_temperature and design_leaving_evaporator_temperature."
+      Description: "Nonstandard part load value efficiency expressed as a coefficient of performance (COP)"
+      Notes: "This should correspond with the applications conditions defined by the user other than AHRI rated conditions, see AHRI 550/590"
     OTHER:
       Description: "Other part load efficiency metric"
 
