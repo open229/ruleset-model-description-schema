@@ -473,13 +473,22 @@
                 },
                 "service_water_heating_area_type": {
                     "description": "Service water heating area type classification",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceOptions2019ASHRAE901",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingAreaOptions2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 },
                 "service_water_heating_uses": {
                     "description": "List of service water heating uses",
                     "type": "array",
-                    "items": {},
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUse"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
                     "notes": "This data element also appears in Space. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
                 }
             },
@@ -601,35 +610,27 @@
                     "type": "string",
                     "notes": "Constraint to use when implemented :Zone:"
                 },
-                "zonal_exhaust_fan": {
-                    "description": "Zonal exhaust fan",
-                    "$ref": "ASHRAE229.schema.json#/definitions/Fan",
-                    "notes": "References a fan that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group."
+                "zonal_supply_fans": {
+                    "description": "A list of zonal supply fans",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/Fan"
+                    },
+                    "notes": "A list of references to one or more fans that is used to supply air to the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
                 },
-                "exhaust_airflow_rate_multiplier_schedule": {
-                    "description": "Reference to the schedule containing the multiplier for the exhaust airflow rate",
-                    "type": "string",
-                    "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+                "zonal_exhaust_fans": {
+                    "description": "A list of zonal exhaust fans",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ASHRAE229.schema.json#/definitions/Fan"
+                    },
+                    "notes": "A list of references to one or more fans that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
                 },
                 "makeup_airflow_rate": {
                     "description": "Airflow rate for makeup air",
                     "type": "number",
                     "minimum": 0.0,
                     "units": "L/s"
-                },
-                "non_mechanical_cooling_fan_power": {
-                    "description": "Non-mechanical cooling fan power",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W",
-                    "notes": "The power consumed by a fan used in a non-mechancial cooling device such as supply or exhaust fans typically for warehouse applications with high air change rates."
-                },
-                "non_mechanical_cooling_fan_airflow": {
-                    "description": "Non-mechanical cooling fan airflow",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "L/s",
-                    "notes": "The airflow of a fan used in a non-mechancial cooling device such as a supply or exhaust fans typically for warehouse applications with high air change rates."
                 },
                 "air_distribution_effectiveness": {
                     "description": "Air distribution effectiveness",
@@ -736,12 +737,22 @@
                 },
                 "service_water_heating_area_type": {
                     "description": "Service water heating area type classification",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingAreaOptions2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 },
                 "service_water_heating_uses": {
                     "description": "List of service water heating uses",
                     "type": "array",
-                    "items": {},
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUse"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
                     "notes": "This data element also appears in BuildingSegment. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
                 }
             },
@@ -1018,13 +1029,31 @@
                 "primary_layers": {
                     "description": "List of names, or IDs, of layer descriptions starting from the outside surface for primary heat path",
                     "type": "array",
-                    "items": {},
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "ASHRAE229.schema.json#/definitions/Material"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
                     "notes": "For constructions with framing and cavity heat transfer paths, use this for the cavity. For constructions with homogeneous layer, use this element only. Air films should not be included in the list of layers. When Construction.primary_layers are specified, the Construction.r_values should not be used. The list of primary_layers should include at least one Material that has mass with Material.density and Material.specific_heat specified. A list of material data groups can either appear here or a list of references to IDs of a Materials already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :Material:"
                 },
                 "framing_layers": {
                     "description": "List of names, or IDs, of layer descriptions starting from the outside surface for the framing heat path",
                     "type": "array",
-                    "items": {},
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "ASHRAE229.schema.json#/definitions/Material"
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
                     "notes": "For constructions with framing and cavity heat transfer paths, use this for the framing otherwise leave blank. Air films should not be included in the list of layers. Only used when primary_layers is also populated. A list of material data groups can either appear here or a list of references to IDs of a Materials already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :Material:"
                 },
                 "insulation_locations": {
@@ -1032,7 +1061,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "ASHRAE229.schema.json#/definitions/InsulationLocationOptions"
-                    }
+                    },
+                    "notes": "The items in the list of r-values should directly correspond to the items in the list of insulation_locations."
                 },
                 "u_factor": {
                     "description": "suface U-factor",
@@ -1063,7 +1093,7 @@
                         "minimum": 0.0
                     },
                     "units": "K-m2/W",
-                    "notes": "When Construction.r_values are specified, the Construction.primary_layers should not be used."
+                    "notes": "When Construction.r_values are specified, the Construction.primary_layers should not be used. The items in the list of r-values should directly correspond to the items in the list of insulation_locations."
                 },
                 "has_radiant_heating": {
                     "description": "Includes embedded radiant heating elements",
@@ -1716,52 +1746,52 @@
                 "hourly_values": {
                     "description": "Hourly Values of Schedule",
                     "type": "array",
-                    "minItems": 0,
-                    "maxItems": 8784,
                     "items": {
                         "type": "number"
                     },
+                    "minItems": 0,
+                    "maxItems": 8784,
                     "notes": "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
                 },
                 "hourly_heating_design_day": {
                     "description": "Hourly values for heating design day",
                     "type": "array",
-                    "minItems": 0,
-                    "maxItems": 24,
                     "items": {
                         "type": "number"
                     },
-                    "notes": "Used when schedule_sequence_type is HOURLY."
+                    "minItems": 0,
+                    "maxItems": 24,
+                    "notes": "Used when schedule_sequence_type is HOURLY. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
                 },
                 "hourly_heating_design_year": {
                     "description": "Hourly values for heating design year",
                     "type": "array",
-                    "minItems": 0,
-                    "maxItems": 8784,
                     "items": {
                         "type": "number"
                     },
-                    "notes": "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored."
+                    "minItems": 0,
+                    "maxItems": 8784,
+                    "notes": "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
                 },
                 "hourly_cooling_design_day": {
                     "description": "Hourly values for cooling design day",
                     "type": "array",
-                    "minItems": 0,
-                    "maxItems": 24,
                     "items": {
                         "type": "number"
                     },
-                    "notes": "Used when schedule_sequence_type is HOURLY."
+                    "minItems": 0,
+                    "maxItems": 24,
+                    "notes": "Used when schedule_sequence_type is HOURLY. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
                 },
                 "hourly_cooling_design_year": {
                     "description": "Hourly values for cooling design year",
                     "type": "array",
-                    "minItems": 0,
-                    "maxItems": 8784,
                     "items": {
                         "type": "number"
                     },
-                    "notes": "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored."
+                    "minItems": 0,
+                    "maxItems": 8784,
+                    "notes": "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
                 },
                 "event_times": {
                     "description": "Event times when the schedule changes",
@@ -1934,12 +1964,17 @@
                     "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ClimateZoneOptions2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 },
-                "cooling_design_day_type": {
-                    "description": "The frequency of occurance type for cooling design day",
+                "cooling_dry_bulb_design_day_type": {
+                    "description": "The frequency of occurance type for cooling design day based on dry-bulb temperature",
                     "$ref": "ASHRAE229.schema.json#/definitions/CoolingDesignDayOptions"
                 },
-                "heating_design_day_type": {
-                    "description": "The frequency of occurance type for heating design day",
+                "evaporation_wet_bulb_design_day_type": {
+                    "description": "The frequency of occurance type for evaporation wet-bulb design day",
+                    "$ref": "ASHRAE229.schema.json#/definitions/CoolingDesignDayOptions",
+                    "notes": "This may also be known as cooling design wet-bulb temperature day type."
+                },
+                "heating_dry_bulb_design_day_type": {
+                    "description": "The frequency of occurance type for heating design day based on dry-bulb temperature",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatingDesignDayOptions"
                 }
             },
@@ -2068,27 +2103,16 @@
                     "units": "m2"
                 },
                 "cab_lighting_power": {
-                    "description": "Lighitng power of cab",
+                    "description": "Lighting power of cab",
                     "type": "number",
                     "units": "W"
                 },
-                "cab_ventilation_fan_power": {
-                    "description": "Ventilation fan power of cab",
-                    "type": "number",
-                    "units": "W"
-                },
-                "cab_ventilation_fan_flow": {
-                    "description": "Airflow of cab ventfan",
-                    "type": "number",
-                    "units": "L/s"
+                "cab_ventilation_fan": {
+                    "description": "Ventilation fan for the cab",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Fan"
                 },
                 "cab_motor_multiplier_schedule": {
                     "description": "Elevator motor operation multiplier schedule name",
-                    "type": "string",
-                    "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-                },
-                "cab_ventilation_fan_multiplier_schedule": {
-                    "description": "Elevator ventilation fan operation mulitplier schedule name",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
@@ -2984,6 +3008,14 @@
                     "type": "number",
                     "units": "L/s",
                     "notes": "The design airlow may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
+                },
+                "airflow_rate_multiplier_schedule": {
+                    "description": "Reference to a schedule containing the multiplier for the airflow rate",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "notes": "Only used when fan is referenced outside of a FanSystem. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
                 "is_airflow_calculated": {
                     "description": "True if the airflow is sized by software",
@@ -3951,15 +3983,15 @@
             "descriptions": [
                 "Full Load Efficiency expressed as a coefficient of performance (COP) at rated conditions",
                 "Full Load Efficiency expressed as a coefficient of performance (COP) at design conditions",
-                "Integrated part load value efficiency expressed as a coefficient of performance (COP) at rated conditions",
-                "Nonstandard part load value efficiency expressed as a coefficient of performance (COP) at design conditions",
+                "Integrated part load value efficiency expressed as a coefficient of performance (COP)",
+                "Nonstandard part load value efficiency expressed as a coefficient of performance (COP)",
                 "Other part load efficiency metric"
             ],
             "notes": [
                 "This should correspond with the rated_entering_condenser_temperature and rated_leaving_evaporator_temperature.",
                 "This should correspond with the design_entering_condenser_temperature and design_leaving_evaporator_temperature.",
-                "This should correspond with the rated_entering_condenser_temperature and rated_leaving_evaporator_temperature and should corresond with the AHRI rated conditions for the equipment.",
-                "This should correspond with the design_entering_condenser_temperature and design_leaving_evaporator_temperature.",
+                "This should corresond with the AHRI rated conditions for the equipment, see AHRI 550/590",
+                "This should correspond with the applications conditions defined by the user other than AHRI rated conditions, see AHRI 550/590",
                 null
             ]
         },
@@ -4028,7 +4060,6 @@
                 "RECIPROCATING",
                 "SCROLL",
                 "POSITIVE_DISPLACEMENT",
-                "HEAT_PUMP",
                 "SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION",
                 "DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION",
                 "SINGLE_EFFECT_DIRECT_FIRED_ABSORPTION",
@@ -4041,7 +4072,6 @@
                 "Reciprocating",
                 "Scroll",
                 "Positive displacement",
-                "Heat pump",
                 "Single-effect indirect-fired absorption",
                 "Double-effect indirect-fired absorption",
                 "Single-effect direct-fired absorption",
@@ -4099,6 +4129,10 @@
                     "description": "Heat Rejection Fan Type",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionFanOptions"
                 },
+                "fan": {
+                    "description": "Heat Rejection Fan",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Fan"
+                },
                 "fluid": {
                     "description": "Fluid Cooled by Heat Rejection",
                     "$ref": "ASHRAE229.schema.json#/definitions/HeatRejectionFluidOptions"
@@ -4117,30 +4151,6 @@
                     "description": "Heat rejection Approach",
                     "type": "number",
                     "units": "K"
-                },
-                "fan_design_electric_power": {
-                    "description": "Fan design electric power",
-                    "type": "number",
-                    "units": "W",
-                    "notes": "Only used when fan_shaft_power and fan_motor_efficiency and fan_motor_nameplate_power cannot be provided."
-                },
-                "fan_shaft_power": {
-                    "description": "Fan Shaft Power",
-                    "type": "number",
-                    "units": "W",
-                    "notes": "Power delivered to the fan\u00e2\u20ac\u2122s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units."
-                },
-                "fan_motor_efficiency": {
-                    "description": "Efficiency of the fan motor at rating conditions",
-                    "type": "number",
-                    "units": "W",
-                    "notes": "From CBECC-Com."
-                },
-                "fan_motor_nameplate_power": {
-                    "description": "Fan Motor Nameplate Power",
-                    "type": "number",
-                    "units": "W",
-                    "notes": "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower.From CBECC-Com."
                 },
                 "fan_speed_control": {
                     "description": "Fan Speed Control Type",
@@ -4687,11 +4697,9 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/HeatPumpWaterHeaterPowerValidationPoint"
                     }
                 },
-                "draft_fan_power": {
-                    "description": "Power for the draft fan ",
-                    "type": "number",
-                    "minimum": 0.0,
-                    "units": "W",
+                "draft_fan": {
+                    "description": "Draft fan ",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Fan",
                     "notes": "From CBECC-Com."
                 },
                 "has_electrical_ignition": {
@@ -5012,7 +5020,7 @@
                 },
                 "area_type": {
                     "description": "Service Water Heating Loop Area Type",
-                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingSpaceOptions2019ASHRAE901",
+                    "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/ServiceWaterHeatingAreaOptions2019ASHRAE901",
                     "notes": "The enumeration is based on the standard used."
                 },
                 "water_serves_type": {
@@ -5350,6 +5358,6 @@
             ]
         }
     },
-    "version": "0.1.3",
+    "version": "0.1.4",
     "$ref": "ASHRAE229.schema.json#/definitions/RulesetProjectDescription"
 }

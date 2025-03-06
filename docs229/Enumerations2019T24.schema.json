@@ -90,5 +90,7 @@
                 "Output schema for Title 24 Commercial"
             ]
         }
-    }
+    },
+    "version": "0.1.4",
+    "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }

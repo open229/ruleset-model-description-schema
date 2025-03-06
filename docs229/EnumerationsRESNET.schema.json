@@ -38,5 +38,7 @@
                 "Output schema for RESNET"
             ]
         }
-    }
+    },
+    "version": "0.1.4",
+    "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }

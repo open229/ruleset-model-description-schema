@@ -805,7 +805,7 @@
                 "Transient Residential - Dwelling unit"
             ]
         },
-        "ServiceWaterHeatingSpaceOptions2019ASHRAE901": {
+        "ServiceWaterHeatingAreaOptions2019ASHRAE901": {
             "type": "string",
             "enum": [
                 "AUTOMOTIVE_FACILITY",
@@ -1079,5 +1079,7 @@
                 "Output schema for ASHRAE 90.1 2019"
             ]
         }
-    }
+    },
+    "version": "0.1.4",
+    "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
