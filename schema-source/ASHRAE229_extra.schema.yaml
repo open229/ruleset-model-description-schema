@@ -1397,6 +1397,7 @@ Construction:
     insulation_locations:
       Description: "List of locations for the insulation related to the surface that correspoond to the values in the r_values list. Only used when r_values are specified."
       Data Type: "[<InsulationLocationOptions>]"
+      Notes: "The items in the list of r-values should directly correspond to the items in the list of insulation_locations."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1440,7 +1441,7 @@ Construction:
       Data Type: "[Numeric]"
       Range: ">=0"
       Units: "K-m2/W"
-      Notes: "When Construction.r_values are specified, the Construction.primary_layers should not be used."
+      Notes: "When Construction.r_values are specified, the Construction.primary_layers should not be used. The items in the list of r-values should directly correspond to the items in the list of insulation_locations."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
