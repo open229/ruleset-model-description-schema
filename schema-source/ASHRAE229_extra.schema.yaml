@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.1.3"
+  Version: "0.1.4" 
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -1207,7 +1207,7 @@ BuildingSegment:
       EP Notes: ""
     service_water_heating_area_type:
       Description: "Service water heating area type classification"
-      Data Type: "<ServiceWaterHeatingSpaceOptions2019ASHRAE901>"
+      Data Type: "<ServiceWaterHeatingAreaOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: False
       AppG Used By TCDs: "unknown"
@@ -1592,10 +1592,28 @@ Zone:
       EPout Column: ""
       EPstatus: "NotRequired"
       EP Notes: ""
-    zonal_exhaust_fan:
-      Description: "Zonal exhaust fan"
-      Data Type: "{Fan}"
-      Notes: "References a fan that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group."
+    zonal_supply_fans:
+      Description: "A list of zonal supply fans"
+      Data Type: "[{Fan}]"
+      Notes: "A list of references to one or more fans that is used to supply air to the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+      Used by RCT Test: "unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "ToDo"
+      EP Notes: ""
+    zonal_exhaust_fans:
+      Description: "A list of zonal exhaust fans"
+      Data Type: "[{Fan}]"
+      Notes: "A list of references to one or more fans that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1609,24 +1627,6 @@ Zone:
       EPout Table: "Zone Equipment Component Arrangement, Air Loop Supply Side Component Arrangement"
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: ""
-    exhaust_airflow_rate_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for the exhaust airflow rate"
-      Data Type: "Reference"
-      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: True
-      Used by RCT Test: False
-      EPin Object: "Fan:ZoneExhaust"
-      EPin Field: "Flow Fraction Schedule Name"
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "NotRequired"
       EP Notes: ""
     makeup_airflow_rate:
       Description: "Airflow rate for makeup air"
@@ -1647,46 +1647,6 @@ Zone:
       EPout Column: ""
       EPstatus: "NotRequired"
       EP Notes: ""
-    non_mechanical_cooling_fan_power:
-      Description: "Non-mechanical cooling fan power"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "W"
-      Notes: "The power consumed by a fan used in a non-mechancial cooling device such as supply or exhaust fans typically for warehouse applications with high air change rates."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-      Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "NotRequired"
-      EP Notes: "Could be an Electric:Equipment with a specific End-Use Subcategory name"
-    non_mechanical_cooling_fan_airflow:
-      Description: "Non-mechanical cooling fan airflow"
-      Data Type: "Numeric"
-      Range: ">=0"
-      Units: "L/s"
-      Notes: "The airflow of a fan used in a non-mechancial cooling device such as a supply or exhaust fans typically for warehouse applications with high air change rates."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-      Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "ToDo"
-      EP Notes: "Not sure how to do this one."
     air_distribution_effectiveness:
       Description: "Air distribution effectiveness"
       Data Type: "Numeric"
@@ -2639,6 +2599,7 @@ Construction:
     insulation_locations:
       Description: "List of locations for the insulation related to the surface that correspoond to the values in the r_values list. Only used when r_values are specified."
       Data Type: "[<InsulationLocationOptions>]"
+      Notes: "The items in the list of r-values should directly correspond to the items in the list of insulation_locations."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2718,7 +2679,7 @@ Construction:
       Data Type: "[Numeric]"
       Range: ">=0"
       Units: "K-m2/W"
-      Notes: "When Construction.r_values are specified, the Construction.primary_layers should not be used."
+      Notes: "When Construction.r_values are specified, the Construction.primary_layers should not be used. The items in the list of r-values should directly correspond to the items in the list of insulation_locations."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4342,7 +4303,7 @@ Schedule:
     hourly_heating_design_day:
       Description: "Hourly values for heating design day"
       Data Type: "[Numeric][0..24]"
-      Notes: "Used when schedule_sequence_type is HOURLY."
+      Notes: "Used when schedule_sequence_type is HOURLY. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4360,7 +4321,7 @@ Schedule:
     hourly_heating_design_year:
       Description: "Hourly values for heating design year"
       Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored."
+      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4378,7 +4339,7 @@ Schedule:
     hourly_cooling_design_day:
       Description: "Hourly values for cooling design day"
       Data Type: "[Numeric][0..24]"
-      Notes: "Used when schedule_sequence_type is HOURLY."
+      Notes: "Used when schedule_sequence_type is HOURLY. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4396,7 +4357,7 @@ Schedule:
     hourly_cooling_design_year:
       Description: "Hourly values for cooling design year"
       Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored."
+      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4783,8 +4744,8 @@ Weather:
       EPout Column: "ASHRAE Climate Zone"
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
-    cooling_design_day_type:
-      Description: "The frequency of occurance type for cooling design day"
+    cooling_dry_bulb_design_day_type:
+      Description: "The frequency of occurance type for cooling design day based on dry-bulb temperature"
       Data Type: "<CoolingDesignDayOptions>"
       RMD Test: False
       AppG Used By TCDs: True
@@ -4800,8 +4761,26 @@ Weather:
       EPout Column: ""
       EPstatus: "PartialUsingOutput"
       EP Notes: "Could try to pull this information from name of the design day otherwise could try to look it up based on table of values for a given location"
-    heating_design_day_type:
-      Description: "The frequency of occurance type for heating design day"
+    evaporation_wet_bulb_design_day_type:
+      Description: "The frequency of occurance type for evaporation wet-bulb design day"
+      Data Type: "<CoolingDesignDayOptions>"
+      Notes: "This may also be known as cooling design wet-bulb temperature day type."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+      Used by RCT Test: "unknown"
+      EPin Object: "SizingPeriod:DesignDay"
+      EPin Field: "Name"
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
+      EP Notes: ""
+    heating_dry_bulb_design_day_type:
+      Description: "The frequency of occurance type for heating design day based on dry-bulb temperature"
       Data Type: "<HeatingDesignDayOptions>"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -5139,7 +5118,7 @@ Elevator:
       EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_lighting_power:
-      Description: "Lighitng power of cab"
+      Description: "Lighting power of cab"
       Data Type: "Numeric"
       Units: "W"
       RMD Test: False
@@ -5156,34 +5135,15 @@ Elevator:
       EPout Column: ""
       EPstatus: "ComplianceParameter"
       EP Notes: ""
-    cab_ventilation_fan_power:
-      Description: "Ventilation fan power of cab"
-      Data Type: "Numeric"
-      Units: "W"
-      RMD Test: False
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
+    cab_ventilation_fan:
+      Description: "Ventilation fan for the cab"
+      Data Type: "{Fan}"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "ComplianceParameter"
-      EP Notes: ""
-    cab_ventilation_fan_flow:
-      Description: "Airflow of cab ventfan"
-      Data Type: "Numeric"
-      Units: "L/s"
-      RMD Test: False
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
-      AppG B_RMDs Same: False
-      Used by RCT Test: True
+      Used by RCT Test: "unknown"
       EPin Object: ""
       EPin Field: ""
       EPout File: ""
@@ -5200,24 +5160,6 @@ Elevator:
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
-      AppG B_RMDs Same: True
-      Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "ComplianceParameter"
-      EP Notes: ""
-    cab_ventilation_fan_multiplier_schedule:
-      Description: "Elevator ventilation fan operation mulitplier schedule name"
-      Data Type: "Reference"
-      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: False
-      AppG Used By TCDs: True
-      AppG P_RMD Equals U_RMD: True
-      AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
       Used by RCT Test: True
       EPin Object: ""
@@ -7154,6 +7096,24 @@ Fan:
       EPout Table: "Fans"
       EPout Column: "Max Air Flow Rate"
       EPstatus: "DoneUsingOutput"
+      EP Notes: ""
+    airflow_rate_multiplier_schedule:
+      Description: "Reference to a schedule containing the multiplier for the airflow rate"
+      Data Type: "[Reference]"
+      Notes: "Only used when fan is referenced outside of a FanSystem. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+      Used by RCT Test: False
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     is_airflow_calculated:
       Description: "True if the airflow is sized by software"
@@ -9609,11 +9569,11 @@ ChillerEfficiencyMetricOptions:
       Description: "Full Load Efficiency expressed as a coefficient of performance (COP) at design conditions"
       Notes: "This should correspond with the design_entering_condenser_temperature and design_leaving_evaporator_temperature."
     INTEGRATED_PART_LOAD_VALUE:
-      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP) at rated conditions"
-      Notes: "This should correspond with the rated_entering_condenser_temperature and rated_leaving_evaporator_temperature and should corresond with the AHRI rated conditions for the equipment."
+      Description: "Integrated part load value efficiency expressed as a coefficient of performance (COP)"
+      Notes: "This should corresond with the AHRI rated conditions for the equipment, see AHRI 550/590"
     NONSTANDARD_PART_LOAD_VALUE:
-      Description: "Nonstandard part load value efficiency expressed as a coefficient of performance (COP) at design conditions"
-      Notes: "This should correspond with the design_entering_condenser_temperature and design_leaving_evaporator_temperature."
+      Description: "Nonstandard part load value efficiency expressed as a coefficient of performance (COP)"
+      Notes: "This should correspond with the applications conditions defined by the user other than AHRI rated conditions, see AHRI 550/590"
     OTHER:
       Description: "Other part load efficiency metric"
 
@@ -9787,8 +9747,6 @@ ChillerCompressorOptions:
       Description: "Scroll"
     POSITIVE_DISPLACEMENT:
       Description: "Positive displacement"
-    HEAT_PUMP:
-      Description: "Heat pump"
     SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
       Description: "Single-effect indirect-fired absorption"
     DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
@@ -9924,6 +9882,23 @@ HeatRejection:
       EPout Column: ""
       EPstatus: "ComplianceParameter"
       EP Notes: ""
+    fan:
+      Description: "Heat Rejection Fan"
+      Data Type: "{Fan}"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
+      Used by RCT Test: "unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: "table.html"
+      EPout Report: "Equipment Summary"
+      EPout Table: "Cooling Towers and Fluid Coolers"
+      EPout Column: "Design Fan Power"
+      EPstatus: "ToDo"
+      EP Notes: ""
     fluid:
       Description: "Fluid Cooled by Heat Rejection"
       Data Type: "<HeatRejectionFluidOptions>"
@@ -9993,82 +9968,6 @@ HeatRejection:
       EPout Report: "Equipment Summary"
       EPout Table: "Cooling Towers and Fluid Coolers"
       EPout Column: "Approach"
-      EPstatus: "DoneUsingOutput"
-      EP Notes: ""
-    fan_design_electric_power:
-      Description: "Fan design electric power"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "Only used when fan_shaft_power and fan_motor_efficiency and fan_motor_nameplate_power cannot be provided."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: "unknown"
-      Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: "table.html"
-      EPout Report: "Equipment Summary"
-      EPout Table: "Cooling Towers and Fluid Coolers"
-      EPout Column: "Design Fan Power"
-      EPstatus: "ToDo"
-      EP Notes: "Not sure used by RCT Test"
-    fan_shaft_power:
-      Description: "Fan Shaft Power"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "Power delivered to the fan’s shaft and does not include the mechanical drive losses. Equivalent to fan brake horsepower for inch-pound units."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-      Used by RCT Test: True
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "ComplianceParameter"
-      EP Notes: ""
-    fan_motor_efficiency:
-      Description: "Efficiency of the fan motor at rating conditions"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "From CBECC-Com."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-      Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "ComplianceParameter"
-      EP Notes: ""
-    fan_motor_nameplate_power:
-      Description: "Fan Motor Nameplate Power"
-      Data Type: "Numeric"
-      Units: "W"
-      Notes: "The nameplate power at rating conditions. In inch-pound units is the fan motor horsepower.From CBECC-Com."
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: False
-      Used by RCT Test: False
-      EPin Object: "CoolingTower:SingleSpeed, CoolingTower:TwoSpeed, CoolingTower:VariableSpeed:Merkel, CoolingTower:VariableSpeed, EvaporativeFluidCooler:SingleSpeed, EvaporativeFluidCooler:TwoSpeed, FluidCooler:SingleSpeed, FluidCooler:TwoSpeed"
-      EPin Field: "Design Fan Power"
-      EPout File: "table.html"
-      EPout Report: "Equipment Summary"
-      EPout Table: "Cooling Towers and Fluid Coolers"
-      EPout Column: "Design Fan Power [W]"
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     fan_speed_control:
@@ -11458,11 +11357,9 @@ ServiceWaterHeatingEquipment:
       EPout Column: ""
       EPstatus: "NotRequired"
       EP Notes: ""
-    draft_fan_power:
-      Description: "Power for the draft fan "
-      Data Type: "Numeric"
-      Units: "W"
-      Range: ">=0"
+    draft_fan:
+      Description: "Draft fan "
+      Data Type: "{Fan}"
       Notes: "From CBECC-Com."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -12155,7 +12052,7 @@ ServiceWaterHeatingUse:
       EP Notes: ""
     area_type:
       Description: "Service Water Heating Loop Area Type"
-      Data Type: "<ServiceWaterHeatingSpaceOptions2019ASHRAE901>"
+      Data Type: "<ServiceWaterHeatingAreaOptions2019ASHRAE901>"
       Notes: "The enumeration is based on the standard used."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -12818,6 +12715,7 @@ RefrigeratedCase:
       EPout Column: ""
       EPstatus: "NotRequired"
       EP Notes: ""
+
 
 RefrigeratedCaseOptions:
   Object Type: "Enumeration"
