@@ -174,7 +174,7 @@ RulesetProjectDescription:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Should be a constant reference to a sub data group."
+      EP Notes: "Not needed now but will be needed. Should be a constant reference to a sub data group."
     compliance_path:
       Description: "Indicates the chosen compliance path if the ruleset has multiple compliance paths such as 90.1 Appendix G has code compliance and beyond code"
       Data Type: "<CompliancePathOptions2019ASHRAE901>"
@@ -248,7 +248,7 @@ Metadata:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Should be constant name"
+      EP Notes: "Will be required. Should be constant name"
     schema_author:
       Description: "Name of the organization that published the schema"
       Data Type: "String"
@@ -1601,14 +1601,14 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-      Used by RCT Test: "unknown"
+      Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
+      EPout File: "table.html"
+      EPout Report: "HVAC Topology"
+      EPout Table: "Zone Equipment Component Arrangement, Air Loop Supply Side Component Arrangement"
       EPout Column: ""
-      EPstatus: "ToDo"
+      EPstatus: "NotStarted"
       EP Notes: ""
     zonal_exhaust_fans:
       Description: "A list of zonal exhaust fans"
@@ -2653,7 +2653,7 @@ Construction:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Only available when user is using this input object."
+      EP Notes: "Always leave entry blank since using layers. Only available when user is using this input object."
     f_factor:
       Description: "surface F-factor"
       Data Type: "Numeric"
@@ -2673,7 +2673,7 @@ Construction:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Only available when user is using this input object."
+      EP Notes: "Always leave entry blank since using layers. Only available when user is using this input object."
     r_values:
       Description: "List of r-value of the insulation for the surface that correspond to values in the insulation_locations list"
       Data Type: "[Numeric]"
@@ -2938,10 +2938,8 @@ SurfaceOpticalProperties:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
       Used by RCT Test: True
-      EPin Object: "Material"
-      EPin Field: "Name"
-      EPin Object: "Construction"
-      EPin Field: "Outside Layer"
+      EPin Object: "Material or Construction"
+      EPin Field: "Name or Outside Layer"
       EPout File: "table.html"
       EPout Report: "Envelope Summary"
       EPout Table: "Opaque Exterior"
@@ -5326,7 +5324,7 @@ HeatingVentilatingAirConditioningSystem:
       EPout Table: "Air Loop Supply Side Component Arrangement"
       EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: "Used by RCT. May be multiple ways to configure a preheat (central) heating coil when additional heat is added at the zone or as a second central coil. Generically, trace the air flow path through the topology and see if it passes through two heating coils and if so one can be considered a preheat coil."
+      EP Notes: "Used by RCT. Would need to analyze structure of topology to determine if this is preheat system. May be multiple ways to configure a preheat (central) heating coil when additional heat is added at the zone or as a second central coil. Generically, trace the air flow path through the topology and see if it passes through two heating coils and if so one can be considered a preheat coil."
     humidification_type:
       Description: "Humidification type"
       Data Type: "<HumidificationOptions>"
@@ -6034,7 +6032,7 @@ CoolingSystem:
       EPout Table: "HVAC Topology"
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "CoilSystem:Cooling:Water:HeatexchangerAssisted and Dehumidifier:Desiccant:NoFans would indicate SERIES_HEAT_RECOVERY and DESICCANT. Any place where a cooling coil is followed by a heating coil could do dehumidification also. Seems like the topology report should provide enough input for this. May need to check for many different configurations."
+      EP Notes: "Based on the EnergyPlus input object, usually Mechanical cooling. Should be covered by new topology report. CoilSystem:Cooling:Water:HeatexchangerAssisted and Dehumidifier:Desiccant:NoFans would indicate SERIES_HEAT_RECOVERY and DESICCANT. Any place where a cooling coil is followed by a heating coil could do dehumidification also. Seems like the topology report should provide enough input for this. May need to check for many different configurations."
     cooling_turndown_ratio:
       Description: "Cooling turndown ratio"
       Data Type: "Numeric"
@@ -6210,7 +6208,7 @@ FanSystem:
       EPout Table: "Air Loop Supply Side Component Arrangement"
       EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: "DisplacementVent_1ZoneOffice.idf is an example. See when a fan:* appears before outdoor air portion or when two fans appear in the list."
+      EP Notes: "Add equipment summary report, fans table, add airloop and branch names, maybe easier in topology report. DisplacementVent_1ZoneOffice.idf is an example. Maybe look at the code in coil sizing details to see how supply fans are classified. DisplacementVent_1ZoneOffice.idf is an example. See when a fan:* appears before outdoor air portion or when two fans appear in the list."
     exhaust_fans:
       Description: "List of exhaust fans"
       Data Type: "[{Fan}]"
@@ -6263,7 +6261,7 @@ FanSystem:
       EPout Table: "Economizer"
       EPout Column: "first column"
       EPstatus: "ToDo"
-      EP Notes: "Controller:outsideair. Should be coupled with airloop name. The association of the Controller:OutdoorAir with the AirLoopHVAC:OutdoorAirSystem and AirLoop is missing."
+      EP Notes: "Controller:outsideair. either add connections here or add to topology report. Should be coupled with airloop name. The association of the Controller:OutdoorAir with the AirLoopHVAC:OutdoorAirSystem and AirLoop is missing."
     air_energy_recovery:
       Description: "Air side energy recovery related to the fan system"
       Data Type: "{AirEnergyRecovery}"
@@ -6837,7 +6835,7 @@ AirEnergyRecovery:
       EPout Table: "Air Heat Recovery"
       EPout Column: "Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Partial support. Add to new Equipment Summary - Air Heat Recovery report Sensible Effectiveness at 100% Heating Air Flow, Sensible Effectiveness at 100% Cooling Air Flow"
     design_latent_effectiveness:
       Description: "Design latent effectiveness"
       Data Type: "Numeric"
@@ -6854,7 +6852,7 @@ AirEnergyRecovery:
       EPout Table: "Air Heat Recovery"
       EPout Column: "Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
       EPstatus: "ToDo"
-      EP Notes: ""
+      EP Notes: "Add to new Equipment Summary - Air Heat Recovery report Latent Effectiveness at 100% Heating Air Flow, Latent Effectiveness at 100% Cooling Air Flow"
     outdoor_airflow:
       Description: "Outdoor airflow"
       Data Type: "Numeric"
@@ -6890,7 +6888,7 @@ AirEnergyRecovery:
       EPout Table: "Air Heat Recovery"
       EPout Column: "Exhaust Airflow "
       EPstatus: "ToDo"
-      EP Notes: "The example file shows zero for this, it may be a bug"
+      EP Notes: "Need to determine arrangement to see if supply or secondary air flow. Add to new Equipment Summary - Air Heat Recovery report the Exhaust airflow. The example file shows zero for this, it may be a bug"
 
 FanSystemTemperatureControlOptions:
   Object Type: "Enumeration"
@@ -8034,7 +8032,7 @@ FluidLoop:
       EPout Table: "Plant Loop Component Arrangement"
       EPout Column: "Component Type"
       EPstatus: "ToDo"
-      EP Notes: "Find both a constant and variable speed pump on the same plant loop. Probably other configurations need to be identified also. Can be a common pipe or a plate HX."
+      EP Notes: "From topology report. Find both a constant and variable speed pump on the same plant loop. Probably other configurations need to be identified also. Can be a common pipe or a plate HX."
     cooling_or_condensing_design_and_control:
       Description: "Fluid loop design and control used for cooling or condensing loops"
       Data Type: "{FluidLoopDesignAndControl}"
@@ -8145,7 +8143,7 @@ FluidLoopDesignAndControl:
       EPout Table: "PlantLoop"
       EPout Column: "Design Supply Temperature "
       EPstatus: "ToDo"
-      EP Notes: "Partially implemented and do not appear for the Large Office example."
+      EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example."
     design_return_temperature:
       Description: "Design Return Temperature"
       Data Type: "Numeric"
@@ -8163,7 +8161,7 @@ FluidLoopDesignAndControl:
       EPout Table: "PlantLoop"
       EPout Column: "Design Supply Temperature "
       EPstatus: "ToDo"
-      EP Notes: "Partially implemented and do not appear for the Large Office example. Bug: For ASHRAE901_HotelLarge_STD2019_Denver example the return temperature for cooling loop is lower than supply temperature."
+      EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example. Partially implemented and do not appear for the Large Office example. Bug: For ASHRAE901_HotelLarge_STD2019_Denver example the return temperature for cooling loop is lower than supply temperature."
     is_sized_using_coincident_load:
       Description: "True if the loop is sized based on coincident load"
       Data Type: "Boolean"
@@ -8180,7 +8178,7 @@ FluidLoopDesignAndControl:
       EPout Table: "PlantLoop"
       EPout Column: "Sizing option (Coincident/NonCoincident)"
       EPstatus: "ToDo"
-      EP Notes: "Bug: The value shown is 1.0 instead of either coincident or noncoincedent. Partially implemented and do not appear for the Large Office example."
+      EP Notes: "These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example. Bug: The value shown is 1.0 instead of either coincident or noncoincedent. Partially implemented and do not appear for the Large Office example."
     minimum_flow_fraction:
       Description: "Minimum fraction of full flow allowed"
       Data Type: "Numeric"
@@ -8198,7 +8196,7 @@ FluidLoopDesignAndControl:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "ToDo"
-      EP Notes: "Divide the minimum by maximum. Bug: Partially implemented and do not appear for the Large Office example."
+      EP Notes: "Divide the minimum by maximum. These were added to Component Sizing Summary - PlantLoop but only are partially implemented and do not appear for the Large Office example. Bug: Partially implemented and do not appear for the Large Office example."
     operation:
       Description: "Type of operation used by loop"
       Data Type: "<FluidLoopOperationOptions>"
@@ -12715,7 +12713,6 @@ RefrigeratedCase:
       EPout Column: ""
       EPstatus: "NotRequired"
       EP Notes: ""
-
 
 RefrigeratedCaseOptions:
   Object Type: "Enumeration"
