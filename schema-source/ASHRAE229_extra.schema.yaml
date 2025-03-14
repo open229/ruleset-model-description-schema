@@ -2119,7 +2119,7 @@ Infiltration:
       EPout Table: ""
       EPout Column: ""
       EPstatus: "PartialUsingConstant"
-      EP Notes: "Set to WEATHER_DRIVEN for ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient and set to PRESSURE_BASED for airflow network"
+      EP Notes: "Set to WEATHER_DRIVEN for ZoneInfiltration:DesignFlowRate, ZoneInfiltration:EffectiveLeakageArea, ZoneInfiltration:FlowCoefficient and set to PRESSURE_BASED for airflow network. If coeffients are constant then could use CONSTANT_SCHEDULED and if schedule is absent then it could just be CONSTANT."
     algorithm_name:
       Description: "Name of the algorithm used for modeling infiltration in the specific simulation engine."
       Data Type: "String"
