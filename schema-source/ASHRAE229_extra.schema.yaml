@@ -6796,6 +6796,9 @@ EnergySourceOptions:
       Description: "Propane"
     FUEL_OIL:
       Description: "Fuel oil"
+    STEAM:
+      Description: "Steam" 
+      Notes: "Only applicable for absorption chillers"
     NONE:
       Description: "None"
       Notes: "No energy consumption by a utility supplied source occurs"
