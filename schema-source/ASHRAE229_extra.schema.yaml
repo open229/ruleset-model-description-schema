@@ -5372,6 +5372,7 @@ ChillerCompressorOptions:
       Description: "Scroll"
     POSITIVE_DISPLACEMENT:
       Description: "Positive displacement"
+      Notes: "Only use the POSITIVE_DISPLACEMENT enumerator when the chiller is positive displacement but it is not known whether it is RECIPROCATING, SCREW, or SCROLL."
     SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
       Description: "Single-effect indirect-fired absorption"
     DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
