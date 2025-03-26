@@ -3171,10 +3171,10 @@ HeatingMetricOptions:
     HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE:
       Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb"
     HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_HIGH_TEMPERATURE_NO_FAN:
-      Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan"
+      Description: "Efficiency not including fan at 8.3C/47F dry bulb and 6.1C/43F wet bulb"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE_NO_FAN:
-      Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan"
+      Description: "Efficiency  not including fanat -8.3C/17F dry bulb and -9.4C/15F wet bulb"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     THERMAL_EFFICIENCY:
       Description: "Et - thermal efficiency"
@@ -3188,10 +3188,19 @@ HeatingMetricOptions:
       Description: "HSPF2 - heating seasonal perfomrance factor 2"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP_NO_FAN:
+      Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
       Description: "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
       Description: "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-2"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
@@ -3391,7 +3400,7 @@ CoolingMetricOptions:
     FULL_LOAD_COEFFICIENT_OF_PERFORMANCE:
       Description: "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions"
     FULL_LOAD_COEFFICIENT_OF_PERFORMANCE_NO_FAN:
-      Description: "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions not including indoor fan power"
+      Description: "Full load efficiency expressed as a coefficient of performance not including indoor fan power at 35C/95F rated conditions"
       Notes: "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     ENERGY_EFFICIENCY_RATIO:
       Description: "EER - Energy efficiency ratio"
@@ -3407,10 +3416,19 @@ CoolingMetricOptions:
       Description: "CEER - Combined energy efficiency ratio"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
       Description: "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
       Description: "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-2"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
