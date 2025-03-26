@@ -557,7 +557,7 @@ Building:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     building_open_schedule:
-      Description: "Reference to the schedule indicating when the building is open"
+      Description: "ID of the Schedule indicating when the building is open"
       Data Type: "Reference"
       Notes: "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -811,7 +811,7 @@ Zone:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     thermostat_cooling_setpoint_schedule:
-      Description: "Reference to the schedule containing the cooling setpoint temperatures"
+      Description: "ID of the Schedule containing the cooling setpoint temperatures"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat cooling setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -830,7 +830,7 @@ Zone:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     thermostat_heating_setpoint_schedule:
-      Description: "Reference to the schedule containing the heating setpoint temperatures"
+      Description: "ID of the Schedule containing the heating setpoint temperatures"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat heating setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -839,7 +839,7 @@ Zone:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     minimum_humidity_setpoint_schedule:
-      Description: "Reference to the schedule containing the minimum relative humidity setpoint"
+      Description: "ID of the Schedule containing the minimum relative humidity setpoint"
       Data Type: "Reference"
       Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
@@ -849,7 +849,7 @@ Zone:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     maximum_humidity_setpoint_schedule:
-      Description: "Reference to the schedule containing the maximum relative humidity setpoint"
+      Description: "ID of the Schedule containing the maximum relative humidity setpoint"
       Data Type: "Reference"
       Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
@@ -868,7 +868,7 @@ Zone:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     served_by_service_water_heating_system:
-      Description: "A service water heating system distribution serving the zone"
+      Description: "ID of the ServiceWaterHeatingDistributionSystem serving the zone"
       Data Type: "Reference"
       Notes: "Contains the ID of the service water heating distribution system serving the zone. The ID is a unique identification for a specific ServiceWaterHeatingSystem data group. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
       RMD Test: "unknown"
@@ -887,7 +887,7 @@ Zone:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
     transfer_airflow_source_zone:
-      Description: "ID of the source zone for transfer air."
+      Description: "ID of the Zone for the source of transfer air."
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -1012,7 +1012,7 @@ Space:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     occupant_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for the number of occupants"
+      Description: "ID of the Schedule containing the multiplier for the number of occupants"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -1220,7 +1220,7 @@ Infiltration:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     multiplier_schedule:
-      Description: "Referenced to the schedule containing the multiplier for the infiltration"
+      Description: "ID of the Schedule containing the multiplier for the infiltration"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
@@ -1333,7 +1333,7 @@ Surface:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     adjacent_zone:
-      Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
+      Description: "ID of the adjacent Zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "Reference"
       Notes: "Each interior surface between two zones should be described only once as a surface. No duplication of an interior surface facing each zone is necessary. Constraint to use when implemented :Zone:"
       RMD Test: False
@@ -2041,7 +2041,7 @@ InteriorLighting:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     lighting_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for lighting"
+      Description: "ID of the Schedule containing the multiplier for lighting"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -2160,7 +2160,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
+      Description: "ID of the Schedule containing the multiplier for miscellaneous equipment power in the space."
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
@@ -2189,7 +2189,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     remaining_fraction_to_loop:
-      Description: "Referenced to the water fluid loop for the remaining fraction"
+      Description: "ID of the FluidLoop for the remaining fraction"
       Data Type: "Reference"
       Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -2198,7 +2198,7 @@ MiscellaneousEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     energy_from_loop:
-      Description: "Referenced to the loop serving as the source of energy"
+      Description: "ID of the FluidLoop serving as the source of energy"
       Data Type: "Reference"
       Notes: "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -2598,7 +2598,7 @@ Weather:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     ground_temperature_schedule:
-      Description: "Ground temperature schedule name"
+      Description: "ID of the Schedule containing ground temperatures"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -2735,7 +2735,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     motor_location_zone:
-      Description: "Zone where the heat from the motor goes"
+      Description: "ID of the Zone where the heat from the motor goes"
       Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the elevator motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -2753,7 +2753,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     cab_location_zone:
-      Description: "Zone where the heat from the cab goes"
+      Description: "ID of the Zone where the heat from the cab goes"
       Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -2852,7 +2852,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     cab_motor_multiplier_schedule:
-      Description: "Elevator motor operation multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for the elevator motor operation"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -2861,7 +2861,7 @@ Elevator:
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
     cab_lighting_multiplier_schedule:
-      Description: "Elevator lighting multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for the elevator lighting"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -3009,7 +3009,7 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     hot_water_loop:
-      Description: "Referenced to the hot water fluid loop"
+      Description: "ID of the FluidLoop providing the hot water"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -3018,7 +3018,7 @@ HeatingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     water_source_heat_pump_loop:
-      Description: "Referenced to the water fluid loop to support water source heat pumps"
+      Description: "ID of the FluidLoop containing water source heat pumps"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -3312,7 +3312,7 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     chilled_water_loop:
-      Description: "Referenced to the Chilled water fluid loop"
+      Description: "ID of the FluidLoop providing chilled water"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -3321,7 +3321,7 @@ CoolingSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     condenser_water_loop:
-      Description: "Referenced to the Condenser water fluid loop"
+      Description: "ID of the FluidLoop providing condenser water"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -3582,7 +3582,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     supply_air_temperature_reset_schedule:
-      Description: "Supply air temperature reset schedule"
+      Description: "ID of the Schedule for the supply air temperature reset"
       Data Type: "Reference"
       Notes: "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -3608,7 +3608,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     operating_schedule:
-      Description: "Operating schedule name"
+      Description: "ID of the Schedule indicating operation"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the fansystem  is always operating. Schedule values of zero when fan is scheduled to be off and one when the fan is scheduled to be on. While a zero indicates the fan is off, it may still be activated during that hour by other controls such as providing fan cycling at night to maintain the unoccupied set point. No values beside 0 and 1 are allowed. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -4103,7 +4103,7 @@ Fan:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     motor_location_zone:
-      Description: "Zone where the heat from the motor goes"
+      Description: "ID of the Zone where the heat from the motor goes"
       Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the fan motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -4202,7 +4202,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     served_by_heating_ventilating_air_conditioning_system:
-      Description: "HVAC system serving the terminal"
+      Description: "ID of the HeatingVentilatingAirConditioningSystem serving the terminal"
       Data Type: "Reference"
       Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilatingAirConditioningSystem. Constraint to use when implemented :HeatingVentilatingAirConditioningSystem:"
       RMD Test: "Primary"
@@ -4220,7 +4220,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     heating_from_loop:
-      Description: "References the fluid loop used to provide heating"
+      Description: "ID of the FluidLoop providing heating"
       Data Type: "Reference"
       Notes: "Only used when heating_source is hot water. Used for terminal heating including reheat. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -4238,7 +4238,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     cooling_from_loop:
-      Description: "Referenced the fluid loop used to provide cooling"
+      Description: "ID of the FluidLoop providing cooling"
       Data Type: "Reference"
       Notes: "Only used when cooling_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -4338,7 +4338,7 @@ Terminal:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     minimum_outdoor_airflow_multiplier_schedule:
-      Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for zone terminal minimum outdoor air volume airflow"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Often used to indicate the reduced flow needed when the space has reduced occupancy when a demand controlled ventilation control is used. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -4603,7 +4603,7 @@ FluidLoopDesignAndControl:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     operation_schedule:
-      Description: "Operation schedule"
+      Description: "ID of the Schedule describing operation"
       Data Type: "Reference"
       Notes: "One represents when the fluid loop is availble to be operating and zero when not available to be operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -4761,7 +4761,7 @@ Pump:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     loop_or_piping:
-      Description: "Referenced to the fluid loop or service water heating piping"
+      Description: "ID of the FluidLoop or ServiceWaterPiping connected to the Pump"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
@@ -4941,7 +4941,7 @@ Boiler:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "ID of the FluidLoop connected to the Boiler"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -5131,7 +5131,7 @@ Chiller:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     cooling_loop:
-      Description: "Referenced to the cooling fluid loop"
+      Description: "ID of the FluidLoop connected to the Chiller for supplying chilled water"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -5141,7 +5141,7 @@ Chiller:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     condensing_loop:
-      Description: "Referenced to the condensing fluid loop"
+      Description: "ID of the FluidLoop connected to the Chiller that provides condensing water"
       Data Type: "Reference"
       Notes: "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -5323,7 +5323,7 @@ Chiller:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     heat_recovery_loop:
-      Description: "Recovered heat to fluid loop"
+      Description: "ID of the FluidLoop connected to the chiller for supplying recovered heat"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -5515,7 +5515,7 @@ HeatRejection:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "ID of the FluidLoop connected to the HeatRejection"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -5711,7 +5711,7 @@ ExternalFluidSource:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "ID of the FluidLoop connected to the ExternalFluidSource"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -5879,7 +5879,7 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     flow_multiplier_schedule:
-      Description: "service water heating Loop flow muliplier schedule name"
+      Description: "ID of the Schedule containing a multiplier for the service water heating loop flow"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -5888,9 +5888,9 @@ ServiceWaterHeatingDistributionSystem:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     entering_water_mains_temperature_schedule:
-      Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
+      Description: "ID of the Schedule containing the temperature for unheated entering water to the building site often referenced as mains temperature"
       Data Type: "Reference"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "Constraint to use when implemented ::"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6015,7 +6015,7 @@ ServiceWaterPiping:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     location_zone:
-      Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
+      Description: "ID of the Zone where the piping is located when IN_ZONE is selected from ComponentLocationOptions"
       Data Type: "Reference"
       Notes: "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -6185,7 +6185,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     distribution_system:
-      Description: "Referenced to the service water heating distribution system"
+      Description: "ID of the ServiceWaterHeatingDistributionSystem connected to the ServiceWaterHeatingEquipment"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
@@ -6298,7 +6298,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     compressor_zone:
-      Description: "Zone reference of where the heat pump for the water heater is located"
+      Description: "ID of the Zone where the heat pump for the water heater is located"
       Data Type: "Reference"
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -6316,7 +6316,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     compressor_heat_rejection_zone:
-      Description: "Heat pump heat rejection zone"
+      Description: "ID of the Zone for rejecting heat pump heat"
       Data Type: "Reference"
       Notes: "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Res. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -6385,7 +6385,7 @@ ServiceWaterHeatingEquipment:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     hot_water_loop:
-      Description: "Referenced to the hot water fluid loop"
+      Description: "ID of the FluidLoop for hot water"
       Data Type: "Reference"
       Notes: "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -6680,7 +6680,7 @@ Tank:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     location_zone:
-      Description: "Tank zone location"
+      Description: "ID of the Zone containing the Tank"
       Data Type: "Reference"
       Notes: "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -6763,7 +6763,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     served_by_distribution_system:
-      Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
+      Description: "ID of the ServiceWaterHeatingDistributionSystem that serves this end use"
       Data Type: "Reference"
       Required: True
       Notes: "From CBECC-Res. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
@@ -6790,7 +6790,7 @@ ServiceWaterHeatingUse:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     use_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for the use of service hot water"
+      Description: "ID of the Schedule containing the multiplier for the use of service hot water"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -6979,7 +6979,7 @@ ExteriorLighting:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for exterior lighting"
+      Description: "ID of the Schedule containing the multiplier for exterior lighting"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -7063,7 +7063,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     power_multiplier_schedule:
-      Description: "Refrigerated case power multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for refrigerated case power"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -7090,7 +7090,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     volume:
-      Description: "volume of a refrigerated case in cubic meters"
+      Description: "Volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
       Units: "m3"
       RMD Test: "unknown"
@@ -7099,7 +7099,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     total_display_area:
-      Description: "display area of a refrigerated case in square meters"
+      Description: "Display area of a refrigerated case in square meters"
       Data Type: "Numeric"
       Units: "m2"
       RMD Test: "unknown"
@@ -7108,7 +7108,7 @@ RefrigeratedCase:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     zone:
-      Description: "Zone where case is located"
+      Description: "ID of the Zone where the RefrigeratedCase is located"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
