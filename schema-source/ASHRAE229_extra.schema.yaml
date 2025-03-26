@@ -904,10 +904,28 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+    exhaust_airflow_rate_multiplier_schedules:
+      Description: "A list of IDs for Schedules containing the multipliers for the zonal supply airflow rates"
+      Data Type: "Reference"
+      Notes: "Each schedule corresponds to the list in zonal_supply_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
     zonal_exhaust_fans:
       Description: "A list of zonal exhaust fans"
       Data Type: "[{Fan}]"
       Notes: "A list of references to one or more fans that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+    exhaust_airflow_rate_multiplier_schedules:
+      Description: "A list of IDs for Schedules containing the multipliers for the zonal exhaust airflow rates"
+      Data Type: "Reference"
+      Notes: "Each schedule corresponds to the list in zonal_exhaust_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2851,6 +2869,15 @@ Elevator:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+    cab_ventilation_fan_multiplier_schedule:
+      Description: "ID of the Schedule containg the multipler for elevator ventilation fan operation"
+      Data Type: "Reference"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: True
     cab_motor_multiplier_schedule:
       Description: "ID of the Schedule containing the multiplier for the elevator motor operation"
       Data Type: "Reference"
@@ -3995,15 +4022,6 @@ Fan:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    airflow_rate_multiplier_schedule:
-      Description: "Reference to a schedule containing the multiplier for the airflow rate"
-      Data Type: "[Reference]"
-      Notes: "Only used when fan is referenced outside of a FanSystem. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: True
     is_airflow_calculated:
       Description: "True if the airflow is sized by software"
       Data Type: "Boolean"
