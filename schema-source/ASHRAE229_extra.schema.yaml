@@ -5479,9 +5479,9 @@ ChillerFunctionOptions:
     HOT_WATER_ONLY:
       Description: "Hot water only"
       Notes: "Chiller is being used exclusively as a heat pump instead of a boiler."
-    CHILLED_AND_HOT_WATER:
-      Description: "Chilled and hot water"
-      Notes: "Chiller can produce either chilled or hot water."
+    CHILLED_OR_HOT_WATER:
+      Description: "Chilled or hot water"
+      Notes: "Chiller is reversible and can produce either chilled or hot water."
     OTHER:
       Description: "Other"
 
