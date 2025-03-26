@@ -2329,8 +2329,8 @@ Schedule:
       AppG B_RMDs Same: True
     hourly_heating_design_year:
       Description: "Hourly values for heating design year"
-      Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
+      Data Type: "[Numeric/Null][0..8784]"
+      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2347,8 +2347,8 @@ Schedule:
       AppG B_RMDs Same: True
     hourly_cooling_design_year:
       Description: "Hourly values for cooling design year"
-      Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
+      Data Type: "[Numeric/Null][0..8784]"
+      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -3047,9 +3047,9 @@ HeatingSystem:
       AppG B_RMDs Same: True
     heatpump_low_shutoff_temperature:
       Description: "Heatpump low temperature shutoff"
-      Data Type: "Numeric"
+      Data Type: "Numeric/Null"
       Units: "C"
-      Notes: "The heat pump is available at above this outdoor temperature to satsify the load. The heat pump is always energized first to meet any heating load prior to the use of auxiliary heat. For heat pumps with no lower temperature limit, this value should not be provided or else set to -999."
+      Notes: "The heat pump is available at above this outdoor temperature to satsify the load. The heat pump is always energized first to meet any heating load prior to the use of auxiliary heat. For heat pumps with no lower temperature limit, this value should not be provided or else set to Null."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
