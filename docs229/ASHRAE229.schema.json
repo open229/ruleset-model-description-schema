@@ -7,6 +7,10 @@
             "type": "string",
             "pattern": "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}Z"
         },
+        "Version": {
+            "type": "string",
+            "pattern": "(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?"
+        },
         "RulesetProjectDescription": {
             "type": "object",
             "properties": {
@@ -86,6 +90,7 @@
             "properties": {
                 "id": {
                     "description": "Unique data set identifier",
+                    "type": "string",
                     "notes": "Assigned by *data publisher* to identify this data. `id` shall remain unchanged for revisions of the same data."
                 },
                 "schema_author": {
@@ -100,6 +105,7 @@
                 },
                 "schema_version": {
                     "description": "The version of the schema the data complies with",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Version",
                     "notes": "Common versions may include 0.0.36 from the first public review period. This is the value of the version field in the top of the ASRAE229.schema.json file or the version in the ASHRAE229.schema.yaml Schema data group."
                 },
                 "schema_url": {
@@ -123,6 +129,7 @@
                 },
                 "version": {
                     "description": "Integer version identifier for the data",
+                    "$ref": "ASHRAE229.schema.json#/definitions/Version",
                     "notes": "Used by data publisher to track revisions of the data. Shall be incremented for each data revision"
                 },
                 "source": {
@@ -381,7 +388,7 @@
                     "notes": "Contains a list of refrigerated cases in the building."
                 },
                 "building_open_schedule": {
-                    "description": "Reference to the schedule indicating when the building is open",
+                    "description": "ID of the Schedule indicating when the building is open",
                     "type": "string",
                     "notes": "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
                 },
@@ -480,16 +487,9 @@
                     "description": "List of service water heating uses",
                     "type": "array",
                     "items": {
-                        "oneOf": [
-                            {
-                                "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUse"
-                            },
-                            {
-                                "type": "string"
-                            }
-                        ]
+                        "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUse"
                     },
-                    "notes": "This data element also appears in Space. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
+                    "notes": "This data element also appears in Space. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. A ServiceWaterHeatingUse that has one of the following unit types: [POWER_PER_PERSON, POWER_PER_AREA, VOLUME_PER_PERSON, VOLUME PER AREA] AND has not been explicitly referenced by any spaces is assumed to apply to each space in the building segment. A ServiceWaterHeatingUse that is referenced by one or more spaces will be applied only to those spaces. A ServiceWaterHeatingUse with units POWER, VOLUME, or OTHER will be applied only once to the entire building segment. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
                 }
             },
             "required": [
@@ -557,7 +557,7 @@
                     "notes": "The cooling setpoint temperature for the zone at design conditions."
                 },
                 "thermostat_cooling_setpoint_schedule": {
-                    "description": "Reference to the schedule containing the cooling setpoint temperatures",
+                    "description": "ID of the Schedule containing the cooling setpoint temperatures",
                     "type": "string",
                     "notes": "If the schedule is not present, the design thermostat cooling setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
                 },
@@ -568,19 +568,19 @@
                     "notes": "The heating setpoint temperature for the zone at design conditions."
                 },
                 "thermostat_heating_setpoint_schedule": {
-                    "description": "Reference to the schedule containing the heating setpoint temperatures",
+                    "description": "ID of the Schedule containing the heating setpoint temperatures",
                     "type": "string",
                     "notes": "If the schedule is not present, the design thermostat heating setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
                 },
                 "minimum_humidity_setpoint_schedule": {
-                    "description": "Reference to the schedule containing the minimum relative humidity setpoint",
+                    "description": "ID of the Schedule containing the minimum relative humidity setpoint",
                     "type": "string",
                     "minimum": 0,
                     "maximum": 1,
                     "notes": "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
                 },
                 "maximum_humidity_setpoint_schedule": {
-                    "description": "Reference to the schedule containing the maximum relative humidity setpoint",
+                    "description": "ID of the Schedule containing the maximum relative humidity setpoint",
                     "type": "string",
                     "minimum": 0,
                     "maximum": 1,
@@ -595,7 +595,7 @@
                     "notes": "Multiple terminals may be used such as from a VAV system, a DOAS, and a baseboard."
                 },
                 "served_by_service_water_heating_system": {
-                    "description": "A service water heating system distribution serving the zone",
+                    "description": "ID of the ServiceWaterHeatingDistributionSystem serving the zone",
                     "type": "string",
                     "notes": "Contains the ID of the service water heating distribution system serving the zone. The ID is a unique identification for a specific ServiceWaterHeatingSystem data group. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
                 },
@@ -606,7 +606,7 @@
                     "notes": "Net transfer air. Positive values indicate transfer air in to the zone and negative values show transfer out of the zone."
                 },
                 "transfer_airflow_source_zone": {
-                    "description": "ID of the source zone for transfer air.",
+                    "description": "ID of the Zone for the source of transfer air.",
                     "type": "string",
                     "notes": "Constraint to use when implemented :Zone:"
                 },
@@ -617,6 +617,11 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/Fan"
                     },
                     "notes": "A list of references to one or more fans that is used to supply air to the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
+                },
+                "exhaust_airflow_rate_multiplier_schedules": {
+                    "description": "A list of IDs for Schedules containing the multipliers for the zonal exhaust airflow rates",
+                    "type": "string",
+                    "notes": "Each schedule corresponds to the list in zonal_exhaust_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
                 "zonal_exhaust_fans": {
                     "description": "A list of zonal exhaust fans",
@@ -695,7 +700,7 @@
                     "minimum": 0.0
                 },
                 "occupant_multiplier_schedule": {
-                    "description": "Reference to the schedule containing the multiplier for the number of occupants",
+                    "description": "ID of the Schedule containing the multiplier for the number of occupants",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
@@ -753,7 +758,7 @@
                             }
                         ]
                     },
-                    "notes": "This data element also appears in BuildingSegment. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
+                    "notes": "This data element also appears in BuildingSegment. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. References must refer to a ServiceWaterHeatingUse at the BuildingSegment level and that BuildingSegment must be the BuildingSegment to which this space belongs. ServiceWaterHeatingUses stored at the space level may only be used for this space and may not be referenced by other spaces. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
                 }
             },
             "required": [
@@ -863,7 +868,7 @@
                     "notes": "Infiltration flow rate for simulation infiltration models unadjusted for temperature difference or windspeed or schedule often with a windspeed at 10 mph (4.5 m/s).  This may vary in meaning between simulation engines. If a zone includes multiple spaces and infiltration is specified at the space level the rates should be aggregated to the zone."
                 },
                 "multiplier_schedule": {
-                    "description": "Referenced to the schedule containing the multiplier for the infiltration",
+                    "description": "ID of the Schedule containing the multiplier for the infiltration",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone. Constraint to use when implemented :Schedule:"
                 }
@@ -955,7 +960,7 @@
                     "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used. Commonly, plenums do not need to be explicitly described for many rulesets and instead when a plenum is present in the simulation model, this field should be set to the what is adjacent to the other side of the plenum. For example, on the top floor with a plenum, EXTERIOR would be entered."
                 },
                 "adjacent_zone": {
-                    "description": "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR.",
+                    "description": "ID of the adjacent Zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR.",
                     "type": "string",
                     "notes": "Each interior surface between two zones should be described only once as a surface. No duplication of an interior surface facing each zone is necessary. Constraint to use when implemented :Zone:"
                 },
@@ -1485,7 +1490,7 @@
                     "notes": "When computing the power per area use the area of the entire space."
                 },
                 "lighting_multiplier_schedule": {
-                    "description": "Reference to the schedule containing the multiplier for lighting",
+                    "description": "ID of the Schedule containing the multiplier for lighting",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
@@ -1585,7 +1590,7 @@
                     "notes": "The value of power for the miscellaneous equipment in the space that when multiplied by the schedule is the consumption of power (for electricity or other energy_type's) for each period in the schedule."
                 },
                 "multiplier_schedule": {
-                    "description": "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space.",
+                    "description": "ID of the Schedule containing the multiplier for miscellaneous equipment power in the space.",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
@@ -1604,12 +1609,12 @@
                     "notes": "Sensible plus latent do not necessarily add up to 1.0."
                 },
                 "remaining_fraction_to_loop": {
-                    "description": "Referenced to the water fluid loop for the remaining fraction",
+                    "description": "ID of the FluidLoop for the remaining fraction",
                     "type": "string",
                     "notes": "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
                 },
                 "energy_from_loop": {
-                    "description": "Referenced to the loop serving as the source of energy",
+                    "description": "ID of the FluidLoop serving as the source of energy",
                     "type": "string",
                     "notes": "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
                 },
@@ -1767,11 +1772,14 @@
                     "description": "Hourly values for heating design year",
                     "type": "array",
                     "items": {
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "minItems": 0,
                     "maxItems": 8784,
-                    "notes": "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
+                    "notes": "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
                 },
                 "hourly_cooling_design_day": {
                     "description": "Hourly values for cooling design day",
@@ -1787,11 +1795,14 @@
                     "description": "Hourly values for cooling design year",
                     "type": "array",
                     "items": {
-                        "type": "number"
+                        "type": [
+                            "number",
+                            "null"
+                        ]
                     },
                     "minItems": 0,
                     "maxItems": 8784,
-                    "notes": "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
+                    "notes": "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
                 },
                 "event_times": {
                     "description": "Event times when the schedule changes",
@@ -1946,7 +1957,7 @@
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "ground_temperature_schedule": {
-                    "description": "Ground temperature schedule name",
+                    "description": "ID of the Schedule containing ground temperatures",
                     "type": "string",
                     "notes": "Constraint to use when implemented :Schedule:"
                 },
@@ -2045,7 +2056,7 @@
                     "minimum": 1.0
                 },
                 "motor_location_zone": {
-                    "description": "Zone where the heat from the motor goes",
+                    "description": "ID of the Zone where the heat from the motor goes",
                     "type": "string",
                     "notes": "When specified, it is the zone the heat from the elevator motor get added to. Constraint to use when implemented :Zone:"
                 },
@@ -2056,7 +2067,7 @@
                     "maximum": 1.0
                 },
                 "cab_location_zone": {
-                    "description": "Zone where the heat from the cab goes",
+                    "description": "ID of the Zone where the heat from the cab goes",
                     "type": "string",
                     "notes": "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat. Constraint to use when implemented :Zone:"
                 },
@@ -2111,13 +2122,18 @@
                     "description": "Ventilation fan for the cab",
                     "$ref": "ASHRAE229.schema.json#/definitions/Fan"
                 },
+                "cab_ventilation_fan_multiplier_schedule": {
+                    "description": "ID of the Schedule containg the multipler for elevator ventilation fan operation",
+                    "type": "string",
+                    "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+                },
                 "cab_motor_multiplier_schedule": {
-                    "description": "Elevator motor operation multiplier schedule name",
+                    "description": "ID of the Schedule containing the multiplier for the elevator motor operation",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
                 "cab_lighting_multiplier_schedule": {
-                    "description": "Elevator lighting multiplier schedule name",
+                    "description": "ID of the Schedule containing the multiplier for the elevator lighting",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 }
@@ -2216,12 +2232,12 @@
                     "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
                 },
                 "hot_water_loop": {
-                    "description": "Referenced to the hot water fluid loop",
+                    "description": "ID of the FluidLoop providing the hot water",
                     "type": "string",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
                 "water_source_heat_pump_loop": {
-                    "description": "Referenced to the water fluid loop to support water source heat pumps",
+                    "description": "ID of the FluidLoop containing water source heat pumps",
                     "type": "string",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
@@ -2284,9 +2300,12 @@
                 },
                 "heatpump_low_shutoff_temperature": {
                     "description": "Heatpump low temperature shutoff",
-                    "type": "number",
+                    "type": [
+                        "number",
+                        "null"
+                    ],
                     "units": "C",
-                    "notes": "The heat pump is available at above this outdoor temperature to satsify the load. The heat pump is always energized first to meet any heating load prior to the use of auxiliary heat. For heat pumps with no lower temperature limit, this value should not be provided or else set to -999."
+                    "notes": "The heat pump is available at above this outdoor temperature to satsify the load. The heat pump is always energized first to meet any heating load prior to the use of auxiliary heat. For heat pumps with no lower temperature limit, this value should not be provided or else set to Null."
                 }
             },
             "required": [
@@ -2354,8 +2373,11 @@
                 "HEATING_SEASONAL_PERFORMANCE_FACTOR",
                 "HEATING_SEASONAL_PERFORMANCE_FACTOR_2",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP_NO_FAN",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER_NO_FAN",
                 "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP_NO_FAN",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER",
                 "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP",
@@ -2365,16 +2387,19 @@
             "descriptions": [
                 "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb",
                 "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb",
-                "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan",
-                "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan",
+                "Efficiency not including fan at 8.3C/47F dry bulb and 6.1C/43F wet bulb",
+                "Efficiency  not including fanat -8.3C/17F dry bulb and -9.4C/15F wet bulb",
                 "Et - thermal efficiency",
                 "Ec - combustion` efficiency",
                 "AFUE - annual fuel utilization efficiency",
                 "HSPF - heating seasonal perfomrance factor",
                 "HSPF2 - heating seasonal perfomrance factor 2",
                 "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1",
+                "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1",
                 "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance not including fan at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1",
                 "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance not including fan at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1",
                 "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-2",
                 "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-2",
                 "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-2",
@@ -2392,8 +2417,11 @@
                 null,
                 null,
                 null,
+                "Used for heat pump and descibes the efficiency not including the indoor supply fan.",
                 null,
+                "Used for heat pump and descibes the efficiency not including the indoor supply fan.",
                 null,
+                "Used for heat pump and descibes the efficiency not including the indoor supply fan.",
                 null,
                 null,
                 null,
@@ -2460,12 +2488,12 @@
                     "notes": "Determined in accordance with generally accepted engineering standards. For capacities determinined by software, including the simulation software, this should be true. For capacities that are autosized values should be true. Typically when true, the sizing is based on one or more design days, or other time periods, and should be consistent with the weather.cooling_design_day_type. For capacities reflecting the an actual piece of equipment this should be false."
                 },
                 "chilled_water_loop": {
-                    "description": "Referenced to the Chilled water fluid loop",
+                    "description": "ID of the FluidLoop providing chilled water",
                     "type": "string",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
                 "condenser_water_loop": {
-                    "description": "Referenced to the Condenser water fluid loop",
+                    "description": "ID of the FluidLoop providing condenser water",
                     "type": "string",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
@@ -2547,8 +2575,11 @@
                 "INTEGRATED_PART_LOAD_VALUE",
                 "COMBINED_ENERGY_EFFICIENCY_RATIO",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP_NO_FAN",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER",
+                "COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER_NO_FAN",
                 "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP",
+                "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP_NO_FAN",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP",
                 "COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER",
                 "COEFFICIENT_OF_PERFORMANCE_BRINE_TO_WATER_GROUND_LOOP",
@@ -2557,7 +2588,7 @@
             ],
             "descriptions": [
                 "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions",
-                "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions not including indoor fan power",
+                "Full load efficiency expressed as a coefficient of performance not including indoor fan power at 35C/95F rated conditions",
                 "EER - Energy efficiency ratio",
                 "SEER - Seasonal energy efficiency ratio",
                 "SEER2 - Seasonal energy efficiency ratio 2",
@@ -2565,8 +2596,11 @@
                 "IPLV - Integrated part load value",
                 "CEER - Combined energy efficiency ratio",
                 "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1",
+                "Coefficient of performance not including fan at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1",
                 "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance not including fan at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1",
                 "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1",
+                "Coefficient of performance not including fan at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1",
                 "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-2",
                 "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-2",
                 "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-2",
@@ -2583,8 +2617,11 @@
                 null,
                 null,
                 null,
+                "Used for heat pump and descibes the efficiency not including the indoor supply fan.",
                 null,
+                "Used for heat pump and descibes the efficiency not including the indoor supply fan.",
                 null,
+                "Used for heat pump and descibes the efficiency not including the indoor supply fan.",
                 null,
                 null,
                 null,
@@ -2681,7 +2718,7 @@
                     "notes": "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE, this is the threshold fraction below which supply air temperature reset begins.  Between the stated load fraction and 0% load the supply air temperature is ramped linearally until the supply air temperature reaches the zone. The supply air temperature is specified in Terminal."
                 },
                 "supply_air_temperature_reset_schedule": {
-                    "description": "Supply air temperature reset schedule",
+                    "description": "ID of the Schedule for the supply air temperature reset",
                     "type": "string",
                     "notes": "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
                 },
@@ -2695,7 +2732,7 @@
                     "notes": "When fan_volume_reset_type is DESIGN_LOAD_RESET this is the fraction of the design load that corresponds to minimum air flow. When fan_volume_reset_type is OPERATING_CAPACITY_RESET this is the fraction of the instanteous operating capacity that corresponds to minimum air flow."
                 },
                 "operating_schedule": {
-                    "description": "Operating schedule name",
+                    "description": "ID of the Schedule indicating operation",
                     "type": "string",
                     "notes": "If the schedule is not present, the fansystem  is always operating. Schedule values of zero when fan is scheduled to be off and one when the fan is scheduled to be on. While a zero indicates the fan is off, it may still be activated during that hour by other controls such as providing fan cycling at night to maintain the unoccupied set point. No values beside 0 and 1 are allowed. Constraint to use when implemented :Schedule:"
                 },
@@ -3009,14 +3046,6 @@
                     "units": "L/s",
                     "notes": "The design airlow may be determined by sizing performed by the software. This value should be provided if sized by the simulation software as an output or explicitly provided as a simulation input."
                 },
-                "airflow_rate_multiplier_schedule": {
-                    "description": "Reference to a schedule containing the multiplier for the airflow rate",
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "notes": "Only used when fan is referenced outside of a FanSystem. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-                },
                 "is_airflow_calculated": {
                     "description": "True if the airflow is sized by software",
                     "type": "boolean",
@@ -3080,7 +3109,7 @@
                     "notes": "Fraction to airflow plus fraction to zone do not necessarily add up to 1.0."
                 },
                 "motor_location_zone": {
-                    "description": "Zone where the heat from the motor goes",
+                    "description": "ID of the Zone where the heat from the motor goes",
                     "type": "string",
                     "notes": "When specified, it is the zone the heat from the fan motor get added to. Constraint to use when implemented :Zone:"
                 },
@@ -3157,7 +3186,7 @@
                     "notes": "System configurations that typically are at the zone and include a compressor (such as packaged terminal air conditioning, packaged terminal heat pumps, window air conditioning units, and water loop heat pumps) should be reported in the schema using HeatingSystem and CoolingSystem. Systems that include gas or electric furnaces should be reported in the schema using HeatingSystem. Distributed systems where each zone is individually served by dedicated fans and/or coils (such as four-pipe fan coil, two-pipe fan coil, radiant systems, baseboards, chilled beams, and variable refrigerant flow indoor units) should be reported in the schema using Terminal with the cooling and heating described in the cooling_source and heating_source data elements (and any other relevant Terminal Data elements). Evaporative cooling systems should be described in CoolingSystem. Passive diffusers with no coil or fan should be described in Terminal."
                 },
                 "served_by_heating_ventilating_air_conditioning_system": {
-                    "description": "HVAC system serving the terminal",
+                    "description": "ID of the HeatingVentilatingAirConditioningSystem serving the terminal",
                     "type": "string",
                     "notes": "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilatingAirConditioningSystem. Constraint to use when implemented :HeatingVentilatingAirConditioningSystem:"
                 },
@@ -3167,7 +3196,7 @@
                     "notes": "Used for terminal heating including reheat."
                 },
                 "heating_from_loop": {
-                    "description": "References the fluid loop used to provide heating",
+                    "description": "ID of the FluidLoop providing heating",
                     "type": "string",
                     "notes": "Only used when heating_source is hot water. Used for terminal heating including reheat. Constraint to use when implemented :FluidLoop:"
                 },
@@ -3177,7 +3206,7 @@
                     "notes": "Used for terminal cooling."
                 },
                 "cooling_from_loop": {
-                    "description": "Referenced the fluid loop used to provide cooling",
+                    "description": "ID of the FluidLoop providing cooling",
                     "type": "string",
                     "notes": "Only used when cooling_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
                 },
@@ -3233,7 +3262,7 @@
                     "notes": "This value should be provided if fan airflow determined by sizing performed by the software or explicitly provided. This should be the design flow of outdoor air based on an occupied space using the appropriate ventilation standard such as ASHRAE Standard 62.1. Adjustments to lower the value for demand controlled ventilation should be made using the minimum_outdoor_airflow_multiplier_schedule."
                 },
                 "minimum_outdoor_airflow_multiplier_schedule": {
-                    "description": "Zone terminal minimum outdoor air volume airflow multiplier schedule name",
+                    "description": "ID of the Schedule containing the multiplier for zone terminal minimum outdoor air volume airflow",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Often used to indicate the reduced flow needed when the space has reduced occupancy when a demand controlled ventilation control is used. Constraint to use when implemented :Schedule:"
                 },
@@ -3435,7 +3464,7 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/FluidLoopOperationOptions"
                 },
                 "operation_schedule": {
-                    "description": "Operation schedule",
+                    "description": "ID of the Schedule describing operation",
                     "type": "string",
                     "notes": "One represents when the fluid loop is availble to be operating and zero when not available to be operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule:"
                 },
@@ -3560,7 +3589,7 @@
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop_or_piping": {
-                    "description": "Referenced to the fluid loop or service water heating piping",
+                    "description": "ID of the FluidLoop or ServiceWaterPiping connected to the Pump",
                     "type": "string",
                     "notes": "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
                 },
@@ -3695,7 +3724,7 @@
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop": {
-                    "description": "Referenced to the fluid loop",
+                    "description": "ID of the FluidLoop connected to the Boiler",
                     "type": "string",
                     "notes": "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
                 },
@@ -3834,12 +3863,12 @@
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "cooling_loop": {
-                    "description": "Referenced to the cooling fluid loop",
+                    "description": "ID of the FluidLoop connected to the Chiller for supplying chilled water",
                     "type": "string",
                     "notes": "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
                 },
                 "condensing_loop": {
-                    "description": "Referenced to the condensing fluid loop",
+                    "description": "ID of the FluidLoop connected to the Chiller that provides condensing water",
                     "type": "string",
                     "notes": "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
                 },
@@ -3953,7 +3982,7 @@
                     "notes": "Should be set to true when the chiller and the condenser water pump are controlled to turn on an off at the same time."
                 },
                 "heat_recovery_loop": {
-                    "description": "Recovered heat to fluid loop",
+                    "description": "ID of the FluidLoop connected to the chiller for supplying recovered heat",
                     "type": "string",
                     "notes": "Constraint to use when implemented :FluidLoop:"
                 },
@@ -4077,6 +4106,18 @@
                 "Single-effect direct-fired absorption",
                 "Double-effect direct-fired absorption",
                 "Other"
+            ],
+            "notes": [
+                null,
+                null,
+                null,
+                null,
+                "Only use the POSITIVE_DISPLACEMENT enumerator when the chiller is positive displacement but it is not known whether it is RECIPROCATING, SCREW, or SCROLL.",
+                null,
+                null,
+                null,
+                null,
+                null
             ]
         },
         "ChillerFunctionOptions": {
@@ -4084,19 +4125,19 @@
             "enum": [
                 "CHILLED_WATER_ONLY",
                 "HOT_WATER_ONLY",
-                "CHILLED_AND_HOT_WATER",
+                "CHILLED_OR_HOT_WATER",
                 "OTHER"
             ],
             "descriptions": [
                 "Chilled water only",
                 "Hot water only",
-                "Chilled and hot water",
+                "Chilled or hot water",
                 "Other"
             ],
             "notes": [
                 "Chiller is being used as a traditional chiller to only produce chilled water.",
                 "Chiller is being used exclusively as a heat pump instead of a boiler.",
-                "Chiller can produce either chilled or hot water.",
+                "Chiller is reversible and can produce either chilled or hot water.",
                 null
             ]
         },
@@ -4117,7 +4158,7 @@
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop": {
-                    "description": "Referenced to the fluid loop",
+                    "description": "ID of the FluidLoop connected to the HeatRejection",
                     "type": "string",
                     "notes": "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
                 },
@@ -4270,7 +4311,7 @@
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
                 "loop": {
-                    "description": "Referenced to the fluid loop",
+                    "description": "ID of the FluidLoop connected to the ExternalFluidSource",
                     "type": "string",
                     "notes": "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
                 },
@@ -4381,14 +4422,14 @@
                     "notes": "From CBECC-Res."
                 },
                 "flow_multiplier_schedule": {
-                    "description": "service water heating Loop flow muliplier schedule name",
+                    "description": "ID of the Schedule containing a multiplier for the service water heating loop flow",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
                 "entering_water_mains_temperature_schedule": {
-                    "description": "Temperature schedule for unheated entering water to the building site often referenced as mains temperature.",
+                    "description": "ID of the Schedule containing the temperature for unheated entering water to the building site often referenced as mains temperature",
                     "type": "string",
-                    "notes": "Constraint to use when implemented :Schedule:"
+                    "notes": "Constraint to use when implemented ::"
                 },
                 "is_ground_temperature_used_for_entering_water": {
                     "description": "Indicates whether ground temperature is the source of the entering water temperature",
@@ -4487,7 +4528,7 @@
                     "notes": "Indicates the type of location for the component but does not indicate if it impacts the simulation, see location_zone. From CBECC-Com."
                 },
                 "location_zone": {
-                    "description": "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions",
+                    "description": "ID of the Zone where the piping is located when IN_ZONE is selected from ComponentLocationOptions",
                     "type": "string",
                     "notes": "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Com. Constraint to use when implemented :Zone:"
                 },
@@ -4596,7 +4637,7 @@
                     "$ref": "Output2019ASHRAE901.schema.json#/definitions/EnergySourceOptions"
                 },
                 "distribution_system": {
-                    "description": "Referenced to the service water heating distribution system",
+                    "description": "ID of the ServiceWaterHeatingDistributionSystem connected to the ServiceWaterHeatingEquipment",
                     "type": "string",
                     "notes": "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
                 },
@@ -4669,7 +4710,7 @@
                     "notes": "Used when compressor is not located in a specific zone. From CBECC-Com."
                 },
                 "compressor_zone": {
-                    "description": "Zone reference of where the heat pump for the water heater is located",
+                    "description": "ID of the Zone where the heat pump for the water heater is located",
                     "type": "string",
                     "notes": "From CBECC-Com. Constraint to use when implemented :Zone:"
                 },
@@ -4679,7 +4720,7 @@
                     "notes": "Indicates the type of location for the component but does not indicate if it impacts the simulation, see compressor_heat_rejection_zone. From CBECC-Res. "
                 },
                 "compressor_heat_rejection_zone": {
-                    "description": "Heat pump heat rejection zone",
+                    "description": "ID of the Zone for rejecting heat pump heat",
                     "type": "string",
                     "notes": "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Res. Constraint to use when implemented :Zone:"
                 },
@@ -4725,7 +4766,7 @@
                     "notes": "Contains a list of Solar thermal systems that are part of this service water heating distribution system."
                 },
                 "hot_water_loop": {
-                    "description": "Referenced to the hot water fluid loop",
+                    "description": "ID of the FluidLoop for hot water",
                     "type": "string",
                     "notes": "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
                 }
@@ -4956,7 +4997,7 @@
                     "notes": "Indicates the type of location for the component but does not indicate if it impacts the simulation, see location_zone. From CBECC-Res. "
                 },
                 "location_zone": {
-                    "description": "Tank zone location",
+                    "description": "ID of the Zone containing the Tank",
                     "type": "string",
                     "notes": "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. Constraint to use when implemented :Zone:"
                 }
@@ -5028,7 +5069,7 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingFixtureOptions"
                 },
                 "served_by_distribution_system": {
-                    "description": "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use",
+                    "description": "ID of the ServiceWaterHeatingDistributionSystem that serves this end use",
                     "type": "string",
                     "notes": "From CBECC-Res. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
                 },
@@ -5042,7 +5083,7 @@
                     "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeatingUseUnitOptions"
                 },
                 "use_multiplier_schedule": {
-                    "description": "Reference to the schedule containing the multiplier for the use of service hot water",
+                    "description": "ID of the Schedule containing the multiplier for the use of service hot water",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
@@ -5129,6 +5170,7 @@
                 "NATURAL_GAS",
                 "PROPANE",
                 "FUEL_OIL",
+                "STEAM",
                 "NONE",
                 "OTHER"
             ],
@@ -5137,6 +5179,7 @@
                 "Natural gas",
                 "Propane",
                 "Fuel oil",
+                "Steam",
                 "None",
                 "Other"
             ],
@@ -5145,6 +5188,7 @@
                 null,
                 null,
                 null,
+                "Only applicable for absorption chillers",
                 "No energy consumption by a utility supplied source occurs",
                 null
             ]
@@ -5200,7 +5244,7 @@
                     "type": "boolean"
                 },
                 "multiplier_schedule": {
-                    "description": "Reference to the schedule containing the multiplier for exterior lighting",
+                    "description": "ID of the Schedule containing the multiplier for exterior lighting",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 }
@@ -5251,7 +5295,7 @@
                     "units": "W"
                 },
                 "power_multiplier_schedule": {
-                    "description": "Refrigerated case power multiplier schedule name",
+                    "description": "ID of the Schedule containing the multiplier for refrigerated case power",
                     "type": "string",
                     "notes": "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
@@ -5268,17 +5312,17 @@
                     "maximum": 1.0
                 },
                 "volume": {
-                    "description": "volume of a refrigerated case in cubic meters",
+                    "description": "Volume of a refrigerated case in cubic meters",
                     "type": "number",
                     "units": "m3"
                 },
                 "total_display_area": {
-                    "description": "display area of a refrigerated case in square meters",
+                    "description": "Display area of a refrigerated case in square meters",
                     "type": "number",
                     "units": "m2"
                 },
                 "zone": {
-                    "description": "Zone where case is located",
+                    "description": "ID of the Zone where the RefrigeratedCase is located",
                     "type": "string",
                     "notes": "Constraint to use when implemented :Zone:"
                 }
@@ -5358,6 +5402,6 @@
             ]
         }
     },
-    "version": "0.1.4",
+    "version": "0.1.5",
     "$ref": "ASHRAE229.schema.json#/definitions/RulesetProjectDescription"
 }

@@ -311,6 +311,6 @@
             ]
         }
     },
-    "version": "0.1.4",
+    "version": "0.1.5",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
