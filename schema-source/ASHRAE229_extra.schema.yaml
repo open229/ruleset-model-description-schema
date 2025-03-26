@@ -61,6 +61,14 @@ Timestamp:
   Examples:
     - "2016-06-29T14:35Z"
 
+Version:
+  Object Type: "String Type"
+  Description: "Version identifier in the form major.minor.patch as defined by SemVer[@SemVer]"
+  JSON Schema Pattern: "(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?"
+  Examples:
+    - "1.1.3"
+    - "1.2.0-beta-92"
+
 "ID":
   Object Type: "Data Type"
   Description: "A referencencable identification for a data group and sequence of characters of any length using any (specified) character set."
@@ -166,7 +174,7 @@ Metadata:
   Data Elements:
     id:
       Description: "Unique data set identifier"
-      Data Type: "UUID"
+      Data Type: "ID"
       Notes: "Assigned by *data publisher* to identify this data. `id` shall remain unchanged for revisions of the same data."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
