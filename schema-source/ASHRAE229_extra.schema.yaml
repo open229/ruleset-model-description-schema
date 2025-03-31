@@ -10,7 +10,7 @@ Schema:
   Object Type: "Meta"
   Title: "ASHRAE 229"
   Description: "Base schema for ASHRAE 229 representations"
-  Version: "0.1.4" 
+  Version: "0.1.5" 
   References:
     - "Enumerations2019ASHRAE901"
     - "EnumerationsRESNET"
@@ -60,6 +60,14 @@ Timestamp:
   JSON Schema Pattern: "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}Z"
   Examples:
     - "2016-06-29T14:35Z"
+
+Version:
+  Object Type: "String Type"
+  Description: "Version identifier in the form major.minor.patch as defined by SemVer[@SemVer]"
+  JSON Schema Pattern: "(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?"
+  Examples:
+    - "1.1.3"
+    - "1.2.0-beta-92"
 
 "ID":
   Object Type: "Data Type"
@@ -238,8 +246,13 @@ Metadata:
   Data Elements:
     id:
       Description: "Unique data set identifier"
-      Data Type: "UUID"
+      Data Type: "ID"
       Notes: "Assigned by *data publisher* to identify this data. `id` shall remain unchanged for revisions of the same data."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
@@ -254,6 +267,11 @@ Metadata:
       Data Type: "String"
       Required: True
       Notes: "Identifies the organization that defined the schema. Is should be set to: ASHRAE SPC 229 Schema Working Group"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -268,6 +286,11 @@ Metadata:
       Data Type: "String"
       Required: True
       Notes: "Identifies the schema used to define the data content. It should be set to Ruleset Evaluation Schema"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -282,6 +305,11 @@ Metadata:
       Data Type: "Version"
       Required: True
       Notes: "Common versions may include 0.0.36 from the first public review period. This is the value of the version field in the top of the ASRAE229.schema.json file or the version in the ASHRAE229.schema.yaml Schema data group."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -295,6 +323,11 @@ Metadata:
       Description: "The Uniform Resource Locator (url) for the schema definition and/or documentation"
       Data Type: "String"
       Notes: "Should be set to: https://github.com/open229/ruleset-model-description-schema"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -309,6 +342,11 @@ Metadata:
       Data Type: "String"
       Required: True
       Notes: "Identifies the organization that created the file"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -322,6 +360,11 @@ Metadata:
       Description: "Description of data content (suitable for display)"
       Data Type: "String"
       Required: True
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -336,6 +379,11 @@ Metadata:
       Data Type: "Timestamp"
       Required: True
       Notes: "Updated anytime any data content is modified."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: True
       EPin Object: ""
       EPin Field: ""
@@ -349,6 +397,11 @@ Metadata:
       Description: "Integer version identifier for the data"
       Data Type: "Version"
       Notes: "Used by data publisher to track revisions of the data. Shall be incremented for each data revision"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -362,6 +415,11 @@ Metadata:
       Description: "Source(s) of the data"
       Data Type: "String"
       Notes: "Used by data publisher to document methods (e.g., software and version) used to generate data. **Informative note:** `source` may be different from other data source(s) included elsewhere within the data"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -374,6 +432,11 @@ Metadata:
     disclaimer:
       Description: "Characterization of accuracy, limitations, and applicability of this data"
       Data Type: "String"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -386,6 +449,11 @@ Metadata:
     notes:
       Description: "Additional Information"
       Data Type: "String"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
       Used by RCT Test: False
       EPin Object: ""
       EPin Field: ""
@@ -930,7 +998,7 @@ Building:
       EPstatus: "NotStarted"
       EP Notes: "Only need this input after supporting this data group"
     building_open_schedule:
-      Description: "Reference to the schedule indicating when the building is open"
+      Description: "ID of the Schedule indicating when the building is open"
       Data Type: "Reference"
       Notes: "One represent when the building is open and zero when closed. If the schedule is not present, 24 hour operation is assumed. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -1225,8 +1293,8 @@ BuildingSegment:
       EP Notes: "New element probably needed."
     service_water_heating_uses:
       Description: "List of service water heating uses"
-      Data Type: "[({ServiceWaterHeatingUse}, Reference)]"
-      Notes: "This data element also appears in Space. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
+      Data Type: "[{ServiceWaterHeatingUse}]"
+      Notes: "This data element also appears in Space. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. A ServiceWaterHeatingUse that has one of the following unit types: [POWER_PER_PERSON, POWER_PER_AREA, VOLUME_PER_PERSON, VOLUME PER AREA] AND has not been explicitly referenced by any spaces is assumed to apply to each space in the building segment. A ServiceWaterHeatingUse that is referenced by one or more spaces will be applied only to those spaces. A ServiceWaterHeatingUse with units POWER, VOLUME, or OTHER will be applied only once to the entire building segment. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1427,7 +1495,7 @@ Zone:
       EPstatus: "ToDo"
       EP Notes: "Could examine schedule looking for setpoint that corresonds to when occupancy is high. Or perhaps it is simply the lowest cooling setpoint in the schedule."
     thermostat_cooling_setpoint_schedule:
-      Description: "Reference to the schedule containing the cooling setpoint temperatures"
+      Description: "ID of the Schedule containing the cooling setpoint temperatures"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat cooling setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -1464,7 +1532,7 @@ Zone:
       EPstatus: "ToDo"
       EP Notes: "Used by RCT. Could examine schedule looking for setpoint that corresonds to when occupancy is high. Or perhaps it is simply the highest heating setpoint in the schedule."
     thermostat_heating_setpoint_schedule:
-      Description: "Reference to the schedule containing the heating setpoint temperatures"
+      Description: "ID of the Schedule containing the heating setpoint temperatures"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the design thermostat heating setpoint is assumed to be constant. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -1482,7 +1550,7 @@ Zone:
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     minimum_humidity_setpoint_schedule:
-      Description: "Reference to the schedule containing the minimum relative humidity setpoint"
+      Description: "ID of the Schedule containing the minimum relative humidity setpoint"
       Data Type: "Reference"
       Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
@@ -1501,7 +1569,7 @@ Zone:
       EPstatus: "ToDo"
       EP Notes: "Could examine schedule looking for humidity setpoint that corresonds to when occupancy is high. "
     maximum_humidity_setpoint_schedule:
-      Description: "Reference to the schedule containing the maximum relative humidity setpoint"
+      Description: "ID of the Schedule containing the maximum relative humidity setpoint"
       Data Type: "Reference"
       Range: ">=0, <=1"
       Notes: "For schedule values use relative humidity expressed on a 0 to 1 scale. Constraint to use when implemented :Schedule:"
@@ -1538,7 +1606,7 @@ Zone:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Only need this input after supporting this data group"
     served_by_service_water_heating_system:
-      Description: "A service water heating system distribution serving the zone"
+      Description: "ID of the ServiceWaterHeatingDistributionSystem serving the zone"
       Data Type: "Reference"
       Notes: "Contains the ID of the service water heating distribution system serving the zone. The ID is a unique identification for a specific ServiceWaterHeatingSystem data group. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
       RMD Test: "unknown"
@@ -1575,7 +1643,7 @@ Zone:
       EPstatus: "NotRequired"
       EP Notes: ""
     transfer_airflow_source_zone:
-      Description: "ID of the source zone for transfer air."
+      Description: "ID of the Zone for the source of transfer air."
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -1610,6 +1678,24 @@ Zone:
       EPout Column: ""
       EPstatus: "NotStarted"
       EP Notes: ""
+    exhaust_airflow_rate_multiplier_schedules:
+      Description: "A list of IDs for Schedules containing the multipliers for the zonal supply airflow rates"
+      Data Type: "Reference"
+      Notes: "Each schedule corresponds to the list in zonal_supply_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+      Used by RCT Test: "unknown"
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
+      EP Notes: ""
     zonal_exhaust_fans:
       Description: "A list of zonal exhaust fans"
       Data Type: "[{Fan}]"
@@ -1627,6 +1713,24 @@ Zone:
       EPout Table: "Zone Equipment Component Arrangement, Air Loop Supply Side Component Arrangement"
       EPout Column: ""
       EPstatus: "ToDo"
+      EP Notes: ""
+    exhaust_airflow_rate_multiplier_schedules:
+      Description: "A list of IDs for Schedules containing the multipliers for the zonal exhaust airflow rates"
+      Data Type: "Reference"
+      Notes: "Each schedule corresponds to the list in zonal_exhaust_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: True
+      Used by RCT Test: False
+      EPin Object: "Fan:ZoneExhaust"
+      EPin Field: "Flow Fraction Schedule Name"
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
       EP Notes: ""
     makeup_airflow_rate:
       Description: "Airflow rate for makeup air"
@@ -1817,7 +1921,7 @@ Space:
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     occupant_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for the number of occupants"
+      Description: "ID of the Schedule containing the multiplier for the number of occupants"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -1982,7 +2086,7 @@ Space:
     service_water_heating_uses:
       Description: "List of service water heating uses"
       Data Type: "[({ServiceWaterHeatingUse}, Reference)]"
-      Notes: "This data element also appears in BuildingSegment. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
+      Notes: "This data element also appears in BuildingSegment. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. References must refer to a ServiceWaterHeatingUse at the BuildingSegment level and that BuildingSegment must be the BuildingSegment to which this space belongs. ServiceWaterHeatingUses stored at the space level may only be used for this space and may not be referenced by other spaces. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2178,7 +2282,7 @@ Infiltration:
       EPstatus: "PartialUsingOutput"
       EP Notes: ""
     multiplier_schedule:
-      Description: "Referenced to the schedule containing the multiplier for the infiltration"
+      Description: "ID of the Schedule containing the multiplier for the infiltration"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. If a zone includes multiple spaces and infiltration is specified at the space level the rates and schedules should be aggregated to the zone. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
@@ -2381,7 +2485,7 @@ Surface:
       EPstatus: "PartialUsingOutput"
       EP Notes: "Used by RCT. Complicated mapping from input. Determine with table it is for exterior or interior but not others. Probably cannot be fully deteremined."
     adjacent_zone:
-      Description: "ID of the adjacent zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
+      Description: "ID of the adjacent Zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR."
       Data Type: "Reference"
       Notes: "Each interior surface between two zones should be described only once as a surface. No duplication of an interior surface facing each zone is necessary. Constraint to use when implemented :Zone:"
       RMD Test: False
@@ -3674,7 +3778,7 @@ InteriorLighting:
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     lighting_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for lighting"
+      Description: "ID of the Schedule containing the multiplier for lighting"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -3883,7 +3987,7 @@ MiscellaneousEquipment:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Fields may vary based on input object. For output have not tested for all tables created with different input objects."
     multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for miscellaneous equipment power in the space."
+      Description: "ID of the Schedule containing the multiplier for miscellaneous equipment power in the space."
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "Secondary"
@@ -3939,7 +4043,7 @@ MiscellaneousEquipment:
       EPstatus: "DoneUsingOutput"
       EP Notes: "For output have not tested for all tables created with different input objects."
     remaining_fraction_to_loop:
-      Description: "Referenced to the water fluid loop for the remaining fraction"
+      Description: "ID of the FluidLoop for the remaining fraction"
       Data Type: "Reference"
       Notes: "If sensible_fraction and latent_fraction add up to less than 1.0 and this field is specified then the chilled water or condenser water loop specified gets the remaining fraction of the miscellenous load. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -3957,7 +4061,7 @@ MiscellaneousEquipment:
       EPstatus: "NotRequired"
       EP Notes: "Input need to match between what is lost and what is shown in LoadProfile:Plant."
     energy_from_loop:
-      Description: "Referenced to the loop serving as the source of energy"
+      Description: "ID of the FluidLoop serving as the source of energy"
       Data Type: "Reference"
       Notes: "References the loop that is the source of energy for the miscellenous equipment. Example would be hot water that is used for laundry in the zone. When this is used the energy_type should be set to OTHER. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -4318,8 +4422,8 @@ Schedule:
       EP Notes: ""
     hourly_heating_design_year:
       Description: "Hourly values for heating design year"
-      Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value -999 will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
+      Data Type: "[Numeric/Null][0..8784]"
+      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4354,8 +4458,8 @@ Schedule:
       EP Notes: ""
     hourly_cooling_design_year:
       Description: "Hourly values for cooling design year"
-      Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value -999 will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
+      Data Type: "[Numeric/Null][0..8784]"
+      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4672,7 +4776,7 @@ Weather:
       EPstatus: "NotRequired"
       EP Notes: ""
     ground_temperature_schedule:
-      Description: "Ground temperature schedule name"
+      Description: "ID of the Schedule containing ground temperatures"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -4917,7 +5021,7 @@ Elevator:
       EPstatus: "ComplianceParameter"
       EP Notes: "Not sure it is used by RCT"
     motor_location_zone:
-      Description: "Zone where the heat from the motor goes"
+      Description: "ID of the Zone where the heat from the motor goes"
       Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the elevator motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -4953,7 +5057,7 @@ Elevator:
       EPstatus: "NotRequired"
       EP Notes: ""
     cab_location_zone:
-      Description: "Zone where the heat from the cab goes"
+      Description: "ID of the Zone where the heat from the cab goes"
       Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the cab get added to to the zone including lighting heat, fan heat, and accessory heat. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -5150,8 +5254,26 @@ Elevator:
       EPout Column: ""
       EPstatus: "ComplianceParameter"
       EP Notes: ""
+    cab_ventilation_fan_multiplier_schedule:
+      Description: "ID of the Schedule containg the multipler for elevator ventilation fan operation"
+      Data Type: "Reference"
+      Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+      RMD Test: False
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: True
+      Used by RCT Test: False
+      EPin Object: ""
+      EPin Field: ""
+      EPout File: ""
+      EPout Report: ""
+      EPout Table: ""
+      EPout Column: ""
+      EPstatus: "NotStarted"
+      EP Notes: ""
     cab_motor_multiplier_schedule:
-      Description: "Elevator motor operation multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for the elevator motor operation"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -5169,7 +5291,7 @@ Elevator:
       EPstatus: "ComplianceParameter"
       EP Notes: ""
     cab_lighting_multiplier_schedule:
-      Description: "Elevator lighting multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for the elevator lighting"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: False
@@ -5452,7 +5574,7 @@ HeatingSystem:
       EPstatus: "DoneUsingOutput"
       EP Notes: "based on the type of coil"
     hot_water_loop:
-      Description: "Referenced to the hot water fluid loop"
+      Description: "ID of the FluidLoop providing the hot water"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -5470,7 +5592,7 @@ HeatingSystem:
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     water_source_heat_pump_loop:
-      Description: "Referenced to the water fluid loop to support water source heat pumps"
+      Description: "ID of the FluidLoop containing water source heat pumps"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -5657,9 +5779,9 @@ HeatingSystem:
       EP Notes: "Add column to Heating Coils table in Equipment Summary."
     heatpump_low_shutoff_temperature:
       Description: "Heatpump low temperature shutoff"
-      Data Type: "Numeric"
+      Data Type: "Numeric/Null"
       Units: "C"
-      Notes: "The heat pump is available at above this outdoor temperature to satsify the load. The heat pump is always energized first to meet any heating load prior to the use of auxiliary heat. For heat pumps with no lower temperature limit, this value should not be provided or else set to -999."
+      Notes: "The heat pump is available at above this outdoor temperature to satsify the load. The heat pump is always energized first to meet any heating load prior to the use of auxiliary heat. For heat pumps with no lower temperature limit, this value should not be provided or else set to Null."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5722,10 +5844,10 @@ HeatingMetricOptions:
     HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE:
       Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb"
     HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_HIGH_TEMPERATURE_NO_FAN:
-      Description: "Efficiency at 8.3C/47F dry bulb and 6.1C/43F wet bulb not including fan"
+      Description: "Efficiency not including fan at 8.3C/47F dry bulb and 6.1C/43F wet bulb"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     HEAT_PUMP_COEFFICIENT_OF_PERFORMANCE_LOW_TEMPERATURE_NO_FAN:
-      Description: "Efficiency at -8.3C/17F dry bulb and -9.4C/15F wet bulb not including fan"
+      Description: "Efficiency  not including fanat -8.3C/17F dry bulb and -9.4C/15F wet bulb"
       Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     THERMAL_EFFICIENCY:
       Description: "Et - thermal efficiency"
@@ -5739,10 +5861,19 @@ HeatingMetricOptions:
       Description: "HSPF2 - heating seasonal perfomrance factor 2"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP_NO_FAN:
+      Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
       Description: "Coefficient of performance at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 10C/50F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
       Description: "Coefficient of performance at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 0C/32F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 20C/68F rated conditions for water loops per ISO 13256-2"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
@@ -5944,7 +6075,7 @@ CoolingSystem:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Indicated in input by Autosize"
     chilled_water_loop:
-      Description: "Referenced to the Chilled water fluid loop"
+      Description: "ID of the FluidLoop providing chilled water"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -5962,7 +6093,7 @@ CoolingSystem:
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     condenser_water_loop:
-      Description: "Referenced to the Condenser water fluid loop"
+      Description: "ID of the FluidLoop providing condenser water"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -6086,7 +6217,7 @@ CoolingMetricOptions:
     FULL_LOAD_COEFFICIENT_OF_PERFORMANCE:
       Description: "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions"
     FULL_LOAD_COEFFICIENT_OF_PERFORMANCE_NO_FAN:
-      Description: "Full load efficiency expressed as a coefficient of performance at 35C/95F rated conditions not including indoor fan power"
+      Description: "Full load efficiency expressed as a coefficient of performance not including indoor fan power at 35C/95F rated conditions"
       Notes: "Descibes the efficiency not including the indoor supply fan. The outdoor evaporator fan power is generally included."
     ENERGY_EFFICIENCY_RATIO:
       Description: "EER - Energy efficiency ratio"
@@ -6102,10 +6233,19 @@ CoolingMetricOptions:
       Description: "CEER - Combined energy efficiency ratio"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_WATER_LOOP_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER:
       Description: "Coefficient of performance at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_WATER_TO_AIR_GROUND_WATER_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 15C/59F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP:
       Description: "Coefficient of performance at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1"
+    COEFFICIENT_OF_PERFORMANCE_BRINE_TO_AIR_GROUND_LOOP_NO_FAN:
+      Description: "Coefficient of performance not including fan at entering temperature of 25C/77F rated conditions for ground water per ISO 13256-1"
+      Notes: "Used for heat pump and descibes the efficiency not including the indoor supply fan."
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_WATER_LOOP:
       Description: "Coefficient of performance at entering temperature of 30C/86F rated conditions for water loops per ISO 13256-2"
     COEFFICIENT_OF_PERFORMANCE_WATER_TO_WATER_GROUND_WATER:
@@ -6403,7 +6543,7 @@ FanSystem:
       EPstatus: "ToDo"
       EP Notes: "Not sure if mapping is complete. Added to new setpoint manager report."
     supply_air_temperature_reset_schedule:
-      Description: "Supply air temperature reset schedule"
+      Description: "ID of the Schedule for the supply air temperature reset"
       Data Type: "Reference"
       Notes: "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -6456,7 +6596,7 @@ FanSystem:
       EPstatus: "ToDo"
       EP Notes: "See previous."
     operating_schedule:
-      Description: "Operating schedule name"
+      Description: "ID of the Schedule indicating operation"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the fansystem  is always operating. Schedule values of zero when fan is scheduled to be off and one when the fan is scheduled to be on. While a zero indicates the fan is off, it may still be activated during that hour by other controls such as providing fan cycling at night to maintain the unoccupied set point. No values beside 0 and 1 are allowed. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -7095,24 +7235,6 @@ Fan:
       EPout Column: "Max Air Flow Rate"
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
-    airflow_rate_multiplier_schedule:
-      Description: "Reference to a schedule containing the multiplier for the airflow rate"
-      Data Type: "[Reference]"
-      Notes: "Only used when fan is referenced outside of a FanSystem. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: True
-      Used by RCT Test: False
-      EPin Object: ""
-      EPin Field: ""
-      EPout File: ""
-      EPout Report: ""
-      EPout Table: ""
-      EPout Column: ""
-      EPstatus: "NotStarted"
-      EP Notes: ""
     is_airflow_calculated:
       Description: "True if the airflow is sized by software"
       Data Type: "Boolean"
@@ -7302,7 +7424,7 @@ Fan:
       EPstatus: "DoneUsingOutput"
       EP Notes: "this is only part of the loss, the rest is convective and together they are based on the motor efficiency. To be added to Equipment Summary - Fans"
     motor_location_zone:
-      Description: "Zone where the heat from the motor goes"
+      Description: "ID of the Zone where the heat from the motor goes"
       Data Type: "Reference"
       Notes: "When specified, it is the zone the heat from the fan motor get added to. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -7482,7 +7604,7 @@ Terminal:
       EPstatus: "PartialUsingOutput"
       EP Notes: "Used by RCT. Based on the type of input object. Does not cover baseboard or radiant yet."
     served_by_heating_ventilating_air_conditioning_system:
-      Description: "HVAC system serving the terminal"
+      Description: "ID of the HeatingVentilatingAirConditioningSystem serving the terminal"
       Data Type: "Reference"
       Notes: "Contains ID of the HVAC system serving the terminal - from Unique Identification Number in HeatingVentilatingAirConditioningSystem. Constraint to use when implemented :HeatingVentilatingAirConditioningSystem:"
       RMD Test: "Primary"
@@ -7518,7 +7640,7 @@ Terminal:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Used by RCT. No Other support."
     heating_from_loop:
-      Description: "References the fluid loop used to provide heating"
+      Description: "ID of the FluidLoop providing heating"
       Data Type: "Reference"
       Notes: "Only used when heating_source is hot water. Used for terminal heating including reheat. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -7554,7 +7676,7 @@ Terminal:
       EPstatus: "DoneUsingOutput"
       EP Notes: "If present then CHILLED_WATER. "
     cooling_from_loop:
-      Description: "Referenced the fluid loop used to provide cooling"
+      Description: "ID of the FluidLoop providing cooling"
       Data Type: "Reference"
       Notes: "Only used when cooling_source is chilled water. Used for terminal cooling including radiant and fan coils. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -7753,7 +7875,7 @@ Terminal:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Used by RCT."
     minimum_outdoor_airflow_multiplier_schedule:
-      Description: "Zone terminal minimum outdoor air volume airflow multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for zone terminal minimum outdoor air volume airflow"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Often used to indicate the reduced flow needed when the space has reduced occupancy when a demand controlled ventilation control is used. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -7862,6 +7984,7 @@ Terminal:
       EPout Column: ""
       EPstatus: "ToDo"
       EP Notes: "Maybe this is a compliance parameter"
+      
 
 TerminalOptions:
   Object Type: "Enumeration"
@@ -8215,7 +8338,7 @@ FluidLoopDesignAndControl:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Pump Control Type will indicate Intermittent or Continous (. If continuous, then availability manager will indicate if it's scheduled or continuous."
     operation_schedule:
-      Description: "Operation schedule"
+      Description: "ID of the Schedule describing operation"
       Data Type: "Reference"
       Notes: "One represents when the fluid loop is availble to be operating and zero when not available to be operating. Only used when operation equals SCHEDULED. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
@@ -8481,7 +8604,7 @@ Pump:
       EPstatus: "NotRequired"
       EP Notes: ""
     loop_or_piping:
-      Description: "Referenced to the fluid loop or service water heating piping"
+      Description: "ID of the FluidLoop or ServiceWaterPiping connected to the Pump"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop: or :ServiceWaterPiping:"
@@ -8787,7 +8910,7 @@ Boiler:
       EPstatus: "NotRequired"
       EP Notes: ""
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "ID of the FluidLoop connected to the Boiler"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -9139,7 +9262,7 @@ Chiller:
       EPstatus: "NotRequired"
       EP Notes: ""
     cooling_loop:
-      Description: "Referenced to the cooling fluid loop"
+      Description: "ID of the FluidLoop connected to the Chiller for supplying chilled water"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -9158,7 +9281,7 @@ Chiller:
       EPstatus: "DoneUsingOutput"
       EP Notes: ""
     condensing_loop:
-      Description: "Referenced to the condensing fluid loop"
+      Description: "ID of the FluidLoop connected to the Chiller that provides condensing water"
       Data Type: "Reference"
       Notes: "No condensing loop name implies air-cooled chiller. Constraint to use when implemented :FluidLoop:"
       RMD Test: "Primary"
@@ -9520,7 +9643,7 @@ Chiller:
       EPstatus: "DoneUsingOutput"
       EP Notes: "Topology report. If the demand side branch containing the chiller also has the pump, then it's interlocked."
     heat_recovery_loop:
-      Description: "Recovered heat to fluid loop"
+      Description: "ID of the FluidLoop connected to the chiller for supplying recovered heat"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -9745,6 +9868,7 @@ ChillerCompressorOptions:
       Description: "Scroll"
     POSITIVE_DISPLACEMENT:
       Description: "Positive displacement"
+      Notes: "Only use the POSITIVE_DISPLACEMENT enumerator when the chiller is positive displacement but it is not known whether it is RECIPROCATING, SCREW, or SCROLL."
     SINGLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
       Description: "Single-effect indirect-fired absorption"
     DOUBLE_EFFECT_INDIRECT_FIRED_ABSORPTION:
@@ -9765,9 +9889,9 @@ ChillerFunctionOptions:
     HOT_WATER_ONLY:
       Description: "Hot water only"
       Notes: "Chiller is being used exclusively as a heat pump instead of a boiler."
-    CHILLED_AND_HOT_WATER:
-      Description: "Chilled and hot water"
-      Notes: "Chiller can produce either chilled or hot water."
+    CHILLED_OR_HOT_WATER:
+      Description: "Chilled or hot water"
+      Notes: "Chiller is reversible and can produce either chilled or hot water."
     OTHER:
       Description: "Other"
 
@@ -9828,7 +9952,7 @@ HeatRejection:
       EPstatus: "NotRequired"
       EP Notes: ""
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "ID of the FluidLoop connected to the HeatRejection"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -10168,7 +10292,7 @@ ExternalFluidSource:
       EPstatus: "NotRequired"
       EP Notes: ""
     loop:
-      Description: "Referenced to the fluid loop"
+      Description: "ID of the FluidLoop connected to the ExternalFluidSource"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :FluidLoop:"
@@ -10489,7 +10613,7 @@ ServiceWaterHeatingDistributionSystem:
       EPstatus: "NotRequired"
       EP Notes: ""
     flow_multiplier_schedule:
-      Description: "service water heating Loop flow muliplier schedule name"
+      Description: "ID of the Schedule containing a multiplier for the service water heating loop flow"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -10507,9 +10631,9 @@ ServiceWaterHeatingDistributionSystem:
       EPstatus: "NotRequired"
       EP Notes: ""
     entering_water_mains_temperature_schedule:
-      Description: "Temperature schedule for unheated entering water to the building site often referenced as mains temperature."
+      Description: "ID of the Schedule containing the temperature for unheated entering water to the building site often referenced as mains temperature"
       Data Type: "Reference"
-      Notes: "Constraint to use when implemented :Schedule:"
+      Notes: "Constraint to use when implemented ::"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -10715,7 +10839,7 @@ ServiceWaterPiping:
       EPstatus: "NotRequired"
       EP Notes: ""
     location_zone:
-      Description: "Zone reference of where the component is located when IN_ZONE is selected from ComponentLocationOptions"
+      Description: "ID of the Zone where the piping is located when IN_ZONE is selected from ComponentLocationOptions"
       Data Type: "Reference"
       Notes: "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -11047,7 +11171,7 @@ ServiceWaterHeatingEquipment:
       EPstatus: "NotStarted"
       EP Notes: ""
     distribution_system:
-      Description: "Referenced to the service water heating distribution system"
+      Description: "ID of the ServiceWaterHeatingDistributionSystem connected to the ServiceWaterHeatingEquipment"
       Data Type: "Reference"
       Required: True
       Notes: "Data elements linking data groups by reference that don't make sense without the reference are shown as required. Few other data elements than this type and id data elements are shown as required. Other data elements may be required by specific rulesets. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
@@ -11268,7 +11392,7 @@ ServiceWaterHeatingEquipment:
       EPstatus: "NotRequired"
       EP Notes: ""
     compressor_zone:
-      Description: "Zone reference of where the heat pump for the water heater is located"
+      Description: "ID of the Zone where the heat pump for the water heater is located"
       Data Type: "Reference"
       Notes: "From CBECC-Com. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -11304,7 +11428,7 @@ ServiceWaterHeatingEquipment:
       EPstatus: "NotRequired"
       EP Notes: ""
     compressor_heat_rejection_zone:
-      Description: "Heat pump heat rejection zone"
+      Description: "ID of the Zone for rejecting heat pump heat"
       Data Type: "Reference"
       Notes: "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Res. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -11445,7 +11569,7 @@ ServiceWaterHeatingEquipment:
       EPstatus: "NotStarted"
       EP Notes: ""
     hot_water_loop:
-      Description: "Referenced to the hot water fluid loop"
+      Description: "ID of the FluidLoop for hot water"
       Data Type: "Reference"
       Notes: "Can be used when heat is supplied to service water heater from a hot water loop or when combination service water and space heating is used. Constraint to use when implemented :FluidLoop:"
       RMD Test: "unknown"
@@ -11947,7 +12071,7 @@ Tank:
       EPstatus: "NotRequired"
       EP Notes: ""
     location_zone:
-      Description: "Tank zone location"
+      Description: "ID of the Zone containing the Tank"
       Data Type: "Reference"
       Notes: "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -12084,7 +12208,7 @@ ServiceWaterHeatingUse:
       EPstatus: "NotRequired"
       EP Notes: ""
     served_by_distribution_system:
-      Description: "ID fo the ServiceWaterHeatingDistributionSystem that serves this end use"
+      Description: "ID of the ServiceWaterHeatingDistributionSystem that serves this end use"
       Data Type: "Reference"
       Required: True
       Notes: "From CBECC-Res. Constraint to use when implemented :ServiceWaterHeatingDistributionSystem:"
@@ -12138,7 +12262,7 @@ ServiceWaterHeatingUse:
       EPstatus: "NotStarted"
       EP Notes: ""
     use_multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for the use of service hot water"
+      Description: "ID of the Schedule containing the multiplier for the use of service hot water"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -12266,6 +12390,9 @@ EnergySourceOptions:
       Description: "Propane"
     FUEL_OIL:
       Description: "Fuel oil"
+    STEAM:
+      Description: "Steam" 
+      Notes: "Only applicable for absorption chillers"
     NONE:
       Description: "None"
       Notes: "No energy consumption by a utility supplied source occurs"
@@ -12441,7 +12568,7 @@ ExteriorLighting:
       EPstatus: "ComplianceParameter"
       EP Notes: ""
     multiplier_schedule:
-      Description: "Reference to the schedule containing the multiplier for exterior lighting"
+      Description: "ID of the Schedule containing the multiplier for exterior lighting"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -12606,7 +12733,7 @@ RefrigeratedCase:
       EPstatus: "NotRequired"
       EP Notes: ""
     power_multiplier_schedule:
-      Description: "Refrigerated case power multiplier schedule name"
+      Description: "ID of the Schedule containing the multiplier for refrigerated case power"
       Data Type: "Reference"
       Notes: "If the schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
@@ -12660,7 +12787,7 @@ RefrigeratedCase:
       EPstatus: "NotRequired"
       EP Notes: ""
     volume:
-      Description: "volume of a refrigerated case in cubic meters"
+      Description: "Volume of a refrigerated case in cubic meters"
       Data Type: "Numeric"
       Units: "m3"
       RMD Test: "unknown"
@@ -12678,7 +12805,7 @@ RefrigeratedCase:
       EPstatus: "NotRequired"
       EP Notes: ""
     total_display_area:
-      Description: "display area of a refrigerated case in square meters"
+      Description: "Display area of a refrigerated case in square meters"
       Data Type: "Numeric"
       Units: "m2"
       RMD Test: "unknown"
@@ -12696,7 +12823,7 @@ RefrigeratedCase:
       EPstatus: "NotRequired"
       EP Notes: ""
     zone:
-      Description: "Zone where case is located"
+      Description: "ID of the Zone where the RefrigeratedCase is located"
       Data Type: "Reference"
       Notes: "Constraint to use when implemented :Zone:"
       RMD Test: "unknown"
@@ -12713,6 +12840,7 @@ RefrigeratedCase:
       EPout Column: ""
       EPstatus: "NotRequired"
       EP Notes: ""
+
 
 RefrigeratedCaseOptions:
   Object Type: "Enumeration"
