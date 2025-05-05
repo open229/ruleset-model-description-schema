@@ -4119,21 +4119,21 @@ Fan:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-    output_validation_points:
-      Description: "Energy validation points"
-      Data Type: "[{FanOutputValidationPoint}]"
-      Notes: "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended. Certain rulesets may have a different minimum number of points. For example, 90.1 Appendix G expects 11 data points."
+    operating_points:
+      Description: "Operating points"
+      Data Type: "[{FanOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The airflow and power should be directly related. A minimum number of four points is recommended. Certain rulesets may have a different minimum number of points. For example, 90.1 Appendix G expects 11 data points. The ruleset checking specification would normally provide a list operating points that should match what is provided by the simulation."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
 
-FanOutputValidationPoint:
+FanOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     airflow:
-      Description: "Load"
+      Description: "Airflow"
       Data Type: "Numeric"
       Units: "L/s"
       Notes: "No name and id is needed since typically used as one of a series."
@@ -4142,8 +4142,8 @@ FanOutputValidationPoint:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    result:
-      Description: "Result"
+    power:
+      Description: "power"
       Data Type: "Numeric"
       Units: "W"
       Notes: "The rate of energy used by the fan at the given airflow."
@@ -4855,10 +4855,10 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    output_validation_points:
-      Description: "Energy validation points"
-      Data Type: "[{PumpOutputValidationPoint}]"
-      Notes: "Pump flow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+    operating_points:
+      Description: "Operating points"
+      Data Type: "[{PumpOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The flow rate and power should be directly related. A minimum number of four points is recommended. The ruleset checking specification would normally provide a list operating points that should match what is provided by the simulation."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -4887,7 +4887,7 @@ PumpSpecificationMethodOptions:
       Description: "Detailed"
       Notes: "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
 
-PumpOutputValidationPoint:
+PumpOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     flow:
@@ -4900,11 +4900,11 @@ PumpOutputValidationPoint:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    result:
-      Description: "Result"
+    power:
+      Description: "Power"
       Data Type: "Numeric"
       Units: "W"
-      Notes: "The rate of energy used by the pump at the given flow rate."
+      Notes: "The rate of energy used per unit time by the pump at the given flow rate."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5010,10 +5010,10 @@ Boiler:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    output_validation_points:
-      Description: "Energy validation points"
-      Data Type: "[{BoilerOutputValidationPoint}]"
-      Notes: "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+    operating_points:
+      Description: "Operating points"
+      Data Type: "[{BoilerOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The energy consumption per unit time should be directly related to the load on the boiler and entering water temperature. A minimum number of sixteen points is recommended. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5068,7 +5068,7 @@ BoilerEfficiencyMetricOptions:
     COMBUSTION:
       Description: "Combustion efficiency"
 
-BoilerOutputValidationPoint:
+BoilerOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     load:
@@ -5091,10 +5091,11 @@ BoilerOutputValidationPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    result:
-      Description: "Result"
+    power:
+      Description: "Power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "Energy consumption per unit time."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5288,17 +5289,19 @@ Chiller:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
-    capacity_validation_points:
-      Description: "Capacity validation points"
-      Data Type: "[{ChillerCapacityValidationPoint}]"
+    capacity_operating_points:
+      Description: "Capacity points"
+      Data Type: "[{ChillerCapacityOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The capacity should be directly related to the chilled water supply temperature and condenser temperature. A minimum number of sixteen points is recommended. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    power_validation_points:
+    power_operating_points:
       Description: "Energy validation points"
-      Data Type: "[{ChillerPowerValidationPoint}]"
+      Data Type: "[{ChillerPowerOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The power should be directly related to the chilled water supply temperature, condenser temperature, and load on the chiller. An indicator that the chiller is at full capacity is also important to differentiate between fully loaded and partially loaded operation. A minimum number of 64 points is recommended but fewer may be adequate to confirm proper operation especially if the temperatures and load are not repeated. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5360,7 +5363,7 @@ ChillerEfficiencyMetricOptions:
     OTHER:
       Description: "Other part load efficiency metric"
 
-ChillerCapacityValidationPoint:
+ChillerCapacityOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     chilled_water_supply_temperature:
@@ -5374,7 +5377,7 @@ ChillerCapacityValidationPoint:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     condenser_temperature:
-      Description: "Second temperature"
+      Description: "Condenser temperature"
       Data Type: "Numeric"
       Units: "C"
       Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
@@ -5383,17 +5386,18 @@ ChillerCapacityValidationPoint:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    result:
-      Description: "Result"
+    capacity:
+      Description: "Capacity"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The capacity available by the chiller at the given operating point."
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
 
-ChillerPowerValidationPoint:
+ChillerPowerOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     chilled_water_supply_temperature:
@@ -5407,7 +5411,7 @@ ChillerPowerValidationPoint:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     condenser_temperature:
-      Description: "Second temperature"
+      Description: "Condenser temperature"
       Data Type: "Numeric"
       Units: "C"
       Notes: "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
@@ -5435,10 +5439,11 @@ ChillerPowerValidationPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    result:
-      Description: "Result"
+    power:
+      Description: "Power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The rate of energy used by the chiller at the given operating point."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -6230,9 +6235,10 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    output_validation_points:
-      Description: "Capacity validation points"
-      Data Type: "[{ServiceWaterHeaterValidationPoint}]"
+    operating_points:
+      Description: "Operating points"
+      Data Type: "[{ServiceWaterHeaterOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The power should be directly related to the load. A minimum number of four points is recommended. The ruleset checking specification would normally provide a list operating points that should match what is provided by the simulation."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6324,17 +6330,19 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    compressor_capacity_validation_points:
-      Description: "Capacity validation points"
-      Data Type: "[{HeatPumpWaterHeaterCapacityValidationPoint}]"
+    compressor_capacity_operating_points:
+      Description: "Compressor capacity operating points"
+      Data Type: "[{HeatPumpWaterHeaterCapacityOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The capacity should be directly related to the evaporator_air_temperature, condenser_water_temperature, evaporator_air_flow, and condenser_water_flow. A minimum number of 64 points is recommended but fewer may be adequate to confirm proper operation especially if the temperatures and flows are not repeated. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    compressor_power_validation_points:
-      Description: "Coefficient of performance validation points"
-      Data Type: "[{HeatPumpWaterHeaterPowerValidationPoint}]"
+    compressor_power_operating_points:
+      Description: "Compressor power operating points"
+      Data Type: "[{HeatPumpWaterHeaterPowerOperatingPoint}]"
+      Notes: "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The power should be directly related to the chilled water evaporator_air_temperature, condenser_water_temperature, evaporator_air_flow, condenser_water_flow, and load on the heat pump water heater. A minimum number of 64 points is recommended but fewer may be adequate to confirm proper operation especially if the temperatures and flows are not repeated. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -6457,7 +6465,7 @@ DrawPatternOptions:
     OTHER:
       Description: "Other"
 
-ServiceWaterHeaterValidationPoint:
+ServiceWaterHeaterOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     load:
@@ -6470,17 +6478,18 @@ ServiceWaterHeaterValidationPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    result:
-      Description: "Result"
+    power:
+      Description: "power"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The rate of energy used per unit time by the service water heating at the given load."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
 
-HeatPumpWaterHeaterCapacityValidationPoint:
+HeatPumpWaterHeaterCapacityOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     evaporator_air_temperature:
@@ -6520,17 +6529,18 @@ HeatPumpWaterHeaterCapacityValidationPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    result:
+    capacity:
       Description: "Result"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The capacity available by the heat pump water heater at the given operating point."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
 
-HeatPumpWaterHeaterPowerValidationPoint:
+HeatPumpWaterHeaterPowerOperatingPoint:
   Object Type: "Data Group"
   Data Elements:
     evaporator_air_temperature:
@@ -6579,10 +6589,11 @@ HeatPumpWaterHeaterPowerValidationPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
-    result:
+    power:
       Description: "Result"
       Data Type: "Numeric"
       Units: "W"
+      Notes: "The rate of energy used by the heat pump water heater at the given operating point."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
