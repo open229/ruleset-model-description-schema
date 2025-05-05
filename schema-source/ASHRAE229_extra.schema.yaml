@@ -2378,15 +2378,6 @@ Schedule:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
-    purpose:
-      Description: "The purpose of schedule"
-      Data Type: "String"
-      Notes: "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMDs. Examples include thermostat, multiplier for lighting, availability for equipment."
-      RMD Test: False
-      AppG Used By TCDs: False
-      AppG P_RMD Equals U_RMD: False
-      AppG B_RMD Equals P_RMD: False
-      AppG B_RMDs Same: True
     sequence_type:
       Description: "Schedule sequence type"
       Data Type: "<ScheduleSequenceOptions>"
