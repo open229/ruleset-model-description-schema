@@ -904,7 +904,7 @@ Zone:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
-    exhaust_airflow_rate_multiplier_schedules:
+    supply_airflow_rate_multiplier_schedules:
       Description: "A list of IDs for Schedules containing the multipliers for the zonal supply airflow rates"
       Data Type: "Reference"
       Notes: "Each schedule corresponds to the list in zonal_supply_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
