@@ -618,10 +618,10 @@
                     },
                     "notes": "A list of references to one or more fans that is used to supply air to the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
                 },
-                "exhaust_airflow_rate_multiplier_schedules": {
-                    "description": "A list of IDs for Schedules containing the multipliers for the zonal exhaust airflow rates",
+                "supply_airflow_rate_multiplier_schedules": {
+                    "description": "A list of IDs for Schedules containing the multipliers for the zonal supply airflow rates",
                     "type": "string",
-                    "notes": "Each schedule corresponds to the list in zonal_exhaust_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
+                    "notes": "Each schedule corresponds to the list in zonal_supply_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
                 "zonal_exhaust_fans": {
                     "description": "A list of zonal exhaust fans",
@@ -630,6 +630,11 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/Fan"
                     },
                     "notes": "A list of references to one or more fans that is used to exhaust air from the zone. The fan should be configured to not be connected from any other HVAC data group. This may include fans used in a non-mechancial applications typically for warehouses with high air change rates."
+                },
+                "exhaust_airflow_rate_multiplier_schedules": {
+                    "description": "A list of IDs for Schedules containing the multipliers for the zonal exhaust airflow rates",
+                    "type": "string",
+                    "notes": "Each schedule corresponds to the list in zonal_exhaust_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
                 },
                 "makeup_airflow_rate": {
                     "description": "Airflow rate for makeup air",
@@ -957,7 +962,7 @@
                             "$ref": "Enumerations2019ASHRAE901.schema.json#/definitions/AdditionalSurfaceAdjacencyOptions2019ASHRAE901"
                         }
                     ],
-                    "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used. Commonly, plenums do not need to be explicitly described for many rulesets and instead when a plenum is present in the simulation model, this field should be set to the what is adjacent to the other side of the plenum. For example, on the top floor with a plenum, EXTERIOR would be entered."
+                    "notes": "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
                 },
                 "adjacent_zone": {
                     "description": "ID of the adjacent Zone for interior surface. Only required when adjacent zone is explicity modeled when adjacent_to is set to INTERIOR.",
@@ -1739,11 +1744,6 @@
                     "type": "string",
                     "notes": "Notes are not used by the RCT, but may be included in RCT reports to give the reviewer additional information or context"
                 },
-                "purpose": {
-                    "description": "The purpose of schedule",
-                    "type": "string",
-                    "notes": "Describe the purpose of the schedule and how it can be used. Not an enumerations. The purpose assigned by BEM tool should match across RMDs. Examples include thermostat, multiplier for lighting, availability for equipment."
-                },
                 "sequence_type": {
                     "description": "Schedule sequence type",
                     "$ref": "ASHRAE229.schema.json#/definitions/ScheduleSequenceOptions"
@@ -1756,7 +1756,7 @@
                     },
                     "minItems": 0,
                     "maxItems": 8784,
-                    "notes": "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values."
+                    "notes": "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time and should be adjusted when Calendar.has_daylight_saving_time is set to True based on local rules governing the start and end dates of daylighting savings time."
                 },
                 "hourly_heating_design_day": {
                     "description": "Hourly values for heating design day",
@@ -1779,7 +1779,7 @@
                     },
                     "minItems": 0,
                     "maxItems": 8784,
-                    "notes": "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both."
+                    "notes": "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time and should be adjusted when Calendar.has_daylight_saving_time is set to True based on local rules governing the start and end dates of daylighting savings time."
                 },
                 "hourly_cooling_design_day": {
                     "description": "Hourly values for cooling design day",
@@ -1802,7 +1802,7 @@
                     },
                     "minItems": 0,
                     "maxItems": 8784,
-                    "notes": "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both."
+                    "notes": "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time and should be adjusted when Calendar.has_daylight_saving_time is set to True based on local rules governing the start and end dates of daylighting savings time."
                 },
                 "event_times": {
                     "description": "Event times when the schedule changes",
@@ -1914,15 +1914,10 @@
                     "description": "Day of the week for January 1",
                     "$ref": "ASHRAE229.schema.json#/definitions/DayOfWeekOptions"
                 },
-                "is_leap_year": {
-                    "description": "The schedules assume it is a leap year",
-                    "type": "boolean",
-                    "notes": "This value is true if the calendar and schedules include February 29."
-                },
                 "has_daylight_saving_time": {
                     "description": "The schedules adjust for Daylight Saving Time",
                     "type": "boolean",
-                    "notes": "This value should be true if the modeled calendar includes daylight saving time."
+                    "notes": "This value should be true if the modeled calendar includes daylight saving time. Schedule.hourly_values are entered in standard time and should be adjusted if this value is true. The adjustment period should be based on local rules governing the start and end dates of daylighting savings time."
                 }
             },
             "additionalProperties": false
@@ -3117,13 +3112,13 @@
                     "description": "Choice of new, existing, addition, alteration, etc. for each ruleset.",
                     "$ref": "ASHRAE229.schema.json#/definitions/StatusOptions"
                 },
-                "output_validation_points": {
-                    "description": "Energy validation points",
+                "operating_points": {
+                    "description": "Operating points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/FanOutputValidationPoint"
+                        "$ref": "ASHRAE229.schema.json#/definitions/FanOperatingPoint"
                     },
-                    "notes": "Airflow is input to each validation point and energy output is the result. A minimum number of four points is recommended. Certain rulesets may have a different minimum number of points. For example, 90.1 Appendix G expects 11 data points."
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The airflow and power should be directly related. A minimum number of four points is recommended. Certain rulesets may have a different minimum number of points. For example, 90.1 Appendix G expects 11 data points. The ruleset checking specification would normally provide a list operating points that should match what is provided by the simulation."
                 }
             },
             "required": [
@@ -3131,17 +3126,17 @@
             ],
             "additionalProperties": false
         },
-        "FanOutputValidationPoint": {
+        "FanOperatingPoint": {
             "type": "object",
             "properties": {
                 "airflow": {
-                    "description": "Load",
+                    "description": "Airflow",
                     "type": "number",
                     "units": "L/s",
                     "notes": "No name and id is needed since typically used as one of a series."
                 },
-                "result": {
-                    "description": "Result",
+                "power": {
+                    "description": "power",
                     "type": "number",
                     "units": "W",
                     "notes": "The rate of energy used by the fan at the given airflow."
@@ -3644,13 +3639,13 @@
                     "type": "boolean",
                     "notes": "Determined in accordance with generally accepted engineering standards. For flows determinined by software, including the simulation software, this should be true. For flows that are autosized values should be true. Typically when true, the sizing is based on one or more design days, or other time periods, and should be consistent with the weather.heating_design_day_type and weather.cooling_design_day_type. For flows reflecting the an actual piece of equipment this should be false."
                 },
-                "output_validation_points": {
-                    "description": "Energy validation points",
+                "operating_points": {
+                    "description": "Operating points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/PumpOutputValidationPoint"
+                        "$ref": "ASHRAE229.schema.json#/definitions/PumpOperatingPoint"
                     },
-                    "notes": "Pump flow is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The flow rate and power should be directly related. A minimum number of four points is recommended. The ruleset checking specification would normally provide a list operating points that should match what is provided by the simulation."
                 }
             },
             "required": [
@@ -3689,7 +3684,7 @@
                 "Specify the motor nameplate power, design head, impellor efficiency, motor efficiency"
             ]
         },
-        "PumpOutputValidationPoint": {
+        "PumpOperatingPoint": {
             "type": "object",
             "properties": {
                 "flow": {
@@ -3698,11 +3693,11 @@
                     "units": "L/s",
                     "notes": "No name and id is needed since typically used as one of a series."
                 },
-                "result": {
-                    "description": "Result",
+                "power": {
+                    "description": "Power",
                     "type": "number",
                     "units": "W",
-                    "notes": "The rate of energy used by the pump at the given flow rate."
+                    "notes": "The rate of energy used per unit time by the pump at the given flow rate."
                 }
             },
             "additionalProperties": false
@@ -3766,13 +3761,13 @@
                         "minimum": 0.0
                     }
                 },
-                "output_validation_points": {
-                    "description": "Energy validation points",
+                "operating_points": {
+                    "description": "Operating points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/BoilerOutputValidationPoint"
+                        "$ref": "ASHRAE229.schema.json#/definitions/BoilerOperatingPoint"
                     },
-                    "notes": "Load is input to each validation point and energy output is the result. A minimum number of four points is recommended."
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The energy consumption per unit time should be directly related to the load on the boiler and entering water temperature. A minimum number of sixteen points is recommended. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
                 },
                 "auxiliary_power": {
                     "description": "Auxiliary power",
@@ -3823,7 +3818,7 @@
                 "Combustion efficiency"
             ]
         },
-        "BoilerOutputValidationPoint": {
+        "BoilerOperatingPoint": {
             "type": "object",
             "properties": {
                 "load": {
@@ -3838,10 +3833,11 @@
                     "units": "C",
                     "notes": "Temperature of water entering the boiler which returned from the loop. This entry is optional since not all curves for boiler performance need this."
                 },
-                "result": {
-                    "description": "Result",
+                "power": {
+                    "description": "Power",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "Energy consumption per unit time."
                 }
             },
             "additionalProperties": false
@@ -3957,19 +3953,21 @@
                         "$ref": "ASHRAE229.schema.json#/definitions/ChillerEfficiencyMetricOptions"
                     }
                 },
-                "capacity_validation_points": {
-                    "description": "Capacity validation points",
+                "capacity_operating_points": {
+                    "description": "Capacity points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerCapacityValidationPoint"
-                    }
+                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerCapacityOperatingPoint"
+                    },
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The capacity should be directly related to the chilled water supply temperature and condenser temperature. A minimum number of sixteen points is recommended. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
                 },
-                "power_validation_points": {
+                "power_operating_points": {
                     "description": "Energy validation points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPowerValidationPoint"
-                    }
+                        "$ref": "ASHRAE229.schema.json#/definitions/ChillerPowerOperatingPoint"
+                    },
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The power should be directly related to the chilled water supply temperature, condenser temperature, and load on the chiller. An indicator that the chiller is at full capacity is also important to differentiate between fully loaded and partially loaded operation. A minimum number of 64 points is recommended but fewer may be adequate to confirm proper operation especially if the temperatures and load are not repeated. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
                 },
                 "is_chilled_water_pump_interlocked": {
                     "description": "Indicates if the operation of the chilled water pump is interlocked with the operation of the chiller",
@@ -4024,7 +4022,7 @@
                 null
             ]
         },
-        "ChillerCapacityValidationPoint": {
+        "ChillerCapacityOperatingPoint": {
             "type": "object",
             "properties": {
                 "chilled_water_supply_temperature": {
@@ -4034,20 +4032,21 @@
                     "notes": "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
                 },
                 "condenser_temperature": {
-                    "description": "Second temperature",
+                    "description": "Condenser temperature",
                     "type": "number",
                     "units": "C",
                     "notes": "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
                 },
-                "result": {
-                    "description": "Result",
+                "capacity": {
+                    "description": "Capacity",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The capacity available by the chiller at the given operating point."
                 }
             },
             "additionalProperties": false
         },
-        "ChillerPowerValidationPoint": {
+        "ChillerPowerOperatingPoint": {
             "type": "object",
             "properties": {
                 "chilled_water_supply_temperature": {
@@ -4057,7 +4056,7 @@
                     "notes": "No name and id is needed since used as one of a series. The temperature is leaving the chiller."
                 },
                 "condenser_temperature": {
-                    "description": "Second temperature",
+                    "description": "Condenser temperature",
                     "type": "number",
                     "units": "C",
                     "notes": "Outside air dry-bulb temperature for air cooled chillers and condenser water temperature for water cooled chillers. For water cooled chillers, this is the temperature as the water enters the chiller. For air cooled chilers this the temperature of the ambient air."
@@ -4073,10 +4072,11 @@
                     "units": "W",
                     "notes": "True if chiller is operating at full copacity for the given temperature conditions"
                 },
-                "result": {
-                    "description": "Result",
+                "power": {
+                    "description": "Power",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The rate of energy used by the chiller at the given operating point."
                 }
             },
             "additionalProperties": false
@@ -4667,12 +4667,13 @@
                     "units": "L",
                     "notes": "From CBECC-Com."
                 },
-                "output_validation_points": {
-                    "description": "Capacity validation points",
+                "operating_points": {
+                    "description": "Operating points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeaterValidationPoint"
-                    }
+                        "$ref": "ASHRAE229.schema.json#/definitions/ServiceWaterHeaterOperatingPoint"
+                    },
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The power should be directly related to the load. A minimum number of four points is recommended. The ruleset checking specification would normally provide a list operating points that should match what is provided by the simulation."
                 },
                 "input_power": {
                     "description": "Input power",
@@ -4724,19 +4725,21 @@
                     "type": "string",
                     "notes": "When present, it indicates that heat transfer into or out of the component turns into a cooling or heating load in the simulation. From CBECC-Res. Constraint to use when implemented :Zone:"
                 },
-                "compressor_capacity_validation_points": {
-                    "description": "Capacity validation points",
+                "compressor_capacity_operating_points": {
+                    "description": "Compressor capacity operating points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/HeatPumpWaterHeaterCapacityValidationPoint"
-                    }
+                        "$ref": "ASHRAE229.schema.json#/definitions/HeatPumpWaterHeaterCapacityOperatingPoint"
+                    },
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The capacity should be directly related to the evaporator_air_temperature, condenser_water_temperature, evaporator_air_flow, and condenser_water_flow. A minimum number of 64 points is recommended but fewer may be adequate to confirm proper operation especially if the temperatures and flows are not repeated. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
                 },
-                "compressor_power_validation_points": {
-                    "description": "Coefficient of performance validation points",
+                "compressor_power_operating_points": {
+                    "description": "Compressor power operating points",
                     "type": "array",
                     "items": {
-                        "$ref": "ASHRAE229.schema.json#/definitions/HeatPumpWaterHeaterPowerValidationPoint"
-                    }
+                        "$ref": "ASHRAE229.schema.json#/definitions/HeatPumpWaterHeaterPowerOperatingPoint"
+                    },
+                    "notes": "Used to confirm the proper operation at various conditions which is based on the nominal value and performance curves, performance maps, or other adjustment mechanism. The power should be directly related to the chilled water evaporator_air_temperature, condenser_water_temperature, evaporator_air_flow, condenser_water_flow, and load on the heat pump water heater. A minimum number of 64 points is recommended but fewer may be adequate to confirm proper operation especially if the temperatures and flows are not repeated. The ruleset checking specification would normally provide a list list operating points that should match what is provided by the simulation."
                 },
                 "draft_fan": {
                     "description": "Draft fan ",
@@ -4857,7 +4860,7 @@
                 "Other"
             ]
         },
-        "ServiceWaterHeaterValidationPoint": {
+        "ServiceWaterHeaterOperatingPoint": {
             "type": "object",
             "properties": {
                 "load": {
@@ -4866,15 +4869,16 @@
                     "units": "W",
                     "notes": "No name and id is needed since typically used as one of a series."
                 },
-                "result": {
-                    "description": "Result",
+                "power": {
+                    "description": "power",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The rate of energy used per unit time by the service water heating at the given load."
                 }
             },
             "additionalProperties": false
         },
-        "HeatPumpWaterHeaterCapacityValidationPoint": {
+        "HeatPumpWaterHeaterCapacityOperatingPoint": {
             "type": "object",
             "properties": {
                 "evaporator_air_temperature": {
@@ -4898,15 +4902,16 @@
                     "type": "number",
                     "units": "L/s"
                 },
-                "result": {
+                "capacity": {
                     "description": "Result",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The capacity available by the heat pump water heater at the given operating point."
                 }
             },
             "additionalProperties": false
         },
-        "HeatPumpWaterHeaterPowerValidationPoint": {
+        "HeatPumpWaterHeaterPowerOperatingPoint": {
             "type": "object",
             "properties": {
                 "evaporator_air_temperature": {
@@ -4935,10 +4940,11 @@
                     "type": "number",
                     "units": "W"
                 },
-                "result": {
+                "power": {
                     "description": "Result",
                     "type": "number",
-                    "units": "W"
+                    "units": "W",
+                    "notes": "The rate of energy used by the heat pump water heater at the given operating point."
                 }
             },
             "additionalProperties": false
@@ -5402,6 +5408,6 @@
             ]
         }
     },
-    "version": "0.1.5",
+    "version": "0.1.6",
     "$ref": "ASHRAE229.schema.json#/definitions/RulesetProjectDescription"
 }
