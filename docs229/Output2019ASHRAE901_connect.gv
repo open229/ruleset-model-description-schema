@@ -1,9 +1,9 @@
 digraph G {
     size="10, 10";
     ranksep="1.4";
-  OutputInstance2019ASHRAE901 -> SourceResult [color="yellow"]
+  OutputInstance2019ASHRAE901 -> SourceResult [color="cyan"]
   OutputInstance2019ASHRAE901[fontsize="32" shape="box" height="0.7"]
   SourceResult[fontsize="32" shape="box" height="0.7"]
-  OutputInstance2019ASHRAE901 -> EndUseResult [color="darkviolet"]
+  OutputInstance2019ASHRAE901 -> EndUseResult [color="brown"]
   EndUseResult[fontsize="32" shape="box" height="0.7"]
 }
