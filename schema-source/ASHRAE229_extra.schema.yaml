@@ -5187,6 +5187,7 @@ Chiller:
     energy_source_type:
       Description: "Source of energy for the chiller"
       Data Type: "<EnergySourceOptions>"
+      Notes: "Select the primary source of energy for the chiller (often electricity). For chillers such as engine-driven or absorption that have both non-electric and electric inputs, provide the input that drives the refrigeration process, usually the non-electric input."
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -5293,7 +5294,7 @@ Chiller:
       Data Type: "[Numeric]"
       Units: "W/W"
       Range: ">=0"
-      Notes: "The useful cooling energy supplied by the chiller divided by the electric energy into the chiller both in the same units when the chiller is supplying a predefined load."
+      Notes: "The useful cooling energy supplied by the chiller divided by the energy into the chiller (usually electricity) both in the same units when the chiller is supplying a predefined load. "
       RMD Test: "Primary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
