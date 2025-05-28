@@ -1343,7 +1343,7 @@ Surface:
       AppG B_RMDs Same: False
     adjacent_to:
       Description: "Used to classify the conditions on the surface."
-      Data Type: "(<SurfaceAdjacencyOptions>,<AdditionalSurfaceAdjacencyOptionsRESNET>,<AdditionalSurfaceAdjacencyOptions2019ASHRAE901>)"
+      Data Type: "(<SurfaceAdjacencyOptions>,<AdditionalSurfaceAdjacencyOptionsRESNET>)"
       Notes: "Determines whether the other side of the surface is modeled and if not what assumptions should be used."
       RMD Test: "Secondary"
       AppG Used By TCDs: True
