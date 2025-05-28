@@ -2162,7 +2162,7 @@ MiscellaneousEquipment:
       Description: "Source of energy for the miscellaneous equipment in the space"
       Data Type: "<EnergySourceOptions>"
       RMD Test: False
-      Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE. To indicate equipment with a energy source from a Loop choose OTHER"
+      Notes: "To indicate that the energy is not accounted for by any utility supplied source, choose NONE. To indicate equipment with a energy source from a Loop choose STEAM, HOT_WATER, or OTHER"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
@@ -6886,7 +6886,10 @@ EnergySourceOptions:
       Description: "Fuel oil"
     STEAM:
       Description: "Steam" 
-      Notes: "Only applicable for absorption chillers"
+      Notes: "Applicable for absorption chillers"
+    HOT_WATER:
+      Description: "Hot water" 
+      Notes: "Applicable for absorption chillers"
     NONE:
       Description: "None"
       Notes: "No energy consumption by a utility supplied source occurs"
