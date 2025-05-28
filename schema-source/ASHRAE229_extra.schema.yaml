@@ -2389,7 +2389,7 @@ Schedule:
     hourly_values:
       Description: "Hourly Values of Schedule"
       Data Type: "[Numeric][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time and should be adjusted when Calendar.has_daylight_saving_time is set to True based on local rules governing the start and end dates of daylighting savings time."
+      Notes: "Used when schedule_sequence_type is HOURLY. Can also use functions like EFLH(), MAX(), MIN() to determine overall characteristics for the list of schedule values. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time with no adjustment for daylight savings time."
       RMD Test: True
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -2407,7 +2407,7 @@ Schedule:
     hourly_heating_design_year:
       Description: "Hourly values for heating design year"
       Data Type: "[Numeric/Null][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time and should be adjusted when Calendar.has_daylight_saving_time is set to True based on local rules governing the start and end dates of daylighting savings time."
+      Notes: "Used when schedule_sequence_type is HOURLY. Use when more than a 24 hour period was used for sizing. Values with the value Null will be ignored. Populate only one of the data elements: hourly_heating_design_day and hourly_heating_design_year, not both. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time with no adjustment for daylight savings time."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2425,7 +2425,7 @@ Schedule:
     hourly_cooling_design_year:
       Description: "Hourly values for cooling design year"
       Data Type: "[Numeric/Null][0..8784]"
-      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time and should be adjusted when Calendar.has_daylight_saving_time is set to True based on local rules governing the start and end dates of daylighting savings time."
+      Notes: "Used when schedule_sequence_type is HOURLY.  Use when more than a 24 hour period was used for sizing.  Values with the value Null will be ignored. Populate only one of the data elements: hourly_cooling_design_day and hourly_cooling_design_year, not both. A year that does not have a leap day should be a list of 8760 values and a leap year should be a list of 8784 values. All schedules for a project should be consistently either a list of 8760 values or a list of 8784 values but not mixed within a project. The list of values is in standard time with no adjustment for daylight savings time."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -2552,15 +2552,6 @@ Calendar:
     day_of_week_for_january_1:
       Description: "Day of the week for January 1"
       Data Type: "<DayOfWeekOptions>"
-      RMD Test: "unknown"
-      AppG Used By TCDs: "unknown"
-      AppG P_RMD Equals U_RMD: "unknown"
-      AppG B_RMD Equals P_RMD: "unknown"
-      AppG B_RMDs Same: True
-    has_daylight_saving_time:
-      Description: "The schedules adjust for Daylight Saving Time"
-      Data Type: "Boolean"
-      Notes: "This value should be true if the modeled calendar includes daylight saving time. Schedule.hourly_values are entered in standard time and should be adjusted if this value is true. The adjustment period should be based on local rules governing the start and end dates of daylighting savings time."
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
