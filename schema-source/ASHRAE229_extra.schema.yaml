@@ -3549,9 +3549,10 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
     temperature_control:
-      Description: "Supply air temperature control type"
+      Description: "Cooling supply air temperature control type"
       Data Type: "<FanSystemTemperatureControlOptions>"
       RMD Test: "Primary"
+      Notes: "The options describe the controls during cooling operation."
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
@@ -3600,7 +3601,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     supply_air_temperature_reset_load_fraction:
-      Description: "Supply air temperature reset load fraction"
+      Description: "Supply air temperature reset load fraction during cooling operation"
       Data Type: "Numeric"
       Notes: "When temperature_control is LOAD_RESET_TO_SPACE_TEMPERATURE, this is the threshold fraction below which supply air temperature reset begins.  Between the stated load fraction and 0% load the supply air temperature is ramped linearally until the supply air temperature reaches the zone. The supply air temperature is specified in Terminal."
       RMD Test: "Primary"
@@ -3609,7 +3610,7 @@ FanSystem:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     supply_air_temperature_reset_schedule:
-      Description: "ID of the Schedule for the supply air temperature reset"
+      Description: "ID of the Schedule for the supply air temperature reset during cooling operation"
       Data Type: "Reference"
       Notes: "The supply air temperature is specified in Terminal. Constraint to use when implemented :Schedule:"
       RMD Test: "Primary"
