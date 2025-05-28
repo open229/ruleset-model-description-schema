@@ -350,6 +350,24 @@ RulesetModelDescription:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+    materials:
+      Description: "Materials used at the site in Construction layers"
+      Data Type: "[{Material}]"
+      Notes: "Contains a list of Materials used in Construction layers."
+      RMD Test: False
+      AppG Used By TCDs: False
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: False
+    constructions:
+      Description: "Constructions used at the site"
+      Data Type: "[{Construction}]"
+      Notes: "Contains a list of Constructions used in Surfaces."
+      RMD Test: "Secondary"
+      AppG Used By TCDs: True
+      AppG P_RMD Equals U_RMD: True
+      AppG B_RMD Equals P_RMD: False
+      AppG B_RMDs Same: True
     measured_infiltration_pressure_difference:
       Description: "Differential pressure difference used during measurement for infiltration values."
       Data Type: "Numeric"
@@ -407,6 +425,15 @@ RulesetModelDescription:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+    service_water_heating_uses:
+      Description: "Service water heating uses on the site"
+      Data Type: "[{ServiceWaterHeatingUse}]"
+      Notes: "Contains a list of service water heating uses at the site. Used in BuildingSegment and Space data groups, see notes in those locations."
+      RMD Test: "unknown"
+      AppG Used By TCDs: "unknown"
+      AppG P_RMD Equals U_RMD: "unknown"
+      AppG B_RMD Equals P_RMD: "unknown"
+      AppG B_RMDs Same: "unknown"
     pumps:
       Description: "Pumps used on the site"
       Data Type: "[{Pump}]"
@@ -707,9 +734,9 @@ BuildingSegment:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     service_water_heating_uses:
-      Description: "List of service water heating uses"
-      Data Type: "[{ServiceWaterHeatingUse}]"
-      Notes: "This data element also appears in Space. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. A ServiceWaterHeatingUse that has one of the following unit types: [POWER_PER_PERSON, POWER_PER_AREA, VOLUME_PER_PERSON, VOLUME PER AREA] AND has not been explicitly referenced by any spaces is assumed to apply to each space in the building segment. A ServiceWaterHeatingUse that is referenced by one or more spaces will be applied only to those spaces. A ServiceWaterHeatingUse with units POWER, VOLUME, or OTHER will be applied only once to the entire building segment. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
+      Description: "List of IDs of service water heating uses"
+      Data Type: "[Reference]"
+      Notes: "This data element also appears in Space. A list of references to ServiceWaterHeatingUse data groups. A ServiceWaterHeatingUse that has one of the following unit types: [POWER_PER_PERSON, POWER_PER_AREA, VOLUME_PER_PERSON, VOLUME PER AREA] AND has not been explicitly referenced by any spaces is assumed to apply to each space in the building segment. A ServiceWaterHeatingUse that is referenced by one or more spaces will be applied only to those spaces. A ServiceWaterHeatingUse with units POWER, VOLUME, or OTHER will be applied only once to the entire building segment. The constraint to use when implemented is to :ServiceWaterHeatingUse:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
@@ -906,7 +933,7 @@ Zone:
       AppG B_RMDs Same: True
     supply_airflow_rate_multiplier_schedules:
       Description: "A list of IDs for Schedules containing the multipliers for the zonal supply airflow rates"
-      Data Type: "Reference"
+      Data Type: "[Reference]"
       Notes: "Each schedule corresponds to the list in zonal_supply_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -924,7 +951,7 @@ Zone:
       AppG B_RMDs Same: True
     exhaust_airflow_rate_multiplier_schedules:
       Description: "A list of IDs for Schedules containing the multipliers for the zonal exhaust airflow rates"
-      Data Type: "Reference"
+      Data Type: "[Reference]"
       Notes: "Each schedule corresponds to the list in zonal_exhaust_fans. If a schedule is not present, the multiplier is always one. Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
@@ -1112,9 +1139,9 @@ Space:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     service_water_heating_uses:
-      Description: "List of service water heating uses"
-      Data Type: "[({ServiceWaterHeatingUse}, Reference)]"
-      Notes: "This data element also appears in BuildingSegment. A list of ServiceWaterHeatingUse data groups can either appear here or a list of references to IDs of a ServiceWaterHeatingUse already defined somewhere else or a mixture of both. References must refer to a ServiceWaterHeatingUse at the BuildingSegment level and that BuildingSegment must be the BuildingSegment to which this space belongs. ServiceWaterHeatingUses stored at the space level may only be used for this space and may not be referenced by other spaces. When a reference is used, the constraint to use when implemented is to :ServiceWaterHeatingUse:"
+      Description: "List of IDs of service water heating uses"
+      Data Type: "[Reference]"
+      Notes: "This data element also appears in BuildingSegment. A list of references to ServiceWaterHeatingUse data groups. A ServiceWaterHeatingUse that has one of the following unit types: [POWER_PER_PERSON, POWER_PER_AREA, VOLUME_PER_PERSON, VOLUME PER AREA] AND has not been explicitly referenced by any spaces is assumed to apply to each space in the building segment. A ServiceWaterHeatingUse that is referenced by one or more spaces will be applied only to those spaces. A ServiceWaterHeatingUse with units POWER, VOLUME, or OTHER will be applied only once to the entire building segment. The constraint to use when implemented is to :ServiceWaterHeatingUse:"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
@@ -1368,9 +1395,9 @@ Surface:
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
     construction:
-      Description: "Construction description of surface or an ID of another Construction."
-      Data Type: "({Construction}, Reference)"
-      Notes: "The construction data group can either appear here or a reference to an ID of a Construction used in a previous Surface. When the reference is used, the constraint to use when implemented is to :Construction:"
+      Description: "ID of the Construction description of surface or an ID of another Construction."
+      Data Type: "Reference"
+      Notes: "The construction data group can either appear here or a reference to an ID of a Construction used in a previous Surface. The constraint to use when implemented is to :Construction:"
       RMD Test: "Secondary"
       AppG Used By TCDs: True
       AppG P_RMD Equals U_RMD: True
@@ -1441,18 +1468,18 @@ Construction:
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
     primary_layers:
-      Description: "List of names, or IDs, of layer descriptions starting from the outside surface for primary heat path"
-      Data Type: "[({Material}, Reference)]"
-      Notes: "For constructions with framing and cavity heat transfer paths, use this for the cavity. For constructions with homogeneous layer, use this element only. Air films should not be included in the list of layers. When Construction.primary_layers are specified, the Construction.r_values should not be used. The list of primary_layers should include at least one Material that has mass with Material.density and Material.specific_heat specified. A list of material data groups can either appear here or a list of references to IDs of a Materials already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :Material:"
+      Description: "List of IDs for materials as layer descriptions starting from the outside surface for the primary heat path"
+      Data Type: "[Reference]"
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the cavity. For constructions with homogeneous layer, use this element only. Air films should not be included in the list of layers. When Construction.primary_layers are specified, the Construction.r_values should not be used. The list of primary_layers should include at least one Material that has mass with Material.density and Material.specific_heat specified. The constraint to use when implemented is to :Material:"
       RMD Test: "Primary"
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
     framing_layers:
-      Description: "List of names, or IDs, of layer descriptions starting from the outside surface for the framing heat path"
-      Data Type: "[({Material}, Reference)]"
-      Notes: "For constructions with framing and cavity heat transfer paths, use this for the framing otherwise leave blank. Air films should not be included in the list of layers. Only used when primary_layers is also populated. A list of material data groups can either appear here or a list of references to IDs of a Materials already defined somewhere else or a mixture of both. When a reference is used, the constraint to use when implemented is to :Material:"
+      Description: "List of IDs for materials as layer descriptions starting from the outside surface for the  framing heat path"
+      Data Type: "[Reference]"
+      Notes: "For constructions with framing and cavity heat transfer paths, use this for the framing otherwise leave blank. Air films should not be included in the list of layers. Only used when primary_layers is also populated. The constraint to use when implemented is to :Material:"
       RMD Test: False
       AppG Used By TCDs: False
       AppG P_RMD Equals U_RMD: "unknown"
