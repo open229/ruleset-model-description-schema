@@ -5916,7 +5916,7 @@ ServiceWaterHeatingDistributionSystem:
     entering_water_mains_temperature_schedule:
       Description: "ID of the Schedule containing the temperature for unheated entering water to the building site often referenced as mains temperature"
       Data Type: "Reference"
-      Notes: "Constraint to use when implemented ::"
+      Notes: "Constraint to use when implemented :Schedule:"
       RMD Test: "unknown"
       AppG Used By TCDs: "unknown"
       AppG P_RMD Equals U_RMD: "unknown"
