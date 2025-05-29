@@ -1,11 +1,3 @@
-# AdditionalSurfaceAdjacencyOptions2019ASHRAE901
-|   Enumerator    |                                                                   Description                                                                   | Notes |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| `UNENCLOSED`    | The space on the other side of the surface is assumed to be unenclosed. The space on the other side of the surface is not explicity modeled.    |       |
-| `UNCONDITIONED` | The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled. |       |
-| `UNHEATED`      | Surface adjacent to a environment that is not heated but enclosed.                                                                              |       |
-| `SEMIHEATED`    | Surface adjacent to a environment that is semi-heated.                                                                                          |       |
-
 # ClimateZoneOptions2019ASHRAE901
 | Enumerator |      Description      | Notes |
 | ---------- | --------------------- | ----- |

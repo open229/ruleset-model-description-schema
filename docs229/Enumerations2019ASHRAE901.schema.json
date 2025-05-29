@@ -1006,21 +1006,6 @@
                 "No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets."
             ]
         },
-        "AdditionalSurfaceAdjacencyOptions2019ASHRAE901": {
-            "type": "string",
-            "enum": [
-                "UNENCLOSED",
-                "UNCONDITIONED",
-                "UNHEATED",
-                "SEMIHEATED"
-            ],
-            "descriptions": [
-                "The space on the other side of the surface is assumed to be unenclosed. The space on the other side of the surface is not explicity modeled.",
-                "The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled.",
-                "Surface adjacent to a environment that is not heated but enclosed.",
-                "Surface adjacent to a environment that is semi-heated."
-            ]
-        },
         "ConstructionClassificationOptions2019ASHRAE901": {
             "type": "string",
             "enum": [
@@ -1080,6 +1065,6 @@
             ]
         }
     },
-    "version": "0.1.6",
+    "version": "0.1.7",
     "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
