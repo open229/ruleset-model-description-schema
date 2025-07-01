@@ -6,14 +6,12 @@
         "RulesetModelOptionsRESNET": {
             "type": "string",
             "enum": [
-                "USER",
                 "RATED",
                 "REFERENCE",
                 "INDEX_ADJUSTMENT_DESIGN",
                 "INDEX_ADJUSTMENT_DESIGN_REFERENCE"
             ],
             "descriptions": [
-                "The building model as described without consideration of the ruleset",
                 "The rated model",
                 "The reference model",
                 "The index adjustment design model",
@@ -34,13 +32,13 @@
         "OutputSchemaOptionsRESNET": {
             "type": "string",
             "enum": [
-                "OUTPUT_SCHEMA_RESNET",
-                "OTHER"
+                "OUTPUT_SCHEMA_RESNET"
             ],
             "descriptions": [
-                "Output schema for RESNET",
-                "other"
+                "Output schema for RESNET"
             ]
         }
-    }
+    },
+    "version": "0.1.7",
+    "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
