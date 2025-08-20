@@ -633,6 +633,8 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: True
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -733,6 +735,8 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     service_water_heating_uses:
       Description: "List of IDs of service water heating uses"
       Data Type: "[Reference]"
@@ -742,6 +746,8 @@ BuildingSegment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 Zone:
   Object Type: "Data Group"
@@ -4762,6 +4768,8 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -4789,6 +4797,8 @@ Pump:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     specification_method:
       Description: "Options for how the pump is specified"
       Data Type: "<PumpSpecificationMethodOptions>"
@@ -4797,6 +4807,8 @@ Pump:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     design_electric_power:
       Description: "Pump design electric power"
       Data Type: "Numeric"
@@ -4807,6 +4819,8 @@ Pump:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     motor_nameplate_power:
       Description: "Pump motor nameplate power"
       Data Type: "Numeric"
@@ -4817,6 +4831,8 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     design_head:
       Description: "Head of the pump at design flow conditions"
       Data Type: "Numeric"
@@ -4827,6 +4843,8 @@ Pump:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     impeller_efficiency:
       Description: "Full load efficiency of the impeller"
       Data Type: "Numeric"
@@ -4837,6 +4855,8 @@ Pump:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     motor_efficiency:
       Description: "Full load efficiency of the pump motor"
       Data Type: "Numeric"
@@ -4847,6 +4867,8 @@ Pump:
       AppG P_RMD Equals U_RMD: False
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     speed_control:
       Description: "Options for pump speed control"
       Data Type: "<PumpSpeedControlOptions>"
@@ -4855,6 +4877,8 @@ Pump:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     design_flow:
       Description: "Design Pump Flowrate"
       Data Type: "Numeric"
@@ -4865,6 +4889,8 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     is_flow_calculated:
       Description: "True if the design_flow is sized by software"
       Data Type: "Boolean"
@@ -4874,6 +4900,8 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     operating_points:
       Description: "Operating points"
       Data Type: "[{PumpOperatingPoint}]"
@@ -4883,6 +4911,8 @@ Pump:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 PumpSpeedControlOptions:
   Object Type: "Enumeration"
@@ -4919,6 +4949,8 @@ PumpOperatingPoint:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     power:
       Description: "Power"
       Data Type: "Numeric"
@@ -4929,6 +4961,8 @@ PumpOperatingPoint:
       AppG P_RMD Equals U_RMD: True
       AppG B_RMD Equals P_RMD: False
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 Boiler:
   Object Type: "Data Group"
@@ -5785,6 +5819,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -5812,6 +5848,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     design_supply_temperature_difference:
       Description: "Design supply temperature difference (deltaT) of service water heating loop"
       Data Type: "Numeric"
@@ -5822,6 +5860,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     tanks:
       Description: "Tanks within service water heating distribution system"
       Data Type: "[{Tank}]"
@@ -5831,6 +5871,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     is_central_system:
       Description: "Indicates whether it is a central service water heater distribution system"
       Data Type: "Boolean"
@@ -5840,6 +5882,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     service_water_piping:
       Description: "Connected service water piping"
       Data Type: "{ServiceWaterPiping}"
@@ -5849,6 +5893,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     distribution_compactness:
       Description: "Type of compact distribution system"
       Data Type: "<ServiceWaterHeatingDistributionCompactnessOptions2019T24Com>"
@@ -5858,6 +5904,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     control_type:
       Description: "Type of distribution system"
       Data Type: "<ServiceWaterHeatingControlOptions2019T24Com>"
@@ -5867,6 +5915,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     configuration_type:
       Description: "Type of configuration"
       Data Type: "<ServiceWaterHeatingConfigurationOptions>"
@@ -5876,6 +5926,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     is_recovered_heat_from_drain_used_by_water_heater:
       Description: "Indicates whether the recovered heat from the shower drain used by the service water heater"
       Data Type: "Boolean"
@@ -5885,6 +5937,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     drain_heat_recovery_efficiency:
       Description: "Shower heat drain recovery efficiency"
       Data Type: "Numeric"
@@ -5895,6 +5949,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     drain_heat_recovery_type:
       Description: "Drain heat recovery type"
       Data Type: "<ServiceWaterHeatingHeatRecoveryOptions>"
@@ -5904,6 +5960,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     flow_multiplier_schedule:
       Description: "ID of the Schedule containing a multiplier for the service water heating loop flow"
       Data Type: "Reference"
@@ -5913,6 +5971,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     entering_water_mains_temperature_schedule:
       Description: "ID of the Schedule containing the temperature for unheated entering water to the building site often referenced as mains temperature"
       Data Type: "Reference"
@@ -5922,6 +5982,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     is_ground_temperature_used_for_entering_water:
       Description: "Indicates whether ground temperature is the source of the entering water temperature"
       Data Type: "Boolean"
@@ -5930,6 +5992,8 @@ ServiceWaterHeatingDistributionSystem:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 ServiceWaterHeatingConfigurationOptions:
   Object Type: "Enumeration"
@@ -5987,6 +6051,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6012,6 +6078,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     are_thermal_losses_modeled:
       Description: "Indicates if thermal losses from the service water heating piping are modeled"
       Data Type: "Boolean"
@@ -6020,6 +6088,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     insulation_thickness:
       Description: "Pipe insulation thickness"
       Data Type: "Numeric"
@@ -6031,6 +6101,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: false
+      AppG 11-1 P_RMD Equals B_RMD: false
     loop_pipe_location:
       Description: "Loop pipe location"
       Data Type: "<ComponentLocationOptions>"
@@ -6040,6 +6112,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     location_zone:
       Description: "ID of the Zone where the piping is located when IN_ZONE is selected from ComponentLocationOptions"
       Data Type: "Reference"
@@ -6049,6 +6123,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     length:
       Description: "Pipe length"
       Data Type: "Numeric"
@@ -6060,6 +6136,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     diameter:
       Description: "Pipe section diameter"
       Data Type: "Numeric"
@@ -6071,6 +6149,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     child:
       Description: "Other service water piping connected to this one as children."
       Data Type: "[{ServiceWaterPiping}]"
@@ -6079,6 +6159,8 @@ ServiceWaterPiping:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     service_water_heating_design_and_control:
       Description: "Design and control used for service heating piping"
       Data Type: "{FluidLoopDesignAndControl}"
@@ -6101,6 +6183,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6127,6 +6211,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     solar_savings_fraction:
       Description: "Solar savings fraction"
       Data Type: "Numeric"
@@ -6136,6 +6222,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     collector_area:
       Description: "Solar collector area"
       Data Type: "Numeric"
@@ -6145,6 +6233,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     collector_type_description:
       Description: "Description of solar collector type"
       Data Type: "String"
@@ -6154,6 +6244,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     collector_slope:
       Description: "Solar slope from horizontal"
       Data Type: "Numeric"
@@ -6163,6 +6255,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     tank:
       Description: "Tank that is part of the solar thermal system"
       Data Type: "{Tank}"
@@ -6172,6 +6266,8 @@ SolarThermal:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 ServiceWaterHeatingEquipment:
   Object Type: "Data Group"
@@ -6185,6 +6281,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6210,6 +6308,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     distribution_system:
       Description: "ID of the ServiceWaterHeatingDistributionSystem connected to the ServiceWaterHeatingEquipment"
       Data Type: "Reference"
@@ -6220,6 +6320,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     efficiency_metric_types:
       Description: "List of efficiency metrics that correspond to the values in efficiency_metric_values list"
       Data Type: "[<ServiceWaterHeatingEfficiencyMetricOptions>]"
@@ -6228,6 +6330,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     efficiency_metric_values:
       Description: "List of efficiency metric values that correspond to the descriptors in efficiency_metric_types list"
       Data Type: "[Numeric]"
@@ -6236,6 +6340,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: "unknown"
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     draw_pattern:
       Description: "Draw pattern"
       Data Type: "<DrawPatternOptions>"
@@ -6245,6 +6351,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: false
+      AppG 11-1 P_RMD Equals B_RMD: false
     first_hour_rating:
       Description: "First hour rating volume"
       Data Type: "Numeric"
@@ -6256,6 +6364,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     operating_points:
       Description: "Operating points"
       Data Type: "[{ServiceWaterHeaterOperatingPoint}]"
@@ -6265,6 +6375,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     input_power:
       Description: "Input power"
       Data Type: "Numeric"
@@ -6276,6 +6388,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     rated_capacity:
       Description: "Rated capacity"
       Data Type: "Numeric"
@@ -6286,6 +6400,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     minimum_capacity:
       Description: "Minimum capacity"
       Data Type: "Numeric"
@@ -6297,6 +6413,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     recovery_efficiency:
       Description: "Recovery efficiency"
       Data Type: "Numeric"
@@ -6306,6 +6424,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     setpoint_temperature:
       Description: "Set point temperature"
       Units: "C"
@@ -6315,6 +6435,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     compressor_location:
       Description: "Description of where the heat pump for the water heater is located"
       Data Type: "String"
@@ -6324,6 +6446,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     compressor_zone:
       Description: "ID of the Zone where the heat pump for the water heater is located"
       Data Type: "Reference"
@@ -6333,6 +6457,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     compressor_heat_rejection_source:
       Description: "Heat pump heat rejection source"
       Data Type: "<ComponentLocationOptions>"
@@ -6342,6 +6468,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     compressor_heat_rejection_zone:
       Description: "ID of the Zone for rejecting heat pump heat"
       Data Type: "Reference"
@@ -6351,6 +6479,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     compressor_capacity_operating_points:
       Description: "Compressor capacity operating points"
       Data Type: "[{HeatPumpWaterHeaterCapacityOperatingPoint}]"
@@ -6360,6 +6490,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     compressor_power_operating_points:
       Description: "Compressor power operating points"
       Data Type: "[{HeatPumpWaterHeaterPowerOperatingPoint}]"
@@ -6369,6 +6501,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     draft_fan:
       Description: "Draft fan "
       Data Type: "{Fan}"
@@ -6378,6 +6512,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     has_electrical_ignition:
       Description: "Indicates whether the water heater has electrical ignition"
       Data Type: "Boolean"
@@ -6387,6 +6523,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     tank:
       Description: "Tank that is part of the service water heating equipment"
       Data Type: "{Tank}"
@@ -6396,6 +6534,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     status_type:
       Description: "Choice of new, existing, addition, alteration, etc. for each ruleset."
       Data Type: "<StatusOptions>"
@@ -6404,6 +6544,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     solar_thermal_systems:
       Description: "Solar thermal systems used for heating service water"
       Data Type: "[{SolarThermal}]"
@@ -6413,6 +6555,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     hot_water_loop:
       Description: "ID of the FluidLoop for hot water"
       Data Type: "Reference"
@@ -6422,6 +6566,8 @@ ServiceWaterHeatingEquipment:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 ServiceWaterHeatingEfficiencyMetricOptions:
   Object Type: "Enumeration"
@@ -6499,6 +6645,8 @@ ServiceWaterHeaterOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     power:
       Description: "power"
       Data Type: "Numeric"
@@ -6509,6 +6657,8 @@ ServiceWaterHeaterOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 HeatPumpWaterHeaterCapacityOperatingPoint:
   Object Type: "Data Group"
@@ -6523,6 +6673,8 @@ HeatPumpWaterHeaterCapacityOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
       Data Type: "Numeric"
@@ -6532,6 +6684,8 @@ HeatPumpWaterHeaterCapacityOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     evaporator_air_flow:
       Description: "Air flow across evaporator"
       Data Type: "Numeric"
@@ -6541,6 +6695,8 @@ HeatPumpWaterHeaterCapacityOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     condenser_water_flow:
       Description: "Water flow across condenser"
       Data Type: "Numeric"
@@ -6550,6 +6706,8 @@ HeatPumpWaterHeaterCapacityOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     capacity:
       Description: "Result"
       Data Type: "Numeric"
@@ -6560,6 +6718,8 @@ HeatPumpWaterHeaterCapacityOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 HeatPumpWaterHeaterPowerOperatingPoint:
   Object Type: "Data Group"
@@ -6574,6 +6734,8 @@ HeatPumpWaterHeaterPowerOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     condenser_water_temperature:
       Description: "Entering condenser temperature of water"
       Data Type: "Numeric"
@@ -6583,6 +6745,8 @@ HeatPumpWaterHeaterPowerOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     evaporator_air_flow:
       Description: "Air flow across evaporator"
       Data Type: "Numeric"
@@ -6592,6 +6756,8 @@ HeatPumpWaterHeaterPowerOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     condenser_water_flow:
       Description: "Water flow across condenser"
       Data Type: "Numeric"
@@ -6601,6 +6767,8 @@ HeatPumpWaterHeaterPowerOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     load:
       Description: "Load"
       Data Type: "Numeric"
@@ -6610,6 +6778,8 @@ HeatPumpWaterHeaterPowerOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     power:
       Description: "Result"
       Data Type: "Numeric"
@@ -6620,6 +6790,8 @@ HeatPumpWaterHeaterPowerOperatingPoint:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: False
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 Tank:
   Object Type: "Data Group"
@@ -6633,6 +6805,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6661,6 +6835,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     type:
       Description: "Service water heater tank type"
       Data Type: "<ServiceWaterHeaterTankOptions>"
@@ -6669,6 +6845,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     height:
       Description: "Tank height"
       Data Type: "Numeric"
@@ -6680,6 +6858,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     interior_insulation:
       Description: "Tank interior insulation R-value"
       Data Type: "Numeric"
@@ -6691,6 +6871,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     exterior_insulation:
       Description: "Tank exterior insulation R-value"
       Data Type: "Numeric"
@@ -6702,6 +6884,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     location:
       Description: "Location"
       Data Type: "<ComponentLocationOptions>"
@@ -6711,6 +6895,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     location_zone:
       Description: "ID of the Zone containing the Tank"
       Data Type: "Reference"
@@ -6720,6 +6906,8 @@ Tank:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
 
 ServiceWaterHeaterTankOptions:
   Object Type: "Enumeration"
@@ -6760,6 +6948,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     reporting_name:
       Description: "Descriptive name used in RCT reports if id is not already a descriptive name"
       Data Type: "String"
@@ -6786,6 +6976,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     water_serves_type:
       Description: "The use of the water serves the type"
       Data Type: "<ServiceWaterHeatingFixtureOptions>"
@@ -6794,6 +6986,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     served_by_distribution_system:
       Description: "ID of the ServiceWaterHeatingDistributionSystem that serves this end use"
       Data Type: "Reference"
@@ -6804,6 +6998,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     use:
       Description: "Usage of service hot water"
       Data Type: "Numeric"
@@ -6813,6 +7009,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     use_units:
       Description: "Type of units for use of service hot water"
       Data Type: "<ServiceWaterHeatingUseUnitOptions>"
@@ -6821,6 +7019,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     use_multiplier_schedule:
       Description: "ID of the Schedule containing the multiplier for the use of service hot water"
       Data Type: "Reference"
@@ -6830,6 +7030,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     temperature_at_fixture:
       Description: "Temperature leaving the fixture that is result of mixing hot water from the water heater and cold water from the tap."
       Data Type: "Numeric"
@@ -6840,6 +7042,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: true
     is_heat_recovered_by_drain:
       Description: "Indicates if heat is being recovered from the drain"
       Data Type: "Boolean"
@@ -6849,6 +7053,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
     is_recovered_heat_used_by_cold_side_feed:
       Description: "Indicates if heat is being recovered from the drain is used on the cold side feed"
       Data Type: "Boolean"
@@ -6858,6 +7064,8 @@ ServiceWaterHeatingUse:
       AppG P_RMD Equals U_RMD: "unknown"
       AppG B_RMD Equals P_RMD: "unknown"
       AppG B_RMDs Same: True
+      AppG 11-1 P_RMD Equals U_RMD: true
+      AppG 11-1 P_RMD Equals B_RMD: false
 
 ServiceWaterHeatingFixtureOptions:
   Object Type: "Enumeration"
