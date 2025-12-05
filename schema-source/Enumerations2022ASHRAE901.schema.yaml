@@ -248,31 +248,31 @@ LightingSpaceOptions2022ASHRAE901TG37:
     CASINO_TABLE_GAMES_AREA:
       Description: "Casino - Table games area"
     CONVENTION_CENTER_EXHIBIT_SPACE:
-      Description: "Convention Center — Exhibit Space"
+      Description: "Convention Center - Exhibit Space"
     CORRECTIONAL_FACILITY_AUDIENCE_SEATING_AREA:
-      Description: "Correctional Facility — Audience Seating Area"
+      Description: "Correctional Facility - Audience Seating Area"
     CORRECTIONAL_FACILITY_CLASSROOM:
-      Description: "Correctional Facility — Classroom"
+      Description: "Correctional Facility - Classroom"
     CORRECTIONAL_FACILITY_CONFINEMENT_CELLS:
-      Description: "Correctional Facility — Confinement Cells"
+      Description: "Correctional Facility - Confinement Cells"
     CORRECTIONAL_FACILITY_DINING_AREA:
-      Description: "Correctional Facility — Dining Area"
+      Description: "Correctional Facility - Dining Area"
     DORMITORY_LIVING_QUARTERS:
-      Description: "Dormitory — Living Quarters"
+      Description: "Dormitory - Living Quarters"
     FACILITY_FOR_VISUALLY_IMPAIRED_CHAPEL:
-      Description: "Facility for the Visually Impaired — Chapel"
+      Description: "Facility for the Visually Impaired - Chapel"
     FACILITY_FOR_VISUALLY_IMPAIRED_CORRIDOR:
-      Description: "Facility for the Visually Impaired — Corridor"
+      Description: "Facility for the Visually Impaired - Corridor"
     FACILITY_FOR_VISUALLY_IMPAIRED_DINING:
-      Description: "Facility for the Visually Impaired — Dining"
+      Description: "Facility for the Visually Impaired - Dining"
     FACILITY_FOR_VISUALLY_IMPAIRED_LOBBY:
-      Description: "Facility for the Visually Impaired — Lobby"
+      Description: "Facility for the Visually Impaired - Lobby"
     FACILITY_FOR_VISUALLY_IMPAIRED_RECREATION_ROOM:
-      Description: "Facility for the Visually Impaired — Recreation Room"
+      Description: "Facility for the Visually Impaired - Recreation Room"
     FACILITY_FOR_VISUALLY_IMPAIRED_RESTROOM:
-      Description: "Facility for the Visually Impaired — Restroom"
+      Description: "Facility for the Visually Impaired - Restroom"
     FIRE_STATION_SLEEPING_QUARTERS:
-      Description: "Fire Station — Sleeping Quarters"
+      Description: "Fire Station - Sleeping Quarters"
     GYMNASIUM_FITNESS_CENTER_EXERCISE_AREA:
       Description: "Gymnasium/Fitness Center - Exercise area"
     GYMNASIUM_FITNESS_CENTER_PLAYING_AREA:
@@ -320,7 +320,7 @@ LightingSpaceOptions2022ASHRAE901TG37:
     PERFORMING_ARTS_THEATER_DRESSING_ROOM:
       Description: "Performing Arts Theater - Dressing room"
     POST_OFFICE_SORTING_AREA:
-      Description: "Post Office — Sorting Area"
+      Description: "Post Office - Sorting Area"
     RELIGIOUS_FACILITY_AUDIENCE_SEATING_AREA:
       Description: "Religious Facility - Audience seating area"
     RELIGIOUS_FACILITY_FELLOWSHIP_HALL:
@@ -338,13 +338,13 @@ LightingSpaceOptions2022ASHRAE901TG37:
     RETAIL_FACILITIES_MASSAGE:
       Description: "Retail Facilities - Massage"
     SPORTS_ARENA_PLAYING_AREA_CLASS_I_FACILITY:
-      Description: "Sports Arena — Playing Area - Class I facility"
+      Description: "Sports Arena - Playing Area - Class I facility"
     SPORTS_ARENA_PLAYING_AREA_CLASS_II_FACILITY:
-      Description: "Sports Arena — Playing Area - Class II facility"
+      Description: "Sports Arena - Playing Area - Class II facility"
     SPORTS_ARENA_PLAYING_AREA_CLASS_III_FACILITY:
-      Description: "Sports Arena — Playing Area - Class III facility"
+      Description: "Sports Arena - Playing Area - Class III facility"
     SPORTS_ARENA_PLAYING_AREA_CLASS_IV_FACILITY:
-      Description: "Sports Arena — Playing Area - Class IV facility"
+      Description: "Sports Arena - Playing Area - Class IV facility"
     NATATORIUM_CLASS_I_FACILITY:
       Description: "Natatorium - Class I facility"
     NATATORIUM_CLASS_II_FACILITY:
@@ -364,9 +364,9 @@ LightingSpaceOptions2022ASHRAE901TG37:
     TRANSPORTATION_FACILITY_TICKET_COUNTER:
       Description: "Transportation Facility - Ticket counter"
     WAREHOUSE_STORAGE_AREA_MEDIUM_TO_BULKY_PALLETIZED_ITEMS:
-      Description: "Warehouse — Storage Area - Medium to bulky, palletized items"
+      Description: "Warehouse - Storage Area - Medium to bulky, palletized items"
     WAREHOUSE_STORAGE_AREA_SMALLER_HAND_CARRIED_ITEMS:
-      Description: "Warehouse — Storage Area - Smaller, hand-carried items"
+      Description: "Warehouse - Storage Area - Smaller, hand-carried items"
     NONE:
       Description: "None"
       Notes: "Indicates that the space will have no occupancy, such as an elevator shaft."
