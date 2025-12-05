@@ -204,9 +204,9 @@ LightingSpaceOptions2022ASHRAE901TG37:
     LOUNGE_BREAKROOM_ALL_OTHERS:
       Description: "Lounge/Breakroom - All others"
     OFFICE_ENCLOSED_SMALL:
-      Description: "Office - Enclosed and <= 250 ft²"
+      Description: "Office - Enclosed and <= 250 ft2"
     OFFICE_ENCLOSED_LARGE:
-      Description: "Office - Enclosed and > 250 ft²"
+      Description: "Office - Enclosed and > 250 ft2"
     OFFICE_OPEN_PLAN:
       Description: "Office - Open plan"
     PARKING_AREA_INTERIOR_DAYLIGHT_TRANSITION:
@@ -230,9 +230,9 @@ LightingSpaceOptions2022ASHRAE901TG37:
     STAIRWELL:
       Description: "Stairwell"
     STORAGE_ROOM_LARGE:
-      Description: "Storage Room >= 50 ft²"
+      Description: "Storage Room >= 50 ft2"
     STORAGE_ROOM_SMALL:
-      Description: "Storage Room < 50 ft²"
+      Description: "Storage Room < 50 ft2"
     VEHICULAR_MAINTENANCE_AREA:
       Description: "Vehicular Maintenance Area"
     WORKSHOP_SCHOOL:

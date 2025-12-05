@@ -172,8 +172,8 @@
 | `LOCKER_ROOM`                                             | Locker Room                                                                |                                                                             |
 | `LOUNGE_BREAKROOM_MOTHERS_WELLNESS`                       | Lounge/Breakroom - Health care facility                                    |                                                                             |
 | `LOUNGE_BREAKROOM_ALL_OTHERS`                             | Lounge/Breakroom - All others                                              |                                                                             |
-| `OFFICE_ENCLOSED_SMALL`                                   | Office - Enclosed and <= 250 ftÂ²                                          |                                                                             |
-| `OFFICE_ENCLOSED_LARGE`                                   | Office - Enclosed and > 250 ftÂ²                                           |                                                                             |
+| `OFFICE_ENCLOSED_SMALL`                                   | Office - Enclosed and <= 250 ft2                                           |                                                                             |
+| `OFFICE_ENCLOSED_LARGE`                                   | Office - Enclosed and > 250 ft2                                            |                                                                             |
 | `OFFICE_OPEN_PLAN`                                        | Office - Open plan                                                         |                                                                             |
 | `PARKING_AREA_INTERIOR_DAYLIGHT_TRANSITION`               | Parking Area, Interior - Daylight transition zone                          |                                                                             |
 | `PARKING_AREA_INTERIOR_ALL_OTHERS`                        | Parking Area, Interior - All other parking areas and drive areas           |                                                                             |
@@ -185,8 +185,8 @@
 | `SECURITY_SCREENING_TRANSPORTATION_QUEUE`                 | Airport/bus/ship/train/transportation screening queue                      |                                                                             |
 | `SECURITY_SCREENING_GENERAL`                              | General security screening                                                 |                                                                             |
 | `STAIRWELL`                                               | Stairwell                                                                  |                                                                             |
-| `STORAGE_ROOM_LARGE`                                      | Storage Room >= 50 ftÂ²                                                    |                                                                             |
-| `STORAGE_ROOM_SMALL`                                      | Storage Room < 50 ftÂ²                                                     |                                                                             |
+| `STORAGE_ROOM_LARGE`                                      | Storage Room >= 50 ft2                                                     |                                                                             |
+| `STORAGE_ROOM_SMALL`                                      | Storage Room < 50 ft2                                                      |                                                                             |
 | `VEHICULAR_MAINTENANCE_AREA`                              | Vehicular Maintenance Area                                                 |                                                                             |
 | `WORKSHOP_SCHOOL`                                         | Workshop - Preschool through 12th grade, laboratory, and shop classrooms   |                                                                             |
 | `WORKSHOP_ALL_OTHERS`                                     | Workshop - All others                                                      |                                                                             |
