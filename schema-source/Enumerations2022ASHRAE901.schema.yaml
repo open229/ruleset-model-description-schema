@@ -119,7 +119,7 @@ LightingBuildingAreaOptions2022ASHRAE901T951TG38:
 LightingSpaceOptions2022ASHRAE901TG37:
   # Table G3.7 Performance Rating Method Lighting Power Density Allowances and
   # Occupancy Sensor Reductions Using the Space-by-Space Method
-  # Note: the list of space types is slighlty different than table Table 9.6.1
+  # Note: the list of space types is slighlty different from Table 9.6.1
   Object Type: "Enumeration"
   Enumerators:
     ATRIUM_LOW:
