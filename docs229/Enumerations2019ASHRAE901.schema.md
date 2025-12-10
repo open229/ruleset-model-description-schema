@@ -1,11 +1,3 @@
-# AdditionalSurfaceAdjacencyOptions2019ASHRAE901
-|   Enumerator    |                                                                   Description                                                                   | Notes |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| `UNENCLOSED`    | The space on the other side of the surface is assumed to be unenclosed. The space on the other side of the surface is not explicity modeled.    |       |
-| `UNCONDITIONED` | The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled. |       |
-| `UNHEATED`      | Surface adjacent to a environment that is not heated but enclosed.                                                                              |       |
-| `SEMIHEATED`    | Surface adjacent to a environment that is semi-heated.                                                                                          |       |
-
 # ClimateZoneOptions2019ASHRAE901
 | Enumerator |      Description      | Notes |
 | ---------- | --------------------- | ----- |
@@ -262,7 +254,7 @@
 | `BASELINE_180` | The building model that corresponds with the Baseline Buildings Performance column of Appendix G Table G3.1 with 180 degree rotation |       |
 | `BASELINE_270` | The building model that corresponds with the Baseline Buildings Performance column of Appendix G Table G3.1 with 270 degree rotation |       |
 
-# ServiceWaterHeatingSpaceOptions2019ASHRAE901
+# ServiceWaterHeatingAreaOptions2019ASHRAE901
 |            Enumerator             |              Description               | Notes |
 | --------------------------------- | -------------------------------------- | ----- |
 | `AUTOMOTIVE_FACILITY`             | Automotive facility                    |       |

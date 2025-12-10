@@ -1,9 +1,168 @@
 {
     "id": "TEST RPD",
-    "data_timestamp": "2016-06-29T14:35Z",
+    "metadata": {
+        "id": "DOE2 RPD File",
+        "schema_author": "ASHRAE SPC 229 Schema Working Group",
+        "schema_name": "Ruleset Evaluation Schema",
+        "schema_version": "0.1.7",
+        "schema_url": "https://github.com/open229/ruleset-model-description-schema",
+        "time_of_creation": "2025-06-20T13:00Z",
+        "version": "0.0.1",
+        "source": "Manually created, with assistance from PNNL's excel-to-rpd spreadsheet and scripts"
+    },
     "ruleset_model_descriptions": [
         {
             "id": "TEST RMD",
+            "materials": [
+                {
+                    "id": "Metal Deck",
+                    "thickness": 0.0008,
+                    "thermal_conductivity": 45.28,
+                    "density": 7824,
+                    "specific_heat": 500
+                },
+                {
+                    "id": "Roof Continuous Insulation 1",
+                    "thickness": 0.0527,
+                    "thermal_conductivity": 0.02,
+                    "density": 32,
+                    "specific_heat": 922
+                },
+                {
+                    "id": "Roof Continuous Insulation 2",
+                    "thickness": 0.106,
+                    "thermal_conductivity": 0.02,
+                    "density": 32,
+                    "specific_heat": 922
+                },
+                {
+                    "id": "Built-up Roof",
+                    "thickness": 0.0095,
+                    "thermal_conductivity": 0.16,
+                    "density": 1120,
+                    "specific_heat": 1460
+                },
+                {
+                    "id": "Built-up Roof Thermal Resistance",
+                    "r_value": 0.059
+                },
+                {
+                    "id": "Concrete",
+                    "thickness": 0.1016,
+                    "thermal_conductivity": 2.31,
+                    "density": 2322,
+                    "specific_heat": 832
+                },
+                {
+                    "id": "Slab Insulation",
+                    "thickness": 0.1143,
+                    "thermal_conductivity": 0.04,
+                    "density": 91.31,
+                    "specific_heat": 838
+                },
+                {
+                    "id": "Stucco",
+                    "thickness": 0.0254,
+                    "thermal_conductivity": 0.72,
+                    "density": 1856,
+                    "specific_heat": 840
+                },
+                {
+                    "id": "Gypsum 5/8in",
+                    "thickness": 0.0159,
+                    "thermal_conductivity": 0.16,
+                    "density": 800,
+                    "specific_heat": 1090
+                },
+                {
+                    "id": "Wall Continuous Insulation 1",
+                    "thickness": 0.062,
+                    "thermal_conductivity": 0.037,
+                    "density": 9.6,
+                    "specific_heat": 838
+                },
+                {
+                    "id": "Wall Continuous Insulation 2",
+                    "thickness": 0.179,
+                    "thermal_conductivity": 0.037,
+                    "density": 9.6,
+                    "specific_heat": 838
+                },
+                {
+                    "id": "Gypsum Thermal Resistance",
+                    "r_value": 0.099
+                }
+            ],
+            "constructions": [
+                {
+                    "id": "Exterior Roof 1",
+                    "primary_layers": [
+                        "Built-up Roof",
+                        "Roof Continuous Insulation 1",
+                        "Metal Deck"
+                    ],
+                    "u_factor": 0.363775
+                },
+                {
+                    "id": "Exterior Roof 2",
+                    "primary_layers": [
+                        "Built-up Roof Thermal Resistance",
+                        "Roof Continuous Insulation 2",
+                        "Metal Deck"
+                    ],
+                    "u_factor": 0.18866
+                },
+                {
+                    "id": "Exterior Roof 3",
+                    "primary_layers": [],
+                    "u_factor": 0.357799
+                },
+                {
+                    "id": "Exterior Wall 1",
+                    "primary_layers": [
+                        "Gypsum 5/8in",
+                        "Wall Continuous Insulation 1",
+                        "Gypsum 5/8in",
+                        "Stucco"
+                    ],
+                    "u_factor": 0.478345
+                },
+                {
+                    "id": "Exterior Wall 2",
+                    "primary_layers": [
+                        "Gypsum Thermal Resistance",
+                        "Wall Continuous Insulation 2",
+                        "Gypsum Thermal Resistance",
+                        "Stucco"
+                    ],
+                    "u_factor": 0.180874
+                },
+                {
+                    "id": "Exterior Wall 3",
+                    "primary_layers": [],
+                    "u_factor": 0.477165
+                },
+                {
+                    "id": "Slab On-grade 1",
+                    "primary_layers": [
+                        "Concrete"
+                    ],
+                    "f_factor": 0.73
+                },
+                {
+                    "id": "Slab On-grade 2",
+                    "primary_layers": [
+                        "Concrete",
+                        "Slab Insulation"
+                    ],
+                    "f_factor": 0.73
+                },
+                {
+                    "id": "Interior Wall",
+                    "primary_layers": [],
+                    "u_factor": 1.695
+                }
+            ],
             "buildings": [
                 {
                     "id": "TEST Building",
@@ -11,183 +170,6 @@
                     "building_segments": [
                         {
                             "id": "TEST Building Segment 1",
-                            "heating_ventilating_air_conditioning_systems": [
-                                {
-                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Core Zone 1",
-                                    "heating_system": {
-                                        "id": "Heating Sys - Core Zone 1",
-                                        "type": "FURNACE",
-                                        "energy_source_type": "NATURAL_GAS",
-                                        "design_capacity": 17500,
-                                        "rated_capacity": 17584,
-                                        "efficiency_metric_values": [
-                                            0.78
-                                        ],
-                                        "efficiency_metric_types": [
-                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
-                                        ]
-                                    },
-                                    "cooling_system": {
-                                        "id": "Cooling Sys - Core Zone 1",
-                                        "type": "NON_MECHANICAL"
-                                    },
-                                    "fan_system": {
-                                        "id": "Fan System - Core Zone 1",
-                                        "fan_control": "CONSTANT",
-                                        "operation_during_occupied": "CONTINUOUS",
-                                        "operation_during_unoccupied": "KEEP_OFF",
-                                        "supply_fans": [
-                                            {
-                                                "id": "Supply Fan - Core Zone 1",
-                                                "design_airflow": 943.9,
-                                                "is_airflow_sized_based_on_design_day": false,
-                                                "specification_method": "SIMPLE",
-                                                "design_electric_power": 600
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 1 (South)",
-                                    "heating_system": {
-                                        "id": "Heating Sys - Prm Zone 1 (South)",
-                                        "type": "FURNACE",
-                                        "energy_source_type": "NATURAL_GAS",
-                                        "design_capacity": 17500,
-                                        "rated_capacity": 17584,
-                                        "efficiency_metric_values": [
-                                            0.78
-                                        ],
-                                        "efficiency_metric_types": [
-                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
-                                        ]
-                                    },
-                                    "cooling_system": {
-                                        "id": "Cooling Sys - Prm Zone 1 (South)",
-                                        "type": "NON_MECHANICAL"
-                                    },
-                                    "fan_system": {
-                                        "id": "Fan System - Prm Zone 1 (South)",
-                                        "fan_control": "CONSTANT",
-                                        "operation_during_occupied": "CONTINUOUS",
-                                        "operation_during_unoccupied": "KEEP_OFF",
-                                        "supply_fans": [
-                                            {
-                                                "id": "Supply Fan - Prm Zone 1 (South)",
-                                                "design_airflow": 943.9,
-                                                "is_airflow_sized_based_on_design_day": false,
-                                                "specification_method": "SIMPLE",
-                                                "design_electric_power": 600
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 2 (East)",
-                                    "heating_system": {
-                                        "id": "Heating Sys - Prm Zone 2 (East)",
-                                        "type": "FURNACE",
-                                        "energy_source_type": "NATURAL_GAS",
-                                        "design_capacity": 17500,
-                                        "rated_capacity": 17584,
-                                        "efficiency_metric_values": [
-                                            0.78
-                                        ],
-                                        "efficiency_metric_types": [
-                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
-                                        ]
-                                    },
-                                    "cooling_system": {
-                                        "id": "Cooling Sys - Prm Zone 2 (East)",
-                                        "type": "NON_MECHANICAL"
-                                    },
-                                    "fan_system": {
-                                        "id": "Fan System - Prm Zone 2 (East)",
-                                        "fan_control": "CONSTANT",
-                                        "operation_during_occupied": "CONTINUOUS",
-                                        "operation_during_unoccupied": "KEEP_OFF",
-                                        "supply_fans": [
-                                            {
-                                                "id": "Supply Fan - Prm Zone 2 (East)",
-                                                "design_airflow": 943.9,
-                                                "is_airflow_sized_based_on_design_day": false,
-                                                "specification_method": "SIMPLE",
-                                                "design_electric_power": 600
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 3 (North)",
-                                    "heating_system": {
-                                        "id": "Heating Sys - Prm Zone 3 (North)",
-                                        "type": "FURNACE",
-                                        "energy_source_type": "NATURAL_GAS",
-                                        "design_capacity": 17500,
-                                        "rated_capacity": 17584,
-                                        "efficiency_metric_values": [
-                                            0.78
-                                        ],
-                                        "efficiency_metric_types": [
-                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
-                                        ]
-                                    },
-                                    "cooling_system": {
-                                        "id": "Cooling Sys - Prm Zone 3 (North)",
-                                        "type": "NON_MECHANICAL"
-                                    },
-                                    "fan_system": {
-                                        "id": "Fan System - Prm Zone 3 (North)",
-                                        "fan_control": "CONSTANT",
-                                        "operation_during_occupied": "CONTINUOUS",
-                                        "operation_during_unoccupied": "KEEP_OFF",
-                                        "supply_fans": [
-                                            {
-                                                "id": "Supply Fan - Prm Zone 3 (North)",
-                                                "design_airflow": 943.9,
-                                                "is_airflow_sized_based_on_design_day": false,
-                                                "specification_method": "SIMPLE",
-                                                "design_electric_power": 600
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 4 (West)",
-                                    "heating_system": {
-                                        "id": "Heating Sys - Prm Zone 4 (West)",
-                                        "type": "FURNACE",
-                                        "energy_source_type": "NATURAL_GAS",
-                                        "design_capacity": 17500,
-                                        "rated_capacity": 17584,
-                                        "efficiency_metric_values": [
-                                            0.78
-                                        ],
-                                        "efficiency_metric_types": [
-                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
-                                        ]
-                                    },
-                                    "cooling_system": {
-                                        "id": "Cooling Sys - Prm Zone 4 (West)",
-                                        "type": "NON_MECHANICAL"
-                                    },
-                                    "fan_system": {
-                                        "id": "Fan System - Prm Zone 4 (West)",
-                                        "fan_control": "CONSTANT",
-                                        "operation_during_occupied": "CONTINUOUS",
-                                        "operation_during_unoccupied": "KEEP_OFF",
-                                        "supply_fans": [
-                                            {
-                                                "id": "Supply Fan - Prm Zone 4 (West)",
-                                                "design_airflow": 943.9,
-                                                "is_airflow_sized_based_on_design_day": false,
-                                                "specification_method": "SIMPLE",
-                                                "design_electric_power": 600
-                                            }
-                                        ]
-                                    }
-                                }
-                            ],
                             "zones": [
                                 {
                                     "id": "Core Zone 1",
@@ -203,34 +185,7 @@
                                             "tilt": 0.0,
                                             "azimuth": 180.0,
                                             "adjacent_to": "EXTERIOR",
-                                            "construction": {
-                                                "id": "Exterior Roof 01",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Metal Deck 01",
-                                                        "thickness": 0.0008,
-                                                        "thermal_conductivity": 45.28,
-                                                        "density": 7824,
-                                                        "specific_heat": 500
-                                                    },
-                                                    {
-                                                        "id": "Roof Continuous Insulation 01",
-                                                        "thickness": 0.0527,
-                                                        "thermal_conductivity": 0.02,
-                                                        "density": 32,
-                                                        "specific_heat": 922
-                                                    },
-                                                    {
-                                                        "id": "Built-up Roof 01",
-                                                        "thickness": 0.0095,
-                                                        "thermal_conductivity": 0.16,
-                                                        "density": 1120,
-                                                        "specific_heat": 1460
-                                                    }
-                                                ],
-                                                "u_factor": 0.365543914
-                                            },
+                                            "construction": "Exterior Roof 1",
                                             "optical_properties": {
                                                 "id": "Core Zone 1 Roof Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -248,20 +203,7 @@
                                             "tilt": 180.0,
                                             "azimuth": 0.0,
                                             "adjacent_to": "GROUND",
-                                            "construction": {
-                                                "id": "Exterior Slab 01",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Concrete 01",
-                                                        "thickness": 0.1016,
-                                                        "thermal_conductivity": 2.31,
-                                                        "density": 2322,
-                                                        "specific_heat": 832
-                                                    }
-                                                ],
-                                                "f_factor": 0.73
-                                            }
+                                            "construction": "Slab On-grade 1"
                                         },
                                         {
                                             "id": "Core Zone 1 East Wall",
@@ -271,17 +213,7 @@
                                             "azimuth": 90.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 2 (East)",
-                                            "construction": {
-                                                "id": "Interior Wall",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 01",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Core Zone 1 East Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -297,17 +229,7 @@
                                             "azimuth": 0.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 3 (North)",
-                                            "construction": {
-                                                "id": "Interior Wall 01",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 02",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Core Zone 1 North Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -323,17 +245,7 @@
                                             "azimuth": 180.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 1 (South)",
-                                            "construction": {
-                                                "id": "Interior Wall 02",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 03",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Core Zone 1 South Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -349,17 +261,7 @@
                                             "azimuth": 270.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 4 (West)",
-                                            "construction": {
-                                                "id": "Interior Wall 03",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 04",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Core Zone 1 West Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -374,17 +276,6 @@
                                         "flow_rate": 0.0,
                                         "multiplier_schedule": "Core Zone 1 INFILTRATION SCH"
                                     },
-                                    "terminals": [
-                                        {
-                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Core Zone 1",
-                                            "is_supply_ducted": true,
-                                            "type": "CONSTANT_AIR_VOLUME",
-                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Core Zone 1",
-                                            "primary_airflow": 943.9,
-                                            "supply_design_heating_setpoint_temperature": 32.2,
-                                            "minimum_outdoor_airflow": 94.4
-                                        }
-                                    ],
                                     "spaces": [
                                         {
                                             "id": "Core Zone 1 SPACE",
@@ -415,22 +306,45 @@
                                                 }
                                             ],
                                             "ventilation_space_type": "OFFICE_BUILDINGS_OFFICE_SPACE",
-                                            "service_water_heating_space_type": "OFFICE"
+                                            "service_water_heating_area_type": "OFFICE"
                                         }
                                     ],
+                                    "design_thermostat_cooling_setpoint": 23.9,
                                     "design_thermostat_heating_setpoint": 21.1,
                                     "air_distribution_effectiveness": 0.8,
-                                    "non_mechanical_cooling_fan_airflow": 118,
-                                    "non_mechanical_cooling_fan_power": 90,
-                                    "zonal_exhaust_fan": {
-                                        "id": "Zonal Exhaust Fan 1",
-                                        "specification_method": "SIMPLE",
-                                        "is_airflow_sized_based_on_design_day": false,
-                                        "design_airflow": 23.6,
-                                        "design_electric_power": 30,
-                                        "motor_heat_to_airflow_fraction": 1,
-                                        "motor_heat_to_zone_fraction": 0
-                                    }
+                                    "zonal_supply_fans": [
+                                        {
+                                            "id": "Non-mechanical Cooling Supply Fan",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 118,
+                                            "design_electric_power": 90,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 1
+                                        }
+                                    ],
+                                    "zonal_exhaust_fans": [
+                                        {
+                                            "id": "Zonal Exhaust Fan 1",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 23.6,
+                                            "design_electric_power": 30,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 0
+                                        }
+                                    ],
+                                    "terminals": [
+                                        {
+                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Core Zone 1",
+                                            "is_supply_ducted": true,
+                                            "type": "CONSTANT_AIR_VOLUME",
+                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Core Zone 1",
+                                            "primary_airflow": 943.9,
+                                            "supply_design_heating_setpoint_temperature": 32.2,
+                                            "minimum_outdoor_airflow": 94.4
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "Prm Zone 1 (South)",
@@ -446,34 +360,7 @@
                                             "tilt": 0.0,
                                             "azimuth": 180.0,
                                             "adjacent_to": "EXTERIOR",
-                                            "construction": {
-                                                "id": "Exterior Roof 02",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Metal Deck 02",
-                                                        "thickness": 0.0008,
-                                                        "thermal_conductivity": 45.28,
-                                                        "density": 7824,
-                                                        "specific_heat": 500
-                                                    },
-                                                    {
-                                                        "id": "Roof Continuous Insulation 02",
-                                                        "thickness": 0.0527,
-                                                        "thermal_conductivity": 0.02,
-                                                        "density": 32,
-                                                        "specific_heat": 922
-                                                    },
-                                                    {
-                                                        "id": "Built-up Roof 02",
-                                                        "thickness": 0.0095,
-                                                        "thermal_conductivity": 0.16,
-                                                        "density": 1120,
-                                                        "specific_heat": 1460
-                                                    }
-                                                ],
-                                                "u_factor": 0.365543914
-                                            },
+                                            "construction": "Exterior Roof 1",
                                             "optical_properties": {
                                                 "id": "Prm Zone 1 Roof Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -491,20 +378,7 @@
                                             "tilt": 180.0,
                                             "azimuth": 135.0,
                                             "adjacent_to": "GROUND",
-                                            "construction": {
-                                                "id": "Exterior Slab 02",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Concrete 02",
-                                                        "thickness": 0.1016,
-                                                        "thermal_conductivity": 2.31,
-                                                        "density": 2322,
-                                                        "specific_heat": 832
-                                                    }
-                                                ],
-                                                "f_factor": 0.73
-                                            }
+                                            "construction": "Slab On-grade 1"
                                         },
                                         {
                                             "id": "Prm Zone 1 East Wall",
@@ -514,17 +388,7 @@
                                             "azimuth": 45.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 2 (East)",
-                                            "construction": {
-                                                "id": "Interior Wall 04",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 05",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Prm Zone 1 East Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -580,41 +444,7 @@
                                                     "opaque_area": 1.951
                                                 }
                                             ],
-                                            "construction": {
-                                                "id": "Exterior Wall 01",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Stucco 01",
-                                                        "thickness": 0.0254,
-                                                        "thermal_conductivity": 0.72,
-                                                        "density": 1856,
-                                                        "specific_heat": 840
-                                                    },
-                                                    {
-                                                        "id": "Gypsum 5/8in 01",
-                                                        "thickness": 0.0159,
-                                                        "thermal_conductivity": 0.16,
-                                                        "density": 800,
-                                                        "specific_heat": 1090
-                                                    },
-                                                    {
-                                                        "id": "Wall Continuous Insulation 01",
-                                                        "thickness": 0.062,
-                                                        "thermal_conductivity": 0.037,
-                                                        "density": 9.6,
-                                                        "specific_heat": 838
-                                                    },
-                                                    {
-                                                        "id": "Gypsum 5/8in 02",
-                                                        "thickness": 0.0159,
-                                                        "thermal_conductivity": 0.16,
-                                                        "density": 800,
-                                                        "specific_heat": 1090
-                                                    }
-                                                ],
-                                                "u_factor": 0.478345
-                                            },
+                                            "construction": "Exterior Wall 1",
                                             "optical_properties": {
                                                 "id": "Prm Zone 1 South Wall Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -632,17 +462,6 @@
                                         "flow_rate": 114.1,
                                         "multiplier_schedule": "Prm Zone 1 INFILTRATION SCH"
                                     },
-                                    "terminals": [
-                                        {
-                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 1 (South)",
-                                            "is_supply_ducted": true,
-                                            "type": "CONSTANT_AIR_VOLUME",
-                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 1 (South)",
-                                            "primary_airflow": 943.9,
-                                            "supply_design_heating_setpoint_temperature": 32.2,
-                                            "minimum_outdoor_airflow": 94.4
-                                        }
-                                    ],
                                     "spaces": [
                                         {
                                             "id": "Prm Zone 1 SPACE",
@@ -673,22 +492,45 @@
                                                 }
                                             ],
                                             "ventilation_space_type": "OFFICE_BUILDINGS_OFFICE_SPACE",
-                                            "service_water_heating_space_type": "OFFICE"
+                                            "service_water_heating_area_type": "OFFICE"
                                         }
                                     ],
+                                    "design_thermostat_cooling_setpoint": 23.9,
                                     "design_thermostat_heating_setpoint": 21.1,
                                     "air_distribution_effectiveness": 0.8,
-                                    "non_mechanical_cooling_fan_airflow": 118,
-                                    "non_mechanical_cooling_fan_power": 90,
-                                    "zonal_exhaust_fan": {
-                                        "id": "Zonal Exhaust Fan 1",
-                                        "specification_method": "SIMPLE",
-                                        "is_airflow_sized_based_on_design_day": false,
-                                        "design_airflow": 23.6,
-                                        "design_electric_power": 30,
-                                        "motor_heat_to_airflow_fraction": 1,
-                                        "motor_heat_to_zone_fraction": 0
-                                    }
+                                    "zonal_supply_fans": [
+                                        {
+                                            "id": "Non-mechanical Cooling Supply Fan",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 118,
+                                            "design_electric_power": 90,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 1
+                                        }
+                                    ],
+                                    "zonal_exhaust_fans": [
+                                        {
+                                            "id": "Zonal Exhaust Fan 1",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 23.6,
+                                            "design_electric_power": 30,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 0
+                                        }
+                                    ],
+                                    "terminals": [
+                                        {
+                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 1 (South)",
+                                            "is_supply_ducted": true,
+                                            "type": "CONSTANT_AIR_VOLUME",
+                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 1 (South)",
+                                            "primary_airflow": 943.9,
+                                            "supply_design_heating_setpoint_temperature": 32.2,
+                                            "minimum_outdoor_airflow": 94.4
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "Prm Zone 2 (East)",
@@ -704,34 +546,7 @@
                                             "tilt": 0.0,
                                             "azimuth": 225.0,
                                             "adjacent_to": "EXTERIOR",
-                                            "construction": {
-                                                "id": "Exterior Roof 03",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Metal Deck 03",
-                                                        "thickness": 0.0008,
-                                                        "thermal_conductivity": 45.28,
-                                                        "density": 7824,
-                                                        "specific_heat": 500
-                                                    },
-                                                    {
-                                                        "id": "Roof Continuous Insulation 03",
-                                                        "thickness": 0.0527,
-                                                        "thermal_conductivity": 0.02,
-                                                        "density": 32,
-                                                        "specific_heat": 922
-                                                    },
-                                                    {
-                                                        "id": "Built-up Roof 03",
-                                                        "thickness": 0.0095,
-                                                        "thermal_conductivity": 0.16,
-                                                        "density": 1120,
-                                                        "specific_heat": 1460
-                                                    }
-                                                ],
-                                                "u_factor": 0.365543914
-                                            },
+                                            "construction": "Exterior Roof 1",
                                             "optical_properties": {
                                                 "id": "Prm Zone 2 Roof Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -749,20 +564,7 @@
                                             "tilt": 180.0,
                                             "azimuth": 45.0,
                                             "adjacent_to": "GROUND",
-                                            "construction": {
-                                                "id": "Exterior Slab 03",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Concrete 03",
-                                                        "thickness": 0.1016,
-                                                        "thermal_conductivity": 2.31,
-                                                        "density": 2322,
-                                                        "specific_heat": 832
-                                                    }
-                                                ],
-                                                "f_factor": 0.73
-                                            }
+                                            "construction": "Slab On-grade 1"
                                         },
                                         {
                                             "id": "Prm Zone 2 East Wall",
@@ -788,35 +590,7 @@
                                                     "opaque_area": 1.951
                                                 }
                                             ],
-                                            "construction": {
-                                                "id": "Exterior Wall 02",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Stucco 02",
-                                                        "thickness": 0.0254,
-                                                        "thermal_conductivity": 0.72,
-                                                        "density": 1856,
-                                                        "specific_heat": 840
-                                                    },
-                                                    {
-                                                        "id": "Gypsum Thermal Resistance 01",
-                                                        "r_value": 0.099
-                                                    },
-                                                    {
-                                                        "id": "Wall Continuous Insulation 02",
-                                                        "thickness": 0.179,
-                                                        "thermal_conductivity": 0.037,
-                                                        "density": 9.6,
-                                                        "specific_heat": 838
-                                                    },
-                                                    {
-                                                        "id": "Gypsum Thermal Resistance 02",
-                                                        "r_value": 0.099
-                                                    }
-                                                ],
-                                                "u_factor": 0.180874
-                                            },
+                                            "construction": "Exterior Wall 2",
                                             "optical_properties": {
                                                 "id": "Prm Zone 2 East Wall Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -835,17 +609,7 @@
                                             "azimuth": 315.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 3 (North)",
-                                            "construction": {
-                                                "id": "Interior Wall 05",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 06",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Prm Zone 2 North Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -859,17 +623,6 @@
                                         "modeling_method": "CONSTANT",
                                         "flow_rate": 77.3
                                     },
-                                    "terminals": [
-                                        {
-                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 2 (East)",
-                                            "is_supply_ducted": true,
-                                            "type": "CONSTANT_AIR_VOLUME",
-                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 2 (East)",
-                                            "primary_airflow": 943.9,
-                                            "supply_design_heating_setpoint_temperature": 32.2,
-                                            "minimum_outdoor_airflow": 94.4
-                                        }
-                                    ],
                                     "spaces": [
                                         {
                                             "id": "Prm Zone 2 SPACE",
@@ -900,22 +653,45 @@
                                                 }
                                             ],
                                             "ventilation_space_type": "OFFICE_BUILDINGS_OFFICE_SPACE",
-                                            "service_water_heating_space_type": "OFFICE"
+                                            "service_water_heating_area_type": "OFFICE"
                                         }
                                     ],
+                                    "design_thermostat_cooling_setpoint": 23.9,
                                     "design_thermostat_heating_setpoint": 21.1,
                                     "air_distribution_effectiveness": 0.8,
-                                    "non_mechanical_cooling_fan_airflow": 118,
-                                    "non_mechanical_cooling_fan_power": 90,
-                                    "zonal_exhaust_fan": {
-                                        "id": "Zonal Exhaust Fan 1",
-                                        "specification_method": "SIMPLE",
-                                        "is_airflow_sized_based_on_design_day": false,
-                                        "design_airflow": 23.6,
-                                        "design_electric_power": 30,
-                                        "motor_heat_to_airflow_fraction": 1,
-                                        "motor_heat_to_zone_fraction": 0
-                                    }
+                                    "zonal_supply_fans": [
+                                        {
+                                            "id": "Non-mechanical Cooling Supply Fan",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 118,
+                                            "design_electric_power": 90,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 1
+                                        }
+                                    ],
+                                    "zonal_exhaust_fans": [
+                                        {
+                                            "id": "Zonal Exhaust Fan 1",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 23.6,
+                                            "design_electric_power": 30,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 0
+                                        }
+                                    ],
+                                    "terminals": [
+                                        {
+                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 2 (East)",
+                                            "is_supply_ducted": true,
+                                            "type": "CONSTANT_AIR_VOLUME",
+                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 2 (East)",
+                                            "primary_airflow": 943.9,
+                                            "supply_design_heating_setpoint_temperature": 32.2,
+                                            "minimum_outdoor_airflow": 94.4
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "Prm Zone 3 (North)",
@@ -931,31 +707,7 @@
                                             "tilt": 0.0,
                                             "azimuth": 180.0,
                                             "adjacent_to": "EXTERIOR",
-                                            "construction": {
-                                                "id": "Exterior Roof 04",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Metal Decking 04",
-                                                        "thickness": 0.0008,
-                                                        "thermal_conductivity": 45.28,
-                                                        "density": 7824,
-                                                        "specific_heat": 500
-                                                    },
-                                                    {
-                                                        "id": "Roof Continuous Insulation 04",
-                                                        "thickness": 0.106,
-                                                        "thermal_conductivity": 0.02,
-                                                        "density": 32,
-                                                        "specific_heat": 922
-                                                    },
-                                                    {
-                                                        "id": "Built-up Roof 04",
-                                                        "r_value": 0.059
-                                                    }
-                                                ],
-                                                "u_factor": 0.189588594
-                                            },
+                                            "construction": "Exterior Roof 2",
                                             "optical_properties": {
                                                 "id": "Prm Zone 3 Roof Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -973,27 +725,7 @@
                                             "tilt": 180.0,
                                             "azimuth": 0.0,
                                             "adjacent_to": "GROUND",
-                                            "construction": {
-                                                "id": "Exterior Slab 04",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Slab Insulation 01",
-                                                        "thickness": 0.1143,
-                                                        "thermal_conductivity": 0.04,
-                                                        "density": 91.31,
-                                                        "specific_heat": 838
-                                                    },
-                                                    {
-                                                        "id": "Concrete 04",
-                                                        "thickness": 0.1016,
-                                                        "thermal_conductivity": 2.31,
-                                                        "density": 2322,
-                                                        "specific_heat": 832
-                                                    }
-                                                ],
-                                                "f_factor": 0.52
-                                            }
+                                            "construction": "Slab On-grade 2"
                                         },
                                         {
                                             "id": "Prm Zone 3 North Wall",
@@ -1043,17 +775,7 @@
                                                     "opaque_area": 1.951
                                                 }
                                             ],
-                                            "construction": {
-                                                "id": "Exterior Wall 03",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Exterior Wall Resistance 01",
-                                                        "r_value": 1.946018
-                                                    }
-                                                ],
-                                                "u_factor": 0.477165
-                                            },
+                                            "construction": "Exterior Wall 3",
                                             "optical_properties": {
                                                 "id": "Prm Zone 3 North Wall Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -1072,17 +794,7 @@
                                             "azimuth": 225.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 4 (West)",
-                                            "construction": {
-                                                "id": "Interior Wall 06",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 06",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Prm Zone 3 West Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -1097,17 +809,6 @@
                                         "flow_rate": 80.5,
                                         "multiplier_schedule": "Prm Zone 3 INFILTRATION SCH"
                                     },
-                                    "terminals": [
-                                        {
-                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 3 (North)",
-                                            "is_supply_ducted": true,
-                                            "type": "CONSTANT_AIR_VOLUME",
-                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 3 (North)",
-                                            "primary_airflow": 943.9,
-                                            "supply_design_heating_setpoint_temperature": 32.2,
-                                            "minimum_outdoor_airflow": 94.4
-                                        }
-                                    ],
                                     "spaces": [
                                         {
                                             "id": "Prm Zone 3 SPACE",
@@ -1138,22 +839,45 @@
                                                 }
                                             ],
                                             "ventilation_space_type": "OFFICE_BUILDINGS_OFFICE_SPACE",
-                                            "service_water_heating_space_type": "OFFICE"
+                                            "service_water_heating_area_type": "OFFICE"
                                         }
                                     ],
+                                    "design_thermostat_cooling_setpoint": 23.9,
                                     "design_thermostat_heating_setpoint": 21.1,
                                     "air_distribution_effectiveness": 0.8,
-                                    "non_mechanical_cooling_fan_airflow": 118,
-                                    "non_mechanical_cooling_fan_power": 90,
-                                    "zonal_exhaust_fan": {
-                                        "id": "Zonal Exhaust Fan 1",
-                                        "specification_method": "SIMPLE",
-                                        "is_airflow_sized_based_on_design_day": false,
-                                        "design_airflow": 23.6,
-                                        "design_electric_power": 30,
-                                        "motor_heat_to_airflow_fraction": 1,
-                                        "motor_heat_to_zone_fraction": 0
-                                    }
+                                    "zonal_supply_fans": [
+                                        {
+                                            "id": "Non-mechanical Cooling Supply Fan",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 118,
+                                            "design_electric_power": 90,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 1
+                                        }
+                                    ],
+                                    "zonal_exhaust_fans": [
+                                        {
+                                            "id": "Zonal Exhaust Fan 1",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 23.6,
+                                            "design_electric_power": 30,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 0
+                                        }
+                                    ],
+                                    "terminals": [
+                                        {
+                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 3 (North)",
+                                            "is_supply_ducted": true,
+                                            "type": "CONSTANT_AIR_VOLUME",
+                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 3 (North)",
+                                            "primary_airflow": 943.9,
+                                            "supply_design_heating_setpoint_temperature": 32.2,
+                                            "minimum_outdoor_airflow": 94.4
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "Prm Zone 4 (West)",
@@ -1169,17 +893,7 @@
                                             "tilt": 0.0,
                                             "azimuth": 135.0,
                                             "adjacent_to": "EXTERIOR",
-                                            "construction": {
-                                                "id": "Exterior Roof 05",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Roof Resistance 01",
-                                                        "r_value": 2.657503
-                                                    }
-                                                ],
-                                                "u_factor": 0.35779857
-                                            },
+                                            "construction": "Exterior Roof 3",
                                             "optical_properties": {
                                                 "id": "Prm Zone 4 Roof Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -1197,27 +911,7 @@
                                             "tilt": 180.0,
                                             "azimuth": 315.0,
                                             "adjacent_to": "GROUND",
-                                            "construction": {
-                                                "id": "Exterior Slab 05",
-                                                "surface_construction_input_option": "LAYERS",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Slab Insulation 02",
-                                                        "thickness": 0.1143,
-                                                        "thermal_conductivity": 0.037,
-                                                        "density": 91.31,
-                                                        "specific_heat": 838
-                                                    },
-                                                    {
-                                                        "id": "Concrete 05",
-                                                        "thickness": 0.1016,
-                                                        "thermal_conductivity": 2.31,
-                                                        "density": 2322,
-                                                        "specific_heat": 832
-                                                    }
-                                                ],
-                                                "f_factor": 0.52
-                                            }
+                                            "construction": "Slab On-grade 2"
                                         },
                                         {
                                             "id": "Prm Zone 4 South Wall",
@@ -1227,17 +921,7 @@
                                             "azimuth": 135.0,
                                             "adjacent_to": "INTERIOR",
                                             "adjacent_zone": "Prm Zone 1 (South)",
-                                            "construction": {
-                                                "id": "Interior Wall 07",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Interior Wall Resistance 07",
-                                                        "r_value": 0.350459266
-                                                    }
-                                                ],
-                                                "u_factor": 1.695003982
-                                            },
+                                            "construction": "Interior Wall",
                                             "optical_properties": {
                                                 "id": "Prm Zone 4 South Wall Optical Properties",
                                                 "absorptance_thermal_interior": 0.9,
@@ -1269,17 +953,7 @@
                                                     "opaque_area": 1.951
                                                 }
                                             ],
-                                            "construction": {
-                                                "id": "Exterior Wall 04",
-                                                "surface_construction_input_option": "SIMPLIFIED",
-                                                "primary_layers": [
-                                                    {
-                                                        "id": "Exterior Wall Resistance 02",
-                                                        "r_value": 1.946018
-                                                    }
-                                                ],
-                                                "u_factor": 0.477165
-                                            },
+                                            "construction": "Exterior Wall 3",
                                             "optical_properties": {
                                                 "id": "Prm Zone 4 West Wall Optical Properties",
                                                 "absorptance_thermal_exterior": 0.9,
@@ -1297,17 +971,6 @@
                                         "flow_rate": 53.7,
                                         "multiplier_schedule": "Prm Zone 4 INFILTRATION SCH"
                                     },
-                                    "terminals": [
-                                        {
-                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 4 (West)",
-                                            "is_supply_ducted": true,
-                                            "type": "CONSTANT_AIR_VOLUME",
-                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 4 (West)",
-                                            "primary_airflow": 943.9,
-                                            "supply_design_heating_setpoint_temperature": 32.2,
-                                            "minimum_outdoor_airflow": 94.4
-                                        }
-                                    ],
                                     "spaces": [
                                         {
                                             "id": "Prm Zone 4 SPACE",
@@ -1338,27 +1001,226 @@
                                                 }
                                             ],
                                             "ventilation_space_type": "OFFICE_BUILDINGS_OFFICE_SPACE",
-                                            "service_water_heating_space_type": "OFFICE"
+                                            "service_water_heating_area_type": "OFFICE"
                                         }
                                     ],
+                                    "design_thermostat_cooling_setpoint": 23.9,
                                     "design_thermostat_heating_setpoint": 21.1,
                                     "air_distribution_effectiveness": 0.8,
-                                    "non_mechanical_cooling_fan_airflow": 118,
-                                    "non_mechanical_cooling_fan_power": 90,
-                                    "zonal_exhaust_fan": {
-                                        "id": "Zonal Exhaust Fan 1",
-                                        "specification_method": "SIMPLE",
-                                        "is_airflow_sized_based_on_design_day": false,
-                                        "design_airflow": 23.6,
-                                        "design_electric_power": 30,
-                                        "motor_heat_to_airflow_fraction": 1,
-                                        "motor_heat_to_zone_fraction": 0
+                                    "zonal_supply_fans": [
+                                        {
+                                            "id": "Non-mechanical Cooling Supply Fan",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 118,
+                                            "design_electric_power": 90,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 1
+                                        }
+                                    ],
+                                    "zonal_exhaust_fans": [
+                                        {
+                                            "id": "Zonal Exhaust Fan 1",
+                                            "specification_method": "SIMPLE",
+                                            "is_airflow_calculated": false,
+                                            "design_airflow": 23.6,
+                                            "design_electric_power": 30,
+                                            "motor_heat_to_airflow_fraction": 1,
+                                            "motor_heat_to_zone_fraction": 0
+                                        }
+                                    ],
+                                    "terminals": [
+                                        {
+                                            "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas - Terminal for Prm Zone 4 (West)",
+                                            "is_supply_ducted": true,
+                                            "type": "CONSTANT_AIR_VOLUME",
+                                            "served_by_heating_ventilating_air_conditioning_system": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 4 (West)",
+                                            "primary_airflow": 943.9,
+                                            "supply_design_heating_setpoint_temperature": 32.2,
+                                            "minimum_outdoor_airflow": 94.4
+                                        }
+                                    ]
+                                }
+                            ],
+                            "heating_ventilating_air_conditioning_systems": [
+                                {
+                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Core Zone 1",
+                                    "heating_system": {
+                                        "id": "Heating Sys - Core Zone 1",
+                                        "type": "FURNACE",
+                                        "energy_source_type": "NATURAL_GAS",
+                                        "design_capacity": 17500,
+                                        "rated_capacity": 17584,
+                                        "efficiency_metric_values": [
+                                            0.78
+                                        ],
+                                        "efficiency_metric_types": [
+                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
+                                        ]
+                                    },
+                                    "cooling_system": {
+                                        "id": "Cooling Sys - Core Zone 1",
+                                        "type": "NON_MECHANICAL"
+                                    },
+                                    "fan_system": {
+                                        "id": "Fan System - Core Zone 1",
+                                        "fan_control": "CONSTANT",
+                                        "operation_during_occupied": "CONTINUOUS",
+                                        "operation_during_unoccupied": "KEEP_OFF",
+                                        "supply_fans": [
+                                            {
+                                                "id": "Supply Fan - Core Zone 1",
+                                                "design_airflow": 943.9,
+                                                "is_airflow_calculated": false,
+                                                "specification_method": "SIMPLE",
+                                                "design_electric_power": 600
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 1 (South)",
+                                    "heating_system": {
+                                        "id": "Heating Sys - Prm Zone 1 (South)",
+                                        "type": "FURNACE",
+                                        "energy_source_type": "NATURAL_GAS",
+                                        "design_capacity": 17500,
+                                        "rated_capacity": 17584,
+                                        "efficiency_metric_values": [
+                                            0.78
+                                        ],
+                                        "efficiency_metric_types": [
+                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
+                                        ]
+                                    },
+                                    "cooling_system": {
+                                        "id": "Cooling Sys - Prm Zone 1 (South)",
+                                        "type": "NON_MECHANICAL"
+                                    },
+                                    "fan_system": {
+                                        "id": "Fan System - Prm Zone 1 (South)",
+                                        "fan_control": "CONSTANT",
+                                        "operation_during_occupied": "CONTINUOUS",
+                                        "operation_during_unoccupied": "KEEP_OFF",
+                                        "supply_fans": [
+                                            {
+                                                "id": "Supply Fan - Prm Zone 1 (South)",
+                                                "design_airflow": 943.9,
+                                                "is_airflow_calculated": false,
+                                                "specification_method": "SIMPLE",
+                                                "design_electric_power": 600
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 2 (East)",
+                                    "heating_system": {
+                                        "id": "Heating Sys - Prm Zone 2 (East)",
+                                        "type": "FURNACE",
+                                        "energy_source_type": "NATURAL_GAS",
+                                        "design_capacity": 17500,
+                                        "rated_capacity": 17584,
+                                        "efficiency_metric_values": [
+                                            0.78
+                                        ],
+                                        "efficiency_metric_types": [
+                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
+                                        ]
+                                    },
+                                    "cooling_system": {
+                                        "id": "Cooling Sys - Prm Zone 2 (East)",
+                                        "type": "NON_MECHANICAL"
+                                    },
+                                    "fan_system": {
+                                        "id": "Fan System - Prm Zone 2 (East)",
+                                        "fan_control": "CONSTANT",
+                                        "operation_during_occupied": "CONTINUOUS",
+                                        "operation_during_unoccupied": "KEEP_OFF",
+                                        "supply_fans": [
+                                            {
+                                                "id": "Supply Fan - Prm Zone 2 (East)",
+                                                "design_airflow": 943.9,
+                                                "is_airflow_calculated": false,
+                                                "specification_method": "SIMPLE",
+                                                "design_electric_power": 600
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 3 (North)",
+                                    "heating_system": {
+                                        "id": "Heating Sys - Prm Zone 3 (North)",
+                                        "type": "FURNACE",
+                                        "energy_source_type": "NATURAL_GAS",
+                                        "design_capacity": 17500,
+                                        "rated_capacity": 17584,
+                                        "efficiency_metric_values": [
+                                            0.78
+                                        ],
+                                        "efficiency_metric_types": [
+                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
+                                        ]
+                                    },
+                                    "cooling_system": {
+                                        "id": "Cooling Sys - Prm Zone 3 (North)",
+                                        "type": "NON_MECHANICAL"
+                                    },
+                                    "fan_system": {
+                                        "id": "Fan System - Prm Zone 3 (North)",
+                                        "fan_control": "CONSTANT",
+                                        "operation_during_occupied": "CONTINUOUS",
+                                        "operation_during_unoccupied": "KEEP_OFF",
+                                        "supply_fans": [
+                                            {
+                                                "id": "Supply Fan - Prm Zone 3 (North)",
+                                                "design_airflow": 943.9,
+                                                "is_airflow_calculated": false,
+                                                "specification_method": "SIMPLE",
+                                                "design_electric_power": 600
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": "RPD_Test_System_9_Warm_Air_Furnace_Gas Prm Zone 4 (West)",
+                                    "heating_system": {
+                                        "id": "Heating Sys - Prm Zone 4 (West)",
+                                        "type": "FURNACE",
+                                        "energy_source_type": "NATURAL_GAS",
+                                        "design_capacity": 17500,
+                                        "rated_capacity": 17584,
+                                        "efficiency_metric_values": [
+                                            0.78
+                                        ],
+                                        "efficiency_metric_types": [
+                                            "ANNUAL_FUEL_UTILIZATION_EFFICIENCY"
+                                        ]
+                                    },
+                                    "cooling_system": {
+                                        "id": "Cooling Sys - Prm Zone 4 (West)",
+                                        "type": "NON_MECHANICAL"
+                                    },
+                                    "fan_system": {
+                                        "id": "Fan System - Prm Zone 4 (West)",
+                                        "fan_control": "CONSTANT",
+                                        "operation_during_occupied": "CONTINUOUS",
+                                        "operation_during_unoccupied": "KEEP_OFF",
+                                        "supply_fans": [
+                                            {
+                                                "id": "Supply Fan - Prm Zone 4 (West)",
+                                                "design_airflow": 943.9,
+                                                "is_airflow_calculated": false,
+                                                "specification_method": "SIMPLE",
+                                                "design_electric_power": 600
+                                            }
+                                        ]
                                     }
                                 }
                             ]
                         }
-                    ],
-                    "exterior_lighting": []
+                    ]
                 }
             ],
             "schedules": [
@@ -45188,19 +45050,18 @@
                     ]
                 }
             ],
-            "type": "BASELINE_0"
+            "type": "BASELINE_0",
+            "weather": {
+                "data_source_type": "HISTORIC_AGGREGATION",
+                "climate_zone": "CZ5B",
+                "ground_temperature_schedule": "Ground Temp Schedule",
+                "cooling_dry_bulb_design_day_type": "COOLING_0_4",
+                "evaporation_wet_bulb_design_day_type": "COOLING_0_4",
+                "heating_dry_bulb_design_day_type": "HEATING_99_6"
+            },
+            "calendar": {
+                "day_of_week_for_january_1": "FRIDAY"
+            }
         }
-    ],
-    "weather": {
-        "data_source_type": "OTHER",
-        "climate_zone": "CZ5B",
-        "ground_temperature_schedule": "Ground Temp Schedule",
-        "cooling_design_day_type": "COOLING_0_4",
-        "heating_design_day_type": "HEATING_99_6"
-    },
-    "calendar": {
-        "day_of_week_for_january_1": "FRIDAY",
-        "is_leap_year": false,
-        "has_daylight_saving_time": false
-    }
+    ]
 }

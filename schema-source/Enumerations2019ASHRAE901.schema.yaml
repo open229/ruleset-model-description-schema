@@ -639,7 +639,7 @@ VentilationSpaceOptions2019ASHRAE901:
     TRANSIENT_RESIDENTIAL_DWELLING_UNIT:
       Description: "Transient Residential - Dwelling unit"
 
-ServiceWaterHeatingSpaceOptions2019ASHRAE901:
+ServiceWaterHeatingAreaOptions2019ASHRAE901:
   Object Type: "Enumeration"
   Enumerators:
 # Table G3.1.1-2 Baseline Service Water-Heating System  
@@ -827,18 +827,6 @@ PrescribedScheduleOptions2019ASHRAE901:
   Enumerators:
     NOT_APPLICABLE:
       Description: "No prescribed schedules for Appendix G of ASHRAE Standard 90.1-2019. This field may be relavent for other rulesets."
-
-AdditionalSurfaceAdjacencyOptions2019ASHRAE901:
-  Object Type: "Enumeration"
-  Enumerators:
-    UNENCLOSED:
-      Description: "The space on the other side of the surface is assumed to be unenclosed. The space on the other side of the surface is not explicity modeled."
-    UNCONDITIONED:
-      Description: "The space on the other side of the surface is assumed to be unconditioned. The space on the other side of the surface is not explicity modeled."
-    UNHEATED:
-      Description: "Surface adjacent to a environment that is not heated but enclosed."
-    SEMIHEATED:
-      Description: "Surface adjacent to a environment that is semi-heated."
 
 ConstructionClassificationOptions2019ASHRAE901:
   Object Type: "Enumeration"

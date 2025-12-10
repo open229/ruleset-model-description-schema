@@ -148,5 +148,7 @@
                 "the data element is not supported by the ruleset project description generation software"
             ]
         }
-    }
+    },
+    "version": "0.1.7",
+    "$ref": "ASHRAE229_extra.schema.json#/definitions/RulesetProjectDescription"
 }
