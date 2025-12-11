@@ -170,7 +170,7 @@
 | `LOBBY_PERFORMING_ARTS_THEATER`                           | Lobby - Performing arts theater                                            |                                                                             |
 | `LOBBY_ALL_OTHERS`                                        | Lobby - All others                                                         |                                                                             |
 | `LOCKER_ROOM`                                             | Locker Room                                                                |                                                                             |
-| `LOUNGE_BREAKROOM_MOTHERS_WELLNESS`                       | Lounge/Breakroom - Health care facility                                    |                                                                             |
+| `LOUNGE_BREAKROOM_MOTHERS_WELLNESS`                       | Lounge/Breakroom - Mothers wellness room                                   |                                                                             |
 | `LOUNGE_BREAKROOM_ALL_OTHERS`                             | Lounge/Breakroom - All others                                              |                                                                             |
 | `OFFICE_ENCLOSED_SMALL`                                   | Office - Enclosed and <= 250 ft2                                           |                                                                             |
 | `OFFICE_ENCLOSED_LARGE`                                   | Office - Enclosed and > 250 ft2                                            |                                                                             |
@@ -215,7 +215,7 @@
 | `HEALTHCARE_FACILITY_LOUNGE`                              | Healthcare Facility - Lounge                                               |                                                                             |
 | `HEALTHCARE_FACILITY_MEDICAL_SUPPLY_ROOM`                 | Healthcare Facility - Medical supply room                                  |                                                                             |
 | `HEALTHCARE_FACILITY_NURSERY`                             | Healthcare Facility - Nursery                                              |                                                                             |
-| `HEALTHCARE_FACILITY_NURSES_STATION`                      | Healthcare Facility - Nurseâ€™s station                                    |                                                                             |
+| `HEALTHCARE_FACILITY_NURSES_STATION`                      | Healthcare Facility - Nurses station                                       |                                                                             |
 | `HEALTHCARE_FACILITY_OPERATING_ROOM`                      | Healthcare Facility - Operating room                                       |                                                                             |
 | `HEALTHCARE_FACILITY_PATIENT_ROOM`                        | Healthcare Facility - Patient room                                         |                                                                             |
 | `HEALTHCARE_FACILITY_PHYSICAL_THERAPY_ROOM`               | Healthcare Facility - Physical therapy room                                |                                                                             |

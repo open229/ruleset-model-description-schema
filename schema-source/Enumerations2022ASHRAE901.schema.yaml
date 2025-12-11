@@ -200,7 +200,7 @@ LightingSpaceOptions2022ASHRAE901TG37:
     LOCKER_ROOM:
       Description: "Locker Room"
     LOUNGE_BREAKROOM_MOTHERS_WELLNESS:
-      Description: "Lounge/Breakroom - Health care facility"
+      Description: "Lounge/Breakroom - Mothers wellness room"
     LOUNGE_BREAKROOM_ALL_OTHERS:
       Description: "Lounge/Breakroom - All others"
     OFFICE_ENCLOSED_SMALL:
@@ -290,7 +290,7 @@ LightingSpaceOptions2022ASHRAE901TG37:
     HEALTHCARE_FACILITY_NURSERY:
       Description: "Healthcare Facility - Nursery"
     HEALTHCARE_FACILITY_NURSES_STATION:
-      Description: "Healthcare Facility - Nurse’s station"
+      Description: "Healthcare Facility - Nurses station"
     HEALTHCARE_FACILITY_OPERATING_ROOM:
       Description: "Healthcare Facility - Operating room"
     HEALTHCARE_FACILITY_PATIENT_ROOM:
