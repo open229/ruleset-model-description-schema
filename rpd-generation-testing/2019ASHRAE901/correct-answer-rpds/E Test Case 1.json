@@ -388,7 +388,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 21.456,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -397,7 +397,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 21.456,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -406,7 +406,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 21.456,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -537,7 +537,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 41.838,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -546,6 +546,15 @@
                                                     "classification": "DOOR",
                                                     "glazed_area": 0,
                                                     "opaque_area": 1.951
+                                                },
+                                                {
+                                                    "id": "Prm Zone 2 East Wall Window 2",
+                                                    "classification": "WINDOW",
+                                                    "glazed_area": 1.654,
+                                                    "opaque_area": 0.0,
+                                                    "u_factor": 2.1777,
+                                                    "solar_heat_gain_coefficient": 0.387,
+                                                    "visible_transmittance": 0.417
                                                 }
                                             ],
                                             "construction": "Exterior Wall 2",
@@ -677,7 +686,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 21.456,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -686,7 +695,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 21.456,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -695,7 +704,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 21.456,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -858,7 +867,7 @@
                                                     "classification": "WINDOW",
                                                     "glazed_area": 41.838,
                                                     "opaque_area": 0.0,
-                                                    "u_factor": 2.2033,
+                                                    "u_factor": 2.1777,
                                                     "solar_heat_gain_coefficient": 0.387,
                                                     "visible_transmittance": 0.417
                                                 },
@@ -867,6 +876,15 @@
                                                     "classification": "DOOR",
                                                     "glazed_area": 0,
                                                     "opaque_area": 1.951
+                                                },
+                                                {
+                                                    "id": "Prm Zone 4 West Wall Window 2",
+                                                    "classification": "WINDOW",
+                                                    "glazed_area": 1.654,
+                                                    "opaque_area": 0.0,
+                                                    "u_factor": 2.1777,
+                                                    "solar_heat_gain_coefficient": 0.387,
+                                                    "visible_transmittance": 0.417
                                                 }
                                             ],
                                             "construction": "Exterior Wall 3",
